@@ -17,7 +17,6 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/triplelog', {useNewUrlParser: true});
 const User = require('./models/user');
 const UserData = require('./models/userdata');
-const Puzzle = require('./models/puzzle');
 
 var express = require('express');
 
