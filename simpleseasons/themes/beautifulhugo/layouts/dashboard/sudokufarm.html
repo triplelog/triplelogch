@@ -874,7 +874,7 @@ td.peopleTD {
 		{{ range $ii := (seq $.Params.maxTurns) }}
 			{{ range $i := (seq 9) }}
 			  <input type="radio" name="radio{{ $ii }}n{{ $i }}" style="display:none;" class="radioBU{{ $ii }} radioBU radio{{ $i }}UU" id="radio{{ $ii }}U{{ $i }}" checked="checked">
-			  <label class="cmarkU cmarkU{{ $i }}" for="radio{{ $ii }}U{{ $i }}"><img class="cmarkimg" src="http://localhost:1313/img/sudokufarm/{{ $i }}.png"></label>
+			  <label class="cmarkU cmarkU{{ $i }}" for="radio{{ $ii }}U{{ $i }}"><img class="cmarkimg" src="../img/sudokufarm/{{ $i }}.png"></label>
 			{{ end }}
 		{{ end }}
 		<span id="counterSpan"></span>
@@ -882,7 +882,7 @@ td.peopleTD {
   		{{ range $i := (seq 9) }}
   		
 			  {{ range $rowI := (seq 9) }}
-				{{ range $colI := (seq 9) }}<input type="checkbox" style="display:none;" class="{{ if not (eq (index (index $.Params.puzzle (sub $rowI 1)) (sub $colI 1)) $i) }}unchecked{{ end }} points{{ $i}} row{{ $rowI }}{{ $i }} col{{ $colI }}{{ $i }} box{{add (add (div (sub $colI 1) 3) (mul 3 (div (sub $rowI 1) 3))) 1 }}{{ $i }}" id="cell{{ $i }}{{ $rowI }}{{ $colI }}" {{ if (eq (index (index $.Params.puzzle (sub $rowI 1)) (sub $colI 1)) $i) }}checked{{ end }}><label for="cell{{ $i }}{{ $rowI }}{{ $colI }}" class="col{{ $colI }} row{{ $rowI }} check{{ $i }}"><img class="cmarkimg" src="http://localhost:1313/img/sudokufarm/{{ $i }}.png"></label><label class="col{{ $colI }} row{{ $rowI }} gcheck{{ $i }}"><img class="cmarkimg" src="http://localhost:1313/img/sudokufarm/{{ $i }}.png"></label><label class="row{{ $rowI }} rcheck"></label><label class="col{{ $colI }} ccheck"></label><label class="block{{div (add 2 $colI) 3}}{{div (add 2 $rowI) 3}} bcheck"></label>{{ end }}
+				{{ range $colI := (seq 9) }}<input type="checkbox" style="display:none;" class="{{ if not (eq (index (index $.Params.puzzle (sub $rowI 1)) (sub $colI 1)) $i) }}unchecked{{ end }} points{{ $i}} row{{ $rowI }}{{ $i }} col{{ $colI }}{{ $i }} box{{add (add (div (sub $colI 1) 3) (mul 3 (div (sub $rowI 1) 3))) 1 }}{{ $i }}" id="cell{{ $i }}{{ $rowI }}{{ $colI }}" {{ if (eq (index (index $.Params.puzzle (sub $rowI 1)) (sub $colI 1)) $i) }}checked{{ end }}><label for="cell{{ $i }}{{ $rowI }}{{ $colI }}" class="col{{ $colI }} row{{ $rowI }} check{{ $i }}"><img class="cmarkimg" src="../img/sudokufarm/{{ $i }}.png"></label><label class="col{{ $colI }} row{{ $rowI }} gcheck{{ $i }}"><img class="cmarkimg" src="../img/sudokufarm/{{ $i }}.png"></label><label class="row{{ $rowI }} rcheck"></label><label class="col{{ $colI }} ccheck"></label><label class="block{{div (add 2 $colI) 3}}{{div (add 2 $rowI) 3}} bcheck"></label>{{ end }}
 			  {{ end }}
 
 			  <span class="blackout{{ $i }}"></span>
@@ -895,7 +895,7 @@ td.peopleTD {
 			<div id="winSudoku{{ $numI }}">
 			{{ end }}
 			  {{ range $rowI := (seq 9) }}
-				{{ range $colI := (seq 9) }}<label class="col{{ $colI }} row{{ $rowI }} winLabel winLabel{{ index (index $.Params.winpuzzle (sub $rowI 1)) (sub $colI 1) }}"><img class="cmarkimg" src="http://localhost:1313/img/sudokufarm/{{ index (index $.Params.winpuzzle (sub $rowI 1)) (sub $colI 1) }}.png"></label>{{ end }}
+				{{ range $colI := (seq 9) }}<label class="col{{ $colI }} row{{ $rowI }} winLabel winLabel{{ index (index $.Params.winpuzzle (sub $rowI 1)) (sub $colI 1) }}"><img class="cmarkimg" src="../img/sudokufarm/{{ index (index $.Params.winpuzzle (sub $rowI 1)) (sub $colI 1) }}.png"></label>{{ end }}
 			  {{ end }}
 			<span id="winmessage">You Win! Play Another Level?</span>
 			{{ range $numI := (seq 9) }}
@@ -907,7 +907,7 @@ td.peopleTD {
 		{{ range $ii := (seq $.Params.maxTurns) }}
 			{{ range $i := (seq 9) }}
 			  <input type="radio" name="radio{{ $ii }}n{{ $i }}" style="display:none;" class="radioPts{{ $i }} radioBD{{ $ii }} radioBD" id="radio{{ $ii }}D{{ $i }}">
-			  <label class="cmarkD cmarkD{{ $i }}" for="radio{{ $ii }}D{{ $i }}"><img class="cmarkimg" src="http://localhost:1313/img/sudokufarm/{{ $i }}.png"></label>
+			  <label class="cmarkD cmarkD{{ $i }}" for="radio{{ $ii }}D{{ $i }}"><img class="cmarkimg" src="../img/sudokufarm/{{ $i }}.png"></label>
 			  <span style="width:0px; height: 0px;"></span>
 			{{ end }}
 		{{ end }}
@@ -957,27 +957,27 @@ td.peopleTD {
 		</table>
 		<span id="foodSpan" class="foodSpan">
 			{{ $tempRange := slice 1 2 3 6 7 8 9 }}
-			{{range $iii := $tempRange }}{{range $ii := (seq 9) }}{{ if gt $ii (index $.Params.existingPlots (sub $iii 1))}}<span class="item{{ $iii }}{{ $ii }} itemSpan"></span>{{ end }}{{ end }}{{ end }}<span class="endImgSpan"><img height="100%" src="http://localhost:1313/img/sudokufarm/nofood.png"></span>
+			{{range $iii := $tempRange }}{{range $ii := (seq 9) }}{{ if gt $ii (index $.Params.existingPlots (sub $iii 1))}}<span class="item{{ $iii }}{{ $ii }} itemSpan"></span>{{ end }}{{ end }}{{ end }}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/nofood.png"></span>
 		</span>
 		<span id="waterSpan" class="waterSpan">
 			{{ $tempRange := slice 1 2 3 4 7 8 9 }}
-			{{range $iii := $tempRange }}{{range $ii := (seq 9) }}{{ if gt $ii (index $.Params.existingPlots (sub $iii 1))}}<span class="item{{ $iii }}{{ $ii }} item{{ $iii }} itemSpan"></span>{{ end }}{{ end }}{{ end }}<span class="endImgSpan"><img height="100%" src="http://localhost:1313/img/sudokufarm/nowater.png"></span>
+			{{range $iii := $tempRange }}{{range $ii := (seq 9) }}{{ if gt $ii (index $.Params.existingPlots (sub $iii 1))}}<span class="item{{ $iii }}{{ $ii }} item{{ $iii }} itemSpan"></span>{{ end }}{{ end }}{{ end }}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/nowater.png"></span>
 		</span>
 		<span id="feedSpan" class="feedSpan">
 			{{ $tempRange := slice 1 2 3 6 8 9 }}
-			{{range $iii := $tempRange }}{{range $ii := (seq 9) }}{{ if gt $ii (index $.Params.existingPlots (sub $iii 1))}}<span class="item{{ $iii }}{{ $ii }} item{{ $iii }} itemSpan"></span>{{ end }}{{ end }}{{ end }}<span class="endImgSpan"><img height="100%" src="http://localhost:1313/img/sudokufarm/nofeed.png"></span>
+			{{range $iii := $tempRange }}{{range $ii := (seq 9) }}{{ if gt $ii (index $.Params.existingPlots (sub $iii 1))}}<span class="item{{ $iii }}{{ $ii }} item{{ $iii }} itemSpan"></span>{{ end }}{{ end }}{{ end }}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/nofeed.png"></span>
 		</span>
 		<span id="poopSpan" class="poopSpan">
 			{{ $tempRange := slice 1 2 3 7 8 9 }}
-			{{range $iii := $tempRange }}{{range $ii := (seq 9) }}{{ if gt $ii (index $.Params.existingPlots (sub $iii 1))}}<span class="item{{ $iii }}{{ $ii }} item{{ $iii }} itemSpan"></span>{{ end }}{{ end }}{{ end }}<span class="endImgSpan"><img height="100%" src="http://localhost:1313/img/sudokufarm/nopoop.png"></span>
+			{{range $iii := $tempRange }}{{range $ii := (seq 9) }}{{ if gt $ii (index $.Params.existingPlots (sub $iii 1))}}<span class="item{{ $iii }}{{ $ii }} item{{ $iii }} itemSpan"></span>{{ end }}{{ end }}{{ end }}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/nopoop.png"></span>
 		</span>
 		<span id="fireSpan" class="fireSpan">
 			{{ $tempRange := slice 5 6 }}
-			{{range $iii := $tempRange }}{{range $ii := (seq 9) }}{{ if gt $ii (index $.Params.existingPlots (sub $iii 1))}}<span class="item{{ $iii }}{{ $ii }} itemSpan"></span>{{ end }}{{ end }}{{ end }}<span class="endImgSpan"><img height="100%" src="http://localhost:1313/img/sudokufarm/nofire.png"></span>
+			{{range $iii := $tempRange }}{{range $ii := (seq 9) }}{{ if gt $ii (index $.Params.existingPlots (sub $iii 1))}}<span class="item{{ $iii }}{{ $ii }} itemSpan"></span>{{ end }}{{ end }}{{ end }}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/nofire.png"></span>
 		</span>
 		<span id="clothesSpan" class="clothesSpan">
 			{{ $tempRange := slice 1 3 }}
-			{{range $iii := $tempRange }}{{range $ii := (seq 9) }}{{ if gt $ii (index $.Params.existingPlots (sub $iii 1))}}<span class="item{{ $iii }}{{ $ii }} itemSpan"></span>{{ end }}{{ end }}{{ end }}<span class="endImgSpan"><img height="100%" src="http://localhost:1313/img/sudokufarm/noclothes.png"></span>
+			{{range $iii := $tempRange }}{{range $ii := (seq 9) }}{{ if gt $ii (index $.Params.existingPlots (sub $iii 1))}}<span class="item{{ $iii }}{{ $ii }} itemSpan"></span>{{ end }}{{ end }}{{ end }}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/noclothes.png"></span>
 		</span>
 		<span class="coverSudoku" id="coverSudoku"></span>
 	</div>
