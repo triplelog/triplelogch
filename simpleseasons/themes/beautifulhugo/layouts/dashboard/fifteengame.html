@@ -1,0 +1,96 @@
+{{ define "main" }}
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }}</title>
+<link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
+<meta name="description" content="{{ .Params.description }}"/>
+
+<style>
+{{ $base := 4}}
+:root {
+	--width-block: 10px;
+	--chg-digit: 1;
+
+	counter-reset: topsum 0 botsum 0 product 0;
+}
+@media screen and (min-width: 320px) and (min-height: 320px) {
+	:root {
+    	--width-block: 20px;
+    }
+}
+@media screen and (min-width: 480px) and (min-height: 480px) {
+	:root {
+    	--width-block: 30px;
+    }
+}
+@media screen and (min-width: 720px) and (min-height: 720px) {
+	:root {
+    	--width-block: 40px;
+    }
+}
+@media screen and (min-width: 1080px) and (min-height: 1080px) {
+	:root {
+    	--width-block: 50px;
+    }
+}
+
+{{ range $ii := (seq (mul $base $base)) }}
+	.place{{ $ii }} {
+		position: absolute;
+		left: {{add 100 (mul 25 (mod (sub $ii 1) $base))}}px;
+		top: {{add 100 (mul 25 (div (sub $ii 1) $base))}}px;
+		width: 20px;
+		height: 20px;
+		border 1px solid black;
+		background-color: rgba(125,200,200,1);
+		text-align: center;
+		z-index: 1;
+	}
+{{ end }}
+{{ range $i := (seq (mul $base $base)) }}
+	.block{{ $i }} {
+		position: absolute;
+		left: {{add 100 (mul 25 (mod (sub $i 1) $base))}}px;
+		top: {{add 100 (mul 25 (div (sub $i 1) $base))}}px;
+		width: 20px;
+		height: 20px;
+		border 1px solid black;
+		background-color: rgba(125,200,200,0);
+		text-align: center;
+		z-index: 2;
+	}
+{{ end }}
+{{ range $ii := (seq (mul $base $base)) }}
+	{{ range $i := (seq (sub (mul $base $base) 1)) }}
+		#box{{ $i }}-{{ $ii }}:checked ~ label.num{{ $i }} {
+			left: {{add 100 (mul 25 (mod (sub $ii 1) $base))}}px;
+			top: {{add 100 (mul 25 (div (sub $ii 1) $base))}}px;
+		}
+		.boxplace{{ $ii }}:checked ~ label#label{{ $i }}-{{ $ii }} {
+			display: none;
+		}
+	{{ end }}
+{{ end }}
+
+{{ range $ii := (seq (mul $base $base)) }}
+	{{ range $i := (seq (mul $base $base)) }}
+		.boxplace{{ $ii }}:checked ~ span#block{{ $i }}-{{ $ii }} {
+			display: none;
+		}
+	{{ end }}
+{{ end }}
+</style>
+</head>
+<body>
+		
+		<div class="cdDiv" style="position: absolute; left: 0px; background-color: white; border: 1px solid black; width: 800px; height: 400px;">
+			
+			{{ range $ii := (seq (mul $base $base)) }}{{ range $i := (seq (sub (mul $base $base) 1)) }}<input type="radio" name="box{{ $i }}" id="box{{ $i }}-{{ $ii }}" class="boxplace{{ $ii }}" style="display:none;" {{ if eq $i $ii }}checked{{ end }}></input>{{ end }}{{ end }}
+			{{ range $ii := (seq (mul $base $base)) }}{{ range $i := (seq (sub (mul $base $base) 1)) }}<label for="box{{ $i }}-{{ $ii }}" id="label{{ $i }}-{{ $ii }}" class="num{{ $i }} place{{ $ii }}">{{ $i }}</label>{{ end }}{{ end }}
+			{{ range $ii := (seq (mul $base $base)) }}{{ range $i := (index $.Params.missingnodes $ii) }}<span id="block{{ $i }}-{{ $ii }}" class="block{{ $i }}"></span>{{ end }}{{ end }}
+		</div>
+
+</body>
+{{ end }}

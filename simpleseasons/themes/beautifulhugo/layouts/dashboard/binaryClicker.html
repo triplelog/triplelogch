@@ -1,0 +1,190 @@
+{{ define "main" }}
+<div id="wrapper">
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary" id="ev-bar-panel">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    D is winning by x votes
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                            	<div class="row">
+									<div class="col-sm-12">
+									  <div class="ev-bar">
+										<div class='ev-bar-dem-total'></div>
+										<div class='ev-bar-gop-total'></div>
+									  </div>
+									</div>
+								</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    R is winning x by y votes
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                            	<div class="row">
+									<div class="col-sm-12">
+										<label class="col-sm-6 control-label" for="selectState">Change Target:</label>
+										<div class="col-sm-6">
+										<select class="form-control" onchange="setGoalState();" id="selectState">
+										  <option value="US">US</option>
+										  <option value="FL">Florida</option>
+										  <option value="GA">Georgia</option>
+										  <option value="SC">SC</option>
+										  <option value="NC">NC</option>
+										  <option value="WI">Wisconsin</option>
+										  <option value="MI">Michigan</option>
+										  <option value="PA">Pennsylvania</option>
+										  <option value="NH">New Hampshire</option>
+										</select>
+										</div>
+									</div>
+								</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    D
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div>233</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    D
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div>233</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Actions
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="#">Action</a>
+                                        </li>
+                                        <li><a href="#">Another action</a>
+                                        </li>
+                                        <li><a href="#">Something else here</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="additionQuestion">What is 10010+1001?</div>
+									<input id="additionAnswer"></input>
+                                </div>
+                                
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                    
+                </div>
+                <!-- /.col-lg-8 -->
+                <div class="col-lg-6">
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Bot Maker
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-lg-12">
+								Input: 10212001
+								Where to start? Left or right?
+								What to do if equals 0? Move to next, iterate next digit, reduce digit.
+								Greater than ?
+								Less than ?
+								Then what ?
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+
+                </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
+
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    
+
+
+{{ end }}

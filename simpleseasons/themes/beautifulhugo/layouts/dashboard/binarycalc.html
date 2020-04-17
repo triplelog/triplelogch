@@ -1,0 +1,240 @@
+{{ define "main" }}
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }}</title>
+<link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
+<meta name="description" content="{{ .Params.description }}"/>
+
+<style>
+{{ $base := 10}}
+{{ $digits := 5}}
+:root {
+	--width-block: 10px;
+	--chg-digit: 1;
+	counter-reset: {{ range $ii := (seq (add $base 1)) }}sum{{ $ii }} 0 {{ end }};
+}
+@media screen and (min-width: 320px) and (min-height: 320px) {
+	:root {
+    	--width-block: 20px;
+    }
+}
+@media screen and (min-width: 480px) and (min-height: 480px) {
+	:root {
+    	--width-block: 30px;
+    }
+}
+@media screen and (min-width: 720px) and (min-height: 720px) {
+	:root {
+    	--width-block: 40px;
+    }
+}
+@media screen and (min-width: 1080px) and (min-height: 1080px) {
+	:root {
+    	--width-block: 50px;
+    }
+}
+{{ range $ii := (seq $digits) }}
+	.bottom{{ $ii }} {
+		position: absolute;
+		left: {{ mul (sub (add $digits 2) $ii) 22}}px;
+		top: 60px;
+		width: 20px;
+		height: 20px;
+		border: 1px solid gray;
+		text-align: center;
+		display: none;
+	}
+	.top{{ $ii }} {
+		position: absolute;
+		left: {{ mul (sub (add $digits 2) $ii) 22}}px;
+		top: 30px;
+		width: 20px;
+		height: 20px;
+		border: 1px solid gray;
+		text-align: center;
+		display: none;
+	}
+	.boxLabel{{ $ii }} {
+		position: absolute;
+		left: {{add (mul (sub (add $digits 2) $ii) 22) 0}}px;
+		top: 90px;
+		width: 20px;
+		height: 20px;
+		border: 1px solid gray;
+		background-color: rgba(0,0,0,0);
+		text-align: center;
+		display: inline-block;
+		z-index: {{add (mul $ii 2) 0}};
+	}
+	.boxPlusLabel{{ $ii }} {
+		position: absolute;
+		left: {{add (mul (sub (add $digits 2) $ii) 22) 0}}px;
+		top: 120px;
+		width: 20px;
+		height: 20px;
+		border: 1px solid gray;
+		background-color: rgba(0,0,0,.1);
+		text-align: center;
+		display: inline-block;
+		z-index: {{add (mul $ii 2) 0}};
+	}
+	#box{{ $ii }}:checked ~ .coverRow{{ $ii }} .coverBlock0 {
+		width: {{mul 2 (mul 22 $base) }}px;
+	}
+	#box{{ $ii }}:checked ~ .coverRow{{add $ii 1}} .coverBlock-1 {
+		width: calc(22px * ({{ $base }} + var(--chg-digit)));
+	}
+	
+	#boxPlus{{ $ii }}:checked ~ .coverRow{{ $ii }} .coverBlock0 {
+		width: {{mul 0 $base }}px;
+	}
+	#boxPlus{{ $ii }}:checked ~ .coverRow{{add $ii 1}} .coverBlock-1 {
+		width: calc(22px * ({{ $base }} - var(--chg-digit)));
+	}
+	
+	.coverRow{{ $ii }} {
+		position: absolute;
+		left: {{sub (mul (sub (add $digits 2) $ii) 22) (mul (add (add 0 (mul 3 $base)) (mul $base (sub $base 1))) 22)}}px;
+		top: 90px;
+		width: {{ (mul (add (add (mul $base 3) 1) (mul $base (sub $base 1))) 22) }}px;
+		overflow: hidden;
+		height: 22px;
+		border: 0px solid red;
+		text-align: center;
+		display: inline-block;
+		margin: 0px;
+		padding: 0px;
+		z-index: {{add (mul $ii 2) 1}};
+		pointer-events: none;
+	}
+	
+
+	
+	
+	{{ range $i,$ione := (seq $base) }}
+		input#bottom{{ $i }}-{{ $ii }}:checked + label {
+			display: inline-block;
+		}
+		input#top{{ $i }}-{{ $ii }}:checked + label {
+			display: inline-block;
+		}
+	{{ end }}
+	{{ range $i := (seq (sub $base 1)) }}
+		input#bottom{{ $i }}-{{ $ii }}:checked ~ .coverRow{{ $ii }} #cover{{$ii}}-{{$i}} {
+			display: none;
+		}
+		input#top{{ $i }}-{{ $ii }}:checked ~ .coverRow{{ $ii }} #cover{{$ii}}-{{add $i (sub $base 1)}} {
+			display: none;
+		}
+	{{ end }}
+{{ end }}
+
+.coverRow{{add $digits 1 }} {
+	position: absolute;
+	left: {{sub (mul 1 22) (mul (add (add 0 (mul 3 $base)) (mul $base (sub $base 1))) 22)}}px;
+	top: 90px;
+	height: 22px;
+	width: {{ (mul (add (add (mul $base 3) 1) (mul $base (sub $base 1))) 22) }}px;
+	overflow: hidden;
+	border: 0px solid red;
+	text-align: center;
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+	background-color: rgba(255,255,255,1);
+	z-index: {{add (mul $digits 2) 3 }};
+}
+.coverBlock0 {
+	width: {{mul 22 $base }}px;
+	display: inline-block;
+	height: 20px;
+	border: 0px solid green;
+	text-align: center;
+	visibility: hidden;
+	float: left;
+}
+.coverBlock-1 {
+	width: {{mul 22 $base }}px;
+	display: inline-block;
+	height: 20px;
+	border: 0px solid green;
+	text-align: center;
+	visibility: hidden;
+	float: left;
+}
+{{ range $i := (seq (sub $base 1)) }}
+	.coverBlock{{ $i }} {
+		width: {{mul 22 $i}}px;
+		display: inline-block;
+		height: 20px;
+		border: 0px solid green;
+		text-align: center;
+		visibility: hidden;
+		float: left;
+	}
+{{ end }}
+{{ range $i := (seq (sub (mul $base 2) 2)) }}
+	{{ if gt $i (sub $base 1) }}
+	.coverBlock{{ $i }} {
+		width: {{sub (mul 22 $i) (mul 22 (sub $base 1))}}px;
+		display: inline-block;
+		height: 20px;
+		border: 0px solid green;
+		text-align: center;
+		visibility: hidden;
+		float: left;
+	}
+	{{ end }}
+{{ end }}
+.sumBlock {
+	width: 20px;
+	display: inline-block;
+	height: 20px;
+	border: 1px solid green;
+	text-align: center;
+	background-color: rgba(255,255,255,1);
+}
+{{ range $i := (seq (sub (mul $base 3) 1))}}
+	{{ if ge (sub $i (add $base 1)) $base}}
+		.sum{{sub $i (add $base 1)}} {
+			color: red;
+			pointer-events: none;
+		}
+	{{ else }}
+		{{ if le (sub $i (add $base 1)) -1}}
+			.sum{{sub $i (add $base 1)}} {
+				color: red;
+				pointer-events: all;
+			}
+			{{ range $ii := (seq (add 1 $digits))}}
+				#box{{ $ii }}:checked ~ .coverRow{{ $ii }} .sum{{sub $i (add $base 1)}} {
+					pointer-events: none;
+				}
+			{{ end }}
+		{{ else }}
+			.sum{{sub $i (add $base 1)}} {
+				color: black;
+				pointer-events: all;
+			}
+		{{ end }}
+	{{ end }}
+{{ end }}
+
+
+</style>
+</head>
+<body>
+		
+		<div class="cdDiv" style="position: absolute; left: 0px; background-color: white; border: 1px solid black; width: 800px; height: 400px;">
+			{{ range $ii := (seq $digits) }}{{ range $i,$ione := (seq $base) }}<input type="radio" name="top{{ $ii }}" id="top{{ $i }}-{{ $ii }}" style="display:none;" {{ if eq $i 0 }}checked{{ end }}></input><label for="top{{ if eq $i (sub $base 1) }}0{{ else }}{{add $i 1}}{{ end }}-{{ $ii }}" class="num{{ $i }} top{{ $ii }}">{{ $i }}</label>{{ end }}{{ end }}
+			{{ range $ii := (seq $digits) }}{{ range $i,$ione := (seq $base) }}<input type="radio" name="bottom{{ $ii }}" id="bottom{{ $i }}-{{ $ii }}" style="display:none;" {{ if eq $i 0 }}checked{{ end }}></input><label for="bottom{{ if eq $i (sub $base 1) }}0{{ else }}{{add $i 1}}{{ end }}-{{ $ii }}" class="num{{ $i }} bottom{{ $ii }}">{{ $i }}</label>{{ end }}{{ end }}
+			{{ range $ii := (seq (add 1 $digits))}}<input type="checkbox" id="box{{ $ii }}" style="display: none;"></input><label for="box{{ $ii }}" class="boxLabel{{ $ii }}"></label>{{ end }}
+			{{ range $ii := (seq (add 1 $digits))}}<input type="checkbox" id="boxPlus{{ $ii }}" style="display: none;"></input><label for="boxPlus{{ $ii }}" class="boxPlusLabel{{ $ii }}"></label>{{ end }}
+			{{ range $ii := (seq (add 1 $digits))}}<span class="coverRow{{$ii}}"><span id="cover{{$ii}}-{{-1}}" class="coverBlock{{ -1 }}">0</span><span id="cover{{$ii}}-{{0}}" class="coverBlock{{ 0 }}">0</span>{{ range $i := (seq (sub (mul $base 2) 2))}}<span id="cover{{$ii}}-{{$i}}" class="coverBlock{{ $i }}">0</span>{{ end }}{{ range $i := (seq (sub (mul $base 3) 1))}}<label for="sum{{$ii}}-{{sub $i (add $base 1)}}" class="sumBlock sum{{sub $i (add $base 1)}}">{{sub $i (add $base 1)}}</label>{{ end }}</span>{{ end }}
+			
+		</div>
+
+</body>
+{{ end }}

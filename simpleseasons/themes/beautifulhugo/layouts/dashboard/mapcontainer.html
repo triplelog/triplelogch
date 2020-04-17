@@ -1,0 +1,34 @@
+{{ define "main" }}
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }}</title>
+<link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
+<meta name="description" content="{{ .Params.description }}"/>
+
+<style>
+#object1, #object2 {
+	z-index: 1;
+}
+#chart1:checked ~ #object1 {
+	z-index: 10;
+}
+#chart2:checked ~ #object2 {
+	z-index: 10;
+}
+</style>
+
+</head>
+<body>
+
+		<input type="radio" id="chart1" name="charts" checked></input>
+		<input type="radio" id="chart2" name="charts"></input>
+		<object id="object1" style="position: absolute; top:50px;" width="50%" height="800px" data="http://localhost:1313/dashboard/mapboxes/"></object>
+		<object id="object2" style="position: absolute; top:50px;" width="50%" height="800px" data="http://localhost:1313/dashboard/mapboxes/#secondChart"></object>
+		
+		
+		
+
+</body>
+{{ end }}

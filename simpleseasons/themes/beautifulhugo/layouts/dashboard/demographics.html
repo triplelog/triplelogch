@@ -1,0 +1,290 @@
+{{ define "main" }}
+<div id="wrapper">
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> State Demographics
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Actions
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="#">Action</a>
+                                        </li>
+                                        <li><a href="#">Another action</a>
+                                        </li>
+                                        <li><a href="#">Something else here</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <select id="myState" onchange="drawChartStates()">
+										<option value="01" selected>Alabama
+										<option value="02">Alaska
+										<option value="04">Arizona
+										<option value="05">Arkansas
+										<option value="06">California
+										<option value="08">Colorado
+										<option value="09">Connecticut
+										<option value="10">Delaware
+										<option value="11">District of Columbia
+										<option value="12">Florida
+										<option value="13">Georgia
+										<option value="15">Hawaii
+										<option value="16">Idaho
+										<option value="17">Illinois
+										<option value="18">Indiana
+										<option value="19">Iowa
+										<option value="20">Kansas
+										<option value="21">Kentucky
+										<option value="22">Louisiana
+										<option value="23">Maine
+										<option value="24">Maryland
+										<option value="25">Massachusetts
+										<option value="26">Michigan
+										<option value="27">Minnesota
+										<option value="28">Mississippi
+										<option value="29">Missouri
+										<option value="30">Montana
+										<option value="31">Nebraska
+										<option value="32">Nevada
+										<option value="33">New Hampshire
+										<option value="34">New Jersey
+										<option value="35">New Mexico
+										<option value="36">New York
+										<option value="37">North Carolina
+										<option value="38">North Dakota
+										<option value="39">Ohio
+										<option value="40">Oklahoma
+										<option value="41">Oregon
+										<option value="42">Pennsylvania
+										<option value="44">Rhode Island
+										<option value="45">South Carolina
+										<option value="46">South Dakota
+										<option value="47">Tennessee
+										<option value="48">Texas
+										<option value="49">Utah
+										<option value="50">Vermont
+										<option value="51">Virginia
+										<option value="53">Washington
+										<option value="54">West Virginia
+										<option value="55">Wisconsin
+										<option value="56">Wyoming
+									</select>
+									<select id="myType" onchange="drawChartStates()">
+										<option value="Race" selected>Race
+										<option value="Age2" selected>Age2
+										<option value="Age3" selected>Age3
+										<option value="Age5" selected>Age5
+									</select>
+
+
+									<div id="histogram_div_age" style="width: 600px; height: 400px"></div>
+                                </div>
+                                
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                    
+                </div>
+                <!-- /.col-lg-8 -->
+                <div class="col-lg-6">
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Target
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-lg-12">
+                                    <select id="myStateCounty" onchange="countyList()">
+										<option value="01" selected>Alabama
+										<option value="02">Alaska
+										<option value="04">Arizona
+										<option value="05">Arkansas
+										<option value="06">California
+										<option value="08">Colorado
+										<option value="09">Connecticut
+										<option value="10">Delaware
+										<option value="11">District of Columbia
+										<option value="12">Florida
+										<option value="13">Georgia
+										<option value="15">Hawaii
+										<option value="16">Idaho
+										<option value="17">Illinois
+										<option value="18">Indiana
+										<option value="19">Iowa
+										<option value="20">Kansas
+										<option value="21">Kentucky
+										<option value="22">Louisiana
+										<option value="23">Maine
+										<option value="24">Maryland
+										<option value="25">Massachusetts
+										<option value="26">Michigan
+										<option value="27">Minnesota
+										<option value="28">Mississippi
+										<option value="29">Missouri
+										<option value="30">Montana
+										<option value="31">Nebraska
+										<option value="32">Nevada
+										<option value="33">New Hampshire
+										<option value="34">New Jersey
+										<option value="35">New Mexico
+										<option value="36">New York
+										<option value="37">North Carolina
+										<option value="38">North Dakota
+										<option value="39">Ohio
+										<option value="40">Oklahoma
+										<option value="41">Oregon
+										<option value="42">Pennsylvania
+										<option value="44">Rhode Island
+										<option value="45">South Carolina
+										<option value="46">South Dakota
+										<option value="47">Tennessee
+										<option value="48">Texas
+										<option value="49">Utah
+										<option value="50">Vermont
+										<option value="51">Virginia
+										<option value="53">Washington
+										<option value="54">West Virginia
+										<option value="55">Wisconsin
+										<option value="56">Wyoming
+									</select>
+									<select id="myCounty" onchange="drawChartCounties()">
+										
+									</select>
+
+									<div id="histogram_div_counties" style="width: 600px; height: 400px"></div>
+                                </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                    
+
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-lg-6">
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Target
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-lg-12">
+                                    <select id="myStateSum" onchange="drawChartSum()">
+										<option value="01" selected>Alabama
+										<option value="02">Alaska
+										<option value="04">Arizona
+										<option value="05">Arkansas
+										<option value="06">California
+										<option value="08">Colorado
+										<option value="09">Connecticut
+										<option value="10">Delaware
+										<option value="11">District of Columbia
+										<option value="12">Florida
+										<option value="13">Georgia
+										<option value="15">Hawaii
+										<option value="16">Idaho
+										<option value="17">Illinois
+										<option value="18">Indiana
+										<option value="19">Iowa
+										<option value="20">Kansas
+										<option value="21">Kentucky
+										<option value="22">Louisiana
+										<option value="23">Maine
+										<option value="24">Maryland
+										<option value="25">Massachusetts
+										<option value="26">Michigan
+										<option value="27">Minnesota
+										<option value="28">Mississippi
+										<option value="29">Missouri
+										<option value="30">Montana
+										<option value="31">Nebraska
+										<option value="32">Nevada
+										<option value="33">New Hampshire
+										<option value="34">New Jersey
+										<option value="35">New Mexico
+										<option value="36">New York
+										<option value="37">North Carolina
+										<option value="38">North Dakota
+										<option value="39">Ohio
+										<option value="40">Oklahoma
+										<option value="41">Oregon
+										<option value="42">Pennsylvania
+										<option value="44">Rhode Island
+										<option value="45">South Carolina
+										<option value="46">South Dakota
+										<option value="47">Tennessee
+										<option value="48">Texas
+										<option value="49">Utah
+										<option value="50">Vermont
+										<option value="51">Virginia
+										<option value="53">Washington
+										<option value="54">West Virginia
+										<option value="55">Wisconsin
+										<option value="56">Wyoming
+									</select>
+									
+
+									<div id="histogram_divD" style="width: 600px; height: 400px"></div>
+									<div id="resultsD"></div>
+                                </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                </div>
+				<!-- /.panel -->
+				<div class="col-lg-6">
+				
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<i class="fa fa-bar-chart-o fa-fw"></i> Target
+						</div>
+						<div class="panel-body">
+							<div class="col-lg-12">
+								
+
+									<div id="histogram_divR" style="width: 600px; height: 400px"></div>
+									<div id="resultsR"></div>
+								</div>
+						</div>
+						<!-- /.panel-body -->
+					</div>
+				<!-- /.panel -->
+				</div>
+            </div>
+            <!-- /.row -->
+
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    
+
+
+{{ end }}

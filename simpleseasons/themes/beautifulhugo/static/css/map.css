@@ -1,0 +1,629 @@
+/* Electoral college vote bar colors */
+.ev-bar {
+  width: 100%;
+  height: 25px;
+}
+
+.ev-bar:after {
+  content: "";
+  position: absolute;
+  z-index=-1;
+  top: 5px;
+  bottom: 0;
+  left: 50%;
+  height: 50px;
+  border-left: 2px solid #000;
+}
+
+.ev-bar-dem-total {
+  float: left;
+  padding: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  stroke: #000;
+  stroke-width: .5px;
+}
+
+.ev-bar-gop-total {
+  float: right;
+  padding: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  stroke: #000;
+  stroke-width: .5px;
+}
+
+/* Detail table state colors (from ev-bar) */
+
+.blue-state {
+  color: #179ee0;
+  font-weight: bold;
+}
+
+.red-state {
+  color: #ff5d40;
+  font-weight: bold;
+}
+
+/* Share box related css */
+.share-box {
+  position: relative;
+  margin: 15px 0 0;
+  padding: 39px 19px 14px;
+  background-color: #fff;
+  border-radius: 4px 4px 0 0;
+  border: 1px solid #ddd;
+  z-index: 2;
+}
+
+.share-box:after {
+    content: "Copy to clipboard";
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #f5f5f5;
+    color: #9da0a4;
+    border-radius: 4px 0 4px 0;
+}
+
+/* Instructions and interface */
+
+.btn-space {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+h2.instructions {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+p.instructions {
+  line-height: 16px;
+  font-size: 12px;
+}
+
+/* County tooltip detail */
+.hidden {
+  display: none;
+}
+div.tooltip {
+  display: block;
+  opacity: 0.95;
+  pointer-events: none;
+  z-index: 999;
+  border: 1px solid #ddd;
+  padding: 0px 2px;
+  background-color: #FFF;
+}
+
+div.tooltip-title-heading {
+ font-size: 14px;
+ font-weight: normal;
+ padding: 0 0 0 0;
+ margin: 10px 5px 0px 0px;
+ float: left;
+ text-transform: uppercase;
+}
+
+div.tooltip-title-state-heading {
+ font-size: 12px;
+ font-weight: normal;
+ padding: 0 0 0 0;
+ margin: 10px 5px 0px 0px;
+ float: right;
+ text-transform: uppercase;
+}
+
+table.county-results {
+  background-color: transparent;
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 3px;
+  text-align: left;
+  border-top: 0;
+  padding: 4px 10px;
+}
+
+table.county-results>tbody>tr>td {
+  background-color: transparent;
+  font-size: 10px;
+  color: #333;
+  margin-bottom: 3px;
+  text-align: left;
+  border-top: 0;
+  padding: 4px 10px;
+}
+
+.tooltip-inner {
+  max-width: 200px;
+  padding: 0px;
+  color: #333;
+  background-color: transparent;
+}
+
+/* Map coloring */
+
+/* Counties: Dems won the state */
+
+.dem-50 { fill: rgb(240,240,255); stroke: #ccf; stroke-width: .5px; }
+.dem-51 { fill: rgb(236,237,255); stroke: #ccf; stroke-width: .5px; }
+.dem-52 { fill: rgb(232,235,254); stroke: #ccf; stroke-width: .5px; }
+.dem-53 { fill: rgb(228,232,254); stroke: #ccf; stroke-width: .5px; }
+.dem-54 { fill: rgb(225,230,253); stroke: #ccf; stroke-width: .5px; }
+.dem-55 { fill: rgb(221,228,253); stroke: #ccf; stroke-width: .5px; }
+.dem-56 { fill: rgb(218,225,252); stroke: #ccf; stroke-width: .5px; }
+.dem-57 { fill: rgb(215,223,252); stroke: #ccf; stroke-width: .5px; }
+.dem-58 { fill: rgb(211,221,251); stroke: #ccf; stroke-width: .5px; }
+.dem-59 { fill: rgb(208,219,251); stroke: #ccf; stroke-width: .5px; }
+.dem-60 { fill: rgb(205,217,250); stroke: #ccf; stroke-width: .5px; }
+.dem-61 { fill: rgb(202,215,250); stroke: #ccf; stroke-width: .5px; }
+.dem-62 { fill: rgb(198,212,249); stroke: #ccf; stroke-width: .5px; }
+.dem-63 { fill: rgb(195,210,249); stroke: #ccf; stroke-width: .5px; }
+.dem-64 { fill: rgb(192,208,248); stroke: #ccf; stroke-width: .5px; }
+.dem-65 { fill: rgb(189,206,248); stroke: #ccf; stroke-width: .5px; }
+.dem-66 { fill: rgb(186,204,247); stroke: #ccf; stroke-width: .5px; }
+.dem-67 { fill: rgb(183,202,247); stroke: #ccf; stroke-width: .5px; }
+.dem-68 { fill: rgb(180,200,246); stroke: #ccf; stroke-width: .5px; }
+.dem-69 { fill: rgb(177,198,246); stroke: #ccf; stroke-width: .5px; }
+.dem-70 { fill: rgb(174,196,245); stroke: #ccf; stroke-width: .5px; }
+.dem-71 { fill: rgb(171,194,245); stroke: #ccf; stroke-width: .5px; }
+.dem-72 { fill: rgb(168,192,244); stroke: #ccf; stroke-width: .5px; }
+.dem-73 { fill: rgb(165,190,244); stroke: #ccf; stroke-width: .5px; }
+.dem-74 { fill: rgb(162,188,243); stroke: #ccf; stroke-width: .5px; }
+.dem-75 { fill: rgb(159,186,243); stroke: #ccf; stroke-width: .5px; }
+.dem-76 { fill: rgb(156,184,242); stroke: #ccf; stroke-width: .5px; }
+.dem-77 { fill: rgb(153,182,242); stroke: #ccf; stroke-width: .5px; }
+.dem-78 { fill: rgb(150,180,241); stroke: #ccf; stroke-width: .5px; }
+.dem-79 { fill: rgb(147,178,241); stroke: #ccf; stroke-width: .5px; }
+.dem-80 { fill: rgb(144,176,240); stroke: #ccf; stroke-width: .5px; }
+.dem-81 { fill: rgb(142,175,240); stroke: #ccf; stroke-width: .5px; }
+.dem-82 { fill: rgb(139,173,239); stroke: #ccf; stroke-width: .5px; }
+.dem-83 { fill: rgb(136,171,239); stroke: #ccf; stroke-width: .5px; }
+.dem-84 { fill: rgb(133,169,238); stroke: #ccf; stroke-width: .5px; }
+.dem-85 { fill: rgb(130,167,238); stroke: #ccf; stroke-width: .5px; }
+.dem-86 { fill: rgb(127,165,237); stroke: #ccf; stroke-width: .5px; }
+.dem-87 { fill: rgb(124,163,237); stroke: #ccf; stroke-width: .5px; }
+.dem-88 { fill: rgb(122,161,236); stroke: #ccf; stroke-width: .5px; }
+.dem-89 { fill: rgb(119,159,236); stroke: #ccf; stroke-width: .5px; }
+.dem-90 { fill: rgb(116,158,235); stroke: #ccf; stroke-width: .5px; }
+.dem-91 { fill: rgb(113,156,235); stroke: #ccf; stroke-width: .5px; }
+.dem-92 { fill: rgb(110,154,234); stroke: #ccf; stroke-width: .5px; }
+.dem-93 { fill: rgb(108,152,234); stroke: #ccf; stroke-width: .5px; }
+.dem-94 { fill: rgb(105,150,233); stroke: #ccf; stroke-width: .5px; }
+.dem-95 { fill: rgb(102,148,233); stroke: #ccf; stroke-width: .5px; }
+.dem-96 { fill: rgb(99,146,232); stroke: #ccf; stroke-width: .5px; }
+.dem-97 { fill: rgb(97,145,232); stroke: #ccf; stroke-width: .5px; }
+.dem-98 { fill: rgb(94,143,231); stroke: #ccf; stroke-width: .5px; }
+.dem-99 { fill: rgb(91,141,231); stroke: #ccf; stroke-width: .5px; }
+.dem-1 { fill: rgb(89,84,84); stroke: #ccf; stroke-width: .5px; }
+.dem-2 { fill: rgb(93,88,88); stroke: #ccf; stroke-width: .5px; }
+.dem-3 { fill: rgb(96,91,91); stroke: #ccf; stroke-width: .5px; }
+.dem-4 { fill: rgb(99,94,94); stroke: #ccf; stroke-width: .5px; }
+.dem-5 { fill: rgb(102,97,97); stroke: #ccf; stroke-width: .5px; }
+.dem-6 { fill: rgb(105,100,100); stroke: #ccf; stroke-width: .5px; }
+.dem-7 { fill: rgb(108,103,103); stroke: #ccf; stroke-width: .5px; }
+.dem-8 { fill: rgb(111,106,106); stroke: #ccf; stroke-width: .5px; }
+.dem-9 { fill: rgb(114,109,109); stroke: #ccf; stroke-width: .5px; }
+.dem-10 { fill: rgb(117,112,112); stroke: #ccf; stroke-width: .5px; }
+.dem-11 { fill: rgb(120,115,115); stroke: #ccf; stroke-width: .5px; }
+.dem-12 { fill: rgb(123,118,118); stroke: #ccf; stroke-width: .5px; }
+.dem-13 { fill: rgb(127,122,122); stroke: #ccf; stroke-width: .5px; }
+.dem-14 { fill: rgb(130,125,125); stroke: #ccf; stroke-width: .5px; }
+.dem-15 { fill: rgb(133,128,128); stroke: #ccf; stroke-width: .5px; }
+.dem-16 { fill: rgb(136,131,131); stroke: #ccf; stroke-width: .5px; }
+.dem-17 { fill: rgb(139,134,134); stroke: #ccf; stroke-width: .5px; }
+.dem-18 { fill: rgb(142,137,137); stroke: #ccf; stroke-width: .5px; }
+.dem-19 { fill: rgb(146,141,141); stroke: #ccf; stroke-width: .5px; }
+.dem-20 { fill: rgb(149,144,144); stroke: #ccf; stroke-width: .5px; }
+.dem-21 { fill: rgb(152,147,147); stroke: #ccf; stroke-width: .5px; }
+.dem-22 { fill: rgb(155,150,150); stroke: #ccf; stroke-width: .5px; }
+.dem-23 { fill: rgb(158,153,153); stroke: #ccf; stroke-width: .5px; }
+.dem-24 { fill: rgb(162,157,157); stroke: #ccf; stroke-width: .5px; }
+.dem-25 { fill: rgb(165,160,160); stroke: #ccf; stroke-width: .5px; }
+.dem-26 { fill: rgb(168,163,163); stroke: #ccf; stroke-width: .5px; }
+.dem-27 { fill: rgb(171,166,166); stroke: #ccf; stroke-width: .5px; }
+.dem-28 { fill: rgb(175,170,170); stroke: #ccf; stroke-width: .5px; }
+.dem-29 { fill: rgb(178,173,173); stroke: #ccf; stroke-width: .5px; }
+.dem-30 { fill: rgb(181,176,176); stroke: #ccf; stroke-width: .5px; }
+.dem-31 { fill: rgb(185,180,180); stroke: #ccf; stroke-width: .5px; }
+.dem-32 { fill: rgb(188,183,183); stroke: #ccf; stroke-width: .5px; }
+.dem-33 { fill: rgb(191,186,186); stroke: #ccf; stroke-width: .5px; }
+.dem-34 { fill: rgb(195,190,190); stroke: #ccf; stroke-width: .5px; }
+.dem-35 { fill: rgb(198,193,193); stroke: #ccf; stroke-width: .5px; }
+.dem-36 { fill: rgb(202,197,197); stroke: #ccf; stroke-width: .5px; }
+.dem-37 { fill: rgb(205,200,200); stroke: #ccf; stroke-width: .5px; }
+.dem-38 { fill: rgb(209,204,204); stroke: #ccf; stroke-width: .5px; }
+.dem-39 { fill: rgb(212,207,207); stroke: #ccf; stroke-width: .5px; }
+.dem-40 { fill: rgb(216,211,211); stroke: #ccf; stroke-width: .5px; }
+.dem-41 { fill: rgb(219,214,214); stroke: #ccf; stroke-width: .5px; }
+.dem-42 { fill: rgb(223,218,218); stroke: #ccf; stroke-width: .5px; }
+.dem-43 { fill: rgb(227,222,222); stroke: #ccf; stroke-width: .5px; }
+.dem-44 { fill: rgb(230,225,225); stroke: #ccf; stroke-width: .5px; }
+.dem-45 { fill: rgb(234,229,229); stroke: #ccf; stroke-width: .5px; }
+.dem-46 { fill: rgb(238,233,233); stroke: #ccf; stroke-width: .5px; }
+.dem-47 { fill: rgb(242,237,237); stroke: #ccf; stroke-width: .5px; }
+.dem-48 { fill: rgb(246,241,241); stroke: #ccf; stroke-width: .5px; }
+.dem-49 { fill: rgb(250,245,245); stroke: #ccf; stroke-width: .5px; }
+.gop-50 { fill: rgb(255,240,240); stroke: #ccf; stroke-width: .5px; }
+.gop-51 { fill: rgb(255,237,237); stroke: #ccf; stroke-width: .5px; }
+.gop-52 { fill: rgb(255,234,234); stroke: #ccf; stroke-width: .5px; }
+.gop-53 { fill: rgb(255,230,231); stroke: #ccf; stroke-width: .5px; }
+.gop-54 { fill: rgb(255,227,228); stroke: #ccf; stroke-width: .5px; }
+.gop-55 { fill: rgb(255,225,225); stroke: #ccf; stroke-width: .5px; }
+.gop-56 { fill: rgb(255,222,222); stroke: #ccf; stroke-width: .5px; }
+.gop-57 { fill: rgb(255,219,219); stroke: #ccf; stroke-width: .5px; }
+.gop-58 { fill: rgb(255,216,216); stroke: #ccf; stroke-width: .5px; }
+.gop-59 { fill: rgb(255,213,213); stroke: #ccf; stroke-width: .5px; }
+.gop-60 { fill: rgb(255,211,210); stroke: #ccf; stroke-width: .5px; }
+.gop-61 { fill: rgb(255,208,207); stroke: #ccf; stroke-width: .5px; }
+.gop-62 { fill: rgb(255,205,204); stroke: #ccf; stroke-width: .5px; }
+.gop-63 { fill: rgb(255,203,201); stroke: #ccf; stroke-width: .5px; }
+.gop-64 { fill: rgb(255,200,198); stroke: #ccf; stroke-width: .5px; }
+.gop-65 { fill: rgb(255,198,195); stroke: #ccf; stroke-width: .5px; }
+.gop-66 { fill: rgb(255,195,192); stroke: #ccf; stroke-width: .5px; }
+.gop-67 { fill: rgb(255,192,189); stroke: #ccf; stroke-width: .5px; }
+.gop-68 { fill: rgb(255,190,186); stroke: #ccf; stroke-width: .5px; }
+.gop-69 { fill: rgb(255,187,183); stroke: #ccf; stroke-width: .5px; }
+.gop-70 { fill: rgb(255,185,180); stroke: #ccf; stroke-width: .5px; }
+.gop-71 { fill: rgb(255,182,177); stroke: #ccf; stroke-width: .5px; }
+.gop-72 { fill: rgb(255,180,174); stroke: #ccf; stroke-width: .5px; }
+.gop-73 { fill: rgb(255,177,171); stroke: #ccf; stroke-width: .5px; }
+.gop-74 { fill: rgb(255,175,168); stroke: #ccf; stroke-width: .5px; }
+.gop-75 { fill: rgb(255,173,165); stroke: #ccf; stroke-width: .5px; }
+.gop-76 { fill: rgb(255,170,162); stroke: #ccf; stroke-width: .5px; }
+.gop-77 { fill: rgb(255,168,159); stroke: #ccf; stroke-width: .5px; }
+.gop-78 { fill: rgb(255,165,156); stroke: #ccf; stroke-width: .5px; }
+.gop-79 { fill: rgb(255,163,153); stroke: #ccf; stroke-width: .5px; }
+.gop-80 { fill: rgb(255,160,150); stroke: #ccf; stroke-width: .5px; }
+.gop-81 { fill: rgb(255,158,147); stroke: #ccf; stroke-width: .5px; }
+.gop-82 { fill: rgb(255,156,144); stroke: #ccf; stroke-width: .5px; }
+.gop-83 { fill: rgb(255,153,141); stroke: #ccf; stroke-width: .5px; }
+.gop-84 { fill: rgb(255,151,138); stroke: #ccf; stroke-width: .5px; }
+.gop-85 { fill: rgb(255,149,135); stroke: #ccf; stroke-width: .5px; }
+.gop-86 { fill: rgb(255,146,132); stroke: #ccf; stroke-width: .5px; }
+.gop-87 { fill: rgb(255,144,129); stroke: #ccf; stroke-width: .5px; }
+.gop-88 { fill: rgb(255,141,126); stroke: #ccf; stroke-width: .5px; }
+.gop-89 { fill: rgb(255,139,123); stroke: #ccf; stroke-width: .5px; }
+.gop-90 { fill: rgb(255,137,120); stroke: #ccf; stroke-width: .5px; }
+.gop-91 { fill: rgb(255,134,117); stroke: #ccf; stroke-width: .5px; }
+.gop-92 { fill: rgb(255,132,114); stroke: #ccf; stroke-width: .5px; }
+.gop-93 { fill: rgb(255,130,111); stroke: #ccf; stroke-width: .5px; }
+.gop-94 { fill: rgb(255,127,108); stroke: #ccf; stroke-width: .5px; }
+.gop-95 { fill: rgb(255,125,105); stroke: #ccf; stroke-width: .5px; }
+.gop-96 { fill: rgb(255,123,102); stroke: #ccf; stroke-width: .5px; }
+.gop-97 { fill: rgb(255,121,99); stroke: #ccf; stroke-width: .5px; }
+.gop-98 { fill: rgb(255,118,96); stroke: #ccf; stroke-width: .5px; }
+.gop-99 { fill: rgb(255,116,93); stroke: #ccf; stroke-width: .5px; }
+.gop-1 { fill: rgb(84,84,89); stroke: #ccf; stroke-width: .5px; }
+.gop-2 { fill: rgb(88,88,93); stroke: #ccf; stroke-width: .5px; }
+.gop-3 { fill: rgb(91,91,96); stroke: #ccf; stroke-width: .5px; }
+.gop-4 { fill: rgb(94,94,99); stroke: #ccf; stroke-width: .5px; }
+.gop-5 { fill: rgb(97,97,102); stroke: #ccf; stroke-width: .5px; }
+.gop-6 { fill: rgb(100,100,105); stroke: #ccf; stroke-width: .5px; }
+.gop-7 { fill: rgb(103,103,108); stroke: #ccf; stroke-width: .5px; }
+.gop-8 { fill: rgb(106,106,111); stroke: #ccf; stroke-width: .5px; }
+.gop-9 { fill: rgb(109,109,114); stroke: #ccf; stroke-width: .5px; }
+.gop-10 { fill: rgb(112,112,117); stroke: #ccf; stroke-width: .5px; }
+.gop-11 { fill: rgb(115,115,120); stroke: #ccf; stroke-width: .5px; }
+.gop-12 { fill: rgb(118,118,123); stroke: #ccf; stroke-width: .5px; }
+.gop-13 { fill: rgb(122,122,127); stroke: #ccf; stroke-width: .5px; }
+.gop-14 { fill: rgb(125,125,130); stroke: #ccf; stroke-width: .5px; }
+.gop-15 { fill: rgb(128,128,133); stroke: #ccf; stroke-width: .5px; }
+.gop-16 { fill: rgb(131,131,136); stroke: #ccf; stroke-width: .5px; }
+.gop-17 { fill: rgb(134,134,139); stroke: #ccf; stroke-width: .5px; }
+.gop-18 { fill: rgb(137,137,142); stroke: #ccf; stroke-width: .5px; }
+.gop-19 { fill: rgb(141,141,146); stroke: #ccf; stroke-width: .5px; }
+.gop-20 { fill: rgb(144,144,149); stroke: #ccf; stroke-width: .5px; }
+.gop-21 { fill: rgb(147,147,152); stroke: #ccf; stroke-width: .5px; }
+.gop-22 { fill: rgb(150,150,155); stroke: #ccf; stroke-width: .5px; }
+.gop-23 { fill: rgb(153,153,158); stroke: #ccf; stroke-width: .5px; }
+.gop-24 { fill: rgb(157,157,162); stroke: #ccf; stroke-width: .5px; }
+.gop-25 { fill: rgb(160,160,165); stroke: #ccf; stroke-width: .5px; }
+.gop-26 { fill: rgb(163,163,168); stroke: #ccf; stroke-width: .5px; }
+.gop-27 { fill: rgb(166,166,171); stroke: #ccf; stroke-width: .5px; }
+.gop-28 { fill: rgb(170,170,175); stroke: #ccf; stroke-width: .5px; }
+.gop-29 { fill: rgb(173,173,178); stroke: #ccf; stroke-width: .5px; }
+.gop-30 { fill: rgb(176,176,181); stroke: #ccf; stroke-width: .5px; }
+.gop-31 { fill: rgb(180,180,185); stroke: #ccf; stroke-width: .5px; }
+.gop-32 { fill: rgb(183,183,188); stroke: #ccf; stroke-width: .5px; }
+.gop-33 { fill: rgb(186,186,191); stroke: #ccf; stroke-width: .5px; }
+.gop-34 { fill: rgb(190,190,195); stroke: #ccf; stroke-width: .5px; }
+.gop-35 { fill: rgb(193,193,198); stroke: #ccf; stroke-width: .5px; }
+.gop-36 { fill: rgb(197,197,202); stroke: #ccf; stroke-width: .5px; }
+.gop-37 { fill: rgb(200,200,205); stroke: #ccf; stroke-width: .5px; }
+.gop-38 { fill: rgb(204,204,209); stroke: #ccf; stroke-width: .5px; }
+.gop-39 { fill: rgb(207,207,212); stroke: #ccf; stroke-width: .5px; }
+.gop-40 { fill: rgb(211,211,216); stroke: #ccf; stroke-width: .5px; }
+.gop-41 { fill: rgb(214,214,219); stroke: #ccf; stroke-width: .5px; }
+.gop-42 { fill: rgb(218,218,223); stroke: #ccf; stroke-width: .5px; }
+.gop-43 { fill: rgb(222,222,227); stroke: #ccf; stroke-width: .5px; }
+.gop-44 { fill: rgb(225,225,230); stroke: #ccf; stroke-width: .5px; }
+.gop-45 { fill: rgb(229,229,234); stroke: #ccf; stroke-width: .5px; }
+.gop-46 { fill: rgb(233,233,238); stroke: #ccf; stroke-width: .5px; }
+.gop-47 { fill: rgb(237,237,242); stroke: #ccf; stroke-width: .5px; }
+.gop-48 { fill: rgb(241,241,246); stroke: #ccf; stroke-width: .5px; }
+.gop-49 { fill: rgb(245,245,250); stroke: #ccf; stroke-width: .5px; }
+
+.dem-goal-0 { fill: rgb(255,255,255); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-1 { fill: rgb(251,252,255); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-2 { fill: rgb(247,250,255); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-3 { fill: rgb(244,247,254); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-4 { fill: rgb(240,244,254); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-5 { fill: rgb(237,241,253); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-6 { fill: rgb(234,239,253); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-7 { fill: rgb(231,236,253); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-8 { fill: rgb(228,233,252); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-9 { fill: rgb(225,231,252); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-10 { fill: rgb(222,228,252); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-11 { fill: rgb(219,226,251); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-12 { fill: rgb(216,223,251); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-13 { fill: rgb(214,220,250); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-14 { fill: rgb(211,218,250); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-15 { fill: rgb(208,215,250); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-16 { fill: rgb(205,213,249); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-17 { fill: rgb(203,210,249); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-18 { fill: rgb(200,207,249); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-19 { fill: rgb(197,205,248); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-20 { fill: rgb(195,202,248); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-21 { fill: rgb(192,200,248); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-22 { fill: rgb(189,197,247); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-23 { fill: rgb(187,195,247); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-24 { fill: rgb(184,192,247); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-25 { fill: rgb(181,190,246); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-26 { fill: rgb(179,187,246); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-27 { fill: rgb(176,185,246); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-28 { fill: rgb(174,182,245); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-29 { fill: rgb(171,179,245); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-30 { fill: rgb(169,177,245); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-31 { fill: rgb(166,174,245); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-32 { fill: rgb(164,172,244); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-33 { fill: rgb(161,169,244); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-34 { fill: rgb(159,167,244); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-35 { fill: rgb(156,164,243); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-36 { fill: rgb(154,162,243); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-37 { fill: rgb(151,159,243); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-38 { fill: rgb(149,157,242); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-39 { fill: rgb(146,154,242); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-40 { fill: rgb(144,152,242); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-41 { fill: rgb(142,149,241); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-42 { fill: rgb(139,147,241); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-43 { fill: rgb(137,145,241); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-44 { fill: rgb(134,142,240); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-45 { fill: rgb(132,140,240); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-46 { fill: rgb(130,137,240); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-47 { fill: rgb(127,135,240); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-48 { fill: rgb(125,132,239); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-49 { fill: rgb(123,130,239); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-50 { fill: rgb(120,127,239); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-51 { fill: rgb(118,125,238); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-52 { fill: rgb(115,122,238); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-53 { fill: rgb(113,120,238); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-54 { fill: rgb(111,117,237); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-55 { fill: rgb(108,115,237); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-56 { fill: rgb(106,112,237); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-57 { fill: rgb(104,110,236); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-58 { fill: rgb(102,108,236); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-59 { fill: rgb(99,105,236); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-60 { fill: rgb(97,103,236); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-61 { fill: rgb(95,100,235); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-62 { fill: rgb(92,98,235); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-63 { fill: rgb(90,95,235); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-64 { fill: rgb(88,93,234); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-65 { fill: rgb(86,90,234); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-66 { fill: rgb(83,88,234); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-67 { fill: rgb(81,86,233); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-68 { fill: rgb(79,83,233); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-69 { fill: rgb(76,81,233); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-70 { fill: rgb(74,78,233); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-71 { fill: rgb(72,76,232); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-72 { fill: rgb(70,73,232); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-73 { fill: rgb(67,71,232); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-74 { fill: rgb(65,69,231); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-75 { fill: rgb(63,66,231); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-76 { fill: rgb(61,64,231); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-77 { fill: rgb(59,61,231); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-78 { fill: rgb(56,59,230); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-79 { fill: rgb(54,57,230); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-80 { fill: rgb(52,54,230); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-81 { fill: rgb(50,52,229); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-82 { fill: rgb(47,49,229); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-83 { fill: rgb(45,47,229); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-84 { fill: rgb(43,44,229); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-85 { fill: rgb(41,42,228); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-86 { fill: rgb(39,40,228); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-87 { fill: rgb(36,37,228); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-88 { fill: rgb(34,35,227); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-89 { fill: rgb(32,32,227); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-90 { fill: rgb(30,30,227); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-91 { fill: rgb(28,28,227); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-92 { fill: rgb(26,25,226); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-93 { fill: rgb(23,23,226); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-94 { fill: rgb(21,20,226); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-95 { fill: rgb(19,18,225); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-96 { fill: rgb(17,16,225); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-97 { fill: rgb(15,13,225); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-98 { fill: rgb(13,11,225); stroke: #ccf; stroke-width: .5px; }
+.dem-goal-99 { fill: rgb(10,8,224); stroke: #ccf; stroke-width: .5px; }
+
+.gop-goal-0 { fill: rgb(255,255,255); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-1 { fill: rgb(255,252,251); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-2 { fill: rgb(255,250,247); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-3 { fill: rgb(255,247,244); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-4 { fill: rgb(255,244,240); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-5 { fill: rgb(255,241,237); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-6 { fill: rgb(255,239,234); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-7 { fill: rgb(255,236,231); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-8 { fill: rgb(255,233,228); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-9 { fill: rgb(255,231,225); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-10 { fill: rgb(255,228,222); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-11 { fill: rgb(255,226,219); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-12 { fill: rgb(255,223,216); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-13 { fill: rgb(255,220,214); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-14 { fill: rgb(255,218,211); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-15 { fill: rgb(255,215,208); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-16 { fill: rgb(255,213,205); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-17 { fill: rgb(255,210,203); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-18 { fill: rgb(255,207,200); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-19 { fill: rgb(255,205,197); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-20 { fill: rgb(255,202,195); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-21 { fill: rgb(255,200,192); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-22 { fill: rgb(255,197,189); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-23 { fill: rgb(255,195,187); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-24 { fill: rgb(255,192,184); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-25 { fill: rgb(255,190,181); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-26 { fill: rgb(255,187,179); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-27 { fill: rgb(255,185,176); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-28 { fill: rgb(255,182,174); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-29 { fill: rgb(255,179,171); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-30 { fill: rgb(255,177,169); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-31 { fill: rgb(255,174,166); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-32 { fill: rgb(255,172,164); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-33 { fill: rgb(255,169,161); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-34 { fill: rgb(255,167,159); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-35 { fill: rgb(255,164,156); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-36 { fill: rgb(255,162,154); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-37 { fill: rgb(255,159,151); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-38 { fill: rgb(255,157,149); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-39 { fill: rgb(255,154,146); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-40 { fill: rgb(255,152,144); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-41 { fill: rgb(255,149,142); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-42 { fill: rgb(255,147,139); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-43 { fill: rgb(255,145,137); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-44 { fill: rgb(255,142,134); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-45 { fill: rgb(255,140,132); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-46 { fill: rgb(255,137,130); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-47 { fill: rgb(255,135,127); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-48 { fill: rgb(255,132,125); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-49 { fill: rgb(255,130,123); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-50 { fill: rgb(255,127,120); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-51 { fill: rgb(255,125,118); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-52 { fill: rgb(255,122,115); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-53 { fill: rgb(255,120,113); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-54 { fill: rgb(255,117,111); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-55 { fill: rgb(255,115,108); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-56 { fill: rgb(255,112,106); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-57 { fill: rgb(255,110,104); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-58 { fill: rgb(255,108,102); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-59 { fill: rgb(255,105,99); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-60 { fill: rgb(255,103,97); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-61 { fill: rgb(255,100,95); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-62 { fill: rgb(255,98,92); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-63 { fill: rgb(255,95,90); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-64 { fill: rgb(255,93,88); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-65 { fill: rgb(255,90,86); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-66 { fill: rgb(255,88,83); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-67 { fill: rgb(255,86,81); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-68 { fill: rgb(255,83,79); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-69 { fill: rgb(255,81,76); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-70 { fill: rgb(255,78,74); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-71 { fill: rgb(255,76,72); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-72 { fill: rgb(255,73,70); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-73 { fill: rgb(255,71,67); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-74 { fill: rgb(255,69,65); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-75 { fill: rgb(255,66,63); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-76 { fill: rgb(255,64,61); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-77 { fill: rgb(255,61,59); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-78 { fill: rgb(255,59,56); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-79 { fill: rgb(255,57,54); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-80 { fill: rgb(255,54,52); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-81 { fill: rgb(255,52,50); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-82 { fill: rgb(255,49,47); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-83 { fill: rgb(255,47,45); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-84 { fill: rgb(255,44,43); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-85 { fill: rgb(255,42,41); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-86 { fill: rgb(255,40,39); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-87 { fill: rgb(255,37,36); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-88 { fill: rgb(255,35,34); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-89 { fill: rgb(255,32,32); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-90 { fill: rgb(255,30,30); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-91 { fill: rgb(255,28,28); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-92 { fill: rgb(255,25,26); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-93 { fill: rgb(255,23,23); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-94 { fill: rgb(255,20,21); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-95 { fill: rgb(255,18,19); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-96 { fill: rgb(255,16,17); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-97 { fill: rgb(255,13,15); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-98 { fill: rgb(255,11,13); stroke: #ccf; stroke-width: .5px; }
+.gop-goal-99 { fill: rgb(255,8,10); stroke: #ccf; stroke-width: .5px; }
+
+
+/* States: Dems won the state */
+.dem-95-state { fill: rgb(42,161,236); stroke: #000; stroke-width: .5px; }
+.dem-90-state { fill: rgb(79,169,238); stroke: #000; stroke-width: .5px; }
+.dem-85-state { fill: rgb(105,178,240); stroke: #000; stroke-width: .5px; }
+.dem-80-state { fill: rgb(125,185,242); stroke: #000; stroke-width: .5px; }
+.dem-75-state { fill: rgb(144,194,243); stroke: #000; stroke-width: .5px; }
+.dem-70-state { fill: rgb(162,203,245); stroke: #000; stroke-width: .5px; }
+.dem-65-state { fill: rgb(178,211,247); stroke: #000; stroke-width: .5px; }
+.dem-60-state { fill: rgb(194,220,249); stroke: #000; stroke-width: .5px; }
+.dem-55-state { fill: rgb(210,228,250); stroke: #000; stroke-width: .5px; }
+.dem-50-state { fill: rgb(226,237,252); stroke: #000; stroke-width: .5px; }
+
+/* States: GOP won the state */
+.dem-0-state { fill: rgb(254,106,89); stroke: #000; stroke-width: .5px; }
+.dem-5-state { fill: rgb(255,122,104); stroke: #000; stroke-width: .5px; }
+.dem-10-state { fill: rgb(255,139,120); stroke: #000; stroke-width: .5px; }
+.dem-15-state { fill: rgb(255,153,135); stroke: #000; stroke-width: .5px; }
+.dem-20-state { fill: rgb(255,167,150); stroke: #000; stroke-width: .5px; }
+.dem-25-state { fill: rgb(255,180,166); stroke: #000; stroke-width: .5px; }
+.dem-30-state { fill: rgb(255,194,181); stroke: #000; stroke-width: .5px; }
+.dem-35-state { fill: rgb(255,206,196); stroke: #000; stroke-width: .5px; }
+.dem-40-state { fill: rgb(255,219,210); stroke: #000; stroke-width: .5px; }
+.dem-45-state { fill: rgb(255,231,225); stroke: #000; stroke-width: .5px; }
+
+.sec-state.recruitMap { fill: red; stroke: #000; stroke-width: .05px; }
+.acc-state.recruitMap { fill: blue; stroke: #000; stroke-width: .05px; }
+.b1g-state.recruitMap { fill: orange; stroke: #000; stroke-width: .05px; }
+.bg2-state.recruitMap { fill: green; stroke: #000; stroke-width: .05px; }
+.pac-state.recruitMap { fill: pink; stroke: #000; stroke-width: .05px; }
+.amr-state.recruitMap { fill: yellow; stroke: #000; stroke-width: .05px; }
+.oth-state.recruitMap { fill: white; stroke: #000; stroke-width: .05px; }
+
+.sec-state.state { fill: red; stroke: #000; stroke-width: .25px; }
+.acc-state.state { fill: blue; stroke: #000; stroke-width: .25px; }
+.b1g-state.state { fill: orange; stroke: #000; stroke-width: .25px; }
+.bg2-state.state { fill: green; stroke: #000; stroke-width: .25px; }
+.pac-state.state { fill: pink; stroke: #000; stroke-width: .25px; }
+.amr-state.state { fill: white; stroke: #000; stroke-width: .25px; }
+.oth-state.state { fill: white; stroke: #000; stroke-width: .25px; }
+
+.opacity-9 {opacity: 1;}
+.opacity-8 {opacity: 1;}
+.opacity-7 {opacity: 1;}
+.opacity-6 {opacity: 1;}
+.opacity-5 {opacity: .95;}
+.opacity-4 {opacity: .9;}
+.opacity-3 {opacity: .85;}
+.opacity-2 {opacity: .7;}
+.opacity-1 {opacity: .55;}
+.opacity-0 {opacity: .4;}
+
+
+/* County selection: hover */
+.dem-95:hover, .dem-90:hover, .dem-85:hover, .dem-80:hover,
+.dem-75:hover, .dem-70:hover, .dem-65:hover, .dem-60:hover,
+.dem-55:hover, .dem-50:hover, .dem-45:hover, .dem-40:hover,
+.dem-35:hover, .dem-30:hover, .dem-25:hover, .dem-20:hover,
+.dem-15:hover, .dem-10:hover, .dem-5:hover, .dem-0:hover,
+.dem-less-than-50:hover, .dem-greater-than-50:hover {
+  fill: #0ff;
+}
+
+/* County selection: selected */
+.selection-color {
+  fill: #f0f;
+  stroke: #000;
+  stroke-width: .5px;
+}
+
+.state-boundary-filled {
+  fill: none;
+  stroke: #000;
+  stroke-width: .5px;
+}

@@ -1,0 +1,228 @@
+{{ define "main" }}
+<div id="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Rankings
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Actions
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="#">Action</a>
+                                        </li>
+                                        <li><a href="#">Another action</a>
+                                        </li>
+                                        <li><a href="#">Something else here</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            
+							<table id="recTable" class="table-responsive">
+								<thead>
+									<tr>
+									  <th>Rank</th>
+									  <th>School</th>
+									  <th>Conference</th>
+									  <th>Commits</th>
+									  <th>Rating</th>
+									</tr>
+								</thead>
+								<tbody>
+									{{ range $i,$team := .Params.teams }}
+
+										<tr id="{{ $team.id }}" class="recruitingTeam" onclick="showRecruits({{ $i }});">
+
+										  <td>{{ $team.rank }}</td>
+										  <td>{{ $team.school }}</td>
+										  <td>{{ $team.conference }}</td>
+										  <td>{{ $team.commits }}</td>
+										  <td>{{ $team.rating }}</td>
+									  
+										</tr>
+									{{ end }}
+								</tbody>
+		  
+							</table>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Something Else
+                            
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                    
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                    
+                </div>
+                <!-- /.col-lg-8 -->
+                <div class="col-lg-6">
+                	<div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> School Recruits
+                        </div>
+                        <div class="panel-body">
+                        			{{ range $i,$team := .Params.teams }}
+										<table id="team{{ $i }}Recruits" style="display: none;" class="table-responsive">
+											<tr>
+												<th>Name</th><th>Pos</th><th>Hometown</th><th>Top Offers</th>
+											</tr>
+											{{ range $idx,$recruit := $team.recruits }}
+												<tr>
+													<td><a href="{{ $recruit.link}}">{{ $recruit.name}}</a></td><td>{{ $recruit.position}}</td><td>{{ $recruit.hometown}}</td><td>{{ $recruit.offers}}</td>
+												</tr>
+											{{ end }}
+										</table>
+									{{ end }}
+									{{ range $state := slice "SC" "NC" }}
+										<table id="state{{ $state }}Recruits" style="display: none;" class="table-responsive">
+											<tr>
+												<th>Name</th><th>Pos</th><th>Hometown</th><th>School</th><th>Top Offers</th>
+											</tr>
+											{{ range $i,$team := $.Params.teams }}
+												{{ range $idx,$recruit := $team.recruits }}
+													{{ if eq $state (substr $recruit.hometown -1 2) }}
+													<tr>
+														<td><a href="{{ $recruit.link}}">{{ $recruit.name}}</a></td><td>{{ $recruit.position}}</td><td>{{ $recruit.hometown }}</td><td>{{ $team.school }}</td><td>{{ $recruit.offers}}</td>
+													</tr>
+													{{ end }}
+												{{ end }}
+											{{ end }}
+										</table>
+									{{ end }}
+							
+	
+							
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                	<div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-globe fa-fw"></i> Map
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                	<button type="button" class="btn btn-default btn-xs dropdown-toggle" onclick="showConference()">
+                                        Conference
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu" id="selectConference">
+                                        <li><a href="#" onclick="chooseConference('SEC')">SEC</a>
+                                        </li>
+                                        <li><a href="#" onclick="chooseConference('ACC')">ACC</a>
+                                        </li>
+                                        <li><a href="#" onclick="chooseConference('Big 10')">Big 10</a>
+                                        </li>
+                                        <li><a href="#" onclick="chooseConference('Big 12')">Big 12</a>
+                                        </li>
+                                        <li><a href="#" onclick="chooseConference('Pac 12')">Pac 12</a>
+                                        </li>
+                                        <li><a href="#" onclick="chooseConference('American')">American</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                	<button type="button" class="btn btn-default btn-xs dropdown-toggle" onclick="showPosition()">
+                                        Position
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu" id="selectPosition">
+                                    	{{ range $position := slice "QB" "RB" "OL" "WR" "TE" "DE" "DT" "LB" "DB" "ATH"}}
+                                        <li><a href="#" onclick="choosePosition('{{ $position }}')">{{ $position }}</a>
+                                        </li>
+                                        {{ end }}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                        	<div class="col-sm-12" id="recruits-main-div">
+							  <svg id='recruits-main-svg'></svg>
+							</div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-globe fa-fw"></i> States Maps
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                        	<div class="col-sm-12" id="states-main-div">
+							  <svg id='states-main-svg'></svg>
+							</div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                	<div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Custom Rankings
+                        </div>
+                        <div class="panel-body">
+							
+							<p>  <!-- (1) -->
+							  Custom Ranking URL:
+							  <input id="rankingUrl" value="https://raw.githubusercontent.com/triplelog/rudolph/master/bankroll.js" size="100">
+							  <button id="set">Set</button>
+							</p>
+	
+							
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                    
+                    
+                    
+                </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
+
+
+    </div>
+    <!-- /#wrapper -->
+    <script>
+    var recruitLocations = [];
+	{{ range $i,$team := .Params.teams }}
+		{{ range $idx,$recruit := $team.recruits }}
+			{{ if $recruit.location }}
+				recruitLocations.push([{{ $i }},{{ $idx }},{{ $recruit.location }},{{ $team.conference }},{{ $recruit.position }},{{ $recruit.hometown }}]);
+			{{ end }}
+		{{ end }}
+	{{ end }}
+	</script>
+
+
+{{ end }}

@@ -1,0 +1,330 @@
+{{ define "main" }}
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }}</title>
+<link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
+<meta name="description" content="{{ .Params.description }}"/>
+
+<style>
+:root {
+	--width-block: 10px;
+	--urban-multiplier: 0.0;
+	--suburban-multiplier: 0.0;
+	--rural-multiplier: 0.0;
+}
+@media screen and (min-width: 320px) and (min-height: 320px) {
+	:root {
+    	--width-block: 20px;
+    }
+}
+@media screen and (min-width: 480px) and (min-height: 480px) {
+	:root {
+    	--width-block: 30px;
+    }
+}
+@media screen and (min-width: 720px) and (min-height: 720px) {
+	:root {
+    	--width-block: 40px;
+    }
+}
+@media screen and (min-width: 1080px) and (min-height: 1080px) {
+	:root {
+    	--width-block: 50px;
+    }
+}
+
+
+
+
+{{ range $i := (seq 10) }}
+#secondChart:target ~ .chartcolumn{{ $i }} {
+	left: {{add 300 (mul 25 $i)}}px;
+}
+{{ end }}
+
+
+#urban10:checked ~ .urban {--urban-multiplier: 0.005;}
+#urban9:checked ~ .urban {--urban-multiplier: 0.003;}
+#urban8:checked ~ .urban {--urban-multiplier: 0.002;}
+#urban7:checked ~ .urban {--urban-multiplier: 0.001;}
+#urban6:checked ~ .urban {--urban-multiplier: 0.0005;}
+#urban5:checked ~ .urban {--urban-multiplier: 0.0;}
+#urban4:checked ~ .urban {--urban-multiplier: -0.0005;}
+#urban3:checked ~ .urban {--urban-multiplier: -0.001;}
+#urban2:checked ~ .urban {--urban-multiplier: -0.002;}
+#urban1:checked ~ .urban {--urban-multiplier: -0.003;}
+#urban0:checked ~ .urban {--urban-multiplier: -0.005;}
+
+#suburban10:checked ~ .urban {--suburban-multiplier: 0.005;}
+#suburban9:checked ~ .urban {--suburban-multiplier: 0.003;}
+#suburban8:checked ~ .urban {--suburban-multiplier: 0.002;}
+#suburban7:checked ~ .urban {--suburban-multiplier: 0.001;}
+#suburban6:checked ~ .urban {--suburban-multiplier: 0.0005;}
+#suburban5:checked ~ .urban {--suburban-multiplier: 0.0;}
+#suburban4:checked ~ .urban {--suburban-multiplier: -0.0005;}
+#suburban3:checked ~ .urban {--suburban-multiplier: -0.001;}
+#suburban2:checked ~ .urban {--suburban-multiplier: -0.002;}
+#suburban1:checked ~ .urban {--suburban-multiplier: -0.003;}
+#suburban0:checked ~ .urban {--suburban-multiplier: -0.005;}
+
+#rural10:checked ~ .urban {--rural-multiplier: 0.005;}
+#rural9:checked ~ .urban {--rural-multiplier: 0.003;}
+#rural8:checked ~ .urban {--rural-multiplier: 0.002;}
+#rural7:checked ~ .urban {--rural-multiplier: 0.001;}
+#rural6:checked ~ .urban {--rural-multiplier: 0.0005;}
+#rural5:checked ~ .urban {--rural-multiplier: 0.0;}
+#rural4:checked ~ .urban {--rural-multiplier: -0.0005;}
+#rural3:checked ~ .urban {--rural-multiplier: -0.001;}
+#rural2:checked ~ .urban {--rural-multiplier: -0.002;}
+#rural1:checked ~ .urban {--rural-multiplier: -0.003;}
+#rural0:checked ~ .urban {--rural-multiplier: -0.005;}		
+		
+		
+{{ range $state := .Params.states}}
+	{{ range $cd := $state.cds}}
+		svg #pathd{{ $cd.name }} {fill: blue;}
+		svg #pathr{{ $cd.name }} {fill: red;}
+		{{ $oldd := int (index $cd.results 2) }}
+		{{ $oldr := sub 100 $oldd}}
+		
+		{{ $urban := add (int (index $cd.height 8)) (int (index $cd.height 9))}}
+		{{ $suburban := add ((add (int (index $cd.height 6)) (int (index $cd.height 7))) (add (int (index $cd.height 3)) (int (index $cd.height 5)))) (int (index $cd.height 4))}}
+		{{ $rural := add (add (int (index $cd.height 0)) (int (index $cd.height 1))) (int (index $cd.height 2)) }}
+		svg #pathd{{ $cd.name }} {fill-opacity: calc(-1 * var(--rural-multiplier) * {{$rural}} + -1 * var(--suburban-multiplier) * {{$suburban}} + -1 * var(--urban-multiplier) * {{$urban}} + {{mul (sub ($oldd) ($oldr)) .01}});}
+		svg #pathr{{ $cd.name }} {fill-opacity: calc(1 * var(--rural-multiplier) * {{$rural}} + 1 * var(--suburban-multiplier) * {{$suburban}} + 1 * var(--urban-multiplier) * {{$urban}} + {{mul (sub ($oldr) ($oldd)) .01}});}
+		
+		.scoreboardds #spands{{ $cd.name }} {width: calc(-100px * var(--rural-multiplier) * {{$rural}} + -100px * var(--suburban-multiplier) * {{$suburban}} + -100px * var(--urban-multiplier) * {{$urban}} + {{mul (sub ($oldd) ($oldr)) 1.0}}px - 20px);}
+		.scoreboarddl #spandl{{ $cd.name }} {width: calc(-100px * var(--rural-multiplier) * {{$rural}} + -100px * var(--suburban-multiplier) * {{$suburban}} + -100px * var(--urban-multiplier) * {{$urban}} + {{mul (sub ($oldd) ($oldr)) 1.0}}px - 10px);}
+		.scoreboarddt #spandt{{ $cd.name }} {width: calc(-100px * var(--rural-multiplier) * {{$rural}} + -100px * var(--suburban-multiplier) * {{$suburban}} + -100px * var(--urban-multiplier) * {{$urban}} + {{mul (sub ($oldd) ($oldr)) 1.0}}px);}
+		.scoreboardrt #spanrt{{ $cd.name }} {width: calc(-100px * var(--rural-multiplier) * {{$rural}} + -100px * var(--suburban-multiplier) * {{$suburban}} + -100px * var(--urban-multiplier) * {{$urban}} + {{mul (sub ($oldd) ($oldr)) 1.0}}px + 10px);}
+		.scoreboardrl #spanrl{{ $cd.name }} {width: calc(-100px * var(--rural-multiplier) * {{$rural}} + -100px * var(--suburban-multiplier) * {{$suburban}} + -100px * var(--urban-multiplier) * {{$urban}} + {{mul (sub ($oldd) ($oldr)) 1.0}}px + 20px);}
+		.scoreboardrs #spanrs{{ $cd.name }} {width: 1px;}
+
+		.scoreboardpv #spandpv{{ $cd.name }} {flex-grow: calc(-100 * var(--rural-multiplier) * {{$rural}} + -100 * var(--suburban-multiplier) * {{$suburban}} + -100 * var(--urban-multiplier) * {{$urban}} + {{mul (sub ($oldd) ($oldr)) 1.0}} + 100);}
+		.scoreboardpv #spanrpv{{ $cd.name }} {flex-grow: calc(100 * var(--rural-multiplier) * {{$rural}} + 100 * var(--suburban-multiplier) * {{$suburban}} + 100 * var(--urban-multiplier) * {{$urban}} + {{mul (sub ($oldr) ($oldd)) 1}} + 100);}
+		
+	{{ end }}
+{{ end }}
+
+
+.scoreboardmid, .scoreboardds, .scoreboarddl, .scoreboarddt, .scoreboardrt, .scoreboardrl, .scoreboardrs, .scoreboardpv {
+	position: absolute;
+	top: 70px;
+	left: 0px;
+	margin: 0px;
+	padding: 0px;
+	display: block;
+	background-color: rgba(255,255,255,0);
+	width: 500px;
+}
+.scoreboardmid {z-index: 7;}
+.scoreboardds {z-index: 6;}
+.scoreboarddl {z-index: 5;}
+.scoreboarddt {z-index: 4;}
+.scoreboardrt {z-index: 3;}
+.scoreboardrl {z-index: 2;}
+.scoreboardrs {z-index: 1; width: 500px;}
+.scoreboardpv {
+	width: 435px;
+	display: flex;
+	top: 90px;
+	flex-flow: row;
+}
+.spands, .spandl, .spandt, .spanrt, .spanrl, .spanrs {
+	background-color: blue;
+	max-width: 1px;
+	height: 10px;
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+}
+.spands {opacity: 1.0; background-color: blue;}
+.spandl {opacity: 1.0; background-color: rgb(125,125,255);}
+.spandt {opacity: 1.0; background-color: rgb(175,175,255);}
+.spanrt {opacity: 1.0; background-color: rgb(255,175,175);}
+.spanrl {opacity: 1.0; background-color: rgb(255,125,125);}
+.spanrs {opacity: 1.0; background-color: red;}
+
+.spandpv {opacity: 1.0; background-color: blue;
+
+	height: 10px;
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+}
+.spanrpv {opacity: 1.0; background-color: red;
+
+	height: 10px;
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+}
+
+.spanleft {
+	background-color: rgba(0,0,0,0);
+	opacity: 0;
+	width: 216px;
+	height: 10px;
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+}
+.spanmid {
+	background-color: black;
+	opacity: 1;
+	width: 3px;
+	height: 10px;
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+}
+.stateSVG, .cdSVG {
+	stroke:black;
+	stroke-opacity:1;
+	stroke-width:3.07087;
+	position: absolute;
+	left: 0px;
+	top: 50px;
+	
+}
+
+.secondSVG {
+	background-color: rgba(0,0,0,0);
+}
+.secondSVG {
+	position: absolute;
+	left: 0px;
+	top: 50px;
+}
+.coverSVG {
+	position: absolute;
+	left: 0px;
+	top: calc(50px + (20.9973vw * 3.333 * .1) );
+	background-color: rgba(255,255,255,1);
+	width:calc(29.6926vw * 3.333);
+	height:calc(20.9973vw * 3.333 * .9);
+}
+.stateSVG, .cdSVG, .secondSVG {
+	width:calc(29.6926vw * 3.333);
+	height:calc(20.9973vw * 3.333);
+}
+.secondSVG path{
+	fill-opacity: 0;
+}
+
+.stateSVG path, .cdSVG path {
+	transform:matrix(0.999751,0,0,0.999751,28.5867,-111.205);
+}
+
+
+.textG {
+	fill:black;
+	fill-opacity:1;
+}
+
+g, svg, label {
+	pointer-events: none;
+}
+svg.cdSVG path{
+	pointer-events: fill;
+}
+</style>
+</head>
+<body>
+		
+		<div class="cdDiv" style="height: 275px; position: absolute; left: 0px;">
+			<div id="secondChart" style="height: 10px;"></div>
+			<input type="radio" id="urban0" name="urban"></input>
+			<input type="radio" id="urban1" name="urban"></input>
+			<input type="radio" id="urban2" name="urban"></input>
+			<input type="radio" id="urban3" name="urban"></input>
+			<input type="radio" id="urban4" name="urban"></input>
+			<input type="radio" id="urban5" name="urban" checked></input>
+			<input type="radio" id="urban6" name="urban"></input>
+			<input type="radio" id="urban7" name="urban"></input>
+			<input type="radio" id="urban8" name="urban"></input>
+			<input type="radio" id="urban9" name="urban"></input>
+			<input type="radio" id="urban10" name="urban"></input>
+			<br />
+			<input type="radio" id="suburban0" name="suburban"></input>
+			<input type="radio" id="suburban1" name="suburban"></input>
+			<input type="radio" id="suburban2" name="suburban"></input>
+			<input type="radio" id="suburban3" name="suburban"></input>
+			<input type="radio" id="suburban4" name="suburban"></input>
+			<input type="radio" id="suburban5" name="suburban" checked></input>
+			<input type="radio" id="suburban6" name="suburban"></input>
+			<input type="radio" id="suburban7" name="suburban"></input>
+			<input type="radio" id="suburban8" name="suburban"></input>
+			<input type="radio" id="suburban9" name="suburban"></input>
+			<input type="radio" id="suburban10" name="suburban"></input>
+
+			<input type="radio" id="rural0" name="rural"></input>
+			<input type="radio" id="rural1" name="rural"></input>
+			<input type="radio" id="rural2" name="rural"></input>
+			<input type="radio" id="rural3" name="rural"></input>
+			<input type="radio" id="rural4" name="rural"></input>
+			<input type="radio" id="rural5" name="rural" checked></input>
+			<input type="radio" id="rural6" name="rural"></input>
+			<input type="radio" id="rural7" name="rural"></input>
+			<input type="radio" id="rural8" name="rural"></input>
+			<input type="radio" id="rural9" name="rural"></input>
+			<input type="radio" id="rural10" name="rural"></input>
+			<br />
+			<input type="checkbox" id="weStates"></input>
+			<input type="checkbox" id="mwStates"></input>
+			<input type="checkbox" id="soStates"></input>
+			
+				
+			<div class="coverSVG"></div>
+			
+			<div class="cdSVG urban">
+				<svg  viewBox="0 0 3507 2480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  version="1.2" baseProfile="tiny">
+					
+				{{ range $state := .Params.states}}
+					{{ range $cd := $state.cds}}
+					
+						{{ if eq $cd.name "1501" }}<path id="pathd{{ $cd.name }}" vector-effect="none" fill-rule="evenodd" d="{{ index $cd.map 0}}"/><path id="pathd{{ $cd.name }}" vector-effect="none" fill-rule="evenodd" d="{{ index $cd.map 1}}"/>{{ else }}<path id="pathd{{ $cd.name }}" d="{{ $cd.map }}"/>{{ end }}
+					
+					{{ end }}
+				{{ end }}
+				</svg>
+			</div>
+			
+			<div class="stateSVG urban">
+				<svg viewBox="0 0 3507 2480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  version="1.2" baseProfile="tiny">
+				{{ range $state := .Params.states}}
+					{{ range $cd := $state.cds}}
+						{{ if eq $cd.name "1501" }}<path id="pathr{{ $cd.name }}" vector-effect="none" fill-rule="evenodd" d="{{ index $cd.map 0}}"/><path id="pathr{{ $cd.name }}" vector-effect="none" fill-rule="evenodd" d="{{ index $cd.map 1}}"/>{{ else }}<path id="pathr{{ $cd.name }}" d="{{ $cd.map }}"/>{{ end }}
+				
+					{{ end }}
+				{{ end }}
+				</svg>
+			</div>
+			
+			{{ range $id := slice "ds" "dl" "dt" "rt" "rl" "rs"}}
+				<div class="scoreboard{{ $id }} urban">
+					{{ range $state := $.Params.states}}{{ range $cd := $state.cds}}<span id="span{{ $id }}{{ $cd.name }}" class="span{{ $id }}"></span>{{ end }}{{ end }}
+				</div>
+			{{ end }}
+			
+			<div class="scoreboardmid">
+				<span class="spanleft"></span><span class="spanmid"></span>
+			</div>
+			<div class="scoreboardpv urban">
+				{{ range $state := .Params.states}}{{ range $cd := $state.cds}}<span id="spandpv{{ $cd.name }}" class="spandpv"></span>{{ end }}{{ end }}{{ range $state := .Params.states}}{{ range $cd := $state.cds}}<span id="spanrpv{{ $cd.name }}" class="spanrpv"></span>{{ end }}{{ end }}
+			
+			</div>
+
+
+			{{ partial "secondsvg.html" . }}
+
+
+		</div>
+		
+		
+		
+
+</body>
+{{ end }}

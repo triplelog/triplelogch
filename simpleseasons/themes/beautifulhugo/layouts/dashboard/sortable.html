@@ -1,0 +1,94 @@
+{{ define "main" }}
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }}</title>
+<link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
+<meta name="description" content="{{ .Params.description }}"/>
+
+<style>
+
+.sortable-4cols {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 3em 0;
+  padding: 0;
+}
+
+.sortable-4cols > .sortable-col1, .sortable-4cols > .sortable-col2, .sortable-4cols > .sortable-col3, .sortable-4cols > .sortable-col4 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;  // Default to full width
+  padding: 0.8em 1.2em;
+  overflow: hidden; // Or flex might break
+  list-style: none;
+  border: solid 2em black;
+  background: fade(slategrey,20%);
+}
+
+.sortable-4cols > .sortable-col1  { width: 25%; }
+.sortable-4cols > .sortable-col2  { width: 25%; }
+.sortable-4cols > .sortable-col3  { width: 25%; }
+.sortable-4cols > .sortable-col4  { width: 25%; }
+
+.sortable-row1  { order: 1; }
+.sortable-row2  { order: 3; }
+.sortable-row3  { order: 2; }
+
+#sort-col1:checked ~ .sortable-row1 { order: 1; }
+#sort-col1:checked ~ .sortable-row2 { order: 3; }
+#sort-col1:checked ~ .sortable-row3 { order: 2; }
+
+#sort-col2:checked ~ .sortable-row1 { order: 1; }
+#sort-col2:checked ~ .sortable-row2 { order: 3; }
+#sort-col2:checked ~ .sortable-row3 { order: 2; }
+
+#sort-col3:checked ~ .sortable-row1 { order: 3; }
+#sort-col3:checked ~ .sortable-row2 { order: 2; }
+#sort-col3:checked ~ .sortable-row3 { order: 1; }
+
+#sort-col4:checked ~ .sortable-row1 { order: 2; }
+#sort-col4:checked ~ .sortable-row2 { order: 1; }
+#sort-col4:checked ~ .sortable-row3 { order: 3; }
+
+#sort-col1, #sort-col2, #sort-col3, #sort-col4 { display: none; }
+
+.sortable-4cols > .sortable-sorter  { order: 0; }
+</style>
+
+</head>
+<body>
+
+	<h2>Sortable Table</h2>
+	<div class="sortable-4cols">
+		<input type="radio" name="sorter" id="sort-col1"></input>
+		<input type="radio" name="sorter" id="sort-col2"></input>
+		<input type="radio" name="sorter" id="sort-col3"></input>
+		<input type="radio" name="sorter" id="sort-col4"></input>
+	  <label class="sortable-col1 sortable-sorter" for="sort-col1">Sort col1</label>
+	  <label class="sortable-col2 sortable-sorter" for="sort-col2">Sort col2</label>
+	  <label class="sortable-col3 sortable-sorter" for="sort-col3">Sort col3</label>
+	  <label class="sortable-col4 sortable-sorter" for="sort-col4">Sort col4</label>
+	  
+	  <div class="sortable-col1 sortable-row1"><h3>Aaron</h3></div>
+	  <div class="sortable-col2 sortable-row1">Aaron has a sword named Ice</div>
+	  <div class="sortable-col3 sortable-row1">C No direwolf</div>
+	  <div class="sortable-col4 sortable-row1"><strong>B Lord of Winterfell</strong></div>
+
+	  <div class="sortable-col1 sortable-row2"><h3>Charlie</h3></div>
+	  <div class="sortable-col2 sortable-row2">Charlie has a sword named Ice</div>
+	  <div class="sortable-col3 sortable-row2">B No direwolf</div>
+	  <div class="sortable-col4 sortable-row2"><strong>A Lord of Winterfell</strong></div>
+	  
+	  <div class="sortable-col1 sortable-row3"><h3>Bob</h3></div>
+	  <div class="sortable-col2 sortable-row3">Bob has a sword named Ice</div>
+	  <div class="sortable-col3 sortable-row3">A No direwolf</div>
+	  <div class="sortable-col4 sortable-row3"><strong>C Lord of Winterfell</strong></div>
+
+	</div>
+		
+		
+
+</body>
+{{ end }}

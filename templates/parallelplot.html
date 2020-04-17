@@ -1,0 +1,77 @@
+{{ define "main" }}
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }}</title>
+<link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
+<meta name="description" content="{{ .Params.description }}"/>
+
+<style>
+:root {
+	--width-block: 10px;
+	--urban-multiplier: 0.0;
+	--suburban-multiplier: 0.0;
+	--rural-multiplier: 0.0;
+}
+@media screen and (min-width: 320px) and (min-height: 320px) {
+	:root {
+    	--width-block: 20px;
+    }
+}
+@media screen and (min-width: 480px) and (min-height: 480px) {
+	:root {
+    	--width-block: 30px;
+    }
+}
+@media screen and (min-width: 720px) and (min-height: 720px) {
+	:root {
+    	--width-block: 40px;
+    }
+}
+@media screen and (min-width: 1080px) and (min-height: 1080px) {
+	:root {
+    	--width-block: 50px;
+    }
+}
+{{ range $state := .Params.states}}
+	.state{{ $state.abbrev }}:hover {
+		stroke:rgb(0,0,0);
+	}
+	.state{{ $state.abbrev }} {
+		pointer-events: all;
+		stroke:rgb({{ $state.color }});
+		stroke-width:1;
+	}
+{{ end }}
+</style>
+</head>
+<body>
+		
+		<div class="cdDiv" style="position: absolute; left: 0px; background-color: white; border: 1px solid black; width: 400px; height: 400px;">
+			
+			<svg style="pointer-events: none;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  version="1.2" baseProfile="tiny">
+				<line x1="0" y1="50" x2="100" y2="50" style="stroke:rgb(0,0,0);stroke-width:.5" />
+				<line x1="0" y1="30" x2="100" y2="30" style="stroke:rgb(0,0,0);stroke-width:.5" />
+				<line x1="0" y1="70" x2="100" y2="70" style="stroke:rgb(0,0,0);stroke-width:.5" />
+				
+			{{ range $state := .Params.states}}
+				{{ range $i := (seq 4) }}
+					<!--<line class="state{{ $state.abbrev }}" x1="{{add -10 (mul $i 20)}}" y1="{{add (index $state.results (sub $i 1)) 0}}" x2="{{add 10 (mul $i 20)}}" y2="{{add (index $state.results (sub $i 0)) 0}}" />-->
+				{{ end }}
+				{{ range $i := (seq 2) }}
+					<line class="state{{ $state.abbrev }}" x1="{{add -30 (mul $i 40)}}" y1="{{add (index $state.results (mul (sub $i 1) 2)) 0}}" x2="{{add 10 (mul $i 40)}}" y2="{{add (index $state.results (mul (sub $i 0) 2)) 0}}" />
+				{{ end }}
+				<text x="90" y="{{add (index $state.results (mul (sub 2 0) 2)) 0}}" style="font: italic 3px sans-serif;">{{ $state.abbrev }}</text>
+			{{ end }}
+			</svg>
+			
+
+
+		</div>
+		
+		
+		
+
+</body>
+{{ end }}

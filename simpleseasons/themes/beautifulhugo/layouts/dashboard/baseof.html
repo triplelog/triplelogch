@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{{ if not .Params.gameid }}
+	<html lang="{{ .Lang }}" itemscope itemtype="http://schema.org/WebPage">
+	  <head>
+		{{ partial "head.html" . }}
+	  </head>
+	  <body>
+		{{ block "main" . }}{{ end }}
+		{{ partial "footer.html" . }}
+	  </body>
+	</html>
+{{ else }}
+	{{ block "main" . }}{{ end }}
+	</html>
+{{ end }}
+
+
+
+

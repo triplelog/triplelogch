@@ -1,0 +1,140 @@
+{{ define "main" }}
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }}</title>
+<link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
+<meta name="description" content="{{ .Params.description }}"/>
+
+<style>
+:root {
+	--width-block: 10px;
+    --shift-cover-puzzle: calc(-40px - var(--width-block)*9); 
+    --left-margin: 0px;
+    --color-bg1: rgba(180,180,180,.75);
+    --color-text1: black;
+    --sudoku-top: 200px;
+    --sudoku-left: 200px;
+    counter-reset: old1 0;
+	--cd-boxes-0000: 0px;
+}
+@media screen and (min-width: 320px) and (min-height: 320px) {
+	:root {
+    	--width-block: 20px;
+    }
+}
+@media screen and (min-width: 480px) and (min-height: 480px) {
+	:root {
+    	--width-block: 30px;
+    }
+}
+@media screen and (min-width: 720px) and (min-height: 720px) {
+	:root {
+    	--width-block: 40px;
+    }
+}
+@media screen and (min-width: 1080px) and (min-height: 1080px) {
+	:root {
+    	--width-block: 50px;
+    }
+}
+
+
+
+{{ range $i := (seq 101) }}
+.h{{ sub $i 1}} {flex-grow: {{ sub $i 1}};}
+{{ end }}
+
+
+
+.cp {
+	width: 20px;
+	background-color: red;
+	display: none;
+}
+.cpI {
+	width: 20px;
+	background-color: white;
+	display: none;
+}
+
+
+#repbox:checked ~ div .rep{ display: block;}
+#dembox:checked ~ div .dem{ display: block;}
+{{ range $state := .Params.states}}
+#sbox{{ $state.state }}:checked ~ div .s{{ $state.state }}{ display: block;}
+
+
+	{{ range $cd := $state.cds}}
+	#cbox{{ $cd.name}}:checked ~ div .n{{ $cd.name}}{ display: block;}
+	{{ end }}
+
+	{{ range $cd := $state.cds}}
+		#abox{{ $cd.name}} { display: none;}
+		#sbox{{ $state.state }}:checked ~ #abox{{ $cd.name}}{ display: inline-block;}
+		#sbox{{ $state.state }}:checked ~ #abox{{ $cd.name}}:Not(:checked) ~ div .n{{ $cd.name}}{ display: none;}
+		#sbox{{ $state.state }}:checked ~ #cbox{{ $cd.name}}{ display: none;}
+
+		{{ if ge (index $cd.results 2) 51}}
+		#dbox{{ $cd.name}} { display: none;}
+		#dembox:checked ~ #dbox{{ $cd.name}}{ display: inline-block;}
+		#dembox:checked ~ #dbox{{ $cd.name}}:Not(:checked) ~ div .n{{ $cd.name}}{ display: none;}
+		#dembox:checked ~ #cbox{{ $cd.name}}{ display: none;}
+		#dembox:checked ~ #abox{{ $cd.name}}{ display: none;}
+		{{ else }}
+		#rbox{{ $cd.name}} { display: none;}
+		#repbox:checked ~ #rbox{{ $cd.name}}{ display: inline-block;}
+		#repbox:checked ~ #rbox{{ $cd.name}}:Not(:checked) ~ div .n{{ $cd.name}}{ display: none;}
+		#repbox:checked ~ #cbox{{ $cd.name}}{ display: none;}
+		#repbox:checked ~ #abox{{ $cd.name}}{ display: none;}
+		{{ end }}
+
+	{{ end }}
+{{ end }}
+
+
+
+{{ range $i := (seq 10) }}
+.chartcolumn{{ $i }} {
+	position: absolute;
+	bottom: 0px;
+	left: {{add 20 (mul 25 $i)}}px;
+	display: flex;
+	justify-content: space-around;
+	flex-flow: column;
+	align-items: stretch;
+	height: 200px;
+	width: 20px;
+}
+{{ end }}
+
+
+
+</style>
+</head>
+<body>
+
+		<div class="mainDiv" style="height: 400px; position: relative; left: 50px;">
+			States:
+			{{ range $state := .Params.states}}<input type="checkbox" id="sbox{{ $state.state }}"></input>{{ end }}
+			<br />
+			D/R:
+			<input type="checkbox" id="dembox"></input><input type="checkbox" id="repbox"></input>
+			<br />
+			{{ range $state := .Params.states}}{{ range $cd := $state.cds}}<input type="checkbox" id="cbox{{ $cd.name }}"></input>{{ end }}{{ range $cd := $state.cds}}<input type="checkbox" id="abox{{ $cd.name }}" checked></input>{{ end }}{{ range $cd := $state.cds}}{{ if ge (index $cd.results 2) 51}}<input type="checkbox" id="dbox{{ $cd.name }}" checked></input>{{ else }}<input type="checkbox" id="rbox{{ $cd.name }}" checked></input>{{ end }}{{ end }}{{ end }}
+			
+			<div>
+			
+				{{ range $i := (seq 10) }}<div class="chartcolumn{{ $i }}">{{ range $state := $.Params.states}}{{ range $cd := $state.cds}}{{ if ge (index $cd.results 2) 51}}<span class="cpI h{{sub 100 (index $cd.height (sub $i 1))}} n{{ $cd.name }} s{{ $state.state}} dem"></span>{{ else }}<span class="cpI h{{sub 100 (index $cd.height (sub $i 1))}} n{{ $cd.name }} s{{ $state.state}} rep"></span>{{ end }}{{ end }}{{ end }}{{ range $state := $.Params.states}}{{ range $cd := $state.cds}}{{ if ge (index $cd.results 2) 51}}<span class="cp h{{add 0 (index $cd.height (sub $i 1))}} n{{ $cd.name }} s{{ $state.state}} dem"></span>{{ else }}<span class="cp h{{add 0 (index $cd.height (sub $i 1))}} n{{ $cd.name }} s{{ $state.state}} rep"></span>{{ end }}{{ end }}{{ end }}</div>
+				{{ end }}
+				
+			
+			</div>
+			
+			
+		</div>
+                        
+
+</body>
+{{ end }}

@@ -1,0 +1,215 @@
+{{ define "main" }}
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }}</title>
+<link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
+<meta name="description" content="{{ .Params.description }}"/>
+<link rel="stylesheet" href="/css/sudokucss.css">
+<style>
+
+input {
+	padding: 0px;
+	margin: 0px;
+	display: inline-block;
+}
+.col1 {border-right: 1px solid black; border-left: 8px solid black;}
+.col2 {border-right: 1px solid black; border-left: 1px solid black;}
+.col3 {border-right: 3px solid black; border-left: 1px solid black;}
+.col4 {border-right: 1px solid black; border-left: 3px solid black;}
+.col5 {border-right: 1px solid black; border-left: 1px solid black;}
+.col6 {border-right: 3px solid black; border-left: 1px solid black;}
+.col7 {border-right: 1px solid black; border-left: 3px solid black;}
+.col8 {border-right: 1px solid black; border-left: 1px solid black;}
+.col9 {border-right: 8px solid black; border-left: 1px solid black;}
+
+.row1 {border-top: 8px solid black;border-bottom: 1px solid black;}
+.row2 {border-top: 1px solid black;border-bottom: 1px solid black;}
+.row3 {border-top: 1px solid black;border-bottom: 3px solid black;}
+.row4 {border-top: 3px solid black;border-bottom: 1px solid black;}
+.row5 {border-top: 1px solid black;border-bottom: 1px solid black;}
+.row6 {border-top: 1px solid black;border-bottom: 3px solid black;}
+.row7 {border-top: 3px solid black;border-bottom: 1px solid black;}
+.row8 {border-top: 1px solid black;border-bottom: 1px solid black;}
+.row9 {border-top: 1px solid black;border-bottom: 8px solid black;}
+
+{{ range $i := .Params.num19 }}
+	.cmark{{ $i.idx }} {
+		border: 1px solid;
+		position: absolute;
+		top: 20px;
+		left: {{add (mul $i.idx 24) 79}}px;
+		width: 20px;
+		height:20px;
+		text-align: center;
+		line-height: 20px;
+		font-size: 20px;
+	}
+
+	.radioB:checked + .cmark{{ $i.idx }}{
+		border: 1px solid blue;
+		background: rgba(0,0,255,.25);
+	}
+	.sudoku{{ $i.idx }}{
+		position: absolute;
+		top: 100px;
+		left: 100px;
+	}
+	.sudoku{{ $i.idx }} .check{{ $i.idx }}{
+		position: relative;
+		z-index: -1;
+	}
+	.check{{ $i.idx }} {
+		background: white;
+		display: inline-block;
+		text-align: center;
+		width: 20px;
+		height: 20px;
+		line-height: 20px;
+		font-size: 20px;
+		color: white;
+		padding: 0px;
+		margin: 0px;
+		position: relative;
+	}
+	.sudoku{{ $i.idx }} .gcheck{{ $i.idx }}{
+		position: relative;
+		top: -220px;
+		z-index: -1;
+	}
+	.gcheck{{ $i.idx }} {
+		background: white;
+		display: inline-block;
+		text-align: center;
+		width: 20px;
+		height: 20px;
+		line-height: 20px;
+		font-size: 20px;
+		color: white;
+		padding: 0px;
+		margin: 0px;
+		position: relative;
+	}
+	.blackout{{ $i.idx }} {
+		border: 1px solid;
+		position: absolute;
+		width: 20px;
+		height:20px;
+		background: gray;
+		top: -80px;
+		left: {{sub (mul $i.idx 24) 21 }}px;
+		display: none;
+		text-align: center;
+		line-height: 20px;
+		font-size: 20px;
+	}
+	{{ range $rowI := $i.arr1 }}.row{{ $rowI }}{{ $i.idx }}:checked ~ {{ end }}.blackout{{ $i.idx }} {
+		display: inline-block;
+	}
+	{{ range $rowI := $i.arr1 }}.row{{ $rowI }}{{ $i.idx }}:checked ~ {{ end }}.winner {
+		z-index: -1 !important;
+	}
+	{{ range $rowI := $i.arr1 }}
+		.row{{ $rowI }}{{ $i.idx }}:checked + .check{{ $i.idx }} {
+			color: black;
+			position: relative;
+			z-index: 200;
+		}
+		.row{{ $rowI }}{{ $i.idx }}:checked ~ .row{{ $rowI }}{{ $i.idx }} + .check{{ $i.idx }} {
+			color: white;
+			position: relative;
+			z-index: -1;
+		}
+
+	{{ end }}
+	{{ range $colI := $i.arr2 }}
+		.col{{ $colI }}{{ $i.idx }}:checked + .check{{ $i.idx }} {
+			color: black;
+			position: relative;
+			z-index: 200;
+		}
+		.col{{ $colI }}{{ $i.idx }}:checked ~ .col{{ $colI }}{{ $i.idx }} + .check{{ $i.idx }} {
+			color: white;
+			position: relative;
+			z-index: -1;
+		}
+	{{ end }}
+	{{ range $boxI := $i.arr2 }}
+		.box{{ $boxI }}{{ $i.idx }}:checked + .check{{ $i.idx }} {
+			color: black;
+			position: relative;
+			z-index: 200;
+		}
+		.box{{ $boxI }}{{ $i.idx }}:checked ~ .box{{ $boxI }}{{ $i.idx }} + .check{{ $i.idx }} {
+			color: white;
+			position: relative;
+			z-index: -1;
+		}
+	{{ end }}
+	{{ range $rowI := $i.arr1 }}
+		{{ range $colI := $i.arr2 }}
+			.row{{ $rowI }}{{ $i.idx }}.col{{ $colI }}{{ $i.idx }}:hover:Not(:checked) ~ .grow{{ $rowI }}{{ $i.idx }}:Not(.gcol{{ $colI }}{{ $i.idx }}) + .gcheck{{ $i.idx }} {background: rgba(200,0,0,.4);color: rgba(200,0,0,0);z-index: 150;}
+			.row{{ $rowI }}{{ $i.idx }}.col{{ $colI }}{{ $i.idx }}:hover:Not(:checked) + .check{{ $i.idx }} {background: rgba(180,180,180,.75);color: rgba(80,80,80,1);z-index: 160;}
+			.row{{ $rowI }}{{ $i.idx }}.col{{ $colI }}{{ $i.idx }}:hover:checked + .check{{ $i.idx }} {background: rgba(180,180,180,.75);color: rgba(80,80,80,0);z-index: 160;}
+			.radioB:checked + .cmark{{ $i.idx }} + .sudoku{{ $i.idx }} .row{{ $rowI }}{{ $i.idx }}.col{{ $colI }}{{ $i.idx }}:checked ~ .grow{{ $rowI }}{{ $i.idx }}:Not(.gcol{{ $colI }}{{ $i.idx }}) + .gcheck{{ $i.idx }} {z-index: 150;}
+			.row{{ $rowI }}{{ $i.idx }}.col{{ $colI }}{{ $i.idx }}:hover:Not(:checked) ~ .gcol{{ $colI }}{{ $i.idx }}:Not(.grow{{ $rowI }}{{ $i.idx }}) + .gcheck{{ $i.idx }} {background: rgba(0,0,200,.4);color: rgba(0,0,200,0);z-index: 150;}
+			.radioB:checked + .cmark{{ $i.idx }} + .sudoku{{ $i.idx }} .row{{ $rowI }}{{ $i.idx }}.col{{ $colI }}{{ $i.idx }}:checked ~ .gcol{{ $colI }}{{ $i.idx }}:Not(.grow{{ $rowI }}{{ $i.idx }}) + .gcheck{{ $i.idx }} {z-index: 150;}
+			.row{{ $rowI }}{{ $i.idx }}.col{{ $colI }}{{ $i.idx }}:hover:Not(:checked) ~ .gbox{{add (add (div (sub $colI 1) 3) (mul 3 (div (sub $rowI 1) 3))) 1}}{{ $i.idx }}:Not(.grow{{ $rowI }}{{ $i.idx }}):Not(.gcol{{ $colI }}{{ $i.idx }}) + .gcheck{{ $i.idx }} {background: rgba(0,200,0,.4);color: rgba(0,200,0,0);z-index: 150;}
+			.radioB:checked + .cmark{{ $i.idx }} + .sudoku{{ $i.idx }} .row{{ $rowI }}{{ $i.idx }}.col{{ $colI }}{{ $i.idx }}:checked ~ .gbox{{add (add (div (sub $colI 1) 3) (mul 3 (div (sub $rowI 1) 3))) 1}}{{ $i.idx }}:Not(.grow{{ $rowI }}{{ $i.idx }}) + .gcheck{{ $i.idx }} {z-index: 150;}
+			
+		{{ end }}
+	{{ end }}
+	.radioB:checked + .cmark{{ $i.idx }} + .sudoku{{ $i.idx }} .check{{ $i.idx }}{
+		position: relative;
+		z-index: 100;
+	}
+{{ end }}
+
+body {
+	counter-reset: points3 100;
+}
+.points3:checked + label {
+	counter-increment: points3 -1;
+}
+#points3::before {
+	content: counter(points3);
+}
+
+
+</style>
+</head>
+<body>
+	<div style="position: relative; left: 5%;">
+
+
+		{{ range $i := .Params.num19 }}
+		<label class="container">
+		  <input type="radio" checked="checked" name="radio" style="display:none;" class="radioB">
+		  <span class="cmark{{ $i.idx }}">{{ $i.idx }}</span>
+  
+		  <span class="sudoku{{ $i.idx }}">
+		  {{ range $rowI := $i.arr1 }}
+			{{ range $colI := $i.arr2 }}<input type="checkbox" style="display:none;" class="points{{ $i.idx}} row{{ $rowI }}{{ $i.idx }} col{{ $colI }}{{ $i.idx }} box{{add (add (div (sub $colI 1) 3) (mul 3 (div (sub $rowI 1) 3))) 1 }}{{ $i.idx }}" id="cell{{ $i.idx }}{{ $rowI }}{{ $colI }}" {{ if (eq (index (index $.Params.puzzle (sub $rowI 1)) (sub $colI 1)) $i.idx) }}checked{{ end }}><label for="cell{{ $i.idx }}{{ $rowI }}{{ $colI }}" class="col{{ $colI }} row{{ $rowI }} check{{ $i.idx }}">{{ $i.idx }}</label>{{ end }}
+			<br />
+		  {{ end }}
+		  {{ range $rowI := $i.arr1 }}
+			{{ range $colI := $i.arr2 }}<input type="checkbox" style="display:none;" class="grow{{ $rowI }}{{ $i.idx }} gcol{{ $colI }}{{ $i.idx }} gbox{{add (add (div (sub $colI 1) 3) (mul 3 (div (sub $rowI 1) 3))) 1}}{{ $i.idx }}" id="gcell{{ $i.idx }}{{ $rowI }}{{ $colI }}"><label for="gcell{{ $i.idx }}{{ $rowI }}{{ $colI }}" class="col{{ $colI }} row{{ $rowI }} gcheck{{ $i.idx }}">{{ $i.idx }}</label>{{ end }}
+			<br />
+		  {{ end }}
+		  <span class="blackout{{ $i.idx }}">{{ $i.idx }}</span>
+
+		  <span class="winner" style="position:absolute;top:250px;left:5px;z-index:10;width:200px;height:20px;background: white;"></span>
+		  <span class="winmessage" style="position:absolute;top:250px;left:5px;z-index:1;width:200px;height:20px;background: white;">Great job, you beat the game!</span>
+		  
+		  <span id="points3" style="position:absolute;top:450px;left:5px;z-index:1;width:200px;height:20px;background: white;">points</span>
+		  
+		  </span>
+		</label>
+		{{ end }}
+
+
+	</div>
+</body>
+{{ end }}
+

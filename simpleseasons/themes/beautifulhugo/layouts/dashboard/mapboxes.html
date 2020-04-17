@@ -1,0 +1,353 @@
+{{ define "main" }}
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }}</title>
+<link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
+<meta name="description" content="{{ .Params.description }}"/>
+
+<style>
+:root {
+	--width-block: 10px;
+}
+@media screen and (min-width: 320px) and (min-height: 320px) {
+	:root {
+    	--width-block: 20px;
+    }
+}
+@media screen and (min-width: 480px) and (min-height: 480px) {
+	:root {
+    	--width-block: 30px;
+    }
+}
+@media screen and (min-width: 720px) and (min-height: 720px) {
+	:root {
+    	--width-block: 40px;
+    }
+}
+@media screen and (min-width: 1080px) and (min-height: 1080px) {
+	:root {
+    	--width-block: 50px;
+    }
+}
+
+
+
+{{ range $i := (seq 101) }}
+.h{{ sub $i 1}} {flex-grow: {{ sub $i 1}};}
+{{ end }}
+{{ range $i := (seq 90) }}
+.h{{ add (mul $i 10) 100}} {flex-grow: {{ add (mul $i 10) 100}};}
+{{ end }}
+{{ range $i := (seq 90) }}
+.h{{ add (mul $i 100) 1000}} {flex-grow: {{ add (mul $i 100) 1000}};}
+{{ end }}
+
+
+.cp {
+	width: 20px;
+	background-color: red;
+	display: none;
+}
+.cpI {
+	width: 20px;
+	background-color: rgba(0,0,0,0);
+	pointer-events: none;
+	display: none;
+}
+
+.cpM {
+	width: 20px;
+	background-color: white;
+	text-align: center;
+	color: blue;
+	height: 0px;
+}
+
+.cdDiv input { display: none; }
+
+{{ range $i := (seq 10) }}
+	.cdDiv #dem{{add (mul $i 10) -5}}box { display: inline-block; }
+{{ end }}
+
+.cdDiv #allStates { display: inline-block; }
+.cdDiv #neStates { display: inline-block; }
+.cdDiv #weStates { display: inline-block; }
+.cdDiv #soStates { display: inline-block; }
+.cdDiv #mwStates { display: inline-block; }
+
+{{ range $state := .Params.states}}
+.cdDiv #sbox{{ $state.state }} { display: inline-block; }
+
+{{ end }}
+
+
+{{ range $i := (seq 10) }}
+.chartcolumn{{ $i }} {
+	position: absolute;
+	bottom: 0px;
+	left: {{add 20 (mul 25 $i)}}px;
+	display: flex;
+	justify-content: space-around;
+	flex-flow: column;
+	align-items: stretch;
+	height: 300px;
+	width: 20px;
+	pointer-events: none;
+}
+{{ end }}
+{{ range $i := (seq 10) }}
+#secondChart:target ~ .chartcolumn{{ $i }} {
+	left: {{add 300 (mul 25 $i)}}px;
+}
+{{ end }}
+
+
+
+		
+		
+		
+{{ range $state := .Params.states}}
+	{{ range $cd := $state.cds}}
+		.cdDiv label#label{{ $cd.name }} path {fill: {{if ge (index $cd.results 2) 50}}blue{{ else }}red{{end}};}
+		.cdDiv label#labela{{ $cd.name }} path {fill: {{if ge (index $cd.results 2) 50}}blue{{ else }}red{{end}};}
+	{{ end }}
+{{ end }}
+
+/* Individual Districts Selected */
+{{ range $state := .Params.states}}
+	{{ range $cd := $state.cds}}
+		
+		{{ if eq $state.region "NE"}}
+			.cdDiv #allStates:Not(:checked) ~ #neStates:Not(:checked) ~ #sbox{{ $state.state }}:Not(:checked) ~ #cbox{{ $cd.name}}:checked ~ div .n{{ $cd.name}}{ display: block;}
+			.cdDiv #allStates:Not(:checked) ~ #neStates:Not(:checked) ~ #sbox{{ $state.state }}:Not(:checked) ~ #cbox{{ $cd.name }}:checked ~ label#label{{ $cd.name }} svg path {
+				fill-opacity: 1;
+			}
+			
+		{{ end }}
+		{{ if eq $state.region "MW"}}
+			.cdDiv #allStates:Not(:checked) ~ #mwStates:Not(:checked) ~ #sbox{{ $state.state }}:Not(:checked) ~ #cbox{{ $cd.name}}:checked ~ div .n{{ $cd.name}}{ display: block;}
+			.cdDiv #allStates:Not(:checked) ~ #mwStates:Not(:checked) ~ #sbox{{ $state.state }}:Not(:checked) ~ #cbox{{ $cd.name }}:checked ~ label#label{{ $cd.name }} svg path {
+				fill-opacity: 1;
+			}
+		{{ end }}
+		{{ if eq $state.region "SO"}}
+			.cdDiv #allStates:Not(:checked) ~ #soStates:Not(:checked) ~ #sbox{{ $state.state }}:Not(:checked) ~ #cbox{{ $cd.name}}:checked ~ div .n{{ $cd.name}}{ display: block;}
+			.cdDiv #allStates:Not(:checked) ~ #soStates:Not(:checked) ~ #sbox{{ $state.state }}:Not(:checked) ~ #cbox{{ $cd.name }}:checked ~ label#label{{ $cd.name }} svg path {
+				fill-opacity: 1;
+			}
+		{{ end }}
+		{{ if eq $state.region "WE"}}
+			.cdDiv #allStates:Not(:checked) ~ #weStates:Not(:checked) ~ #sbox{{ $state.state }}:Not(:checked) ~ #cbox{{ $cd.name}}:checked ~ div .n{{ $cd.name}}{ display: block;}
+			.cdDiv #allStates:Not(:checked) ~ #weStates:Not(:checked) ~ #sbox{{ $state.state }}:Not(:checked) ~ #cbox{{ $cd.name }}:checked ~ label#label{{ $cd.name }} svg path {
+				fill-opacity: 1;
+			}
+		{{ end }}
+	{{ end }}
+{{ end }}		
+		
+
+/* States and R/D Selected */
+.cdDiv #allStates:checked ~ label svg.stateSVG path {
+	pointer-events: fill;
+}
+.cdDiv #neStates:checked ~ label svg.NESVG path {
+	pointer-events: fill;
+}
+.cdDiv #mwStates:checked ~ label svg.MWSVG path {
+	pointer-events: fill;
+}
+.cdDiv #weStates:checked ~ label svg.WEVG path {
+	pointer-events: fill;
+}
+.cdDiv #soStates:checked ~ label svg.SOSVG path {
+	pointer-events: fill;
+}
+{{ range $state := .Params.states}}
+	
+	{{ range $cd := $state.cds}}	
+		.cdDiv #sbox{{ $state.state }}:checked ~ label#labela{{ $cd.name }} svg path {
+			pointer-events: fill;
+		}
+		{{ range $i := (seq 10) }}
+			{{ if ge (index $cd.results 2) (add (mul $i 10) -5)}}
+			{{ if le (index $cd.results 2) (add (mul $i 10) 4)}}
+				.cdDiv #sbox{{ $state.state }}:checked ~ #dem{{ add (mul $i 10) -5 }}box:checked ~ #abox{{ $cd.name }}:checked ~ div .n{{ $cd.name}}{ display: block;}
+				.cdDiv #sbox{{ $state.state }}:checked ~ #dem{{ add (mul $i 10) -5 }}box:checked ~ #abox{{ $cd.name }}:checked ~ label#labela{{ $cd.name }} svg path {
+					fill-opacity: 1;
+				}
+				.cdDiv #sbox{{ $state.state }}:checked ~ #dem{{ add (mul $i 10) -5 }}box:Not(:checked) ~ #abox{{ $cd.name }}:Not(:checked) ~ div .n{{ $cd.name}}{ display: block;}
+				.cdDiv #sbox{{ $state.state }}:checked ~ #dem{{ add (mul $i 10) -5 }}box:Not(:checked) ~ #abox{{ $cd.name }}:Not(:checked) ~ label#labela{{ $cd.name }} svg path {
+					fill-opacity: 1;
+				}
+			
+				.cdDiv #allStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:checked ~ #abox{{ $cd.name }}:checked ~ div .n{{ $cd.name}}{ display: block;}
+				.cdDiv #allStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:checked ~ #abox{{ $cd.name }}:checked ~ label#labela{{ $cd.name }} svg path {
+					fill-opacity: 1;
+				}
+				.cdDiv #allStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:Not(:checked) ~ #abox{{ $cd.name }}:Not(:checked) ~ div .n{{ $cd.name}}{ display: block;}
+				.cdDiv #allStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:Not(:checked) ~ #abox{{ $cd.name }}:Not(:checked) ~ label#labela{{ $cd.name }} svg path {
+					fill-opacity: 1;
+				}
+			
+				{{ if eq $state.region "NE"}}
+					.cdDiv #neStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:checked ~ #abox{{ $cd.name }}:checked ~ div .n{{ $cd.name}}{ display: block;}
+					.cdDiv #neStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:checked ~ #abox{{ $cd.name }}:checked ~ label#labela{{ $cd.name }} svg path {
+						fill-opacity: 1;
+					}
+					.cdDiv #neStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:Not(:checked) ~ #abox{{ $cd.name }}:Not(:checked) ~ div .n{{ $cd.name}}{ display: block;}
+					.cdDiv #neStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:Not(:checked) ~ #abox{{ $cd.name }}:Not(:checked) ~ label#labela{{ $cd.name }} svg path {
+						fill-opacity: 1;
+					}
+				{{ end }}
+				{{ if eq $state.region "MW"}}
+					.cdDiv #mwStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:checked ~ #abox{{ $cd.name }}:checked ~ div .n{{ $cd.name}}{ display: block;}
+					.cdDiv #mwStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:checked ~ #abox{{ $cd.name }}:checked ~ label#labela{{ $cd.name }} svg path {
+						fill-opacity: 1;
+					}
+					.cdDiv #mwStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:Not(:checked) ~ #abox{{ $cd.name }}:Not(:checked) ~ div .n{{ $cd.name}}{ display: block;}
+					.cdDiv #mwStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:Not(:checked) ~ #abox{{ $cd.name }}:Not(:checked) ~ label#labela{{ $cd.name }} svg path {
+						fill-opacity: 1;
+					}
+				{{ end }}
+				{{ if eq $state.region "SO"}}
+					.cdDiv #soStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:checked ~ #abox{{ $cd.name }}:checked ~ div .n{{ $cd.name}}{ display: block;}
+					.cdDiv #soStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:checked ~ #abox{{ $cd.name }}:checked ~ label#labela{{ $cd.name }} svg path {
+						fill-opacity: 1;
+					}
+					.cdDiv #soStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:Not(:checked) ~ #abox{{ $cd.name }}:Not(:checked) ~ div .n{{ $cd.name}}{ display: block;}
+					.cdDiv #soStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:Not(:checked) ~ #abox{{ $cd.name }}:Not(:checked) ~ label#labela{{ $cd.name }} svg path {
+						fill-opacity: 1;
+					}
+				{{ end }}
+				{{ if eq $state.region "WE"}}
+					.cdDiv #weStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:checked ~ #abox{{ $cd.name }}:checked ~ div .n{{ $cd.name}}{ display: block;}
+					.cdDiv #weStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:checked ~ #abox{{ $cd.name }}:checked ~ label#labela{{ $cd.name }} svg path {
+						fill-opacity: 1;
+					}
+					.cdDiv #weStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:Not(:checked) ~ #abox{{ $cd.name }}:Not(:checked) ~ div .n{{ $cd.name}}{ display: block;}
+					.cdDiv #weStates:checked ~ #dem{{ add (mul $i 10) -5 }}box:Not(:checked) ~ #abox{{ $cd.name }}:Not(:checked) ~ label#labela{{ $cd.name }} svg path {
+						fill-opacity: 1;
+					}
+				{{ end }}
+			
+			{{ end }}
+			{{ end }}
+		{{ end }}
+		
+
+	{{ end }}
+{{ end }}
+
+
+
+
+
+.stateSVG, .cdSVG {
+	stroke:black;
+	stroke-opacity:1;
+	stroke-width:3.07087;
+	
+}
+
+.secondSVG {
+	background-color: rgba(0,0,0,0);
+}
+.secondSVG, .cdDiv label {
+	position: absolute;
+	left: 0px;
+	top: 250px;
+}
+.coverSVG {
+	position: absolute;
+	left: 0px;
+	top: calc(250px + (20.9973vw * 3.333 * .1) );
+	background-color: rgba(255,255,255,1);
+	width:calc(29.6926vw * 3.333);
+	height:calc(20.9973vw * 3.333 * .9);
+}
+.stateSVG, .cdSVG, .secondSVG {
+	width:calc(29.6926vw * 3.333);
+	height:calc(20.9973vw * 3.333);
+}
+.secondSVG path{
+	fill-opacity: 0;
+}
+.firstSVG {
+	fill: white;
+	fill-opacity: 0;
+	
+}
+
+.stateSVG path, .cdSVG path {
+	transform:matrix(0.999751,0,0,0.999751,28.5867,-111.205);
+}
+
+
+.textG {
+	fill:black;
+	fill-opacity:1;
+}
+
+g, svg, label {
+	pointer-events: none;
+}
+
+svg.stateSVG path {
+	fill-opacity: 0;
+}
+svg.cdSVG path {
+	fill-opacity: .1;
+}
+
+
+svg.cdSVG path{
+	pointer-events: fill;
+}
+</style>
+</head>
+<body>
+		
+		<div class="cdDiv" style="height: 275px; position: absolute; left: 0px;">
+			<div id="secondChart" style="height: 10px;"></div>
+			<input type="checkbox" id="allStates"></input>
+			<input type="checkbox" id="neStates"></input>
+			<input type="checkbox" id="weStates"></input>
+			<input type="checkbox" id="mwStates"></input>
+			<input type="checkbox" id="soStates"></input>
+			<br />
+			States:
+			{{ range $state := .Params.states}}<input type="checkbox" id="sbox{{ $state.state }}"></input>{{ end }}
+			<br />
+			D/R:
+			{{ range $i := (seq 10)}}<input type="checkbox" id="dem{{ add (mul $i 10) -5 }}box" checked></input>{{ end }}
+			<br />
+			{{ range $state := .Params.states}}{{ range $cd := $state.cds}}<input type="checkbox" id="cbox{{ $cd.name }}"></input>{{ end }}{{ range $cd := $state.cds}}<input type="checkbox" id="abox{{ $cd.name }}" checked></input>{{ end }}{{ end }}
+			
+			
+				{{ range $i := (seq 10) }}
+				<div class="chartcolumn{{ $i }}">{{ range $state := $.Params.states}}{{ range $cd := $state.cds}}{{ if ge (index $cd.results 2) 51}}<span class="cpI h{{sub 100 (index $cd.height (sub $i 1))}} n{{ $cd.name }} dem"></span>{{ else }}<span class="cpI h{{sub 100 (index $cd.height (sub $i 1))}} n{{ $cd.name }} rep"></span>{{ end }}{{ end }}{{ end }}<span class="cpM"></span>{{ range $state := $.Params.states}}{{ range $cd := $state.cds}}{{ if ge (index $cd.results 2) 51}}<span class="cp h{{add 0 (index $cd.height (sub $i 1))}} n{{ $cd.name }} dem"></span>{{ else }}<span class="cp h{{add 0 (index $cd.height (sub $i 1))}} n{{ $cd.name }} rep"></span>{{ end }}{{ end }}{{ end }}</div>
+				{{ end }}
+				
+
+		
+			<div class="coverSVG"></div>
+			{{ range $state := .Params.states}}
+				{{ range $cd := $state.cds}}
+					<label id="label{{ $cd.name }}" for="cbox{{ $cd.name }}"><svg class="cdSVG"  viewBox="0 0 3507 2480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  version="1.2" baseProfile="tiny">{{ if eq $cd.name "1501" }}<path vector-effect="none" fill-rule="evenodd" d="{{ index $cd.map 0}}"/><path vector-effect="none" fill-rule="evenodd" d="{{ index $cd.map 1}}"/>{{ else }}<path d="{{ $cd.map }}"/>{{ end }}</svg></label>
+					<label id="labela{{ $cd.name }}" for="abox{{ $cd.name }}"><svg class="stateSVG {{ $state.region }}SVG"  viewBox="0 0 3507 2480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  version="1.2" baseProfile="tiny">{{ if eq $cd.name "1501" }}<path vector-effect="none" fill-rule="evenodd" d="{{ index $cd.map 0}}"/><path vector-effect="none" fill-rule="evenodd" d="{{ index $cd.map 1}}"/>{{ else }}<path d="{{ $cd.map }}"/>{{ end }}</svg></label>
+				{{ end }}
+			{{ end }}
+
+
+			{{ partial "secondsvg.html" . }}
+
+
+		</div>
+		
+		
+		
+
+</body>
+{{ end }}
