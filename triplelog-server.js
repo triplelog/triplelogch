@@ -8,8 +8,8 @@ const bodyParser = require('body-parser');
 var nunjucks = require('nunjucks');
 var crypto = require("crypto");
 const options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/matherrors.com/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/matherrors.com/fullchain.pem')
+  key: fs.readFileSync('/etc/letsencrypt/live/martianmath.com/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/martianmath.com/fullchain.pem')
 };
 const { PerformanceObserver, performance } = require('perf_hooks');
 

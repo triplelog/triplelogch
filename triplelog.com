@@ -12,16 +12,3 @@ server {
 
 }
 
-server {
-    if ($host = martianmath.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-
-        listen 80 default_server;
-        listen [::]:80 default_server;
-        server_name martianmath.com;
-    return 404; # managed by Certbot
-
-
-}
