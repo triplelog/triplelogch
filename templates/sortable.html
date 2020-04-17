@@ -104,8 +104,7 @@ body {
 	{% endfor %}
 {% endfor %}
 
-
-#sort-col1, #sort-col2, #sort-col3, #sort-col4 { display: none; }
+{% for i in range(1,ncols) %} #sort-col{{ i }}, {% endfor %}{% for i in range(ncols,ncols+1) %} #sort-col{{ i }} {% endfor %} { display: none; }
 
 .sortable > .sortable-sorter  { order: 0; }
 
@@ -170,29 +169,18 @@ Because it is possible.
 {% block content22 %}
 	<h2>Sortable Table</h2>
 	<div class="sortable">
-		<input type="radio" name="sorter" id="sort-col1"></input>
-		<input type="radio" name="sorter" id="sort-col2"></input>
-		<input type="radio" name="sorter" id="sort-col3"></input>
-		<input type="radio" name="sorter" id="sort-col4"></input>
-	  <label class="sortable-col1 sortable-sorter" for="sort-col1">Sort col1</label>
-	  <label class="sortable-col2 sortable-sorter" for="sort-col2">Sort col2</label>
-	  <label class="sortable-col3 sortable-sorter" for="sort-col3">Sort col3</label>
-	  <label class="sortable-col4 sortable-sorter" for="sort-col4">Sort col4</label>
-	  
-	  <div class="sortable-col1 sortable-row1"><h3>Aaron</h3></div>
-	  <div class="sortable-col2 sortable-row1">Aaron has a sword named Ice</div>
-	  <div class="sortable-col3 sortable-row1">C No direwolf</div>
-	  <div class="sortable-col4 sortable-row1"><strong>B Lord of Winterfell</strong></div>
+		{% for i in range(1,ncols+1) %}
+		<input type="radio" name="sorter" id="sort-col{{ i }}"></input>
+		{% endfor %}
+		{% for i in range(1,ncols+1) %}
+		<label class="sortable-col{{ i }} sortable-sorter" for="sort-col{{ i }}">Sort col{{ i }}</label>
+		{% endfor %}
+		{% for ii in range(1,nrows+1) %}
+			{% for i in range(1,ncols+1) %}
+				<div class="sortable-col{{ i }} sortable-row{{ ii }}">{{ content[i-1][ii-1] }}</div>
+			{% endfor %}
+		{% endfor %}
 
-	  <div class="sortable-col1 sortable-row2"><h3>Charlie</h3></div>
-	  <div class="sortable-col2 sortable-row2">Charlie has a sword named Ice</div>
-	  <div class="sortable-col3 sortable-row2">B No direwolf</div>
-	  <div class="sortable-col4 sortable-row2"><strong>A Lord of Winterfell</strong></div>
-	  
-	  <div class="sortable-col1 sortable-row3"><h3>Bob</h3></div>
-	  <div class="sortable-col2 sortable-row3">Bob has a sword named Ice</div>
-	  <div class="sortable-col3 sortable-row3">A No direwolf</div>
-	  <div class="sortable-col4 sortable-row3"><strong>C Lord of Winterfell</strong></div>
 
 	</div>
 {% endblock %}

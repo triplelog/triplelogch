@@ -51,18 +51,23 @@ app.get('/sortable.html',
 	
 	function(req, res) {
 		var order = [];
+		var content = [];
 		for (var i=0;i<4;i++){
 			var thiscol = [];
+			var thiscontent = [];
 			for (var ii=0;ii<3;ii++){
 				thiscol.push((ii+i)%3 + 1);
+				thiscontent.push(((ii+i)%3 + 1) * (i + 3));
 			}
 			order.push(thiscol);
+			content.push(thiscontent);
 		}
 		res.write(nunjucks.render('templates/sortable.html',{
 			title: "Sortable Table",
 			ncols: 4,
 			nrows: 3,
 			order: order,
+			content: content,
 		}));
 		res.end();
 	}
