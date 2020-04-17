@@ -47,7 +47,15 @@ app.get('/index.html',
 	}
 );
 
-
+app.get('/sortable.html', 
+	
+	function(req, res) {
+		res.write(nunjucks.render('templates/sortable.html',{
+			title: "Sortable Table",
+		}));
+		res.end();
+	}
+);
 
 
 const server1 = https.createServer(options, app);
