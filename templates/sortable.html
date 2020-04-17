@@ -79,41 +79,31 @@ body {
   padding: 0;
 }
 
-{% for i in range(1,4) %} .sortable > .sortable-col{{ i }}, {% endfor %}{% for i in range(4,5) %} .sortable > .sortable-col{{ i }} {% endfor %} {
+{% for i in range(1,ncols) %} .sortable > .sortable-col{{ i }}, {% endfor %}{% for i in range(ncols,ncols+1) %} .sortable > .sortable-col{{ i }} {% endfor %} {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;  // Default to full width
   padding: 0.2em .4em;
   overflow: hidden; // Or flex might break
   list-style: none;
-  border: solid .2em black;
+  border: solid 1px black;
   background: fade(slategrey,20%);
 }
 
-{% for i in range(1,5) %}
+{% for i in range(1,ncols+1) %}
 	.sortable > .sortable-col{{ i }}  { width: 25%; }
 {% endfor %}
 
+{% for i in range(1,nrows+1) %}
+	.sortable-row{{ i }}  { order: {{ i }}; }
+{% endfor %}
 
-.sortable-row1  { order: 1; }
-.sortable-row2  { order: 3; }
-.sortable-row3  { order: 2; }
+{% for i in range(1,ncols+1) %}
+	{% for ii in range(1,nrows+1) %}
+		#sort-col{{ i }}:checked ~ .sortable-row{{ ii }} { order: order[i][ii]; }
+	{% endfor %}
+{% endfor %}
 
-#sort-col1:checked ~ .sortable-row1 { order: 1; }
-#sort-col1:checked ~ .sortable-row2 { order: 3; }
-#sort-col1:checked ~ .sortable-row3 { order: 2; }
-
-#sort-col2:checked ~ .sortable-row1 { order: 1; }
-#sort-col2:checked ~ .sortable-row2 { order: 3; }
-#sort-col2:checked ~ .sortable-row3 { order: 2; }
-
-#sort-col3:checked ~ .sortable-row1 { order: 3; }
-#sort-col3:checked ~ .sortable-row2 { order: 2; }
-#sort-col3:checked ~ .sortable-row3 { order: 1; }
-
-#sort-col4:checked ~ .sortable-row1 { order: 2; }
-#sort-col4:checked ~ .sortable-row2 { order: 1; }
-#sort-col4:checked ~ .sortable-row3 { order: 3; }
 
 #sort-col1, #sort-col2, #sort-col3, #sort-col4 { display: none; }
 

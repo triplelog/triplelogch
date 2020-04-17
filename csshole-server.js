@@ -48,10 +48,20 @@ app.get('/index.html',
 );
 
 app.get('/sortable.html', 
-	
+	var order = [];
+	for (var i=0;i<4;i++){
+		var thiscol = [];
+		for (var ii=0;ii<3;ii++){
+			thiscol.push((ii+i)%3 + 1);
+		}
+		order.push(thiscol);
+	}
 	function(req, res) {
 		res.write(nunjucks.render('templates/sortable.html',{
 			title: "Sortable Table",
+			ncols: 4,
+			nrows: 3,
+			order: order,
 		}));
 		res.end();
 	}
