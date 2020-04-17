@@ -73,6 +73,7 @@
 	left: 0px;
 	height: calc(var(--sudoku-top) + 9 * var(--width-block) + 100px);
 	overflow: hidden;
+	display: grid;
 }
 @keyframes example {
   0%   {transform: rotate(0deg);}
@@ -684,6 +685,8 @@ input {
 	position: absolute;
 	width: calc(9 * var(--width-block) + 41px);
 	text-align: center;
+	grid-row:  1;
+	grid-column:  3;
 }
 #newData {
 	background-color: rgba(255,255,255,1);
@@ -870,6 +873,7 @@ td.peopleTD {
 </style>
 </head>
 <body>
+
 	<div class="mainDiv">
 		{{ range $ii := (seq $.Params.maxTurns) }}
 			{{ range $i := (seq 9) }}
