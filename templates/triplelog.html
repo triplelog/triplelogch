@@ -1,0 +1,184 @@
+{% extends "templates/base.html" %}
+
+{% block borderRadius %}
+	--border-radius: .8rem;
+{% endblock %}
+
+{% block content22CSS %}
+	/*border: 1px solid black;*/
+{% endblock %}
+	
+{% block centerSize %}
+	--height-center: 150px;
+	--width-center: 200px;
+{% endblock %}
+
+{% block titleCSS %}
+.title {
+	line-height: 2.5rem;
+	text-align: center;
+	font-size: 1rem;
+	border: 2px solid black;
+  	border-radius: var(--border-radius);
+  	position: relative;
+  	top:-2px;
+  	left:-2px;
+  	width: calc(100% + 0px);
+  	background: red;
+  	background-image: url("../img/3logscrop-48.jpg");
+  	background-size: auto 100%;
+  	background-repeat: no-repeat;
+  	background-position: 0px 0px;
+  	color: white;
+  	text-shadow: 0px 0px 10px black;
+}
+.titleBG {
+	background-image: url("../img/ftractor-40.png");
+  	background-size: auto 100%;
+  	background-repeat: no-repeat;
+  	background-position: 0px 0px;
+  	transition: background-position 1s linear;
+}
+.titleBG:hover {
+  	background-position: 350px 0px;
+  	transition: all 2s linear;
+}
+.content-11 .title {
+	background-image: url("../img/farmbg2-40.png");
+}
+.content-11 .titleBG {
+	background-image: url("../img/ftractor-40.png");
+}
+.content-31 .title {
+	background-image: url("../img/gradient_radial.jpg");
+	background-size: 100% 100%;
+}
+
+{% endblock %}
+
+
+{% block moreCSS %}
+.title a {
+	text-decoration: none;
+	color: white;
+	font-size: 1.5rem;
+}
+.title a:hover {
+	text-decoration: underline;
+	text-shadow: 0px 0px 10px black 0px 0px 10px black;
+}
+
+.content-22 {
+	background-image: url("../img/woodpile.jpg");
+	background-size: 100% 100%;
+	color: white;
+}
+{% endblock %}
+
+
+{% block title11 %}
+<div class="title">
+	<div class="titleBG">
+		<span class="titleLeft">
+		
+		</span>
+		<span class="titleCenter">
+			<a href="https://sudokufarm.com">Sudoku Farm</a>
+		</span>
+		<span class="titleRight">
+			<label for="radio11-1"><i class="fas fa-compress-alt"></i></label>
+			<label for="radio11-2"><i class="fas fa-expand-alt"></i></label>
+			<label for="radio11-3"><i class="fas fa-expand"></i></label>
+		</span>
+	</div>
+</div>
+{% endblock %}
+{% block content11 %}
+Sudoku Farm combines classic Sudoku puzzles with a strategy game.
+Play in browser or download for iOS.
+Create your own level.
+{% endblock %}	
+
+{% block title13 %}
+<div class="title">
+	<span class="titleLeft">
+		
+	</span>
+	<span class="titleCenter">
+		<a href="https://gifsaw.com">Gifsaw</a>
+	</span>
+	<span class="titleRight">
+		<label for="radio13-1"><i class="fas fa-compress-alt"></i></label>
+		<label for="radio13-2"><i class="fas fa-expand-alt"></i></label>
+		<label for="radio13-3"><i class="fas fa-expand"></i></label>
+	</span>
+</div>
+{% endblock %}
+{% block content13 %}
+Create jigsaw puzzles from any image or gif with <a href="https://gifsaw.com">Gifsaw</a>. 
+Complete them yourself, collaboratively, or competitively. Design your own scoring system to challenge your friends or the world.
+{% endblock %}	
+
+{% block title31 %}
+<div class="title">
+	<span class="titleLeft">
+		
+	</span>
+	<span class="titleCenter">
+		<a href="https://qblur.com">QbluR</a>
+	</span>
+	<span class="titleRight">
+		<label for="radio31-1"><i class="fas fa-compress-alt"></i></label>
+		<label for="radio31-2"><i class="fas fa-expand-alt"></i></label>
+		<label for="radio31-3"><i class="fas fa-expand"></i></label>
+	</span>
+</div>
+{% endblock %}
+{% block content31 %}
+Qblur allows the easy creation of images.
+{% endblock %}
+
+{% block title33 %}
+<div class="title">
+	<span class="titleLeft">
+		
+	</span>
+	<span class="titleCenter">
+		<a href="https://csshole.com">Csshole</a>
+	</span>
+	<span class="titleRight">
+		<label for="radio33-1"><i class="fas fa-compress-alt"></i></label>
+		<label for="radio33-2"><i class="fas fa-expand-alt"></i></label>
+		<label for="radio33-3"><i class="fas fa-expand"></i></label>
+	</span>
+</div>
+{% endblock %}
+{% block content33 %}
+CSShole presents interactive content with just HTML and CSS. Play Sudoku, create charts and tables.
+{% endblock %}
+
+
+{% block content22 %}
+<h1><center>TripleLog</center></h1>
+<ul>
+	<li>My Account</li>
+	<li>Privacy Policy</li>
+	<li>Terms of Service</li>
+	<li>About</li>
+</ul>
+{% endblock %}
+
+
+
+
+
+
+{% block bodyStart %}
+
+{% endblock %}
+
+
+{% block scripts %}
+
+{% endblock %}
+
