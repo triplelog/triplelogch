@@ -65,7 +65,7 @@
 			.svgborder:hover ~ #wedge{{ angle }}t{{ turn }} {
 				z-index: 1;
 			}
-		{% endif }}
+		{% endif %}
 		{%if turn >= round(nturns/2,'floor') %}
 			#wedge{{ angle }}t{{ turn }} {
 				z-index: {{((nturns +1-turn)*(nangles))+((nangles)-angle) }};
