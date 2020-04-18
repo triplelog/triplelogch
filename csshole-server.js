@@ -76,8 +76,6 @@ app.get('/sortable.html',
 			}
 			order.push(thiscol);
 		}
-		console.log(content);
-		console.log(order);
 		
 		res.write(nunjucks.render('templates/sortable.html',{
 			title: "Sortable Table",
