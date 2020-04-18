@@ -1,0 +1,233 @@
+
+{{ partial "header" . }}
+
+<style>
+.submitButton, .nextButton {
+    
+    border: none;
+    padding: .5rem 1rem;
+    margin: 0;
+    text-decoration: none;
+    background: #0069ed;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: absolute;
+
+}
+
+.nextButton {
+		left: 0px;
+		top:130px;
+		display: none;
+}
+
+.submitButton {
+		display: inline-block;
+		left: 240px;
+		top:50px;
+}
+
+.submitButton:hover,
+.submitButton:focus,
+.nextButton:hover,
+.nextButton:focus {
+    background: #0053ba;
+}
+
+.submitButton:focus,
+.nextButton:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+.submitButton:active,
+.nextButton:active {
+    transform: scale(0.99);
+}
+
+{{ range $idx,$question := .Params.questions }}
+	div.c{{ $question.level }}n{{ $question.id }} {
+		position: absolute;
+		left: 0px;
+		top:0px;
+		z-index: {{add (mul $question.id 1000)  $question.level }};
+		width:500px;
+		height:200px;
+		background: white;
+		display: none;
+	}
+	input.c{{ $question.level }}n{{ $question.id }} {
+		position: absolute;
+		left: 0px;
+		top:50px;
+		z-index: {{add (mul $question.id 1000)  $question.level }};
+		display: none;
+		height: 1.5rem;
+		font-size:1rem;
+	}
+	label.c{{ $question.level }}n{{ $question.id }} {
+		
+		z-index: {{add (mul $question.id 1000)  $question.level }};
+		display: none;
+	}
+	span.c{{ $question.level }}n{{ $question.id }} {
+		position: absolute;
+		left: 0px;
+		top:100px;
+		z-index: {{add (mul $question.id 1000)  $question.level }};
+		display: none;
+	}
+	
+	input:valid + input + span + span + #q{{ $question.level }}n{{ $question.id }}Next:checked ~ .c{{add $question.level 1}}n{{ $question.id }} {
+		display: none;
+	}
+	input:valid + input + span + span + #q{{ $question.level }}n{{ $question.id }}Next:checked ~ div.c{{add $question.level 1}}n{{ $question.id }} {
+		display: inline-block;
+	}
+	input:valid + input + span + span + #q{{ $question.level }}n{{ $question.id }}Next:checked ~ input.c{{add $question.level 1}}n{{ $question.id }} {
+		display: inline-block;
+	}
+	input:valid + input + span + span + #q{{ $question.level }}n{{ $question.id }}Next:checked ~ label.c{{add $question.level 1}}n{{ $question.id }} {
+		display: inline-block;
+	}
+	input:valid + input + span + span + #q{{ $question.level }}n{{ $question.id }}Next:checked ~ #q{{add $question.level 1}}n{{$question.id}}NextLabel {
+		display: none;
+	}
+	
+	input:not(:valid) + input + span + span + #q{{ $question.level }}n{{ $question.id }}Next:checked ~ .c0n{{add $question.id 1}} {
+		display: none;
+	}
+	input:not(:valid) + input + span + span + #q{{ $question.level }}n{{ $question.id }}Next:checked ~ div.c0n{{add $question.id 1}} {
+		display: inline-block;
+	}
+	input:not(:valid) + input + span + span + #q{{ $question.level }}n{{ $question.id }}Next:checked ~ input.c0n{{add $question.id 1}} {
+		display: inline-block;
+	}
+	input:not(:valid) + input + span + span + #q{{ $question.level }}n{{ $question.id }}Next:checked ~ label.c0n{{add $question.id 1}} {
+		display: inline-block;
+	}
+	input:not(:valid) + input + span + span + #q{{ $question.level }}n{{ $question.id }}Next:checked ~ #q0n{{add $question.id 1}}NextLabel {
+		display: none;
+	}
+	
+	input:valid + input#q{{ $question.level }}n{{ $question.id }}:checked + span.correct.c{{$question.level}}n{{ $question.id }} {
+		display: block;
+	}
+	input:not(:valid) + input#q{{ $question.level }}n{{ $question.id }}:checked + span + span.incorrect.c{{$question.level}}n{{ $question.id }} {
+		display: block;
+	}
+	input:valid + input#q{{ $question.level }}n{{ $question.id }}:checked + span + span + input + #q{{ $question.level }}n{{ $question.id }}NextLabel {
+		display: block;
+	}
+	input:not(:valid) + input#q{{ $question.level }}n{{ $question.id }}:checked + span + span + input + #q{{ $question.level }}n{{ $question.id }}NextLabel {
+		display: block;
+	}
+	input:valid + input#q{{ $question.level }}n{{ $question.id }}:checked ~ .block{{add $question.level 1}} {
+		display: block;
+	}
+	input:not(:valid) + input#q{{ $question.level }}n{{ $question.id }}:checked ~ .block0 {
+		display: block;
+	}
+
+	
+
+{{ end }}
+input:valid + input:checked + span.correct {
+	display: block;
+}
+
+input:not(:valid) + input:checked + span + span.incorrect {
+	display: block;
+}
+div.c0n1 {
+	display: inline-block;
+}
+input.c0n1 {
+	display: inline-block;
+}
+label.c0n1:not(.nextButton) {
+	display: inline-block;
+}
+{{ $nlevels := $.Param "nlevels" }}
+.blockBase {
+	position: absolute;
+	left: 0px;
+	top: 200px;
+	height: 20px;
+	background: white;
+	z-index: 1;
+	display: inline-block;
+}
+.blockBase svg{
+	width: {{mul $nlevels 20}}px;
+	height: 20px;
+}
+{{ range $i := (seq (add $nlevels 1)) }}
+.block{{sub $i 1}} {
+	position: absolute;
+	left: 0px;
+	top: 200px;
+	height: 20px;
+	background: rgba(0,0,0,0);
+	z-index: {{mul $i 1000}};
+	display: none;
+}
+.block{{sub $i 1}} svg{
+	width: {{mul $nlevels 20}}px;
+	height: 20px;
+}
+
+{{ end }}
+
+
+</style>
+<link rel="stylesheet" href="https://csshole.com/css/katex.min.css">
+</head>
+{{ partial "body-open" . }}
+	<iframe src="https://www.google-analytics.com/collect?v=1&t=pageview&tid=UA-125340485-1&cid=f9897df0-1f6c-47d2-ba42-cd73e6db1404&dp=%2Fmath%2Ftrigonometryquiz" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+	<div style="position: relative; left: calc((100vw - (300px)) / 2);">
+		  <div class="blockBase">
+		  	<svg viewBox="0 0 {{mul $nlevels 20}} 20">
+		  		{{ range $nspan := (seq (add $nlevels 0)) }}
+					<circle cx="{{sub (mul $nspan 20) 10}}" cy="10" r="9" stroke="gray" fill="white" stroke-width="1" pointer-events="fill"></circle>
+				{{ end }}
+
+			</svg>
+		  </div>
+		{{ range $idx,$question := .Params.questions }}
+			<div class="c{{ $question.level }}n{{ $question.id }}">{{ $question.question | safeHTML}}</div>
+		  <input type="text" pattern="{{ $question.answer }}" title="" class="c{{ $question.level }}n{{ $question.id }}" required>
+		  <input type="radio" name="submitAnswer" id="q{{ $question.level }}n{{ $question.id }}" style="display: none;">
+		  <span class="correct c{{ $question.level }}n{{ $question.id }}">Good!</span>
+		  <span class="incorrect c{{ $question.level }}n{{ $question.id }}">Wrong!</span>
+		  <input type="radio" name="nextQuestion" id="q{{ $question.level }}n{{ $question.id }}Next" style="display: none;">
+		  <label for="q{{ $question.level }}n{{ $question.id }}Next" id="q{{ $question.level }}n{{ $question.id }}NextLabel" class="c{{ $question.level }}n{{ $question.id }} nextButton">Next Question</label>
+		  <label for="q{{ $question.level }}n{{ $question.id }}" class="c{{ $question.level }}n{{ $question.id }} submitButton">Submit</label>
+
+		  <div class="block{{ $question.level }}">
+		  	<svg viewBox="0 0 {{mul $nlevels 20}} 20">
+		  		{{ range $nspan := (seq (add $nlevels 0)) }}
+		  			{{if le $nspan (add $question.level 0) }}
+						<circle cx="{{sub (mul $nspan 20) 10}}" cy="10" r="9" stroke="gray" fill="green" stroke-width="1" pointer-events="fill"></circle>
+					{{ else }}
+						<circle cx="{{sub (mul $nspan 20) 10}}" cy="10" r="9" stroke="gray" fill="rgba(0,0,0,0)" stroke-width="1" pointer-events="fill"></circle>
+					{{ end }}
+				{{ end }}
+			</svg>
+		  </div>
+		  
+
+		{{ end }}
+		
+	</div>
+
+</body>
+
+{{ partial "footer.html" . }}
