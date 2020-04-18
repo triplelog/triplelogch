@@ -209,7 +209,7 @@ label.c0n1:not(.nextButton) {
 		  </div>
 		{% for question in questions %}
 			<div class="c{{ question.level }}n{{ question.id }}">{{ question.question | safe}}</div>
-		  <input type="text" pattern="{{ question.answer | dump | safe}}" title="" class="c{{ question.level }}n{{ question.id }}" required>
+		  <input type="text" pattern="{{ question.answer | safe}}" title="" class="c{{ question.level }}n{{ question.id }}" required>
 		  <input type="radio" name="submitAnswer" id="q{{ question.level }}n{{ question.id }}" style="display: none;">
 		  <span class="correct c{{ question.level }}n{{ question.id }}">Good!</span>
 		  <span class="incorrect c{{ question.level }}n{{ question.id }}">Wrong!</span>
