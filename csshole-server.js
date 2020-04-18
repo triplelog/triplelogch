@@ -50,22 +50,37 @@ app.get('/index.html',
 app.get('/sortable.html', 
 	
 	function(req, res) {
-		var order = [];
+		var ncols = 4;
+		var nrows = 3;
 		var content = [];
-		for (var i=0;i<4;i++){
-			var thiscol = [];
+		for (var i=0;i<nrows;i++){
 			var thiscontent = [];
-			for (var ii=0;ii<3;ii++){
-				thiscol.push((ii+i)%3 + 1);
-				thiscontent.push(((ii+i)%3 + 1) * (i + 3));
+			for (var ii=0;ii<ncols;ii++){
+				thiscontent.push(Math.random());
 			}
-			order.push(thiscol);
+			thiscontent.push(i);
 			content.push(thiscontent);
 		}
+		//sort content
+		var order = [];
+		for (var i=0;i<ncols;i++){
+			var thiscol= [];
+			var sorted = content.slice().sort(function (a,b) {return b[i] - a[i];})
+			for (var ii=0;ii<nrows;ii++){
+				for (var iii=0;iii<nrows;iii++){
+					if ( sorted[iii][ncols] == ii){
+						thiscol.push(iii);
+						break;
+					}
+				}
+			}
+			order.push(thiscol);
+		}
+		
 		res.write(nunjucks.render('templates/sortable.html',{
 			title: "Sortable Table",
-			ncols: 4,
-			nrows: 3,
+			ncols: ncols,
+			nrows: nrows,
 			order: order,
 			content: content,
 		}));
