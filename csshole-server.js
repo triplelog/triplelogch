@@ -62,6 +62,16 @@ app.get('/trigknob.html',
 	}
 );
 
+app.get('/mathquiz.html', 
+	
+	function(req, res) {
+		
+		res.write(nunjucks.render('templates/mathquiz.html',{
+		
+		}));
+		res.end();
+	}
+);
 
 app.get('/sortable.html', 
 	
