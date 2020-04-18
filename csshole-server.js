@@ -69,7 +69,7 @@ app.get('/sortable.html',
 			for (var ii=0;ii<nrows;ii++){
 				for (var iii=0;iii<nrows;iii++){
 					if ( sorted[iii][ncols] == ii){
-						thiscol.push(iii);
+						thiscol.push(iii+1);
 						break;
 					}
 				}
