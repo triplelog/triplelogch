@@ -207,7 +207,7 @@ div.displayNeedle {
 			<svg viewBox="-100 -100 200 200" class="svgregion turn{{nturns + 1 - turn }} angle16" id="wedge16t{{nturns + 1 - turn }}">
 				<polygon stroke="rgb(200,200,200)" stroke-width="0" points="0,0 147,135 199,17 0,0" pointer-events="all"></polygon>
 			</svg>
-			{% idx = 0 %}
+			{% var idx = 0 %}
 			{% for angle in angles %}
 				{%if idx<15 %}
 				<svg viewBox="-100 -100 200 200" class="svgregion turn{{nturns + 1 - turn }} angle{{idx + 1}}" id="wedge{{idx + 1}}t{{nturns + 1 - turn }}">
@@ -221,7 +221,7 @@ div.displayNeedle {
 			
 		{% endfor %}
 		{% for turn in range(1,nturns+1) %}
-			{% idx = 0 %}
+			{% var idx = 0 %}
 			{% for angle in angles %}
 				<div class="c{{idx + 1}}t{{turn}} displayAngle">{{angle.numer + (turn - round(nturns / 2,'floor')) * (2*angle.denom) }}pi/{{angle.denom}}</div>
 				<div class="needle{{idx + 1}}t{{turn}} displayNeedle" style="pointer-events: none;">
