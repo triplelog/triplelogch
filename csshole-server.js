@@ -46,6 +46,16 @@ app.get('/index.html',
 		res.end();
 	}
 );
+app.get('/trigknob.html', 
+	
+	function(req, res) {
+		res.write(nunjucks.render('templates/trigknob.html',{
+		
+		}));
+		res.end();
+	}
+);
+
 
 app.get('/sortable.html', 
 	
@@ -61,6 +71,9 @@ app.get('/sortable.html',
 			thiscontent.push(i);
 			content.push(thiscontent);
 		}
+		
+		
+		
 		//sort content
 		var order = [];
 		for (var i=0;i<ncols;i++){
