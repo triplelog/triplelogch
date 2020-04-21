@@ -129,7 +129,7 @@ app.get('/sortable.html',
 						break;
 					}
 					if (iii==showrows-1){ //no match in top x rows
-						thiscol.push(0);
+						thiscol.push('');
 					}
 				}
 			}
