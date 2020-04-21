@@ -1,0 +1,66 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<link rel="icon" href="{{ favicon }}">
+<meta name="description" content="{{ description }}"/>
+<link rel="stylesheet" href="../css/sudokucss.css">
+<style>
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+{% for i in range(1,10) %}
+	{% for rowI in range(1,10) %}
+		{% for colI in range(1,10) %}
+			{% if puzzle[rowI-1][colI-1] == i %}
+				.row{{ rowI }}{{ i }}.col{{ colI }}{{ i }} + .check{{ i }} {z-index: 250 !important;color: black;}
+				.grow{{ rowI }}{{ i }}.gcol{{ colI }}{{ i }} + .gcheck{{ i }} {z-index: 260 !important;color: black;background: white !important;}
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+{% endfor %}
+
+
+
+
+</style>
+
+</head>
+
+	<div style="position: relative; left: calc((100vw - (54vmin + 18px)) / 2); font-family: sans-serif;">
+
+
+		{% for i in range(1,10) %}
+		<label class="container">
+		  <input type="radio" checked="checked" name="radio" style="display:none;" class="radioB" accesskey="{{ i }}">
+		  <span class="cmark{{ i }} normBlock cmarkAll">{{ i }}</span>
+  
+		  <span class="sudoku{{ i }} sudokuAll">
+		  {% for rowI in range(1,10) %}
+			{% for colI in range(1,10) %}<input type="checkbox" style="display:none;" class="row{{ rowI }}{{ i }} col{{ colI }}{{ i }} box{{(((colI-1)-((colI-1)%3)) / 3) + 3*(((rowI-1)-((rowI-1)%3)) / 3) + 1 }}{{ i }}" id="cell{{ i }}{{ rowI }}{{ colI }}" {% if puzzle[rowI-1][colI-1] == i %}checked{% endif %}><label for="cell{{ i }}{{ rowI }}{{ colI }}" class="col{{ colI }} row{{ rowI }} check{{ i }} normBlock">{{ i }}</label>{% endfor %}
+			<br />
+		  {% endfor %}
+		  {% for rowI in range(1,10) %}
+			{% for colI in range(1,10) %}<input type="checkbox" style="display:none;" class="grow{{ rowI }}{{ i }} gcol{{ colI }}{{ i }} gbox{{(((colI-1)-((colI-1)%3)) / 3) + 3*(((rowI-1)-((rowI-1)%3)) / 3) + 1}}{{ i }}" id="gcell{{ i }}{{ rowI }}{{ colI }}"><label for="gcell{{ i }}{{ rowI }}{{ colI }}" class="col{{ colI }} row{{ rowI }} gcheck{{ i }} normBlock">{{ i }}</label>{% endfor %}
+			<br />
+		  {% endfor %}
+		  <span class="blackout{{ i }} normBlock blackoutAll">{{ i }}</span>
+
+		  <span class="winner">
+		  	<a href="https://www.csshole.com/games/sudokucss/{{ gametype }}{{ gameid }}/index.html" class="buttonPuzzle">Reset Puzzle</a><a href="https://www.csshole.com/games/sudokucss/{{gametype}}{{gameid +  1 }}/index.html" class="buttonPuzzle">Next Puzzle</a><span class="randomPuzzlet0 notnav">{% for pid in range(1,101) %}<a href="https://www.csshole.com/games/sudokucss/{{gametype}}{{ pid }}/index.html" class="randomPuzzle{{ pid}} randomPuzzlen1"></a>{% endfor %}<a href="" class="linkholder"> Random Puzzle</a></span>
+		  </span>
+		  <span class="nowinmessage">
+		  </span>
+		  <span class="winmessage">Great job, you beat the game!</span>
+
+		  </span>
+		</label>
+		{% endfor %}
+
+
+	</div>
+</body>
+</html>
+
+{{ partial "footer.html" . }}
