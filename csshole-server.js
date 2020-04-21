@@ -88,6 +88,7 @@ app.get('/mathquiz.html',
 		res.write(nunjucks.render('templates/mathquizbase.html',{
 			nlevels: nlevels,
 			questions: questions,
+			type: "trig",
 		}));
 		res.end();
 	}
