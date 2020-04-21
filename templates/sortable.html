@@ -100,7 +100,7 @@ body {
 }
 
 {% for i in range(1,ncols+1) %}
-	.sortable > .sortable-col{{ i }}  { width: {{ 100/ncols}}%; }
+	.sortable  .sortable-col{{ i }}  { width: {{ 100/ncols}}%; }
 {% endfor %}
 
 .sortable-header  { order: 0; flex-grow: 1; width: 100%;}
