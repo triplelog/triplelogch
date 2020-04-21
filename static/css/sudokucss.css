@@ -30,14 +30,7 @@ input {
 	margin: 0px;
 	display: inline-block;
 }
-.winner {
-	position:absolute;
-	top:calc(var(--width-block) * 11 + 5px);
-	left:calc(1 * (var(--width-block) * 4.5 + 20px - (240px * var(--p-button-mul) + 5px)));
-	z-index:10;
-	width:calc(500px * var(--p-button-mul));
-	height: 20px;
-}
+
 .nowinmessage {
 	position:absolute;
 	top:calc(var(--width-block) * 11 + 10px + (10px * var(--p-button-h)));
