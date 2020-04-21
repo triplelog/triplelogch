@@ -533,7 +533,7 @@ div.displayNeedle {
 		{% for turn in range(1,nturns+1) %}
 			{% set idx = 0 %}
 			{% for angle in angles %}
-				<div class="c{{idx + 1}}t{{turn}} displayAngle">{{angle.numer }}pi/{{angle.denom}}</div>
+				<div class="c{{idx + 1}}t{{turn}} displayAngle">{{angle.numer + (2*angle.denom) }}pi/{{angle.denom}}</div>
 				<div class="needle{{idx + 1}}t{{turn}} displayNeedle" style="pointer-events: none;">
 					<svg viewBox="-100 -100 200 200" class="svgneedle">
 						<polygon stroke="rgb(200,200,200)" stroke-width="3" points="0,0 {{ angle.needle }} 0,0"></polygon>
