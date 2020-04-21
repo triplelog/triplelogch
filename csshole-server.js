@@ -105,7 +105,7 @@ app.get('/sortable.html',
 	
 	function(req, res) {
 		var ncols = 4;
-		var nrows = 3;
+		var nrows = 30;
 		var content = [];
 		for (var i=0;i<nrows;i++){
 			var thiscontent = [];
@@ -117,13 +117,13 @@ app.get('/sortable.html',
 		}
 		
 		
-		
+		nrows = 10;
 		//sort content
 		var order = [];
 		for (var i=0;i<ncols;i++){
 			var thiscol= [];
 			var sorted = content.slice().sort(function (a,b) {return b[i] - a[i];})
-			for (var ii=0;ii<nrows;ii++){
+			for (var ii=0;ii<content.length;ii++){
 				for (var iii=0;iii<nrows;iii++){
 					if ( sorted[iii][ncols] == ii){
 						thiscol.push(iii+1);
