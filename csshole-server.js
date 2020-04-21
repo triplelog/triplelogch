@@ -85,7 +85,7 @@ app.get('/mathquiz.html',
 		//var questions = [{'question':'What is the derivative of x^3','answer':'3x\\^2','id':1,'level':0},
 		//{'question':'What is the derivative of x^4','answer':'4x\\^3','id':2,'level':0},{'question':'What is the derivative of x^5','answer':'5x\\^4','id':1,'level':1}]
 
-		res.write(nunjucks.render('templates/mathquiz.html',{
+		res.write(nunjucks.render('templates/mathquizbase.html',{
 			nlevels: nlevels,
 			questions: questions,
 		}));
