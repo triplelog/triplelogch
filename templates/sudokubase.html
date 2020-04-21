@@ -10,7 +10,7 @@
 	
 {% block centerSize %}
 	--height-center: 75vh;
-	--width-center: 70vh;
+	--width-center: calc(40px + var(--width-block)*9);
 {% endblock %}
 
 {% block titleCSS %}
@@ -141,7 +141,7 @@ Because it is possible.
 
 
 {% block content22 %}
-	<div style="position: relative; left: calc((100vw - (54vmin + 18px)) / 2); font-family: sans-serif;">
+	<div style="position: relative; font-family: sans-serif;">
 
 
 		{% for i in range(1,10) %}
