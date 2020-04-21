@@ -116,18 +116,20 @@ app.get('/sortable.html',
 			content.push(thiscontent);
 		}
 		
-		
-		nrows = 30;
+		var showrows = 10;
 		//sort content
 		var order = [];
 		for (var i=0;i<ncols;i++){
 			var thiscol= [];
 			var sorted = content.slice().sort(function (a,b) {return b[i] - a[i];})
 			for (var ii=0;ii<content.length;ii++){
-				for (var iii=0;iii<nrows;iii++){
+				for (var iii=0;iii<showrows;iii++){
 					if ( sorted[iii][ncols] == ii){
 						thiscol.push(iii+1);
 						break;
+					}
+					if (iii==showrows-1){ //no match in top x rows
+						thiscol.push(0);
 					}
 				}
 			}
