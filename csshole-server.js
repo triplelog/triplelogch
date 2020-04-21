@@ -105,11 +105,13 @@ app.get('/mathquiz.html',
 app.get('/sortable.html', 
 	
 	function(req, res) {
+		console.log(performance.now());
 		var results = Papa.parse("static/data/Batting.csv", {
 			delimiter: ",",
 			skipEmptyLines: true,
 		});
-		console.log(results.meta);
+		console.log(results.data[0],results.data.length);
+		console.log(performance.now());
 		var ncols = 4;
 		var nrows = 30;
 		var content = [];

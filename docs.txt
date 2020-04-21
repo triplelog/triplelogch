@@ -32,7 +32,7 @@ sudo chown -R rwilcox:rwilcox /etc/letsencrypt
 sudo curl -sL https://deb.nodesource.com/setup_13.x | sudo bash - (to install npm)
 sudo apt-get install -y nodejs
 npm install -s ws passport passport-local mongoose passport-local-mongoose
-npm install -s nunjucks express express-session
+npm install -s nunjucks express express-session papaparse
 
 #Set up mongo
 wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
