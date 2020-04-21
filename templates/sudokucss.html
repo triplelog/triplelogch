@@ -1,12 +1,12 @@
-{{ define "main" }}
+
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ .Title }}</title>
-<link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
-<meta name="description" content="{{ .Params.description }}"/>
-<link rel="stylesheet" href="/css/sudokucss.css">
+<title>{{ title }}</title>
+<link rel="icon" href="{{ favicon }}">
+<meta name="description" content="{{ description }}"/>
+<link rel="stylesheet" href="../css/sudokucss.css">
 <style>
 
 input {
@@ -34,12 +34,12 @@ input {
 .row8 {border-top: 1px solid black;border-bottom: 1px solid black;}
 .row9 {border-top: 1px solid black;border-bottom: 8px solid black;}
 
-{{ range $i := .Params.num19 }}
-	.cmark{{ $i.idx }} {
+{% for i in range(1,10) %}
+	.cmark{{ i }} {
 		border: 1px solid;
 		position: absolute;
 		top: 20px;
-		left: {{add (mul $i.idx 24) 79}}px;
+		left: {{i*24 + 79}}px;
 		width: 20px;
 		height:20px;
 		text-align: center;
@@ -47,20 +47,20 @@ input {
 		font-size: 20px;
 	}
 
-	.radioB:checked + .cmark{{ $i.idx }}{
+	.radioB:checked + .cmark{{ i }}{
 		border: 1px solid blue;
 		background: rgba(0,0,255,.25);
 	}
-	.sudoku{{ $i.idx }}{
+	.sudoku{{ i }}{
 		position: absolute;
 		top: 100px;
 		left: 100px;
 	}
-	.sudoku{{ $i.idx }} .check{{ $i.idx }}{
+	.sudoku{{ i }} .check{{ i }}{
 		position: relative;
 		z-index: -1;
 	}
-	.check{{ $i.idx }} {
+	.check{{ i }} {
 		background: white;
 		display: inline-block;
 		text-align: center;
@@ -73,12 +73,12 @@ input {
 		margin: 0px;
 		position: relative;
 	}
-	.sudoku{{ $i.idx }} .gcheck{{ $i.idx }}{
+	.sudoku{{ i }} .gcheck{{ i }}{
 		position: relative;
 		top: -220px;
 		z-index: -1;
 	}
-	.gcheck{{ $i.idx }} {
+	.gcheck{{ i }} {
 		background: white;
 		display: inline-block;
 		text-align: center;
@@ -91,80 +91,80 @@ input {
 		margin: 0px;
 		position: relative;
 	}
-	.blackout{{ $i.idx }} {
+	.blackout{{ i }} {
 		border: 1px solid;
 		position: absolute;
 		width: 20px;
 		height:20px;
 		background: gray;
 		top: -80px;
-		left: {{sub (mul $i.idx 24) 21 }}px;
+		left: {{ i*24-21 }}px;
 		display: none;
 		text-align: center;
 		line-height: 20px;
 		font-size: 20px;
 	}
-	{{ range $rowI := $i.arr1 }}.row{{ $rowI }}{{ $i.idx }}:checked ~ {{ end }}.blackout{{ $i.idx }} {
+	{% for rowI in range(1,10) %}.row{{ rowI }}{{ i }}:checked ~ {% endfor %}.blackout{{ i }} {
 		display: inline-block;
 	}
-	{{ range $rowI := $i.arr1 }}.row{{ $rowI }}{{ $i.idx }}:checked ~ {{ end }}.winner {
+	{% for rowI in range(1,10) %}.row{{ rowI }}{{ i }}:checked ~ {% endfor %}.winner {
 		z-index: -1 !important;
 	}
-	{{ range $rowI := $i.arr1 }}
-		.row{{ $rowI }}{{ $i.idx }}:checked + .check{{ $i.idx }} {
+	{% for rowI in range(1,10) %}
+		.row{{ rowI }}{{ i }}:checked + .check{{ i }} {
 			color: black;
 			position: relative;
 			z-index: 200;
 		}
-		.row{{ $rowI }}{{ $i.idx }}:checked ~ .row{{ $rowI }}{{ $i.idx }} + .check{{ $i.idx }} {
+		.row{{ rowI }}{{ i }}:checked ~ .row{{ rowI }}{{ i }} + .check{{ i }} {
 			color: white;
 			position: relative;
 			z-index: -1;
 		}
 
-	{{ end }}
-	{{ range $colI := $i.arr2 }}
-		.col{{ $colI }}{{ $i.idx }}:checked + .check{{ $i.idx }} {
+	{% endfor %}
+	{% for colI in range(1,10) %}
+		.col{{ colI }}{{ i }}:checked + .check{{ i }} {
 			color: black;
 			position: relative;
 			z-index: 200;
 		}
-		.col{{ $colI }}{{ $i.idx }}:checked ~ .col{{ $colI }}{{ $i.idx }} + .check{{ $i.idx }} {
+		.col{{ colI }}{{ i }}:checked ~ .col{{ colI }}{{ i }} + .check{{ i }} {
 			color: white;
 			position: relative;
 			z-index: -1;
 		}
-	{{ end }}
-	{{ range $boxI := $i.arr2 }}
-		.box{{ $boxI }}{{ $i.idx }}:checked + .check{{ $i.idx }} {
+	{% endfor %}
+	{% for boxI in range(1,10) %}
+		.box{{ boxI }}{{ i }}:checked + .check{{ i }} {
 			color: black;
 			position: relative;
 			z-index: 200;
 		}
-		.box{{ $boxI }}{{ $i.idx }}:checked ~ .box{{ $boxI }}{{ $i.idx }} + .check{{ $i.idx }} {
+		.box{{ boxI }}{{ i }}:checked ~ .box{{ boxI }}{{ i }} + .check{{ i }} {
 			color: white;
 			position: relative;
 			z-index: -1;
 		}
-	{{ end }}
-	{{ range $rowI := $i.arr1 }}
-		{{ range $colI := $i.arr2 }}
-			.row{{ $rowI }}{{ $i.idx }}.col{{ $colI }}{{ $i.idx }}:hover:Not(:checked) ~ .grow{{ $rowI }}{{ $i.idx }}:Not(.gcol{{ $colI }}{{ $i.idx }}) + .gcheck{{ $i.idx }} {background: rgba(200,0,0,.4);color: rgba(200,0,0,0);z-index: 150;}
-			.row{{ $rowI }}{{ $i.idx }}.col{{ $colI }}{{ $i.idx }}:hover:Not(:checked) + .check{{ $i.idx }} {background: rgba(180,180,180,.75);color: rgba(80,80,80,1);z-index: 160;}
-			.row{{ $rowI }}{{ $i.idx }}.col{{ $colI }}{{ $i.idx }}:hover:checked + .check{{ $i.idx }} {background: rgba(180,180,180,.75);color: rgba(80,80,80,0);z-index: 160;}
-			.radioB:checked + .cmark{{ $i.idx }} + .sudoku{{ $i.idx }} .row{{ $rowI }}{{ $i.idx }}.col{{ $colI }}{{ $i.idx }}:checked ~ .grow{{ $rowI }}{{ $i.idx }}:Not(.gcol{{ $colI }}{{ $i.idx }}) + .gcheck{{ $i.idx }} {z-index: 150;}
-			.row{{ $rowI }}{{ $i.idx }}.col{{ $colI }}{{ $i.idx }}:hover:Not(:checked) ~ .gcol{{ $colI }}{{ $i.idx }}:Not(.grow{{ $rowI }}{{ $i.idx }}) + .gcheck{{ $i.idx }} {background: rgba(0,0,200,.4);color: rgba(0,0,200,0);z-index: 150;}
-			.radioB:checked + .cmark{{ $i.idx }} + .sudoku{{ $i.idx }} .row{{ $rowI }}{{ $i.idx }}.col{{ $colI }}{{ $i.idx }}:checked ~ .gcol{{ $colI }}{{ $i.idx }}:Not(.grow{{ $rowI }}{{ $i.idx }}) + .gcheck{{ $i.idx }} {z-index: 150;}
-			.row{{ $rowI }}{{ $i.idx }}.col{{ $colI }}{{ $i.idx }}:hover:Not(:checked) ~ .gbox{{add (add (div (sub $colI 1) 3) (mul 3 (div (sub $rowI 1) 3))) 1}}{{ $i.idx }}:Not(.grow{{ $rowI }}{{ $i.idx }}):Not(.gcol{{ $colI }}{{ $i.idx }}) + .gcheck{{ $i.idx }} {background: rgba(0,200,0,.4);color: rgba(0,200,0,0);z-index: 150;}
-			.radioB:checked + .cmark{{ $i.idx }} + .sudoku{{ $i.idx }} .row{{ $rowI }}{{ $i.idx }}.col{{ $colI }}{{ $i.idx }}:checked ~ .gbox{{add (add (div (sub $colI 1) 3) (mul 3 (div (sub $rowI 1) 3))) 1}}{{ $i.idx }}:Not(.grow{{ $rowI }}{{ $i.idx }}) + .gcheck{{ $i.idx }} {z-index: 150;}
+	{% endfor %}
+	{% for rowI in range(1,10) %}
+		{% for colI in range(1,10) %}
+			.row{{ rowI }}{{ i }}.col{{ colI }}{{ i }}:hover:Not(:checked) ~ .grow{{ rowI }}{{ i }}:Not(.gcol{{ colI }}{{ i }}) + .gcheck{{ i }} {background: rgba(200,0,0,.4);color: rgba(200,0,0,0);z-index: 150;}
+			.row{{ rowI }}{{ i }}.col{{ colI }}{{ i }}:hover:Not(:checked) + .check{{ i }} {background: rgba(180,180,180,.75);color: rgba(80,80,80,1);z-index: 160;}
+			.row{{ rowI }}{{ i }}.col{{ colI }}{{ i }}:hover:checked + .check{{ i }} {background: rgba(180,180,180,.75);color: rgba(80,80,80,0);z-index: 160;}
+			.radioB:checked + .cmark{{ i }} + .sudoku{{ i }} .row{{ rowI }}{{ i }}.col{{ colI }}{{ i }}:checked ~ .grow{{ rowI }}{{ i }}:Not(.gcol{{ colI }}{{ i }}) + .gcheck{{ i }} {z-index: 150;}
+			.row{{ rowI }}{{ i }}.col{{ colI }}{{ i }}:hover:Not(:checked) ~ .gcol{{ colI }}{{ i }}:Not(.grow{{ rowI }}{{ i }}) + .gcheck{{ i }} {background: rgba(0,0,200,.4);color: rgba(0,0,200,0);z-index: 150;}
+			.radioB:checked + .cmark{{ i }} + .sudoku{{ i }} .row{{ rowI }}{{ i }}.col{{ colI }}{{ i }}:checked ~ .gcol{{ colI }}{{ i }}:Not(.grow{{ rowI }}{{ i }}) + .gcheck{{ i }} {z-index: 150;}
+			.row{{ rowI }}{{ i }}.col{{ colI }}{{ i }}:hover:Not(:checked) ~ .gbox{{(((colI-1)-((colI-1)%3)) / 3) + 3*(((rowI-1)-((rowI-1)%3)) / 3) + 1}}{{ i }}:Not(.grow{{ rowI }}{{ i }}):Not(.gcol{{ colI }}{{ i }}) + .gcheck{{ i }} {background: rgba(0,200,0,.4);color: rgba(0,200,0,0);z-index: 150;}
+			.radioB:checked + .cmark{{ i }} + .sudoku{{ i }} .row{{ rowI }}{{ i }}.col{{ colI }}{{ i }}:checked ~ .gbox{{(((colI-1)-((colI-1)%3)) / 3) + 3*(((rowI-1)-((rowI-1)%3)) / 3) + 1}}{{ i }}:Not(.grow{{ rowI }}{{ i }}) + .gcheck{{ i }} {z-index: 150;}
 			
-		{{ end }}
-	{{ end }}
-	.radioB:checked + .cmark{{ $i.idx }} + .sudoku{{ $i.idx }} .check{{ $i.idx }}{
+		{% endfor %}
+	{% endfor %}
+	.radioB:checked + .cmark{{ i }} + .sudoku{{ i }} .check{{ i }}{
 		position: relative;
 		z-index: 100;
 	}
-{{ end }}
+{% endfor %}
 
 body {
 	counter-reset: points3 100;
@@ -183,21 +183,21 @@ body {
 	<div style="position: relative; left: 5%;">
 
 
-		{{ range $i := .Params.num19 }}
+		{% for i in range(1,10) %}
 		<label class="container">
 		  <input type="radio" checked="checked" name="radio" style="display:none;" class="radioB">
-		  <span class="cmark{{ $i.idx }}">{{ $i.idx }}</span>
+		  <span class="cmark{{ i }}">{{ i }}</span>
   
-		  <span class="sudoku{{ $i.idx }}">
-		  {{ range $rowI := $i.arr1 }}
-			{{ range $colI := $i.arr2 }}<input type="checkbox" style="display:none;" class="points{{ $i.idx}} row{{ $rowI }}{{ $i.idx }} col{{ $colI }}{{ $i.idx }} box{{add (add (div (sub $colI 1) 3) (mul 3 (div (sub $rowI 1) 3))) 1 }}{{ $i.idx }}" id="cell{{ $i.idx }}{{ $rowI }}{{ $colI }}" {{ if (eq (index (index $.Params.puzzle (sub $rowI 1)) (sub $colI 1)) $i.idx) }}checked{{ end }}><label for="cell{{ $i.idx }}{{ $rowI }}{{ $colI }}" class="col{{ $colI }} row{{ $rowI }} check{{ $i.idx }}">{{ $i.idx }}</label>{{ end }}
+		  <span class="sudoku{{ i }}">
+		  {% for rowI in range(1,10) %}
+			{% for colI in range(1,10) %}<input type="checkbox" style="display:none;" class="points{{ i}} row{{ rowI }}{{ i }} col{{ colI }}{{ i }} box{{ (((colI-1)-((colI-1)%3)) / 3) + 3*(((rowI-1)-((rowI-1)%3)) / 3) + 1}}{{ i }}" id="cell{{ i }}{{ rowI }}{{ colI }}" {% if puzzle[rowI-1][colI-1] == i) %}checked{% endif %}><label for="cell{{ i }}{{ rowI }}{{ colI }}" class="col{{ colI }} row{{ rowI }} check{{ i }}">{{ i }}</label>{% endfor %}
 			<br />
-		  {{ end }}
-		  {{ range $rowI := $i.arr1 }}
-			{{ range $colI := $i.arr2 }}<input type="checkbox" style="display:none;" class="grow{{ $rowI }}{{ $i.idx }} gcol{{ $colI }}{{ $i.idx }} gbox{{add (add (div (sub $colI 1) 3) (mul 3 (div (sub $rowI 1) 3))) 1}}{{ $i.idx }}" id="gcell{{ $i.idx }}{{ $rowI }}{{ $colI }}"><label for="gcell{{ $i.idx }}{{ $rowI }}{{ $colI }}" class="col{{ $colI }} row{{ $rowI }} gcheck{{ $i.idx }}">{{ $i.idx }}</label>{{ end }}
+		  {% endfor %}
+		  {% for rowI in range(1,10) %}
+			{% for colI in range(1,10) %}<input type="checkbox" style="display:none;" class="grow{{ rowI }}{{ i }} gcol{{ colI }}{{ i }} gbox{{ (((colI-1)-((colI-1)%3)) / 3) + 3*(((rowI-1)-((rowI-1)%3)) / 3) + 1}}{{ i }}" id="gcell{{ i }}{{ rowI }}{{ colI }}"><label for="gcell{{ i }}{{ rowI }}{{ colI }}" class="col{{ colI }} row{{ rowI }} gcheck{{ i }}">{{ i }}</label>{% endfor %}
 			<br />
-		  {{ end }}
-		  <span class="blackout{{ $i.idx }}">{{ $i.idx }}</span>
+		  {% endfor %}
+		  <span class="blackout{{ i }}">{{ i }}</span>
 
 		  <span class="winner" style="position:absolute;top:250px;left:5px;z-index:10;width:200px;height:20px;background: white;"></span>
 		  <span class="winmessage" style="position:absolute;top:250px;left:5px;z-index:1;width:200px;height:20px;background: white;">Great job, you beat the game!</span>
@@ -206,10 +206,10 @@ body {
 		  
 		  </span>
 		</label>
-		{{ end }}
+		{% endfor %}
 
 
 	</div>
 </body>
-{{ end }}
+
 
