@@ -46,6 +46,18 @@ app.get('/index.html',
 		res.end();
 	}
 );
+app.get('/sudoku.html', 
+	
+	function(req, res) {
+
+		res.write(nunjucks.render('templates/sudokucss.html',{
+			puzzle: [[8, 7, 0, 0, 0, 3, 0, 0, 0], [0, 0, 0, 6, 0, 0, 0, 3, 7], [0, 6, 0, 8, 0, 0, 0, 0, 5], [7, 0, 0, 0, 0, 0, 0, 1, 3], [0, 0, 9, 0, 1, 5, 0, 0, 0], [3, 0, 0, 0, 0, 0, 0, 2, 9], [0, 8, 0, 9, 0, 0, 0, 0, 6], [0, 0, 0, 5, 0, 0, 0, 7, 1], [2, 1, 0, 0, 0, 6, 0, 0, 0]]
+
+		}));
+		res.end();
+	}
+);
+
 app.get('/trigknob.html', 
 	
 	function(req, res) {
