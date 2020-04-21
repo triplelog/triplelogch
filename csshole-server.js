@@ -112,10 +112,43 @@ app.get('/sortable.html',
 				delimiter: ",",
 				skipEmptyLines: true,
 			});
-			console.log(results.data[0],results.data.length);
+			var nrows = results.data.length-1;
+			var header = results.data[0];
+			var ncols = results.data[0].length;
+			var content = results.data.slice(1);
 			console.log(performance.now());
+			var showrows = 20;
+			//sort content
+			var order = [];
+			for (var i=0;i<ncols;i++){
+				var thiscol= [];
+				var sorted = content.slice().sort(function (a,b) {return b[i] - a[i];})
+				for (var ii=0;ii<content.length;ii++){
+					for (var iii=0;iii<showrows;iii++){
+						if ( sorted[iii][ncols] == ii){
+							thiscol.push(iii+1);
+							break;
+						}
+						if (iii==showrows-1){ //no match in top x rows
+							thiscol.push(0);
+						}
+					}
+				}
+				order.push(thiscol);
+			}
+		
+			res.write(nunjucks.render('templates/sortable.html',{
+				title: "Sortable Table",
+				ncols: ncols,
+				nrows: nrows,
+				order: order,
+				content: content,
+				header: header,
+			}));
+			res.end();
 		});
 		
+		/*
 		var ncols = 4;
 		var nrows = 30;
 		var content = [];
@@ -157,6 +190,7 @@ app.get('/sortable.html',
 			header: ['A','B','C','D'],
 		}));
 		res.end();
+		*/
 	}
 );
 
