@@ -117,6 +117,9 @@ app.get('/sortable.html',
 			var header = results.data[0];
 			var ncols = results.data[0].length;
 			var content = results.data.slice(1,nrows+1);
+			for (var i=0;i<content.length;i++){
+				content[i].push(i);
+			}
 			console.log(performance.now());
 			var showrows = 20;
 			//sort content
@@ -137,8 +140,7 @@ app.get('/sortable.html',
 				}
 				order.push(thiscol);
 			}
-			console.log(content);
-			console.log(order);
+			console.log(performance.now());
 			res.write(nunjucks.render('templates/sortable.html',{
 				title: "Sortable Table",
 				ncols: ncols,
@@ -147,6 +149,7 @@ app.get('/sortable.html',
 				content: content,
 				header: header,
 			}));
+			console.log(performance.now());
 			res.end();
 		});
 		
