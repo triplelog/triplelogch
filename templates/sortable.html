@@ -11,7 +11,7 @@
 	
 {% block centerSize %}
 	--height-center: 400px;
-	--width-center: 600px;
+	--width-center: 700px;
 {% endblock %}
 
 {% block titleCSS %}
@@ -99,7 +99,7 @@ body {
 }
 
 {% for i in range(1,ncols+1) %}
-	.sortable > .sortable-col{{ i }}  { width: 25%; }
+	.sortable > .sortable-col{{ i }}  { width: {{ 100/ncols}}%; }
 {% endfor %}
 
 {% for i in range(1,nrows+1) %}
