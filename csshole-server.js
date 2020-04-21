@@ -116,7 +116,7 @@ app.get('/sortable.html',
 			content.push(thiscontent);
 		}
 		
-		var showrows = 10;
+		var showrows = 20;
 		//sort content
 		var order = [];
 		for (var i=0;i<ncols;i++){
@@ -142,6 +142,7 @@ app.get('/sortable.html',
 			nrows: nrows,
 			order: order,
 			content: content,
+			header: ['A','B','C','D'],
 		}));
 		res.end();
 	}
