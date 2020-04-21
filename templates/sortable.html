@@ -127,7 +127,7 @@ body {
 {% endfor %}
 .sortable {
 	height: 30rem;
-	overflow: hidden;
+	overflow: visible;
 }
 
 {% for i in range(1,ncols) %} #sort-col{{ i }}, {% endfor %}{% for i in range(ncols,ncols+1) %} #sort-col{{ i }} {% endfor %} { display: none; }
