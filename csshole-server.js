@@ -112,10 +112,11 @@ app.get('/sortable.html',
 				delimiter: ",",
 				skipEmptyLines: true,
 			});
-			var nrows = results.data.length-1;
+			//var nrows = results.data.length-1;
+			var nrows = 100;
 			var header = results.data[0];
 			var ncols = results.data[0].length;
-			var content = results.data.slice(1);
+			var content = results.data.slice(1,nrows+1);
 			console.log(performance.now());
 			var showrows = 20;
 			//sort content
