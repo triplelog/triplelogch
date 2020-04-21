@@ -1,0 +1,191 @@
+{% extends "templates/base.html" %}
+
+{% block borderRadius %}
+	--border-radius: 1.25rem;
+{% endblock %}
+
+{% block content22CSS %}
+	/*border: 1px solid black;*/
+{% endblock %}
+	
+{% block centerSize %}
+	--height-center: 75vh;
+	--width-center: 70vh;
+{% endblock %}
+
+{% block titleCSS %}
+.title {
+	line-height: 2.5rem;
+	text-align: center;
+	font-size: 1rem;
+	border: 2px solid black;
+  	border-radius: var(--border-radius);
+  	position: relative;
+  	top:-2px;
+  	left:-2px;
+  	width: calc(100% + 0px);
+  	background: red;
+  	background-image: url("../img/farmbg2-40.png");
+  	background-size: 100% 100%;
+  	background-repeat: no-repeat;
+  	background-position: 0px 0px;
+  	color: white;
+  	text-shadow: 0px 0px 10px black;
+}
+.titleBG {
+	background-image: url("../img/ftractor-40.png");
+  	background-size: auto 100%;
+  	background-repeat: no-repeat;
+  	background-position: 0px 0px;
+  	transition: background-position 1s linear;
+}
+.titleBG:hover {
+  	background-position: 350px 0px;
+  	transition: all 2s linear;
+}
+
+
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="../css/sudokucss.css">
+{% endblock %}
+
+{% block moreCSS %}
+.title a {
+	text-decoration: none;
+	color: white;
+	font-size: 1.5rem;
+}
+.title a:hover {
+	text-decoration: underline;
+	text-shadow: 0px 0px 10px black 0px 0px 10px black;
+}
+.title label:hover {
+	cursor: pointer;
+	text-shadow: 0px 0px 10px black 0px 0px 10px black;
+}
+body {
+	background-image: url("../img/lightbg.png");
+	background-size: cover;
+	
+}
+.content-31 {
+	display: none;
+}
+.content-33 {
+	display: none;
+}
+
+
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+{% for i in range(1,10) %}
+	{% for rowI in range(1,10) %}
+		{% for colI in range(1,10) %}
+			{% if puzzle[rowI-1][colI-1] == i %}
+				.row{{ rowI }}{{ i }}.col{{ colI }}{{ i }} + .check{{ i }} {z-index: 250 !important;color: black;}
+				.grow{{ rowI }}{{ i }}.gcol{{ colI }}{{ i }} + .gcheck{{ i }} {z-index: 260 !important;color: black;background: white !important;}
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+{% endfor %}
+
+
+{% endblock %}
+
+
+{% block title11 %}
+<div class="title">
+	<span class="titleLeft">
+		
+	</span>
+	<span class="titleCenter">
+		<a href="https://sudokufarm.com">More Puzzles</a>
+	</span>
+	<span class="titleRight">
+		<label for="radio11-1"><i class="fas fa-compress-alt"></i></label>
+		<label for="radio11-2"><i class="fas fa-expand-alt"></i></label>
+		<label for="radio11-3"><i class="fas fa-expand"></i></label>
+	</span>
+</div>
+{% endblock %}
+{% block content11 %}
+Because it is possible.
+{% endblock %}	
+
+{% block title13 %}
+<div class="title">
+	<div class="titleBG">
+		<span class="titleLeft">
+		
+		</span>
+		<span class="titleCenter">
+			<a href="https://gifsaw.com">Menu</a>
+		</span>
+		<span class="titleRight">
+			<label for="radio13-3"><i class="fas fa-expand"></i></label>
+			<label for="radio13-2"><i class="fas fa-expand-alt"></i></label>
+			<label for="radio13-1"><i class="fas fa-compress-alt"></i></label>
+		
+		
+		</span>
+	</div>
+</div>
+{% endblock %}
+{% block content13 %}
+
+{% endblock %}	
+
+
+
+
+{% block content22 %}
+	<div style="position: relative; left: calc((100vw - (54vmin + 18px)) / 2); font-family: sans-serif;">
+
+
+		{% for i in range(1,10) %}
+		<label class="container">
+		  <input type="radio" checked="checked" name="radio" style="display:none;" class="radioB" accesskey="{{ i }}">
+		  <span class="cmark{{ i }} normBlock cmarkAll">{{ i }}</span>
+  
+		  <span class="sudoku{{ i }} sudokuAll">
+		  {% for rowI in range(1,10) %}
+			{% for colI in range(1,10) %}<input type="checkbox" style="display:none;" class="row{{ rowI }}{{ i }} col{{ colI }}{{ i }} box{{(((colI-1)-((colI-1)%3)) / 3) + 3*(((rowI-1)-((rowI-1)%3)) / 3) + 1 }}{{ i }}" id="cell{{ i }}{{ rowI }}{{ colI }}" {% if puzzle[rowI-1][colI-1] == i %}checked{% endif %}><label for="cell{{ i }}{{ rowI }}{{ colI }}" class="col{{ colI }} row{{ rowI }} check{{ i }} normBlock">{{ i }}</label>{% endfor %}
+			<br />
+		  {% endfor %}
+		  {% for rowI in range(1,10) %}
+			{% for colI in range(1,10) %}<input type="checkbox" style="display:none;" class="grow{{ rowI }}{{ i }} gcol{{ colI }}{{ i }} gbox{{(((colI-1)-((colI-1)%3)) / 3) + 3*(((rowI-1)-((rowI-1)%3)) / 3) + 1}}{{ i }}" id="gcell{{ i }}{{ rowI }}{{ colI }}"><label for="gcell{{ i }}{{ rowI }}{{ colI }}" class="col{{ colI }} row{{ rowI }} gcheck{{ i }} normBlock">{{ i }}</label>{% endfor %}
+			<br />
+		  {% endfor %}
+		  <span class="blackout{{ i }} normBlock blackoutAll">{{ i }}</span>
+
+		  <span class="winner">
+		  	<a href="https://www.csshole.com/games/sudokucss/{{ gametype }}{{ gameid }}/index.html" class="buttonPuzzle">Reset Puzzle</a><a href="https://www.csshole.com/games/sudokucss/{{gametype}}{{gameid +  1 }}/index.html" class="buttonPuzzle">Next Puzzle</a><span class="randomPuzzlet0 notnav">{% for pid in range(1,101) %}<a href="https://www.csshole.com/games/sudokucss/{{gametype}}{{ pid }}/index.html" class="randomPuzzle{{ pid}} randomPuzzlen1"></a>{% endfor %}<a href="" class="linkholder"> Random Puzzle</a></span>
+		  </span>
+		  <span class="nowinmessage">
+		  </span>
+		  <span class="winmessage">Great job, you beat the game!</span>
+
+		  </span>
+		</label>
+		{% endfor %}
+
+
+	</div>
+{% endblock %}
+
+
+
+
+
+
+{% block bodyStart %}
+
+{% endblock %}
+
+
+{% block scripts %}
+
+{% endblock %}
+
