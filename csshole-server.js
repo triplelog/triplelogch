@@ -113,7 +113,7 @@ app.get('/sortable.html',
 				skipEmptyLines: true,
 			});
 			var nrows = results.data.length-1;
-			//var nrows = 20;
+			var nrows = 2000;
 			var header = results.data[0];
 			var ncols = results.data[0].length;
 			var content = results.data.slice(1,nrows+1);
