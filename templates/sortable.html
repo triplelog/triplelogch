@@ -100,7 +100,11 @@ body {
 
 {% for i in range(1,ncols+1) %}
 	{% for ii in range(1,nrows+1) %}
+		{% if order[i-1][ii-1] == 0 %}
+		#sort-col{{ i }}:checked ~ .sortable-row{{ ii }} { display: none; }
+		{% else %}
 		#sort-col{{ i }}:checked ~ .sortable-row{{ ii }} { order: {{ order[i-1][ii-1] }}; }
+		{% endif %}
 	{% endfor %}
 {% endfor %}
 
