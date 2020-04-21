@@ -17,161 +17,8 @@
 
 <style>
 :root {
-	--width-block: 10px;
-    --shift-cover-puzzle: calc(-40px - var(--width-block)*9); 
-    --left-margin: 0px;
-    --color-bg1: rgba(180,180,180,.75);
-    --color-text1: black;
-    --sudoku-top: 200px;
-    --sudoku-left: 200px;
-    counter-reset: old1 {{ .Params.startFood }} old2 {{ .Params.startWater }} old3 {{ .Params.startFeed }} old4 {{ .Params.startPoop }} old5 {{ .Params.startFire }} old6 {{ .Params.startClothes }} old7 {{ .Params.startPeople }} points1 {{ .Params.startFood }} points2 {{ .Params.startWater }} points3 {{ .Params.startFeed }} points4 {{ .Params.startPoop }} points5 {{ .Params.startFire }} points6 {{ .Params.startClothes }} points7 {{ .Params.startPeople }} change1 {{ $initFood }} change2 {{ $initWater }} change3 {{ $initFeed }} change4 {{ $initPoop }} change5 {{ $initFire }} change6 {{ $initClothes }} change7 0;
-    --turns-taken: 0px;
+	counter-reset: old1 {{ .Params.startFood }} old2 {{ .Params.startWater }} old3 {{ .Params.startFeed }} old4 {{ .Params.startPoop }} old5 {{ .Params.startFire }} old6 {{ .Params.startClothes }} old7 {{ .Params.startPeople }} points1 {{ .Params.startFood }} points2 {{ .Params.startWater }} points3 {{ .Params.startFeed }} points4 {{ .Params.startPoop }} points5 {{ .Params.startFire }} points6 {{ .Params.startClothes }} points7 {{ .Params.startPeople }} change1 {{ $initFood }} change2 {{ $initWater }} change3 {{ $initFeed }} change4 {{ $initPoop }} change5 {{ $initFire }} change6 {{ $initClothes }} change7 0;
 }
-@media screen and (min-width: 320px) and (min-height: 320px) {
-	:root {
-    	--width-block: 20px;
-    }
-}
-@media screen and (min-width: 480px) and (min-height: 480px) {
-	:root {
-    	--width-block: 30px;
-    }
-}
-@media screen and (min-width: 720px) and (min-height: 720px) {
-	:root {
-    	--width-block: 40px;
-    }
-}
-@media screen and (min-width: 1080px) and (min-height: 1080px) {
-	:root {
-    	--width-block: 50px;
-    }
-}
-
-.radioBD:active + label{
-	border: 1px solid blue;
-	background: rgba(100,100,255,1);
-}
-.radioBU:active + label{
-	border: 1px solid blue;
-	background: rgba(255,255,255,1);
-}
-{{ range $i := (seq 9) }}
-	
-	.points{{ $i }}:checked + .check{{ $i }} + .gcheck{{ $i }}{
-		z-index: 5000;
-		opacity: 1;
-	}
-	.points{{ $i }}:active + .check{{ $i }} img{
-		opacity: 1;
-	}
-	
-{{ end }}
-
-.mainDiv {
-	position: relative;
-	left: 0px;
-	height: calc(var(--sudoku-top) + 9 * var(--width-block) + 100px);
-	overflow: hidden;
-}
-@keyframes example {
-  0%   {transform: rotate(0deg);}
-  10%  {transform: rotate(36deg);}
-  20%  {transform: rotate(72deg);}
-  30% {transform: rotate(108deg);}
-  40%  {transform: rotate(144deg);}
-  50%  {transform: rotate(180deg);}
-  60% {transform: rotate(216deg);}
-  70%  {transform: rotate(252deg);}
-  80%  {transform: rotate(288deg);}
-  90% {transform: rotate(324deg);}
-  100% {transform: rotate(360deg);}
-}
-
-
-input {
-	padding: 0px;
-	margin: 0px;
-	display: inline-block;
-	
-
-}
-.coverSudoku {
-	position: absolute;
-	left:  var(--sudoku-left);
-	top:  var(--sudoku-top);
-	width: calc(9 * var(--width-block) + 40px);
-	height: calc(9 * var(--width-block) + 40px);
-	background-color: rgba(0,0,0,0);
-	z-index: 99;
-}
-.col1 {border-right: 1px solid black; border-left: 8px solid black; position: absolute; left: var(--sudoku-left);}
-.col2 {border-right: 1px solid black; border-left: 1px solid black; position: absolute; left: calc(var(--width-block) + var(--sudoku-left) + 9px);}
-.col3 {border-right: 3px solid black; border-left: 1px solid black; position: absolute; left: calc(2 * var(--width-block) + var(--sudoku-left) + 11px);}
-.col4 {border-right: 1px solid black; border-left: 3px solid black; position: absolute; left: calc(3 * var(--width-block) + var(--sudoku-left) + 15px);}
-.col5 {border-right: 1px solid black; border-left: 1px solid black; position: absolute; left: calc(4 * var(--width-block) + var(--sudoku-left) + 19px);}
-.col6 {border-right: 3px solid black; border-left: 1px solid black; position: absolute; left: calc(5 * var(--width-block) + var(--sudoku-left) + 21px);}
-.col7 {border-right: 1px solid black; border-left: 3px solid black; position: absolute; left: calc(6 * var(--width-block) + var(--sudoku-left) + 25px);}
-.col8 {border-right: 1px solid black; border-left: 1px solid black; position: absolute; left: calc(7 * var(--width-block) + var(--sudoku-left) + 29px);}
-.col9 {border-right: 8px solid black; border-left: 1px solid black; position: absolute; left: calc(8 * var(--width-block) + var(--sudoku-left) + 31px);}
-
-.row1 {border-top: 8px solid black;border-bottom: 1px solid black; top: var(--sudoku-top);}
-.row2 {border-top: 1px solid black;border-bottom: 1px solid black; top: calc(var(--width-block) + var(--sudoku-top) + 9px);}
-.row3 {border-top: 1px solid black;border-bottom: 3px solid black; top: calc(2 * var(--width-block) + var(--sudoku-top) + 11px);}
-.row4 {border-top: 3px solid black;border-bottom: 1px solid black; top: calc(3 * var(--width-block) + var(--sudoku-top) + 15px);}
-.row5 {border-top: 1px solid black;border-bottom: 1px solid black; top: calc(4 * var(--width-block) + var(--sudoku-top) + 19px);}
-.row6 {border-top: 1px solid black;border-bottom: 3px solid black; top: calc(5 * var(--width-block) + var(--sudoku-top) + 21px);}
-.row7 {border-top: 3px solid black;border-bottom: 1px solid black; top: calc(6 * var(--width-block) + var(--sudoku-top) + 25px);}
-.row8 {border-top: 1px solid black;border-bottom: 1px solid black; top: calc(7 * var(--width-block) + var(--sudoku-top) + 29px);}
-.row9 {border-top: 1px solid black;border-bottom: 8px solid black; top: calc(8 * var(--width-block) + var(--sudoku-top) + 31px);}
-
-.col1.ccheck, .col9.ccheck {width: calc(var(--width-block) + 9px);}
-.col2.ccheck, .col5.ccheck, .col8.ccheck {width: calc(var(--width-block) + 2px);}
-.col3.ccheck, .col4.ccheck, .col6.ccheck, .col7.ccheck {width: calc(var(--width-block) + 4px);}
-.row1.rcheck, .row9.rcheck {height: calc(var(--width-block) + 9px);}
-.row2.rcheck, .row5.rcheck, .row8.rcheck {height: calc(var(--width-block) + 2px);}
-.row3.rcheck, .row4.rcheck, .row6.rcheck, .row7.rcheck {height: calc(var(--width-block) + 4px);}
-.ccheck {height: calc(9 * var(--width-block) + 40px); background: rgba(100,100,0,0); z-index: -1; top: var(--sudoku-top); border: none; position: absolute;}
-.rcheck {width: calc(9 * var(--width-block) + 40px); background: rgba(100,0,100,0); z-index: -1; left: var(--sudoku-left); border: none; position: absolute;}
-
-.block11 {width: calc(3 * var(--width-block) + 15px); height: calc(3 * var(--width-block) + 15px); top: var(--sudoku-top); left: var(--sudoku-left); position: absolute;}
-.block12 {width: calc(3 * var(--width-block) + 15px); height: calc(3 * var(--width-block) + 10px); top: calc(3 * var(--width-block) + var(--sudoku-top) + 15px); left: var(--sudoku-left); position: absolute;}
-.block13 {width: calc(3 * var(--width-block) + 15px); height: calc(3 * var(--width-block) + 15px); top: calc(6 * var(--width-block) + var(--sudoku-top) + 25px); left: var(--sudoku-left); position: absolute;}
-.block21 {width: calc(3 * var(--width-block) + 10px); height: calc(3 * var(--width-block) + 15px); top: var(--sudoku-top); left: calc(3 * var(--width-block) + var(--sudoku-left) + 15px); position: absolute;}
-.block22 {width: calc(3 * var(--width-block) + 10px); height: calc(3 * var(--width-block) + 10px); top: calc(3 * var(--width-block) + var(--sudoku-top) + 15px); left: calc(3 * var(--width-block) + var(--sudoku-left) + 15px); position: absolute;}
-.block23 {width: calc(3 * var(--width-block) + 10px); height: calc(3 * var(--width-block) + 15px); top: calc(6 * var(--width-block) + var(--sudoku-top) + 25px); left: calc(3 * var(--width-block) + var(--sudoku-left) + 15px); position: absolute;}
-.block31 {width: calc(3 * var(--width-block) + 15px); height: calc(3 * var(--width-block) + 15px); top: var(--sudoku-top); left: calc(6 * var(--width-block) + var(--sudoku-left) + 25px); position: absolute;}
-.block32 {width: calc(3 * var(--width-block) + 15px); height: calc(3 * var(--width-block) + 10px); top: calc(3 * var(--width-block) + var(--sudoku-top) + 15px); left: calc(6 * var(--width-block) + var(--sudoku-left) + 25px); position: absolute;}
-.block33 {width: calc(3 * var(--width-block) + 15px); height: calc(3 * var(--width-block) + 15px); top: calc(6 * var(--width-block) + var(--sudoku-top) + 25px); left: calc(6 * var(--width-block) + var(--sudoku-left) + 25px); position: absolute;}
-
-.bcheck {background: rgba(0,100,100,0); z-index: -1; position: absolute;}
-
-.cmarkD, .cmarkU {
-	border: 1px solid;
-	position: absolute;
-	top: calc( var(--sudoku-top) - 1.5 * var(--width-block));
-	width: var(--width-block);
-	height:var(--width-block);
-	text-align: center;
-	line-height: var(--width-block);
-	font-size: var(--width-block);
-	z-index: 1;
-	background: rgba(255,255,255,1);
-}
-{{ range $i := (seq 9) }}
-	.cmarkD{{ $i }}, .cmarkU{{ $i }} {
-		left: calc(4 * var(--width-block) + var(--sudoku-left) + 19px + {{ (sub $i 5) }} * var(--width-block));
-	}
-{{ end }}
-
-.cmarkU {
-	border: 1px solid blue;
-	background: rgba(100,100,255,1);
-}
-.cmarkimg {
-	width: var(--width-block);
-}
-
 {{ range $ii := (seq $.Params.maxTurns) }}
 	.radioBU{{ $ii }}:not(:checked) + label {
 		z-index: {{add 201 (mul 2 $ii)}};
@@ -282,45 +129,6 @@ input {
 	}
 
 {{ end }}
-
-.itemSpan {
-	background-color: rgba(0,0,0,0);
-	display: inline-block;
-	margin: 0px;
-	padding: 0px;
-	height: calc(9 * var(--width-block) + 40px);
-}
-
-.foodSpan, .waterSpan, .feedSpan, .poopSpan, .fireSpan, .clothesSpan {
-	background-color: rgba(0,0,0,0);
-	pointer-events: none;
-	height: calc(9 * var(--width-block) + 40px);
-	z-index: 5000000;
-	display: block;
-	position: absolute;
-	top: var(--sudoku-top);
-	margin: 0px;
-	padding: 0px;
-	overflow: hidden;
-}
-
-.endImgSpan {
-	background-color: rgba(0,0,0,0);
-	pointer-events: all;
-	display: inline-block;
-	position: relative;
-	margin: 0px;
-	padding: 0px;
-	height: calc(9 * var(--width-block) + 40px);
-	width: calc(9 * var(--width-block) + 40px);
-	float: right;
-}
-
-#foodSpan {
-	--turns-taken: 0px;
-	left: calc( var(--sudoku-left) + {{ (add 1 $.Params.startFood ) }}px);
-	width: calc(9 * var(--width-block) + 40px + {{ (sub -1 $.Params.startFood ) }}px);
-}
 {{ range $ii := (seq $.Params.maxTurns) }}	
 	input.radioBD{{ $ii }}:checked ~ #foodSpan {
 		--turns-taken: {{$ii}}px;
@@ -329,10 +137,6 @@ input {
 		left: calc( var(--sudoku-left) + {{ add ( add (mul $initFood $ii) (mul -30 $totalPeople) ) (add 1 $.Params.startFood ) }}px); 
 	}
 {{ end }}
-#foodSpan span:Not(.endImgSpan) {
-	width: 0px;
-}
-
 {{ range $ii := (seq $.Params.maxTurns) }}	
 	{{ range $iii := (seq 9) }}
 		{{ if le $iii (index $.Params.maxPlots (sub 1 1) )}}
@@ -656,10 +460,6 @@ input {
 		left: calc( var(--sudoku-left) + {{ add ( add (mul $initClothes $ii) (mul -5 $totalPeople) ) (add (sub 1 (mul 0 $.Params.maxTurns)) $.Params.startClothes ) }}px); 
 	}
 {{ end }}
-
-
-#clothesSpan span:Not(.endImgSpan) { width: 0px;}
-
 {{ range $ii := (seq $.Params.maxTurns) }}	
 	{{ range $iii := (seq 9) }}
 		{{ if le $iii (index $.Params.maxPlots (sub 1 1) )}}
@@ -677,6 +477,250 @@ input {
 	{{ end }}
 
 {{ end }}
+{{ range $ii := (seq $.Params.maxTurns) }}
+
+	{{ range $i := (seq $ii)}}.unchecked:checked ~ {{ end }} table #newData{
+		z-index: {{add (mul 2 $ii) 100}};
+	}
+	.radioBD{{ $ii }}:checked ~ table #oldData{
+		z-index: {{add (mul 2 $ii) 99}};
+	}
+
+{{ end }}
+
+{{ range $i := (seq 9) }}
+	{{ range $rowI := (seq 9) }}{{if le $rowI (int (index $.Params.maxPlots (sub $i 1)))}}.unchecked.points{{ $i }}:checked ~ {{ end }}{{ end }}.blackout{{ $i }} {
+		opacity: .5;
+		pointer-events: all;
+	}
+	{{ range $rowI := (seq 9) }}{{if le $rowI (int (index $.Params.maxPlots (sub $i 1)))}}.unchecked.points{{ $i }}:checked ~ {{ end }}{{ end }}#winSudoku #winSudoku{{ $i }} {
+		display: inline-block;
+	}
+	
+	
+	
+	{{ range $ii := (seq $.Params.maxTurns) }}
+		#radio{{ $ii }}U{{ $i }}:Not(:checked) + .cmarkU{{ $i }} ~ .points{{ $i }}:not(:checked) + .check{{ $i }}{
+			z-index: {{add (mul 2 $ii) 100}};
+		}
+		#radio{{ $ii }}U{{ $i }}:Not(:checked) + .cmarkU{{ $i }} ~ .points{{ $i }}:checked + label + label + .rcheck{
+			z-index: {{add (mul 2 $ii) 101}};
+		}
+		#radio{{ $ii }}U{{ $i }}:Not(:checked) + .cmarkU{{ $i }} ~ .points{{ $i }}:checked + label + label + label + .ccheck{
+			z-index: {{add (mul 2 $ii) 101}};
+		}
+		#radio{{ $ii }}U{{ $i }}:Not(:checked) + .cmarkU{{ $i }} ~ .points{{ $i }}:checked + label + label + label + label + .bcheck{
+			z-index: {{add (mul 2 $ii) 101}};
+		}
+	{{ end }}
+{{ end }}
+
+:root {
+	--width-block: 10px;
+    --shift-cover-puzzle: calc(-40px - var(--width-block)*9); 
+    --left-margin: 0px;
+    --color-bg1: rgba(180,180,180,.75);
+    --color-text1: black;
+    --sudoku-top: 200px;
+    --sudoku-left: 200px;
+    --turns-taken: 0px;
+}
+@media screen and (min-width: 320px) and (min-height: 320px) {
+	:root {
+    	--width-block: 20px;
+    }
+}
+@media screen and (min-width: 480px) and (min-height: 480px) {
+	:root {
+    	--width-block: 30px;
+    }
+}
+@media screen and (min-width: 720px) and (min-height: 720px) {
+	:root {
+    	--width-block: 40px;
+    }
+}
+@media screen and (min-width: 1080px) and (min-height: 1080px) {
+	:root {
+    	--width-block: 50px;
+    }
+}
+
+.radioBD:active + label{
+	border: 1px solid blue;
+	background: rgba(100,100,255,1);
+}
+.radioBU:active + label{
+	border: 1px solid blue;
+	background: rgba(255,255,255,1);
+}
+{{ range $i := (seq 9) }}
+	
+	.points{{ $i }}:checked + .check{{ $i }} + .gcheck{{ $i }}{
+		z-index: 5000;
+		opacity: 1;
+	}
+	.points{{ $i }}:active + .check{{ $i }} img{
+		opacity: 1;
+	}
+	
+{{ end }}
+
+.mainDiv {
+	position: relative;
+	left: 0px;
+	height: calc(var(--sudoku-top) + 9 * var(--width-block) + 100px);
+	overflow: hidden;
+}
+@keyframes example {
+  0%   {transform: rotate(0deg);}
+  10%  {transform: rotate(36deg);}
+  20%  {transform: rotate(72deg);}
+  30% {transform: rotate(108deg);}
+  40%  {transform: rotate(144deg);}
+  50%  {transform: rotate(180deg);}
+  60% {transform: rotate(216deg);}
+  70%  {transform: rotate(252deg);}
+  80%  {transform: rotate(288deg);}
+  90% {transform: rotate(324deg);}
+  100% {transform: rotate(360deg);}
+}
+
+
+input {
+	padding: 0px;
+	margin: 0px;
+	display: inline-block;
+	
+
+}
+.coverSudoku {
+	position: absolute;
+	left:  var(--sudoku-left);
+	top:  var(--sudoku-top);
+	width: calc(9 * var(--width-block) + 40px);
+	height: calc(9 * var(--width-block) + 40px);
+	background-color: rgba(0,0,0,0);
+	z-index: 99;
+}
+.col1 {border-right: 1px solid black; border-left: 8px solid black; position: absolute; left: var(--sudoku-left);}
+.col2 {border-right: 1px solid black; border-left: 1px solid black; position: absolute; left: calc(var(--width-block) + var(--sudoku-left) + 9px);}
+.col3 {border-right: 3px solid black; border-left: 1px solid black; position: absolute; left: calc(2 * var(--width-block) + var(--sudoku-left) + 11px);}
+.col4 {border-right: 1px solid black; border-left: 3px solid black; position: absolute; left: calc(3 * var(--width-block) + var(--sudoku-left) + 15px);}
+.col5 {border-right: 1px solid black; border-left: 1px solid black; position: absolute; left: calc(4 * var(--width-block) + var(--sudoku-left) + 19px);}
+.col6 {border-right: 3px solid black; border-left: 1px solid black; position: absolute; left: calc(5 * var(--width-block) + var(--sudoku-left) + 21px);}
+.col7 {border-right: 1px solid black; border-left: 3px solid black; position: absolute; left: calc(6 * var(--width-block) + var(--sudoku-left) + 25px);}
+.col8 {border-right: 1px solid black; border-left: 1px solid black; position: absolute; left: calc(7 * var(--width-block) + var(--sudoku-left) + 29px);}
+.col9 {border-right: 8px solid black; border-left: 1px solid black; position: absolute; left: calc(8 * var(--width-block) + var(--sudoku-left) + 31px);}
+
+.row1 {border-top: 8px solid black;border-bottom: 1px solid black; top: var(--sudoku-top);}
+.row2 {border-top: 1px solid black;border-bottom: 1px solid black; top: calc(var(--width-block) + var(--sudoku-top) + 9px);}
+.row3 {border-top: 1px solid black;border-bottom: 3px solid black; top: calc(2 * var(--width-block) + var(--sudoku-top) + 11px);}
+.row4 {border-top: 3px solid black;border-bottom: 1px solid black; top: calc(3 * var(--width-block) + var(--sudoku-top) + 15px);}
+.row5 {border-top: 1px solid black;border-bottom: 1px solid black; top: calc(4 * var(--width-block) + var(--sudoku-top) + 19px);}
+.row6 {border-top: 1px solid black;border-bottom: 3px solid black; top: calc(5 * var(--width-block) + var(--sudoku-top) + 21px);}
+.row7 {border-top: 3px solid black;border-bottom: 1px solid black; top: calc(6 * var(--width-block) + var(--sudoku-top) + 25px);}
+.row8 {border-top: 1px solid black;border-bottom: 1px solid black; top: calc(7 * var(--width-block) + var(--sudoku-top) + 29px);}
+.row9 {border-top: 1px solid black;border-bottom: 8px solid black; top: calc(8 * var(--width-block) + var(--sudoku-top) + 31px);}
+
+.col1.ccheck, .col9.ccheck {width: calc(var(--width-block) + 9px);}
+.col2.ccheck, .col5.ccheck, .col8.ccheck {width: calc(var(--width-block) + 2px);}
+.col3.ccheck, .col4.ccheck, .col6.ccheck, .col7.ccheck {width: calc(var(--width-block) + 4px);}
+.row1.rcheck, .row9.rcheck {height: calc(var(--width-block) + 9px);}
+.row2.rcheck, .row5.rcheck, .row8.rcheck {height: calc(var(--width-block) + 2px);}
+.row3.rcheck, .row4.rcheck, .row6.rcheck, .row7.rcheck {height: calc(var(--width-block) + 4px);}
+.ccheck {height: calc(9 * var(--width-block) + 40px); background: rgba(100,100,0,0); z-index: -1; top: var(--sudoku-top); border: none; position: absolute;}
+.rcheck {width: calc(9 * var(--width-block) + 40px); background: rgba(100,0,100,0); z-index: -1; left: var(--sudoku-left); border: none; position: absolute;}
+
+.block11 {width: calc(3 * var(--width-block) + 15px); height: calc(3 * var(--width-block) + 15px); top: var(--sudoku-top); left: var(--sudoku-left); position: absolute;}
+.block12 {width: calc(3 * var(--width-block) + 15px); height: calc(3 * var(--width-block) + 10px); top: calc(3 * var(--width-block) + var(--sudoku-top) + 15px); left: var(--sudoku-left); position: absolute;}
+.block13 {width: calc(3 * var(--width-block) + 15px); height: calc(3 * var(--width-block) + 15px); top: calc(6 * var(--width-block) + var(--sudoku-top) + 25px); left: var(--sudoku-left); position: absolute;}
+.block21 {width: calc(3 * var(--width-block) + 10px); height: calc(3 * var(--width-block) + 15px); top: var(--sudoku-top); left: calc(3 * var(--width-block) + var(--sudoku-left) + 15px); position: absolute;}
+.block22 {width: calc(3 * var(--width-block) + 10px); height: calc(3 * var(--width-block) + 10px); top: calc(3 * var(--width-block) + var(--sudoku-top) + 15px); left: calc(3 * var(--width-block) + var(--sudoku-left) + 15px); position: absolute;}
+.block23 {width: calc(3 * var(--width-block) + 10px); height: calc(3 * var(--width-block) + 15px); top: calc(6 * var(--width-block) + var(--sudoku-top) + 25px); left: calc(3 * var(--width-block) + var(--sudoku-left) + 15px); position: absolute;}
+.block31 {width: calc(3 * var(--width-block) + 15px); height: calc(3 * var(--width-block) + 15px); top: var(--sudoku-top); left: calc(6 * var(--width-block) + var(--sudoku-left) + 25px); position: absolute;}
+.block32 {width: calc(3 * var(--width-block) + 15px); height: calc(3 * var(--width-block) + 10px); top: calc(3 * var(--width-block) + var(--sudoku-top) + 15px); left: calc(6 * var(--width-block) + var(--sudoku-left) + 25px); position: absolute;}
+.block33 {width: calc(3 * var(--width-block) + 15px); height: calc(3 * var(--width-block) + 15px); top: calc(6 * var(--width-block) + var(--sudoku-top) + 25px); left: calc(6 * var(--width-block) + var(--sudoku-left) + 25px); position: absolute;}
+
+.bcheck {background: rgba(0,100,100,0); z-index: -1; position: absolute;}
+
+.cmarkD, .cmarkU {
+	border: 1px solid;
+	position: absolute;
+	top: calc( var(--sudoku-top) - 1.5 * var(--width-block));
+	width: var(--width-block);
+	height:var(--width-block);
+	text-align: center;
+	line-height: var(--width-block);
+	font-size: var(--width-block);
+	z-index: 1;
+	background: rgba(255,255,255,1);
+}
+{{ range $i := (seq 9) }}
+	.cmarkD{{ $i }}, .cmarkU{{ $i }} {
+		left: calc(4 * var(--width-block) + var(--sudoku-left) + 19px + {{ (sub $i 5) }} * var(--width-block));
+	}
+{{ end }}
+
+.cmarkU {
+	border: 1px solid blue;
+	background: rgba(100,100,255,1);
+}
+.cmarkimg {
+	width: var(--width-block);
+}
+
+
+
+.itemSpan {
+	background-color: rgba(0,0,0,0);
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+	height: calc(9 * var(--width-block) + 40px);
+}
+
+.foodSpan, .waterSpan, .feedSpan, .poopSpan, .fireSpan, .clothesSpan {
+	background-color: rgba(0,0,0,0);
+	pointer-events: none;
+	height: calc(9 * var(--width-block) + 40px);
+	z-index: 5000000;
+	display: block;
+	position: absolute;
+	top: var(--sudoku-top);
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+.endImgSpan {
+	background-color: rgba(0,0,0,0);
+	pointer-events: all;
+	display: inline-block;
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	height: calc(9 * var(--width-block) + 40px);
+	width: calc(9 * var(--width-block) + 40px);
+	float: right;
+}
+
+#foodSpan {
+	--turns-taken: 0px;
+	left: calc( var(--sudoku-left) + {{ (add 1 $.Params.startFood ) }}px);
+	width: calc(9 * var(--width-block) + 40px + {{ (sub -1 $.Params.startFood ) }}px);
+}
+
+#foodSpan span:Not(.endImgSpan) {
+	width: 0px;
+}
+
+
+
+
+#clothesSpan span:Not(.endImgSpan) { width: 0px;}
+
+
 #dataTable {
 	background-color: rgba(255,255,255,1);
 	top: 15px;
@@ -734,16 +778,7 @@ td.peopleTD {
 	.pointsBoard{{ $i }}o::after {content: counter(old{{ $i }});}
 {{ end }}
 
-{{ range $ii := (seq $.Params.maxTurns) }}
 
-	{{ range $i := (seq $ii)}}.unchecked:checked ~ {{ end }} table #newData{
-		z-index: {{add (mul 2 $ii) 100}};
-	}
-	.radioBD{{ $ii }}:checked ~ table #oldData{
-		z-index: {{add (mul 2 $ii) 99}};
-	}
-
-{{ end }}
 
 #winout {
 	
@@ -832,38 +867,16 @@ td.peopleTD {
 		pointer-events: none;
 		
 	}
-
-	{{ range $rowI := (seq 9) }}{{if le $rowI (int (index $.Params.maxPlots (sub $i 1)))}}.unchecked.points{{ $i }}:checked ~ {{ end }}{{ end }}.blackout{{ $i }} {
-		opacity: .5;
-		pointer-events: all;
-	}
-	{{ range $rowI := (seq 9) }}{{if le $rowI (int (index $.Params.maxPlots (sub $i 1)))}}.unchecked.points{{ $i }}:checked ~ {{ end }}{{ end }}#winSudoku #winSudoku{{ $i }} {
-		display: inline-block;
-	}
-	
 	
 	.points{{ $i }}:checked + .check{{ $i }}{
 		z-index: 500;
 		color: black;
 	}
-	{{ range $ii := (seq $.Params.maxTurns) }}
-		#radio{{ $ii }}U{{ $i }}:Not(:checked) + .cmarkU{{ $i }} ~ .points{{ $i }}:not(:checked) + .check{{ $i }}{
-			z-index: {{add (mul 2 $ii) 100}};
-		}
-		#radio{{ $ii }}U{{ $i }}:Not(:checked) + .cmarkU{{ $i }} ~ .points{{ $i }}:checked + label + label + .rcheck{
-			z-index: {{add (mul 2 $ii) 101}};
-		}
-		#radio{{ $ii }}U{{ $i }}:Not(:checked) + .cmarkU{{ $i }} ~ .points{{ $i }}:checked + label + label + label + .ccheck{
-			z-index: {{add (mul 2 $ii) 101}};
-		}
-		#radio{{ $ii }}U{{ $i }}:Not(:checked) + .cmarkU{{ $i }} ~ .points{{ $i }}:checked + label + label + label + label + .bcheck{
-			z-index: {{add (mul 2 $ii) 101}};
-		}
-	{{ end }}
+
+	
 	
 	
 {{ end }}
-
 
 
 
