@@ -128,12 +128,16 @@ app.get('/sortable.html',
 				var thiscol= [];
 				var sorted = content.slice().sort(function (a,b) {return b[i] - a[i];})
 				for (var ii=0;ii<content.length;ii++){
-					for (var iii=0;iii<content.length;iii++){
+					for (var iii=0;iii<showrows*5;iii++){
 						if ( sorted[iii][ncols] == ii){
 							thiscol.push(iii+1);
 							break;
 						}
-						if (iii==content.length-1){ //no match in top x rows
+						if ( sorted[content.length-1-iii][ncols] == ii){
+							thiscol.push(content.length-1-iii+1);
+							break;
+						}
+						if (iii==showrows*5-1){ //no match in top x rows
 							thiscol.push(-1);
 						}
 					}
