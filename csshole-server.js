@@ -106,7 +106,8 @@ app.get('/sortable.html',
 	
 	function(req, res) {
 		console.log(performance.now());
-		var results = Papa.parse("static/data/Batting.csv", {
+		const file = fs.createReadStream("static/data/Batting.csv");
+		var results = Papa.parse(file, {
 			delimiter: ",",
 			skipEmptyLines: true,
 		});
