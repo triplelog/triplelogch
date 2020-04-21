@@ -112,8 +112,8 @@ app.get('/sortable.html',
 				delimiter: ",",
 				skipEmptyLines: true,
 			});
-			//var nrows = results.data.length-1;
-			var nrows = 20;
+			var nrows = results.data.length-1;
+			//var nrows = 20;
 			var header = results.data[0];
 			var ncols = results.data[0].length;
 			var content = results.data.slice(1,nrows+1);
