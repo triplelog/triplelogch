@@ -117,7 +117,7 @@ app.get('/sortable.html',
 		}
 		
 		
-		nrows = 10;
+		nrows = 30;
 		//sort content
 		var order = [];
 		for (var i=0;i<ncols;i++){
