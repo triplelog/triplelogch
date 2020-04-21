@@ -112,17 +112,20 @@ body {
 
 {% for i in range(1,ncols+1) %}
 	{% for ii in range(1,nrows+1) %}
-		{% if order[i-1][ii-1] == 0 %}
+		{% if order[i-1][ii-1] == -1 %}
 		#sort-col{{ i }}:checked ~ .sortable-row{{ ii }} { display: none; }
 		{% else %}
 		#sort-col{{ i }}:checked ~ .sortable-row{{ ii }} { order: {{ order[i-1][ii-1] }}; }
 		{% endif %}
 	{% endfor %}
 {% endfor %}
+.sortable {
+	height: 30rem;
+	overflow-y: hidden;
+}
 
 {% for i in range(1,ncols) %} #sort-col{{ i }}, {% endfor %}{% for i in range(ncols,ncols+1) %} #sort-col{{ i }} {% endfor %} { display: none; }
 
-.sortable > .sortable-sorter  { order: 0; }
 
 {% endblock %}
 
@@ -184,7 +187,7 @@ Because it is possible.
 
 {% block content22 %}
 	<div class="sortable-header">
-		{% for i in range(1,ncols+1) %}<label class="sortable-col{{ i }} sortable-sorter" for="sort-col{{ i }}">{{ header[i-1] }}</label>{% endfor %}
+		{% for i in range(1,ncols+1) %}<label class="sortable-col{{ i }}" for="sort-col{{ i }}">{{ header[i-1] }}</label>{% endfor %}
 	</div>
 	<div class="sortable">
 		{% for i in range(1,ncols+1) %}
