@@ -301,7 +301,11 @@ input {
 	float: right;
 }
 
-
+#foodSpan {	
+	--turns-taken: 0px;	
+	left: calc( var(--sudoku-left) + 201px);	
+	width: calc(9 * var(--width-block) + 40px + -201px);	
+}
 
 #foodSpan span:Not(.endImgSpan) {
 	width: 0px;
