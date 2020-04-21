@@ -7,6 +7,7 @@ const { exec } = require('child_process');
 const bodyParser = require('body-parser');
 var nunjucks = require('nunjucks');
 var crypto = require("crypto");
+var Papa = require('papaparse');
 const options = {
   key: fs.readFileSync('/etc/letsencrypt/live/martianmath.com/privkey.pem'),
   cert: fs.readFileSync('/etc/letsencrypt/live/martianmath.com/fullchain.pem')
@@ -104,6 +105,11 @@ app.get('/mathquiz.html',
 app.get('/sortable.html', 
 	
 	function(req, res) {
+		var results = Papa.parse("static/data/Batting.csv", {
+			delimiter: ",",
+			skipEmptyLines: true,
+		});
+		console.log(results.meta);
 		var ncols = 4;
 		var nrows = 30;
 		var content = [];
