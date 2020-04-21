@@ -1,0 +1,141 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<link rel="icon" href="{{ favicon }}">
+<meta name="description" content="{{ description }}"/>
+<link rel="stylesheet" href="../css/sudokufarm.css">
+<link rel="stylesheet" href="../css/sudokufarmtemp.css">
+<style>
+
+
+
+
+</style>
+</head>
+<body>
+
+	<div class="mainDiv">
+		{% for ii in range(1,maxTurns+1) %}
+			{% for i in range(1,10) %}
+			  <input type="radio" name="radio{{ ii }}n{{ i }}" style="display:none;" class="radioBU{{ ii }} radioBU radio{{ i }}UU" id="radio{{ ii }}U{{ i }}" checked="checked">
+			  <label class="cmarkU cmarkU{{ i }}" for="radio{{ ii }}U{{ i }}"><img class="cmarkimg" src="../img/sudokufarm/{{ i }}.png"></label>
+			{% endfor %}
+		{% endfor %}
+		<span id="counterSpan"></span>
+		
+  		{% for i in range(1,10) %}
+  		
+			  {% for rowI in range(1,10) %}
+				{% for colI in range(1,10) %}<input type="checkbox" style="display:none;" class="{% if puzzle[rowI-1][colI-1] != i %}unchecked{% endif %} points{{ i}} row{{ rowI }}{{ i }} col{{ colI }}{{ i }} box{{(((colI-1)-((colI-1)%3)) / 3) + 3*(((rowI-1)-((rowI-1)%3)) / 3) + 1 }}{{ i }}" id="cell{{ i }}{{ rowI }}{{ colI }}" {% if puzzle[rowI-1][colI-1] == i %}checked{% endif %}><label for="cell{{ i }}{{ rowI }}{{ colI }}" class="col{{ colI }} row{{ rowI }} check{{ i }}"><img class="cmarkimg" src="../img/sudokufarm/{{ i }}.png"></label><label class="col{{ colI }} row{{ rowI }} gcheck{{ i }}"><img class="cmarkimg" src="../img/sudokufarm/{{ i }}.png"></label><label class="row{{ rowI }} rcheck"></label><label class="col{{ colI }} ccheck"></label><label class="block{{ ((2+colI)-((2+colI)%3))/ 3}}{{ ((2+rowI)-((2+rowI)%3))/ 3}} bcheck"></label>{% endfor %}
+			  {% endfor %}
+
+			  <span class="blackout{{ i }}"></span>
+			  
+
+		{% endfor %}
+		
+		<div id="winSudoku">
+			{% for i in range(1,10) %}
+			<div id="winSudoku{{ i }}">
+			{% endfor %}
+			  {% for rowI in range(1,10) %}
+				{% for colI in range(1,10) %}<label class="col{{ colI }} row{{ rowI }} winLabel winLabel{{ winpuzzle[rowI-1][colI-1] }}"><img class="cmarkimg" src="../img/sudokufarm/{{ winpuzzle[rowI-1][colI-1] }}.png"></label>{% endfor %}
+			  {% endfor %}
+			<span id="winmessage">You Win! Play Another Level?</span>
+			{% for i in range(1,10) %}
+			</div>
+			{% endfor %}
+		</div>
+		
+		
+		{% for ii in range(1,maxTurns+1) %}
+			{% for i in range(1,10) %}
+			  <input type="radio" name="radio{{ ii }}n{{ i }}" style="display:none;" class="radioPts{{ i }} radioBD{{ ii }} radioBD" id="radio{{ ii }}D{{ i }}">
+			  <label class="cmarkD cmarkD{{ i }}" for="radio{{ ii }}D{{ i }}"><img class="cmarkimg" src="../img/sudokufarm/{{ i }}.png"></label>
+			  <span style="width:0px; height: 0px;"></span>
+			{% endfor %}
+		{% endfor %}
+		
+		
+		<table id="dataTable">
+			<tr id="emojiData">
+				<td class="firstSix">🍕</td>
+				<td class="firstSix">💦</td>
+				<td class="firstSix">🍚</td>
+				<td class="firstSix">💩</td>
+				<td class="firstSix">🔥</td>
+				<td class="firstSix">👕</td>
+				<td class="peopleTD">👤</td>
+			</tr>
+			
+			<tr id="newData">
+				<td class="pointsBoard1 firstSix"></td>
+				<td class="pointsBoard2 firstSix"></td>
+				<td class="pointsBoard3 firstSix"></td>
+				<td class="pointsBoard4 firstSix"></td>
+				<td class="pointsBoard5 firstSix"></td>
+				<td class="pointsBoard6 firstSix"></td>
+				<td class="pointsBoard7 peopleTD"></td>
+			</tr>
+
+			<tr id="changeData">
+				<td class="pointsBoard1c firstSix"></td>
+				<td class="pointsBoard2c firstSix"></td>
+				<td class="pointsBoard3c firstSix"></td>
+				<td class="pointsBoard4c firstSix"></td>
+				<td class="pointsBoard5c firstSix"></td>
+				<td class="pointsBoard6c firstSix"></td>
+				<td class="pointsBoard7c peopleTD"></td>
+			</tr>
+
+			<tr id="oldData">
+				<td class="pointsBoard1o firstSix"></td>
+				<td class="pointsBoard2o firstSix"></td>
+				<td class="pointsBoard3o firstSix"></td>
+				<td class="pointsBoard4o firstSix"></td>
+				<td class="pointsBoard5o firstSix"></td>
+				<td class="pointsBoard6o firstSix"></td>
+				<td class="pointsBoard7o peopleTD"></td>
+			</tr>
+			
+		</table>
+		
+		<span id="foodSpan" class="foodSpan">
+			{{ set tempRange = [1, 2, 3, 6, 7, 8, 9] }}
+			{% for iii in tempRange %}{% for ii in range(1,10) %}{% if ii>existingPlots[iii-1] %}<span class="item{{ iii }}{{ ii }} itemSpan"></span>{% endif %}{% endfor %}{% endfor %}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/nofood.png"></span>
+		</span>
+		<span id="waterSpan" class="waterSpan">
+			{{ set tempRange = [1, 2, 3, 4, 7, 8, 9] }}
+			{% for iii in tempRange %}{% for ii in range(1,10) %}{% if ii>existingPlots[iii-1] %}<span class="item{{ iii }}{{ ii }} item{{ iii }} itemSpan"></span>{% endif %}{% endfor %}{% endfor %}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/nowater.png"></span>
+		</span>
+		<span id="feedSpan" class="feedSpan">
+			{{ set tempRange = [1, 2, 3, 6, 8, 9] }}
+			{% for iii in tempRange %}{% for ii in range(1,10) %}{% if ii>existingPlots[iii-1] %}<span class="item{{ iii }}{{ ii }} item{{ iii }} itemSpan"></span>{% endif %}{% endfor %}{% endfor %}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/nofeed.png"></span>
+		</span>
+		<span id="poopSpan" class="poopSpan">
+			{{ set tempRange = [1, 2, 3, 7, 8, 9] }}
+			{% for iii in tempRange %}{% for ii in range(1,10) %}{% if ii>existingPlots[iii-1] %}<span class="item{{ iii }}{{ ii }} item{{ iii }} itemSpan"></span>{% endif %}{% endfor %}{% endfor %}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/nopoop.png"></span>
+		</span>
+		<span id="fireSpan" class="fireSpan">
+			{{ set tempRange = [5,6] }}
+			{% for iii in tempRange %}{% for ii in range(1,10) %}{% if ii>existingPlots[iii-1] %}<span class="item{{ iii }}{{ ii }} itemSpan"></span>{% endif %}{% endfor %}{% endfor %}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/nofire.png"></span>
+		</span>
+		<span id="clothesSpan" class="clothesSpan">
+			{{ set tempRange = [1, 3] }}
+			{% for iii in tempRange %}{% for ii in range(1,10) %}{% if ii>existingPlots[iii-1] %}<span class="item{{ iii }}{{ ii }} itemSpan"></span>{% endif %}{% endfor %}{% endfor %}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/noclothes.png"></span>
+		</span>
+		<span class="coverSudoku" id="coverSudoku"></span>
+	</div>
+		
+</body>
+</html>
+
+
+
+
+
+
+
