@@ -10,7 +10,7 @@
 {% endblock %}
 	
 {% block centerSize %}
-	--height-center: 400px;
+	--height-center: 500px;
 	--width-center: 700px;
 {% endblock %}
 
@@ -116,7 +116,7 @@ body {
 
 .sortable-header  { width: 100%; padding: 0px;}
 {% for i in range(1,nrows+1) %}
-	.sortable-row{{ i }}  { order: {{ i }}; flex-grow: 1; width: 100%; padding: 0px;}
+	.sortable-row{{ i }}  { order: {{ i }}; flex-grow: 1; width: 100%; padding: 0px; height: 1.5rem;}
 {% endfor %}
 
 {% for i in range(1,ncols+1) %}
@@ -133,7 +133,7 @@ body {
 	height: 24rem;
 }
 .sortable {
-	top: 0px;
+	top: -24rem;
 	position: relative;
 	overflow: visible;
 }
