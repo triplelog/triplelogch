@@ -103,9 +103,9 @@ body {
 	.sortable  .sortable-col{{ i }}  { width: {{ 100/ncols}}%; }
 {% endfor %}
 
-.sortable-header  { order: 0; flex-grow: 1; width: 100%;}
+.sortable-header  { order: 0; flex-grow: 1; width: 100%; padding: 0px;}
 {% for i in range(1,nrows+1) %}
-	.sortable-row{{ i }}  { order: {{ i }}; flex-grow: 1; width: 100%;}
+	.sortable-row{{ i }}  { order: {{ i }}; flex-grow: 1; width: 100%; padding: 0px;}
 {% endfor %}
 
 {% for i in range(1,ncols+1) %}
