@@ -90,12 +90,7 @@ body {
   margin: 0 0 3em 0;
   padding: 0;
 }
-#sort-ascending:checked ~ .sortable {
-	flex-direction: column;
-}
-#sort-descending:checked ~ .sortable {
-	flex-direction: column-reverse;
-}
+
 
 {% for i in range(1,ncols) %} .sortable-col{{ i }}, {% endfor %}{% for i in range(ncols,ncols+1) %} .sortable-col{{ i }} {% endfor %} {
   box-sizing: border-box;
@@ -133,9 +128,30 @@ body {
 	height: 24rem;
 }
 .sortable {
-	top: -24rem;
+	top: 0rem;
 	position: relative;
 	overflow: visible;
+}
+#page1:checked ~ .sortHolder .sortable {
+	top: 0rem;
+}
+#page2:checked ~ .sortHolder .sortable {
+	top: -24rem;
+}
+#page3:checked ~ .sortHolder .sortable {
+	top: -48rem;
+}
+#page4:checked ~ .sortHolder .sortable {
+	top: -72rem;
+}
+#page5:checked ~ .sortHolder .sortable {
+	top: -96rem;
+}
+#sort-ascending:checked ~ .sortHolder .sortable {
+	flex-direction: column;
+}
+#sort-descending:checked ~ .sortHolder .sortable {
+	flex-direction: column-reverse;
 }
 
 {% for i in range(1,ncols) %} #sort-col{{ i }}, {% endfor %}{% for i in range(ncols,ncols+1) %} #sort-col{{ i }} {% endfor %} { display: none; }
@@ -202,6 +218,12 @@ Because it is possible.
 {% block content22 %}
 	<input type="radio" name="sorterDirection" id="sort-ascending" checked></input>
 	<input type="radio" name="sorterDirection" id="sort-descending"></input>
+
+	<input type="radio" name="pageNumber" id="page1" checked></input>
+	<input type="radio" name="pageNumber" id="page2"></input>
+	<input type="radio" name="pageNumber" id="page3"></input>
+	<input type="radio" name="pageNumber" id="page4"></input>
+	<input type="radio" name="pageNumber" id="page5"></input>
 	<div class="sortable-header">
 		{% for i in range(1,ncols+1) %}<label class="sortable-col{{ i }}" for="sort-col{{ i }}">{{ header[i-1] }}</label>{% endfor %}
 	</div>
