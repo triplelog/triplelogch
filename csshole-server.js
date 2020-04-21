@@ -107,12 +107,15 @@ app.get('/sortable.html',
 	function(req, res) {
 		console.log(performance.now());
 		const file = fs.createReadStream("static/data/Batting.csv");
-		var results = Papa.parse(file, {
-			delimiter: ",",
-			skipEmptyLines: true,
+		fs.readFile("static/data/Batting.csv", 'utf8', function(err, fileData) {
+			var results = Papa.parse(fileData, {
+				delimiter: ",",
+				skipEmptyLines: true,
+			});
+			console.log(results.data[0],results.data.length);
+			console.log(performance.now());
 		});
-		console.log(results.data[0],results.data.length);
-		console.log(performance.now());
+		
 		var ncols = 4;
 		var nrows = 30;
 		var content = [];
