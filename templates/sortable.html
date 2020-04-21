@@ -87,6 +87,12 @@ body {
   margin: 0 0 3em 0;
   padding: 0;
 }
+#sort-ascending:checked ~ .sortable {
+	flex-direction: column;
+}
+#sort-descending:checked ~ .sortable {
+	flex-direction: column-reverse;
+}
 
 {% for i in range(1,ncols) %} .sortable-col{{ i }}, {% endfor %}{% for i in range(ncols,ncols+1) %} .sortable-col{{ i }} {% endfor %} {
   box-sizing: border-box;
@@ -186,6 +192,8 @@ Because it is possible.
 
 
 {% block content22 %}
+	<input type="radio" name="sorterDirection" id="sort-ascending" checked></input>
+	<input type="radio" name="sorterDirection" id="sort-descending"></input>
 	<div class="sortable-header">
 		{% for i in range(1,ncols+1) %}<label class="sortable-col{{ i }}" for="sort-col{{ i }}">{{ header[i-1] }}</label>{% endfor %}
 	</div>
