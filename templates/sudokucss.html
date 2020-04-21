@@ -190,7 +190,7 @@ body {
   
 		  <span class="sudoku{{ i }}">
 		  {% for rowI in range(1,10) %}
-			{% for colI in range(1,10) %}<input type="checkbox" style="display:none;" class="points{{ i}} row{{ rowI }}{{ i }} col{{ colI }}{{ i }} box{{ (((colI-1)-((colI-1)%3)) / 3) + 3*(((rowI-1)-((rowI-1)%3)) / 3) + 1}}{{ i }}" id="cell{{ i }}{{ rowI }}{{ colI }}" {% if puzzle[rowI-1][colI-1] == i) %}checked{% endif %}><label for="cell{{ i }}{{ rowI }}{{ colI }}" class="col{{ colI }} row{{ rowI }} check{{ i }}">{{ i }}</label>{% endfor %}
+			{% for colI in range(1,10) %}<input type="checkbox" style="display:none;" class="points{{ i}} row{{ rowI }}{{ i }} col{{ colI }}{{ i }} box{{ (((colI-1)-((colI-1)%3)) / 3) + 3*(((rowI-1)-((rowI-1)%3)) / 3) + 1}}{{ i }}" id="cell{{ i }}{{ rowI }}{{ colI }}" {% if puzzle[rowI-1][colI-1] == i %}checked{% endif %}><label for="cell{{ i }}{{ rowI }}{{ colI }}" class="col{{ colI }} row{{ rowI }} check{{ i }}">{{ i }}</label>{% endfor %}
 			<br />
 		  {% endfor %}
 		  {% for rowI in range(1,10) %}
