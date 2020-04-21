@@ -63,8 +63,9 @@ app.get('/sudoku.html',
 app.get('/sudokufarm.html', 
 	
 	function(req, res) {
-
-		res.write(nunjucks.render('templates/sfarm.html',{
+		itemPerThing = [[0,0,0,0,0,0,0,0,0],[21,16,3,0,0,10,30,15,6],[0,0,0,30,0,0,0,0,0],[0,0,0,0,0,3,0,15,24],[10,10,10,0,0,0,0,0,0],[0,0,0,0,15,2,0,0,0],[5,0,13,0,0,0,0,0,0]]
+		spendPerThing = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[1,1,1,0,0,0,5,5,5],[20,10,10,0,0,0,0,0,0],[0,0,0,0,0,0,10,10,10],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]]
+		var params = {
 			startFood: 200
 			startWater: 200
 			startFeed: 200
@@ -79,7 +80,32 @@ app.get('/sudokufarm.html',
 			maxPlots:  [5, 5, 6, 5, 5, 5, 5, 4, 5] 
 			winpuzzle:  [[1, 2, 4, 9, 5, 3, 7, 8, 6], [8, 9, 3, 6, 2, 7, 4, 1, 5], [7, 6, 5, 8, 1, 4, 3, 9, 2], [9, 4, 6, 3, 8, 2, 1, 5, 7], [2, 8, 7, 5, 9, 1, 6, 3, 4], [3, 5, 1, 4, 7, 6, 9, 2, 8], [6, 7, 9, 2, 3, 8, 5, 4, 1], [4, 3, 2, 1, 6, 5, 8, 7, 9], [5, 1, 8, 7, 4, 9, 2, 6, 3]]
 
-		}));
+		}
+		params.initFood = 0;
+		for (var i=0;i<9;i++){
+			params.initFood += itemPerThing[1][i]*params.existingPlots[i]-spendPerThing[1][i]*params.existingPlots[i];
+		}
+		params.initWater = 0;
+		for (var i=0;i<9;i++){
+			params.initWater += itemPerThing[2][i]*params.existingPlots[i]-spendPerThing[2][i]*params.existingPlots[i];
+		}
+		params.initFeed = 0;
+		for (var i=0;i<9;i++){
+			params.initFeed += itemPerThing[3][i]*params.existingPlots[i]-spendPerThing[3][i]*params.existingPlots[i];
+		}
+		params.initPoop = 0;
+		for (var i=0;i<9;i++){
+			params.initPoop += itemPerThing[4][i]*params.existingPlots[i]-spendPerThing[4][i]*params.existingPlots[i];
+		}
+		params.initFire = 0;
+		for (var i=0;i<9;i++){
+			params.initFire += itemPerThing[5][i]*params.existingPlots[i]-spendPerThing[5][i]*params.existingPlots[i];
+		}
+		params.initClothes = 0;
+		for (var i=0;i<9;i++){
+			params.initClothes += itemPerThing[6][i]*params.existingPlots[i]-spendPerThing[6][i]*params.existingPlots[i];
+		}
+		res.write(nunjucks.render('templates/sfarm.html', params));
 		res.end();
 	}
 );
