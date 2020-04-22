@@ -163,7 +163,7 @@ app.get('/chart.html',
 		for (var i=1900;i<2000;i++){
 			years.push({'year':i,'hits':i,'outs':1000});
 		}
-		res.write(nunjucks.render('templates/stackedbase.html',{
+		res.write(nunjucks.render('templates/batterchart.html',{
 			years: years,
 		}));
 		res.end();
