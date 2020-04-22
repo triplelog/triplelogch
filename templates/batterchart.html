@@ -1,0 +1,110 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<link rel="icon" href="{{ favicon }}">
+<meta name="description" content="{{ description }}"/>
+
+<style>
+:root {
+	--width-block: 10px;
+    --shift-cover-puzzle: calc(-40px - var(--width-block)*9); 
+    --left-margin: 0px;
+    --color-bg1: rgba(180,180,180,.75);
+    --color-text1: black;
+    --sudoku-top: 200px;
+    --sudoku-left: 200px;
+    counter-reset: old1 0;
+	--cd-boxes-0000: 0px;
+}
+@media screen and (min-width: 320px) and (min-height: 320px) {
+	:root {
+    	--width-block: 20px;
+    }
+}
+@media screen and (min-width: 480px) and (min-height: 480px) {
+	:root {
+    	--width-block: 30px;
+    }
+}
+@media screen and (min-width: 720px) and (min-height: 720px) {
+	:root {
+    	--width-block: 40px;
+    }
+}
+@media screen and (min-width: 1080px) and (min-height: 1080px) {
+	:root {
+    	--width-block: 50px;
+    }
+}
+
+
+
+{% for i in range(1,5002) %}
+.h{{ i-1}} {flex-grow: {{ i-1}};}
+{% endfor %}
+
+
+
+.cp {
+	width: 20px;
+	background-color: red;
+	display: none;
+}
+.cpI {
+	width: 20px;
+	background-color: white;
+	display: none;
+}
+
+
+{% for year in years %}
+#sbox{{ year.year }}:checked ~ div .s{{ year.year }}{ display: block;}
+
+
+{% endfor %}
+
+
+
+{% for i in range(1,2) %}
+.chartcolumn{{ i }} {
+	position: absolute;
+	bottom: 0px;
+	left: {{20+25*i}}px;
+	display: flex;
+	justify-content: space-around;
+	flex-flow: column;
+	align-items: stretch;
+	height: 200px;
+	width: 20px;
+}
+{% endfor %}
+
+
+
+</style>
+</head>
+<body>
+
+		<div class="mainDiv" style="height: 400px; position: relative; left: 50px;">
+			Years:
+			{% for year in years %}<input type="checkbox" id="sbox{{ year.year }}"></input>{% endfor %}
+			<br />
+			
+			<div>
+			
+				{% for i in range(1,2) %}
+					<div class="chartcolumn{{ i }}">{% for year in years %}<span class="cpI h{{year.outs}} s{{ year.year}}"></span>{% endfor %}{% for year in years %}<span class="cp h{{year.hits}} s{{ year.year}}"></span>{% endfor %}</div>
+				{% endfor %}
+				
+			
+			</div>
+			
+			
+		</div>
+                        
+
+</body>
+</html>
