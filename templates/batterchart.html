@@ -154,6 +154,7 @@
 			<br />
 			End Year:
 			{% for year in years %}<input type="radio" name="endYear" id="ebox{{ year.year }}" {% if lastYear == year.year %}checked{% endif %}></input>{% endfor %}
+			<label for="sbox2005">2005</label>
 			<br />
 			
 			<div>
@@ -175,10 +176,6 @@
 			
 			
 		</div>
-			<select>
-				<option><label for="sbox2005">2005</label></option>
-				<option><label for="sbox2006">2006</label></option>
-			</select>
                         
 
 </body>
