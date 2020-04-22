@@ -100,10 +100,11 @@
 
 		<div class="mainDiv" style="height: 400px; position: relative; left: 50px;">
 			Start Year:
-			{% for year in years %}<input type="checkbox" id="sbox{{ year.year }}"></input>{% endfor %}
+			{% set checked = true %}
+			{% for year in years %}<input type="radio" name="startYear" id="sbox{{ year.year }}" {% if checked %}checked{% set checked = false %}{% endif %}></input>{% endfor %}
 			<br />
 			End Year:
-			{% for year in years %}<input type="checkbox" id="ebox{{ year.year }}"></input>{% endfor %}
+			{% for year in years %}<input type="radio" name="endYear" id="ebox{{ year.year }}"></input>{% endfor %}
 			<br />
 			
 			<div>
