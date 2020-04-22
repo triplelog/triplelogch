@@ -158,15 +158,25 @@ app.get('/mathquiz.html',
 app.get('/chart.html', 
 	
 	function(req, res) {
-		//var states = []
-		var years = [];
-		for (var i=1900;i<2000;i++){
-			years.push({'year':i,'hits':i,'outs':1000});
-		}
-		res.write(nunjucks.render('templates/batterchart.html',{
-			years: years,
-		}));
-		res.end();
+		console.log(performance.now());
+		const file = fs.createReadStream("static/data/Batting.csv");
+		var pid = 'suzukic01';
+		fs.readFile("static/data/Batting.csv", 'utf8', function(err, fileData) {
+			var results = Papa.parse(fileData, {
+				delimiter: ",",
+				skipEmptyLines: true,
+			});
+			var years = [];
+			for (var i=0;i<results.data.length;i++){
+				if (results.data[i][0] == pid && parseInt(results.data[i][2]) == 1){
+					years.push({'year':parseInt(results.data[i][1]),'outs':parseInt(results.data[i][6])-parseInt(results.data[i][8]),'hits':parseInt(results.data[i][8])})
+				}
+			}
+			res.write(nunjucks.render('templates/batterchart.html',{
+				years: years,
+			}));
+			res.end();
+		});
 	}
 );
 
