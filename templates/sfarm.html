@@ -19,7 +19,7 @@
 			{% if itemPerThing[i][iiiii-1]>0 %}
 				{% for iii in range(1,10) %}
 					{% if iii <= maxPlots[iiiii-1] %}
-						input#radio{{ ii }}D{{ iiiii }}:checked {% for iiii in range(1,iii) %}~ input.radioPts{{ iiiii }}:checked {% endfor %}~ #{{ itemNames[i] }}Span .item{{ iiiii }}{{ 10-iii }} {
+						input#radio{{ ii }}D{{ iiiii }}:checked {% for iiii in range(1,iii) %}~ input.radioPts{{ iiiii }}:checked {% endfor %}~ #{{ itemNames[i-1] }}Span .item{{ iiiii }}{{ 10-iii }} {
 							width: calc(var(--turns-taken) * {{ itemPerThing[i][iiiii-1] }} - {{ itemPerThing[i][iiiii-1]*(ii-1) }}px);
 						}
 					{% endif %}
@@ -28,7 +28,7 @@
 			{% if spendPerThing[i][ii-1]>0 %}
 				{% for iii in range(1,10) %}
 					{% if iii <= maxPlots[iiiii-1] %}
-						input#radio{{ ii }}D{{ iiiii }}:checked {% for iiii in range(1,iii) %}~ input.radioPts{{ iiiii }}:checked {% endfor %}~ #{{ itemNames[i] }}Span .item{{ iiiii }}{{ 10-iii }} {
+						input#radio{{ ii }}D{{ iiiii }}:checked {% for iiii in range(1,iii) %}~ input.radioPts{{ iiiii }}:checked {% endfor %}~ #{{ itemNames[i-1] }}Span .item{{ iiiii }}{{ 10-iii }} {
 							width: calc({{ spendPerThing[i][iiiii-1] * maxTurns}}px - var(--turns-taken) * {{ spendPerThing[i][iiiii-1] }} + {{ spendPerThing[i][iiiii-1]*(ii-1) }}px);
 						}
 					{% endif %}
