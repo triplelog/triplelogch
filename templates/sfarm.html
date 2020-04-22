@@ -10,6 +10,11 @@
 <link rel="stylesheet" href="../css/sudokufarmtemphalf.css">
 <style>
 
+
+{% set maxFirst = maxPlots[0] + maxPlots[1]+maxPlots[2] %}
+{% set maxSec = maxPlots[6]+maxPlots[7]+maxPlots[8] %}
+{% set maxWater = maxFirst + 5*maxSec %}
+
 {% set maxFirst = maxPlots[0] %}
 {% set maxSec = maxPlots[1]+maxPlots[2] %}
 {% set maxFeed = 20*maxFirst + 10*maxSec %}
@@ -18,31 +23,66 @@
 {% set maxSec = maxPlots[7]+maxPlots[8] %}
 {% set maxPoop = 10*maxFirst + 10*maxSec %}
 
-{% set itemNames = ['feed','poop'] %}
-{% for i in [0,1] %}
+{% set itemNames = ['food','water','feed','poop','fire','clothes'] %}
+{% for i in [0,1,2,3,4,5] %}
 	{% if itemNames[i] == 'feed' %}
 		{% set maxItem = maxFeed %}
+		{% set startItem = startFeed %}
 	{% elif itemNames[i] == 'poop' %}
 		{% set maxItem = maxPoop %}
+		{% set startItem = startPoop %}
+	{% elif itemNames[i] == 'water' %}
+		{% set maxItem = maxWater %}
+		{% set startItem = startWater %}
+		{% set peopleMult = -3 %}
+	{% elif itemNames[i] == 'clothes' %}
+		{% set maxItem = 0 %}
+		{% set startItem = startClothes %}
+		{% set peopleMult = -5 %}
+	{% elif itemNames[i] == 'fire' %}
+		{% set maxItem = 0 %}
+		{% set startItem = startFire %}
+		{% set peopleMult = -5 %}
+	{% elif itemNames[i] == 'food' %}
+		{% set maxItem = 0 %}
+		{% set startItem = startFood %}
+		{% set peopleMult = -30 %}
 	{% endif %}
-	#{{ itemNames[i] }}Span {
-		--turns-taken: 0px;
-		left: calc( var(--sudoku-left) + {{ (1-maxItem*maxTurns)+startItem }}px);
-		width: calc(9 * var(--width-block) + 40px + {{ (maxItem*maxTurns-1) - startItem  }}px);
-	}
-	{% for ii in range(1,maxTurns+1) %}
-		input.radioBD{{ ii }}:checked ~ #{{ itemNames[i] }}Span {
-			--turns-taken: {{ii}}px;
-			{% set totalPeople =  0 %}
-			width: calc(9 * var(--width-block) + 40px + {{ ((maxItem*maxTurns-1) - startItem) - (initItem*ii)   }}px); 
-			left: calc( var(--sudoku-left) + {{ initItem*ii + ((1-maxItem*maxTurns)+startItem) }}px); 
+	
+	
+	{% if itemNames[i] != 'food' %}
+		#{{ itemNames[i] }}Span {
+			--turns-taken: 0px;
+			left: calc( var(--sudoku-left) + {{ (1-maxItem*maxTurns)+startItem }}px);
+			width: calc(9 * var(--width-block) + 40px + {{ (maxItem*maxTurns-1) - startItem  }}px);
 		}
-	{% endfor %}
+	{% endif %}
+	{% if itemNames[i] == 'feed' or itemNames[i] == 'poop' %}
+		{% for ii in range(1,maxTurns+1) %}
+			input.radioBD{{ ii }}:checked ~ #{{ itemNames[i] }}Span {
+				--turns-taken: {{ii}}px;
+				{% set totalPeople =  0 %}
+				width: calc(9 * var(--width-block) + 40px + {{ ((maxItem*maxTurns-1) - startItem) - (initItem*ii)   }}px); 
+				left: calc( var(--sudoku-left) + {{ initItem*ii + ((1-maxItem*maxTurns)+startItem) }}px); 
+			}
+		{% endfor %}
+	{% else %}
+		{% for ii in range(1,maxTurns+1) %}
+			input.radioBD{{ $ii }}:checked ~ #{{ itemNames[i] }}Span {
+				--turns-taken: {{$ii}}px;
+				{{ $totalPeople :=   }}
+				width: calc(9 * var(--width-block) + 40px + {{ ((-1 +maxItem*maxTurns)-startItem)-( initItem*ii+(peopleMult*totalPeople) ) }}px); 
+				left: calc( var(--sudoku-left) + {{ (initItem*ii)+(peopleMult*totalPeople)+(1-maxItem*maxTurns)+startItem  }}px); 
+			}
+		{% endfor %}
+	{% endif %}
 {% endfor %}
 
 
 
 
+
+#fireSpan span:Not(.endImgSpan) { width: 0px;}
 
 
 
