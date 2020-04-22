@@ -380,6 +380,9 @@ td.peopleTD {
 	
 	
 {{ end }}
+
+
+
 :root {
 	counter-reset: old1 {{ .Params.startFood }} old2 {{ .Params.startWater }} old3 {{ .Params.startFeed }} old4 {{ .Params.startPoop }} old5 {{ .Params.startFire }} old6 {{ .Params.startClothes }} old7 {{ .Params.startPeople }} points1 {{ .Params.startFood }} points2 {{ .Params.startWater }} points3 {{ .Params.startFeed }} points4 {{ .Params.startPoop }} points5 {{ .Params.startFire }} points6 {{ .Params.startClothes }} points7 {{ .Params.startPeople }} change1 {{ $initFood }} change2 {{ $initWater }} change3 {{ $initFeed }} change4 {{ $initPoop }} change5 {{ $initFire }} change6 {{ $initClothes }} change7 0;
 }
@@ -518,6 +521,154 @@ td.peopleTD {
 #poopSpan span.item8 { width: {{ mul 10 $.Params.maxTurns }}px;}
 #poopSpan span.item9 { width: {{ mul 10 $.Params.maxTurns }}px;}
 
+{{ range $ii := (seq $.Params.maxTurns) }}	
+	input.radioBD{{ $ii }}:checked ~ #foodSpan {
+		--turns-taken: {{$ii}}px;
+		{{ $totalPeople :=  (sub (add (div (mul (mul 3 (add (div $ii 3) 1)) (add $.Params.startPeople (add $.Params.startPeople (div $ii 3)))) 2) (mul (sub $ii (mul 3 (div $ii 3))) (add $.Params.startPeople (div $ii 3)))) (add (mul 3 $.Params.startPeople) (mul 2 (div $ii 3)))) }}
+		width: calc(9 * var(--width-block) + 40px + {{ sub (sub -1 $.Params.startFood) ( add (mul $initFood $ii) (mul -30 $totalPeople) ) }}px); 
+		left: calc( var(--sudoku-left) + {{ add ( add (mul $initFood $ii) (mul -30 $totalPeople) ) (add 1 $.Params.startFood ) }}px); 
+	}
+{{ end }}
+
+
+#fireSpan {
+	--turns-taken: 0px;
+	left: calc( var(--sudoku-left) + {{ (add (sub 1 (mul 0 $.Params.maxTurns)) $.Params.startFire ) }}px);
+	width: calc(9 * var(--width-block) + 40px + {{ (sub (add -1 (mul 0 $.Params.maxTurns)) $.Params.startFire ) }}px);
+}
+{{ range $ii := (seq $.Params.maxTurns) }}	
+	input.radioBD{{ $ii }}:checked ~ #fireSpan {
+		--turns-taken: {{$ii}}px;
+		{{ $totalPeople :=  (sub (add (div (mul (mul 3 (add (div $ii 3) 1)) (add $.Params.startPeople (add $.Params.startPeople (div $ii 3)))) 2) (mul (sub $ii (mul 3 (div $ii 3))) (add $.Params.startPeople (div $ii 3)))) (add (mul 3 $.Params.startPeople) (mul 2 (div $ii 3)))) }}
+		width: calc(9 * var(--width-block) + 40px + {{ sub (sub (add -1 (mul 0 $.Params.maxTurns)) $.Params.startFire) ( add (mul $initFire $ii) (mul -5 $totalPeople) ) }}px); 
+		left: calc( var(--sudoku-left) + {{ add ( add (mul $initFire $ii) (mul -5 $totalPeople) ) (add (sub 1 (mul 0 $.Params.maxTurns)) $.Params.startFire ) }}px); 
+	}
+{{ end }}
+
+
+
+#fireSpan span:Not(.endImgSpan) { width: 0px;}
+
+
+
+
+
+#clothesSpan {
+	--turns-taken: 0px;
+	left: calc( var(--sudoku-left) + {{ (add (sub 1 (mul 0 $.Params.maxTurns)) $.Params.startClothes ) }}px);
+	width: calc(9 * var(--width-block) + 40px + {{ (sub (add -1 (mul 0 $.Params.maxTurns)) $.Params.startClothes ) }}px);
+}
+{{ range $ii := (seq $.Params.maxTurns) }}	
+	input.radioBD{{ $ii }}:checked ~ #clothesSpan {
+		--turns-taken: {{$ii}}px;
+		{{ $totalPeople :=  (sub (add (div (mul (mul 3 (add (div $ii 3) 1)) (add $.Params.startPeople (add $.Params.startPeople (div $ii 3)))) 2) (mul (sub $ii (mul 3 (div $ii 3))) (add $.Params.startPeople (div $ii 3)))) (add (mul 3 $.Params.startPeople) (mul 2 (div $ii 3)))) }}
+		width: calc(9 * var(--width-block) + 40px + {{ sub (sub (add -1 (mul 0 $.Params.maxTurns)) $.Params.startClothes) ( add (mul $initClothes $ii) (mul -5 $totalPeople) ) }}px); 
+		left: calc( var(--sudoku-left) + {{ add ( add (mul $initClothes $ii) (mul -5 $totalPeople) ) (add (sub 1 (mul 0 $.Params.maxTurns)) $.Params.startClothes ) }}px); 
+	}
+{{ end }}
+
+
+
+
+{{ $maxFirst := (add (add (int (index $.Params.maxPlots (sub 1 1))) (int (index $.Params.maxPlots (sub 2 1)))) (int (index $.Params.maxPlots (sub 3 1)))) }}
+{{ $maxSec := (add (add (int (index $.Params.maxPlots (sub 7 1))) (int (index $.Params.maxPlots (sub 8 1)))) (int (index $.Params.maxPlots (sub 9 1)))) }}
+{{ $maxWater := (add $maxFirst (mul 5 $maxSec))}}
+#waterSpan {
+	--turns-taken: 0px;
+	left: calc( var(--sudoku-left) + {{ (add (sub 1 (mul $maxWater $.Params.maxTurns)) $.Params.startWater ) }}px);
+	width: calc(9 * var(--width-block) + 40px + {{ (sub (add -1 (mul $maxWater $.Params.maxTurns)) $.Params.startWater ) }}px);
+}
+{{ range $ii := (seq $.Params.maxTurns) }}	
+	input.radioBD{{ $ii }}:checked ~ #waterSpan {
+		--turns-taken: {{$ii}}px;
+		width: calc(9 * var(--width-block) + 40px + {{ sub (sub (add -1 (mul $maxWater $.Params.maxTurns)) $.Params.startWater) ( add (mul $initWater $ii) (mul -3 (sub (add (div (mul (mul 3 (add (div $ii 3) 1)) (add $.Params.startPeople (add $.Params.startPeople (div $ii 3)))) 2) (mul (sub $ii (mul 3 (div $ii 3))) (add $.Params.startPeople (div $ii 3)))) (add (mul 3 $.Params.startPeople) (mul 2 (div $ii 3))))) )  }}px); 
+		left: calc( var(--sudoku-left) + {{ add ( add (mul $initWater $ii) (mul -3 (sub (add (div (mul (mul 3 (add (div $ii 3) 1)) (add $.Params.startPeople (add $.Params.startPeople (div $ii 3)))) 2) (mul (sub $ii (mul 3 (div $ii 3))) (add $.Params.startPeople (div $ii 3)))) (add (mul 3 $.Params.startPeople) (mul 2 (div $ii 3))))) ) (add (sub 1 (mul $maxWater $.Params.maxTurns)) $.Params.startWater ) }}px); 
+	}
+{{ end }}
+
+
+
+
+
+{{ $maxFirst := (int (index $.Params.maxPlots (sub 1 1))) }}
+{{ $maxSec := (add (int (index $.Params.maxPlots (sub 2 1))) (int (index $.Params.maxPlots (sub 3 1)))) }}
+{{ $maxFeed := (add (mul 20 $maxFirst) (mul 10 $maxSec))}}
+
+#feedSpan {
+	--turns-taken: 0px;
+	left: calc( var(--sudoku-left) + {{ (add (sub 1 (mul $maxFeed $.Params.maxTurns)) $.Params.startFeed ) }}px);
+	width: calc(9 * var(--width-block) + 40px + {{ (sub (add -1 (mul $maxFeed $.Params.maxTurns)) $.Params.startFeed ) }}px);
+}
+{{ range $ii := (seq $.Params.maxTurns) }}	
+	input.radioBD{{ $ii }}:checked ~ #feedSpan {
+		--turns-taken: {{$ii}}px;
+		{{ $totalPeople :=  0 }}
+		width: calc(9 * var(--width-block) + 40px + {{ sub (sub (add -1 (mul $maxFeed $.Params.maxTurns)) $.Params.startFeed) ( add (mul $initFeed $ii) (mul 0 $totalPeople) ) }}px); 
+		left: calc( var(--sudoku-left) + {{ add ( add (mul $initFeed $ii) (mul 0 $totalPeople) ) (add (sub 1 (mul $maxFeed $.Params.maxTurns)) $.Params.startFeed ) }}px); 
+	}
+{{ end }}
+
+
+{{ $maxFirst := (int (index $.Params.maxPlots (sub 7 1))) }}
+{{ $maxSec := (add (int (index $.Params.maxPlots (sub 8 1))) (int (index $.Params.maxPlots (sub 9 1)))) }}
+{{ $maxPoop := (add (mul 10 $maxFirst) (mul 10 $maxSec))}}
+
+#poopSpan {
+	--turns-taken: 0px;
+	left: calc( var(--sudoku-left) + {{ (add (sub 1 (mul $maxPoop $.Params.maxTurns)) $.Params.startPoop ) }}px);
+	width: calc(9 * var(--width-block) + 40px + {{ (sub (add -1 (mul $maxPoop $.Params.maxTurns)) $.Params.startPoop ) }}px);
+}
+{{ range $ii := (seq $.Params.maxTurns) }}	
+	input.radioBD{{ $ii }}:checked ~ #poopSpan {
+		--turns-taken: {{$ii}}px;
+		{{ $totalPeople :=  0 }}
+		width: calc(9 * var(--width-block) + 40px + {{ sub (sub (add -1 (mul $maxPoop $.Params.maxTurns)) $.Params.startPoop)  (mul $initPoop $ii)   }}px); 
+		left: calc( var(--sudoku-left) + {{ add ( add (mul $initPoop $ii) (mul 0 $totalPeople) ) (add (sub 1 (mul $maxPoop $.Params.maxTurns)) $.Params.startPoop ) }}px); 
+	}
+{{ end }}
+
+
+
+
+
+
+{{ range $ii := (seq $.Params.maxTurns) }}
+
+	{{ range $i := (seq $ii)}}.unchecked:checked ~ {{ end }} table #newData{
+		z-index: {{add (mul 2 $ii) 100}};
+	}
+	.radioBD{{ $ii }}:checked ~ table #oldData{
+		z-index: {{add (mul 2 $ii) 99}};
+	}
+
+{{ end }}
+
+{{ range $i := (seq 9) }}
+	{{ range $rowI := (seq 9) }}{{if le $rowI (int (index $.Params.maxPlots (sub $i 1)))}}.unchecked.points{{ $i }}:checked ~ {{ end }}{{ end }}.blackout{{ $i }} {
+		opacity: .5;
+		pointer-events: all;
+	}
+	{{ range $rowI := (seq 9) }}{{if le $rowI (int (index $.Params.maxPlots (sub $i 1)))}}.unchecked.points{{ $i }}:checked ~ {{ end }}{{ end }}#winSudoku #winSudoku{{ $i }} {
+		display: inline-block;
+	}
+	
+	
+	
+	{{ range $ii := (seq $.Params.maxTurns) }}
+		#radio{{ $ii }}U{{ $i }}:Not(:checked) + .cmarkU{{ $i }} ~ .points{{ $i }}:not(:checked) + .check{{ $i }}{
+			z-index: {{add (mul 2 $ii) 100}};
+		}
+		#radio{{ $ii }}U{{ $i }}:Not(:checked) + .cmarkU{{ $i }} ~ .points{{ $i }}:checked + label + label + .rcheck{
+			z-index: {{add (mul 2 $ii) 101}};
+		}
+		#radio{{ $ii }}U{{ $i }}:Not(:checked) + .cmarkU{{ $i }} ~ .points{{ $i }}:checked + label + label + label + .ccheck{
+			z-index: {{add (mul 2 $ii) 101}};
+		}
+		#radio{{ $ii }}U{{ $i }}:Not(:checked) + .cmarkU{{ $i }} ~ .points{{ $i }}:checked + label + label + label + label + .bcheck{
+			z-index: {{add (mul 2 $ii) 101}};
+		}
+	{{ end }}
+{{ end }}
 
 
 
@@ -777,155 +928,6 @@ td.peopleTD {
 
 {{ end }}
 
-
-{{ range $ii := (seq $.Params.maxTurns) }}	
-	input.radioBD{{ $ii }}:checked ~ #foodSpan {
-		--turns-taken: {{$ii}}px;
-		{{ $totalPeople :=  (sub (add (div (mul (mul 3 (add (div $ii 3) 1)) (add $.Params.startPeople (add $.Params.startPeople (div $ii 3)))) 2) (mul (sub $ii (mul 3 (div $ii 3))) (add $.Params.startPeople (div $ii 3)))) (add (mul 3 $.Params.startPeople) (mul 2 (div $ii 3)))) }}
-		width: calc(9 * var(--width-block) + 40px + {{ sub (sub -1 $.Params.startFood) ( add (mul $initFood $ii) (mul -30 $totalPeople) ) }}px); 
-		left: calc( var(--sudoku-left) + {{ add ( add (mul $initFood $ii) (mul -30 $totalPeople) ) (add 1 $.Params.startFood ) }}px); 
-	}
-{{ end }}
-
-
-#fireSpan {
-	--turns-taken: 0px;
-	left: calc( var(--sudoku-left) + {{ (add (sub 1 (mul 0 $.Params.maxTurns)) $.Params.startFire ) }}px);
-	width: calc(9 * var(--width-block) + 40px + {{ (sub (add -1 (mul 0 $.Params.maxTurns)) $.Params.startFire ) }}px);
-}
-{{ range $ii := (seq $.Params.maxTurns) }}	
-	input.radioBD{{ $ii }}:checked ~ #fireSpan {
-		--turns-taken: {{$ii}}px;
-		{{ $totalPeople :=  (sub (add (div (mul (mul 3 (add (div $ii 3) 1)) (add $.Params.startPeople (add $.Params.startPeople (div $ii 3)))) 2) (mul (sub $ii (mul 3 (div $ii 3))) (add $.Params.startPeople (div $ii 3)))) (add (mul 3 $.Params.startPeople) (mul 2 (div $ii 3)))) }}
-		width: calc(9 * var(--width-block) + 40px + {{ sub (sub (add -1 (mul 0 $.Params.maxTurns)) $.Params.startFire) ( add (mul $initFire $ii) (mul -5 $totalPeople) ) }}px); 
-		left: calc( var(--sudoku-left) + {{ add ( add (mul $initFire $ii) (mul -5 $totalPeople) ) (add (sub 1 (mul 0 $.Params.maxTurns)) $.Params.startFire ) }}px); 
-	}
-{{ end }}
-
-
-
-#fireSpan span:Not(.endImgSpan) { width: 0px;}
-
-
-
-
-
-#clothesSpan {
-	--turns-taken: 0px;
-	left: calc( var(--sudoku-left) + {{ (add (sub 1 (mul 0 $.Params.maxTurns)) $.Params.startClothes ) }}px);
-	width: calc(9 * var(--width-block) + 40px + {{ (sub (add -1 (mul 0 $.Params.maxTurns)) $.Params.startClothes ) }}px);
-}
-{{ range $ii := (seq $.Params.maxTurns) }}	
-	input.radioBD{{ $ii }}:checked ~ #clothesSpan {
-		--turns-taken: {{$ii}}px;
-		{{ $totalPeople :=  (sub (add (div (mul (mul 3 (add (div $ii 3) 1)) (add $.Params.startPeople (add $.Params.startPeople (div $ii 3)))) 2) (mul (sub $ii (mul 3 (div $ii 3))) (add $.Params.startPeople (div $ii 3)))) (add (mul 3 $.Params.startPeople) (mul 2 (div $ii 3)))) }}
-		width: calc(9 * var(--width-block) + 40px + {{ sub (sub (add -1 (mul 0 $.Params.maxTurns)) $.Params.startClothes) ( add (mul $initClothes $ii) (mul -5 $totalPeople) ) }}px); 
-		left: calc( var(--sudoku-left) + {{ add ( add (mul $initClothes $ii) (mul -5 $totalPeople) ) (add (sub 1 (mul 0 $.Params.maxTurns)) $.Params.startClothes ) }}px); 
-	}
-{{ end }}
-
-
-
-
-{{ $maxFirst := (add (add (int (index $.Params.maxPlots (sub 1 1))) (int (index $.Params.maxPlots (sub 2 1)))) (int (index $.Params.maxPlots (sub 3 1)))) }}
-{{ $maxSec := (add (add (int (index $.Params.maxPlots (sub 7 1))) (int (index $.Params.maxPlots (sub 8 1)))) (int (index $.Params.maxPlots (sub 9 1)))) }}
-{{ $maxWater := (add $maxFirst (mul 5 $maxSec))}}
-#waterSpan {
-	--turns-taken: 0px;
-	left: calc( var(--sudoku-left) + {{ (add (sub 1 (mul $maxWater $.Params.maxTurns)) $.Params.startWater ) }}px);
-	width: calc(9 * var(--width-block) + 40px + {{ (sub (add -1 (mul $maxWater $.Params.maxTurns)) $.Params.startWater ) }}px);
-}
-{{ range $ii := (seq $.Params.maxTurns) }}	
-	input.radioBD{{ $ii }}:checked ~ #waterSpan {
-		--turns-taken: {{$ii}}px;
-		width: calc(9 * var(--width-block) + 40px + {{ sub (sub (add -1 (mul $maxWater $.Params.maxTurns)) $.Params.startWater) ( add (mul $initWater $ii) (mul -3 (sub (add (div (mul (mul 3 (add (div $ii 3) 1)) (add $.Params.startPeople (add $.Params.startPeople (div $ii 3)))) 2) (mul (sub $ii (mul 3 (div $ii 3))) (add $.Params.startPeople (div $ii 3)))) (add (mul 3 $.Params.startPeople) (mul 2 (div $ii 3))))) )  }}px); 
-		left: calc( var(--sudoku-left) + {{ add ( add (mul $initWater $ii) (mul -3 (sub (add (div (mul (mul 3 (add (div $ii 3) 1)) (add $.Params.startPeople (add $.Params.startPeople (div $ii 3)))) 2) (mul (sub $ii (mul 3 (div $ii 3))) (add $.Params.startPeople (div $ii 3)))) (add (mul 3 $.Params.startPeople) (mul 2 (div $ii 3))))) ) (add (sub 1 (mul $maxWater $.Params.maxTurns)) $.Params.startWater ) }}px); 
-	}
-{{ end }}
-
-
-
-
-
-{{ $maxFirst := (int (index $.Params.maxPlots (sub 1 1))) }}
-{{ $maxSec := (add (int (index $.Params.maxPlots (sub 2 1))) (int (index $.Params.maxPlots (sub 3 1)))) }}
-{{ $maxFeed := (add (mul 20 $maxFirst) (mul 10 $maxSec))}}
-
-#feedSpan {
-	--turns-taken: 0px;
-	left: calc( var(--sudoku-left) + {{ (add (sub 1 (mul $maxFeed $.Params.maxTurns)) $.Params.startFeed ) }}px);
-	width: calc(9 * var(--width-block) + 40px + {{ (sub (add -1 (mul $maxFeed $.Params.maxTurns)) $.Params.startFeed ) }}px);
-}
-{{ range $ii := (seq $.Params.maxTurns) }}	
-	input.radioBD{{ $ii }}:checked ~ #feedSpan {
-		--turns-taken: {{$ii}}px;
-		{{ $totalPeople :=  0 }}
-		width: calc(9 * var(--width-block) + 40px + {{ sub (sub (add -1 (mul $maxFeed $.Params.maxTurns)) $.Params.startFeed) ( add (mul $initFeed $ii) (mul 0 $totalPeople) ) }}px); 
-		left: calc( var(--sudoku-left) + {{ add ( add (mul $initFeed $ii) (mul 0 $totalPeople) ) (add (sub 1 (mul $maxFeed $.Params.maxTurns)) $.Params.startFeed ) }}px); 
-	}
-{{ end }}
-
-
-{{ $maxFirst := (int (index $.Params.maxPlots (sub 7 1))) }}
-{{ $maxSec := (add (int (index $.Params.maxPlots (sub 8 1))) (int (index $.Params.maxPlots (sub 9 1)))) }}
-{{ $maxPoop := (add (mul 10 $maxFirst) (mul 10 $maxSec))}}
-
-#poopSpan {
-	--turns-taken: 0px;
-	left: calc( var(--sudoku-left) + {{ (add (sub 1 (mul $maxPoop $.Params.maxTurns)) $.Params.startPoop ) }}px);
-	width: calc(9 * var(--width-block) + 40px + {{ (sub (add -1 (mul $maxPoop $.Params.maxTurns)) $.Params.startPoop ) }}px);
-}
-{{ range $ii := (seq $.Params.maxTurns) }}	
-	input.radioBD{{ $ii }}:checked ~ #poopSpan {
-		--turns-taken: {{$ii}}px;
-		{{ $totalPeople :=  0 }}
-		width: calc(9 * var(--width-block) + 40px + {{ sub (sub (add -1 (mul $maxPoop $.Params.maxTurns)) $.Params.startPoop)  (mul $initPoop $ii)   }}px); 
-		left: calc( var(--sudoku-left) + {{ add ( add (mul $initPoop $ii) (mul 0 $totalPeople) ) (add (sub 1 (mul $maxPoop $.Params.maxTurns)) $.Params.startPoop ) }}px); 
-	}
-{{ end }}
-
-
-
-
-
-
-{{ range $ii := (seq $.Params.maxTurns) }}
-
-	{{ range $i := (seq $ii)}}.unchecked:checked ~ {{ end }} table #newData{
-		z-index: {{add (mul 2 $ii) 100}};
-	}
-	.radioBD{{ $ii }}:checked ~ table #oldData{
-		z-index: {{add (mul 2 $ii) 99}};
-	}
-
-{{ end }}
-
-{{ range $i := (seq 9) }}
-	{{ range $rowI := (seq 9) }}{{if le $rowI (int (index $.Params.maxPlots (sub $i 1)))}}.unchecked.points{{ $i }}:checked ~ {{ end }}{{ end }}.blackout{{ $i }} {
-		opacity: .5;
-		pointer-events: all;
-	}
-	{{ range $rowI := (seq 9) }}{{if le $rowI (int (index $.Params.maxPlots (sub $i 1)))}}.unchecked.points{{ $i }}:checked ~ {{ end }}{{ end }}#winSudoku #winSudoku{{ $i }} {
-		display: inline-block;
-	}
-	
-	
-	
-	{{ range $ii := (seq $.Params.maxTurns) }}
-		#radio{{ $ii }}U{{ $i }}:Not(:checked) + .cmarkU{{ $i }} ~ .points{{ $i }}:not(:checked) + .check{{ $i }}{
-			z-index: {{add (mul 2 $ii) 100}};
-		}
-		#radio{{ $ii }}U{{ $i }}:Not(:checked) + .cmarkU{{ $i }} ~ .points{{ $i }}:checked + label + label + .rcheck{
-			z-index: {{add (mul 2 $ii) 101}};
-		}
-		#radio{{ $ii }}U{{ $i }}:Not(:checked) + .cmarkU{{ $i }} ~ .points{{ $i }}:checked + label + label + label + .ccheck{
-			z-index: {{add (mul 2 $ii) 101}};
-		}
-		#radio{{ $ii }}U{{ $i }}:Not(:checked) + .cmarkU{{ $i }} ~ .points{{ $i }}:checked + label + label + label + label + .bcheck{
-			z-index: {{add (mul 2 $ii) 101}};
-		}
-	{{ end }}
-{{ end }}
 
 
 </style>
