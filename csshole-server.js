@@ -172,7 +172,7 @@ app.get('/chart.html',
 					years.push({'year':parseInt(results.data[i][1]),'outs':parseInt(results.data[i][6])-parseInt(results.data[i][8]),'hits':parseInt(results.data[i][8])})
 				}
 			}
-			res.write(nunjucks.render('templates/batterchart.html',{
+			res.write(nunjucks.render('templates/division.html',{
 				years: years,
 			}));
 			res.end();
