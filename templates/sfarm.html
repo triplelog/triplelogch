@@ -10,6 +10,43 @@
 <link rel="stylesheet" href="../css/sudokufarmtemphalf.css">
 <style>
 
+{% for ii in range(1,maxTurns+1) %}
+
+	{% for i in range(1,ii+1) %}.unchecked:checked ~ {% endfor %} table #newData{
+		z-index: {{ii*2 + 100}};
+	}
+	.radioBD{{ ii }}:checked ~ table #oldData{
+		z-index: {{ii*2 + 99}};
+	}
+
+{% endfor %}
+
+{% for i in range(1,10) %}
+	{% for rowI in range(1,10) %}{% if rowI<= maxPlots[i-1] %}.unchecked.points{{ i }}:checked ~ {% endif %}{% endfor %}.blackout{{ i }} {
+		opacity: .5;
+		pointer-events: all;
+	}
+	{% for rowI in range(1,10) %}{% if rowI<= maxPlots[i-1] %}.unchecked.points{{ i }}:checked ~ {% endif %}{% endfor %}#winSudoku #winSudoku{{ i }} {
+		display: inline-block;
+	}
+	
+	
+	
+	{% for ii in range(1,maxTurns+1) %}
+		#radio{{ ii }}U{{ i }}:Not(:checked) + .cmarkU{{ i }} ~ .points{{ i }}:not(:checked) + .check{{ i }}{
+			z-index: {{ii*2 + 100}};
+		}
+		#radio{{ ii }}U{{ i }}:Not(:checked) + .cmarkU{{ i }} ~ .points{{ i }}:checked + label + label + .rcheck{
+			z-index: {{ii*2 + 101}};
+		}
+		#radio{{ ii }}U{{ i }}:Not(:checked) + .cmarkU{{ i }} ~ .points{{ i }}:checked + label + label + label + .ccheck{
+			z-index: {{ii*2 + 101}};
+		}
+		#radio{{ ii }}U{{ i }}:Not(:checked) + .cmarkU{{ i }} ~ .points{{ i }}:checked + label + label + label + label + .bcheck{
+			z-index: {{ii*2 + 101}};
+		}
+	{% endfor %}
+{% endfor %}
 
 
 {% set itemNames = ['food','water','feed','poop','fire','clothes'] %}
