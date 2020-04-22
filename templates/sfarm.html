@@ -10,6 +10,42 @@
 <link rel="stylesheet" href="../css/sudokufarmtemphalf.css">
 <style>
 
+{% set maxFirst = maxPlots[0] %}
+{% set maxSec = maxPlots[1]+maxPlots[2] %}
+{% set maxFeed = 20*maxFirst + 10*maxSec %}
+
+{% set maxFirst = maxPlots[6] %}
+{% set maxSec = maxPlots[7]+maxPlots[8] %}
+{% set maxPoop = 10*maxFirst + 10*maxSec %}
+
+{% set itemNames = ['feed','poop'] %}
+{% for i in [0,1] %}
+	{% if itemNames[i] == 'feed' %}
+		{% set maxItem = maxFeed %}
+	{% elif itemNames[i] == 'poop' %}
+		{% set maxItem = maxPoop %}
+	{% endif %}
+	#{{ itemNames[i] }}Span {
+		--turns-taken: 0px;
+		left: calc( var(--sudoku-left) + {{ (1-maxItem*maxTurns)+startItem }}px);
+		width: calc(9 * var(--width-block) + 40px + {{ (maxItem*maxTurns-1) - startItem  }}px);
+	}
+	{% for ii in range(1,maxTurns+1) %}
+		input.radioBD{{ ii }}:checked ~ #{{ itemNames[i] }}Span {
+			--turns-taken: {{ii}}px;
+			{% set totalPeople =  0 %}
+			width: calc(9 * var(--width-block) + 40px + {{ ((maxItem*maxTurns-1) - startItem) - (initItem*ii)   }}px); 
+			left: calc( var(--sudoku-left) + {{ initItem*ii + ((1-maxItem*maxTurns)+startItem) }}px); 
+		}
+	{% endfor %}
+{% endfor %}
+
+
+
+
+
+
+
 {% for ii in range(1,maxTurns+1) %}
 
 	{% for i in range(1,ii+1) %}.unchecked:checked ~ {% endfor %} table #newData{
