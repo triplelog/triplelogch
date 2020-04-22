@@ -67,6 +67,7 @@
 	line-height: 16px;
 	border-top: solid 1px white;
 }
+
 .cpT {
 	width: 20px;
 	background-color: gray;
@@ -95,7 +96,7 @@
 .chartcolumn{{ i }} {
 	position: absolute;
 	bottom: 0px;
-	left: {{40+25*i}}px;
+	left: {{60+25*i}}px;
 	display: flex;
 	justify-content: space-around;
 	flex-flow: column;
@@ -105,7 +106,7 @@
 }
 .chartlegend{{ i }} {
 	position: absolute;
-	bottom: 100px;
+	bottom: 112px;
 	left: {{0+25*i}}px;
 	display: flex;
 	justify-content: space-around;
@@ -119,6 +120,17 @@
 	position: absolute;
 	bottom: 100px;
 	left: {{20+25*i}}px;
+	display: flex;
+	justify-content: space-around;
+	flex-flow: column;
+	align-items: stretch;
+	height: 500px;
+	width: 20px;
+	background: gray;
+}.chartticks2-{{ i }} {
+	position: absolute;
+	bottom: 100px;
+	left: {{40+25*i}}px;
 	display: flex;
 	justify-content: space-around;
 	flex-flow: column;
@@ -150,7 +162,10 @@
 					<div class="chartlegend{{ i }}">{% for ii in range(0,25) %}<span class="cpL h1">{{ 600-ii*20 }}</span>{% endfor %}</div>
 				{% endfor %}
 				{% for i in range(1,2) %}
-					<div class="chartticks{{ i }}">{% for ii in range(0,100) %}<span class="cpT h1"></span>{% endfor %}</div>
+					<div class="chartticks{{ i }}">{% for ii in range(0,25) %}<span class="cpL h1"></span>{% endfor %}</div>
+				{% endfor %}
+				{% for i in range(1,2) %}
+					<div class="chartticks2-{{ i }}">{% for ii in range(0,100) %}<span class="cpT h1"></span>{% endfor %}</div>
 				{% endfor %}
 				{% for i in range(1,2) %}
 					<div class="chartcolumn{{ i }}">{% for year in years %}<span class="cpI h{{year.outs}} s{{ year.year}}"></span>{% endfor %}{% for year in years %}<span class="cp h{{year.hits}} s{{ year.year}}"></span>{% endfor %}</div>
