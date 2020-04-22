@@ -94,12 +94,12 @@
 	justify-content: space-around;
 	flex-flow: column;
 	align-items: stretch;
-	height: 480px;
+	height: 960px;
 	width: 20px;
 }
 .chartlegend{{ i }} {
 	position: absolute;
-	bottom: 0px;
+	bottom: 240px;
 	left: {{0+25*i}}px;
 	display: flex;
 	justify-content: space-around;
@@ -117,7 +117,7 @@
 </head>
 <body>
 
-		<div class="mainDiv" style="height: 560px; position: relative; left: 50px;">
+		<div class="mainDiv" style="height: 960px; position: relative; left: 50px;">
 			Start Year:
 			{% set checked = true %}
 			{% set lastYear = 0 %}
