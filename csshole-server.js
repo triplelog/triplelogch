@@ -108,7 +108,7 @@ app.get('/sudokufarm.html',
 		for (var i=0;i<9;i++){
 			params.initClothes += itemPerThing[6][i]*params.existingPlots[i]-spendPerThing[6][i]*params.existingPlots[i];
 		}
-		res.write(nunjucks.render('templates/sfarm.html', params));
+		res.write(nunjucks.render('templates/sudokufarmbase.html', params));
 		res.end();
 	}
 );
