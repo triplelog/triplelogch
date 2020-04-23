@@ -18,36 +18,58 @@
 <style>
 
 
-
-:root {
-	counter-reset: old1 {{ .Params.startFood }} old2 {{ .Params.startWater }} old3 {{ .Params.startFeed }} old4 {{ .Params.startPoop }} old5 {{ .Params.startFire }} old6 {{ .Params.startClothes }} old7 {{ .Params.startPeople }} points1 {{ .Params.startFood }} points2 {{ .Params.startWater }} points3 {{ .Params.startFeed }} points4 {{ .Params.startPoop }} points5 {{ .Params.startFire }} points6 {{ .Params.startClothes }} points7 {{ .Params.startPeople }} change1 {{ $initFood }} change2 {{ $initWater }} change3 {{ $initFeed }} change4 {{ $initPoop }} change5 {{ $initFire }} change6 {{ $initClothes }} change7 0;
-}
-{{ range $ii := (seq $.Params.maxTurns) }}
-	.radioBU{{ $ii }}:not(:checked) + label {
-		z-index: {{add 201 (mul 2 $ii)}};
+{{ range $ii := (seq $.Params.maxTurns) }}	
+	.radioBU{{ $ii }}:Not(:checked) ~ input.radioPts1:checked + label{
+		counter-increment: old1 {{ add 0 (mul 21 $ii)}} old2 {{ add 0 (mul -1 $ii)}} old3 {{ add 0 (mul -20 $ii)}} old4 {{ add 0 (mul 10 $ii)}} old6 {{ add 0 (mul 5 $ii)}} points1 {{ add 21 (mul 21 $ii)}} points2 {{ add -1 (mul -1 $ii)}} points3 {{ add -20 (mul -20 $ii)}} points4 {{ add 10 (mul 10 $ii)}} points6 {{ add 5 (mul 5 $ii)}};
 	}
+	.radioBU{{ $ii }}:Not(:checked) ~ input.radioPts2:checked + label{
+		counter-increment: old1 {{ add 0 (mul 16 $ii)}} old2 {{ add 0 (mul -1 $ii)}} old3 {{ add 0 (mul -10 $ii)}} old4 {{ add 0 (mul 10 $ii)}} points1 {{ add 16 (mul 16 $ii)}} points2 {{ add -1 (mul -1 $ii)}} points3 {{ add -10 (mul -10 $ii)}} points4 {{ add 10 (mul 10 $ii)}};
+	}
+	.radioBU{{ $ii }}:Not(:checked) ~ input.radioPts3:checked + label{
+		counter-increment: old1 {{ add 0 (mul 3 $ii)}} old2 {{ add 0 (mul -1 $ii)}} old3 {{ add 0 (mul -10 $ii)}} old4 {{ add 0 (mul 10 $ii)}} old6 {{ add 0 (mul 13 $ii)}} points1 {{ add 3 (mul 3 $ii)}} points2 {{ add -1 (mul -1 $ii)}} points3 {{ add -10 (mul -10 $ii)}} points4 {{ add 10 (mul 10 $ii)}} points6 {{ add 13 (mul 13 $ii)}};
+	}
+	.radioBU{{ $ii }}:Not(:checked) ~ input.radioPts4:checked + label{
+		counter-increment: old2 {{ add 0 (mul 30 $ii)}} points2 {{ add 30 (mul 30 $ii)}};
+	}
+	.radioBU{{ $ii }}:Not(:checked) ~ input.radioPts5:checked + label{
+		counter-increment: old5 {{ add 0 (mul 15 $ii)}} points5 {{ add 15 (mul 15 $ii)}};
+	}
+	.radioBU{{ $ii }}:Not(:checked) ~ input.radioPts6:checked + label{
+		counter-increment: old1 {{ add 0 (mul 10 $ii)}} old3 {{ add 0 (mul 3 $ii)}} old5 {{ add 0 (mul 2 $ii)}} points1 {{ add 10 (mul 10 $ii)}} points3 {{ add 3 (mul 3 $ii)}} points5 {{ add 2 (mul 2 $ii)}};
+	}
+	.radioBU{{ $ii }}:Not(:checked) ~ input.radioPts7:checked + label{
+		counter-increment: old1 {{ add 0 (mul 30 $ii)}} old2 {{ add 0 (mul -5 $ii)}} old4 {{ add 0 (mul -10 $ii)}} points1 {{ add 30 (mul 30 $ii)}} points2 {{ add -5 (mul -5 $ii)}} points4 {{ add -10 (mul -10 $ii)}};
+	}
+	.radioBU{{ $ii }}:Not(:checked) ~ input.radioPts8:checked + label{
+		counter-increment: old1 {{ add 0 (mul 15 $ii)}} old2 {{ add 0 (mul -5 $ii)}} old3 {{ add 0 (mul 15 $ii)}} old4 {{ add 0 (mul -10 $ii)}} points1 {{ add 15 (mul 15 $ii)}} points2 {{ add -5 (mul -5 $ii)}} points3 {{ add 15 (mul 15 $ii)}} points4 {{ add -10 (mul -10 $ii)}};
+	}
+	.radioBU{{ $ii }}:Not(:checked) ~ input.radioPts9:checked + label{
+		counter-increment: old1 {{ add 0 (mul 6 $ii)}} old2 {{ add 0 (mul -5 $ii)}} old3 {{ add 0 (mul 24 $ii)}} old4 {{ add 0 (mul -10 $ii)}} points1 {{ add 6 (mul 6 $ii)}} points2 {{ add -5 (mul -5 $ii)}} points3 {{ add 24 (mul 24 $ii)}} points4 {{ add -10 (mul -10 $ii)}};
+	}
+	
+	.radioBU{{ $ii }}:Not(:checked) ~ #counterSpan{
+		{{ if modBool (add 1 $ii) 3}}
+			{{ $totalPeople :=  (sub (add (div (mul (mul 3 (add (div $ii 3) 1)) (add $.Params.startPeople (add $.Params.startPeople (div $ii 3)))) 2) (mul (sub $ii (mul 3 (div $ii 3))) (add $.Params.startPeople (div $ii 3)))) (add (mul 3 $.Params.startPeople) (mul 2 (div $ii 3)))) }}
+			{{ $currentPeople := (add $.Params.startPeople (div $ii 3)) }}
+			counter-increment: change1 {{ add (mul 30 (sub $ii 1)) (mul -30 ($currentPeople)) }} points1 {{ add (mul $initFood $ii) (mul -30 ($totalPeople)) }} old1 {{ add (mul $initFood (sub $ii 1)) (mul -30 (sub $totalPeople $currentPeople)) }} change2 {{ add (mul 3 (sub $ii 1)) (mul -3 (add $.Params.startPeople (div $ii 3))) }} points2 {{ add (mul $initWater $ii) (mul -3 ($totalPeople)) }} old2 {{ add (mul $initWater (sub $ii 1)) (mul -3 (sub $totalPeople $currentPeople)) }} points3 {{ mul $initFeed $ii}} old3 {{ mul $initFeed (sub $ii 1)}} points4 {{ mul $initPoop $ii }} old4 {{ mul $initPoop (sub $ii 1) }} change5 {{ add (mul 5 (sub $ii 1)) (mul -5 (add $.Params.startPeople (div $ii 3))) }} points5 {{ add (mul $initFire $ii) (mul -5 ($totalPeople)) }} old5 {{ add (mul $initFire (sub $ii 1)) (mul -5 (sub $totalPeople $currentPeople)) }} change6 {{ add (mul 5 (sub $ii 1)) (mul -5 (add $.Params.startPeople (div $ii 3))) }} points6 {{ add (mul $initClothes $ii) (mul -5 ($totalPeople)) }} old6 {{ add (mul $initClothes (sub $ii 1)) (mul -5 (sub $totalPeople $currentPeople)) }} change7 {{sub 1 $ii}} points7 {{ div $ii 3}} old7 {{div (sub $ii 1) 3 }};
+		{{ else }}
+			{{ $totalPeople :=  (sub (add (div (mul (mul 3 (add (div $ii 3) 1)) (add $.Params.startPeople (add $.Params.startPeople (div $ii 3)))) 2) (mul (sub $ii (mul 3 (div $ii 3))) (add $.Params.startPeople (div $ii 3)))) (add (mul 3 $.Params.startPeople) (mul 2 (div $ii 3)))) }}
+			{{ $currentPeople := (add $.Params.startPeople (div $ii 3)) }}
+			counter-increment: change1 {{ add (mul 0 (sub $ii 1)) (mul -30 ($currentPeople)) }} points1 {{ add (mul $initFood $ii) (mul -30 ($totalPeople)) }} old1 {{ add (mul $initFood (sub $ii 1)) (mul -30 (sub $totalPeople $currentPeople)) }} change2 {{ mul -3 (add $.Params.startPeople (div $ii 3)) }} points2 {{ add (mul $initWater $ii) (mul -3 ($totalPeople)) }} old2 {{ add (mul $initWater (sub $ii 1)) (mul -3 (sub $totalPeople $currentPeople)) }} points3 {{ mul $initFeed $ii}} old3 {{ mul $initFeed (sub $ii 1)}} points4 {{ mul $initPoop $ii }} old4 {{ mul $initPoop (sub $ii 1) }} change5 {{ mul -5 (add $.Params.startPeople (div $ii 3)) }} points5 {{ add (mul $initFire $ii) (mul -5 ($totalPeople)) }} old5 {{ add (mul $initFire (sub $ii 1)) (mul -5 (sub $totalPeople $currentPeople)) }} change6 {{ mul -5 (add $.Params.startPeople (div $ii 3)) }} points6 {{ add (mul $initClothes $ii) (mul -5 ($totalPeople)) }} old6 {{ add (mul $initClothes (sub $ii 1)) (mul -5 (sub $totalPeople $currentPeople)) }} change7 {{ if eq (mod $ii 3) 0 }} {{if gt $ii 1 }}{{sub $ii 0}}{{ else }}0{{ end }} {{ else }}0{{ end }} points7 {{ div $ii 3}} old7 {{div (sub $ii 1) 3 }};
+		{{ end }}
+		
+	}
+	
+	.radioBU{{ $ii }}:Not(:checked) ~ .unchecked:checked + label{
+		{{ if modBool (add 1 $ii) 3}}
+			counter-increment: change1 -30 change2 -3 change5 -5 change6 -5 change7 1;
+		{{ else }}
+			counter-increment: change1 0 change2 0 change5 0 change6 0 change7 {{ if modBool $ii 3}}{{if gt $ii 1 }}-1{{ else }}0{{ end }}{{ else }}0{{ end }};
+		{{ end }}
+		
+	}
+
 {{ end }}
-
-{{ range $ii := (seq $.Params.maxTurns) }}
-	{{ range $i := (seq (sub $ii 1))}}.unchecked:checked ~ {{ end }} .radioBD{{ $ii }} + label{
-		z-index: {{add 200 (mul 2 $ii)}};
-	}
-	{{ range $i := (seq $ii)}}.unchecked:checked ~ {{ end }} .radioBD{{ $ii }} + label{
-		z-index: 1;
-	}
-	{{ range $i := (seq (sub $ii 1))}}.unchecked:checked ~ {{ end }} .coverSudoku{
-		z-index: {{add (mul 2 $ii) 99}};
-	}
-	.radioBU{{ $ii }}:not(:checked) ~ .radioBU{{ $ii }}:not(:checked) ~ span#coverSudoku {
-		z-index: 4900;
-	}
-{{ end }}
-
-#counterSpan{
-	{{ $totalPeople :=  (sub (add (div (mul (mul 3 (add (div 0 3) 1)) (add $.Params.startPeople (add $.Params.startPeople (div 0 3)))) 2) (mul (sub 0 (mul 3 (div 0 3))) (add $.Params.startPeople (div 0 3)))) (add (mul 3 $.Params.startPeople) (mul 2 (div 0 3)))) }}
-	{{ $currentPeople := (add $.Params.startPeople (div 0 3)) }}
-	counter-increment: change1 {{ mul -30 ($currentPeople) }} points1 {{ add (mul $initFood 0) (mul -30 ($totalPeople)) }} old1 {{ add (mul $initFood (sub 0 1)) (mul -30 (sub $totalPeople $currentPeople)) }} change2 {{ mul -3 (add $.Params.startPeople (div 0 3)) }} points2 {{ add (mul $initWater 0) (mul -3 ($totalPeople)) }} old2 {{ add (mul $initWater (sub 0 1)) (mul -3 (sub $totalPeople $currentPeople)) }} points3 {{ mul $initFeed 0}} old3 {{ mul $initFeed (sub 0 1)}} points4 {{ mul $initPoop 0 }} old4 {{ mul $initPoop (sub 0 1) }} change5 {{ mul -5 (add $.Params.startPeople (div 0 3)) }} points5 {{ add (mul $initFire 0) (mul -5 ($totalPeople)) }} old5 {{ add (mul $initFire (sub 0 1)) (mul -5 (sub $totalPeople $currentPeople)) }} change6 {{ mul -5 (add $.Params.startPeople (div 0 3)) }} points6 {{ add (mul $initClothes 0) (mul -5 ($totalPeople)) }} old6 {{ add (mul $initClothes (sub 0 1)) (mul -5 (sub $totalPeople $currentPeople)) }} change7 0 points7 {{ div 0 3}} old7 {{div (sub 0 1) 3 }};
-}
 
 
 
