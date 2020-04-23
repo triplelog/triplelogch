@@ -83,7 +83,7 @@ app.get('/sudokufarm.html',
 		}
 		params.itemPerThing = [[0,0,0,0,0,0,0,0,0],[21,16,3,0,0,10,30,15,6],[0,0,0,30,0,0,0,0,0],[0,0,0,0,0,3,0,15,24],[10,10,10,0,0,0,0,0,0],[0,0,0,0,15,2,0,0,0],[5,0,13,0,0,0,0,0,0]];
 		params.spendPerThing = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[1,1,1,0,0,0,5,5,5],[20,10,10,0,0,0,0,0,0],[0,0,0,0,0,0,10,10,10],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
-
+		params.spendPerPerson = [0,30,3,0,0,5,5];
 		params.initFood = 0;
 		for (var i=0;i<9;i++){
 			params.initFood += itemPerThing[1][i]*params.existingPlots[i]-spendPerThing[1][i]*params.existingPlots[i];

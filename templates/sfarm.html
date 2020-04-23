@@ -7,8 +7,115 @@
 <link rel="icon" href="{{ favicon }}">
 <meta name="description" content="{{ description }}"/>
 <link rel="stylesheet" href="../css/sudokufarm.css">
-<link rel="stylesheet" href="../css/sudokufarmtemphalf.css">
 <style>
+
+
+:root {
+	counter-reset: old1 {{ startFood }} old2 {{ startWater }} old3 {{ startFeed }} old4 {{ startPoop }} old5 {{ startFire }} old6 {{ startClothes }} old7 {{ startPeople }} points1 {{ startFood }} points2 {{ startWater }} points3 {{ startFeed }} points4 {{ startPoop }} points5 {{ startFire }} points6 {{ startClothes }} points7 {{ startPeople }} change1 {{ initFood }} change2 {{ initWater }} change3 {{ initFeed }} change4 {{ initPoop }} change5 {{ initFire }} change6 {{ initClothes }} change7 0;
+}
+{% for ii in range(1,maxTurns+1) %}	
+	.radioBU{{ ii }}:not(:checked) + label {
+		z-index: {{201+2*ii}};
+	}
+{% endfor %}
+
+{% for ii in range(1,maxTurns+1) %}	
+	{% for i in range(1,ii) %}.unchecked:checked ~ {% endfor %} .radioBD{{ ii }} + label{
+		z-index: {{200+2*ii}};
+	}
+	{% for i in range(1,ii+1) %}.unchecked:checked ~ {% endfor %} .radioBD{{ ii }} + label{
+		z-index: 1;
+	}
+	{% for i in range(1,ii) %}.unchecked:checked ~ {% endfor %} .coverSudoku{
+		z-index: {{99+2*ii}};
+	}
+	.radioBU{{ ii }}:not(:checked) ~ .radioBU{{ ii }}:not(:checked) ~ span#coverSudoku {
+		z-index: 4900;
+	}
+{% endfor %}
+
+#counterSpan{
+	{% set ii = 0 %}
+	{% set ii3 = (ii-(ii%3))/3 %}
+	{% set totalPeople =  ((( 3*(ii3+1) * (2*startPeople +ii3)) / 2)+( (ii-(3*ii3)) * (startPeople+ii3) )) - ((3*startPeople)+(2*ii3)) %}
+	{% set currentPeople = startPeople+ii3 %}
+	counter-increment: {% for iii in range(1,7) %} change{{iii}} {{ (0*(ii-1))+(-1*spendPerPerson[iii]*currentPeople) }} points{{iii}} {{ (initItems[iii-1]*ii)+(-1*spendPerPerson[iii]*totalPeople) }} old{{iii}} {{ (initItems[iii-1]*(ii-1))+(-1*spendPerPerson[iii]*(totalPeople-currentPeople)) }}{endfor %} change7 {% if ii%3 == 0 %} {%if ii>1 %}{{ii}}{% else %}0{% endif %} {% else %}0{% endif %} points7 {{ ii3 }} old7 {{((ii-1)-((ii-1)%3))/3 }};
+}
+
+
+
+
+
+
+
+{% for ii in range(1,maxTurns+1) %}	
+	{% for i in range(1,10) %}	
+			counter-increment: {% for iii in range(1,7) %}{% if itemPerThing[iii][i-1] > 0 %} change{{iii}} {{ itemPerThing[iii][i-1] }} points{{iii}} {{ 0-ii*itemPerThing[iii][i-1] }} old{{iii}} {{ 0-ii*itemPerThing[iii][i-1] }}{% elif spendPerThing[iii][i-1] > 0 %} change{{iii}} {{ -1*spendPerThing[iii][i-1] }} points{{iii}} {{ 0-ii*-1*spendPerThing[iii][i-1] }} old{{iii}} {{ 0-ii*-1*spendPerThing[iii][i-1] }}{% endif %}{% endfor %};
+
+		.radioBU{{ ii }}:Not(:checked) ~ input.radioPts{{ i }}:checked + label{
+			counter-increment: {% for iii in range(1,7) %}{% if itemPerThing[iii][i-1] > 0 %} old1 {{ itemPerThing[iii][i-1]*ii }} points1 {{ itemPerThing[iii][i-1]*(ii+1)}}{% elif spendPerThing[iii][i-1] > 0 %} old1 {{ -1*spendPerThing[iii][i-1]*ii }} points1 {{ -1*spendPerThing[iii][i-1]*(ii+1)}}{% endif %}{% endfor %};
+		}
+	{% endfor %}
+	
+	.radioBU{{ ii }}:Not(:checked) ~ #counterSpan{
+		{% if (ii+1)%3 == 0 %}
+			{% set ii3 = (ii-(ii%3))/3 %}
+			{% set totalPeople =  ((( 3*(ii3+1) * (2*startPeople +ii3)) / 2)+( (ii-(3*ii3)) * (startPeople+ii3) )) - ((3*startPeople)+(2*ii3)) %}
+			{% set currentPeople = startPeople+ii3 %}
+			{% set initItems = [initFood,initWater,initFeed,initPoop,initFire,initClothes] %}
+			counter-increment: {% for iii in range(1,7) %} change{{iii}} {{ (spendPerPerson[iii]*(ii-1))+(-1*spendPerPerson[iii]*currentPeople) }} points{{iii}} {{ (initItems[iii-1]*ii)+(-1*spendPerPerson[iii]*totalPeople) }} old{{iii}} {{ (initItems[iii-1]*(ii-1))+(-1*spendPerPerson[iii]*(totalPeople-currentPeople)) }}{endfor %} change7 {{1-ii}} points7 {{ ii3 }} old7 {{((ii-1)-((ii-1)%3))/3 }};
+		{% else %}
+			{% set ii3 = (ii-(ii%3))/3 %}
+			{% set totalPeople =  ((( 3*(ii3+1) * (2*startPeople +ii3)) / 2)+( (ii-(3*ii3)) * (startPeople+ii3) )) - ((3*startPeople)+(2*ii3)) %}
+			{% set currentPeople = startPeople+ii3 %}
+			counter-increment: {% for iii in range(1,7) %} change{{iii}} {{ (0*(ii-1))+(-1*spendPerPerson[iii]*currentPeople) }} points{{iii}} {{ (initItems[iii-1]*ii)+(-1*spendPerPerson[iii]*totalPeople) }} old{{iii}} {{ (initItems[iii-1]*(ii-1))+(-1*spendPerPerson[iii]*(totalPeople-currentPeople)) }}{endfor %} change7 {% if ii%3 == 0 %} {%if ii>1 %}{{ii}}{% else %}0{% endif %} {% else %}0{% endif %} points7 {{ ii3 }} old7 {{((ii-1)-((ii-1)%3))/3 }};
+		{% endif %}
+		
+	}
+	
+	.radioBU{{ ii }}:Not(:checked) ~ .unchecked:checked + label{
+		{% if (ii+1)%3 == 0 %}
+			counter-increment: change1 -30 change2 -3 change5 -5 change6 -5 change7 1;
+		{% else %}
+			counter-increment: change1 0 change2 0 change5 0 change6 0 change7 {% if ii%3 == 0%}{%if ii>1 %}-1{% else %}0{% endif %}{% else %}0{% endif %};
+		{% endif %}
+		
+	}
+
+{% endfor %}
+
+
+{% for ii in range(1,maxTurns+1) %}	
+	{% for i in range(1,10) %}	
+		input#radio{{ ii }}D{{ i }}:checked + label + span{
+			counter-increment: {% for iii in range(1,7) %}{% if itemPerThing[iii][i-1] > 0 %} change{{iii}} {{ itemPerThing[iii][i-1] }} points{{iii}} {{ 0-ii*itemPerThing[iii][i-1] }} old{{iii}} {{ 0-ii*itemPerThing[iii][i-1] }}{% elif spendPerThing[iii][i-1] > 0 %} change{{iii}} {{ -1*spendPerThing[iii][i-1] }} points{{iii}} {{ 0-ii*-1*spendPerThing[iii][i-1] }} old{{iii}} {{ 0-ii*-1*spendPerThing[iii][i-1] }}{% endif %}{% endfor %};
+		}
+	{% endfor %}
+
+{% endfor %}
+
+
+#waterSpan span.item1 { width: {{ 1*maxTurns }}px;}
+#waterSpan span.item2 { width: {{ 1*maxTurns }}px;}
+#waterSpan span.item3 { width: {{ 1*maxTurns }}px;}
+#waterSpan span.item4 { width: {{ 0*maxTurns }}px;}
+#waterSpan span.item7 { width: {{ 5*maxTurns }}px;}
+#waterSpan span.item8 { width: {{ 5*maxTurns }}px;}
+#waterSpan span.item9 { width: {{ 5*maxTurns }}px;}
+
+#feedSpan span.item1 { width: {{ 20*maxTurns }}px;}
+#feedSpan span.item2 { width: {{ 10*maxTurns }}px;}
+#feedSpan span.item3 { width: {{ 10*maxTurns }}px;}
+#feedSpan span.item6 { width: {{ 0*maxTurns }}px;}
+#feedSpan span.item8 { width: {{ 0*maxTurns }}px;}
+#feedSpan span.item9 { width: {{ 0*maxTurns }}px;}
+
+#poopSpan span.item1 { width: {{ 0*maxTurns }}px;}
+#poopSpan span.item2 { width: {{ 0*maxTurns }}px;}
+#poopSpan span.item3 { width: {{ 0*maxTurns }}px;}
+#poopSpan span.item7 { width: {{ 10*maxTurns }}px;}
+#poopSpan span.item8 { width: {{ 10*maxTurns }}px;}
+#poopSpan span.item9 { width: {{ 10*maxTurns }}px;}
 
 
 {% set maxFirst = maxPlots[0] + maxPlots[1]+maxPlots[2] %}
