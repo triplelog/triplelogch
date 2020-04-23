@@ -1,0 +1,521 @@
+{% extends "templates/base.html" %}
+
+{% block borderRadius %}
+	--border-radius: 1.25rem;
+{% endblock %}
+
+{% block content22CSS %}
+	/*border: 1px solid black;*/
+{% endblock %}
+	
+{% block centerSize %}
+	--height-center: 80vh;
+	--width-center: calc(40px + var(--width-block)*9);
+{% endblock %}
+
+{% block titleCSS %}
+.title {
+	line-height: 2.5rem;
+	text-align: center;
+	font-size: 1rem;
+	border: 2px solid black;
+  	border-radius: var(--border-radius);
+  	position: relative;
+  	top:-2px;
+  	left:-2px;
+  	width: calc(100% + 0px);
+  	background: red;
+  	background-image: url("../img/farmbg2-40.png");
+  	background-size: 100% 100%;
+  	background-repeat: no-repeat;
+  	background-position: 0px 0px;
+  	color: white;
+  	text-shadow: 0px 0px 10px black;
+}
+.titleBG {
+	background-image: url("../img/ftractor-40.png");
+  	background-size: auto 100%;
+  	background-repeat: no-repeat;
+  	background-position: 0px 0px;
+  	transition: background-position 1s linear;
+}
+.titleBG:hover {
+  	background-position: 350px 0px;
+  	transition: all 2s linear;
+}
+
+
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="../css/sudokufarm.css">
+{% endblock %}
+
+{% block moreCSS %}
+.title a {
+	text-decoration: none;
+	color: white;
+	font-size: 1.5rem;
+}
+.title a:hover {
+	text-decoration: underline;
+	text-shadow: 0px 0px 10px black 0px 0px 10px black;
+}
+.title label:hover {
+	cursor: pointer;
+	text-shadow: 0px 0px 10px black 0px 0px 10px black;
+}
+body {
+	background-image: url("../img/lightbg.png");
+	background-size: cover;
+	
+}
+.content-31 {
+	display: none;
+}
+.content-33 {
+	display: none;
+}
+.container {
+	grid-template-rows: calc((var(--height-container) - var(--height-center))) var(--height-center) 0px;
+}
+
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+:root {
+	counter-reset: old1 {{ startFood }} old2 {{ startWater }} old3 {{ startFeed }} old4 {{ startPoop }} old5 {{ startFire }} old6 {{ startClothes }} old7 {{ startPeople }} points1 {{ startFood }} points2 {{ startWater }} points3 {{ startFeed }} points4 {{ startPoop }} points5 {{ startFire }} points6 {{ startClothes }} points7 {{ startPeople }} change1 {{ initFood }} change2 {{ initWater }} change3 {{ initFeed }} change4 {{ initPoop }} change5 {{ initFire }} change6 {{ initClothes }} change7 0;
+}
+{% for ii in range(1,maxTurns+1) %}	
+	.radioBU{{ ii }}:not(:checked) + label {
+		z-index: {{201+2*ii}};
+	}
+{% endfor %}
+
+{% for ii in range(1,maxTurns+1) %}	
+	{% for i in range(1,ii) %}.unchecked:checked ~ {% endfor %} .radioBD{{ ii }} + label{
+		z-index: {{200+2*ii}};
+	}
+	{% for i in range(1,ii+1) %}.unchecked:checked ~ {% endfor %} .radioBD{{ ii }} + label{
+		z-index: 1;
+	}
+	{% for i in range(1,ii) %}.unchecked:checked ~ {% endfor %} .coverSudoku{
+		z-index: {{99+2*ii}};
+	}
+	.radioBU{{ ii }}:not(:checked) ~ .radioBU{{ ii }}:not(:checked) ~ span#coverSudoku {
+		z-index: 4900;
+	}
+{% endfor %}
+
+#counterSpan{
+	{% set ii = 0 %}
+	{% set ii3 = (ii-(ii%3))/3 %}
+	{% set totalPeople =  ((( 3*(ii3+1) * (2*startPeople +ii3)) / 2)+( (ii-(3*ii3)) * (startPeople+ii3) )) - ((3*startPeople)+(2*ii3)) %}
+	{% set currentPeople = startPeople+ii3 %}
+	{% set initItems = [initFood,initWater,initFeed,initPoop,initFire,initClothes] %}
+	counter-increment: {% for iii in range(1,7) %} change{{iii}} {{ (0*(ii-1))+(-1*spendPerPerson[iii]*currentPeople) }} points{{iii}} {{ (initItems[iii-1]*ii)+(-1*spendPerPerson[iii]*totalPeople) }} old{{iii}} {{ (initItems[iii-1]*(ii-1))+(-1*spendPerPerson[iii]*(totalPeople-currentPeople)) }}{% endfor %} change7 {% if ii%3 == 0 %} {%if ii>1 %}{{ii}}{% else %}0{% endif %} {% else %}0{% endif %} points7 {{ ii3 }} old7 {{((ii-1)-((ii-1)%3))/3 }};
+}
+
+/* above is correct for accuracy except change3 and change4 are set to 0 instead of not set at all */
+
+
+
+
+
+
+{% for ii in range(1,maxTurns+1) %}	
+	{% for i in range(1,10) %}	
+		.radioBU{{ ii }}:Not(:checked) ~ input.radioPts{{ i }}:checked + label{
+			counter-increment: {% for iii in range(1,7) %}{% if itemPerThing[iii][i-1] > 0 %} old{{iii}} {{ itemPerThing[iii][i-1]*ii }} points{{iii}} {{ itemPerThing[iii][i-1]*(ii+1)}}{% elif spendPerThing[iii][i-1] > 0 %} old{{iii}} {{ -1*spendPerThing[iii][i-1]*ii }} points{{iii}} {{ -1*spendPerThing[iii][i-1]*(ii+1)}}{% endif %}{% endfor %};
+		}
+	{% endfor %}
+	
+	.radioBU{{ ii }}:Not(:checked) ~ #counterSpan{
+		{% if (ii+1)%3 == 0 %}
+			{% set ii3 = (ii-(ii%3))/3 %}
+			{% set totalPeople =  ((( 3*(ii3+1) * (2*startPeople +ii3)) / 2)+( (ii-(3*ii3)) * (startPeople+ii3) )) - ((3*startPeople)+(2*ii3)) %}
+			{% set currentPeople = startPeople+ii3 %}
+			{% set initItems = [initFood,initWater,initFeed,initPoop,initFire,initClothes] %}
+			counter-increment: {% for iii in range(1,7) %} change{{iii}} {{ (spendPerPerson[iii]*(ii-1))+(-1*spendPerPerson[iii]*currentPeople) }} points{{iii}} {{ (initItems[iii-1]*ii)+(-1*spendPerPerson[iii]*totalPeople) }} old{{iii}} {{ (initItems[iii-1]*(ii-1))+(-1*spendPerPerson[iii]*(totalPeople-currentPeople)) }}{% endfor %} change7 {{1-ii}} points7 {{ ii3 }} old7 {{((ii-1)-((ii-1)%3))/3 }};
+		{% else %}
+			{% set ii3 = (ii-(ii%3))/3 %}
+			{% set totalPeople =  ((( 3*(ii3+1) * (2*startPeople +ii3)) / 2)+( (ii-(3*ii3)) * (startPeople+ii3) )) - ((3*startPeople)+(2*ii3)) %}
+			{% set currentPeople = startPeople+ii3 %}
+			{% set initItems = [initFood,initWater,initFeed,initPoop,initFire,initClothes] %}
+			counter-increment: {% for iii in range(1,7) %} change{{iii}} {{ (0*(ii-1))+(-1*spendPerPerson[iii]*currentPeople) }} points{{iii}} {{ (initItems[iii-1]*ii)+(-1*spendPerPerson[iii]*totalPeople) }} old{{iii}} {{ (initItems[iii-1]*(ii-1))+(-1*spendPerPerson[iii]*(totalPeople-currentPeople)) }}{% endfor %} change7 {% if ii%3 == 0 %} {%if ii>1 %}{{ii}}{% else %}0{% endif %} {% else %}0{% endif %} points7 {{ ii3 }} old7 {{((ii-1)-((ii-1)%3))/3 }};
+		{% endif %}
+		
+	}
+	
+	.radioBU{{ ii }}:Not(:checked) ~ .unchecked:checked + label{
+		{% if (ii+1)%3 == 0 %}
+			counter-increment: change1 -30 change2 -3 change5 -5 change6 -5 change7 1;
+		{% else %}
+			counter-increment: change1 0 change2 0 change5 0 change6 0 change7 {% if ii%3 == 0%}{%if ii>1 %}-1{% else %}0{% endif %}{% else %}0{% endif %};
+		{% endif %}
+		
+	}
+
+{% endfor %}
+
+
+{% for ii in range(1,maxTurns+1) %}	
+	{% for i in range(1,10) %}	
+		input#radio{{ ii }}D{{ i }}:checked + label + span{
+			counter-increment: {% for iii in range(1,7) %}{% if itemPerThing[iii][i-1] > 0 %} change{{iii}} {{ itemPerThing[iii][i-1] }} points{{iii}} {{ 0-ii*itemPerThing[iii][i-1] }} old{{iii}} {{ 0-ii*itemPerThing[iii][i-1] }}{% elif spendPerThing[iii][i-1] > 0 %} change{{iii}} {{ -1*spendPerThing[iii][i-1] }} points{{iii}} {{ 0-ii*-1*spendPerThing[iii][i-1] }} old{{iii}} {{ 0-ii*-1*spendPerThing[iii][i-1] }}{% endif %}{% endfor %};
+		}
+	{% endfor %}
+
+{% endfor %}
+
+
+#waterSpan span.item1 { width: {{ 1*maxTurns }}px;}
+#waterSpan span.item2 { width: {{ 1*maxTurns }}px;}
+#waterSpan span.item3 { width: {{ 1*maxTurns }}px;}
+#waterSpan span.item4 { width: {{ 0*maxTurns }}px;}
+#waterSpan span.item7 { width: {{ 5*maxTurns }}px;}
+#waterSpan span.item8 { width: {{ 5*maxTurns }}px;}
+#waterSpan span.item9 { width: {{ 5*maxTurns }}px;}
+
+#feedSpan span.item1 { width: {{ 20*maxTurns }}px;}
+#feedSpan span.item2 { width: {{ 10*maxTurns }}px;}
+#feedSpan span.item3 { width: {{ 10*maxTurns }}px;}
+#feedSpan span.item6 { width: {{ 0*maxTurns }}px;}
+#feedSpan span.item8 { width: {{ 0*maxTurns }}px;}
+#feedSpan span.item9 { width: {{ 0*maxTurns }}px;}
+
+#poopSpan span.item1 { width: {{ 0*maxTurns }}px;}
+#poopSpan span.item2 { width: {{ 0*maxTurns }}px;}
+#poopSpan span.item3 { width: {{ 0*maxTurns }}px;}
+#poopSpan span.item7 { width: {{ 10*maxTurns }}px;}
+#poopSpan span.item8 { width: {{ 10*maxTurns }}px;}
+#poopSpan span.item9 { width: {{ 10*maxTurns }}px;}
+
+
+{% set maxFirst = maxPlots[0] + maxPlots[1]+maxPlots[2] %}
+{% set maxSec = maxPlots[6]+maxPlots[7]+maxPlots[8] %}
+{% set maxWater = maxFirst + 5*maxSec %}
+
+{% set maxFirst = maxPlots[0] %}
+{% set maxSec = maxPlots[1]+maxPlots[2] %}
+{% set maxFeed = 20*maxFirst + 10*maxSec %}
+
+{% set maxFirst = maxPlots[6] %}
+{% set maxSec = maxPlots[7]+maxPlots[8] %}
+{% set maxPoop = 10*maxFirst + 10*maxSec %}
+
+{% set itemNames = ['food','water','feed','poop','fire','clothes'] %}
+{% for i in [0,1,2,3,4,5] %}
+	{% if itemNames[i] == 'feed' %}
+		{% set maxItem = maxFeed %}
+		{% set startItem = startFeed %}
+		{% set initItem = initFeed %}
+	{% elif itemNames[i] == 'poop' %}
+		{% set maxItem = maxPoop %}
+		{% set startItem = startPoop %}
+		{% set initItem = initPoop %}
+	{% elif itemNames[i] == 'water' %}
+		{% set maxItem = maxWater %}
+		{% set startItem = startWater %}
+		{% set initItem = initWater %}
+		{% set peopleMult = -3 %}
+	{% elif itemNames[i] == 'clothes' %}
+		{% set maxItem = 0 %}
+		{% set startItem = startClothes %}
+		{% set initItem = initClothes %}
+		{% set peopleMult = -5 %}
+	{% elif itemNames[i] == 'fire' %}
+		{% set maxItem = 0 %}
+		{% set startItem = startFire %}
+		{% set initItem = initFire %}
+		{% set peopleMult = -5 %}
+	{% elif itemNames[i] == 'food' %}
+		{% set maxItem = 0 %}
+		{% set startItem = startFood %}
+		{% set initItem = initFood %}
+		{% set peopleMult = -30 %}
+	{% endif %}
+	
+	
+	{% if itemNames[i] != 'food' %}
+		#{{ itemNames[i] }}Span {
+			--turns-taken: 0px;
+			left: calc( var(--sudoku-left) + {{ (1-maxItem*maxTurns)+startItem }}px);
+			width: calc(9 * var(--width-block) + 40px + {{ (maxItem*maxTurns-1) - startItem  }}px);
+		}
+	{% endif %}
+	{% if itemNames[i] == 'feed' or itemNames[i] == 'poop' %}
+		{% for ii in range(1,maxTurns+1) %}
+			input.radioBD{{ ii }}:checked ~ #{{ itemNames[i] }}Span {
+				--turns-taken: {{ii}}px;
+				width: calc(9 * var(--width-block) + 40px + {{ ((maxItem*maxTurns-1) - startItem) - (initItem*ii)   }}px); 
+				left: calc( var(--sudoku-left) + {{ initItem*ii + ((1-maxItem*maxTurns)+startItem) }}px); 
+			}
+		{% endfor %}
+	{% else %}
+		{% for ii in range(1,maxTurns+1) %}
+			input.radioBD{{ ii }}:checked ~ #{{ itemNames[i] }}Span {
+				--turns-taken: {{ii}}px;
+				{% set ii3 = (ii-(ii%3))/3 %}
+				{% set totalPeople =  ((( 3*(ii3+1) * (2*startPeople +ii3)) / 2)+( (ii-(3*ii3)) * (startPeople+ii3) )) - ((3*startPeople)+(2*ii3)) %}
+		
+				width: calc(9 * var(--width-block) + 40px + {{ ((-1 +maxItem*maxTurns)-startItem)-( initItem*ii+(peopleMult*totalPeople) ) }}px); 
+				left: calc( var(--sudoku-left) + {{ (initItem*ii)+(peopleMult*totalPeople)+(1-maxItem*maxTurns)+startItem  }}px); 
+			}
+		{% endfor %}
+	{% endif %}
+{% endfor %}
+
+
+
+
+
+#fireSpan span:Not(.endImgSpan) { width: 0px;}
+
+
+
+{% for ii in range(1,maxTurns+1) %}
+
+	{% for i in range(1,ii+1) %}.unchecked:checked ~ {% endfor %} table #newData{
+		z-index: {{ii*2 + 100}};
+	}
+	.radioBD{{ ii }}:checked ~ table #oldData{
+		z-index: {{ii*2 + 99}};
+	}
+
+{% endfor %}
+
+{% for i in range(1,10) %}
+	{% for rowI in range(1,10) %}{% if rowI<= maxPlots[i-1] %}.unchecked.points{{ i }}:checked ~ {% endif %}{% endfor %}.blackout{{ i }} {
+		opacity: .5;
+		pointer-events: all;
+	}
+	{% for rowI in range(1,10) %}{% if rowI<= maxPlots[i-1] %}.unchecked.points{{ i }}:checked ~ {% endif %}{% endfor %}#winSudoku #winSudoku{{ i }} {
+		display: inline-block;
+	}
+	
+	
+	
+	{% for ii in range(1,maxTurns+1) %}
+		#radio{{ ii }}U{{ i }}:Not(:checked) + .cmarkU{{ i }} ~ .points{{ i }}:not(:checked) + .check{{ i }}{
+			z-index: {{ii*2 + 100}};
+		}
+		#radio{{ ii }}U{{ i }}:Not(:checked) + .cmarkU{{ i }} ~ .points{{ i }}:checked + label + label + .rcheck{
+			z-index: {{ii*2 + 101}};
+		}
+		#radio{{ ii }}U{{ i }}:Not(:checked) + .cmarkU{{ i }} ~ .points{{ i }}:checked + label + label + label + .ccheck{
+			z-index: {{ii*2 + 101}};
+		}
+		#radio{{ ii }}U{{ i }}:Not(:checked) + .cmarkU{{ i }} ~ .points{{ i }}:checked + label + label + label + label + .bcheck{
+			z-index: {{ii*2 + 101}};
+		}
+	{% endfor %}
+{% endfor %}
+
+
+{% set itemNames = ['food','water','feed','poop','fire','clothes'] %}
+{% for i in [1,2,3,4,5,6] %}
+	{% for ii in range(1,maxTurns+1) %}
+		{% for iiiii in range(1,10) %}
+			{% if itemPerThing[i][iiiii-1]>0 %}
+				{% for iii in range(1,10) %}
+					{% if iii <= maxPlots[iiiii-1] %}
+						input#radio{{ ii }}D{{ iiiii }}:checked {% for iiii in range(1,iii) %}~ input.radioPts{{ iiiii }}:checked {% endfor %}~ #{{ itemNames[i-1] }}Span .item{{ iiiii }}{{ 10-iii }} {
+							width: calc(var(--turns-taken) * {{ itemPerThing[i][iiiii-1] }} - {{ itemPerThing[i][iiiii-1]*(ii-1) }}px);
+						}
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+			{% if spendPerThing[i][ii-1]>0 %}
+				{% for iii in range(1,10) %}
+					{% if iii <= maxPlots[iiiii-1] %}
+						input#radio{{ ii }}D{{ iiiii }}:checked {% for iiii in range(1,iii) %}~ input.radioPts{{ iiiii }}:checked {% endfor %}~ #{{ itemNames[i-1] }}Span .item{{ iiiii }}{{ 10-iii }} {
+							width: calc({{ spendPerThing[i][iiiii-1] * maxTurns}}px - var(--turns-taken) * {{ spendPerThing[i][iiiii-1] }} + {{ spendPerThing[i][iiiii-1]*(ii-1) }}px);
+						}
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+{% endfor %}
+
+
+{% endblock %}
+
+
+{% block title11 %}
+<div class="title">
+	<span class="titleLeft">
+		
+	</span>
+	<span class="titleCenter">
+		<a href="https://sudokufarm.com">More Puzzles</a>
+	</span>
+	<span class="titleRight">
+		<label for="radio11-1"><i class="fas fa-compress-alt"></i></label>
+		<label for="radio11-2"><i class="fas fa-expand-alt"></i></label>
+		<label for="radio11-3"><i class="fas fa-expand"></i></label>
+	</span>
+</div>
+{% endblock %}
+{% block content11 %}
+		<span class="winner">
+		  	<a href="https://www.csshole.com/games/sudokucss/{{ gametype }}{{ gameid }}/index.html" class="buttonPuzzle">Reset Puzzle</a><a href="https://www.csshole.com/games/sudokucss/{{gametype}}{{gameid +  1 }}/index.html" class="buttonPuzzle">Next Puzzle</a><span class="randomPuzzlet0 notnav">{% for pid in range(1,101) %}<a href="https://www.csshole.com/games/sudokucss/{{gametype}}{{ pid }}/index.html" class="randomPuzzle{{ pid}} randomPuzzlen1"></a>{% endfor %}<a href="" class="linkholder"> Random Puzzle</a></span>
+		  </span>
+{% endblock %}	
+
+{% block title13 %}
+<div class="title">
+	<div class="titleBG">
+		<span class="titleLeft">
+		
+		</span>
+		<span class="titleCenter">
+			<a href="https://gifsaw.com">Sudoku Tips</a>
+		</span>
+		<span class="titleRight">
+			<label for="radio13-3"><i class="fas fa-expand"></i></label>
+			<label for="radio13-2"><i class="fas fa-expand-alt"></i></label>
+			<label for="radio13-1"><i class="fas fa-compress-alt"></i></label>
+		
+		
+		</span>
+	</div>
+</div>
+{% endblock %}
+{% block content13 %}
+Look for rows, columns, and blocks missing just one number.
+{% endblock %}	
+
+
+
+
+{% block content22 %}
+
+	<div class="mainDiv" style="position: relative; font-family: sans-serif;">
+		{% for ii in range(1,maxTurns+1) %}
+			{% for i in range(1,10) %}
+			  <input type="radio" name="radio{{ ii }}n{{ i }}" style="display:none;" class="radioBU{{ ii }} radioBU radio{{ i }}UU" id="radio{{ ii }}U{{ i }}" checked="checked">
+			  <label class="cmarkU cmarkU{{ i }}" for="radio{{ ii }}U{{ i }}"><img class="cmarkimg" src="../img/sudokufarm/{{ i }}.png"></label>
+			{% endfor %}
+		{% endfor %}
+		<span id="counterSpan"></span>
+		
+  		{% for i in range(1,10) %}
+  		
+			  {% for rowI in range(1,10) %}
+				{% for colI in range(1,10) %}<input type="checkbox" style="display:none;" class="{% if puzzle[rowI-1][colI-1] != i %}unchecked{% endif %} points{{ i}} row{{ rowI }}{{ i }} col{{ colI }}{{ i }} box{{(((colI-1)-((colI-1)%3)) / 3) + 3*(((rowI-1)-((rowI-1)%3)) / 3) + 1 }}{{ i }}" id="cell{{ i }}{{ rowI }}{{ colI }}" {% if puzzle[rowI-1][colI-1] == i %}checked{% endif %}><label for="cell{{ i }}{{ rowI }}{{ colI }}" class="col{{ colI }} row{{ rowI }} check{{ i }}"><img class="cmarkimg" src="../img/sudokufarm/{{ i }}.png"></label><label class="col{{ colI }} row{{ rowI }} gcheck{{ i }}"><img class="cmarkimg" src="../img/sudokufarm/{{ i }}.png"></label><label class="row{{ rowI }} rcheck"></label><label class="col{{ colI }} ccheck"></label><label class="block{{ ((2+colI)-((2+colI)%3))/ 3}}{{ ((2+rowI)-((2+rowI)%3))/ 3}} bcheck"></label>{% endfor %}
+			  {% endfor %}
+
+			  <span class="blackout{{ i }}"></span>
+			  
+
+		{% endfor %}
+		
+		<div id="winSudoku">
+			{% for i in range(1,10) %}
+			<div id="winSudoku{{ i }}">
+			{% endfor %}
+			  {% for rowI in range(1,10) %}
+				{% for colI in range(1,10) %}<label class="col{{ colI }} row{{ rowI }} winLabel winLabel{{ winpuzzle[rowI-1][colI-1] }}"><img class="cmarkimg" src="../img/sudokufarm/{{ winpuzzle[rowI-1][colI-1] }}.png"></label>{% endfor %}
+			  {% endfor %}
+			<span id="winmessage">You Win! Play Another Level?</span>
+			{% for i in range(1,10) %}
+			</div>
+			{% endfor %}
+		</div>
+		
+		
+		{% for ii in range(1,maxTurns+1) %}
+			{% for i in range(1,10) %}
+			  <input type="radio" name="radio{{ ii }}n{{ i }}" style="display:none;" class="radioPts{{ i }} radioBD{{ ii }} radioBD" id="radio{{ ii }}D{{ i }}">
+			  <label class="cmarkD cmarkD{{ i }}" for="radio{{ ii }}D{{ i }}"><img class="cmarkimg" src="../img/sudokufarm/{{ i }}.png"></label>
+			  <span style="width:0px; height: 0px;"></span>
+			{% endfor %}
+		{% endfor %}
+		
+		
+		<table id="dataTable">
+			<tr id="emojiData">
+				<td class="firstSix">🍕</td>
+				<td class="firstSix">💦</td>
+				<td class="firstSix">🍚</td>
+				<td class="firstSix">💩</td>
+				<td class="firstSix">🔥</td>
+				<td class="firstSix">👕</td>
+				<td class="peopleTD">👤</td>
+			</tr>
+			
+			<tr id="newData">
+				<td class="pointsBoard1 firstSix"></td>
+				<td class="pointsBoard2 firstSix"></td>
+				<td class="pointsBoard3 firstSix"></td>
+				<td class="pointsBoard4 firstSix"></td>
+				<td class="pointsBoard5 firstSix"></td>
+				<td class="pointsBoard6 firstSix"></td>
+				<td class="pointsBoard7 peopleTD"></td>
+			</tr>
+
+			<tr id="changeData">
+				<td class="pointsBoard1c firstSix"></td>
+				<td class="pointsBoard2c firstSix"></td>
+				<td class="pointsBoard3c firstSix"></td>
+				<td class="pointsBoard4c firstSix"></td>
+				<td class="pointsBoard5c firstSix"></td>
+				<td class="pointsBoard6c firstSix"></td>
+				<td class="pointsBoard7c peopleTD"></td>
+			</tr>
+
+			<tr id="oldData">
+				<td class="pointsBoard1o firstSix"></td>
+				<td class="pointsBoard2o firstSix"></td>
+				<td class="pointsBoard3o firstSix"></td>
+				<td class="pointsBoard4o firstSix"></td>
+				<td class="pointsBoard5o firstSix"></td>
+				<td class="pointsBoard6o firstSix"></td>
+				<td class="pointsBoard7o peopleTD"></td>
+			</tr>
+			
+		</table>
+		
+		<span id="foodSpan" class="foodSpan">
+			{% set tempRange = [1, 2, 3, 6, 7, 8, 9] %}
+			{% for iii in tempRange %}{% for ii in range(1,10) %}{% if ii>existingPlots[iii-1] %}<span class="item{{ iii }}{{ ii }} itemSpan"></span>{% endif %}{% endfor %}{% endfor %}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/nofood.png"></span>
+		</span>
+		<span id="waterSpan" class="waterSpan">
+			{% set tempRange = [1, 2, 3, 4, 7, 8, 9] %}
+			{% for iii in tempRange %}{% for ii in range(1,10) %}{% if ii>existingPlots[iii-1] %}<span class="item{{ iii }}{{ ii }} item{{ iii }} itemSpan"></span>{% endif %}{% endfor %}{% endfor %}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/nowater.png"></span>
+		</span>
+		<span id="feedSpan" class="feedSpan">
+			{% set tempRange = [1, 2, 3, 6, 8, 9] %}
+			{% for iii in tempRange %}{% for ii in range(1,10) %}{% if ii>existingPlots[iii-1] %}<span class="item{{ iii }}{{ ii }} item{{ iii }} itemSpan"></span>{% endif %}{% endfor %}{% endfor %}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/nofeed.png"></span>
+		</span>
+		<span id="poopSpan" class="poopSpan">
+			{% set tempRange = [1, 2, 3, 7, 8, 9] %}
+			{% for iii in tempRange %}{% for ii in range(1,10) %}{% if ii>existingPlots[iii-1] %}<span class="item{{ iii }}{{ ii }} item{{ iii }} itemSpan"></span>{% endif %}{% endfor %}{% endfor %}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/nopoop.png"></span>
+		</span>
+		<span id="fireSpan" class="fireSpan">
+			{% set tempRange = [5,6] %}
+			{% for iii in tempRange %}{% for ii in range(1,10) %}{% if ii>existingPlots[iii-1] %}<span class="item{{ iii }}{{ ii }} itemSpan"></span>{% endif %}{% endfor %}{% endfor %}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/nofire.png"></span>
+		</span>
+		<span id="clothesSpan" class="clothesSpan">
+			{% set tempRange = [1, 3] %}
+			{% for iii in tempRange %}{% for ii in range(1,10) %}{% if ii>existingPlots[iii-1] %}<span class="item{{ iii }}{{ ii }} itemSpan"></span>{% endif %}{% endfor %}{% endfor %}<span class="endImgSpan"><img height="100%" src="../img/sudokufarm/noclothes.png"></span>
+		</span>
+		<span class="coverSudoku" id="coverSudoku"></span>
+	</div>
+{% endblock %}
+
+
+
+
+
+
+{% block bodyStart %}
+
+{% endblock %}
+
+
+{% block scripts %}
+
+{% endblock %}
+
