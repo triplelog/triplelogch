@@ -28,24 +28,30 @@
 	{% if itemNames[i] == 'feed' %}
 		{% set maxItem = maxFeed %}
 		{% set startItem = startFeed %}
+		{% set initItem = initFeed %}
 	{% elif itemNames[i] == 'poop' %}
 		{% set maxItem = maxPoop %}
 		{% set startItem = startPoop %}
+		{% set initItem = initPoop %}
 	{% elif itemNames[i] == 'water' %}
 		{% set maxItem = maxWater %}
 		{% set startItem = startWater %}
+		{% set initItem = initWater %}
 		{% set peopleMult = -3 %}
 	{% elif itemNames[i] == 'clothes' %}
 		{% set maxItem = 0 %}
 		{% set startItem = startClothes %}
+		{% set initItem = initClothes %}
 		{% set peopleMult = -5 %}
 	{% elif itemNames[i] == 'fire' %}
 		{% set maxItem = 0 %}
 		{% set startItem = startFire %}
+		{% set initItem = initFire %}
 		{% set peopleMult = -5 %}
 	{% elif itemNames[i] == 'food' %}
 		{% set maxItem = 0 %}
 		{% set startItem = startFood %}
+		{% set initItem = initFood %}
 		{% set peopleMult = -30 %}
 	{% endif %}
 	
