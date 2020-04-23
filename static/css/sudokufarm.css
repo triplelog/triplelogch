@@ -6,7 +6,7 @@
     --color-bg1: rgba(180,180,180,.75);
     --color-text1: black;
     --sudoku-top: 200px;
-    --sudoku-left: 200px;
+    --sudoku-left: 0px;
     --turns-taken: 0px;
 }
 @media screen and (min-width: 320px) and (min-height: 320px) {
