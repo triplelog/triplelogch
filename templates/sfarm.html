@@ -67,8 +67,8 @@
 		{% endfor %}
 	{% else %}
 		{% for ii in range(1,maxTurns+1) %}
-			input.radioBD{{ $ii }}:checked ~ #{{ itemNames[i] }}Span {
-				--turns-taken: {{$ii}}px;
+			input.radioBD{{ ii }}:checked ~ #{{ itemNames[i] }}Span {
+				--turns-taken: {{ii}}px;
 				{% set ii3 = (ii-(ii%3))/3 %}
 				{% set totalPeople =  ((( 3*(ii3+1) * (2*startPeople +ii3)) / 2)+( (ii-(3*ii3)) * (startPeople+ii3) )) - ((3*startPeople)+(2*ii3)) %}
 		
