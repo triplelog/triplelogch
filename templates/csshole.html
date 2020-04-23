@@ -43,7 +43,16 @@
   	background-position: 350px 0px;
   	transition: all 2s linear;
 }
-
+.content-31 .title {
+	background-image: url("../img/pencilscrop.jpg");
+  	background-size: auto 100%;
+  	background-repeat: repeat;
+}
+.content-31 .titleBG {
+	background-image: url("../img/pencilscrop.jpg");
+  	background-size: auto 100%;
+  	background-repeat: repeat;
+}
 
 {% endblock %}
 
@@ -76,7 +85,7 @@ body {
 		
 	</span>
 	<span class="titleCenter">
-		<a href="https://sudokufarm.com">What and Why?</a>
+		<a href="https://sudokufarm.com">What is CSShole?</a>
 	</span>
 	<span class="titleRight">
 		<label for="radio11-1"><i class="fas fa-compress-alt"></i></label>
@@ -86,7 +95,9 @@ body {
 </div>
 {% endblock %}
 {% block content11 %}
-Because it is possible.
+CSShole is a collection of javascript-free web pages.
+Each page uses just HTML and CSS to provide interactive elements.
+Although 
 {% endblock %}	
 
 {% block title13 %}
@@ -114,17 +125,19 @@ Because it is possible.
 
 {% block title31 %}
 <div class="title">
-	<span class="titleLeft">
+	<div class="titleBG">
+		<span class="titleLeft">
 		
-	</span>
-	<span class="titleCenter">
-		<a href="https://qblur.com">Charts</a>
-	</span>
-	<span class="titleRight">
-		<label for="radio31-1"><i class="fas fa-compress-alt"></i></label>
-		<label for="radio31-2"><i class="fas fa-expand-alt"></i></label>
-		<label for="radio31-3"><i class="fas fa-expand"></i></label>
-	</span>
+		</span>
+		<span class="titleCenter">
+			<a href="https://qblur.com">Quizzes</a>
+		</span>
+		<span class="titleRight">
+			<label for="radio31-1"><i class="fas fa-compress-alt"></i></label>
+			<label for="radio31-2"><i class="fas fa-expand-alt"></i></label>
+			<label for="radio31-3"><i class="fas fa-expand"></i></label>
+		</span>
+	</div>
 </div>
 {% endblock %}
 {% block content31 %}
