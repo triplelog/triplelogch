@@ -39,7 +39,7 @@
 	{% set ii3 = (ii-(ii%3))/3 %}
 	{% set totalPeople =  ((( 3*(ii3+1) * (2*startPeople +ii3)) / 2)+( (ii-(3*ii3)) * (startPeople+ii3) )) - ((3*startPeople)+(2*ii3)) %}
 	{% set currentPeople = startPeople+ii3 %}
-	counter-increment: {% for iii in range(1,7) %} change{{iii}} {{ (0*(ii-1))+(-1*spendPerPerson[iii]*currentPeople) }} points{{iii}} {{ (initItems[iii-1]*ii)+(-1*spendPerPerson[iii]*totalPeople) }} old{{iii}} {{ (initItems[iii-1]*(ii-1))+(-1*spendPerPerson[iii]*(totalPeople-currentPeople)) }}{endfor %} change7 {% if ii%3 == 0 %} {%if ii>1 %}{{ii}}{% else %}0{% endif %} {% else %}0{% endif %} points7 {{ ii3 }} old7 {{((ii-1)-((ii-1)%3))/3 }};
+	counter-increment: {% for iii in range(1,7) %} change{{iii}} {{ (0*(ii-1))+(-1*spendPerPerson[iii]*currentPeople) }} points{{iii}} {{ (initItems[iii-1]*ii)+(-1*spendPerPerson[iii]*totalPeople) }} old{{iii}} {{ (initItems[iii-1]*(ii-1))+(-1*spendPerPerson[iii]*(totalPeople-currentPeople)) }}{% endfor %} change7 {% if ii%3 == 0 %} {%if ii>1 %}{{ii}}{% else %}0{% endif %} {% else %}0{% endif %} points7 {{ ii3 }} old7 {{((ii-1)-((ii-1)%3))/3 }};
 }
 
 
@@ -63,12 +63,12 @@
 			{% set totalPeople =  ((( 3*(ii3+1) * (2*startPeople +ii3)) / 2)+( (ii-(3*ii3)) * (startPeople+ii3) )) - ((3*startPeople)+(2*ii3)) %}
 			{% set currentPeople = startPeople+ii3 %}
 			{% set initItems = [initFood,initWater,initFeed,initPoop,initFire,initClothes] %}
-			counter-increment: {% for iii in range(1,7) %} change{{iii}} {{ (spendPerPerson[iii]*(ii-1))+(-1*spendPerPerson[iii]*currentPeople) }} points{{iii}} {{ (initItems[iii-1]*ii)+(-1*spendPerPerson[iii]*totalPeople) }} old{{iii}} {{ (initItems[iii-1]*(ii-1))+(-1*spendPerPerson[iii]*(totalPeople-currentPeople)) }}{endfor %} change7 {{1-ii}} points7 {{ ii3 }} old7 {{((ii-1)-((ii-1)%3))/3 }};
+			counter-increment: {% for iii in range(1,7) %} change{{iii}} {{ (spendPerPerson[iii]*(ii-1))+(-1*spendPerPerson[iii]*currentPeople) }} points{{iii}} {{ (initItems[iii-1]*ii)+(-1*spendPerPerson[iii]*totalPeople) }} old{{iii}} {{ (initItems[iii-1]*(ii-1))+(-1*spendPerPerson[iii]*(totalPeople-currentPeople)) }}{% endfor %} change7 {{1-ii}} points7 {{ ii3 }} old7 {{((ii-1)-((ii-1)%3))/3 }};
 		{% else %}
 			{% set ii3 = (ii-(ii%3))/3 %}
 			{% set totalPeople =  ((( 3*(ii3+1) * (2*startPeople +ii3)) / 2)+( (ii-(3*ii3)) * (startPeople+ii3) )) - ((3*startPeople)+(2*ii3)) %}
 			{% set currentPeople = startPeople+ii3 %}
-			counter-increment: {% for iii in range(1,7) %} change{{iii}} {{ (0*(ii-1))+(-1*spendPerPerson[iii]*currentPeople) }} points{{iii}} {{ (initItems[iii-1]*ii)+(-1*spendPerPerson[iii]*totalPeople) }} old{{iii}} {{ (initItems[iii-1]*(ii-1))+(-1*spendPerPerson[iii]*(totalPeople-currentPeople)) }}{endfor %} change7 {% if ii%3 == 0 %} {%if ii>1 %}{{ii}}{% else %}0{% endif %} {% else %}0{% endif %} points7 {{ ii3 }} old7 {{((ii-1)-((ii-1)%3))/3 }};
+			counter-increment: {% for iii in range(1,7) %} change{{iii}} {{ (0*(ii-1))+(-1*spendPerPerson[iii]*currentPeople) }} points{{iii}} {{ (initItems[iii-1]*ii)+(-1*spendPerPerson[iii]*totalPeople) }} old{{iii}} {{ (initItems[iii-1]*(ii-1))+(-1*spendPerPerson[iii]*(totalPeople-currentPeople)) }}{% endfor %} change7 {% if ii%3 == 0 %} {%if ii>1 %}{{ii}}{% else %}0{% endif %} {% else %}0{% endif %} points7 {{ ii3 }} old7 {{((ii-1)-((ii-1)%3))/3 }};
 		{% endif %}
 		
 	}
