@@ -222,7 +222,13 @@
 	position: absolute;
 }
 
-
+div:Not(.content-22) > .content {
+	overflow-y: auto;
+	overflow-x: auto;
+	overflow: auto;
+	padding: calc(.5 * var(--border-radius));
+	height: calc(100% - 3 * var(--border-radius));
+}
 
 
 .logoDiv {
