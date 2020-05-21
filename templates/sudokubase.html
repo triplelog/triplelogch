@@ -83,18 +83,18 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 		
 	</span>
 	<span class="titleCenter">
-		<a href="https://sudokufarm.com">Menu</a>
+		<a>Menu</a>
 	</span>
 	<span class="titleRight">
-		<label for="radio11-1"><i class="fas fa-compress-alt"></i></label>
-		<label for="radio11-2"><i class="fas fa-expand-alt"></i></label>
-		<label for="radio11-3"><i class="fas fa-expand"></i></label>
+		<label for="radio33-1"><i class="fas fa-compress-alt"></i></label>
+		<label for="radio33-2"><i class="fas fa-expand-alt"></i></label>
+		<label for="radio33-3"><i class="fas fa-expand"></i></label>
 	</span>
 </div>
 {% endblock %}
 {% block content33 %}
 		<span class="winner">
-		  	<a href="https://www.csshole.com/games/sudokucss/{{ gametype }}{{ gameid }}/index.html" class="buttonPuzzle">Reset Puzzle</a><a href="https://www.csshole.com/games/sudokucss/{{gametype}}{{gameid +  1 }}/index.html" class="buttonPuzzle">Next Puzzle</a><span class="randomPuzzlet0 notnav">{% for pid in range(1,101) %}<a href="https://www.csshole.com/games/sudokucss/{{gametype}}{{ pid }}/index.html" class="randomPuzzle{{ pid}} randomPuzzlen1"></a>{% endfor %}<a href="" class="linkholder"> Random Puzzle</a></span>
+		  	<a href="../sudoku.html?l={{ gametype }}{{ gameid }}" class="basic">Reset Puzzle</a><a href="../sudoku.html?l={{ gametype }}{{ gameid + 1}}" class="basic">Next Puzzle</a><span class="randomPuzzlet0 notnav">{% for pid in range(1,101) %}<a href="../sudoku.html?l={{gametype}}{{ pid }}" class="randomPuzzle{{ pid}} randomPuzzlen1"></a>{% endfor %}<a href="" class="linkholder"> Random Puzzle</a></span>
 		  </span>
 {% endblock %}	
 
