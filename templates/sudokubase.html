@@ -93,9 +93,8 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 </div>
 {% endblock %}
 {% block content33 %}
-		<span class="winner">
-		  	<a href="../sudoku.html?l={{ gametype }}{{ gameid }}" class="basic">Reset Puzzle</a><a href="../sudoku.html?l={{ gametype }}{{ gameid + 1}}" class="basic">Next Puzzle</a><span class="randomPuzzlet0 notnav">{% for pid in range(1,101) %}<a href="../sudoku.html?l={{gametype}}{{ pid }}" class="randomPuzzle{{ pid}} randomPuzzlen1"></a>{% endfor %}<a href="" class="linkholder"> Random Puzzle</a></span>
-		  </span>
+		  <a href="../sudoku.html?l={{ gametype }}{{ gameid }}" class="basic">Reset Puzzle</a><a href="../sudoku.html?l={{ gametype }}{{ gameid + 1}}" class="basic">Next Puzzle</a>
+
 {% endblock %}	
 
 
