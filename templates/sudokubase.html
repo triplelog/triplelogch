@@ -93,8 +93,12 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 </div>
 {% endblock %}
 {% block content33 %}
-		  <a href="../sudoku.html?l={{ gametype }}{{ gameid }}" class="basic">Reset Puzzle</a><a href="../sudoku.html?l={{ gametype }}{{ gameid + 1}}" class="basic">Next Puzzle</a>
-
+		  <div>
+		  	<a href="../sudoku.html?l={{ gametype }}{{ gameid }}" class="basic">Reset Puzzle</a><a href="../sudoku.html?l={{ gametype }}{{ gameid + 1}}" class="basic">Next Puzzle</a>
+		  </div>
+		  <div>
+		  	<a href="../" class="basic">Home</a><a href="../sudokufarm.html" class="basic">Sudoku Farm</a>
+		  </div>
 {% endblock %}	
 
 
