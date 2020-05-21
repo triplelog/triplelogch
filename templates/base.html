@@ -3,48 +3,34 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content=".">    <title>Gifsaw</title>    
+    <meta name="description" content=".">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <title>Gifsaw</title>    
 
 <link rel="stylesheet" href="../icons/fontawesome/css/all.css">
-{% block stylesheets %}
-{% endblock %}
-
+<link rel="stylesheet" href="../css/prism.css">
+<link rel="stylesheet" href="../css/prism-live.css">
+<link rel="stylesheet" href="../css/dragula.css">
 
 <style>
 .container {
 	display: grid;
 	--height-container: calc(100vh - 3rem);
 	--width-container: calc(100vw - 3rem);
-	height: var(--height-container);
-	width: var(--width-container);
+	margin: 1rem auto;
 	{% block centerSize %}
 	{% endblock %}
 	{% block borderRadius %}
 	{% endblock %}
-	margin: 1rem auto;
+	height: var(--height-container);
+	width: var(--width-container);
+	
 	/*border: 1px dotted blue;*/
 	grid-template-columns: calc((var(--width-container) - var(--width-center)) / 2) var(--width-center) calc((var(--width-container) - var(--width-center)) / 2);
   	grid-template-rows: calc((var(--height-container) - var(--height-center)) / 2) var(--height-center) calc((var(--height-container) - var(--height-center)) / 2);
 }
 
-.container div .title .titleLeft {
-	float: left;
-	margin-left: 4px;
-	width: 100px;
-	min-height: 1px;
-}
-.container div .title .titleCenter {
 
-}
-.container div .title .titleRight {
-	float: right;
-	width: 100px;
-	min-height: 1px;
-}
-.container div .title .titleRight label{
-	margin-right: calc(var(--border-radius) / 3);
-	float: right;
-}
 
 .content-11 {
 	grid-row:  1;
@@ -52,8 +38,7 @@
 	border: 2px solid black;
   	border-radius: var(--border-radius);
   	position: relative;
-  	overflow-y: auto;
-  	overflow-x: hidden;
+  	overflow: hidden;
   	background: white;
 }
 .content-31 {
@@ -62,8 +47,7 @@
   	border: 2px solid black;
   	border-radius: var(--border-radius);
   	position: relative;
-  	overflow-y: auto;
-  	overflow-x: hidden;
+  	overflow: hidden;
   	background: white;
 }
 .content-22 {
@@ -78,8 +62,7 @@
   	border: 2px solid black;
   	border-radius: var(--border-radius);
   	position: relative;
-  	overflow-y: auto;
-  	overflow-x: hidden;
+  	overflow: hidden;
   	background: white;
 }
 
@@ -89,8 +72,7 @@
   	border: 2px solid black;
   	border-radius: var(--border-radius);
   	position: relative;
-  	overflow-y: auto;
-  	overflow-x: hidden;
+  	overflow: hidden;
   	background: white;
 }
 
@@ -107,7 +89,7 @@
 #radio11-3:checked ~ .content-11 {
 	grid-row:  1 / 4;
 	grid-column:  1 / 4;
-	z-index: 3;
+	z-index: 4;
 }
 
 #radio13-1:checked ~ .content-13 {
@@ -123,7 +105,7 @@
 #radio13-3:checked ~ .content-13 {
 	grid-row:  1 / 4;
 	grid-column:  1 / 4;
-	z-index: 3;
+	z-index: 4;
 }
 
 #radio31-1:checked ~ .content-31 {
@@ -139,7 +121,7 @@
 #radio31-3:checked ~ .content-31 {
 	grid-row:  1 / 4;
 	grid-column:  1 / 4;
-	z-index: 3;
+	z-index: 4;
 }
 
 #radio33-1:checked ~ .content-33 {
@@ -155,41 +137,9 @@
 #radio33-3:checked ~ .content-33 {
 	grid-row:  1 / 4;
 	grid-column:  1 / 4;
-	z-index: 3;
+	z-index: 4;
 }
-/*
-.content-11:hover ~ .content-22 {
-	transition: all 1s ease-in;
-	transform: rotate(180deg);
-}
-.content-13:hover ~ .content-22 {
-	transition: all 1s ease-in;
-	transform: rotate(270deg);
-}
-.content-31:hover ~ .content-22 {
-	transition: all 1s ease-in;
-	transform: rotate(90deg);
-}
-.content-12:hover ~ .content-22 {
-	transition: all 1s ease-in;
-	transform: rotate(225deg);
-}
-.content-21:hover ~ .content-22 {
-	transition: all 1s ease-in;
-	transform: rotate(135deg);
-}
-.content-23:hover ~ .content-22 {
-	transition: all 1s ease-in;
-	transform: rotate(315deg);
-}
-.content-32:hover ~ .content-22 {
-	transition: all 1s ease-in;
-	transform: rotate(45deg);
-}
-.content-33:hover ~ .content-22 {
-	transition: all 1s ease-in;
-	transform: rotate(0deg);
-}*/
+
 
 
 .content-12 { 
@@ -209,6 +159,168 @@
   grid-column:  2; 
 }
 
+.content-11 .content {
+  	overflow: auto;
+}
+.content-13 .content {
+  	overflow: auto;
+}
+.content-31 .content {
+  	overflow: auto;
+}
+.content-33 .content {
+  	overflow: auto;
+}
+
+.content {
+	position: relative;
+	z-index: 1;
+}
+
+.titleBG {
+	position: absolute;
+}
+
+
+
+
+.logoDiv {
+	position: relative;
+	left:0rem;
+	top: 0rem;
+}
+.centerLink {
+	text-align: center;
+	position: relative;
+	top: 1rem;
+}
+
+
+.title {
+	border-radius: var(--border-radius);
+	line-height: calc(2 * var(--border-radius));
+	height: calc(2 * var(--border-radius));
+	text-align: center;
+	font-size: 1rem;
+	border: 2px solid black;
+  	
+  	position: relative;
+  	top:-2px;
+  	left:-2px;
+  	width: calc(100% + 0px);
+  	background: white;
+  	background-image: url("../img/newbg.png");
+  	background-size: 100% 100%;
+  	background-repeat: no-repeat;
+  	background-position: 0px 0px;
+  	color: white;
+  	text-shadow: 0px 0px 10px black;
+}
+
+.title a {
+	text-decoration: none;
+	color: white;
+	font-size: 1.5rem;
+}
+.title a:hover {
+	text-decoration: underline;
+	text-shadow: 0px 0px 10px black 0px 0px 10px black;
+}
+.title label:hover {
+	cursor: pointer;
+	text-shadow: 0px 0px 10px black 0px 0px 10px black;
+}
+.container div .title {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+  	grid-template-rows: max-content;
+  	justify-content: stretch;
+
+}
+.container div .title .titleLeft {
+	grid-column: 1;
+	margin-left: 4px;
+	min-height: 1px;
+	position: relative;
+	line-height: calc(2 * var(--border-radius));
+	height: calc(2 * var(--border-radius));
+}
+.container div .title .titleCenter {
+	grid-column: 2;
+	position: relative;
+	line-height: calc(2 * var(--border-radius));
+	height: calc(2 * var(--border-radius));
+}
+.container div .title .titleRight {
+	grid-column: 3;
+	min-height: 1px;
+	position: relative;
+	line-height: calc(2 * var(--border-radius));
+	height: calc(2 * var(--border-radius));
+}
+.container div .title .titleRight label{
+	margin-right: calc(var(--border-radius) / 3);
+	height: calc(2 * var(--border-radius));
+	line-height: calc(2 * var(--border-radius));
+	float: right;
+}
+.formHolder {
+	display: grid;
+	grid-template-columns: 50% 50%;
+  	grid-template-rows: max-content;
+  	row-gap: .25rem;
+  	column-gap: 1rem;
+  	justify-content: center;
+  	overflow: visible;
+  	width:95%;
+  	margin: auto;
+}
+.buttonHolder {
+	display: grid;
+	grid-template-columns: auto;
+  	grid-template-rows: max-content;
+  	justify-content: center;
+}
+button.submit {
+	color: #fff !important;
+	text-decoration: none;
+	background: #ed3330;
+	padding: .5rem 1.5rem;
+	border-radius: .5rem;
+	border: none;
+	transition: all 0.4s ease 0s;
+	font-size: 1.25rem;
+}
+button.submit:hover {
+	background: #434343;
+	letter-spacing: 1px;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+	cursor: pointer;
+}
+
+button.basic {
+	color: #fff !important;
+	text-decoration: none;
+	background: #aa2233;
+	padding: .4rem .8rem;
+	border-radius: .6rem;
+	border: 1px solid black;
+	margin: .2rem 0rem;
+	transition: all 0.4s ease 0s;
+	font-size: 1rem;
+}
+button.basic:hover {
+	background: #662222;
+	letter-spacing: 1px;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+	cursor: pointer;
+}
 
 {% block titleCSS %}
 {% endblock %}
@@ -263,6 +375,7 @@
 			{% block content31 %}
 			{% endblock %}
 		</div>
+
 	</div>
 	
 	<input type="radio" style="display: none;" name="radio33" value="1" id="radio33-1"></input>
@@ -278,8 +391,11 @@
 	</div>
 	
 	<div class="content-12">
+		{% block title12 %}
+		{% endblock %}
 		<div class="content">
-			
+			{% block content12 %}
+			{% endblock %}
 		</div>
 	</div>
 	<div class="content-21">
@@ -297,13 +413,17 @@
 			
 		</div>
 	</div>
-	
+	<div class="content-00">
+		{% block content00 %}
+		{% endblock %}
+	</div>
 	<div class="content-22">
 		<div class="content">
 			{% block content22 %}
 			{% endblock %}
 		</div>
 	</div>
+	
 </div>
 
 {% block scripts %}

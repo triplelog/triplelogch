@@ -14,10 +14,10 @@ const options = {
 };
 const { PerformanceObserver, performance } = require('perf_hooks');
 
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/triplelog', {useNewUrlParser: true});
+/*const mongoose = require('mongoose');
+mongoose.connect('mongodb://45.32.213.227:27017/triplelog', {useNewUrlParser: true});
 const User = require('./models/user');
-const UserData = require('./models/userdata');
+const UserData = require('./models/userdata');*/
 
 var express = require('express');
 
