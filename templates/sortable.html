@@ -102,11 +102,14 @@
 }
 
 
-.sortable-col1  { width: {{ 200/(ncols+1)}}%; }
+.sortable-col1  { 
+	width: 5rem;
+	text-align: left;
+}
 
 
 {% for i in range(2,ncols+1) %}
-	.sortable-col{{ i }}  { width: {{ 100/(ncols+1)}}%; }
+	.sortable-col{{ i }}  { width: calc( (100% - 5rem)/{{ ncols - 1}}; text-align: right;}
 {% endfor %}
 
 .sortable-header  { width: 100%; padding: 0px;}
