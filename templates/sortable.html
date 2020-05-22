@@ -150,13 +150,18 @@
 	flex-direction: column-reverse;
 }
 
+#page1:checked ~ div > label[for="page1"] > button.basic {
+	background: #22aa33;
+}
+
+
 {% for i in range(1,ncols) %} #sort-col{{ i }}, {% endfor %}{% for i in range(ncols,ncols+1) %} #sort-col{{ i }} {% endfor %} { display: none; }
 
 input[type="radio"] {
 	display: none;
 }
 .sortable {
-	background-image: url("../img/headerbgwide.png");
+	background-image: url("../img/tablebgtall.png");
   	background-size: 100% 100%;
   	background-repeat: no-repeat;
 }
@@ -249,7 +254,7 @@ Because it is possible.
 		</div>
 	</div>
 	<div>
-		<button class="basic"><label for="page1">1</label></button>
+		<label for="page1"><button class="basic">1</button></label>
 		<button class="basic"><label for="page2">2</label></button>
 		<button class="basic"><label for="page3">3</label></button>
 		<button class="basic"><label for="page4">4</label></button>
