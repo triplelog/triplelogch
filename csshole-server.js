@@ -49,7 +49,7 @@ app.get('/index.html',
 );
 console.log('aa',performance.now());
 var puzzles = {}
-var puzzleTypes = ['daily','simple','easy','intermediate','expert'];
+var puzzleTypes = ['daily','easy','medium','hard','expert'];
 for (var ii=0;ii<5;ii++ ){
 	var daily;
 	if (puzzleTypes[ii] == 'daily'){
@@ -99,28 +99,13 @@ console.log('bb',performance.now());
 app.get('/sudoku.html', 
 	
 	function(req, res) {
-		console.log('aaa',performance.now());
 		var puzzle;
-		var gametype = 'simple';
+		var gametype = 'easy';
 		var gameid = 1;
 		if (req.query && req.query.l){
-			if (req.query.l.substring(0,6) == 'simple'){
-				gametype = 'simple';
-				gameid = parseInt(req.query.l.substring(6));
-				if (isNaN(gameid) || gameid<1){
-					res.redirect('../sudoku.html?l=simple1');
-					return;
-				}
-				else if (gameid>81){
-					res.redirect('../sudoku.html?l=simple81');
-					return;
-				}
-				var puzzleRaw = puzzles[gametype][gameid];
-				puzzle = makePuzzle(puzzleRaw);
-			}
-			else if (req.query.l.substring(0,4) == 'easy'){
+			if (req.query.l.substring(0,4) == 'easy'){
 				gametype = 'easy';
-				gameid = parseInt(req.query.l.substring(4));
+				gameid = parseInt(req.query.l.substring(6));
 				if (isNaN(gameid) || gameid<1){
 					res.redirect('../sudoku.html?l=easy1');
 					return;
@@ -132,15 +117,29 @@ app.get('/sudoku.html',
 				var puzzleRaw = puzzles[gametype][gameid];
 				puzzle = makePuzzle(puzzleRaw);
 			}
-			else if (req.query.l.substring(0,12) == 'intermediate'){
-				gametype = 'intermediate';
-				gameid = parseInt(req.query.l.substring(12));
+			else if (req.query.l.substring(0,6) == 'medium'){
+				gametype = 'medium';
+				gameid = parseInt(req.query.l.substring(6));
 				if (isNaN(gameid) || gameid<1){
-					res.redirect('../sudoku.html?l=intermediate1');
+					res.redirect('../sudoku.html?l=medium1');
 					return;
 				}
 				else if (gameid>81){
-					res.redirect('../sudoku.html?l=intermediate81');
+					res.redirect('../sudoku.html?l=medium81');
+					return;
+				}
+				var puzzleRaw = puzzles[gametype][gameid];
+				puzzle = makePuzzle(puzzleRaw);
+			}
+			else if (req.query.l.substring(0,4) == 'hard'){
+				gametype = 'hard';
+				gameid = parseInt(req.query.l.substring(4));
+				if (isNaN(gameid) || gameid<1){
+					res.redirect('../sudoku.html?l=hard1');
+					return;
+				}
+				else if (gameid>81){
+					res.redirect('../sudoku.html?l=hard81');
 					return;
 				}
 				var puzzleRaw = puzzles[gametype][gameid];
@@ -208,7 +207,6 @@ app.get('/sudoku.html',
 			year = d.getYear()+1900;
 			gameid = month+'/'+date+'/'+year;
 		}
-		console.log('bbb',performance.now());
 		res.write(nunjucks.render('templates/sudokubase.html',{
 			puzzle: puzzle,
 			gametype: gametype,
