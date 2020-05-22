@@ -48,7 +48,7 @@ app.get('/index.html',
 	}
 );
 var puzzles = {'simple':[]}
-fs.readFile('/puzzles/sudokusimple.txt', (err, data) => {
+fs.readFile('../puzzles/sudokusimple.txt', (err, data) => {
   if (err) throw err;
   console.log(data);
 });
