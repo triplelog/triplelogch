@@ -1,5 +1,5 @@
 :root {
-	--width-block: 10px;
+	--width-block: 20px;
     --shift-cover-puzzle: calc(-40px - var(--width-block)*9); 
     --left-margin: 0px;
     --color-bg1: rgba(180,180,180,.75);
@@ -7,22 +7,22 @@
 }
 @media screen and (min-width: 320px) and (min-height: 320px) {
 	:root {
-    	--width-block: 16px;
+    	--width-block: 20px;
     }
 }
-@media screen and (min-width: 480px) and (min-height: 480px) {
+@media screen and (min-width: 450px) and (min-height: 450px) {
 	:root {
     	--width-block: 24px;
     }
 }
-@media screen and (min-width: 720px) and (min-height: 720px) {
+@media screen and (min-width: 700px) and (min-height: 700px) {
 	:root {
     	--width-block: 36px;
     }
 }
-@media screen and (min-width: 1080px) and (min-height: 1080px) {
+@media screen and (min-width: 1000px) and (min-height: 1000px) {
 	:root {
-    	--width-block: 48px;
+    	--width-block: 60px;
     }
 }
 input {
