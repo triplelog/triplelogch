@@ -168,14 +168,12 @@ app.get('/sudoku.html',
 				var month = d.getMonth()+1;
 				var date = d.getDate();
 				var year = d.getYear()+1900;
-				console.log(month+'/'+date+'/'+year);
 				var puzzleRaw = puzzles['daily'][month+'/'+date+'/'+year];
 				puzzle = makePuzzle(puzzleRaw);
 				d.setDate(d.getDate()-1);
 				month = d.getMonth()+1;
 				date = d.getDate();
 				year = d.getYear()+1900;
-				console.log(month+'/'+date+'/'+year);
 				gameid = month+'/'+date+'/'+year;
 			}
 			else {
@@ -183,14 +181,12 @@ app.get('/sudoku.html',
 				var month = d.getMonth()+1;
 				var date = d.getDate();
 				var year = d.getYear()+1900;
-				console.log(month+'/'+date+'/'+year);
 				var puzzleRaw = puzzles['daily'][month+'/'+date+'/'+year];
 				puzzle = makePuzzle(puzzleRaw);
 				d.setDate(d.getDate()-1);
 				month = d.getMonth()+1;
 				date = d.getDate();
 				year = d.getYear()+1900;
-				console.log(month+'/'+date+'/'+year);
 				gameid = month+'/'+date+'/'+year;
 			}
 		}
@@ -204,14 +200,12 @@ app.get('/sudoku.html',
 			var month = d.getMonth()+1;
 			var date = d.getDate();
 			var year = d.getYear()+1900;
-			console.log(month+'/'+date+'/'+year);
 			var puzzleRaw = puzzles['daily'][month+'/'+date+'/'+year];
 			puzzle = makePuzzle(puzzleRaw);
 			d.setDate(d.getDate()-1);
 			month = d.getMonth()+1;
 			date = d.getDate();
 			year = d.getYear()+1900;
-			console.log(month+'/'+date+'/'+year);
 			gameid = month+'/'+date+'/'+year;
 		}
 		console.log('bbb',performance.now());
