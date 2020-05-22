@@ -17,12 +17,18 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
         // shrink the radius of the next circle
         current.radius *= Math.pow((1 - spacing),1+i/count);
     }
-    var svg = '<html><body><svg height="200" width="200">';
+    var svg = '<html><body><svg height="400" width="400">';
     for (var i=0;i<paths.length;i++){
     	h = noise2D(.25+i/paths.length/2,.5)*360;
     	s = '80%';
     	l = (75-i*50/paths.length)+'%';
-    	svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="black" d="'+paths[i]+'" />'
+    	if (i%3==0){
+    		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="black" d="'+paths[i]+'" />';
+    	}
+    	else {
+    		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="none" d="'+paths[i]+'" />';
+    	}
+    	
     }
     svg += '</svg></body></html';
 	fs.writeFile('../static/logo.html', svg, function (err) {});
@@ -54,4 +60,4 @@ function drawDeformedCircle( circle,frequency, magnitude,seed) {
 }
 
 //drawFlower({x:100,y:100,radius:50},2.0,0.5,0.1,0.01,300);
-drawFlower({x:100,y:100,radius:50},2.0,0.5,0.23,0.2,7);
+drawFlower({x:200,y:200,radius:100},2.0,0.5,0.25,0.1,21);
