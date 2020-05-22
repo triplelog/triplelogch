@@ -49,8 +49,8 @@ app.get('/index.html',
 );
 console.log('aa',performance.now());
 var puzzles = {}
-var puzzleTypes = ['daily','simple'];//,'easy','intermediate','expert'];
-for (var ii=0;ii<2;ii++ ){
+var puzzleTypes = ['daily','simple','easy','intermediate','expert'];
+for (var ii=0;ii<5;ii++ ){
 	var daily;
 	if (puzzleTypes[ii] == 'daily'){
 		puzzles[puzzleTypes[ii]] = {};
@@ -59,7 +59,6 @@ for (var ii=0;ii<2;ii++ ){
 	else {
 		puzzles[puzzleTypes[ii]] = [];
 	}
-	console.log(Object.keys(puzzles['daily']).length);
 	const data = fs.readFileSync('./puzzles/sudoku'+puzzleTypes[ii]+'.txt', 'utf8');
 
 	  var lines = data.split('\n');
@@ -119,6 +118,48 @@ app.get('/sudoku.html',
 				var puzzleRaw = puzzles[gametype][gameid];
 				puzzle = makePuzzle(puzzleRaw);
 			}
+			else if (req.query.l.substring(0,4) == 'easy'){
+				gametype = 'easy';
+				gameid = parseInt(req.query.l.substring(4));
+				if (isNaN(gameid) || gameid<1){
+					res.redirect('../sudoku.html?l=easy1');
+					return;
+				}
+				else if (gameid>81){
+					res.redirect('../sudoku.html?l=easy81');
+					return;
+				}
+				var puzzleRaw = puzzles[gametype][gameid];
+				puzzle = makePuzzle(puzzleRaw);
+			}
+			else if (req.query.l.substring(0,12) == 'intermediate'){
+				gametype = 'intermediate';
+				gameid = parseInt(req.query.l.substring(12));
+				if (isNaN(gameid) || gameid<1){
+					res.redirect('../sudoku.html?l=intermediate1');
+					return;
+				}
+				else if (gameid>81){
+					res.redirect('../sudoku.html?l=intermediate81');
+					return;
+				}
+				var puzzleRaw = puzzles[gametype][gameid];
+				puzzle = makePuzzle(puzzleRaw);
+			}
+			else if (req.query.l.substring(0,6) == 'expert'){
+				gametype = 'expert';
+				gameid = parseInt(req.query.l.substring(6));
+				if (isNaN(gameid) || gameid<1){
+					res.redirect('../sudoku.html?l=expert1');
+					return;
+				}
+				else if (gameid>81){
+					res.redirect('../sudoku.html?l=expert81');
+					return;
+				}
+				var puzzleRaw = puzzles[gametype][gameid];
+				puzzle = makePuzzle(puzzleRaw);
+			}
 		}
 		else if (req.query && req.query.p){
 			var puzzleRaw = req.query.p;
@@ -130,8 +171,6 @@ app.get('/sudoku.html',
 			var month = d.getMonth();
 			var date = d.getDate();
 			var year = d.getYear()+1900;
-			console.log(month,date,year);
-			console.log(puzzles['daily'][month+'/'+date+'/'+year]);
 			var puzzleRaw = puzzles['daily'][month+'/'+date+'/'+year];
 			puzzle = makePuzzle(puzzleRaw);
 		}
