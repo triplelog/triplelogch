@@ -15,7 +15,7 @@
 	--width-center: calc(25vw + 200px);
 	--knob-width: 300px;
 	--knob-height: 300px;
-	--knob-margin: 10px;
+	--knob-margin: var(--border-radius);
 {% endblock %}
 
 {% block titleCSS %}
@@ -475,6 +475,11 @@ div.displayNeedle {
 	</span>
 	
 </div>
+{% endif %}
+{% endblock %}
+
+{% block content13 %}
+{% if type=="trig" %}
 <div class="content">
 	<div class="knob">
 		<svg viewBox="-100 -100 200 200" class="svgborder">
@@ -514,10 +519,6 @@ div.displayNeedle {
 	</div>
 </div>
 {% endif %}
-
-{% endblock %}
-{% block content13 %}
-
 {% endblock %}	
 
 
