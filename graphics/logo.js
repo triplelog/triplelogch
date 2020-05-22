@@ -16,10 +16,9 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
         // shrink the radius of the next circle
         current.radius *= (1 - spacing);
     }
-    console.log(paths);
     var svg = '<svg height="200" width="200">';
     for (var i=0;i<paths.length;i++){
-    	svg += '<path d="'+paths[i]+'">'
+    	svg += '<path fill="none" stroke="black" d="'+paths[i]+'">'
     }
     svg += '</svg>';
 	fs.writeFile('logo.svg', svg, function (err) {});
