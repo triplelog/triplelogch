@@ -109,7 +109,7 @@
 
 
 {% for i in range(2,ncols+1) %}
-	.sortable-col{{ i }}  { width: calc( (100% - 5rem)/{{ ncols - 1}}); text-align: right;}
+	.sortable-col{{ i }}  { width: calc( (100% - 5rem)/{{ ncols - 1}}); text-align: right; padding: 0px 2px; border-right: 0px solid black; border-left: 0px solid black;}
 {% endfor %}
 
 .sortable-header  { width: 100%; padding: 0px;}
