@@ -2,6 +2,7 @@
 const OpenSimplexNoise = require('open-simplex-noise');
 var fs = require("fs");
 const noise = OpenSimplexNoise.makeNoise3D(Date.now());
+const noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
 
 function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
     // adjust the radius so will have roughly the same size irregardless of magnitude
@@ -18,10 +19,10 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
     }
     var svg = '<html><body><svg height="200" width="200">';
     for (var i=0;i<paths.length;i++){
-    	r = Math.random()*255;
-    	g = Math.random()*255;
-    	b = Math.random()*255;
-    	svg += '<path fill="rgb('+r+','+g+','+b+')" stroke="black" d="'+paths[i]+'" />'
+    	h = noise2D(.4+i/paths.length/10,.5)*360;
+    	s = '50%';
+    	l = (i*100/paths.length)+'%';
+    	svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="black" d="'+paths[i]+'" />'
     }
     svg += '</svg></body></html';
 	fs.writeFile('../static/logo.html', svg, function (err) {});
@@ -53,4 +54,4 @@ function drawDeformedCircle( circle,frequency, magnitude,seed) {
 }
 
 //drawFlower({x:100,y:100,radius:50},2.0,0.5,0.1,0.01,300);
-drawFlower({x:100,y:100,radius:50},2.0,0.5,0.25,0.2,7);
+drawFlower({x:100,y:100,radius:50},2.0,0.5,0.2,0.25,7);
