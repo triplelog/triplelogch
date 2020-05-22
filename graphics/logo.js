@@ -53,4 +53,4 @@ function drawDeformedCircle( circle,frequency, magnitude,seed) {
 }
 
 //drawFlower({x:100,y:100,radius:50},2.0,0.5,0.1,0.01,300);
-drawFlower({x:100,y:100,radius:50},2.0,0.5,0.1,0.2,7);
+drawFlower({x:100,y:100,radius:50},2.0,0.5,0.25,0.2,7);
