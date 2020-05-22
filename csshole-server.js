@@ -125,12 +125,12 @@ app.get('/sudoku.html',
 			puzzle = makePuzzle(puzzleRaw);
 		}
 		else {
-			gametype = 'daily';
+			gametype = 'simple';
 			var d = new Date();
 			var month = d.getMonth();
 			var date = d.getDate();
 			var year = d.getYear();
-			var puzzleRaw = puzzles[gametype][month+'/'+date+'/'+year];
+			var puzzleRaw = puzzles['daily'][month+'/'+date+'/'+year];
 			puzzle = makePuzzle(puzzleRaw);
 		}
 		console.log('bbb',performance.now());
