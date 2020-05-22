@@ -77,11 +77,7 @@
 	cursor: pointer;
 	text-shadow: 0px 0px 10px black 0px 0px 10px black;
 }
-body {
-	background-image: url("../img/lightbg.png");
-	background-size: cover;
-	
-}
+
 
 .sortable {
   display: flex;
@@ -156,7 +152,9 @@ body {
 
 {% for i in range(1,ncols) %} #sort-col{{ i }}, {% endfor %}{% for i in range(ncols,ncols+1) %} #sort-col{{ i }} {% endfor %} { display: none; }
 
-
+input[type="radio"] {
+	display: none;
+}
 {% endblock %}
 
 
@@ -224,6 +222,11 @@ Because it is possible.
 	<input type="radio" name="pageNumber" id="page3"></input>
 	<input type="radio" name="pageNumber" id="page4"></input>
 	<input type="radio" name="pageNumber" id="page5"></input>
+	
+	<div>
+		<label for="sort-ascending">Ascending</label>
+		<label for="sort-descending">Descending</label>
+	</div>
 	<div class="sortable-header">
 		{% for i in range(1,ncols+1) %}<label class="sortable-col{{ i }}" for="sort-col{{ i }}">{{ header[i-1] }}</label>{% endfor %}
 	</div>
@@ -239,6 +242,13 @@ Because it is possible.
 
 
 		</div>
+	</div>
+	<div>
+		<label for="page1">1</label>
+		<label for="page2">2</label>
+		<label for="page3">3</label>
+		<label for="page4">4</label>
+		<label for="page5">5</label>
 	</div>
 {% endblock %}
 
