@@ -320,25 +320,25 @@ label.c0n1:not(.nextButton) {
 	position: absolute;
 	left: 0px;
 	top: 0px;
-	width: 400px;
-	height: 400px;
+	width: calc(var(--knob-height) - 2 * var(--knob-margin));
+	height: calc(var(--knob-height) - 2 * var(--knob-margin));
 }
 div.displayAngle {
 	display: none;
 	position: absolute;
-	left: 500px;
-	top: 100px;
+	left: calc(var(--knob-width));
+	top: calc(2 * var(--knob-margin));
 	background: yellow;
-	width: 50px;
+	width: calc(var(--knob-margin));
 	height: 20px;
 }
 div.displayNeedle {
 	display: none;
 	position: absolute;
-	top:50px;
-	left:50px;
-	width: 400px;
-	height: 400px;
+	top:calc(var(--knob-margin));
+	left:calc(var(--knob-margin));
+	width: calc(var(--knob-height) - 2 * var(--knob-margin));
+	height: calc(var(--knob-height) - 2 * var(--knob-margin));
 	z-index: 1000;
 	pointer-events: none;
 }
