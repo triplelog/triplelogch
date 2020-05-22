@@ -46,8 +46,8 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
     var svg = '<html><body><svg preserveAspectRatio="none" height="500" width="800" viewBox="-960 -540 1920 1080">';
     for (var i=0;i<paths.length;i++){
     	h = noise2D(i/paths.length,1-i/paths.length)*360;
-    	s = '40%';
-    	l = (90-i*20/paths.length)+'%';
+    	s = '60%';
+    	l = (95-i*10/paths.length)+'%';
     	if (i%10==0){
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="none" d="'+paths[i]+'" />';
     	}
@@ -79,7 +79,7 @@ function drawDeformedCircle( circle,frequency, magnitude,seed) {
             const radius = circle.radius * (1 + magnitude * deformation);
 
             // Extend the circle to this deformed radius
-            path += ((circle.x + radius * x)*5) + ','+((circle.y + radius * y)*1)+' ';
+            path += ((circle.x + radius * x)*6) + ','+((circle.y + radius * y)*1)+' ';
         }
         path += 'Z';
         return path;
