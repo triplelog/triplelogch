@@ -18,7 +18,7 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
     }
     var svg = '<html><body><svg height="200" width="200">';
     for (var i=0;i<paths.length;i++){
-    	svg += '<path fill="none" stroke="black" d="'+paths[i]+'">'
+    	svg += '<path fill="none" stroke="black" d="'+paths[i]+'" />'
     }
     svg += '</svg></body></html';
 	fs.writeFile('../static/logo.html', svg, function (err) {});
@@ -49,4 +49,4 @@ function drawDeformedCircle( circle,frequency, magnitude,seed) {
         return path;
 }
 
-drawFlower({x:100,y:100,radius:50},2.0,0.5,0.1,0.01,70);
+drawFlower({x:100,y:100,radius:50},2.0,0.5,0.1,0.01,7);
