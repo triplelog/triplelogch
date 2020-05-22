@@ -59,8 +59,9 @@ for (var ii=0;ii<2;ii++ ){
 	else {
 		puzzles[puzzleTypes[ii]] = [];
 	}
-	fs.readFileSync('./puzzles/sudoku'+puzzleTypes[ii]+'.txt', 'utf8', (err, data) => {
-	  if (err) throw err;
+	console.log(Object.keys(puzzles['daily']).length);
+	const data = fs.readFileSync('./puzzles/sudoku'+puzzleTypes[ii]+'.txt', 'utf8');
+
 	  var lines = data.split('\n');
 	  for (var i=0;i<lines.length;i++){
 		var line = lines[i];
@@ -92,7 +93,6 @@ for (var ii=0;ii<2;ii++ ){
 	  		}
 	  	}
 	  }
-	});
 }
 console.log('bb',performance.now());
 
