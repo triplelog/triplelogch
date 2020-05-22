@@ -1,6 +1,6 @@
 
 const OpenSimplexNoise = require('open-simplex-noise');
-const noise = new OpenSimplexNoise(40);
+const noise = OpenSimplexNoise.makeNoise3D(Date.now());
 
 function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
     // adjust the radius so will have roughly the same size irregardless of magnitude
@@ -33,7 +33,7 @@ function drawDeformedCircle( circle,frequency, magnitude,seed) {
             const y = Math.sin(angle);
 
             // Randomly deform the radius of the circle at this point
-            const deformation = (noise.noise3D(x * frequency,
+            const deformation = (noise(x * frequency,
                                                y * frequency,
                                                seed) + 1);
             const radius = circle.radius * (1 + magnitude * deformation);
