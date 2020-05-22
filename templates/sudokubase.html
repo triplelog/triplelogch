@@ -58,6 +58,9 @@
 	display: none;
 }
 .container {
+	--height-container: calc(100vh - 1rem);
+	height: var(--height-container);
+	margin: .5rem auto;
 	grid-template-rows: 0px var(--height-center) calc((var(--height-container) - var(--height-center)));
 }
 
