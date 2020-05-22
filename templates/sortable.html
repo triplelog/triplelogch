@@ -101,8 +101,12 @@
   background: fade(slategrey,20%);
 }
 
-{% for i in range(1,ncols+1) %}
-	.sortable-col{{ i }}  { width: {{ 100/ncols}}%; }
+
+.sortable-col1  { width: {{ 200/(ncols+1)}}%; }
+
+
+{% for i in range(2,ncols+1) %}
+	.sortable-col{{ i }}  { width: {{ 100/(ncols+1)}}%; }
 {% endfor %}
 
 .sortable-header  { width: 100%; padding: 0px;}
@@ -199,6 +203,7 @@ label.basic:hover {
 
 
 {% for i in range(1,ncols) %} #sort-col{{ i }}, {% endfor %}{% for i in range(ncols,ncols+1) %} #sort-col{{ i }} {% endfor %} { display: none; }
+
 
 input[type="radio"] {
 	display: none;
