@@ -7,7 +7,7 @@
 }
 @media screen and (min-width: 320px) and (min-height: 320px) {
 	:root {
-    	--width-block: 12px;
+    	--width-block: 16px;
     }
 }
 @media screen and (min-width: 480px) and (min-height: 480px) {
