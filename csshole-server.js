@@ -129,7 +129,7 @@ app.get('/sudoku.html',
 			var d = new Date();
 			var month = d.getMonth();
 			var date = d.getDate();
-			var year = d.getYear();
+			var year = d.getYear()+1900;
 			console.log(month,date,year);
 			console.log(puzzles['daily'][month+'/'+date+'/'+year]);
 			var puzzleRaw = puzzles['daily'][month+'/'+date+'/'+year];
