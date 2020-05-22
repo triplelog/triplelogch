@@ -107,7 +107,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 {% endfor %}
 
 #counterSpan{
-	{% set ii = 0 %}
+	{% set ii = 1 %}
 	{% set ii3 = (ii-(ii%3))/3 %}
 	{% set totalPeople =  ((( 3*(ii3+1) * (2*startPeople +ii3)) / 2)+( (ii-(3*ii3)) * (startPeople+ii3) )) - ((3*startPeople)+(2*ii3)) %}
 	{% set currentPeople = startPeople+ii3 %}
