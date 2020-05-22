@@ -9,7 +9,7 @@
 {% endblock %}
 	
 {% block centerSize %}
-	--height-center: calc(80vh - 6rem);
+	--height-center: calc(var(--width-block) * 11);
 	--width-center: calc(40px + var(--width-block)*9);
 {% endblock %}
 
@@ -58,7 +58,7 @@
 	display: none;
 }
 .container {
-	--height-container: calc(100vh - 1rem);
+	--height-container: calc(var(--width-block) * 11 + 5rem);
 	height: var(--height-container);
 	margin: .5rem auto;
 	grid-template-rows: 0px var(--height-center) calc((var(--height-container) - var(--height-center)));
