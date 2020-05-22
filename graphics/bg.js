@@ -17,7 +17,7 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
         // shrink the radius of the next circle
         current.radius *= Math.pow((1 - spacing),1+2*i/count);
     }
-    var svg = '<html><body><svg height="100" width="1500" viewBox="-960 -540 1920 1080">';
+    var svg = '<html><body><svg preserveAspectRatio="none" height="100" width="800" viewBox="-960 -540 1920 1080">';
     for (var i=0;i<paths.length;i++){
     	h = noise2D(i/paths.length,1-i/paths.length)*360;
     	s = '75%';
