@@ -224,8 +224,8 @@ Because it is possible.
 	<input type="radio" name="pageNumber" id="page5"></input>
 	
 	<div>
-		<label for="sort-ascending">Ascending</label>
-		<label for="sort-descending">Descending</label>
+		<label for="sort-ascending">Descending</label>
+		<label for="sort-descending">Ascending</label>
 	</div>
 	<div class="sortable-header">
 		{% for i in range(1,ncols+1) %}<label class="sortable-col{{ i }}" for="sort-col{{ i }}">{{ header[i-1] }}</label>{% endfor %}
