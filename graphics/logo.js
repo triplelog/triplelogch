@@ -19,9 +19,9 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
     }
     var svg = '<html><body><svg height="200" width="200">';
     for (var i=0;i<paths.length;i++){
-    	h = noise2D(.4+i/paths.length/10,.5)*360;
-    	s = '50%';
-    	l = (i*100/paths.length)+'%';
+    	h = noise2D(.3+i/paths.length/4,.5)*360;
+    	s = '60%';
+    	l = (100-i*100/paths.length)+'%';
     	svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="black" d="'+paths[i]+'" />'
     }
     svg += '</svg></body></html';
