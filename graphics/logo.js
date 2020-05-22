@@ -15,12 +15,12 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
         paths.push(drawDeformedCircle(current,frequency, magnitude,i * independence));
 
         // shrink the radius of the next circle
-        current.radius *= Math.pow((1 - spacing),1+i/count/2);
+        current.radius *= Math.pow((1 - spacing),1+i/count);
     }
     var svg = '<html><body><svg height="200" width="200">';
     for (var i=0;i<paths.length;i++){
-    	h = noise2D(.3+i/paths.length/4,.5)*360;
-    	s = '60%';
+    	h = noise2D(.25+i/paths.length/2,.5)*360;
+    	s = '80%';
     	l = (75-i*50/paths.length)+'%';
     	svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="black" d="'+paths[i]+'" />'
     }
