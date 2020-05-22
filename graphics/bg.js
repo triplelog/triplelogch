@@ -66,11 +66,11 @@ function drawDeformedCircle( circle,frequency, magnitude,seed) {
             const radius = circle.radius * (1 + magnitude * deformation);
 
             // Extend the circle to this deformed radius
-            path += ((circle.x + radius * x)*1) + ','+((circle.y + radius * y)*4)+' ';
+            path += ((circle.x + radius * x)*1) + ','+((circle.y + radius * y)*3)+' ';
         }
         path += 'Z';
         return path;
 }
 
 //drawFlower({x:100,y:100,radius:50},2.0,0.5,0.1,0.01,300);
-drawFlower({x:0,y:0,radius:1000},2.0,0.5,0.09,0.007,200);
+drawFlower({x:0,y:0,radius:1000},2.0,0.5,0.09,0.006,200);
