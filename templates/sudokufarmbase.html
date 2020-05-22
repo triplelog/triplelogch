@@ -1,7 +1,7 @@
 {% extends "templates/base.html" %}
 
 {% block borderRadius %}
-	--border-radius: 1.25rem;
+	--border-radius: 1rem;
 {% endblock %}
 
 {% block content22CSS %}
@@ -14,35 +14,7 @@
 {% endblock %}
 
 {% block titleCSS %}
-.title {
-	line-height: 2.5rem;
-	text-align: center;
-	font-size: 1rem;
-	border: 2px solid black;
-  	border-radius: var(--border-radius);
-  	position: relative;
-  	top:-2px;
-  	left:-2px;
-  	width: calc(100% + 0px);
-  	background: red;
-  	background-image: url("../img/farmbg2-40.png");
-  	background-size: 100% 100%;
-  	background-repeat: no-repeat;
-  	background-position: 0px 0px;
-  	color: white;
-  	text-shadow: 0px 0px 10px black;
-}
-.titleBG {
-	background-image: url("../img/ftractor-40.png");
-  	background-size: auto 100%;
-  	background-repeat: no-repeat;
-  	background-position: 0px 0px;
-  	transition: background-position 1s linear;
-}
-.titleBG:hover {
-  	background-position: 350px 0px;
-  	transition: all 2s linear;
-}
+
 
 
 {% endblock %}
@@ -52,31 +24,14 @@
 {% endblock %}
 
 {% block moreCSS %}
-.title a {
-	text-decoration: none;
-	color: white;
-	font-size: 1.5rem;
-}
-.title a:hover {
-	text-decoration: underline;
-	text-shadow: 0px 0px 10px black 0px 0px 10px black;
-}
-.title label:hover {
-	cursor: pointer;
-	text-shadow: 0px 0px 10px black 0px 0px 10px black;
-}
-body {
-	background-image: url("../img/lightbg.png");
-	background-size: cover;
-	
-}
+
 .content-31 {
 	display: none;
 }
 .content-33 {
 	display: none;
 }
-.container {
+div.container {
 	grid-template-rows: calc((var(--height-container) - var(--height-center))) var(--height-center) 0px;
 }
 
@@ -325,7 +280,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 					{% endif %}
 				{% endfor %}
 			{% endif %}
-			{% if spendPerThing[i][ii-1]>0 %}
+			{% if spendPerThing[i][iiiii-1]>0 %}
 				{% for iii in range(1,10) %}
 					{% if iii <= maxPlots[iiiii-1] %}
 						input#radio{{ ii }}D{{ iiiii }}:checked {% for iiii in range(1,iii) %}~ input.radioPts{{ iiiii }}:checked {% endfor %}~ #{{ itemNames[i-1] }}Span .item{{ iiiii }}{{ 10-iii }} {
