@@ -1,5 +1,6 @@
 
 const OpenSimplexNoise = require('open-simplex-noise');
+var fs = require("fs");
 const noise = OpenSimplexNoise.makeNoise3D(Date.now());
 
 function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
