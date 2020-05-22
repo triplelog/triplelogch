@@ -21,7 +21,7 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
     for (var i=0;i<paths.length;i++){
     	h = noise2D(i/paths.length,1-i/paths.length)*360;
     	s = '75%';
-    	l = (40-i*20/paths.length)+'%';
+    	l = (60-i*20/paths.length)+'%';
     	if (i%10==0){
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="black" d="'+paths[i]+'" />';
     	}
