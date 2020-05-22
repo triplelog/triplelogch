@@ -47,7 +47,11 @@ app.get('/index.html',
 		res.end();
 	}
 );
-var puzzles = {'simple':['12.8...5..94.25...83.7....2....42...3...7...5...68....2....8.34...45.12..7...9.86','...346.....2......5638......4..138.72.......9.8..954.66271.......4.........684...']}
+var puzzles = {'simple':[]}
+fs.readFile('/puzzles/sudokusimple.txt', (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
 app.get('/sudoku.html', 
 	
 	function(req, res) {
