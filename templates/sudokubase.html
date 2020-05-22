@@ -109,7 +109,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 {% block content33 %}
 		  <div>
 		  {% if gametype == 'daily' %}
-		  	<a href="../sudoku.html?l={{ gametype }}{{ gameid }}" class="basic">Previous Puzzle</a>
+		  	<a href="../sudoku.html?d={{ gameid }}" class="basic">Previous Puzzle</a>
 		  {% else %}
 		  	<a href="../sudoku.html?l={{ gametype }}{{ gameid + 1}}" class="basic">Next Puzzle</a>
 		  {% endif %}

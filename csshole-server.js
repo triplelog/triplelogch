@@ -160,39 +160,38 @@ app.get('/sudoku.html',
 				var puzzleRaw = puzzles[gametype][gameid];
 				puzzle = makePuzzle(puzzleRaw);
 			}
-			else if (req.query.l.substring(0,5) == 'daily'){
-				gametype = 'daily';
-				var d = new Date(req.query.l.substring(5));
-				if (!isNaN(d.getDate())){
-					var month = d.getMonth()+1;
-					var date = d.getDate();
-					var year = d.getYear()+1900;
-					console.log(month+'/'+date+'/'+year);
-					var puzzleRaw = puzzles['daily'][month+'/'+date+'/'+year];
-					puzzle = makePuzzle(puzzleRaw);
-					d.setDate(d.getDate()-1);
-					month = d.getMonth()+1;
-					date = d.getDate();
-					year = d.getYear()+1900;
-					console.log(month+'/'+date+'/'+year);
-					gameid = month+'/'+date+'/'+year;
-				}
-				else {
-					var d = new Date();
-					var month = d.getMonth()+1;
-					var date = d.getDate();
-					var year = d.getYear()+1900;
-					console.log(month+'/'+date+'/'+year);
-					var puzzleRaw = puzzles['daily'][month+'/'+date+'/'+year];
-					puzzle = makePuzzle(puzzleRaw);
-					d.setDate(d.getDate()-1);
-					month = d.getMonth()+1;
-					date = d.getDate();
-					year = d.getYear()+1900;
-					console.log(month+'/'+date+'/'+year);
-					gameid = month+'/'+date+'/'+year;
-				}
-				
+		}
+		else if (req.query && req.query.d){
+			gametype = 'daily';
+			var d = new Date(req.query.d);
+			if (!isNaN(d.getDate())){
+				var month = d.getMonth()+1;
+				var date = d.getDate();
+				var year = d.getYear()+1900;
+				console.log(month+'/'+date+'/'+year);
+				var puzzleRaw = puzzles['daily'][month+'/'+date+'/'+year];
+				puzzle = makePuzzle(puzzleRaw);
+				d.setDate(d.getDate()-1);
+				month = d.getMonth()+1;
+				date = d.getDate();
+				year = d.getYear()+1900;
+				console.log(month+'/'+date+'/'+year);
+				gameid = month+'/'+date+'/'+year;
+			}
+			else {
+				var d = new Date();
+				var month = d.getMonth()+1;
+				var date = d.getDate();
+				var year = d.getYear()+1900;
+				console.log(month+'/'+date+'/'+year);
+				var puzzleRaw = puzzles['daily'][month+'/'+date+'/'+year];
+				puzzle = makePuzzle(puzzleRaw);
+				d.setDate(d.getDate()-1);
+				month = d.getMonth()+1;
+				date = d.getDate();
+				year = d.getYear()+1900;
+				console.log(month+'/'+date+'/'+year);
+				gameid = month+'/'+date+'/'+year;
 			}
 		}
 		else if (req.query && req.query.p){
