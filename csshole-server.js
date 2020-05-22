@@ -50,7 +50,8 @@ app.get('/index.html',
 var puzzles = {'simple':[]}
 fs.readFile('./puzzles/sudokusimple.txt', 'utf8', (err, data) => {
   if (err) throw err;
-  console.log(data);
+  var lines = data.split('\n');
+  console.log('__'+lines[0]+'__');
 });
 app.get('/sudoku.html', 
 	
