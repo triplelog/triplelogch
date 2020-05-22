@@ -18,7 +18,10 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
     }
     var svg = '<html><body><svg height="200" width="200">';
     for (var i=0;i<paths.length;i++){
-    	svg += '<path fill="none" stroke="black" d="'+paths[i]+'" />'
+    	r = Math.random()*255;
+    	g = Math.random()*255;
+    	b = Math.random()*255;
+    	svg += '<path fill="rgb('+r+','+g+','+b+')" stroke="black" d="'+paths[i]+'" />'
     }
     svg += '</svg></body></html';
 	fs.writeFile('../static/logo.html', svg, function (err) {});
