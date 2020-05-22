@@ -164,14 +164,14 @@ app.get('/sudoku.html',
 				gametype = 'daily';
 				var d = new Date(req.query.l.substring(5));
 				if (!isNaN(d.getDate())){
-					var month = d.getMonth();
+					var month = d.getMonth()+1;
 					var date = d.getDate();
 					var year = d.getYear()+1900;
 					console.log(month+'/'+date+'/'+year);
 					var puzzleRaw = puzzles['daily'][month+'/'+date+'/'+year];
 					puzzle = makePuzzle(puzzleRaw);
-					d.setDate(-1);
-					month = d.getMonth();
+					d.setDate(d.getDate()-1);
+					month = d.getMonth()+1;
 					date = d.getDate();
 					year = d.getYear()+1900;
 					console.log(month+'/'+date+'/'+year);
@@ -179,14 +179,14 @@ app.get('/sudoku.html',
 				}
 				else {
 					var d = new Date();
-					var month = d.getMonth();
+					var month = d.getMonth()+1;
 					var date = d.getDate();
 					var year = d.getYear()+1900;
 					console.log(month+'/'+date+'/'+year);
 					var puzzleRaw = puzzles['daily'][month+'/'+date+'/'+year];
 					puzzle = makePuzzle(puzzleRaw);
-					d.setDate(-1);
-					month = d.getMonth();
+					d.setDate(d.getDate()-1);
+					month = d.getMonth()+1;
 					date = d.getDate();
 					year = d.getYear()+1900;
 					console.log(month+'/'+date+'/'+year);
@@ -202,14 +202,14 @@ app.get('/sudoku.html',
 		else {
 			gametype = 'daily';
 			var d = new Date();
-			var month = d.getMonth();
+			var month = d.getMonth()+1;
 			var date = d.getDate();
 			var year = d.getYear()+1900;
 			console.log(month+'/'+date+'/'+year);
 			var puzzleRaw = puzzles['daily'][month+'/'+date+'/'+year];
 			puzzle = makePuzzle(puzzleRaw);
-			d.setDate(-1);
-			month = d.getMonth();
+			d.setDate(d.getDate()-1);
+			month = d.getMonth()+1;
 			date = d.getDate();
 			year = d.getYear()+1900;
 			console.log(month+'/'+date+'/'+year);
