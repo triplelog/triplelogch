@@ -38,8 +38,8 @@ input {
 
 .nowinmessage {
 	position:absolute;
-	top:calc(var(--width-block) * 12 + 10px);
-	left:5px;
+	top:calc(var(--width-block) * 11);
+	left:0px;
 	z-index:10;
 	width:100vmin;
 	height: 20px;
@@ -47,8 +47,8 @@ input {
 }
 .winmessage {
 	position:absolute;
-	top:calc(var(--width-block) * 12 + 10px);
-	left:5px;
+	top:calc(var(--width-block) * 11);
+	left:0px;
 	z-index:1;
 	height: 20px;
 	background: white;
