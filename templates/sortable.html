@@ -153,6 +153,26 @@
 #page1:checked ~ div > label[for="page1"] > button.basic {
 	background: #22aa33;
 }
+#page2:checked ~ div > label[for="page2"] > button.basic {
+	background: #22aa33;
+}
+#page3:checked ~ div > label[for="page3"] > button.basic {
+	background: #22aa33;
+}
+#page4:checked ~ div > label[for="page4"] > button.basic {
+	background: #22aa33;
+}
+#page5:checked ~ div > label[for="page5"] > button.basic {
+	background: #22aa33;
+}
+
+#sort-ascending:checked ~ div > label[for="sort-ascending"] > button.basic {
+	background: #22aa33;
+}
+#sort-descending:checked ~ div > label[for="sort-descending"] > button.basic {
+	background: #22aa33;
+}
+
 
 
 {% for i in range(1,ncols) %} #sort-col{{ i }}, {% endfor %}{% for i in range(ncols,ncols+1) %} #sort-col{{ i }} {% endfor %} { display: none; }
@@ -162,7 +182,7 @@ input[type="radio"] {
 }
 .sortable {
 	background-image: url("../img/tablebgtall.png");
-  	background-size: 100% 100%;
+  	background-size: 100% 500px;
   	background-repeat: no-repeat;
 }
 {% endblock %}
@@ -234,8 +254,8 @@ Because it is possible.
 	<input type="radio" name="pageNumber" id="page5"></input>
 	
 	<div>
-		<button class="basic"><label for="sort-ascending">Descending</label></button>
-		<button class="basic"><label for="sort-descending">Ascending</label></button>
+		<label for="sort-ascending"><button class="basic">Descending</button></label>
+		<label for="sort-descending"><button class="basic">Ascending</button></label>
 	</div>
 	<div class="sortable-header">
 		{% for i in range(1,ncols+1) %}<label class="sortable-col{{ i }}" for="sort-col{{ i }}">{{ header[i-1] }}</label>{% endfor %}
@@ -255,10 +275,10 @@ Because it is possible.
 	</div>
 	<div>
 		<label for="page1"><button class="basic">1</button></label>
-		<button class="basic"><label for="page2">2</label></button>
-		<button class="basic"><label for="page3">3</label></button>
-		<button class="basic"><label for="page4">4</label></button>
-		<button class="basic"><label for="page5">5</label></button>
+		<label for="page2"><button class="basic">2</button></label>
+		<label for="page3"><button class="basic">3</button></label>
+		<label for="page4"><button class="basic">4</button></label>
+		<label for="page5"><button class="basic">5</button></label>
 	</div>
 {% endblock %}
 
