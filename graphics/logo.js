@@ -2,10 +2,7 @@
 const OpenSimplexNoise = require('open-simplex-noise');
 const noise = new OpenSimplexNoise(40);
 
-function drawFlower(circle: {x: number, y: number, radius: number},
-                           frequency: number = 2.0, magnitude: number = 0.5,
-                           independence: number = 0.1, spacing: number = 0.01,
-                           count: number = 300): void {
+function drawFlower(circle,frequency, magnitude,independence, spacing: number = 0.01,count: number = 300) {
     // adjust the radius so will have roughly the same size irregardless of magnitude
     let current = {...circle};
     current.radius /= (magnitude + 1);
@@ -23,10 +20,7 @@ function drawFlower(circle: {x: number, y: number, radius: number},
     console.log(paths);
 }
 
-function drawDeformedCircle( circle: {x: number, y: number, radius: number},
-                                   frequency: number,
-                                   magnitude: number,
-                                   seed: number = 0): void {
+function drawDeformedCircle( circle,frequency, magnitude,seed) {
         var path = 'M';
 
         // Sample points evenly around the circle
