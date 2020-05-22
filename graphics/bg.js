@@ -17,11 +17,11 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
         // shrink the radius of the next circle
         current.radius *= Math.pow((1 - spacing),1+2*i/count);
     }
-    var svg = '<html><body><svg height="1080" width="1920" viewBox="-960 -540 1920 1080">';
+    var svg = '<html><body><svg height="540" width="960" viewBox="-960 -540 1920 1080">';
     for (var i=0;i<paths.length;i++){
     	h = noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*360;
-    	s = '50%';
-    	l = (100-i*30/paths.length)+'%';
+    	s = '40%';
+    	l = (100-i*20/paths.length)+'%';
     	if (i%10==0){
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="white" d="'+paths[i]+'" />';
     	}
