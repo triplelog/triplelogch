@@ -17,13 +17,26 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
         // shrink the radius of the next circle
         current.radius *= Math.pow((1 - spacing),1+2*i/count);
     }
-    var svg = '<html><body><svg preserveAspectRatio="none" height="100" width="800" viewBox="-960 -540 1920 1080">';
+    /*var svg = '<html><body><svg preserveAspectRatio="none" height="100" width="800" viewBox="-960 -540 1920 1080">';
     for (var i=0;i<paths.length;i++){
     	h = noise2D(i/paths.length,1-i/paths.length)*360;
     	s = '75%';
     	l = (60-i*20/paths.length)+'%';
     	if (i%10==0){
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="black" d="'+paths[i]+'" />';
+    	}
+    	else {
+    		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="none" d="'+paths[i]+'" />';
+    	}
+    	
+    }*/
+    var svg = '<html><body><svg preserveAspectRatio="none" height="600" width="900" viewBox="-960 -540 1920 1080">';
+    for (var i=0;i<paths.length;i++){
+    	h = noise2D(i/paths.length,1-i/paths.length)*360;
+    	s = '50%';
+    	l = (95-i*20/paths.length)+'%';
+    	if (i%10==0){
+    		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="white" d="'+paths[i]+'" />';
     	}
     	else {
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="none" d="'+paths[i]+'" />';
@@ -53,11 +66,11 @@ function drawDeformedCircle( circle,frequency, magnitude,seed) {
             const radius = circle.radius * (1 + magnitude * deformation);
 
             // Extend the circle to this deformed radius
-            path += ((circle.x + radius * x)*1) + ','+((circle.y + radius * y)*3)+' ';
+            path += ((circle.x + radius * x)*1) + ','+((circle.y + radius * y)*5)+' ';
         }
         path += 'Z';
         return path;
 }
 
 //drawFlower({x:100,y:100,radius:50},2.0,0.5,0.1,0.01,300);
-drawFlower({x:0,y:0,radius:1000},2.0,0.5,0.09,0.008,200);
+drawFlower({x:0,y:0,radius:1000},2.0,0.5,0.09,0.007,200);
