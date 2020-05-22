@@ -10,9 +10,7 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
     for (let i = 0; i < count; ++i) {
         // draw a circle, the final parameter controlling how similar it is to
         // other circles in this image
-        drawDeformedCircle(current,
-                           frequency, magnitude,
-                           i * independence);
+        paths.push(drawDeformedCircle(current,frequency, magnitude,i * independence));
 
         // shrink the radius of the next circle
         current.radius *= (1 - spacing);
@@ -42,7 +40,7 @@ function drawDeformedCircle( circle,frequency, magnitude,seed) {
             path += (circle.x + radius * x) + ','+(circle.y + radius * y)+' ';
         }
         path += 'Z';
-        paths.push(path);
+        return path;
 }
 
 drawFlower({x:0,y:0,radius:100},2.0,0.5,0.1,0.01,7);
