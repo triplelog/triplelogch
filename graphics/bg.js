@@ -33,8 +33,8 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
     var svg = '<html><body><svg preserveAspectRatio="none" height="600" width="900" viewBox="-960 -540 1920 1080">';
     for (var i=0;i<paths.length;i++){
     	h = noise2D(i/paths.length,1-i/paths.length)*360;
-    	s = '50%';
-    	l = (95-i*10/paths.length)+'%';
+    	s = '40%';
+    	l = (96-i*7/paths.length)+'%';
     	if (i%10==0){
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="white" d="'+paths[i]+'" />';
     	}
