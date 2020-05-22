@@ -31,7 +31,7 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
     	
     }
     svg += '</svg></body></html';
-	fs.writeFile('../static/logo.html', svg, function (err) {});
+	fs.writeFile('../static/bg.html', svg, function (err) {});
 }
 
 function drawDeformedCircle( circle,frequency, magnitude,seed) {
