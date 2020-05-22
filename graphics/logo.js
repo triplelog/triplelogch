@@ -2,7 +2,7 @@
 const OpenSimplexNoise = require('open-simplex-noise');
 const noise = new OpenSimplexNoise(40);
 
-function drawFlower(circle,frequency, magnitude,independence, spacing: number = 0.01,count: number = 300) {
+function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
     // adjust the radius so will have roughly the same size irregardless of magnitude
     let current = {...circle};
     current.radius /= (magnitude + 1);
