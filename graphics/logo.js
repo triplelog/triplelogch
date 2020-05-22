@@ -21,7 +21,7 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
     	svg += '<path fill="none" stroke="black" d="'+paths[i]+'">'
     }
     svg += '</svg>';
-	fs.writeFile('logo.svg', svg, function (err) {});
+	fs.writeFile('../static/logo.svg', svg, function (err) {});
 }
 
 function drawDeformedCircle( circle,frequency, magnitude,seed) {
