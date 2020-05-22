@@ -155,6 +155,11 @@
 input[type="radio"] {
 	display: none;
 }
+.sortable {
+	background-image: url("../img/headerbgwide.png");
+  	background-size: 100% 100%;
+  	background-repeat: no-repeat;
+}
 {% endblock %}
 
 
@@ -224,8 +229,8 @@ Because it is possible.
 	<input type="radio" name="pageNumber" id="page5"></input>
 	
 	<div>
-		<label for="sort-ascending">Descending</label>
-		<label for="sort-descending">Ascending</label>
+		<button class="basic"><label for="sort-ascending">Descending</label></button>
+		<button class="basic"><label for="sort-descending">Ascending</label></button>
 	</div>
 	<div class="sortable-header">
 		{% for i in range(1,ncols+1) %}<label class="sortable-col{{ i }}" for="sort-col{{ i }}">{{ header[i-1] }}</label>{% endfor %}
@@ -244,11 +249,11 @@ Because it is possible.
 		</div>
 	</div>
 	<div>
-		<label for="page1">1</label>
-		<label for="page2">2</label>
-		<label for="page3">3</label>
-		<label for="page4">4</label>
-		<label for="page5">5</label>
+		<button class="basic"><label for="page1">1</label></button>
+		<button class="basic"><label for="page2">2</label></button>
+		<button class="basic"><label for="page3">3</label></button>
+		<button class="basic"><label for="page4">4</label></button>
+		<button class="basic"><label for="page5">5</label></button>
 	</div>
 {% endblock %}
 
