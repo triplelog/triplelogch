@@ -66,7 +66,7 @@ function drawDeformedCircle( circle,frequency, magnitude,seed) {
             const radius = circle.radius * (1 + magnitude * deformation);
 
             // Extend the circle to this deformed radius
-            path += ((circle.x + radius * x)*1) + ','+((circle.y + radius * y)*3)+' ';
+            path += ((circle.x + radius * x)*1) + ','+((circle.y + radius * y)*5)+' ';
         }
         path += 'Z';
         return path;
