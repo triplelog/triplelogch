@@ -19,9 +19,9 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
     }
     var svg = '<html><body><svg height="400" width="400">';
     for (var i=0;i<paths.length;i++){
-    	h = noise2D(.2+i/paths.length*.6,.8-i/paths.length*.6)*360;
+    	h = noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*360;
     	s = '80%';
-    	l = (75-i*70/paths.length)+'%';
+    	l = (75-i*60/paths.length)+'%';
     	if (i%5==0){
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="black" d="'+paths[i]+'" />';
     	}
