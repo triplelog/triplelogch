@@ -12,7 +12,7 @@
 
 
 <style>
-.container {
+div.container {
 	display: grid;
 	--height-container: calc(100vh - 3rem);
 	--width-container: calc(100vw - 3rem);
@@ -62,14 +62,14 @@
 	cursor: pointer;
 	text-shadow: 0px 0px 10px black 0px 0px 10px black;
 }
-.container div .title {
+div.container div .title {
 	display: grid;
 	grid-template-columns: 1fr auto 1fr;
   	grid-template-rows: max-content;
   	justify-content: stretch;
 
 }
-.container div .title .titleLeft {
+div.container div .title .titleLeft {
 	grid-column: 1;
 	margin-left: 4px;
 	min-height: 1px;
@@ -77,20 +77,20 @@
 	line-height: calc(2 * var(--border-radius));
 	height: calc(2 * var(--border-radius));
 }
-.container div .title .titleCenter {
+div.container div .title .titleCenter {
 	grid-column: 2;
 	position: relative;
 	line-height: calc(2 * var(--border-radius));
 	height: calc(2 * var(--border-radius));
 }
-.container div .title .titleRight {
+div.container div .title .titleRight {
 	grid-column: 3;
 	min-height: 1px;
 	position: relative;
 	line-height: calc(2 * var(--border-radius));
 	height: calc(2 * var(--border-radius));
 }
-.container div .title .titleRight label{
+div.container div .title .titleRight label{
 	margin-right: calc(var(--border-radius) / 3);
 	height: calc(2 * var(--border-radius));
 	line-height: calc(2 * var(--border-radius));
