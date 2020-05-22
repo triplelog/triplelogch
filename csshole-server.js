@@ -51,7 +51,12 @@ var puzzles = {'simple':[]}
 fs.readFile('./puzzles/sudokusimple.txt', 'utf8', (err, data) => {
   if (err) throw err;
   var lines = data.split('\n');
-  console.log('__'+lines[0]+'__');
+  for (var i=0;i<lines.length;i++){
+  	var line = lines[i];
+  	if (line.length == 81){
+  		puzzles['simple'].push(line);
+  	}
+  }
 });
 app.get('/sudoku.html', 
 	
