@@ -135,21 +135,20 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 		  <span class="cmark{{ i }} normBlock cmarkAll">{{ i }}</span>
   
 		  <span class="sudoku{{ i }} sudokuAll">
-		  {% for rowI in range(1,10) %}
-			{% for colI in range(1,10) %}<input type="checkbox" style="display:none;" class="row{{ rowI }}{{ i }} col{{ colI }}{{ i }} box{{(((colI-1)-((colI-1)%3)) / 3) + 3*(((rowI-1)-((rowI-1)%3)) / 3) + 1 }}{{ i }}" id="cell{{ i }}{{ rowI }}{{ colI }}" {% if puzzle[rowI-1][colI-1] == i %}checked{% endif %}><label for="cell{{ i }}{{ rowI }}{{ colI }}" class="col{{ colI }} row{{ rowI }} check{{ i }} normBlock">{{ i }}</label>{% endfor %}
-			<br />
-		  {% endfor %}
-		  {% for rowI in range(1,10) %}
-			{% for colI in range(1,10) %}<input type="checkbox" style="display:none;" class="grow{{ rowI }}{{ i }} gcol{{ colI }}{{ i }} gbox{{(((colI-1)-((colI-1)%3)) / 3) + 3*(((rowI-1)-((rowI-1)%3)) / 3) + 1}}{{ i }}" id="gcell{{ i }}{{ rowI }}{{ colI }}"><label for="gcell{{ i }}{{ rowI }}{{ colI }}" class="col{{ colI }} row{{ rowI }} gcheck{{ i }} normBlock">{{ i }}</label>{% endfor %}
-			<br />
-		  {% endfor %}
-		  </span>
-		  <span class="blackout{{ i }} normBlock blackoutAll">{{ i }}</span>
+			  {% for rowI in range(1,10) %}
+				{% for colI in range(1,10) %}<input type="checkbox" style="display:none;" class="row{{ rowI }}{{ i }} col{{ colI }}{{ i }} box{{(((colI-1)-((colI-1)%3)) / 3) + 3*(((rowI-1)-((rowI-1)%3)) / 3) + 1 }}{{ i }}" id="cell{{ i }}{{ rowI }}{{ colI }}" {% if puzzle[rowI-1][colI-1] == i %}checked{% endif %}><label for="cell{{ i }}{{ rowI }}{{ colI }}" class="col{{ colI }} row{{ rowI }} check{{ i }} normBlock">{{ i }}</label>{% endfor %}
+				<br />
+			  {% endfor %}
+			  {% for rowI in range(1,10) %}
+				{% for colI in range(1,10) %}<input type="checkbox" style="display:none;" class="grow{{ rowI }}{{ i }} gcol{{ colI }}{{ i }} gbox{{(((colI-1)-((colI-1)%3)) / 3) + 3*(((rowI-1)-((rowI-1)%3)) / 3) + 1}}{{ i }}" id="gcell{{ i }}{{ rowI }}{{ colI }}"><label for="gcell{{ i }}{{ rowI }}{{ colI }}" class="col{{ colI }} row{{ rowI }} gcheck{{ i }} normBlock">{{ i }}</label>{% endfor %}
+				<br />
+			  {% endfor %}
+			  <span class="blackout{{ i }} normBlock blackoutAll">{{ i }}</span>
 
 		  
-		  <span class="nowinmessage">
-		  </span>
-		  <span class="winmessage">Great job, you beat the game!</span>
+			  <span class="nowinmessage">
+			  </span>
+			  <span class="winmessage">Great job, you beat the game!</span>
 
 		  </span>
 		</label>
