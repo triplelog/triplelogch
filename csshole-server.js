@@ -47,19 +47,46 @@ app.get('/index.html',
 		res.end();
 	}
 );
+var puzzles = {'simple':['12.8...5..94.25...83.7....2....42...3...7...5...68....2....8.34...45.12..7...9.86','...346.....2......5638......4..138.72.......9.8..954.66271.......4.........684...']}
 app.get('/sudoku.html', 
 	
 	function(req, res) {
-
+		var puzzle = [[8, 7, 0, 0, 0, 3, 0, 0, 0], [0, 0, 0, 6, 0, 0, 0, 3, 7], [0, 6, 0, 8, 0, 0, 0, 0, 5], [7, 0, 0, 0, 0, 0, 0, 1, 3], [0, 0, 9, 0, 1, 5, 0, 0, 0], [3, 0, 0, 0, 0, 0, 0, 2, 9], [0, 8, 0, 9, 0, 0, 0, 0, 6], [0, 0, 0, 5, 0, 0, 0, 7, 1], [2, 1, 0, 0, 0, 6, 0, 0, 0]];
+		var gametype = 'simple';
+		var gameid = 1;
+		if (req.query && req.query.l){
+			if (req.query.l.substring(0,6) == 'simple'){
+				gametype = 'simple';
+				gameid = parseInt(req.query.l.substring(6));
+				var puzzleRaw = puzzles[gametype][gameid];
+				puzzle = makePuzzle(puzzleRaw);
+			}
+		}
 		res.write(nunjucks.render('templates/sudokubase.html',{
-			puzzle: [[8, 7, 0, 0, 0, 3, 0, 0, 0], [0, 0, 0, 6, 0, 0, 0, 3, 7], [0, 6, 0, 8, 0, 0, 0, 0, 5], [7, 0, 0, 0, 0, 0, 0, 1, 3], [0, 0, 9, 0, 1, 5, 0, 0, 0], [3, 0, 0, 0, 0, 0, 0, 2, 9], [0, 8, 0, 9, 0, 0, 0, 0, 6], [0, 0, 0, 5, 0, 0, 0, 7, 1], [2, 1, 0, 0, 0, 6, 0, 0, 0]],
-			gametype: 'easy',
-			gameid: 1,
+			puzzle: puzzle,
+			gametype: gametype,
+			gameid: gameid,
 		}));
 		res.end();
 	}
 );
 
+function makePuzzle(puzzleRaw) {
+	var puzzle = [];
+	for (var i=0;i<9;i++){
+		var row = [];
+		for (var ii=0;ii<9;ii++){
+			if (puzzleRaw[i*9+ii] == '.'){
+				row.push(0);
+			}
+			else {
+				row.push(parseInt(puzzleRaw[i*9+ii]));
+			}
+		}
+		puzzle.push(row);
+	}
+	return puzzle;
+}
 app.get('/sudokufarm.html', 
 	
 	function(req, res) {
