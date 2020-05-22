@@ -105,7 +105,7 @@ app.get('/sudoku.html',
 		if (req.query && req.query.l){
 			if (req.query.l.substring(0,4) == 'easy'){
 				gametype = 'easy';
-				gameid = parseInt(req.query.l.substring(6));
+				gameid = parseInt(req.query.l.substring(4));
 				if (isNaN(gameid) || gameid<1){
 					res.redirect('../sudoku.html?l=easy1');
 					return;
