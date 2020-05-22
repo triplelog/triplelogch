@@ -13,6 +13,8 @@
 {% block centerSize %}
 	--height-center: 70vh;
 	--width-center: calc(25vw + 200px);
+	--knob-width: 400px;
+	--knob-height: 400px;
 {% endblock %}
 
 {% block titleCSS %}
@@ -234,18 +236,18 @@ label.c0n1:not(.nextButton) {
 }
 .svgregion {
 	position: absolute;
-	top:50px;
-	left:50px;
-	width: 400px;
-	height: 400px;
+	top:var(--knob-margin);
+	left:var(--knob-margin);
+	width: calc(var(--knob-width) - 2 * var(--knob-margin));
+	height: calc(var(--knob-height) - 2 * var(--knob-margin));
 	
 }
 .svgborder {
 	position: absolute;
-	top:40px;
-	left:40px;
-	width: 420px;
-	height: 420px;
+	top:calc( var(--knob-margin) - 10px);
+	left:calc( var(--knob-margin) - 10px);
+	width: calc(var(--knob-width) - 2 * var(--knob-margin) + 20px);
+	height: calc(var(--knob-height) - 2 * var(--knob-margin) + 20px);
 	z-index: 1;
 	opacity: 0.0;
 }
@@ -260,10 +262,10 @@ label.c0n1:not(.nextButton) {
 .knob {
 	pointer-events: none;
 	position: absolute;
-	left: 100px;
-	top: 100px;
-	height: 500px;
-	width: 500px;
+	left: calc(2 * var(--knob-margin));
+	top: calc(2 * var(--knob-margin));
+	height: var(--knob-width);
+	width: var(--knob-height);
 	background: gray;
 }
 #radio13-2:checked ~ .content-13 {
