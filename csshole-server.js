@@ -59,7 +59,6 @@ for (var ii=0;ii<2;ii++ ){
 	else {
 		puzzles[puzzleTypes[ii]] = [];
 	}
-	console.log(puzzles);
 	fs.readFileSync('./puzzles/sudoku'+puzzleTypes[ii]+'.txt', 'utf8', (err, data) => {
 	  if (err) throw err;
 	  var lines = data.split('\n');
