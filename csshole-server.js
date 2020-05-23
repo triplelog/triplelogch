@@ -368,7 +368,7 @@ app.get('/sortable.html',
 				}
 			}
 			console.log(performance.now());
-			var showrows = 20;
+			var showrows = 200;
 			//sort content
 			var order = [];
 			for (var i=0;i<ncols;i++){
