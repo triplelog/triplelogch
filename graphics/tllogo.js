@@ -63,8 +63,8 @@ function drawLine(xI,yI){
 	var x = 0;
 	var y = 0;
 	for (var i=0;i<100;i++){
-		x = i*3;
-		y = i*-3;
+		x = i*2.5;
+		y = i*-2.5;
 		xdef = 1 + .04*(noise2D(x/500,y/500)+1);
 		ydef = 1 + .04*(noise2D(x/1000,y/1000)+1);
 		path += (xI + x * xdef) + ',' + (yI + y * ydef)+' ';
@@ -91,8 +91,13 @@ svg += line1;
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var line1 = drawLine(400+100*1.4/2,400+100*1.4/2);
-svg += line1;
+var line2 = drawLine(400+100*1.4/2,400+100*1.4/2);
+svg += line2;
+
+noise = OpenSimplexNoise.makeNoise3D(Date.now());
+noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
+var line3 = drawLine(400,300);
+svg += line3;
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
