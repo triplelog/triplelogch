@@ -65,8 +65,8 @@ function drawLine(xI,yI,color){
 	for (var i=0;i<100;i++){
 		x = i*2.5;
 		y = i*-2.5;
-		xdef = 1 + .04*(noise2D(x/500,y/500)+1);
-		ydef = 1 + .04*(noise2D(x/1000,y/1000)+1);
+		xdef = 1 + .2*(noise2D(x/500,y/500)+1);
+		ydef = 1 + .2*(noise2D(x/1000,y/1000)+1);
 		path += (xI + x * xdef) + ',' + (yI + y * ydef)+' ';
 	}
 	path += 'Z';
@@ -84,7 +84,7 @@ function drawLines(xc,yc,r){
 	var svg = '<circle cx="'+xc+'" cy="'+yc+'" r="'+r+'" />';
 	var samples = 120;
 	for (let j = 0; j < samples; ++j) {
-		const angle = (2 * Math.PI * j) / samples;
+		const angle = .3 + (2 * Math.PI * j) / samples * .5;
 
 		// Figure out the x/y coordinates for the given angle
 		const x = Math.cos(angle)*r + xc;
