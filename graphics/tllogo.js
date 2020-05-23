@@ -100,36 +100,36 @@ function drawLines(xc,yc,r){
 
 
 //drawFlower({x:100,y:100,radius:50},2.0,0.5,0.1,0.01,300);
-var svg = '<html><body><svg height="600" width="800">';
+var svg = '<html><body><svg height="620" width="800">';
 
 var noise = OpenSimplexNoise.makeNoise3D(Date.now());
 var noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var line1 = drawLines(200,400,98);
+var line1 = drawLines(200-3,500+3,100);
 svg += line1;
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var line2 = drawLines(400,400,98);
+var line2 = drawLines(400-3,500+3,100);
 svg += line2;
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var line2 = drawLines(300,227,98);
+var line2 = drawLines(300-3,330+3,100);
 svg += line2;
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var end1 = drawLogs({x:200,y:400,radius:100},2.0,0.04,0.09,.9,105);
+var end1 = drawLogs({x:200,y:500,radius:100},2.0,0.04,0.09,.9,105);
 svg += end1;
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var end2 = drawLogs({x:400,y:400,radius:100},2.0,0.04,0.09,.9,105);
+var end2 = drawLogs({x:400,y:500,radius:100},2.0,0.04,0.09,.9,105);
 svg += end2;
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var end3 = drawLogs({x:300,y:227,radius:100},2.0,0.04,0.09,.9,105);
+var end3 = drawLogs({x:300,y:330,radius:100},2.0,0.04,0.09,.9,105);
 svg += end3;
 
 
