@@ -125,7 +125,7 @@
 	background: white;
 }
 {% for i in range(0,99) %}
-	#radio100:checked ~ .min-{{ i }}  { display: none;}
+	#radio000:Not(:checked) ~ .min-{{ i }}  { display: none;}
 {% endfor %}
 
 {% for i in range(1,nrows+1) %}
