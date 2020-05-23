@@ -65,8 +65,8 @@ function drawLine(xI,yI,color){
 	for (var i=0;i<100;i++){
 		x = i*2.5;
 		y = i*-2.5;
-		xdef = 1 + .2*(noise2D(x/500,y/500)+1);
-		ydef = 1 + .2*(noise2D(x/1000,y/1000)+1);
+		xdef = .8 + .2*(noise2D(x/500,y/500)+1);
+		ydef = .8 + .2*(noise2D(x/1000,y/1000)+1);
 		path += (xI + x * xdef) + ',' + (yI + y * ydef)+' ';
 	}
 	path += 'Z';
