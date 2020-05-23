@@ -63,10 +63,10 @@ function drawLine(xI,yI,color){
 	var x = 0;
 	var y = 0;
 	for (var i=0;i<100;i++){
-		x = i*2.5;
-		y = i*-2.5;
-		xdef = .8 + .2*(noise2D(x/500,y/500)+1);
-		ydef = .8 + .2*(noise2D(x/1000,y/1000)+1);
+		x = i*2;
+		y = i*-2;
+		xdef = .8 + .2*(noise2D(x/300,y/300)+1);
+		ydef = .8 + .2*(noise2D(x/600,y/600)+1);
 		path += (xI + x * xdef) + ',' + (yI + y * ydef)+' ';
 	}
 	path += 'Z';
@@ -82,14 +82,17 @@ function drawLine(xI,yI,color){
 
 function drawLines(xc,yc,r){
 	var svg = '';//'<circle fill="none" stroke="black" cx="'+(xc+250)+'" cy="'+(yc-250)+'" r="'+r+'" />';
-	var samples = 250;
+	var samples = 200;
 	for (let j = 0; j < samples; ++j) {
 		const angle = 2 * Math.PI *  (.16 - .5 * j / samples );
 
 		// Figure out the x/y coordinates for the given angle
 		const x = Math.cos(angle)*r + xc;
 		const y = Math.sin(angle)*r + yc;
-		var color = 'hsl(34,50%,30%)';
+		h = 30 + noise2D(.9-j/samples*.8,.1+j/samples*.8)*10;
+    	s = (45 + noise2D(.1+j/samples*.8,.9-j/samples*.8)*5)+'%';
+    	l = (25+Math.min(j%11,10-(j%11))*9)+'%';
+		var color = 'hsl('+h+','+s+','+l+')';
 		svg += drawLine(x,y,color);
 	}
 	return svg;
@@ -101,7 +104,7 @@ var svg = '<html><body><svg height="600" width="800">';
 
 var noise = OpenSimplexNoise.makeNoise3D(Date.now());
 var noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var line1 = drawLines(400,400,100);
+var line1 = drawLines(400,400,98);
 svg += line1;
 
 
