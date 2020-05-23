@@ -143,11 +143,25 @@
 	{% endfor %}
 {% endfor %}
 
-
 {% for i in range(10,100) %}
 	{% set r = i%10 %}
 	{% for ii in range(r,10) %}
 		#radio{{ ((i-r)/10) }}0:checked ~ #radio{{ ii }}:checked ~ .min-{{ i }}  { display: none;}
+	{% endfor %}
+{% endfor %}
+
+{% for i in range(10,100) %}
+	{% set r = i%10 %}
+	{% for ii in range(r,10) %}
+		#radio{{ ((i-r)/10) }}00:checked ~ #radio{{ ii }}0:checked ~ .min-{{ i }}0  { display: none;}
+	{% endfor %}
+{% endfor %}
+
+{% for i in range(100,1000) %}
+	{% set r = i%10 %}
+	{% set rr = i%100 %}
+	{% for ii in range(r,10) %}
+		#radio{{ ((i-rr)/100) }}00:checked ~ #radio{{ ((i-r)/10) }}0:checked ~ #radio{{ ii }}:checked ~ .min-{{ i }}  { display: none;}
 	{% endfor %}
 {% endfor %}
 
@@ -274,10 +288,21 @@ input[type="radio"] {
 {% endblock %}
 {% block content11 %}
 Year, batters or pitchers, min PA
-	<label for="radio000">000</label>
-	<label for="radio100">100</label>
-	<label for="radio00">00</label>
-	<label for="radio10">10</label>
+	<div>
+		{% for i in range(0,10) %}
+			<label for="radio{{ i }}00">{{i}}00</label>
+		{% endfor %}
+	</div>
+	<div>
+		{% for i in range(0,10) %}
+			<label for="radio{{ i }}0">{{i}}0</label>
+		{% endfor %}
+	</div>
+	<div>
+		{% for i in range(0,10) %}
+			<label for="radio{{ i }}">{{i}}</label>
+		{% endfor %}
+	</div>
 {% endblock %}	
 
 {% block title13 %}
