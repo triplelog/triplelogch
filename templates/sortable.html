@@ -118,6 +118,10 @@
 	padding: 0px;
 	background: white;
 }
+{% for i in range(0,99) %}
+	.min-{{ i }}  { display: none;}
+{% endfor %}
+
 {% for i in range(1,nrows+1) %}
 	.sortable-row{{ i }}  { order: {{ i }}; flex-grow: 1; width: 100%; padding: 0px; height: 1.5rem;}
 {% endfor %}
