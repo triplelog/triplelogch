@@ -18,8 +18,8 @@ function drawLogs(circle,frequency, magnitude,independence, spacing,count) {
     }
     var svg = '';
     for (var i=0;i<paths.length;i++){
-    	h = 30 + noise2D(.9-i/paths.length*.8,.1+i/paths.length*.8)*20;
-    	s = (35 + noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*25)+'%';
+    	h = 30 + noise2D(.9-i/paths.length*.8,.1+i/paths.length*.8)*30;
+    	s = (40 + noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*20)+'%';
     	l = (25+Math.min(i%11,10-(i%11))*9)+'%';
     	if (i%5==0){
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="none" d="'+paths[i]+'" />';
@@ -75,7 +75,7 @@ svg += end2;
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var end3 = drawLogs({x:300,y:250,radius:100},2.0,0.03,0.09,.9,105);
+var end3 = drawLogs({x:300,y:227,radius:100},2.0,0.03,0.09,.9,105);
 svg += end3;
 
 svg += '</svg></body></html>';
