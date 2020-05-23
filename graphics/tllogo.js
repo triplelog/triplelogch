@@ -18,7 +18,7 @@ function drawLogs(circle,frequency, magnitude,independence, spacing,count) {
     }
     var svg = '';
     for (var i=0;i<paths.length;i++){
-    	h = 30 + noise2D(.9-i/paths.length*.8,.1+i/paths.length*.8)*20;
+    	h = 30 + noise2D(.9-i/paths.length*.8,.1+i/paths.length*.8)*10;
     	s = (45 + noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*5)+'%';
     	l = (25+Math.min(i%11,10-(i%11))*9)+'%';
     	if (i%5==0){
@@ -58,6 +58,27 @@ function drawDeformedCircle( circle,frequency, magnitude,seed) {
         return path;
 }
 
+function drawLine(xI,yI){
+	var path = 'M';
+	var x = 0;
+	var y = 0;
+	for (var i=0;i<100;i++){
+		x = x + i*3;
+		y = y - i*3;
+		xdef = 1 + .04*(noise2D(x/500,y/500)+1);
+		ydef = 1 + .04*(noise2D(x/1000,y/1000)+1);
+		path += (xI + x * xdef) + ',' + (yI + y * ydef)+' ';
+	}
+	path += 'Z';
+	var svg = '';
+	if (i%5==0){
+		svg += '<path fill="none" stroke="black" d="'+path+'" />';
+	}
+	else {
+		svg += '<path fill="none" stroke="black" d="'+path+'" />';
+	}
+	return svg;
+}
 
 
 //drawFlower({x:100,y:100,radius:50},2.0,0.5,0.1,0.01,300);
@@ -65,6 +86,11 @@ var svg = '<html><body><svg height="600" width="800">';
 
 var noise = OpenSimplexNoise.makeNoise3D(Date.now());
 var noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
+var line1 = drawLine(200+100*1.4/2,400+100*1.4/2);
+svg += line1;
+
+noise = OpenSimplexNoise.makeNoise3D(Date.now());
+noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
 var end1 = drawLogs({x:200,y:400,radius:100},2.0,0.04,0.09,.9,105);
 svg += end1;
 
@@ -77,6 +103,8 @@ noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
 var end3 = drawLogs({x:300,y:227,radius:100},2.0,0.04,0.09,.9,105);
 svg += end3;
+
+
 
 svg += '</svg></body></html>';
 fs.writeFile('../static/logo.html', svg, function (err) {});
