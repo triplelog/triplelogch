@@ -72,12 +72,24 @@ function drawLine(xI,yI){
 	path += 'Z';
 	var svg = '';
 	if (i%5==0){
-		svg += '<path fill="none" stroke="hsl(34,50%,50%)" d="'+path+'" />';
+		svg += '<path fill="none" stroke="hsl(34,50%,30%)" d="'+path+'" />';
 	}
 	else {
-		svg += '<path fill="none" stroke="hsl(34,50%,50%)" d="'+path+'" />';
+		svg += '<path fill="none" stroke="hsl(34,50%,30%)" d="'+path+'" />';
 	}
 	return svg;
+}
+
+function drawLines(xc,yc,r){
+	var svg = '';
+	for (let j = 0; j < 40; ++j) {
+		const angle = (2 * Math.PI * j) / samples;
+
+		// Figure out the x/y coordinates for the given angle
+		const x = Math.cos(angle)*r + xc;
+		const y = Math.sin(angle)*r + yc;
+		svg += drawLine(x,y);
+	}
 }
 
 
@@ -86,18 +98,9 @@ var svg = '<html><body><svg height="600" width="800">';
 
 var noise = OpenSimplexNoise.makeNoise3D(Date.now());
 var noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var line1 = drawLine(200+100*1.4/2,400+100*1.4/2);
+var line1 = drawLines(400,400);
 svg += line1;
 
-noise = OpenSimplexNoise.makeNoise3D(Date.now());
-noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var line2 = drawLine(400+100*1.4/2,400+100*1.4/2);
-svg += line2;
-
-noise = OpenSimplexNoise.makeNoise3D(Date.now());
-noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var line3 = drawLine(400,300);
-svg += line3;
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
