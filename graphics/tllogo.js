@@ -65,8 +65,8 @@ function drawLine(xI,yI,color){
 	for (var i=0;i<100;i++){
 		x = i*2;
 		y = i*-2;
-		xdef = .8 + .2*(noise2D(x/300,y/300)+1);
-		ydef = .8 + .2*(noise2D(x/600,y/600)+1);
+		xdef = .85 + .15*(noise2D(x/300,y/300)+1);
+		ydef = .85 + .15*(noise2D(x/600,y/600)+1);
 		path += (xI + x * xdef) + ',' + (yI + y * ydef)+' ';
 	}
 	path += 'Z';
@@ -119,17 +119,17 @@ svg += line2;
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var end1 = drawLogs({x:200,y:500,radius:100},2.0,0.04,0.09,.9,105);
+var end1 = drawLogs({x:200,y:500,radius:100},2.0,0.033,0.09,.9,105);
 svg += end1;
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var end2 = drawLogs({x:400,y:500,radius:100},2.0,0.04,0.09,.9,105);
+var end2 = drawLogs({x:400,y:500,radius:100},2.0,0.033,0.09,.9,105);
 svg += end2;
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var end3 = drawLogs({x:300,y:330,radius:100},2.0,0.04,0.09,.9,105);
+var end3 = drawLogs({x:300,y:330,radius:100},2.0,0.033,0.09,.9,105);
 svg += end3;
 
 
