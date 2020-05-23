@@ -353,8 +353,10 @@ app.get('/sortable.html',
 			var header = results.data[0];
 			var ncols = results.data[0].length;
 			var content = results.data.slice(1,nrows+1);
+			var min = [];
 			for (var i=0;i<content.length;i++){
 				content[i].push(i);
+				min.push(content[i][6]);
 			}
 			console.log(performance.now());
 			var showrows = 20;
@@ -388,6 +390,7 @@ app.get('/sortable.html',
 				order: order,
 				content: content,
 				header: header,
+				min: min,
 			}));
 			console.log(performance.now());
 			res.end();
