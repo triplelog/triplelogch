@@ -84,7 +84,7 @@ function drawLines(xc,yc,r){
 	var svg = '<circle fill="none" stroke="black" cx="'+(xc+250)+'" cy="'+(yc-250)+'" r="'+r+'" />';
 	var samples = 120;
 	for (let j = 0; j < samples; ++j) {
-		const angle = 2 * Math.PI * (.3 - j / samples * .5);
+		const angle = 2 * Math.PI *  j / samples;
 
 		// Figure out the x/y coordinates for the given angle
 		const x = Math.cos(angle)*r + xc;
