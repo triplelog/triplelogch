@@ -89,9 +89,9 @@ function drawLines(xc,yc,r){
 		// Figure out the x/y coordinates for the given angle
 		const x = Math.cos(angle)*r + xc;
 		const y = Math.sin(angle)*r + yc;
-		h = 30 + noise2D(.9-j/samples*.8,.1+j/samples*.8)*10;
-    	s = (45 + noise2D(.1+j/samples*.8,.9-j/samples*.8)*5)+'%';
-    	l = (25+Math.min(j%11,10-(j%11))*9)+'%';
+		h = 30 + noise2D(.9-j/samples*.8,.1+j/samples*.8)*8;
+    	s = (45 + noise2D(.1+j/samples*.8,.9-j/samples*.8)*4)+'%';
+    	l = (20+Math.min(j%11,10-(j%11))*2)+'%';
 		var color = 'hsl('+h+','+s+','+l+')';
 		svg += drawLine(x,y,color);
 	}
