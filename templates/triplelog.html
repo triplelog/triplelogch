@@ -1,5 +1,10 @@
 {% extends "templates/base.html" %}
 
+{% block meta %}
+    <meta name="description" content=".">    <title>TripleLog</title>  
+    <link rel="icon" type="image/png" href="../tlfavicon.png">
+{% endblock %}
+    
 {% block borderRadius %}
 	--border-radius: 1.25rem;
 {% endblock %}
@@ -49,8 +54,8 @@
 }
 
 .logoText {
-	width:10rem;
-	left:-.5rem;
+	width:11.5rem;
+	left:-1.25rem;
 	position:relative;
 	top:2.5rem;
 	display: inline-block;
