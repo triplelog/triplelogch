@@ -1,8 +1,7 @@
 
 const OpenSimplexNoise = require('open-simplex-noise');
 var fs = require("fs");
-const noise = OpenSimplexNoise.makeNoise3D(Date.now());
-const noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
+
 
 function drawLogs(circle,frequency, magnitude,independence, spacing,count) {
     // adjust the radius so will have roughly the same size irregardless of magnitude
@@ -17,7 +16,7 @@ function drawLogs(circle,frequency, magnitude,independence, spacing,count) {
         // shrink the radius of the next circle
         current.radius -= spacing;
     }
-    var svg = '<html><body><svg height="400" width="400">';
+    var svg = '';
     for (var i=0;i<paths.length;i++){
     	h = 30 + noise2D(.9-i/paths.length*.8,.1+i/paths.length*.8)*10;
     	s = (30 + noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*40)+'%';
@@ -30,8 +29,8 @@ function drawLogs(circle,frequency, magnitude,independence, spacing,count) {
     	}
     	
     }
-    svg += '</svg></body></html';
-	fs.writeFile('../static/logo.html', svg, function (err) {});
+    return svg;
+	
 }
 
 function drawDeformedCircle( circle,frequency, magnitude,seed) {
@@ -62,4 +61,18 @@ function drawDeformedCircle( circle,frequency, magnitude,seed) {
 
 
 //drawFlower({x:100,y:100,radius:50},2.0,0.5,0.1,0.01,300);
-drawLogs({x:200,y:200,radius:100},2.0,0.03,0.09,.9,105);
+var svg = '<html><body><svg height="400" width="800">';
+
+var noise = OpenSimplexNoise.makeNoise3D(Date.now());
+var noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
+var end1 = drawLogs({x:200,y:200,radius:100},2.0,0.03,0.09,.9,105);
+svg += end1;
+
+noise = OpenSimplexNoise.makeNoise3D(Date.now());
+noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
+var end2 = drawLogs({x:400,y:200,radius:100},2.0,0.03,0.09,.9,105);
+svg += end2;
+
+
+svg += '</svg></body></html>';
+fs.writeFile('../static/logo.html', svg, function (err) {});
