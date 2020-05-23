@@ -90,7 +90,7 @@ function drawLines(xc,yc,r){
 		const x = Math.cos(angle)*r + xc;
 		const y = Math.sin(angle)*r + yc;
 		h = 30 + noise2D(.9-j/samples*.8,.1+j/samples*.8)*8;
-    	s = (45 + noise2D(.1+j/samples*.8,.9-j/samples*.8)*4)+'%';
+    	s = (40 + noise2D(.1+j/samples*.8,.9-j/samples*.8)*4)+'%';
     	l = (25+Math.min(j%11,10-(j%11))*1)+'%';
 		var color = 'hsl('+h+','+s+','+l+')';
 		svg += drawLine(x,y,color);
@@ -104,9 +104,18 @@ var svg = '<html><body><svg height="600" width="800">';
 
 var noise = OpenSimplexNoise.makeNoise3D(Date.now());
 var noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var line1 = drawLines(400,400,98);
+var line1 = drawLines(200,400,98);
 svg += line1;
 
+noise = OpenSimplexNoise.makeNoise3D(Date.now());
+noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
+var line2 = drawLines(400,400,98);
+svg += line2;
+
+noise = OpenSimplexNoise.makeNoise3D(Date.now());
+noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
+var line2 = drawLines(300,227,98);
+svg += line2;
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
