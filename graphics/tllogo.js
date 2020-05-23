@@ -21,7 +21,7 @@ function drawLogs(circle,frequency, magnitude,independence, spacing,count) {
     for (var i=0;i<paths.length;i++){
     	h = 34;
     	s = (25 + noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*50)+'%';
-    	l = (50+(5-(i%10))*25)+'%';
+    	l = (50+(5-(i%11))*6)+'%';
     	if (i%5==0){
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="none" d="'+paths[i]+'" />';
     	}
