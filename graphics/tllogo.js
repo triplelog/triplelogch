@@ -100,7 +100,7 @@ var svg = '<html><body><svg height="600" width="800">';
 
 var noise = OpenSimplexNoise.makeNoise3D(Date.now());
 var noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var line1 = drawLines(400,400);
+var line1 = drawLines(400,400,100);
 svg += line1;
 
 
