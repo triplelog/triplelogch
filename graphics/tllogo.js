@@ -72,10 +72,10 @@ function drawLine(xI,yI){
 	path += 'Z';
 	var svg = '';
 	if (i%5==0){
-		svg += '<path fill="none" stroke="black" d="'+path+'" />';
+		svg += '<path fill="none" stroke="hsl(34,50%,50%)" d="'+path+'" />';
 	}
 	else {
-		svg += '<path fill="none" stroke="black" d="'+path+'" />';
+		svg += '<path fill="none" stroke="hsl(34,50%,50%)" d="'+path+'" />';
 	}
 	return svg;
 }
@@ -87,6 +87,11 @@ var svg = '<html><body><svg height="600" width="800">';
 var noise = OpenSimplexNoise.makeNoise3D(Date.now());
 var noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
 var line1 = drawLine(200+100*1.4/2,400+100*1.4/2);
+svg += line1;
+
+noise = OpenSimplexNoise.makeNoise3D(Date.now());
+noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
+var line1 = drawLine(400+100*1.4/2,400+100*1.4/2);
 svg += line1;
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
