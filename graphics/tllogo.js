@@ -19,7 +19,7 @@ function drawLogs(circle,frequency, magnitude,independence, spacing,count) {
     var svg = '';
     for (var i=0;i<paths.length;i++){
     	h = 30 + noise2D(.9-i/paths.length*.8,.1+i/paths.length*.8)*10;
-    	s = (30 + noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*40)+'%';
+    	s = (40 + noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*30)+'%';
     	l = (25+Math.min(i%11,10-(i%11))*9)+'%';
     	if (i%5==0){
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="none" d="'+paths[i]+'" />';
