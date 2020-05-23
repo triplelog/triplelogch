@@ -353,10 +353,19 @@ app.get('/sortable.html',
 			var header = results.data[0];
 			var ncols = results.data[0].length;
 			var content = results.data.slice(1,nrows+1);
-			var min = [];
+			var minList = [];
 			for (var i=0;i<content.length;i++){
 				content[i].push(i);
-				min.push(content[i][6]);
+				var x = parseInt(content[i][6]);
+				if (x< 10){
+					minList.push('min-100 min-10 min-'+(x+1))
+				}
+				else if (x<100){
+					minList.push('min-100 min-'+(parseInt(x/10)+1)+'0 min-'+(x+1))
+				}
+				else if (x<1000){
+					minList.push('min-'+(parseInt(x/100)+1)+'00 min-'+(parseInt(x/10)+1)+'0 min-'+(x+1))
+				}
 			}
 			console.log(performance.now());
 			var showrows = 20;
@@ -390,7 +399,7 @@ app.get('/sortable.html',
 				order: order,
 				content: content,
 				header: header,
-				min: min,
+				minList: minList,
 			}));
 			console.log(performance.now());
 			res.end();
