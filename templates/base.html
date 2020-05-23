@@ -22,15 +22,15 @@ div.container {
 	--width-container: calc(100vw - 3rem);
 	height: var(--height-container);
 	width: var(--width-container);
+	max-width: 60rem;
 	{% block centerSize %}
 	{% endblock %}
 	{% block borderRadius %}
 	{% endblock %}
 	margin: 1rem auto;
 	/*border: 1px dotted blue;*/
-	grid-template-columns: calc((var(--width-container) - var(--width-center)) / 2) var(--width-center) calc((var(--width-container) - var(--width-center)) / 2);
+	grid-template-columns: 1fr var(--width-center) 1fr;
   	grid-template-rows: calc((var(--height-container) - var(--height-center)) / 2) var(--height-center) calc((var(--height-container) - var(--height-center)) / 2);
-	justify-content: center;
 }
 
 .title {
