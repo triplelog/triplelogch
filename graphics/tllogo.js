@@ -21,7 +21,7 @@ function drawLogs(circle,frequency, magnitude,independence, spacing,count) {
     for (var i=0;i<paths.length;i++){
     	h = 34;
     	s = (25 + noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*50)+'%';
-    	l = (75-((i/5)%2)*50)+'%';
+    	l = (50+(5-(i%10))*25)+'%';
     	if (i%5==0){
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="none" d="'+paths[i]+'" />';
     	}
@@ -62,4 +62,4 @@ function drawDeformedCircle( circle,frequency, magnitude,seed) {
 
 
 //drawFlower({x:100,y:100,radius:50},2.0,0.5,0.1,0.01,300);
-drawLogs({x:200,y:200,radius:100},2.0,0.1,0.09,1,100);
+drawLogs({x:200,y:200,radius:100},2.0,0.05,0.09,1,100);
