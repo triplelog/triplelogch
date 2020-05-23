@@ -1,7 +1,7 @@
 {% extends "templates/base.html" %}
 
 {% block borderRadius %}
-	--border-radius: .8rem;
+	--border-radius: 1.25rem;
 {% endblock %}
 
 {% block content22CSS %}
@@ -9,88 +9,73 @@
 {% endblock %}
 	
 {% block centerSize %}
-	--height-center: 150px;
-	--width-center: 200px;
+	--height-center: 9rem;
+	--width-center: 9rem;
 {% endblock %}
 
 {% block titleCSS %}
-.title {
-	line-height: 2.5rem;
-	text-align: center;
-	font-size: 1rem;
-	border: 2px solid black;
-  	border-radius: var(--border-radius);
-  	position: relative;
-  	top:-2px;
-  	left:-2px;
-  	width: calc(100% + 0px);
-  	background: red;
-  	background-image: url("../img/3logscrop-48.jpg");
-  	background-size: 100% 100%;
-  	background-repeat: no-repeat;
-  	background-position: 0px 0px;
-  	color: white;
-  	text-shadow: 0px 0px 10px black;
-}
-.titleBG {
-	background-image: url("../img/ftractor-40.png");
-  	background-size: auto 100%;
-  	background-repeat: no-repeat;
-  	background-position: 0px 0px;
-  	transition: background-position 1s linear;
-}
-.titleBG:hover {
-  	background-position: 350px 0px;
-  	transition: all 2s linear;
-}
+
 .content-11 .title {
 	background-image: url("../img/farmbg2-40.png");
+  	background-size: 100% 100%;
+  	background-repeat: no-repeat;
 }
 .content-11 .titleBG {
 	background-image: url("../img/ftractor-40.png");
+  	background-size: auto 100%;
+  	background-repeat: no-repeat;
+  	width: 100%;
+  	height: 100%;
 }
 .content-31 .title {
 	background-image: url("../img/gradient_radial.jpg");
 	background-size: 100% 100%;
 }
 
+.content {
+	text-align: center;
+}
+
+.logoText {
+	width:12rem;
+	left:-1.5rem;
+	position:relative;
+	top:2.5rem;
+	display: inline-block;
+	 height: 4rem; 
+	 line-height: 4rem; 
+	 color: white;
+	 font-size: 3.14rem; 
+	 text-align: center;
+	 text-shadow: 0px 0px 5px black, 0px 0px 10px rgb(64,64,64), 0px 0px 20px gray;
+	 font-family: Tahoma, Geneva, sans-serif;
+	 letter-spacing: 2px;
+}
+
 {% endblock %}
 
 
 {% block moreCSS %}
-.title a {
-	text-decoration: none;
-	color: white;
-	font-size: 1.5rem;
-}
-.title a:hover {
-	text-decoration: underline;
-	text-shadow: 0px 0px 10px black 0px 0px 10px black;
-}
 
-.content-22 {
-	background-image: url("../img/woodpile.jpg");
-	background-size: 100% 100%;
-	color: white;
-}
 {% endblock %}
 
 
 {% block title11 %}
 <div class="title">
 	<div class="titleBG">
-		<span class="titleLeft">
-		
-		</span>
-		<span class="titleCenter">
-			<a href="https://sudokufarm.com">Sudoku Farm</a>
-		</span>
-		<span class="titleRight">
-			<label for="radio11-1"><i class="fas fa-compress-alt"></i></label>
-			<label for="radio11-2"><i class="fas fa-expand-alt"></i></label>
-			<label for="radio11-3"><i class="fas fa-expand"></i></label>
-		</span>
 	</div>
+	<span class="titleLeft">
+	
+	</span>
+	<span class="titleCenter">
+		<a href="https://sudokufarm.com">Sudoku Farm</a>
+	</span>
+	<span class="titleRight">
+		<label for="radio11-1"><i class="fas fa-compress-alt"></i></label>
+		<label for="radio11-2"><i class="fas fa-expand-alt"></i></label>
+		<label for="radio11-3"><i class="fas fa-expand"></i></label>
+	</span>
+	
 </div>
 {% endblock %}
 {% block content11 %}
@@ -101,6 +86,8 @@ Create your own level.
 
 {% block title13 %}
 <div class="title">
+	<div class="titleBG">
+	</div>
 	<span class="titleLeft">
 		
 	</span>
@@ -121,6 +108,8 @@ Complete them yourself, collaboratively, or competitively. Design your own scori
 
 {% block title31 %}
 <div class="title">
+	<div class="titleBG">
+	</div>
 	<span class="titleLeft">
 		
 	</span>
@@ -140,6 +129,8 @@ Qblur allows the easy creation of images.
 
 {% block title33 %}
 <div class="title">
+	<div class="titleBG">
+	</div>
 	<span class="titleLeft">
 		
 	</span>
@@ -159,7 +150,11 @@ CSShole presents interactive content with just HTML and CSS. Play Sudoku, create
 
 
 {% block content22 %}
-<h1><center>TripleLog</center></h1>
+	<div class="logoDiv">
+		<img src="../chlogo.png" style="width:12rem;left:-1.5rem;position:absolute;top:-1rem;">
+		<span class="logoText">TripleLog</span>	
+	</div>
+
 <ul>
 	<li>My Account</li>
 	<li>Privacy Policy</li>
