@@ -19,9 +19,9 @@ function drawLogs(circle,frequency, magnitude,independence, spacing,count) {
     }
     var svg = '<html><body><svg height="400" width="400">';
     for (var i=0;i<paths.length;i++){
-    	h = 34;
-    	s = (20 + noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*50)+'%';
-    	l = (30+Math.min(i%11,10-(i%11))*7)+'%';
+    	h = 30 + noise2D(.9-i/paths.length*.8,.1+i/paths.length*.8)*10;
+    	s = (25 + noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*50)+'%';
+    	l = (10+Math.min(i%11,10-(i%11))*7)+'%';
     	if (i%5==0){
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="none" d="'+paths[i]+'" />';
     	}
