@@ -58,7 +58,7 @@ function drawDeformedCircle( circle,frequency, magnitude,seed) {
         return path;
 }
 
-function drawLine(xI,yI){
+function drawLine(xI,yI,color){
 	var path = 'M';
 	var x = 0;
 	var y = 0;
@@ -72,24 +72,25 @@ function drawLine(xI,yI){
 	path += 'Z';
 	var svg = '';
 	if (i%5==0){
-		svg += '<path fill="none" stroke="hsl(34,50%,30%)" d="'+path+'" />';
+		svg += '<path fill="none" stroke="'+color+'" d="'+path+'" />';
 	}
 	else {
-		svg += '<path fill="none" stroke="hsl(34,50%,30%)" d="'+path+'" />';
+		svg += '<path fill="none" stroke="'+color+'" d="'+path+'" />';
 	}
 	return svg;
 }
 
 function drawLines(xc,yc,r){
-	var svg = '';
-	var samples = 40;
+	var svg = '<circle cx="'+xc+'" cy="'+yc+'" r="'+r+'" />';
+	var samples = 120;
 	for (let j = 0; j < samples; ++j) {
 		const angle = (2 * Math.PI * j) / samples;
 
 		// Figure out the x/y coordinates for the given angle
 		const x = Math.cos(angle)*r + xc;
 		const y = Math.sin(angle)*r + yc;
-		svg += drawLine(x,y);
+		var color = 'hsl(34,50%,30%)';
+		svg += drawLine(x,y,color);
 	}
 	return svg;
 }
