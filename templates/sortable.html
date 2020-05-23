@@ -51,6 +51,12 @@
 
 {% block moreCSS %}
 
+.content-11 {
+	grid-row: 1 / 3;
+}
+.content-13 {
+	display: none;
+}
 .content-22 {
 	overflow: visible;
 }
@@ -119,7 +125,7 @@
 	background: white;
 }
 {% for i in range(0,99) %}
-	.min-{{ i }}  { display: none;}
+	#radio100:checked ~ .min-{{ i }}  { display: none;}
 {% endfor %}
 
 {% for i in range(1,nrows+1) %}
@@ -245,26 +251,14 @@ input[type="radio"] {
 {% endblock %}
 {% block content11 %}
 Year, batters or pitchers, min PA
+	<label for="radio000">000</label>
+	<label for="radio100">100</label>
+	<label for="radio00">00</label>
+	<label for="radio10">10</label>
 {% endblock %}	
 
 {% block title13 %}
-<div class="title">
-	<div class="titleBG">
-		<span class="titleLeft">
-		
-		</span>
-		<span class="titleCenter">
-			<a href="https://gifsaw.com">Sudoku</a>
-		</span>
-		<span class="titleRight">
-			<label for="radio13-3"><i class="fas fa-expand"></i></label>
-			<label for="radio13-2"><i class="fas fa-expand-alt"></i></label>
-			<label for="radio13-1"><i class="fas fa-compress-alt"></i></label>
-		
-		
-		</span>
-	</div>
-</div>
+
 {% endblock %}
 {% block content13 %}
 
@@ -294,11 +288,18 @@ Year, batters or pitchers, min PA
 	<input type="radio" name="pageNumber" id="page5"></input>
 	
 	
+	
 	<div class="sortable-header">
 		{% for i in range(1,ncols+1) %}<label class="sortable-col{{ i }}" for="sort-col{{ i }}">{{ header[i-1] }}</label>{% endfor %}
 	</div>
 	<div class="sortHolder">
 		<div class="sortable">
+			<input type="radio" name="radio100" id="radio000" checked></input>
+			<input type="radio" name="radio100" id="radio100"></input>
+	
+			<input type="radio" name="radio10" id="radio00" checked></input>
+			<input type="radio" name="radio10" id="radio10"></input>
+			
 			{% for i in range(1,ncols+1) %}
 			<input type="radio" name="sorter" id="sort-col{{ i }}" {% if i == 1 %}checked{% endif %}></input>
 			{% endfor %}
