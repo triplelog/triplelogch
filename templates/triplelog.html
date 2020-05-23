@@ -51,7 +51,14 @@
 
 .content {
 	text-align: center;
-	font-size: 1.25rem;
+}
+
+div:Not(.content-22) > .content {
+	overflow-y: auto;
+	overflow-x: auto;
+	overflow: auto;
+	padding: calc(1 * var(--border-radius));
+	font-size: 1.1rem;
 }
 
 .logoText {
