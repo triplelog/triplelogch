@@ -72,6 +72,7 @@ div:Not(.content-22) > .content {
 	overflow: auto;
 	padding: calc(.75 * var(--border-radius));
 	font-size: 1.1rem;
+	line-height: 1.5rem;
 	text-align: center;
 }
 div:Not(.content-22) > .title a{
@@ -144,14 +145,14 @@ Each page mimics interactive elements with just HTML and CSS.
 </div>
 {% endblock %}
 {% block content13 %}
-Play our daily <a href="../sudoku.html">Sudoku</a>. Or choose by difficulty:
+Play our daily <a href="../sudoku.html">Sudoku</a>.<br />Or choose by difficulty:
 <div>
 	<a href="../sudoku.html?l=easy1" class="basic">Easy</a>
 	<a href="../sudoku.html?l=medium1" class="basic">Medium</a>
 	<a href="../sudoku.html?l=hard1" class="basic">Hard</a>
 	<a href="../sudoku.html?l=expert1" class="basic">Expert</a>
 </div>
-Or play <a href="../sudokufarm.html">Sudoku Farm</a>.
+For more of a challenge, try <a href="../sudokufarm.html">Sudoku Farm</a>.
 {% endblock %}	
 
 {% block title31 %}
