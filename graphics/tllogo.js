@@ -91,6 +91,7 @@ function drawLines(xc,yc,r){
 		const y = Math.sin(angle)*r + yc;
 		svg += drawLine(x,y);
 	}
+	return svg;
 }
 
 
