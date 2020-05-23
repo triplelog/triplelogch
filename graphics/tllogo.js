@@ -62,9 +62,9 @@ function drawLine(xI,yI){
 	var path = 'M';
 	var x = 0;
 	var y = 0;
-	for (var i=0;i<20;i++){
-		x = i*5;
-		y = i*-5;
+	for (var i=0;i<100;i++){
+		x = i*3;
+		y = i*-3;
 		xdef = 1 + .04*(noise2D(x/500,y/500)+1);
 		ydef = 1 + .04*(noise2D(x/1000,y/1000)+1);
 		path += (xI + x * xdef) + ',' + (yI + y * ydef)+' ';
