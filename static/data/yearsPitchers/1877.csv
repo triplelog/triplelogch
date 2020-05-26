@@ -1,20 +1,20 @@
-playerID,yearID,stint,teamID,lgID,W,L,G,GS,CG,SHO,SV,IPouts,H,ER,HR,BB,SO,BAOpp,ERA,IBB,WP,HBP,BK,BFP,GF,R,SH,SF,GIDP
-battijo01,1877,1,SL3,NL,0,0,1,0,0,0,0,11,3,2,0,1,1,,4.91,,1,,0,16,1,2,,,
-blongjo01,1877,1,SL3,NL,10,9,25,21,17,0,0,562,203,57,0,38,51,,2.74,,29,,0,813,4,121,,,
-bondto01,1877,1,BSN,NL,40,17,58,58,58,6,0,1563,530,122,5,36,170,,2.11,,18,,0,2165,0,248,,,
-bootham01,1877,1,CN1,NL,1,7,12,8,6,0,0,258,114,34,1,13,18,,3.56,,7,,0,398,4,75,,,
-bradlge01,1877,1,CHN,NL,18,23,50,44,35,2,0,1182,452,145,4,39,59,,3.31,,39,,0,1719,7,266,,,
-cassijo01,1877,1,HAR,NL,1,1,2,2,2,0,0,54,24,10,0,1,2,,5.00,,0,,0,76,0,11,,,
-cummica01,1877,1,CN1,NL,5,14,19,19,16,0,0,467,219,75,2,13,11,,4.34,,15,,0,709,0,144,,,
-devliji01,1877,1,LS1,NL,35,25,61,61,61,4,0,1677,617,140,4,41,141,,2.25,,20,,0,2328,0,288,,,
-fergubo01,1877,1,HAR,NL,1,1,3,2,2,0,0,75,38,11,0,2,1,,3.96,,0,,0,110,1,15,,,
-larkite01,1877,1,HAR,NL,29,25,56,56,55,4,0,1503,510,119,2,53,96,,2.14,,18,,0,2132,0,285,,,
-mannija01,1877,1,CN1,NL,0,4,10,4,2,0,1,132,83,34,1,7,6,,6.95,,11,,0,226,6,65,,,
-mathebo01,1877,1,CN1,NL,3,12,15,15,13,0,0,388,208,58,0,17,9,,4.04,,10,,0,631,0,132,,,
-mcveyca01,1877,1,CHN,NL,4,8,17,10,6,0,2,276,129,46,2,11,20,,4.50,,3,,0,439,6,87,,,
-mitchbo01,1877,1,CN1,NL,6,5,12,12,11,1,0,300,123,39,0,11,41,,3.51,,4,,0,448,0,69,,,
-nichotr01,1877,1,SL3,NL,18,23,42,39,35,1,0,1050,376,101,2,53,80,,2.60,,22,,0,1484,3,195,,,
-reisla01,1877,1,CHN,NL,3,1,4,4,4,1,0,108,29,3,1,6,11,,0.75,,3,,0,142,0,8,,,
-roweda01,1877,1,CHN,NL,0,1,1,1,0,0,0,3,3,2,0,2,0,,18.00,,0,,0,7,0,2,,,
-spaldal01,1877,1,CHN,NL,1,0,4,1,0,0,1,33,17,4,0,0,2,,3.27,,0,,0,53,2,12,,,
-whitewi01,1877,1,BSN,NL,2,1,3,3,3,1,0,81,27,9,0,2,7,,3.00,,2,,0,113,0,15,,,
+Name,Team,Age,IP,W,L,SV,H,R,ER,HR,BB,K,ERA,FIP,WHIP,K/BB,WAR
+"<a href=""https://www.baseball-reference.com/players/b/battijo01.shtml"">Joe Battin</a>",SL3,23,3&‌#8532;,0,0,0,3,2,2,0,1,1,4.909,3.118,1.091,1.00,.05
+"<a href=""https://www.baseball-reference.com/players/b/blongjo01.shtml"">Joe Blong</a>",SL3,23,187&‌#8531;,10,9,0,203,121,57,0,38,51,2.738,2.904,1.286,1.34,.62
+"<a href=""https://www.baseball-reference.com/players/b/bondto01.shtml"">Tommy Bond</a>",BSN,21,521,40,17,0,530,248,122,5,36,170,2.107,2.512,1.086,4.72,11.73
+"<a href=""https://www.baseball-reference.com/players/b/bootham01.shtml"">Amos Booth</a>",CN1,28,86,1,7,0,114,75,34,1,13,18,3.558,3.015,1.477,1.38,-.45
+"<a href=""https://www.baseball-reference.com/players/b/bradlge01.shtml"">George Bradley</a>",CHN,24,394,18,23,0,452,266,145,4,39,59,3.312,2.968,1.246,1.51,.00
+"<a href=""https://www.baseball-reference.com/players/c/cassijo01.shtml"">John Cassidy</a>",HAR,?,18,1,1,0,24,11,10,0,1,2,5.000,2.782,1.389,2.00,-.01
+"<a href=""https://www.baseball-reference.com/players/c/cummica01.shtml"">Candy Cummings</a>",CN1,28,155&‌#8532;,5,14,0,219,144,75,2,13,11,4.336,3.104,1.490,.85,-1.37
+"<a href=""https://www.baseball-reference.com/players/d/devliji01.shtml"">Jim Devlin</a>",LS1,28,559,35,25,0,617,288,140,4,41,141,2.254,2.642,1.177,3.44,13.16
+"<a href=""https://www.baseball-reference.com/players/f/fergubo01.shtml"">Bob Ferguson</a>",HAR,32,25,1,1,0,38,15,11,0,2,1,3.960,2.998,1.600,.50,.01
+"<a href=""https://www.baseball-reference.com/players/l/larkite01.shtml"">Terry Larkin</a>",HAR,?,501,29,25,0,510,285,119,2,53,96,2.138,2.825,1.124,1.81,1.66
+"<a href=""https://www.baseball-reference.com/players/m/mannija01.shtml"">Jack Manning</a>",CN1,23,44,0,4,1,83,65,34,1,7,6,6.955,3.268,2.045,.86,-1.98
+"<a href=""https://www.baseball-reference.com/players/m/mathebo01.shtml"">Bobby Mathews</a>",CN1,25,129&‌#8531;,3,12,0,208,132,58,0,17,9,4.036,3.069,1.740,.53,.00
+"<a href=""https://www.baseball-reference.com/players/m/mcveyca01.shtml"">Cal McVey</a>",CHN,27,92,4,8,2,129,87,46,2,11,20,4.500,3.027,1.522,1.82,-1.35
+"<a href=""https://www.baseball-reference.com/players/m/mitchbo01.shtml"">Bobby Mitchell</a>",CN1,21,100,6,5,0,123,69,39,0,11,41,3.510,2.375,1.340,3.73,.96
+"<a href=""https://www.baseball-reference.com/players/n/nichotr01.shtml"">Tricky Nichols</a>",SL3,26,350,18,23,0,376,195,101,2,53,80,2.597,2.913,1.226,1.51,3.96
+"<a href=""https://www.baseball-reference.com/players/r/reisla01.shtml"">Laurie Reis</a>",CHN,18,36,3,1,0,29,8,3,1,6,11,.750,3.116,.972,1.83,1.94
+"<a href=""https://www.baseball-reference.com/players/r/roweda01.shtml"">Dave Rowe</a>",CHN,22,1,0,1,0,3,2,2,0,2,0,18.000,8.006,5.000,.00,-.10
+"<a href=""https://www.baseball-reference.com/players/s/spaldal01.shtml"">Al Spalding</a>",CHN,26,11,1,0,1,17,12,4,0,0,2,3.273,2.519,1.545,&infin;,-.30
+"<a href=""https://www.baseball-reference.com/players/w/whitewi01.shtml"">Will White</a>",BSN,22,27,2,1,0,27,15,9,0,2,7,3.000,2.537,1.074,3.50,.39

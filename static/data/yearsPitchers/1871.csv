@@ -1,20 +1,20 @@
-playerID,yearID,stint,teamID,lgID,W,L,G,GS,CG,SHO,SV,IPouts,H,ER,HR,BB,SO,BAOpp,ERA,IBB,WP,HBP,BK,BFP,GF,R,SH,SF,GIDP
-bechtge01,1871,1,PH1,NA,1,2,3,3,2,0,0,78,43,23,0,11,1,,7.96,,7,,0,146,0,42,,,
-brainas01,1871,1,WS3,NA,12,15,30,30,30,0,0,792,361,132,4,37,13,,4.50,,7,,0,1291,0,292,,,
-fergubo01,1871,1,NY2,NA,0,0,1,0,0,0,0,3,8,3,0,0,0,,27.00,,2,,0,14,0,9,,,
-fishech01,1871,1,RC1,NA,4,16,24,24,22,1,0,639,295,103,3,31,15,,4.35,,20,,0,1080,1,257,,,
-fleetfr01,1871,1,NY2,NA,0,1,1,1,1,0,0,27,20,10,0,3,0,,10.00,,0,,0,57,0,21,,,
-flowedi01,1871,1,TRO,NA,0,0,1,0,0,0,0,3,1,0,0,0,0,,0.00,,0,,0,3,1,0,,,
-mackde01,1871,1,RC1,NA,0,1,3,1,1,0,0,39,20,5,0,3,1,,3.46,,1,,0,70,1,30,,,
-mathebo01,1871,1,FW1,NA,6,11,19,19,19,1,0,507,261,97,5,21,17,,5.17,,15,,2,876,0,243,,,
-mcbridi01,1871,1,PH1,NA,18,5,25,25,25,0,0,666,285,113,3,40,15,,4.58,,3,,0,1059,0,223,,,
-mcmuljo01,1871,1,TRO,NA,12,15,29,29,28,0,0,747,430,153,4,75,12,,5.53,,44,,0,1334,0,362,,,
-meyerle01,1871,1,PH1,NA,0,0,1,0,0,0,0,3,1,1,0,2,0,,9.00,,1,,0,6,1,1,,,
-paborch01,1871,1,CL1,NA,0,2,7,1,1,0,0,88,50,22,4,6,0,,6.75,,2,,0,160,5,53,,,
-pinkhed01,1871,1,CH1,NA,1,0,3,0,0,0,1,31,10,4,0,3,0,,3.48,,5,,0,51,3,8,,,
-prattal01,1871,1,CL1,NA,10,17,28,28,22,0,0,674,296,94,9,47,34,,3.77,,48,,0,1117,1,288,,,
-spaldal01,1871,1,BS1,NA,19,10,31,31,22,1,0,772,333,96,2,38,23,,3.36,,11,,0,1279,3,272,,,
-stearbi01,1871,1,WS3,NA,2,0,2,2,2,0,0,54,10,5,0,8,0,,2.50,,0,,0,75,0,11,,,
-woltery01,1871,1,NY2,NA,16,16,32,32,31,1,0,849,345,108,7,39,22,,3.43,,15,,0,1349,1,283,,,
-wrighha01,1871,1,BS1,NA,1,0,9,0,0,0,3,56,34,13,0,4,0,,6.27,,3,,0,105,6,31,,,
-zettlge01,1871,1,CH1,NA,18,9,28,28,25,0,0,722,298,73,6,25,22,,2.73,,24,,0,1143,0,233,,,
+Name,Team,Age,IP,W,L,SV,H,R,ER,HR,BB,K,ERA,FIP,WHIP,K/BB,WAR
+"<a href=""https://www.baseball-reference.com/players/b/bechtge01.shtml"">George Bechtel</a>",PH1,22,26,1,2,0,43,42,23,0,11,1,7.962,4.686,2.077,.09,.00
+"<a href=""https://www.baseball-reference.com/players/b/brainas01.shtml"">Asa Brainard</a>",WS3,?,264,12,15,0,361,292,132,4,37,13,4.500,4.107,1.508,.35,.00
+"<a href=""https://www.baseball-reference.com/players/f/fergubo01.shtml"">Bob Ferguson</a>",NY2,26,1,0,0,0,8,9,3,0,0,0,27.000,3.580,8.000,&infin;,-.31
+"<a href=""https://www.baseball-reference.com/players/f/fishech01.shtml"">Cherokee Fisher</a>",RC1,26,213,4,16,0,295,257,103,3,31,15,4.352,4.048,1.531,.48,2.12
+"<a href=""https://www.baseball-reference.com/players/f/fleetfr01.shtml"">Frank Fleet</a>",NY2,?,9,0,1,0,20,21,10,0,3,0,10.000,4.386,2.556,.00,.00
+"<a href=""https://www.baseball-reference.com/players/f/flowedi01.shtml"">Dickie Flowers</a>",TRO,?,1,0,0,0,1,0,0,0,0,0,.000,3.580,1.000,&infin;,.08
+"<a href=""https://www.baseball-reference.com/players/m/mackde01.shtml"">Denny Mack</a>",RC1,21,13,0,1,0,20,30,5,0,3,1,3.462,4.081,1.769,.33,-.53
+"<a href=""https://www.baseball-reference.com/players/m/mathebo01.shtml"">Bobby Mathews</a>",FW1,19,169,6,11,0,261,243,97,5,21,17,5.166,4.108,1.669,.81,.00
+"<a href=""https://www.baseball-reference.com/players/m/mcbridi01.shtml"">Dick McBride</a>",PH1,24,222,18,5,0,285,223,113,3,40,15,4.581,4.189,1.464,.38,3.70
+"<a href=""https://www.baseball-reference.com/players/m/mcmuljo01.shtml"">John McMullin</a>",TRO,22,249,12,15,0,430,362,153,4,75,12,5.530,4.549,2.028,.16,-.77
+"<a href=""https://www.baseball-reference.com/players/m/meyerle01.shtml"">Levi Meyerle</a>",PH1,21,1,0,0,0,1,1,1,0,2,0,9.000,10.835,3.000,.00,.02
+"<a href=""https://www.baseball-reference.com/players/p/paborch01.shtml"">Charlie Pabor</a>",CL1,24,29&‌#8531;,0,2,0,50,53,22,4,6,0,6.750,5.837,1.909,.00,-.54
+"<a href=""https://www.baseball-reference.com/players/p/pinkhed01.shtml"">Ed Pinkham</a>",CH1,24,10&‌#8531;,1,0,1,10,8,4,0,3,0,3.484,4.487,1.258,.00,.34
+"<a href=""https://www.baseball-reference.com/players/p/prattal01.shtml"">Al Pratt</a>",CL1,23,224&‌#8532;,10,17,0,296,288,94,9,47,34,3.766,4.429,1.527,.72,1.85
+"<a href=""https://www.baseball-reference.com/players/s/spaldal01.shtml"">Al Spalding</a>",BS1,20,257&‌#8531;,19,10,0,333,272,96,2,38,23,3.358,3.943,1.442,.61,3.64
+"<a href=""https://www.baseball-reference.com/players/s/stearbi01.shtml"">Bill Stearns</a>",WS3,18,18,2,0,0,10,11,5,0,8,0,2.500,5.312,1.000,.00,.72
+"<a href=""https://www.baseball-reference.com/players/w/woltery01.shtml"">Rynie Wolters</a>",NY2,29,283,16,16,0,345,283,108,7,39,22,3.435,4.183,1.357,.56,3.10
+"<a href=""https://www.baseball-reference.com/players/w/wrighha01.shtml"">Harry Wright</a>",BS1,36,18&‌#8532;,1,0,3,34,31,13,0,4,0,6.268,4.155,2.036,.00,-.35
+"<a href=""https://www.baseball-reference.com/players/z/zettlge01.shtml"">George Zettlein</a>",CH1,26,240&‌#8532;,18,9,0,298,233,73,6,25,22,2.730,4.048,1.342,.88,.00

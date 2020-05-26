@@ -1,93 +1,87 @@
-playerID,yearID,stint,teamID,lgID,W,L,G,GS,CG,SHO,SV,IPouts,H,ER,HR,BB,SO,BAOpp,ERA,IBB,WP,HBP,BK,BFP,GF,R,SH,SF,GIDP
-allenmy01,1883,1,NY1,NL,0,1,1,1,1,0,0,24,8,1,0,3,0,,1.13,,1,,0,32,0,5,,,
-ansonca01,1883,1,CHN,NL,0,0,2,0,0,0,1,9,1,0,0,1,0,,0.00,,0,,0,12,2,1,,,
-bakelje01,1883,1,PH4,AA,5,3,8,8,7,0,0,184,65,22,0,12,14,,3.23,,4,,0,267,0,47,,,
-bakerno01,1883,1,PT1,AA,0,2,3,3,2,0,0,57,24,7,0,11,5,,3.32,,1,,0,94,0,16,,,
-barrbo01,1883,1,PT1,AA,6,18,26,23,19,0,1,610,263,99,5,28,81,,4.38,,17,,0,922,3,166,,,
-battijo01,1883,1,PT1,AA,0,0,2,0,0,0,0,12,9,1,0,1,0,,2.25,,0,,0,22,1,4,,,
-bradlge01,1883,2,PH4,AA,16,7,26,23,22,0,0,643,215,75,7,22,56,,3.15,,15,,0,902,3,129,,,
-breital01,1883,1,PHI,NL,0,1,1,1,0,0,0,15,8,5,0,2,0,,9.00,,1,,0,27,0,9,,,
-broutda01,1883,1,BFN,NL,0,0,1,0,0,0,0,6,9,7,0,3,2,,31.50,,0,,0,17,0,7,,,
-brownto01,1883,1,CL5,AA,0,1,3,1,1,0,0,42,14,9,0,10,6,,5.79,,1,,0,67,2,17,,,
-buffich01,1883,1,BSN,NL,25,14,43,41,34,4,1,999,346,112,4,51,188,,3.03,,17,,0,1414,3,187,,,
-burkeja01,1883,1,BFN,NL,0,0,1,1,0,0,0,24,9,5,0,3,1,,5.63,,0,,0,40,0,8,,,
-burnsdi01,1883,1,DTN,NL,2,12,17,13,13,0,0,383,172,64,8,33,30,,4.51,,6,,0,604,4,122,,,
-cadych01,1883,1,CL2,NL,0,1,1,1,1,0,0,24,13,7,0,4,5,,7.88,,3,,0,40,0,13,,,
-colemjo01,1883,1,PHI,NL,12,48,65,61,59,3,0,1615,772,291,17,48,159,,4.87,,9,,0,2546,4,510,,,
-corcola01,1883,1,CHN,NL,34,20,56,53,51,3,0,1421,483,131,7,82,216,,2.49,,19,,0,2041,3,281,,,
-coreyfr01,1883,1,PH4,AA,10,7,18,16,15,0,0,445,182,56,3,24,42,,3.40,,11,,0,666,2,106,,,
-cushmed01,1883,1,BFN,NL,3,3,7,7,5,0,0,151,61,22,0,17,34,,3.93,,4,,0,231,1,41,,,
-dailyhu01,1883,1,CL2,NL,23,19,45,43,40,4,1,1136,360,102,5,99,171,,2.42,,23,,0,1578,2,193,,,
-deaglre01,1883,1,CN2,AA,10,8,18,18,17,1,0,444,136,38,0,34,48,,2.31,,9,,0,629,0,78,,,
-derbyge01,1883,1,BFN,NL,2,10,14,13,12,0,1,323,173,70,3,15,34,,5.85,,5,,0,533,1,120,,,
-devinji01,1883,1,BL2,AA,1,1,2,2,1,0,0,33,15,9,0,1,3,,7.36,,3,,0,50,0,15,,,
-dolanto01,1883,1,SL4,AA,0,0,1,0,0,0,0,12,4,2,0,0,0,,4.50,,0,,0,16,1,3,,,
-dorgami01,1883,1,NY1,NL,0,1,1,1,1,0,0,21,8,3,0,6,3,,3.86,,1,,0,34,0,7,,,
-driscde01,1883,1,PT1,AA,18,21,41,40,35,1,0,1009,427,149,3,39,79,,3.99,,9,,0,1510,1,239,,,
-dundoed01,1883,1,CL5,AA,3,16,20,19,16,0,0,500,213,83,7,38,31,,4.48,,11,,0,768,1,153,,,
-emslibo01,1883,1,BL2,AA,9,13,24,23,21,1,0,604,188,71,3,41,62,,3.17,,13,,0,854,1,149,,,
-evansja01,1883,1,CL2,NL,0,0,1,0,0,0,0,9,0,0,0,0,1,,0.00,,0,,0,9,1,0,,,
-fergubo01,1883,1,PHI,NL,0,0,1,0,0,0,0,3,2,1,0,0,0,,9.00,,0,,0,7,1,2,,,
-foleycu01,1883,1,BFN,NL,1,0,1,0,0,0,0,3,0,0,0,4,0,,0.00,,0,,0,6,1,0,,,
-foxjo01,1883,1,BL2,AA,6,13,20,19,18,0,0,496,209,74,2,32,49,,4.03,,12,,0,754,1,140,,,
-friespe01,1883,1,CL5,AA,0,3,3,3,3,0,0,75,34,18,1,14,7,,6.48,,8,,0,126,0,31,,,
-gallabi01,1883,1,BL2,AA,0,5,7,5,4,0,0,155,79,31,0,6,19,,5.40,,3,,0,245,2,57,,,
-galvipu01,1883,1,BFN,NL,46,29,76,75,72,5,0,1969,676,198,9,50,279,,2.72,,28,,0,2741,1,367,,,
-gardngi01,1883,1,BL2,AA,1,0,2,0,0,0,0,21,9,4,1,1,2,,5.14,,0,,0,32,1,7,,,
-goldsfr01,1883,1,CHN,NL,25,19,46,45,40,2,0,1150,456,134,14,39,82,,3.15,,11,,1,1683,1,256,,,
-haganar01,1883,1,PHI,NL,1,14,17,16,15,0,0,411,207,83,2,33,39,,5.45,,22,,0,639,1,151,,,
-haganar01,1883,2,BFN,NL,0,2,2,2,1,0,0,45,17,6,0,6,7,,3.60,,3,,0,69,0,12,,,
-heckegu01,1883,1,LS2,AA,28,23,53,52,51,3,0,1407,526,174,4,75,164,,3.34,,20,,0,2056,1,298,,,
-hendeha01,1883,1,PHI,NL,0,1,1,1,1,0,0,27,26,19,0,2,2,,19.00,,4,,0,56,0,24,,,
-hendeha01,1883,2,BL2,AA,10,32,45,42,38,0,0,1075,383,160,4,87,145,,4.02,,28,,0,1582,3,315,,,
-hilsech01,1883,1,PHI,NL,0,3,3,3,3,0,0,78,36,16,0,4,8,,5.54,,1,,0,122,0,26,,,
-hodnech01,1883,1,SL4,AA,2,2,4,4,3,0,0,96,28,5,1,7,6,,1.41,,2,,0,134,0,10,,,
-huntele01,1883,1,CL2,NL,0,0,1,0,0,0,0,19,10,1,0,2,4,,1.42,,0,,0,29,1,7,,,
-jonesja02,1883,1,DTN,NL,6,5,12,12,9,1,0,278,103,36,0,19,33,,3.50,,4,,0,416,0,63,,,
-jonesja02,1883,2,PH4,AA,5,2,7,7,7,0,0,195,58,19,1,6,28,,2.63,,3,,0,266,0,38,,,
-keefeti01,1883,1,NY4,AA,41,27,68,68,68,5,0,1857,488,166,6,108,359,,2.41,,27,,0,2517,0,244,,,
-kellyki01,1883,1,CHN,NL,0,0,1,0,0,0,0,3,1,0,0,0,0,,0.00,,0,,0,3,1,0,,,
-lilliji01,1883,1,BFN,NL,0,1,3,0,0,0,0,36,16,4,0,2,4,,3.00,,2,,0,55,3,12,,,
-lynchja01,1883,1,NY4,AA,13,15,29,29,29,1,0,765,263,116,6,25,119,,4.09,,11,,0,1079,0,161,,,
-manseto01,1883,1,DTN,NL,0,0,1,0,0,0,0,20,21,12,2,5,3,,16.20,,1,,0,43,1,18,,,
-mathebo01,1883,1,PH4,AA,30,13,44,44,41,1,0,1143,396,104,11,31,203,,2.46,,11,,0,1609,0,224,,,
-mccorha01,1883,1,CN2,AA,8,6,15,14,14,1,0,386,139,41,1,27,21,,2.87,,6,,0,565,1,70,,,
-mccorji01,1883,1,CL2,NL,28,12,43,41,36,1,1,1026,316,70,1,65,145,,1.84,,11,,0,1421,2,151,,,
-mcginju01,1883,1,SL4,AA,28,16,45,45,41,6,0,1148,325,99,3,69,128,,2.33,,24,,0,1581,0,174,,,
-mcintfr01,1883,1,DTN,NL,1,0,1,1,1,0,0,33,11,1,0,1,0,,0.82,,0,,0,48,0,10,,,
-mcintfr01,1883,2,CL5,AA,1,1,2,2,2,0,0,57,20,11,0,7,6,,5.21,,2,,0,86,0,19,,,
-mclaufr01,1883,1,PT1,AA,0,0,2,0,0,0,0,27,14,13,0,3,1,,13.00,,1,,0,45,2,21,,,
-morrijo01,1883,1,BSN,NL,1,0,2,1,1,0,0,39,15,4,0,4,5,,2.77,,0,,0,60,1,11,,,
-mountbi01,1883,1,CN2,AA,0,1,1,1,1,0,0,24,9,2,0,2,3,,2.25,,0,,0,36,0,4,,,
-mountfr01,1883,1,CL5,AA,26,33,59,59,57,4,0,1509,546,201,8,123,159,,3.60,,21,,0,2230,0,345,,,
-mullato01,1883,1,SL4,AA,35,15,53,49,49,3,1,1382,372,112,3,74,191,,2.19,,24,,0,1875,4,222,,,
-neaglja01,1883,1,PHI,NL,1,7,8,7,6,0,0,184,88,47,1,21,13,,6.90,,9,,0,300,1,77,,,
-neaglja01,1883,2,BL2,AA,1,4,6,5,4,0,0,138,48,25,1,20,9,,4.89,,5,,0,211,1,48,,,
-neaglja01,1883,3,PT1,AA,3,12,16,16,12,0,0,342,156,74,9,25,41,,5.84,,22,,0,535,0,123,,,
-nolanth01,1883,1,PT1,AA,0,7,7,7,6,0,0,165,81,26,0,10,23,,4.25,,6,,0,262,0,44,,,
-oneilti01,1883,1,NY1,NL,5,12,19,19,15,0,0,444,182,67,5,64,55,,4.07,,33,,0,694,0,129,,,
-orourji01,1883,1,BFN,NL,0,0,2,0,0,0,1,21,10,5,0,1,1,,6.43,,1,,0,29,1,9,,,
-purcebl01,1883,1,PHI,NL,2,6,11,9,7,0,0,240,110,39,0,12,30,,4.39,,7,,0,371,0,71,,,
-radboch01,1883,1,PRO,NL,48,25,76,68,66,4,1,1897,563,144,7,56,315,,2.05,,36,,0,2540,8,275,,,
-radboge01,1883,1,DTN,NL,1,2,3,3,2,0,0,66,38,16,1,7,2,,6.55,,5,,0,117,0,28,,,
-reccijo01,1883,1,LS2,AA,0,0,1,0,0,0,0,12,10,1,0,0,0,,2.25,,0,,0,22,1,3,,,
-richmle01,1883,1,PRO,NL,3,7,12,12,8,0,0,276,122,34,2,27,13,,3.33,,6,,0,416,0,67,,,
-roweda01,1883,1,BL2,AA,0,0,1,0,0,0,0,12,12,9,1,2,1,,20.25,,0,,0,26,1,11,,,
-sawyewi01,1883,1,CL2,NL,4,10,17,15,15,0,0,423,119,37,1,47,76,,2.36,,13,,0,596,2,79,,,
-shawdu01,1883,1,DTN,NL,10,15,26,25,23,1,0,681,238,63,3,44,73,,2.50,,6,,0,974,1,135,,,
-smithed01,1883,2,PHI,NL,0,1,1,1,0,0,0,21,18,12,0,3,2,,15.43,,1,,0,47,1,17,,,
-smithpo01,1883,1,CL5,AA,0,0,3,0,0,0,0,17,10,4,0,0,0,,6.35,,0,,0,28,3,7,,,
-sommejo01,1883,1,CN2,AA,0,0,1,0,0,0,0,15,9,3,0,1,2,,5.40,,1,,0,26,1,6,,,
-stoveha01,1883,1,PH4,AA,0,0,1,0,0,0,0,9,5,3,0,0,4,,9.00,,2,,0,14,1,3,,,
-sweench01,1883,1,PRO,NL,7,7,20,18,14,0,0,440,142,51,3,28,48,,3.13,,17,,0,626,2,94,,,
-taylobi01,1883,1,PT1,AA,4,7,19,9,8,0,0,381,166,76,4,34,41,,5.39,,17,,0,594,9,115,,,
-valenjo01,1883,1,CL5,AA,2,10,13,12,11,0,0,306,130,40,0,17,13,,3.53,,1,,0,463,1,80,,,
-wardjo01,1883,1,NY1,NL,16,13,34,25,24,1,0,831,278,83,3,31,121,,2.70,,19,,0,1159,9,165,,,
-weavesa01,1883,1,LS2,AA,24,22,46,46,45,4,0,1202,451,165,3,35,105,,3.71,,5,,0,1729,0,261,,,
-welchmi01,1883,1,NY1,NL,25,23,54,52,46,4,0,1278,431,129,11,66,144,,2.73,,27,,0,1829,2,271,,,
-wheelha01,1883,1,CL5,AA,0,1,1,1,0,0,0,15,13,4,0,2,0,,7.20,,0,,0,31,0,7,,,
-whitewi01,1883,1,CN2,AA,43,22,65,65,64,6,0,1731,473,134,16,104,141,,2.09,,25,,0,2367,0,255,,,
-whitnji01,1883,1,BSN,NL,37,21,62,56,54,1,2,1542,492,128,7,35,345,,2.24,,37,,0,2101,5,258,,,
-wiedmst01,1883,1,DTN,NL,20,24,52,47,41,3,2,1207,435,158,8,72,183,,3.53,,11,,0,1762,5,265,,,
-willine01,1883,1,CHN,NL,0,0,1,0,0,0,0,3,1,1,0,1,1,,9.00,,0,,0,7,0,2,,,
-woodge01,1883,1,DTN,NL,0,0,1,0,0,0,0,15,8,4,0,3,0,,7.20,,1,,0,26,1,9,,,
+Name,Team,Age,IP,W,L,SV,H,R,ER,HR,BB,K,ERA,FIP,WHIP,K/BB,WAR
+"<a href=""https://www.baseball-reference.com/players/a/allenmy01.shtml"">Myron Allen</a>",NY1,29,8,0,1,0,8,5,1,0,3,0,1.125,4.593,1.375,.00,.08
+"<a href=""https://www.baseball-reference.com/players/a/ansonca01.shtml"">Cap Anson</a>",CHN,31,3,0,0,1,1,1,0,0,1,0,.000,4.431,.667,.00,.11
+"<a href=""https://www.baseball-reference.com/players/b/bakelje01.shtml"">Jersey Bakley</a>",PH4,19,61&‌#8531;,5,3,0,65,47,22,0,12,14,3.228,3.388,1.255,1.17,.00
+"<a href=""https://www.baseball-reference.com/players/b/bakerno01.shtml"">Norm Baker</a>",PT1,20,19,0,2,0,24,16,7,0,11,5,3.316,4.419,1.842,.45,-.14
+"<a href=""https://www.baseball-reference.com/players/b/barrbo01.shtml"">Bob Barr</a>",PT1,26,203&‌#8531;,6,18,1,263,166,99,5,28,81,4.382,3.195,1.431,2.89,.00
+"<a href=""https://www.baseball-reference.com/players/b/battijo01.shtml"">Joe Battin</a>",PT1,29,4,0,0,0,9,4,1,0,1,0,2.250,3.872,2.500,.00,-.08
+"<a href=""https://www.baseball-reference.com/players/b/bradlge01.shtml"">George Bradley</a>",PH4,30,214&‌#8531;,16,7,0,215,129,75,7,22,56,3.149,3.472,1.106,2.55,2.73
+"<a href=""https://www.baseball-reference.com/players/b/breital01.shtml"">Alonzo Breitenstein</a>",PHI,25,5,0,1,0,8,9,5,0,2,0,9.000,4.290,2.000,.00,-.26
+"<a href=""https://www.baseball-reference.com/players/b/broutda01.shtml"">Dan Brouthers</a>",BFN,25,2,0,0,0,9,7,7,0,3,2,31.500,4.705,6.000,.67,-.31
+"<a href=""https://www.baseball-reference.com/players/b/brownto01.shtml"">Tom Brown</a>",CL5,22,14,0,1,0,14,17,9,0,10,6,5.786,4.557,1.714,.60,-.53
+"<a href=""https://www.baseball-reference.com/players/b/buffich01.shtml"">Charlie Buffinton</a>",BSN,22,333,25,14,1,346,187,112,4,51,188,3.027,2.745,1.192,3.69,5.44
+"<a href=""https://www.baseball-reference.com/players/b/burkeja01.shtml"">James Burke</a>",BFN,?,8,0,0,0,9,8,5,0,3,1,5.625,4.062,1.500,.33,-.14
+"<a href=""https://www.baseball-reference.com/players/b/burnsdi01.shtml"">Dick Burns</a>",DTN,19,127&‌#8532;,2,12,0,172,122,64,8,33,30,4.512,4.326,1.606,.91,-1.76
+"<a href=""https://www.baseball-reference.com/players/c/cadych01.shtml"">Charlie Cady</a>",CL2,18,8,0,1,0,13,13,7,0,4,5,7.875,3.482,2.125,1.25,-.32
+"<a href=""https://www.baseball-reference.com/players/c/colemjo01.shtml"">John Coleman</a>",PHI,20,538&‌#8531;,12,48,0,772,510,291,17,48,159,4.865,3.335,1.523,3.31,.00
+"<a href=""https://www.baseball-reference.com/players/c/corcola01.shtml"">Larry Corcoran</a>",CHN,23,473&‌#8532;,34,20,0,483,281,131,7,82,216,2.489,3.056,1.193,2.63,.00
+"<a href=""https://www.baseball-reference.com/players/c/coreyfr01.shtml"">Fred Corey</a>",PH4,?,148&‌#8531;,10,7,0,182,106,56,3,24,42,3.398,3.433,1.389,1.75,.39
+"<a href=""https://www.baseball-reference.com/players/c/cushmed01.shtml"">Ed Cushman</a>",BFN,31,50&‌#8531;,3,3,0,61,41,22,0,17,34,3.934,2.936,1.550,2.00,.00
+"<a href=""https://www.baseball-reference.com/players/d/dailyhu01.shtml"">Hugh Daily</a>",CL2,35,378&‌#8532;,23,19,1,360,193,102,5,99,171,2.424,3.312,1.212,1.73,6.88
+"<a href=""https://www.baseball-reference.com/players/d/deaglre01.shtml"">Ren Deagle</a>",CN2,25,148,10,8,0,136,78,38,0,34,48,2.311,3.298,1.149,1.41,1.10
+"<a href=""https://www.baseball-reference.com/players/d/derbyge01.shtml"">George Derby</a>",BFN,25,107&‌#8532;,2,10,1,173,120,70,3,15,34,5.851,3.386,1.746,2.27,-2.49
+"<a href=""https://www.baseball-reference.com/players/d/devinji01.shtml"">Frank Diven</a>",BL2,23,11,1,1,0,15,15,9,0,1,3,7.364,2.999,1.455,3.00,-.40
+"<a href=""https://www.baseball-reference.com/players/d/dolanto01.shtml"">Tom Dolan</a>",SL4,28,4,0,0,0,4,3,2,0,0,0,4.500,3.256,1.000,&infin;,-.04
+"<a href=""https://www.baseball-reference.com/players/d/dorgami01.shtml"">Mike Dorgan</a>",NY1,29,7,0,1,0,8,7,3,0,6,3,3.857,5.020,2.000,.50,-.13
+"<a href=""https://www.baseball-reference.com/players/d/driscde01.shtml"">Denny Driscoll</a>",PT1,27,336&‌#8531;,18,21,0,427,239,149,3,39,79,3.987,3.250,1.386,2.03,1.06
+"<a href=""https://www.baseball-reference.com/players/d/dundoed01.shtml"">Ed Dundon</a>",CL5,23,166&‌#8532;,3,16,0,213,153,83,7,38,31,4.482,4.093,1.506,.82,-2.87
+"<a href=""https://www.baseball-reference.com/players/e/emslibo01.shtml"">Bob Emslie</a>",BL2,24,201&‌#8531;,9,13,0,188,149,71,3,41,62,3.174,3.452,1.137,1.51,1.32
+"<a href=""https://www.baseball-reference.com/players/e/evansja01.shtml"">Jake Evans</a>",CL2,26,3,0,0,0,0,0,0,0,0,1,.000,2.343,.000,&infin;,.21
+"<a href=""https://www.baseball-reference.com/players/f/fergubo01.shtml"">Bob Ferguson</a>",PHI,38,1,0,0,0,2,2,1,0,0,0,9.000,3.256,2.000,&infin;,-.08
+"<a href=""https://www.baseball-reference.com/players/f/foleycu01.shtml"">Curry Foley</a>",BFN,27,1,1,0,0,0,0,0,0,4,0,.000,29.108,4.000,.00,.07
+"<a href=""https://www.baseball-reference.com/players/f/foxjo01.shtml"">John Fox</a>",BL2,24,165&‌#8531;,6,13,0,209,140,74,2,32,49,4.028,3.395,1.458,1.53,-.33
+"<a href=""https://www.baseball-reference.com/players/f/friespe01.shtml"">Pete Fries</a>",CL5,25,25,0,3,0,34,31,18,1,14,7,6.480,4.805,1.920,.50,-.81
+"<a href=""https://www.baseball-reference.com/players/g/gallabi01.shtml"">Bill Gallagher</a>",BL2,17,51&‌#8532;,0,5,0,79,57,31,0,6,19,5.400,2.908,1.645,3.17,-1.02
+"<a href=""https://www.baseball-reference.com/players/g/galvipu01.shtml"">Pud Galvin</a>",BFN,26,656&‌#8531;,46,29,0,676,367,198,9,50,279,2.715,2.809,1.106,5.58,11.01
+"<a href=""https://www.baseball-reference.com/players/g/gardngi01.shtml"">Gid Gardner</a>",BL2,24,7,1,0,0,9,7,4,1,1,2,5.143,4.931,1.429,2.00,.00
+"<a href=""https://www.baseball-reference.com/players/g/goldsfr01.shtml"">Fred Goldsmith</a>",CHN,27,383&‌#8531;,25,19,0,456,256,134,14,39,82,3.146,3.605,1.291,2.10,.00
+"<a href=""https://www.baseball-reference.com/players/h/haganar01.shtml"">Art Hagan</a>",2,20,152,1,16,0,224,163,89,2,39,46,5.270,3.576,1.730,1.18,-1.97
+"<a href=""https://www.baseball-reference.com/players/h/heckegu01.shtml"">Guy Hecker</a>",LS2,27,469,28,23,0,526,298,174,4,75,164,3.339,3.149,1.281,2.19,.99
+"<a href=""https://www.baseball-reference.com/players/h/hendeha01.shtml"">Hardie Henderson</a>",2,20,367&‌#8531;,10,33,0,409,339,179,4,89,147,4.386,3.323,1.356,1.65,-.40
+"<a href=""https://www.baseball-reference.com/players/h/hilsech01.shtml"">Charlie Hilsey</a>",PHI,19,26,0,3,0,36,26,16,0,4,8,5.538,3.114,1.538,2.00,-.19
+"<a href=""https://www.baseball-reference.com/players/h/hodnech01.shtml"">Charlie Hodnett</a>",SL4,?,32,2,2,0,28,10,5,1,7,6,1.406,3.993,1.094,.86,.97
+"<a href=""https://www.baseball-reference.com/players/h/huntele01.shtml"">Lem Hunter</a>",CL2,20,6&‌#8531;,0,0,0,10,7,1,0,2,4,1.421,2.956,1.895,2.00,-.17
+"<a href=""https://www.baseball-reference.com/players/j/jonesja02.shtml"">Jack Jones</a>",2,22,157&‌#8532;,11,7,0,161,101,55,1,25,61,3.140,3.041,1.180,2.44,1.54
+"<a href=""https://www.baseball-reference.com/players/k/keefeti01.shtml"">Tim Keefe</a>",NY4,26,619,41,27,0,488,244,166,6,108,359,2.414,2.724,.963,3.32,19.88
+"<a href=""https://www.baseball-reference.com/players/k/kellyki01.shtml"">King Kelly</a>",CHN,25,1,0,0,0,1,0,0,0,0,0,.000,3.256,1.000,&infin;,.07
+"<a href=""https://www.baseball-reference.com/players/l/lilliji01.shtml"">Jim Lillie</a>",BFN,21,12,0,1,0,16,12,4,0,2,4,3.000,3.099,1.500,2.00,-.23
+"<a href=""https://www.baseball-reference.com/players/l/lynchja01.shtml"">Jack Lynch</a>",NY4,26,255,13,15,0,263,161,116,6,25,119,4.094,2.923,1.129,4.76,2.05
+"<a href=""https://www.baseball-reference.com/players/m/manseto01.shtml"">Tom Mansell</a>",DTN,28,6&‌#8532;,0,0,0,21,18,12,2,5,3,16.200,7.298,3.900,.60,-.40
+"<a href=""https://www.baseball-reference.com/players/m/mathebo01.shtml"">Bobby Mathews</a>",PH4,31,381,30,13,0,396,224,104,11,31,203,2.457,2.814,1.121,6.55,5.28
+"<a href=""https://www.baseball-reference.com/players/m/mccorha01.shtml"">Harry McCormick</a>",CN2,27,128&‌#8532;,8,6,0,139,70,41,1,27,21,2.868,3.666,1.290,.78,.70
+"<a href=""https://www.baseball-reference.com/players/m/mccorji01.shtml"">Jim McCormick</a>",CL2,26,342,28,12,1,316,151,70,1,65,145,1.842,3.007,1.114,2.23,.00
+"<a href=""https://www.baseball-reference.com/players/m/mcginju01.shtml"">Jumbo McGinnis</a>",SL4,29,382&‌#8532;,28,16,0,325,174,99,3,69,128,2.328,3.228,1.030,1.86,.00
+"<a href=""https://www.baseball-reference.com/players/m/mcintfr01.shtml"">Frank McIntyre</a>",2,23,30,2,1,0,31,29,12,0,8,6,3.600,3.658,1.300,.75,-.11
+"<a href=""https://www.baseball-reference.com/players/m/mclaufr01.shtml"">Frank McLaughlin</a>",PT1,?,9,0,0,0,14,21,13,0,3,1,13.000,3.967,1.889,.33,.00
+"<a href=""https://www.baseball-reference.com/players/m/morrijo01.shtml"">John Morrill</a>",BSN,28,13,1,0,0,15,11,4,0,4,5,2.769,3.404,1.462,1.25,-.10
+"<a href=""https://www.baseball-reference.com/players/m/mountbi01.shtml"">Bill Mountjoy</a>",CN2,24,8,0,1,0,9,4,2,0,2,3,2.250,3.256,1.375,1.50,.00
+"<a href=""https://www.baseball-reference.com/players/m/mountfr01.shtml"">Frank Mountain</a>",CL5,23,503,26,33,0,546,345,201,8,123,159,3.596,3.564,1.330,1.29,-.45
+"<a href=""https://www.baseball-reference.com/players/m/mullato01.shtml"">Tony Mullane</a>",SL4,24,460&‌#8532;,35,15,1,372,222,112,3,74,191,2.188,2.979,.968,2.58,.00
+"<a href=""https://www.baseball-reference.com/players/n/neaglja01.shtml"">Jack Neagle</a>",3,25,221&‌#8531;,5,23,0,292,248,146,11,66,63,5.937,4.186,1.617,.95,-4.04
+"<a href=""https://www.baseball-reference.com/players/n/nolanth01.shtml"">The Only Nolan</a>",PT1,27,55,0,7,0,81,44,26,0,10,23,4.255,2.993,1.655,2.30,-.23
+"<a href=""https://www.baseball-reference.com/players/o/o'neiti01.shtml"">Tip O'Neill</a>",NY1,23,148,5,12,0,182,129,67,5,64,55,4.074,4.232,1.662,.86,-1.44
+"<a href=""https://www.baseball-reference.com/players/o/o'rouji01.shtml"">Jim O'Rourke</a>",BFN,32,7,0,0,1,10,9,5,0,1,1,6.429,3.408,1.571,1.00,-.27
+"<a href=""https://www.baseball-reference.com/players/p/purcebl01.shtml"">Blondie Purcell</a>",PHI,29,80,2,6,0,110,71,39,0,12,30,4.388,2.978,1.525,2.50,.05
+"<a href=""https://www.baseball-reference.com/players/r/radboch01.shtml"">Old Hoss Radbourn</a>",PRO,28,632&‌#8531;,48,25,1,563,275,144,7,56,315,2.050,2.645,.979,5.62,13.09
+"<a href=""https://www.baseball-reference.com/players/r/radboge01.shtml"">George Radbourn</a>",DTN,27,22,1,2,0,38,28,16,1,7,2,6.545,4.432,2.045,.29,-.66
+"<a href=""https://www.baseball-reference.com/players/r/reccijo01.shtml"">John Reccius</a>",LS2,23,4,0,0,0,10,3,1,0,0,0,2.250,3.256,2.500,&infin;,-.03
+"<a href=""https://www.baseball-reference.com/players/r/richmle01.shtml"">Lee Richmond</a>",PRO,26,92,3,7,0,122,67,34,2,27,13,3.326,4.145,1.620,.48,-.52
+"<a href=""https://www.baseball-reference.com/players/r/roweda01.shtml"">Dave Rowe</a>",BL2,28,4,0,0,0,12,11,9,1,2,1,20.250,6.381,3.500,.50,-.36
+"<a href=""https://www.baseball-reference.com/players/s/sawyewi01.shtml"">Will Sawyer</a>",CL2,18,141,4,10,0,119,79,37,1,47,76,2.362,3.271,1.177,1.62,1.90
+"<a href=""https://www.baseball-reference.com/players/s/shawdu01.shtml"">Dupee Shaw</a>",DTN,24,227,10,15,0,238,135,63,3,44,73,2.498,3.368,1.242,1.66,.00
+"<a href=""https://www.baseball-reference.com/players/s/smithed01.shtml"">Edgar Smith</a>",PHI,21,7,0,1,0,18,17,12,0,3,2,15.429,3.736,3.000,.67,-.37
+"<a href=""https://www.baseball-reference.com/players/s/smithpo01.shtml"">Pop Smith</a>",CL5,26,5&‌#8532;,0,0,0,10,7,4,0,0,0,6.353,3.256,1.765,&infin;,-.26
+"<a href=""https://www.baseball-reference.com/players/s/sommejo01.shtml"">Joe Sommer</a>",CN2,24,5,0,0,0,9,6,3,0,1,2,5.400,3.089,2.000,2.00,-.20
+"<a href=""https://www.baseball-reference.com/players/s/stoveha01.shtml"">Harry Stovey</a>",PH4,26,3,0,0,0,5,3,3,0,0,4,9.000,1.067,1.667,&infin;,-.06
+"<a href=""https://www.baseball-reference.com/players/s/sweench01.shtml"">Charlie Sweeney</a>",PRO,20,146&‌#8532;,7,7,0,142,94,51,3,28,48,3.130,3.445,1.159,1.71,.23
+"<a href=""https://www.baseball-reference.com/players/t/taylobi01.shtml"">Billy Taylor</a>",PT1,?,127,4,7,0,166,115,76,4,34,41,5.386,3.797,1.575,1.21,.00
+"<a href=""https://www.baseball-reference.com/players/v/valenjo01.shtml"">John Valentine</a>",CL5,27,102,2,10,0,130,80,40,0,17,13,3.529,3.494,1.441,.76,-.87
+"<a href=""https://www.baseball-reference.com/players/w/wardjo01.shtml"">John Ward</a>",NY1,23,277,16,13,0,278,165,83,3,31,121,2.697,2.854,1.116,3.90,3.41
+"<a href=""https://www.baseball-reference.com/players/w/weavesa01.shtml"">Sam Weaver</a>",LS2,27,400&‌#8532;,24,22,0,451,261,165,3,35,105,3.706,3.092,1.213,3.00,.32
+"<a href=""https://www.baseball-reference.com/players/w/welchmi01.shtml"">Mickey Welch</a>",NY1,23,426,25,23,0,431,271,129,11,66,144,2.725,3.382,1.167,2.18,3.67
+"<a href=""https://www.baseball-reference.com/players/w/wheelha01.shtml"">Harry Wheeler</a>",CL5,25,5,0,1,0,13,7,4,0,2,0,7.200,4.147,3.000,.00,.00
+"<a href=""https://www.baseball-reference.com/players/w/whitewi01.shtml"">Will White</a>",CN2,28,577,43,22,0,473,255,134,16,104,141,2.090,3.700,1.000,1.36,9.02
+"<a href=""https://www.baseball-reference.com/players/w/whitnji01.shtml"">Jim Whitney</a>",BSN,25,514,37,21,2,492,258,128,7,35,345,2.241,2.293,1.025,9.86,11.35
+"<a href=""https://www.baseball-reference.com/players/w/wiedmst01.shtml"">Stump Weidman</a>",DTN,22,402&‌#8531;,20,24,2,435,265,158,8,72,183,3.534,3.144,1.260,2.54,3.46
+"<a href=""https://www.baseball-reference.com/players/w/willine01.shtml"">Ned Williamson</a>",CHN,25,1,0,0,0,1,2,1,0,1,1,9.000,3.925,2.000,1.00,-.10
+"<a href=""https://www.baseball-reference.com/players/w/woodge01.shtml"">George Wood</a>",DTN,24,5,0,0,0,8,9,4,0,3,0,7.200,4.942,2.200,.00,-.28
