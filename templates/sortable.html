@@ -112,22 +112,24 @@
 }
 
 
-.data-cell {
+.data-cell, .header-cell {
 	width: calc( (100% - 9rem)/{{ ncols - 2}});
 	text-align: right;
 	padding: 0px 2px;
 	border-right: 0px solid black;
 	border-left: 0px solid black;
 	max-height: 1.5rem;
+	line-height: 1.5rem;
 	overflow: hidden;
 }
 
-.data-cell.sortable-col1  { 
+
+.data-cell.sortable-col1, .header-cell.sortable-col1 { 
 	width: 6rem;
 	text-align: left;
 }
 
-.data-cell.sortable-col2  { 
+.data-cell.sortable-col2, .header-cell.sortable-col2  { 
 	width: 3rem;
 	text-align: left;
 }
@@ -352,7 +354,7 @@ Year, batters or pitchers, min PA
 	
 	
 	<div class="sortable-header">
-		{% for i in range(1,ncols+1) %}<label class="sortable-col{{ i }}" for="sort-col{{ i }}">{{ header[i-1] }}</label>{% endfor %}
+		{% for i in range(1,ncols+1) %}<label class="header-cell sortable-col{{ i }}" for="sort-col{{ i }}">{{ header[i-1] }}</label>{% endfor %}
 	</div>
 	<div class="sortHolder">
 		<div class="sortable">
