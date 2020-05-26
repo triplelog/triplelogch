@@ -344,10 +344,12 @@ app.get('/sortable.html',
 		console.log(performance.now());
 		var dataset = 'yearsBatters/2019.csv';
 		var widecols = [13,14,15,16,17,18];
+		var isPitchers = false;
 		if (req.query){
 			if (req.query.p === true || req.query.p == 't' || req.query.p == 'true'){
 				dataset = 'yearsPitchers/';
 				widecols = [13,14,15,16,17];
+				isPitchers = true;
 			}
 			else {
 				dataset = 'yearsBatters/';
@@ -376,18 +378,41 @@ app.get('/sortable.html',
 			var content = results.data.slice(1,nrows+1);
 			var minList = [];
 			for (var i=0;i<content.length;i++){
+				
+				
+				if (isPitchers){
+					var IPouts = parseInt(content[i][3]);
+					if (IPouts%3 == 0) { content[i][3] = Math.floor(IPouts/3); }
+					else if (IPouts%3 == 1) { content[i][3] = Math.floor(IPouts/3) + '<span class="frac">&frac13;</span>'; }
+					else if (IPouts%3 == 2) { content[i][3] = Math.floor(IPouts/3) + '<span class="frac">&frac23;</span>'; }
+					var x = Math.floor(IPouts/3);
+					if (x< 10){
+						minList.push('min-100 min-10 min-'+(x+1))
+					}
+					else if (x<100){
+						minList.push('min-100 min-'+(parseInt(x/10)+1)+'0 min-'+(x+1))
+					}
+					else if (x<1000){
+						minList.push('min-'+(parseInt(x/100)+1)+'00 min-'+(parseInt(x/10)+1)+'0 min-'+(x+1))
+					}
+				}
+				else {
+					var x = parseInt(content[i][3]);
+					if (x< 10){
+						minList.push('min-100 min-10 min-'+(x+1))
+					}
+					else if (x<100){
+						minList.push('min-100 min-'+(parseInt(x/10)+1)+'0 min-'+(x+1))
+					}
+					else if (x<1000){
+						minList.push('min-'+(parseInt(x/100)+1)+'00 min-'+(parseInt(x/10)+1)+'0 min-'+(x+1))
+					}
+				}
+				
 				content[i].push(i);
-				var x = parseInt(content[i][3]);
-				if (x< 10){
-					minList.push('min-100 min-10 min-'+(x+1))
-				}
-				else if (x<100){
-					minList.push('min-100 min-'+(parseInt(x/10)+1)+'0 min-'+(x+1))
-				}
-				else if (x<1000){
-					minList.push('min-'+(parseInt(x/100)+1)+'00 min-'+(parseInt(x/10)+1)+'0 min-'+(x+1))
-				}
 			}
+			
+				
 			console.log(performance.now());
 			var showrows = nrows;
 			//sort content
