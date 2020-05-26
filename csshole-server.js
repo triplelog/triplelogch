@@ -348,7 +348,7 @@ app.get('/sortable.html',
 				skipEmptyLines: true,
 			});
 			var nrows = results.data.length-1;
-			var nrows = 1000;
+			//var nrows = 1000;
 			var header = results.data[0];
 			var ncols = results.data[0].length;
 			var content = results.data.slice(1,nrows+1);
@@ -367,14 +367,14 @@ app.get('/sortable.html',
 				}
 			}
 			console.log(performance.now());
-			var showrows = 200;
+			var showrows = nrows;
 			//sort content
 			var order = [];
 			for (var i=0;i<ncols;i++){
 				var thiscol= [];
 				var sorted = content.slice().sort(function (a,b) {return b[i] - a[i];})
 				for (var ii=0;ii<content.length;ii++){
-					for (var iii=0;iii<showrows*5;iii++){
+					for (var iii=0;iii<showrows;iii++){
 						if ( sorted[iii][ncols] == ii){
 							thiscol.push(iii+1);
 							break;

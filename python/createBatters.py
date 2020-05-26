@@ -251,6 +251,8 @@ def threedecimals(x,n=3):
 		intstr = str(math.floor(xxx/nval))
 	elif xxx<0:
 		return '-'+threedecimals(-1*x,n)
+	elif n<3:
+		intstr = '0'
 		
 	intstr += '.'
 	decstr = ''
