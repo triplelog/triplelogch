@@ -11,7 +11,7 @@
 	
 {% block centerSize %}
 	--height-center: 30rem;
-	--width-center: 40rem;
+	--width-center: 50rem;
 {% endblock %}
 
 {% block titleCSS %}
@@ -68,6 +68,7 @@
 }
 .container {
 	grid-template-rows: calc((var(--height-container) - var(--height-center))) var(--height-center) 0px;
+	grid-template-columns: calc((var(--width-container) - var(--width-center))) var(--width-center) 0px;
 }
 
 .title a {

@@ -344,7 +344,7 @@ app.get('/sortable.html',
 		console.log(performance.now());
 		var dataset = 'yearsBatters/2019.csv';
 		if (req.query){
-			if (req.query.p){
+			if (req.query.p === true || req.query.p == 't'){
 				dataset = 'yearsPitchers/';
 			}
 			else {
