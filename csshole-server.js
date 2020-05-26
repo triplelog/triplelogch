@@ -348,7 +348,7 @@ app.get('/sortable.html',
 		if (req.query){
 			if (req.query.p === true || req.query.p == 't' || req.query.p == 'true'){
 				dataset = 'yearsPitchers/';
-				widecols = [13,14,15,16,17];
+				widecols = [3,13,14,15,16,17];
 				isPitchers = true;
 			}
 			else {
