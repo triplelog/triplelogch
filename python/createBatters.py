@@ -54,8 +54,8 @@ def readcsvP(filen):
 	with open(filen, 'r') as csvfile:
 		spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
 		for row in spamreader:
-			if row[22] != 'retroID':
-				allgamesa[row[22]]=row
+			if row[0] != 'playerID':
+				allgamesa[row[0]]=row
 			
 	return allgamesa
 
@@ -64,10 +64,45 @@ def readcsvBatters(filen):
 	with open(filen, 'r') as csvfile:
 		spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
 		for row in spamreader:
-			try:
-				allgamesa[row[1]].append(row)
-			except:
-				allgamesa[row[1]] = [row]
+			if row[1] == 'yearID':
+				row = ['Name', 'Team','Age','PA','AB','R','H','HR','TB','RBI','BB','SB','K','AVG','OBP','SLG','OPS','wOBA','WAR']
+				allgamesa['yearID'] = [row]
+			else:
+				bio = people[row[0]]
+				bid = bio[23]
+				name = bio[13]+' '+bio[14]
+				try:
+					age = int(row[1]) - int(bio[1])
+					if int(bio[2])>6:
+						age-=1
+				except:
+					age = '?'
+				
+				for i in range(5,21):
+					if row[i] == '':
+						row[i] = 0
+				pa = int(row[6])+int(row[15])+int(row[18])+int(row[19])+int(row[20])
+				tb = int(row[8])+int(row[9])+2*int(row[10])+3*int(row[11])
+				obpa = int(row[6])+int(row[15])+int(row[18])+int(row[20])
+				
+				batter = [name,row[3],age,pa,int(row[6]),int(row[7]),int(row[8]),int(row[11]),tb,int(row[12]),int(row[15]),int(row[13]),int(row[16]),obpa,int(row[18])]
+				try:
+					try:
+						oldbatter = allgamesa[row[1]][bid]
+						totbatter = batter
+						if isinstance(oldbatter[1], int):
+							totbatter[1] = oldbatter[1]+1
+						else:
+							totbatter[1] = 2
+						for i in range(3,15):
+							totbatter[i]+=oldbatter[i]
+						allgamesa[row[1]][bid] = totbatter
+					except:
+						allgamesa[row[1]][bid] = batter
+				except:
+					allgamesa[row[1]] = {}
+					allgamesa[row[1]][bid] = batter
+			
 	return allgamesa
 
 def readcsvPitchers(filen):
@@ -80,7 +115,32 @@ def readcsvPitchers(filen):
 			except:
 				allgamesa[row[1]] = [row]
 	return allgamesa
-	
+def readcsvBWar(filen):
+	allgamesa  ={}
+	with open(filen, 'r') as csvfile:
+		spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
+		for row in spamreader:
+			if row[0]=='name_common':
+				continue
+			try:
+				war = float(row[30])
+			except:
+				continue
+			try:
+				#stint = row[6]
+				#war = row[30]
+				#salary = row[34]
+				#pid = row[3]
+				#year = row[4]
+				if int(stint)>1:
+					allgamesa[row[3]][row[4]]+=war
+				else:
+					allgamesa[row[3]][row[4]]=war
+			except:
+				allgamesa[row[3]] = {}
+				allgamesa[row[3]][row[4]]=war
+	return allgamesa
+		
 def readcsvI(filen):
 	allgamesa  =[]
 	with open(filen, 'r') as csvfile:
@@ -113,6 +173,8 @@ teamsdata = readtcsv('./baseballdatabank-master/core/Teams.csv')
 battingdata = readcsvBatters('./baseballdatabank-master/core/Batting.csv')
 pitchingdata = readcsvPitchers('./baseballdatabank-master/core/Pitching.csv')
 
+battingwar = readcsvBWar('./war_archive/war_daily_bat.txt')
+
 franchises = {}
 teams = {}
 locations = {}
@@ -142,6 +204,7 @@ for row in teamsdata[1:]:
 
 print(teams)
 print(franchises)
+print(battingdata.keys())
 headerB = battingdata['yearID']
 headerP = pitchingdata['yearID']
 
@@ -153,13 +216,43 @@ for year in battingdata.keys():
 	yearCSV['pitching'] = [headerP[0]]
 	#teamJSON['years'] = []
 
-	if year in battingdata.keys():
-		yearCSV['batting'] += battingdata[year]
-	if year in pitchingdata.keys():
-		yearCSV['pitching'] += pitchingdata[year]
+	if year in battingdata.keys() and year != 'yearID':
+		yeardata = battingdata[year]
+		yearkeys = list(yeardata.keys())
+		for i in range(0,len(yearkeys)):
+			batter = yeardata[yearkeys[i]]
+			if batter[3]>0:
+				row = batter
+				if yearkeys[i] == '':
+					print(year)
+					continue
+				row[0] = '<a href="https://www.baseball-reference.com/players/'+yearkeys[i][0]+'/'+yearkeys[i]+'.shtml">'+batter[0]+'</a>'
+				#['Name', 'Team','Age','PA','AB','R','H','HR','TB','RBI','BB','SB','K','AVG','OBP','SLG','OPS','wOBA','WAR']
+				
+				if row[13]>0:
+					row[14] = (row[6]+row[10]+row[14])/row[13]
+				else:
+					row[14] = 0
+				if row[4]>0:
+					row[13] = row[6]/row[4]
+					row.append(row[8]/row[4])
+				else:
+					row[13] = 0
+					row.append(0)
+				row.append(row[14]+row[15])
+				row.append(0)
+				war = 0
+				try:
+					war = battingwar[yearkeys[1]][year]
+				except:
+					war = 0
+				row.append(war)
+				yearCSV['batting'].append(row)
+	#if year in pitchingdata.keys() and year != 'yearID':
+	#	yearCSV['pitching'] += pitchingdata[year]
 
 	writecsv(yearCSV['batting'],'../static/data/yearsBatters/'+year+'.csv')
-	writecsv(yearCSV['pitching'],'../static/data/yearsPitchers/'+year+'.csv')
+	#writecsv(yearCSV['pitching'],'../static/data/yearsPitchers/'+year+'.csv')
 	
 	
 
