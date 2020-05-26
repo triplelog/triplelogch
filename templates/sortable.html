@@ -10,7 +10,7 @@
 {% endblock %}
 	
 {% block centerSize %}
-	--height-center: 36rem;
+	--height-center: 35rem;
 	--width-center: 50rem;
 {% endblock %}
 
@@ -193,7 +193,7 @@ div.container {
 	{% set r = i%10 %}
 	{% set rr = i%100 %}
 	{% for ii in range(r,10) %}
-		#radio{{ ((i-rr)/100) }}00:checked ~ #radio{{ ((i-r)/10) % 10 }}0:checked ~ div.sortHolder > div >  #radio{{ ii }}:checked ~ .min-{{ i }}  { display: none;}
+		#radio{{ ((i-rr)/100) }}00:checked ~ #radio{{ ((i-r)/10) % 10 }}0:checked ~ #radio{{ ii }}:checked ~ div.sortHolder > div > .min-{{ i }}  { display: none;}
 	{% endfor %}
 {% endfor %}
 
