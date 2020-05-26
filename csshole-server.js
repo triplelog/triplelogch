@@ -419,7 +419,7 @@ app.get('/sortable.html',
 			var order = [];
 			for (var i=0;i<ncols;i++){
 				var thiscol= [];
-				var sorted = content.slice().sort(sortContent(a,b,i,isPitchers))
+				var sorted = content.slice().sort(function(a,b) { return sortContent(a,b,i,isPitchers);})
 				for (var ii=0;ii<content.length;ii++){
 					for (var iii=0;iii<showrows;iii++){
 						if ( sorted[iii][ncols] == ii){
