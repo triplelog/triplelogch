@@ -342,8 +342,7 @@ app.get('/sortable.html',
 	
 	function(req, res) {
 		console.log(performance.now());
-		const file = fs.createReadStream("static/data/Batting.csv");
-		fs.readFile("static/data/Batting.csv", 'utf8', function(err, fileData) {
+		fs.readFile("static/data/yearsBatters/2019.csv", 'utf8', function(err, fileData) {
 			var results = Papa.parse(fileData, {
 				delimiter: ",",
 				skipEmptyLines: true,
