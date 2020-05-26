@@ -143,7 +143,7 @@ div.container {
 {% endfor %}
 
 .header-cell.sortable-col1, .header-cell.sortable-col2  { 
-	font-size: 1rem;
+	font-size: .95rem;
 	text-align: center;
 }
 
@@ -195,7 +195,7 @@ div.container {
 {% endfor %}
 
 {% for i in range(1,nrows+1) %}
-	.sortable-row{{ i }}  { order: {{ i }}; flex-grow: 1; width: 100%; padding: 0px; height: 1.4rem;}
+	.sortable-row{{ i }}  { order: {{ i }}; flex-grow: 1; width: 100%; padding: 0px; height: 1.2rem;}
 {% endfor %}
 
 {% for i in range(1,ncols+1) %}
@@ -294,7 +294,7 @@ input[type="radio"] {
 }
 .sortHolder {
 	background-image: url("../img/tablebgtall.png");
-  	background-size: 100% 35rem;
+  	background-size: 100% 30rem;
   	background-repeat: no-repeat;
 }
 {% endblock %}
