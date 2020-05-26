@@ -10,7 +10,7 @@
 {% endblock %}
 	
 {% block centerSize %}
-	--height-center: 40rem;
+	--height-center: 36rem;
 	--width-center: 50rem;
 {% endblock %}
 
@@ -118,8 +118,9 @@ div.container {
 	padding: 0px 2px;
 	border-right: 0px solid black;
 	border-left: 0px solid black;
-	max-height: 1.4rem;
-	line-height: 1.4rem;
+	max-height: 1.2rem;
+	line-height: 1.2rem;
+	font-size: .95rem;
 	overflow: hidden;
 }
 
@@ -208,7 +209,7 @@ div.container {
 {% endfor %}
 .sortHolder{
 	overflow: hidden;
-	height: 35rem;
+	height: 30rem;
 }
 .sortable {
 	top: 0rem;
@@ -219,16 +220,16 @@ div.container {
 	top: 0rem;
 }
 #page2:checked ~ .sortHolder .sortable {
-	top: -35rem;
+	top: -30rem;
 }
 #page3:checked ~ .sortHolder .sortable {
-	top: -70rem;
+	top: -60rem;
 }
 #page4:checked ~ .sortHolder .sortable {
-	top: -105rem;
+	top: -90rem;
 }
 #page5:checked ~ .sortHolder .sortable {
-	top: -140rem;
+	top: -120rem;
 }
 #sort-ascending:checked ~ .sortHolder .sortable {
 	flex-direction: column;
