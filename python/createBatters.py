@@ -66,7 +66,7 @@ def readcsvBatters(filen):
 		spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
 		for row in spamreader:
 			if row[1] == 'yearID':
-				row = ['Name', 'Team','Age','PA','AB','R','H','HR','TB','RBI','BB','SB','K','AVG','OBP','SLG','OPS','wOBA','WAR']
+				row = ['Name', 'Tm','Age','PA','AB','R','H','HR','TB','RBI','BB','SB','K','AVG','OBP','SLG','OPS','wOBA','WAR']
 				allgamesa['yearID'] = [row]
 			else:
 				bio = people[row[0]]
@@ -112,7 +112,7 @@ def readcsvPitchers(filen):
 		spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
 		for row in spamreader:
 			if row[1] == 'yearID':
-				row = ['Name', 'Team','Age','IP','W','L','SV','H','R','ER','HR','BB','K','ERA','FIP','WHIP','K/BB','WAR']
+				row = ['Name', 'Tm','Age','IP','W','L','SV','H','R','ER','HR','BB','K','ERA','FIP','WHIP','K/BB','WAR']
 				allgamesa['yearID'] = [row]
 			else:
 				bio = people[row[0]]
@@ -463,9 +463,9 @@ for year in battingdata.keys():
 				if row[3]%3 == 0:
 					row[3] = str(math.floor(row[3]/3))
 				elif row[3]%3 == 1:
-					row[3] = str(math.floor(row[3]/3))+'&frac13;'
+					row[3] = str(math.floor(row[3]/3))+'<span class="frac">&frac13;</span>'
 				elif row[3]%3 == 2:
-					row[3] = str(math.floor(row[3]/3))+'&frac23;'
+					row[3] = str(math.floor(row[3]/3))+'<span class="frac">&frac23;</span>'
 				yearCSV['pitching'].append(row)
 
 	writecsv(yearCSV['batting'],'../static/data/yearsBatters/'+year+'.csv')

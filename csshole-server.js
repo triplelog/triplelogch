@@ -343,9 +343,11 @@ app.get('/sortable.html',
 	function(req, res) {
 		console.log(performance.now());
 		var dataset = 'yearsBatters/2019.csv';
+		var widecols = [13,14,15,16,17,18];
 		if (req.query){
-			if (req.query.p === true || req.query.p == 't'){
+			if (req.query.p === true || req.query.p == 't' || req.query.p == 'true'){
 				dataset = 'yearsPitchers/';
+				widecols = [13,14,15,16,17];
 			}
 			else {
 				dataset = 'yearsBatters/';
@@ -419,6 +421,7 @@ app.get('/sortable.html',
 				content: content,
 				header: header,
 				minList: minList,
+				widecols: widecols,
 			}));
 			console.log(performance.now());
 			res.end();
