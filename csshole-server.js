@@ -459,17 +459,17 @@ function sortContent(a,b,i,p=false) {
 	if (p && i==3){
 		var ai = parseInt(a[i]);
 		var bi = parseInt(b[i]);
-		if (a[i].indexOf('&frac13;') > -1){
+		if (a[i] != ai && a[i].indexOf('&frac13;') > -1){
 			ai+=.3
 		}
-		else if (a[i].indexOf('&frac23;') > -1){
+		else if (a[i] != ai){
 			ai+=.6
 		}
 		console.log(b[i]);
-		if (b[i].indexOf('&frac13;') > -1){
+		if (b[i] != bi && b[i].indexOf('&frac13;') > -1){
 			bi+=.3
 		}
-		else if (b[i].indexOf('&frac23;') > -1){
+		else if (b[i] != bi){
 			bi+=.6
 		}
 		return bi - ai;
