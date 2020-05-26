@@ -127,7 +127,7 @@ def readcsvBWar(filen):
 			except:
 				continue
 			try:
-				#stint = row[6]
+				stint = row[6]
 				#war = row[30]
 				#salary = row[34]
 				#pid = row[3]
@@ -243,7 +243,7 @@ for year in battingdata.keys():
 				row.append(0)
 				war = 0
 				try:
-					war = battingwar[yearkeys[1]][year]
+					war = battingwar[yearkeys[i]][year]
 				except:
 					war = 0
 				row.append(war)
