@@ -342,7 +342,27 @@ app.get('/sortable.html',
 	
 	function(req, res) {
 		console.log(performance.now());
-		fs.readFile("static/data/yearsPitchers/2019.csv", 'utf8', function(err, fileData) {
+		var dataset = 'yearsBatters/2019.csv';
+		if (req.query){
+			if (req.query.p){
+				dataset = 'yearsPitchers/';
+			}
+			else {
+				dataset = 'yearsBatters/';
+			}
+			if (req.query.y && req.query.y >1870 && req.query.y<2020){
+				dataset += req.query.y;
+			}
+			else if (req.query.y && req.query.y <=1870){
+				dataset += 1871;
+			}
+			else{
+				dataset += 2019;
+			}
+			dataset += '.csv';
+		}
+		
+		fs.readFile("static/data/"+dataset, 'utf8', function(err, fileData) {
 			var results = Papa.parse(fileData, {
 				delimiter: ",",
 				skipEmptyLines: true,

@@ -196,6 +196,14 @@ Test your knowledge of <a href="../mathquiz.html">Trigonometric values</a>.
 {% endblock %}
 {% block content33 %}
 Sortable Stats from every MLB season since 1900.
+<form  action="../sortable.html" method="get">
+	<select name="p">
+		<option value="false">Batters</option>
+		<option value="true">Pitchers</option>
+	</select>
+	<input name="y" type="number" min="1871" max="2019" value="2019"></input>
+	<button type="submit">Submit</button>
+</form>
 What year?
 {% endblock %}
 

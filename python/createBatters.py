@@ -456,9 +456,9 @@ for year in battingdata.keys():
 				if row[3]%3 == 0:
 					row[3] = str(math.floor(row[3]/3))
 				elif row[3]%3 == 1:
-					row[3] = str(math.floor(row[3]/3))+'&‌#8531;'
+					row[3] = str(math.floor(row[3]/3))+'&frac13;'
 				elif row[3]%3 == 2:
-					row[3] = str(math.floor(row[3]/3))+'&‌#8532;'
+					row[3] = str(math.floor(row[3]/3))+'&frac23;'
 				yearCSV['pitching'].append(row)
 
 	writecsv(yearCSV['batting'],'../static/data/yearsBatters/'+year+'.csv')
