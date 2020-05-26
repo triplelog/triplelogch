@@ -419,7 +419,7 @@ app.get('/sortable.html',
 			var order = [];
 			for (var i=0;i<ncols;i++){
 				var thiscol= [];
-				var sorted = content.slice().sort(function (a,b) {return b[i] - a[i];})
+				var sorted = content.slice().sort(sortContent(a,b,i,isPitchers))
 				for (var ii=0;ii<content.length;ii++){
 					for (var iii=0;iii<showrows;iii++){
 						if ( sorted[iii][ncols] == ii){
@@ -455,7 +455,29 @@ app.get('/sortable.html',
 		
 	}
 );
-
+function sortContent(a,b,i,p=false) {
+	if (p && i==3){
+		var ai = parseInt(a[i]);
+		var bi = parseInt(b[i]);
+		if (a[i].indexOf('&frac13;') > -1){
+			ai+=.3
+		}
+		else if (a[i].indexOf('&frac23;') > -1){
+			ai+=.6
+		}
+		if (b[i].indexOf('&frac13;') > -1){
+			bi+=.3
+		}
+		else if (b[i].indexOf('&frac23;') > -1){
+			bi+=.6
+		}
+		return bi - ai;
+	}
+	else {
+		return b[i] - a[i];
+	}
+	
+}
 
 const server1 = https.createServer(options, app);
 
