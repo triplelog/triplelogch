@@ -51,9 +51,7 @@
 
 {% block moreCSS %}
 
-.content-11 {
-	grid-row: 1 / 3;
-}
+
 .content-13 {
 	display: none;
 }
@@ -156,33 +154,33 @@ div.container {
 
 {% for i in range(1,10) %}
 	{% for ii in range(i,10) %}
-		#radio{{ ii }}00:checked ~ .min-{{ i }}00  { display: none;}
+		#radio{{ ii }}00:checked ~ div.sortHolder > div > .min-{{ i }}00  { display: none;}
 	{% endfor %}
 {% endfor %}
 
 {% for i in range(1,10) %}
 	{% for ii in range(i,10) %}
-		#radio{{ ii }}0:checked ~ .min-{{ i }}0  { display: none;}
+		#radio{{ ii }}0:checked ~ div.sortHolder > div >  .min-{{ i }}0  { display: none;}
 	{% endfor %}
 {% endfor %}
 
 {% for i in range(1,10) %}
 	{% for ii in range(i,10) %}
-		#radio{{ ii }}:checked ~ .min-{{ i }}  { display: none;}
+		#radio{{ ii }}:checked ~ div.sortHolder > div >  .min-{{ i }}  { display: none;}
 	{% endfor %}
 {% endfor %}
 
 {% for i in range(10,100) %}
 	{% set r = i%10 %}
 	{% for ii in range(r,10) %}
-		#radio{{ ((i-r)/10) }}0:checked ~ #radio{{ ii }}:checked ~ .min-{{ i }}  { display: none;}
+		#radio{{ ((i-r)/10) }}0:checked ~ #radio{{ ii }}:checked ~ div.sortHolder > div >  .min-{{ i }}  { display: none;}
 	{% endfor %}
 {% endfor %}
 
 {% for i in range(10,100) %}
 	{% set r = i%10 %}
 	{% for ii in range(r,10) %}
-		#radio{{ ((i-r)/10) }}00:checked ~ #radio{{ ii }}0:checked ~ .min-{{ i }}0  { display: none;}
+		#radio{{ ((i-r)/10) }}00:checked ~ #radio{{ ii }}0:checked ~ div.sortHolder > div >  .min-{{ i }}0  { display: none;}
 	{% endfor %}
 {% endfor %}
 
@@ -190,7 +188,7 @@ div.container {
 	{% set r = i%10 %}
 	{% set rr = i%100 %}
 	{% for ii in range(r,10) %}
-		#radio{{ ((i-rr)/100) }}00:checked ~ #radio{{ ((i-r)/10) % 10 }}0:checked ~ #radio{{ ii }}:checked ~ .min-{{ i }}  { display: none;}
+		#radio{{ ((i-rr)/100) }}00:checked ~ #radio{{ ((i-r)/10) % 10 }}0:checked ~ div.sortHolder > div >  #radio{{ ii }}:checked ~ .min-{{ i }}  { display: none;}
 	{% endfor %}
 {% endfor %}
 
@@ -300,7 +298,7 @@ input[type="radio"] {
 {% endblock %}
 
 
-{% block title11 %}
+{% block title21 %}
 <div class="title">
 	<span class="titleLeft">
 		
@@ -309,14 +307,14 @@ input[type="radio"] {
 		<a href="https://sudokufarm.com">Options</a>
 	</span>
 	<span class="titleRight">
-		<label for="radio11-1"><i class="fas fa-compress-alt"></i></label>
-		<label for="radio11-2"><i class="fas fa-expand-alt"></i></label>
-		<label for="radio11-3"><i class="fas fa-expand"></i></label>
+		
 	</span>
 </div>
 {% endblock %}
-{% block content11 %}
-Year, batters or pitchers, min PA
+{% block content21 %}
+
+<div>
+	Min PA:
 	<div>
 		{% for i in range(0,10) %}
 			<label for="radio{{ i }}00">{{i}}00</label>
@@ -332,6 +330,15 @@ Year, batters or pitchers, min PA
 			<label for="radio{{ i }}">{{i}}</label>
 		{% endfor %}
 	</div>
+</div>
+<form  action="../sortable.html" method="get">
+	<select name="p">
+		<option value="false">Batters</option>
+		<option value="true">Pitchers</option>
+	</select>
+	<input name="y" type="number" min="1871" max="2019" value="2019"></input>
+	<button type="submit">Submit</button>
+</form>
 {% endblock %}	
 
 {% block title13 %}
@@ -369,23 +376,24 @@ Year, batters or pitchers, min PA
 	<div class="sortable-header">
 		{% for i in range(1,ncols+1) %}<label class="header-cell sortable-col{{ i }}" for="sort-col{{ i }}">{{ header[i-1] }}</label>{% endfor %}
 	</div>
+	<input type="radio" name="radio100" id="radio000" checked></input>
+	{% for i in range(1,10) %}
+	<input type="radio" name="radio100" id="radio{{ i}}00"></input>
+	{% endfor %}
+
+	<input type="radio" name="radio10" id="radio00" checked></input>
+	{% for i in range(1,10) %}
+	<input type="radio" name="radio10" id="radio{{ i}}0"></input>
+	{% endfor %}
+	
+	<input type="radio" name="radio1" id="radio0" checked></input>
+	{% for i in range(1,10) %}
+	<input type="radio" name="radio1" id="radio{{ i}}"></input>
+	{% endfor %}
 	<div class="sortHolder">
 		<div class="sortable">
 			
-			<input type="radio" name="radio100" id="radio000" checked></input>
-			{% for i in range(1,10) %}
-			<input type="radio" name="radio100" id="radio{{ i}}00"></input>
-			{% endfor %}
-	
-			<input type="radio" name="radio10" id="radio00" checked></input>
-			{% for i in range(1,10) %}
-			<input type="radio" name="radio10" id="radio{{ i}}0"></input>
-			{% endfor %}
 			
-			<input type="radio" name="radio1" id="radio0" checked></input>
-			{% for i in range(1,10) %}
-			<input type="radio" name="radio1" id="radio{{ i}}"></input>
-			{% endfor %}
 			
 			{% for i in range(1,ncols+1) %}
 			<input type="radio" name="sorter" id="sort-col{{ i }}" {% if i == 1 %}checked{% endif %}></input>
