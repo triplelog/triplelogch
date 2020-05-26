@@ -465,7 +465,6 @@ function sortContent(a,b,i,p=false) {
 		else if (a[i] != ai){
 			ai+=.6
 		}
-		console.log(b[i]);
 		if (b[i] != bi && b[i].indexOf('&frac13;') > -1){
 			bi+=.3
 		}
