@@ -66,6 +66,9 @@
 .content-33 {
 	display: none;
 }
+.content-23 {
+	display: none;
+}
 .container {
 	grid-template-rows: calc((var(--height-container) - var(--height-center))) var(--height-center) 0px;
 	grid-template-columns: calc((var(--width-container) - var(--width-center))) var(--width-center) 0px;
@@ -110,14 +113,16 @@
 
 
 .sortable-col1  { 
-	width: 5rem;
+	width: 8rem;
 	text-align: left;
 	padding: 0px 2px; border-right: 0px solid black; border-left: 0px solid black;
+	max-height: 1.5rem;
+	overflow: hidden;
 }
 
 
 {% for i in range(2,ncols+1) %}
-	.sortable-col{{ i }}  { width: calc( (100% - 5rem)/{{ ncols - 1}}); text-align: right; padding: 0px 2px; border-right: 0px solid black; border-left: 0px solid black;}
+	.sortable-col{{ i }}  { width: calc( (100% - 5rem)/{{ ncols - 1}}); text-align: right; padding: 0px 2px; border-right: 0px solid black; border-left: 0px solid black; max-height: 1.5rem; overflow: hidden;}
 {% endfor %}
 
 .sortable-header  { 
