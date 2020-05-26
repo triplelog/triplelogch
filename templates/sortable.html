@@ -111,7 +111,12 @@ div.container {
   border: solid 1px black;
   border-bottom: solid 1px gray;
   border-top: solid 0px;
-  background: fade(slategrey,20%);
+}
+.sortable > div {
+	background: gray;
+}
+.sortable > div:nth-child(2n) {
+	background: white;
 }
 
 
@@ -155,6 +160,7 @@ div.container {
 	width: 100%;
 	padding: 0px;
 	background: white;
+	height: 1.2rem;
 }
 
 {% for i in range(1,10) %}
