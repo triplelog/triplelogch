@@ -355,7 +355,7 @@ app.get('/sortable.html',
 			var minList = [];
 			for (var i=0;i<content.length;i++){
 				content[i].push(i);
-				var x = parseInt(content[i][6]);
+				var x = parseInt(content[i][3]);
 				if (x< 10){
 					minList.push('min-100 min-10 min-'+(x+1))
 				}
