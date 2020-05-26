@@ -71,7 +71,7 @@ def readcsvBatters(filen):
 			else:
 				bio = people[row[0]]
 				bid = bio[23]
-				name = bio[13]+' '+bio[14]
+				name = getname(bio[13],bio[14])
 				try:
 					age = int(row[1]) - int(bio[1])
 					if int(bio[2])>6:
@@ -117,7 +117,7 @@ def readcsvPitchers(filen):
 			else:
 				bio = people[row[0]]
 				bid = bio[23]
-				name = bio[13]+' '+bio[14]
+				name = getname(bio[13],bio[14])
 				try:
 					age = int(row[1]) - int(bio[1])
 					if int(bio[2])>6:
@@ -241,6 +241,13 @@ def readcsv(filen):
 			
 	return allgamesa
 
+def getname(first,last):
+	if len(last)>11:
+		return first[0]+'. '+last[0:9]
+	elif len(first)+len(last)>11:
+		return first[0]+'. '+last
+	else:
+		return first+' '+last
 def threedecimals(x,n=3):
 	nval = 1
 	for i in range(0,n):
