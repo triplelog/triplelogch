@@ -10,7 +10,7 @@
 {% endblock %}
 	
 {% block centerSize %}
-	--height-center: 30rem;
+	--height-center: 40rem;
 	--width-center: 50rem;
 {% endblock %}
 
@@ -194,7 +194,7 @@ div.container {
 {% endfor %}
 
 {% for i in range(1,nrows+1) %}
-	.sortable-row{{ i }}  { order: {{ i }}; flex-grow: 1; width: 100%; padding: 0px; height: 1.5rem;}
+	.sortable-row{{ i }}  { order: {{ i }}; flex-grow: 1; width: 100%; padding: 0px; height: 1.4rem;}
 {% endfor %}
 
 {% for i in range(1,ncols+1) %}
@@ -208,7 +208,7 @@ div.container {
 {% endfor %}
 .sortHolder{
 	overflow: hidden;
-	height: 24rem;
+	height: 35rem;
 }
 .sortable {
 	top: 0rem;
@@ -219,16 +219,16 @@ div.container {
 	top: 0rem;
 }
 #page2:checked ~ .sortHolder .sortable {
-	top: -24rem;
+	top: -35rem;
 }
 #page3:checked ~ .sortHolder .sortable {
-	top: -48rem;
+	top: -70rem;
 }
 #page4:checked ~ .sortHolder .sortable {
-	top: -72rem;
+	top: -105rem;
 }
 #page5:checked ~ .sortHolder .sortable {
-	top: -96rem;
+	top: -140rem;
 }
 #sort-ascending:checked ~ .sortHolder .sortable {
 	flex-direction: column;
@@ -293,7 +293,7 @@ input[type="radio"] {
 }
 .sortHolder {
 	background-image: url("../img/tablebgtall.png");
-  	background-size: 100% 500px;
+  	background-size: 100% 35rem;
   	background-repeat: no-repeat;
 }
 {% endblock %}
