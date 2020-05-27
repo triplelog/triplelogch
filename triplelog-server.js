@@ -63,10 +63,10 @@ app.get('/graphics.html',
 			circles.push({x:75+150*i,y:75,radius:55+Math.random()*15});
 		}
 		for (var i=0;i<6;i++){
-			circles.push({x:150*(i+1),y:35,radius:21+Math.random()*11});
+			circles.push({x:150*(i+1),y:60,radius:21+Math.random()*11});
 		}
 		for (var i=0;i<6;i++){
-			circles.push({x:150*(i+1),y:115,radius:21+Math.random()*11});
+			circles.push({x:150*(i+1),y:90,radius:21+Math.random()*11});
 		}
 
 
