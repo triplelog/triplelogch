@@ -122,7 +122,7 @@ svg += line2;*/
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var end1 = drawOvals({x:250,y:250,radius:100},2.0,0.033,0.09,.005,100);
+var end1 = drawOvals({x:250,y:250,radius:100},2.0,0.033,0.09,.1,100);
 svg += end1;
 /*
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
