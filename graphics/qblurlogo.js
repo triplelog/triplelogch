@@ -78,7 +78,7 @@ function drawLine(xI,yI,color){
 
 function drawLines(xc,yc){
 	var svg = '';//'<circle fill="none" stroke="black" cx="'+(xc+250)+'" cy="'+(yc-250)+'" r="'+r+'" />';
-	var samples = 24;
+	var samples = 16;
 	for (let j = 0; j < samples; ++j) {
 		const x = xc;
 		const y = 35*j/samples + yc;
@@ -112,12 +112,17 @@ svg += line2;*/
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
+var line2 = drawLines(265,325);
+svg += line2;
+
+noise = OpenSimplexNoise.makeNoise3D(Date.now());
+noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
 var end1 = drawOvals({x:250,y:250,radius:100},2.0,0.027,0.08,.33,80);
 svg += end1;
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var line2 = drawLines(265,325);
+var line2 = drawLines(265,326);
 svg += line2;
 
 /*
