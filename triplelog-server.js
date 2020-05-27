@@ -88,7 +88,7 @@ app.get('/graphics.html',
 		noise = OpenSimplexNoise.makeNoise3D(nf);
 		nf *= 3.14;
 		noise2D = OpenSimplexNoise.makeNoise2D(nf);
-		svg = drawFlower({x:800,y:100,radius:80},2.0,0.5,0.09,0.033,35,noise,noise2D);
+		svg = drawFlower({x:900,y:100,radius:80},2.0,0.5,0.09,0.033,35,noise,noise2D);
 		htmlstr += svg;
 		
 		htmlstr += '</svg></body></html';
