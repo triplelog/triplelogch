@@ -63,7 +63,7 @@ function drawLine(xI,yI,color){
 	var x = 0;
 	var y = 0;
 	for (var i=0;i<100;i++){
-		x = i*1.4;
+		x = i*1.25;
 		y = i*.4;
 		xdef = .85 + .15*(noise2D(x/300,y/300)+1);
 		ydef = .85 + .15*(noise2D(x/600,y/600)+1);
@@ -81,7 +81,7 @@ function drawLines(xc,yc){
 	var samples = 12;
 	for (let j = 0; j < samples; ++j) {
 		const x = xc;
-		const y = 30*j/samples + yc;
+		const y = 35*j/samples + yc;
 		h = 30 + noise2D(.9-j/samples*.8,.1+j/samples*.8)*8;
     	s = (40 + noise2D(.1+j/samples*.8,.9-j/samples*.8)*4)+'%';
     	l = (25+Math.min(j%11,10-(j%11))*1)+'%';
