@@ -18,11 +18,14 @@ function drawOvals(circle,frequency, magnitude,independence, spacing,count) {
     }
     var svg = '';
     for (var i=0;i<paths.length;i++){
-    	h = 30 + noise2D(.9-i/paths.length*.8,.1+i/paths.length*.8)*10;
-    	s = (45 + noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*5)+'%';
+    	h = 10 + noise2D(.9-i/paths.length*.8,.1+i/paths.length*.8)*340;
+    	s = (35 + noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*20)+'%';
     	l = (25+Math.min(i%11,10-(i%11))*9)+'%';
-    	if (i%5==0){
-    		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="none" d="'+paths[i]+'" />';
+    	if (i == paths.length-1){
+    		svg += '<path fill="white" stroke="black" d="'+paths[i]+'" />';
+    	}
+    	else if (i%10==0){
+    		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="black" d="'+paths[i]+'" />';
     	}
     	else {
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="none" d="'+paths[i]+'" />';
@@ -119,7 +122,7 @@ svg += line2;*/
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var end1 = drawOvals({x:250,y:250,radius:100},2.0,0.033,0.09,.95,25);
+var end1 = drawOvals({x:250,y:250,radius:100},2.0,0.033,0.09,.97,100);
 svg += end1;
 /*
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
