@@ -30,7 +30,7 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
     	}
     	
     }
-    svg += '</svg></body></html';
+    svg += '</svg></body></html>';
 	fs.writeFile('../static/logo.html', svg, function (err) {});
 }
 

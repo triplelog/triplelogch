@@ -55,35 +55,67 @@ app.get('/graphics.html',
 	
 	function(req, res) {
 		
+		if (req.query.c){
+			var htmlstr = '<html><body><svg height="120" width="1200">';
 
-		var htmlstr = '<html><body><svg height="120" width="1200">';
-
-		var circles = [];
-		for (var i=0;i<8;i++){
-			circles.push({x:75+150*i,y:60,radius:55});
-		}
-		for (var i=0;i<7;i++){
-			circles.push({x:150*(i+1),y:60,radius:44});
-		}
-		for (var i=0;i<7;i++){
-			circles.push({x:150*(i+1),y:60,radius:33});
-		}
+			var circles = [];
+			for (var i=0;i<8;i++){
+				circles.push({x:75+150*i,y:60,radius:55});
+			}
+			for (var i=0;i<7;i++){
+				circles.push({x:150*(i+1),y:60,radius:44});
+			}
+			for (var i=0;i<7;i++){
+				circles.push({x:150*(i+1),y:60,radius:33});
+			}
 
 
 		
-		var nf = req.query.q;
-		for (var i=0;i<circles.length;i++){
+			var nf = req.query.c;
+			for (var i=0;i<circles.length;i++){
+				nf *= 3.14;
+				var noise = OpenSimplexNoise.makeNoise3D(nf);
+				nf *= 3.14;
+				var noise2D = OpenSimplexNoise.makeNoise2D(nf);
+				svg = drawFlower(circles[i],2.0,0.33,0.075,0.025,25,noise,noise2D);
+				htmlstr += svg;
+			}
+		
+			htmlstr += '</svg></body></html>';
+			res.write(htmlstr);
+			res.end();
+		}
+		else if (req.query.q){
+			var htmlstr = '<html><body><svg height="120" width="1200">';
+
+			/*var circles = [];
+			for (var i=0;i<8;i++){
+				circles.push({x:75+150*i,y:60,radius:55});
+			}
+			for (var i=0;i<7;i++){
+				circles.push({x:150*(i+1),y:60,radius:44});
+			}
+			for (var i=0;i<7;i++){
+				circles.push({x:150*(i+1),y:60,radius:33});
+			}*/
+
+
+		
+			var nf = req.query.q;
+			//for (var i=0;i<circles.length;i++){
 			nf *= 3.14;
 			var noise = OpenSimplexNoise.makeNoise3D(nf);
 			nf *= 3.14;
 			var noise2D = OpenSimplexNoise.makeNoise2D(nf);
-			svg = drawFlower(circles[i],2.0,0.33,0.075,0.025,25,noise,noise2D);
+			svg = drawBlur({600,60,60},2.0,0.33,0.075,0.025,25,noise,noise2D);
 			htmlstr += svg;
+			//}
+		
+			htmlstr += '</svg></body></html>';
+			res.write(htmlstr);
+			res.end();
 		}
 		
-		htmlstr += '</svg></body></html';
-		res.write(htmlstr);
-		res.end();
 	}
 );
 
@@ -178,6 +210,7 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count,nois
 	return svg;
 }
 
+
 function drawDeformedCircle( circle,frequency, magnitude,seed,noise,noise2D) {
         var path = 'M';
 
@@ -203,5 +236,65 @@ function drawDeformedCircle( circle,frequency, magnitude,seed,noise,noise2D) {
         return path;
 }
 
+function drawBlur(circle,frequency, magnitude,independence, spacing,count,noise,noise2D) {
+    // adjust the radius so will have roughly the same size irregardless of magnitude
+    let current = {...circle};
+    current.radius /= (magnitude + 1);
+    var paths = [];
+    for (let i = 0; i < count; ++i) {
+        // draw a circle, the final parameter controlling how similar it is to
+        // other circles in this image
+        paths.push(drawDeformedOval(current,frequency, magnitude,i * independence,noise,noise2D));
+
+        // shrink the radius of the next circle
+        current.radius *= Math.pow((1 - spacing),1+2*i/count);
+    }
+    svg = '';
+    for (var i=0;i<paths.length;i++){
+    	h = noise2D(.4+i/paths.length*.2,.6-i/paths.length*.2)*360;
+    	s = '80%';
+    	l = (75-i*60/paths.length);
+    	if (i == paths.length - 1){
+    		svg += '<path fill="hsl('+h+','+s+','+(l*4)+'%)" stroke="black" d="'+paths[i]+'" />';
+    	}
+    	else if (i%12==0 || i%12==4){
+    		svg += '<path fill="hsl('+h+','+s+','+l+'%)" stroke="black" d="'+paths[i]+'" />';
+    	}
+    	else if (i%12==8){
+    		svg += '<path fill="hsl('+h+','+s+','+l+'%)" stroke="white" d="'+paths[i]+'" />';
+    	}
+    	else {
+    		svg += '<path fill="hsl('+h+','+s+','+l+'%)" stroke="none" d="'+paths[i]+'" />';
+    	}
+    	
+    }
+    
+	return svg;
+}
+
+function drawDeformedOval( circle,frequency, magnitude,seed,noise,noise2D) {
+        var path = 'M';
+
+        // Sample points evenly around the circle
+        const samples = Math.floor(4 * circle.radius + 20);
+        for (let j = 0; j < samples + 1; ++j) {
+            const angle = (2 * Math.PI * j) / samples;
+
+            // Figure out the x/y coordinates for the given angle
+            const x = Math.cos(angle);
+            const y = Math.sin(angle);
+
+            // Randomly deform the radius of the circle at this point
+            const deformation = (noise(x * frequency,
+                                               y * frequency,
+                                               seed) + 1);
+            const radius = circle.radius * (1 + magnitude * deformation);
+
+            // Extend the circle to this deformed radius
+            path += ((circle.x + radius * x)*10) + ','+(circle.y + radius * y)+' ';
+        }
+        path += 'Z';
+        return path;
+}
 
 
