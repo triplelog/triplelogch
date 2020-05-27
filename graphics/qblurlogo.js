@@ -14,7 +14,7 @@ function drawOvals(circle,frequency, magnitude,independence, spacing,count) {
         paths.push(drawDeformedCircle(current,frequency, magnitude,i * independence));
 
         // shrink the radius of the next circle
-        current.radius -= spacing;
+        current.radius *= Math.pow((1 - spacing),1+2*i/count);
     }
     var svg = '';
     for (var i=0;i<paths.length;i++){
@@ -122,7 +122,7 @@ svg += line2;*/
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var end1 = drawOvals({x:250,y:250,radius:100},2.0,0.033,0.09,.99,100);
+var end1 = drawOvals({x:250,y:250,radius:100},2.0,0.033,0.09,.995,100);
 svg += end1;
 /*
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
