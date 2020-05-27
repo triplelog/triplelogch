@@ -164,8 +164,11 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count,nois
     	h = noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*360;
     	s = '80%';
     	l = (75-i*60/paths.length)+'%';
-    	if (i%7==0){
+    	if (i%8==0){
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="black" d="'+paths[i]+'" />';
+    	}
+    	else if (i%8==4){
+    		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="white" d="'+paths[i]+'" />';
     	}
     	else {
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="none" d="'+paths[i]+'" />';
