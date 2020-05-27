@@ -20,12 +20,9 @@ function drawOvals(circle,frequency, magnitude,independence, spacing,count) {
     for (var i=0;i<paths.length;i++){
     	h = 10 + noise2D(.9-i/paths.length*.8,.1+i/paths.length*.8)*340;
     	s = (35 + noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*20)+'%';
-    	l = (25+Math.min(i%17,16-(i%17))*6)+'%';
+    	l = (25+Math.min(i%21,20-(i%21))*6)+'%';
     	if (i == paths.length-1){
     		svg += '<path fill="white" stroke="black" d="'+paths[i]+'" />';
-    	}
-    	else if (i%40==0){
-    		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="black" d="'+paths[i]+'" />';
     	}
     	else {
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="none" d="'+paths[i]+'" />';
