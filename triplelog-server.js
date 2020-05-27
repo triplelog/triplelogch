@@ -56,24 +56,20 @@ app.get('/graphics.html',
 	function(req, res) {
 		
 
-		var htmlstr = '<html><body><svg height="200" width="1000">';
+		var htmlstr = '<html><body><svg height="150" width="1050">';
 
 		var circles = [];
-		circles.push({x:100,y:100,radius:80});
-		circles.push({x:300,y:100,radius:80});
-		circles.push({x:500,y:100,radius:80});
-		circles.push({x:700,y:100,radius:80});
-		circles.push({x:900,y:100,radius:80});
-		
-		circles.push({x:200,y:40,radius:30});
-		circles.push({x:400,y:40,radius:30});
-		circles.push({x:600,y:40,radius:30});
-		circles.push({x:800,y:40,radius:30});
-		
-		circles.push({x:200,y:160,radius:30});
-		circles.push({x:400,y:160,radius:30});
-		circles.push({x:600,y:160,radius:30});
-		circles.push({x:800,y:160,radius:30});
+		for (var i=0;i<7;i++){
+			circles.push({x:75+150*i,y:75,radius:70});
+		}
+		for (var i=0;i<6;i++){
+			circles.push({x:150*i,y:35,radius:25});
+		}
+		for (var i=0;i<7;i++){
+			circles.push({x:150*i,y:115,radius:25});
+		}
+
+
 		
 		var nf = req.query.q;
 		for (var i=0;i<circles.length;i++){
