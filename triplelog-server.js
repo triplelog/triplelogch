@@ -279,7 +279,7 @@ function drawDeformedOval( circle,frequency, magnitude,seed,noise,noise2D) {
             const radius = circle.radius * (1 + magnitude * deformation);
 
             // Extend the circle to this deformed radius
-            path += ((circle.x + radius * x)*10) + ','+(circle.y + radius * y)+' ';
+            path += (circle.x + radius * x*10) + ','+(circle.y + radius * y)+' ';
         }
         path += 'Z';
         return path;
