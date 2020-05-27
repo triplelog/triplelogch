@@ -54,10 +54,21 @@ app.get('/index.html',
 app.get('/graphics.html', 
 	
 	function(req, res) {
-		const noise = OpenSimplexNoise.makeNoise3D(req.query.q);
-		const noise2D = OpenSimplexNoise.makeNoise2D(req.query.q*3.14);
+		var nf = req.query.q;
+		const noise = OpenSimplexNoise.makeNoise3D(nf);
+		nf *= 3.14;
+		const noise2D = OpenSimplexNoise.makeNoise2D(nf);
 		//drawFlower({x:100,y:100,radius:50},2.0,0.5,0.1,0.01,300);
-		var htmlstr = drawFlower({x:200,y:200,radius:100},2.0,0.5,0.09,0.033,35,noise,noise2D);
+		var htmlstr = '<html><body><svg height="200" width="1000">';
+		var svg = drawFlower({x:100,y:100,radius:100},2.0,0.5,0.09,0.033,35,noise,noise2D);
+		htmlstr += svg;
+		nf *= 3.14;
+		noise = OpenSimplexNoise.makeNoise3D(nf);
+		nf *= 3.14;
+		noise2D = OpenSimplexNoise.makeNoise2D(nf);
+		svg = drawFlower({x:300,y:100,radius:100},2.0,0.5,0.09,0.033,35,noise,noise2D);
+		htmlstr += svg;
+		htmlstr += '</svg></body></html';
 		res.write(htmlstr);
 		res.end();
 	}
@@ -131,7 +142,7 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count,nois
         // shrink the radius of the next circle
         current.radius *= Math.pow((1 - spacing),1+2*i/count);
     }
-    var svg = '<html><body><svg height="400" width="400">';
+    svg = '';
     for (var i=0;i<paths.length;i++){
     	h = noise2D(.1+i/paths.length*.8,.9-i/paths.length*.8)*360;
     	s = '80%';
@@ -144,7 +155,7 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count,nois
     	}
     	
     }
-    svg += '</svg></body></html';
+    
 	return svg;
 }
 
