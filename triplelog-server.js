@@ -65,10 +65,15 @@ app.get('/graphics.html',
 		circles.push({x:700,y:100,radius:80});
 		circles.push({x:900,y:100,radius:80});
 		
-		circles.push({x:200,y:30,radius:20});
-		circles.push({x:400,y:30,radius:20});
-		circles.push({x:600,y:30,radius:20});
-		circles.push({x:800,y:30,radius:20});
+		circles.push({x:200,y:40,radius:30});
+		circles.push({x:400,y:40,radius:30});
+		circles.push({x:600,y:40,radius:30});
+		circles.push({x:800,y:40,radius:30});
+		
+		circles.push({x:200,y:160,radius:30});
+		circles.push({x:400,y:160,radius:30});
+		circles.push({x:600,y:160,radius:30});
+		circles.push({x:800,y:160,radius:30});
 		
 		var nf = req.query.q;
 		for (var i=0;i<circles.length;i++){
