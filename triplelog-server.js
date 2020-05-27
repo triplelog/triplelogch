@@ -54,42 +54,31 @@ app.get('/index.html',
 app.get('/graphics.html', 
 	
 	function(req, res) {
-		var nf = req.query.q;
-		var noise = OpenSimplexNoise.makeNoise3D(nf);
-		nf *= 3.14;
-		var noise2D = OpenSimplexNoise.makeNoise2D(nf);
-		//drawFlower({x:100,y:100,radius:50},2.0,0.5,0.1,0.01,300);
+		
+
 		var htmlstr = '<html><body><svg height="200" width="1000">';
-		var svg = drawFlower({x:100,y:100,radius:80},2.0,0.5,0.09,0.033,35,noise,noise2D);
-		htmlstr += svg;
+
+		var circles = [];
+		circles.push({x:100,y:100,radius:80});
+		circles.push({x:300,y:100,radius:80});
+		circles.push({x:500,y:100,radius:80});
+		circles.push({x:700,y:100,radius:80});
+		circles.push({x:900,y:100,radius:80});
 		
-		nf *= 3.14;
-		noise = OpenSimplexNoise.makeNoise3D(nf);
-		nf *= 3.14;
-		noise2D = OpenSimplexNoise.makeNoise2D(nf);
-		svg = drawFlower({x:300,y:100,radius:80},2.0,0.5,0.09,0.033,35,noise,noise2D);
-		htmlstr += svg;
+		circles.push({x:200,y:30,radius:20});
+		circles.push({x:400,y:30,radius:20});
+		circles.push({x:600,y:30,radius:20});
+		circles.push({x:800,y:30,radius:20});
 		
-		nf *= 3.14;
-		noise = OpenSimplexNoise.makeNoise3D(nf);
-		nf *= 3.14;
-		noise2D = OpenSimplexNoise.makeNoise2D(nf);
-		svg = drawFlower({x:500,y:100,radius:80},2.0,0.5,0.09,0.033,35,noise,noise2D);
-		htmlstr += svg;
-		
-		nf *= 3.14;
-		noise = OpenSimplexNoise.makeNoise3D(nf);
-		nf *= 3.14;
-		noise2D = OpenSimplexNoise.makeNoise2D(nf);
-		svg = drawFlower({x:700,y:100,radius:80},2.0,0.5,0.09,0.033,35,noise,noise2D);
-		htmlstr += svg;
-		
-		nf *= 3.14;
-		noise = OpenSimplexNoise.makeNoise3D(nf);
-		nf *= 3.14;
-		noise2D = OpenSimplexNoise.makeNoise2D(nf);
-		svg = drawFlower({x:900,y:100,radius:80},2.0,0.5,0.09,0.033,35,noise,noise2D);
-		htmlstr += svg;
+		var nf = req.query.q;
+		for (var i=0;i<circles.length;i++){
+			nf *= 3.14;
+			var noise = OpenSimplexNoise.makeNoise3D(nf);
+			nf *= 3.14;
+			var noise2D = OpenSimplexNoise.makeNoise2D(nf);
+			svg = drawFlower(circles[i],2.0,0.5,0.09,0.033,35,noise,noise2D);
+			htmlstr += svg;
+		}
 		
 		htmlstr += '</svg></body></html';
 		res.write(htmlstr);
