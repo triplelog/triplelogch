@@ -56,17 +56,17 @@ app.get('/graphics.html',
 	function(req, res) {
 		
 
-		var htmlstr = '<html><body><svg height="150" width="1050">';
+		var htmlstr = '<html><body><svg height="120" width="1200">';
 
 		var circles = [];
+		for (var i=0;i<8;i++){
+			circles.push({x:75+150*i,y:60,radius:57});
+		}
 		for (var i=0;i<7;i++){
-			circles.push({x:75+150*i,y:75,radius:68});
+			circles.push({x:150*(i+1),y:60,radius:40});
 		}
-		for (var i=0;i<6;i++){
-			circles.push({x:150*(i+1),y:75,radius:50});
-		}
-		for (var i=0;i<6;i++){
-			circles.push({x:150*(i+1),y:75,radius:25});
+		for (var i=0;i<7;i++){
+			circles.push({x:150*(i+1),y:60,radius:20});
 		}
 
 
