@@ -62,7 +62,6 @@ function drawLine(xI,yI,color){
 	var path = 'M';
 	var x = 0;
 	var y = 0;
-	console.log(xI,yI);
 	for (var i=0;i<100;i++){
 		x = i*1.4;
 		y = i*.25;
