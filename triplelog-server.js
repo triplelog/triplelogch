@@ -165,7 +165,7 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count,nois
     	s = '80%';
     	l = (75-i*60/paths.length)+'%';
     	if (i%5==0){
-    		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="black" d="'+paths[i]+'" />';
+    		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="none" d="'+paths[i]+'" />';
     	}
     	else {
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="none" d="'+paths[i]+'" />';
