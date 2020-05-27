@@ -60,7 +60,7 @@ app.get('/graphics.html',
 
 		var circles = [];
 		for (var i=0;i<7;i++){
-			circles.push({x:75+150*i,y:75,radius:70});
+			circles.push({x:75+150*i,y:75,radius:67});
 		}
 		for (var i=0;i<6;i++){
 			circles.push({x:150*(i+1),y:35,radius:25});
