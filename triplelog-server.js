@@ -262,6 +262,7 @@ function drawBlur(circle,frequency, magnitude,independence, spacing,count,noise,
 
 function drawDeformedOval( circle,frequency, magnitude,seed,noise,noise2D) {
         var path = 'M';
+		console.log(circle,frequency, magnitude,seed,noise,noise2D);
         // Sample points evenly around the circle
         const samples = Math.floor(4 * circle.radius + 20);
         for (let j = 0; j < samples + 1; ++j) {
