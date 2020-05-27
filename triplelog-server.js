@@ -55,9 +55,9 @@ app.get('/graphics.html',
 	
 	function(req, res) {
 		var nf = req.query.q;
-		const noise = OpenSimplexNoise.makeNoise3D(nf);
+		var noise = OpenSimplexNoise.makeNoise3D(nf);
 		nf *= 3.14;
-		const noise2D = OpenSimplexNoise.makeNoise2D(nf);
+		var noise2D = OpenSimplexNoise.makeNoise2D(nf);
 		//drawFlower({x:100,y:100,radius:50},2.0,0.5,0.1,0.01,300);
 		var htmlstr = '<html><body><svg height="200" width="1000">';
 		var svg = drawFlower({x:100,y:100,radius:100},2.0,0.5,0.09,0.033,35,noise,noise2D);
