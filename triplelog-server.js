@@ -249,7 +249,7 @@ function drawBlur(circle,frequency, magnitude,independence, spacing,count,noise,
     		svg += '<path fill="hsl('+h+','+s+','+l+'%)" stroke="none" d="'+paths[i]+'" />';
     	}
     	else if (i%24==16){
-    		svg += '<path fill="hsl('+h+','+s+','+l+'%)" stroke="black" d="'+paths[i]+'" />';
+    		svg += '<path fill="hsl('+h+','+s+','+l+'%)" stroke="none" d="'+paths[i]+'" />';
     	}
     	else {
     		svg += '<path fill="hsl('+h+','+s+','+l+'%)" stroke="none" d="'+paths[i]+'" />';
