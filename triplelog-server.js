@@ -81,7 +81,7 @@ app.get('/graphics.html',
 			var noise = OpenSimplexNoise.makeNoise3D(nf);
 			nf *= 3.14;
 			var noise2D = OpenSimplexNoise.makeNoise2D(nf);
-			svg = drawFlower(circles[i],2.0,0.5,0.09,0.025,25,noise,noise2D);
+			svg = drawFlower(circles[i],2.0,0.4,0.08,0.025,25,noise,noise2D);
 			htmlstr += svg;
 		}
 		
