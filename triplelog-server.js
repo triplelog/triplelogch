@@ -54,10 +54,10 @@ app.get('/index.html',
 app.get('/graphics.html', 
 	
 	function(req, res) {
-		const noise = OpenSimplexNoise.makeNoise3D(Date.now());
-		const noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
+		const noise = OpenSimplexNoise.makeNoise3D(req.query.q);
+		const noise2D = OpenSimplexNoise.makeNoise2D(req.query.q*3.14);
 		//drawFlower({x:100,y:100,radius:50},2.0,0.5,0.1,0.01,300);
-		var htmlstr = drawFlower({x:200,y:200,radius:100},2.0,0.5,0.09,0.033,35);
+		var htmlstr = drawFlower({x:200,y:200,radius:100},2.0,0.5,0.09,0.033,35,noise,noise2D);
 		res.write(htmlstr);
 		res.end();
 	}
@@ -118,7 +118,7 @@ wss.on('connection', function connection(ws) {
 
 
 
-function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
+function drawFlower(circle,frequency, magnitude,independence, spacing,count,noise,noise2D) {
     // adjust the radius so will have roughly the same size irregardless of magnitude
     let current = {...circle};
     current.radius /= (magnitude + 1);
@@ -126,7 +126,7 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
     for (let i = 0; i < count; ++i) {
         // draw a circle, the final parameter controlling how similar it is to
         // other circles in this image
-        paths.push(drawDeformedCircle(current,frequency, magnitude,i * independence));
+        paths.push(drawDeformedCircle(current,frequency, magnitude,i * independence,noise,noise2D));
 
         // shrink the radius of the next circle
         current.radius *= Math.pow((1 - spacing),1+2*i/count);
@@ -148,7 +148,7 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count) {
 	return svg;
 }
 
-function drawDeformedCircle( circle,frequency, magnitude,seed) {
+function drawDeformedCircle( circle,frequency, magnitude,seed,noise,noise2D) {
         var path = 'M';
 
         // Sample points evenly around the circle
