@@ -95,7 +95,7 @@ app.get('/graphics.html',
 			var noise = OpenSimplexNoise.makeNoise3D(nf);
 			nf *= 3.14;
 			var noise2D = OpenSimplexNoise.makeNoise2D(nf);
-			svg = drawBlur({x:600,y:60,radius:100},2.0,0.33,0.075,0.01,100,noise,noise2D);
+			svg = drawBlur({x:600,y:60,radius:100},2.0,0.33,0.075,0.01,150,noise,noise2D);
 			htmlstr += svg;
 			//}
 		
@@ -249,7 +249,7 @@ function drawBlur(circle,frequency, magnitude,independence, spacing,count,noise,
     		svg += '<path fill="hsl('+h+','+s+','+l+'%)" stroke="black" d="'+paths[i]+'" />';
     	}
     	else if (i%24==16){
-    		svg += '<path fill="hsl('+h+','+s+','+l+'%)" stroke="white" d="'+paths[i]+'" />';
+    		svg += '<path fill="hsl('+h+','+s+','+l+'%)" stroke="gray" d="'+paths[i]+'" />';
     	}
     	else {
     		svg += '<path fill="hsl('+h+','+s+','+l+'%)" stroke="none" d="'+paths[i]+'" />';
@@ -262,7 +262,6 @@ function drawBlur(circle,frequency, magnitude,independence, spacing,count,noise,
 
 function drawDeformedOval( circle,frequency, magnitude,seed,noise,noise2D) {
         var path = 'M';
-		console.log(circle,frequency, magnitude,seed,noise,noise2D);
         // Sample points evenly around the circle
         const samples = Math.floor(4 * circle.radius + 20);
         for (let j = 0; j < samples + 1; ++j) {
