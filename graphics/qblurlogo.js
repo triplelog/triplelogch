@@ -78,11 +78,11 @@ function drawLine(xI,yI,color){
 
 function drawLines(xc,yc){
 	var svg = '';//'<circle fill="none" stroke="black" cx="'+(xc+250)+'" cy="'+(yc-250)+'" r="'+r+'" />';
-	var samples = 12;
+	var samples = 48;
 	for (let j = 0; j < samples; ++j) {
 		const x = xc;
 		const y = 35*j/samples + yc;
-		h = 30 + noise2D(.9-j/samples*.8,.1+j/samples*.8)*8;
+		h = 10 + noise2D(.9-j/samples*.8,.1+j/samples*.8)*340;
     	s = (40 + noise2D(.1+j/samples*.8,.9-j/samples*.8)*4)+'%';
     	l = (25+Math.min(j%11,10-(j%11))*1)+'%';
 		var color = 'hsl('+h+','+s+','+l+')';
