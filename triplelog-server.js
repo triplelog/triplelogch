@@ -95,7 +95,7 @@ app.get('/graphics.html',
 			var noise = OpenSimplexNoise.makeNoise3D(nf);
 			nf *= 3.14;
 			var noise2D = OpenSimplexNoise.makeNoise2D(nf);
-			svg = drawBlur({x:600,y:60,radius:100},2.0,0.33,0.075,0.01,150,noise,noise2D);
+			svg = drawBlur({x:600,y:60,radius:100},2.0,0.33,0.075,0.01,120,noise,noise2D);
 			htmlstr += svg;
 			//}
 		
