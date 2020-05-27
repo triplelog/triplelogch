@@ -95,7 +95,7 @@ app.get('/graphics.html',
 			var noise = OpenSimplexNoise.makeNoise3D(nf);
 			nf *= 3.14;
 			var noise2D = OpenSimplexNoise.makeNoise2D(nf);
-			svg = drawBlur({x:600,y:60,radius:60},2.0,0.33,0.075,0.025,25,noise,noise2D);
+			svg = drawBlur({x:600,y:60,radius:100},2.0,0.33,0.075,0.01,100,noise,noise2D);
 			htmlstr += svg;
 			//}
 		
@@ -279,7 +279,7 @@ function drawDeformedOval( circle,frequency, magnitude,seed,noise,noise2D) {
             const radius = circle.radius * (1 + magnitude * deformation);
 
             // Extend the circle to this deformed radius
-            path += (circle.x + radius * x*10) + ','+(circle.y + radius * y)+' ';
+            path += (circle.x + radius * x*15) + ','+(circle.y + radius * y)+' ';
         }
         path += 'Z';
         return path;
