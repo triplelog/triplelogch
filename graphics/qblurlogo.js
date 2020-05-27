@@ -24,7 +24,7 @@ function drawOvals(circle,frequency, magnitude,independence, spacing,count) {
     	if (i == paths.length-1){
     		svg += '<path fill="white" stroke="black" d="'+paths[i]+'" />';
     	}
-    	else if (i%20==0){
+    	else if (i%40==0){
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="black" d="'+paths[i]+'" />';
     	}
     	else {
@@ -122,7 +122,7 @@ svg += line2;*/
 
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
 noise2D = OpenSimplexNoise.makeNoise2D(Date.now());
-var end1 = drawOvals({x:250,y:250,radius:100},2.0,0.033,0.09,.25,80);
+var end1 = drawOvals({x:250,y:250,radius:100},2.0,0.033,0.09,.3,80);
 svg += end1;
 /*
 noise = OpenSimplexNoise.makeNoise3D(Date.now());
