@@ -60,13 +60,13 @@ app.get('/graphics.html',
 
 		var circles = [];
 		for (var i=0;i<7;i++){
-			circles.push({x:75+150*i,y:75,radius:55+Math.random()*15});
+			circles.push({x:75+150*i,y:75,radius:68});
 		}
 		for (var i=0;i<6;i++){
-			circles.push({x:150*(i+1),y:60,radius:21+Math.random()*11});
+			circles.push({x:150*(i+1),y:75,radius:35});
 		}
 		for (var i=0;i<6;i++){
-			circles.push({x:150*(i+1),y:90,radius:21+Math.random()*11});
+			circles.push({x:150*(i+1),y:75,radius:25});
 		}
 
 
