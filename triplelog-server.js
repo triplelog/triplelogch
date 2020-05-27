@@ -81,7 +81,7 @@ app.get('/graphics.html',
 			var noise = OpenSimplexNoise.makeNoise3D(nf);
 			nf *= 3.14;
 			var noise2D = OpenSimplexNoise.makeNoise2D(nf);
-			svg = drawFlower(circles[i],2.0,0.5,0.09,0.03,35,noise,noise2D);
+			svg = drawFlower(circles[i],2.0,0.5,0.09,0.025,30,noise,noise2D);
 			htmlstr += svg;
 		}
 		
@@ -167,10 +167,10 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count,nois
     	if (i == paths.length - 1){
     		svg += '<path fill="white" stroke="black" d="'+paths[i]+'" />';
     	}
-    	else if (i%12==0 || i%12==4){
+    	else if (i%9==0 || i%9==3){
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="black" d="'+paths[i]+'" />';
     	}
-    	else if (i%12==8){
+    	else if (i%9==6){
     		svg += '<path fill="hsl('+h+','+s+','+l+')" stroke="white" d="'+paths[i]+'" />';
     	}
     	else {
