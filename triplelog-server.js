@@ -161,7 +161,7 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count,nois
     }
     svg = '';
     for (var i=0;i<paths.length;i++){
-    	h = noise2D(.3+i/paths.length*.4,.7-i/paths.length*.4)*360;
+    	h = noise2D(.4+i/paths.length*.2,.6-i/paths.length*.2)*360;
     	s = '80%';
     	l = (75-i*60/paths.length)+'%';
     	if (i == paths.length - 1){
