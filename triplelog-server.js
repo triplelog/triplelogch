@@ -88,18 +88,6 @@ app.get('/graphics.html',
 		else if (req.query.q){
 			var htmlstr = '<html><body><svg height="120" width="1200">';
 
-			/*var circles = [];
-			for (var i=0;i<8;i++){
-				circles.push({x:75+150*i,y:60,radius:55});
-			}
-			for (var i=0;i<7;i++){
-				circles.push({x:150*(i+1),y:60,radius:44});
-			}
-			for (var i=0;i<7;i++){
-				circles.push({x:150*(i+1),y:60,radius:33});
-			}*/
-
-
 		
 			var nf = req.query.q;
 			//for (var i=0;i<circles.length;i++){
@@ -274,7 +262,7 @@ function drawBlur(circle,frequency, magnitude,independence, spacing,count,noise,
 
 function drawDeformedOval( circle,frequency, magnitude,seed,noise,noise2D) {
         var path = 'M';
-
+		console.log(circle,frequency, magnitude,seed,noise,noise2D);
         // Sample points evenly around the circle
         const samples = Math.floor(4 * circle.radius + 20);
         for (let j = 0; j < samples + 1; ++j) {
