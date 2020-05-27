@@ -78,7 +78,7 @@ function drawLine(xI,yI,color){
 
 function drawLines(xc,yc){
 	var svg = '';//'<circle fill="none" stroke="black" cx="'+(xc+250)+'" cy="'+(yc-250)+'" r="'+r+'" />';
-	var samples = 48;
+	var samples = 24;
 	for (let j = 0; j < samples; ++j) {
 		const x = xc;
 		const y = 35*j/samples + yc;
