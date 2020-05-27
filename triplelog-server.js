@@ -179,9 +179,9 @@ function drawFlower(circle,frequency, magnitude,independence, spacing,count,nois
     for (var i=0;i<paths.length;i++){
     	h = noise2D(.4+i/paths.length*.2,.6-i/paths.length*.2)*360;
     	s = '80%';
-    	l = (55-i*40/paths.length);
+    	l = (45-i*40/paths.length);
     	if (i == paths.length - 1){
-    		svg += '<path fill="hsl('+h+','+s+','+(l*4)+'%)" stroke="black" d="'+paths[i]+'" />';
+    		svg += '<path fill="hsl('+h+','+s+','+(l*3)+'%)" stroke="black" d="'+paths[i]+'" />';
     	}
     	else if (i%12==0 || i%12==4){
     		svg += '<path fill="hsl('+h+','+s+','+l+'%)" stroke="none" d="'+paths[i]+'" />';
