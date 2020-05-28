@@ -101,7 +101,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 		
 	</span>
 	<span class="titleCenter">
-		<a>Menu</a>
+		Menu
 	</span>
 	<span class="titleRight">
 		<label for="radio33-1"><i class="fas fa-compress-alt"></i></label>
@@ -114,11 +114,19 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 		  <div>
 		  {% if gametype == 'daily' %}
 		  	<a href="../sudoku.html?d={{ gameid }}" class="basic">Previous Puzzle</a>
+		  {% elif gameid == 81%}
+		  	{% if gametype == 'easy' %}
+		  		<a href="../sudoku.html?l=medium1" class="basic">Next Puzzle</a>
+		  	{% elif gametype == 'medium' %}
+		  		<a href="../sudoku.html?l=hard1" class="basic">Next Puzzle</a>
+		  	{% elif gametype == 'hard' %}
+		  		<a href="../sudoku.html?l=expert1" class="basic">Next Puzzle</a>
+		  	{% else %}
+		  		<a href="../sudoku.html" class="basic">Next Puzzle</a>
+		  	{% endif %}
 		  {% else %}
 		  	<a href="../sudoku.html?l={{ gametype }}{{ gameid + 1}}" class="basic">Next Puzzle</a>
 		  {% endif %}
-		  </div>
-		  <div>
 		  	<a href="../" class="basic">Home</a><a href="../sudokufarm.html" class="basic">Sudoku Farm</a>
 		  </div>
 {% endblock %}	
