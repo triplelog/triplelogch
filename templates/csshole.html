@@ -109,6 +109,7 @@ div:Not(.content-22) > .title a{
 	border: 1px solid red;
 	z-index:2;
 	display:inline-block;
+	font-size:90%;
 }
 #footnote:Not(:checked) ~ #footnoteDiv {
 	display:none;
@@ -136,7 +137,7 @@ div:Not(.content-22) > .title a{
 {% block content11 %}
 <input type="checkbox" id="footnote" style="display:none;"></input>
 
-CSShole tests the limits of what is possible without javascript<sup><label for="footnote" id="footnoteLabel">*</label></sup><div id="footnoteDiv">Replacing javascript with CSS makes some elements slow (especially on Safari and older hardware/browsers)</div> or server-side scripting.
+CSShole tests the limits of what is possible without javascript<sup><label for="footnote" id="footnoteLabel">*</label></sup><div id="footnoteDiv">Warning:<br />Replacing javascript with CSS makes some elements slow (especially on Safari and older hardware/browsers).</div> or server-side scripting.
 Each page mimics interactive elements with just HTML and CSS.
 
 {% endblock %}	
