@@ -48,6 +48,21 @@
 	grid-row: 3;
 	z-index: 11;
 }
+#radio33-1:checked ~ .content-33 {
+	grid-row:  3;
+	grid-column:  2;
+	z-index: 11;
+}
+#radio33-2:checked ~ .content-33 {
+	grid-row:  3;
+	grid-column:  1 / 4;
+	z-index: 12;
+}
+#radio33-3:checked ~ .content-33 {
+	grid-row:  1 / 4;
+	grid-column:  1 / 4;
+	z-index: 13;
+}
 .content-13 {
 	display: none;
 }
@@ -111,7 +126,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 </div>
 {% endblock %}
 {% block content33 %}
-		  <div>
+		  <div style="white-space:nowrap; font-size:90%;">
 		  {% if gametype == 'daily' %}
 		  	<a href="../sudoku.html?d={{ gameid }}" class="basic">Previous Puzzle</a>
 		  {% elif gameid == 81%}
@@ -127,7 +142,8 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 		  {% else %}
 		  	<a href="../sudoku.html?l={{ gametype }}{{ gameid + 1}}" class="basic">Next Puzzle</a>
 		  {% endif %}
-		  	<a href="../" class="basic">Home</a><a href="../sudokufarm.html" class="basic">Sudoku Farm</a>
+		  	<a href="../" class="basic">Home</a>
+		  	<a href="../sudokufarm.html" class="basic">Sudoku Farm</a>
 		  </div>
 {% endblock %}	
 
