@@ -93,7 +93,23 @@ div:Not(.content-22) > .title a{
 
 {% block moreCSS %}
 
+#footnoteDiv {
 
+}
+#footnoteLabel {
+	color: blue;
+}
+#footnoteLabel:hover {
+	color: blue;
+	text-decoration: underline;
+}
+#footnote:checked ~ #footnoteDiv {
+	position:absolute;
+	display:block;
+}
+#footnote:Not(:checked) ~ #footnoteDiv {
+	display:none;
+}
 {% endblock %}
 
 
@@ -115,9 +131,11 @@ div:Not(.content-22) > .title a{
 </div>
 {% endblock %}
 {% block content11 %}
-CSShole tests the limits of what is possible without javascript<sup>*</sup> or server-side scripting.
+<input type="checkbox" id="footnote" style="display:none;"></input>
+
+CSShole tests the limits of what is possible without javascript<sup><label for="footnote" id="footnoteLabel">*</label></sup><div id="footnoteDiv">Replacing javascript with CSS makes some elements slow (especially on Safari and older hardware/browsers)</div> or server-side scripting.
 Each page mimics interactive elements with just HTML and CSS.
-<div>Replacing javascript with CSS makes some elements slow (especially on Safari and older hardware/browsers).</div>
+
 {% endblock %}	
 
 {% block title13 %}
