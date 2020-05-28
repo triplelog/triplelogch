@@ -101,14 +101,14 @@ div:Not(.content-22) > .title a{
 	text-decoration: underline;
 }
 #footnoteLabel:hover {
-	font-size:125%;
 	cursor: pointer;
 }
 #footnote:checked ~ #footnoteDiv {
 	position:absolute;
 	background: white;
+	border: 1px solid black;
 	z-index:2;
-	display:block;
+	display:inline-block;
 }
 #footnote:Not(:checked) ~ #footnoteDiv {
 	display:none;
