@@ -86,15 +86,13 @@ def readcsvBatters(filen):
 				tb = int(row[8])+int(row[9])+2*int(row[10])+3*int(row[11])
 				obpa = int(row[6])+int(row[15])+int(row[18])+int(row[20])
 				
-				batter = [name,row[3],age,pa,int(row[6]),int(row[7]),int(row[8]),int(row[11]),tb,int(row[12]),int(row[15]),int(row[13]),int(row[16]),obpa,int(row[18]),int(row[17]),int(row[9]),int(row[10])]
+				batter = [name,[row[3]],age,pa,int(row[6]),int(row[7]),int(row[8]),int(row[11]),tb,int(row[12]),int(row[15]),int(row[13]),int(row[16]),obpa,int(row[18]),int(row[17]),int(row[9]),int(row[10])]
 				try:
 					try:
 						oldbatter = allgamesa[row[1]][bid]
 						totbatter = batter
-						if isinstance(oldbatter[1], int):
-							totbatter[1] = oldbatter[1]+1
-						else:
-							totbatter[1] = 2
+						
+						totbatter[1] = oldbatter[1].append(totbatter[1])
 						for i in range(3,15):
 							totbatter[i]+=oldbatter[i]
 						allgamesa[row[1]][bid] = totbatter
@@ -138,10 +136,8 @@ def readcsvPitchers(filen):
 					try:
 						oldbatter = allgamesa[row[1]][bid]
 						totbatter = batter
-						if isinstance(oldbatter[1], int):
-							totbatter[1] = oldbatter[1]+1
-						else:
-							totbatter[1] = 2
+						
+						totbatter[1] = oldbatter[1].append(totbatter[1])
 						for i in range(3,15):
 							totbatter[i]+=oldbatter[i]
 						allgamesa[row[1]][bid] = totbatter
@@ -360,6 +356,14 @@ for year in battingdata.keys():
 				db = row[16]
 				tb = row[17]
 				obpa = row[13]
+				if len(row[1])>1:
+					rowstr = ''
+					for ii in range(0,len(row[1])):
+						rowstr+=row[1][ii]+', '
+					rowstr = rowstr[:-2]
+					row[1] = '<span style="white-space:nowrap"><input type="checkbox" id="footnote'+yearkeys[i][0]+'" style="display:none;"></input><label for="footnote'+yearkeys[i][0]+'" class="footnoteLabel">'+str(len(row[1]))+'</label><div id="footnoteDiv'+yearkeys[i][0]+'">'+rowstr+'</div></span>'
+				else:
+					row[1] = row[1][0]
 				if row[13]>0:
 					row[14] = (row[6]+row[10]+row[14])/obpa
 				else:
@@ -406,6 +410,14 @@ for year in battingdata.keys():
 				#['Name', 'Team','Age','IP','W','L','SV','H','R','ER','HR','BB','K','ERA','FIP','WHIP','K/BB','WAR']
 				bf = row[13]
 				hbp = row[14]
+				if len(row[1])>1:
+					rowstr = ''
+					for ii in range(0,len(row[1])):
+						rowstr+=row[1][ii]+', '
+					rowstr = rowstr[:-2]
+					row[1] = '<span style="white-space:nowrap"><input type="checkbox" id="footnote'+yearkeys[i][0]+'" style="display:none;"></input><label for="footnote'+yearkeys[i][0]+'" class="footnoteLabel">'+str(len(row[1]))+'</label><div id="footnoteDiv'+yearkeys[i][0]+'">'+rowstr+'</div></span>'
+				else:
+					row[1] = row[1][0]
 				if row[3]>0:
 					row[13] = (row[9])/row[3]*27
 				else:
