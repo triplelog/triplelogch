@@ -319,7 +319,7 @@ input {
 
 #dataTable {
 	background-color: rgba(255,255,255,1);
-	top: 15px;
+	top: 5px;
 	left: var(--sudoku-left);
 	position: absolute;
 	width: calc(9 * var(--width-block) + 41px);
