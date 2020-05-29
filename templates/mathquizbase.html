@@ -45,7 +45,7 @@ body {
 	display: none;
 }
 
-.container {
+div.container {
 	grid-template-rows: 0px var(--height-center) calc((var(--height-container) - var(--height-center)));
 }
 
@@ -268,11 +268,12 @@ label.c0n1:not(.nextButton) {
 .knob {
 	pointer-events: none;
 	position: absolute;
-	left: calc(2 * var(--knob-margin));
-	top: 16rem;
+	left: 250px;
+	top: calc(2 * var(--knob-margin));
 	height: var(--knob-width);
 	width: var(--knob-height);
 	background: gray;
+	z-index:1000;
 }
 .content-33 .title {
 	background-image: url("../sudokubannercolor.jpg");
