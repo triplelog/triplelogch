@@ -12,8 +12,8 @@
 	
 {% block centerSize %}
 	--height-center: 20rem;
-	--width-center: calc(25vw + 15rem);
-	--knob-width: min(calc(25vw + 3rem),13rem);
+	--width-center: calc(30rem);
+	--knob-width: 13rem;
 	--knob-height: var(--knob-width);
 	--knob-margin: .5rem;
 	--height-container:30rem;
@@ -279,7 +279,7 @@ label.c0n1:not(.nextButton) {
 	height: var(--knob-width);
 	width: var(--knob-height);
 	background: gray;
-	z-index:10000;
+	z-index:100000;
 }
 .content-33 .title {
 	background-image: url("../sudokubannercolor.jpg");
@@ -360,7 +360,7 @@ div.displayAngle {
 	line-height:1.5rem;
 	width: 3rem;
 	height: 1.5rem;
-	z-index:10001;
+	z-index:100001;
 }
 div.innerDisplay {
 	display: inline-block;
@@ -377,7 +377,7 @@ div.displayNeedle {
 	left:calc(var(--knob-margin));
 	width: calc(var(--knob-height) - 2 * var(--knob-margin));
 	height: calc(var(--knob-height) - 2 * var(--knob-margin));
-	z-index: 1000;
+	z-index: 100000;
 	pointer-events: none;
 }
 {% for turn in range(1,nturns+1) %}
