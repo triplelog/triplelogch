@@ -171,9 +171,9 @@ div.container {
 	display: block;
 }
 {% for i in range(1,10) %}
-	#radio{{ ii }}00:checked ~ div.container label[for=radio{{ ii }}00] { color: red;}
-	#radio{{ ii }}0:checked ~ div.container label[for=radio{{ ii }}0] { color: red;}
-	#radio{{ ii }}:checked ~ div.container label[for=radio{{ ii }}] { color: red;}
+	#radio{{ i }}00:checked ~ div.container label[for=radio{{ i }}00] { color: red;}
+	#radio{{ i }}0:checked ~ div.container label[for=radio{{ i }}0] { color: red;}
+	#radio{{ i }}:checked ~ div.container label[for=radio{{ i }}] { color: red;}
 {% endfor %}
 {% for i in range(1,10) %}
 	{% for ii in range(i,10) %}
