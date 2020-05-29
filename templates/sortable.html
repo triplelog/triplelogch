@@ -184,7 +184,7 @@ div.container {
 #onesColumn > label {
 	display: block;
 }
-{% for i in range(1,10) %}
+{% for i in range(0,10) %}
 	#radio{{ i }}00:checked ~ div.container label[for=radio{{ i }}00] { color: red;}
 	#radio{{ i }}0:checked ~ div.container label[for=radio{{ i }}0] { color: red;}
 	#radio{{ i }}:checked ~ div.container label[for=radio{{ i }}] { color: red;}
