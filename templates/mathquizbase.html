@@ -13,8 +13,8 @@
 {% block centerSize %}
 	--height-center: 70vh;
 	--width-center: calc(25vw + 15rem);
-	--knob-width: calc(25vw + 3rem);
-	--knob-height: calc(25vw + 3rem);
+	--knob-width: min(calc(25vw + 3rem),13rem);
+	--knob-height: var(--knob-width);
 	--knob-margin: .5rem;
 {% endblock %}
 
