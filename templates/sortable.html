@@ -84,6 +84,12 @@ div.container {
   margin: 0 0 3em 0;
   padding: 0;
 }
+.sortable a {
+	text-decoration: none;
+}
+.sortable a:hover {
+	text-decoration: underline;
+}
 
 
 {% for i in range(1,ncols) %} .sortable-col{{ i }}, {% endfor %}{% for i in range(ncols,ncols+1) %} .sortable-col{{ i }} {% endfor %} {
@@ -166,33 +172,33 @@ div.container {
 }
 {% for i in range(1,10) %}
 	{% for ii in range(i,10) %}
-		#radio{{ ii }}00:checked ~ div.sortHolder > div > .min-{{ i }}00  { display: none;}
+		#radio{{ ii }}00:checked ~ div.container  .min-{{ i }}00  { display: none;}
 	{% endfor %}
 {% endfor %}
 
 {% for i in range(1,10) %}
 	{% for ii in range(i,10) %}
-		#radio{{ ii }}0:checked ~ div.sortHolder > div >  .min-{{ i }}0  { display: none;}
+		#radio{{ ii }}0:checked ~ div.container  .min-{{ i }}0  { display: none;}
 	{% endfor %}
 {% endfor %}
 
 {% for i in range(1,10) %}
 	{% for ii in range(i,10) %}
-		#radio{{ ii }}:checked ~ div.sortHolder > div >  .min-{{ i }}  { display: none;}
+		#radio{{ ii }}:checked ~ div.container  .min-{{ i }}  { display: none;}
 	{% endfor %}
 {% endfor %}
 
 {% for i in range(10,100) %}
 	{% set r = i%10 %}
 	{% for ii in range(r,10) %}
-		#radio{{ ((i-r)/10) }}0:checked ~ #radio{{ ii }}:checked ~ div.sortHolder > div >  .min-{{ i }}  { display: none;}
+		#radio{{ ((i-r)/10) }}0:checked ~ #radio{{ ii }}:checked ~ div.container  .min-{{ i }}  { display: none;}
 	{% endfor %}
 {% endfor %}
 
 {% for i in range(10,100) %}
 	{% set r = i%10 %}
 	{% for ii in range(r,10) %}
-		#radio{{ ((i-r)/10) }}00:checked ~ #radio{{ ii }}0:checked ~ div.sortHolder > div >  .min-{{ i }}0  { display: none;}
+		#radio{{ ((i-r)/10) }}00:checked ~ #radio{{ ii }}0:checked ~ div.container  .min-{{ i }}0  { display: none;}
 	{% endfor %}
 {% endfor %}
 
@@ -200,7 +206,7 @@ div.container {
 	{% set r = i%10 %}
 	{% set rr = i%100 %}
 	{% for ii in range(r,10) %}
-		#radio{{ ((i-rr)/100) }}00:checked ~ #radio{{ ((i-r)/10) % 10 }}0:checked ~ #radio{{ ii }}:checked ~ div.sortHolder > div > .min-{{ i }}  { display: none;}
+		#radio{{ ((i-rr)/100) }}00:checked ~ #radio{{ ((i-r)/10) % 10 }}0:checked ~ #radio{{ ii }}:checked ~ div.container .min-{{ i }}  { display: none;}
 	{% endfor %}
 {% endfor %}
 
@@ -312,6 +318,22 @@ input[type="radio"] {
 }
 {% endblock %}
 
+{% block bodyStart %}
+	<input type="radio" name="radio100" id="radio000" checked></input>
+	{% for i in range(1,10) %}
+	<input type="radio" name="radio100" id="radio{{ i}}00"></input>
+	{% endfor %}
+
+	<input type="radio" name="radio10" id="radio00" checked></input>
+	{% for i in range(1,10) %}
+	<input type="radio" name="radio10" id="radio{{ i}}0"></input>
+	{% endfor %}
+	
+	<input type="radio" name="radio1" id="radio0" checked></input>
+	{% for i in range(1,10) %}
+	<input type="radio" name="radio1" id="radio{{ i}}"></input>
+	{% endfor %}
+{% endblock %}
 
 {% block title33 %}
 <div class="title">
@@ -393,20 +415,7 @@ input[type="radio"] {
 	<div class="sortable-header">
 		{% for i in range(1,ncols+1) %}<label class="header-cell sortable-col{{ i }}" for="sort-col{{ i }}">{{ header[i-1] }}</label>{% endfor %}
 	</div>
-	<input type="radio" name="radio100" id="radio000" checked></input>
-	{% for i in range(1,10) %}
-	<input type="radio" name="radio100" id="radio{{ i}}00"></input>
-	{% endfor %}
-
-	<input type="radio" name="radio10" id="radio00" checked></input>
-	{% for i in range(1,10) %}
-	<input type="radio" name="radio10" id="radio{{ i}}0"></input>
-	{% endfor %}
 	
-	<input type="radio" name="radio1" id="radio0" checked></input>
-	{% for i in range(1,10) %}
-	<input type="radio" name="radio1" id="radio{{ i}}"></input>
-	{% endfor %}
 	<div class="sortHolder">
 		<div class="sortable">
 			
