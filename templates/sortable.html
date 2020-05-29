@@ -143,6 +143,27 @@ div.container {
 	height: 1.2rem;
 }
 
+#hundredsColumn {
+	display: inline-block;
+	width: 33%;
+}
+#hundredsColumn > label {
+	display: block;
+}
+#tensColumn {
+	display: inline-block;
+	width: 33%;
+}
+#tensColumn > label {
+	display: block;
+}
+#onesColumn {
+	display: inline-block;
+	width: 33%;
+}
+#onesColumn > label {
+	display: block;
+}
 {% for i in range(1,10) %}
 	{% for ii in range(i,10) %}
 		#radio{{ ii }}00:checked ~ div.sortHolder > div > .min-{{ i }}00  { display: none;}
@@ -314,19 +335,21 @@ input[type="radio"] {
 <div>
 	Min PA:
 	<div>
-		{% for i in range(0,10) %}
-			<label for="radio{{ i }}00">{{i}}00</label>
-		{% endfor %}
-	</div>
-	<div>
-		{% for i in range(0,10) %}
-			<label for="radio{{ i }}0">{{i}}0</label>
-		{% endfor %}
-	</div>
-	<div>
-		{% for i in range(0,10) %}
-			<label for="radio{{ i }}">{{i}}</label>
-		{% endfor %}
+		<div id="hundredsColumn">
+			{% for i in range(0,10) %}
+				<label for="radio{{ i }}00">{{i}}</label>
+			{% endfor %}
+		</div>
+		<div id="tensColumn">
+			{% for i in range(0,10) %}
+				<label for="radio{{ i }}0">{{i}}</label>
+			{% endfor %}
+		</div>
+		<div id="onesColumn">
+			{% for i in range(0,10) %}
+				<label for="radio{{ i }}">{{i}}</label>
+			{% endfor %}
+		</div>
 	</div>
 </div>
 <form  action="../sortable.html" method="get">
