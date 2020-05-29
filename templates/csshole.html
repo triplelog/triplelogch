@@ -93,29 +93,8 @@ div:Not(.content-22) > .title a{
 
 {% block moreCSS %}
 
-#footnoteDiv {
 
-}
-#footnoteLabel {
-	color: blue;
-	
-	font-size:125%;
-}
-#footnoteLabel:hover {
-	cursor: pointer;
-	text-decoration: underline;
-}
-#footnote:checked ~ #footnoteDiv {
-	position:absolute;
-	background: rgb(200,200,200);
-	border: 1px solid red;
-	z-index:2;
-	display:inline-block;
-	font-size:90%;
-}
-#footnote:Not(:checked) ~ #footnoteDiv {
-	display:none;
-}
+
 {% endblock %}
 
 

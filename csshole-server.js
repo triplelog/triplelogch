@@ -345,11 +345,13 @@ app.get('/sortable.html',
 		var dataset = 'yearsBatters/2019.csv';
 		var widecols = [13,14,15,16,17,18];
 		var isPitchers = false;
+		var minstat = 'PA';
 		if (req.query){
 			if (req.query.p === true || req.query.p == 't' || req.query.p == 'true'){
 				dataset = 'yearsPitchers/';
 				widecols = [3,13,14,15,16,17];
 				isPitchers = true;
+				minstat = 'IP';
 			}
 			else {
 				dataset = 'yearsBatters/';
@@ -374,6 +376,7 @@ app.get('/sortable.html',
 			var nrows = results.data.length-1;
 			//var nrows = 1000;
 			var header = results.data[0];
+			if (isPitchers){header[14]='<label for="footnote" id="footnoteLabel">~FIP</label><div id="footnoteDiv"></div>';}
 			var ncols = results.data[0].length;
 			var content = results.data.slice(1,nrows+1);
 			var minList = [];
@@ -447,6 +450,7 @@ app.get('/sortable.html',
 				header: header,
 				minList: minList,
 				widecols: widecols,
+				minstat: minstat,
 			}));
 			console.log(performance.now());
 			res.end();
