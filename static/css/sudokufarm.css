@@ -336,7 +336,7 @@ input {
 	background-color: rgba(255,255,255,1);
 	position: absolute;
 	top: 27px;
-	z-index: 99;
+	z-index: 101;
 	text-align: center;
 }
 #changeData {
