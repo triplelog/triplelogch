@@ -429,8 +429,7 @@ input[type="radio"] {
 	<input type="radio" name="pageNumber" id="page4"></input>
 	<input type="radio" name="pageNumber" id="page5"></input>
 	
-	
-	
+
 	<div class="sortable-header">
 		{% for i in range(1,ncols+1) %}<label class="header-cell sortable-col{{ i }}" for="sort-col{{ i }}">{{ header[i-1] | safe}}</label>{% endfor %}
 	</div>
