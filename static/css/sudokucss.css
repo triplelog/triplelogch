@@ -43,7 +43,7 @@ input {
 	z-index:10;
 	width:100vmin;
 	height: 20px;
-	background: white;
+	background: hsl(240,24%,90%);
 }
 .winmessage {
 	position:absolute;
@@ -51,7 +51,7 @@ input {
 	left:0px;
 	z-index:1;
 	height: 20px;
-	background: white;
+	background: hsl(240,24%,90%);
 	overflow: hidden;
 }
 
