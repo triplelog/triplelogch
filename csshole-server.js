@@ -376,7 +376,7 @@ app.get('/sortable.html',
 			var nrows = results.data.length-1;
 			//var nrows = 1000;
 			var header = results.data[0];
-			if (isPitchers){header[14]='<span style="white-space:nowrap"><input type="checkbox" id="footnote" style="display:none;"></input><label for="footnote" id="footnoteLabel">~</label><div id="footnoteDiv"></div>FIP</span>';}
+			if (isPitchers){header[14]='<span style="white-space:nowrap"><input type="checkbox" id="footnote" style="display:none;"></input><label for="footnote" id="footnoteLabel">~</label><div id="footnoteDiv">~FIP has the same formula as FIP but uses expected IP instead of actual IP. Expected IP is based on batters faced, balls in play, and strikeouts.</div>FIP</span>';}
 			var ncols = results.data[0].length;
 			var content = results.data.slice(1,nrows+1);
 			var minList = [];
