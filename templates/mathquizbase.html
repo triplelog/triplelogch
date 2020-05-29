@@ -207,29 +207,29 @@ label.c0n1:not(.nextButton) {
 .blockBase {
 	position: absolute;
 	left: 0px;
-	top: 200px;
-	height: 20px;
+	top: 15rem;
+	height: 1.5rem;
 	background: white;
 	z-index: 1;
 	display: inline-block;
 }
 .blockBase svg{
-	width: {{nlevels*20}}px;
-	height: 20px;
+	width: {{nlevels*1.5}}rem;
+	height: 1.5rem;
 }
 {% for i in range(1,nlevels+2) %}
 .block{{i-1}} {
 	position: absolute;
 	left: 0px;
-	top: 200px;
-	height: 20px;
+	top: 15rem;
+	height: 1.5rem;
 	background: rgba(0,0,0,0);
 	z-index: {{i*1000}};
 	display: none;
 }
 .block{{i-1}} svg{
-	width: {{nlevels*20}}px;
-	height: 20px;
+	width: {{nlevels*1.5}}rem;
+	height: 1.5rem;
 }
 
 {% endfor %}
