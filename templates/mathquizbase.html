@@ -107,7 +107,7 @@ body {
 		top:0px;
 		z-index: {{(question.id*1000)+question.level }};
 		width:var(--width-center);
-		height:15rem;
+		height:14.5rem;
 		background: white;
 		display: none;
 	}
@@ -207,12 +207,12 @@ label.c0n1:not(.nextButton) {
 .blockBase {
 	position: absolute;
 	left: 0px;
-	top: 15rem;
+	top: 14.5rem;
 	height: 1.5rem;
-	background: transparent;
+	background: white;
 	z-index: 1;
 	display: inline-block;
-	margin:auto;
+	width:100%;
 }
 .blockBase svg{
 	width: {{nlevels*1.5}}rem;
@@ -222,7 +222,7 @@ label.c0n1:not(.nextButton) {
 .block{{i-1}} {
 	position: absolute;
 	left: 0px;
-	top: 15rem;
+	top: 14.5rem;
 	height: 1.5rem;
 	background: rgba(0,0,0,0);
 	z-index: {{i*1000}};
@@ -269,7 +269,7 @@ label.c0n1:not(.nextButton) {
 	pointer-events: none;
 	position: absolute;
 	left: calc(2 * var(--knob-margin));
-	top: calc(2 * var(--knob-margin));
+	top: 16rem;
 	height: var(--knob-width);
 	width: var(--knob-height);
 	background: gray;
