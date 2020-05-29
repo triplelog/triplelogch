@@ -17,7 +17,7 @@ Name,Tm,Age,IP,W,L,SV,H,R,ER,HR,BB,K,ERA,FIP,WHIP,K/BB,WAR
 "<a href=""https://www.baseball-reference.com/players/m/mcveyca01.shtml"">Cal McVey</a>",CN1,29,42,0,2,0,34,23,13,1,2,7,8.357,3.018,2.571,3.50,-0.83
 "<a href=""https://www.baseball-reference.com/players/m/mitchbo01.shtml"">B. Mitchell</a>",CL2,23,584,7,15,0,236,153,71,1,42,90,3.283,2.537,1.428,2.14,-0.48
 "<a href=""https://www.baseball-reference.com/players/n/neaglja01.shtml"">Jack Neagle</a>",CN1,21,39,0,1,0,13,12,5,0,5,4,3.462,3.278,1.385,0.80,0.00
-"<a href=""https://www.baseball-reference.com/players/p/purcebl01.shtml"">B. Purcell</a>",2,25,593,4,17,0,272,180,83,1,21,31,3.779,2.806,1.482,1.48,0.00
+"<a href=""https://www.baseball-reference.com/players/p/purcebl01.shtml"">B. Purcell</a>","<span style=""white-space:nowrap""><input type=""checkbox"" class=""footnote"" id=""footnotepurcebl01"" style=""display:none;""></input><label for=""footnotepurcebl01"" class=""footnoteLabel"">2</label><div class=""footnoteDiv"" id=""footnoteDivpurcebl01"">SR1, CN1</div></span>",25,593,4,17,0,272,180,83,1,21,31,3.779,2.806,1.482,1.48,0.00
 "<a href=""https://www.baseball-reference.com/players/r/richmle01.shtml"">Lee Richmond</a>",BSN,22,27,1,0,0,4,6,2,0,1,11,2.000,.686,.556,11.00,-0.02
 "<a href=""https://www.baseball-reference.com/players/s/salisha01.shtml"">H. Salisbury</a>",TRN,24,267,4,6,0,103,72,22,0,11,31,2.225,2.429,1.281,2.82,-0.40
 "<a href=""https://www.baseball-reference.com/players/t/tyngji01.shtml"">Jim Tyng</a>",BSN,23,81,1,2,0,35,25,15,0,6,7,5.000,2.879,1.519,1.17,-0.53

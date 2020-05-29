@@ -24,10 +24,10 @@ Name,Tm,Age,PA,AB,R,H,HR,TB,RBI,BB,SB,K,AVG,OBP,SLG,OPS,wOBA,WAR
 "<a href=""https://www.baseball-reference.com/players/g/goldemi01.shtml"">Mike Golden</a>",ML2,26,217,214,16,44,0,56,20,3,0,35,.206,.217,.262,.478,.222,-1.44
 "<a href=""https://www.baseball-reference.com/players/g/goodmja01.shtml"">Jake Goodman</a>",ML2,24,259,252,28,62,1,75,27,7,0,33,.246,.266,.298,.564,.264,0.13
 "<a href=""https://www.baseball-reference.com/players/h/haguebi01.shtml"">Bill Hague</a>",PRO,?,255,250,21,51,0,54,25,5,0,34,.204,.220,.216,.436,.206,0.88
-"<a href=""https://www.baseball-reference.com/players/h/halliji01.shtml"">J. Hallinan</a>",2,29,84,79,14,22,0,27,3,5,0,8,.278,.321,.342,.663,.298,0.11
+"<a href=""https://www.baseball-reference.com/players/h/halliji01.shtml"">J. Hallinan</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnotehalliji01"" style=""display:none;""></input><label for=""footnotehalliji01"" class=""footnoteLabel"">2</label><div id=""footnoteDivhalliji01"">CHN, IN1</div></span>",29,84,79,14,22,0,27,3,5,0,8,.278,.321,.342,.663,.298,0.11
 "<a href=""https://www.baseball-reference.com/players/h/hankifr01.shtml"">F. Hankinson</a>",CHN,22,245,240,38,64,1,81,27,5,0,36,.267,.282,.338,.619,.287,0.97
 "<a href=""https://www.baseball-reference.com/players/h/harbibi01.shtml"">B. Harbridge</a>",CHN,23,246,240,32,71,0,83,37,6,0,13,.296,.313,.346,.659,.308,1.16
-"<a href=""https://www.baseball-reference.com/players/h/healeto01.shtml"">Tom Healey</a>",2,?,54,54,2,10,0,12,6,0,0,18,.185,.185,.222,.407,.181,-0.02
+"<a href=""https://www.baseball-reference.com/players/h/healeto01.shtml"">Tom Healey</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnotehealeto01"" style=""display:none;""></input><label for=""footnotehealeto01"" class=""footnoteLabel"">2</label><div id=""footnoteDivhealeto01"">PRO, IN1</div></span>",?,54,54,2,10,0,12,6,0,0,18,.185,.185,.222,.407,.181,-0.02
 "<a href=""https://www.baseball-reference.com/players/h/highadi01.shtml"">Dick Higham</a>",PRO,26,286,281,60,90,1,117,29,5,0,16,.320,.332,.416,.749,.345,2.04
 "<a href=""https://www.baseball-reference.com/players/h/hinespa01.shtml"">Paul Hines</a>",PRO,23,259,257,42,92,4,125,50,2,0,10,.358,.363,.486,.849,.389,0.00
 "<a href=""https://www.baseball-reference.com/players/h/holbebi01.shtml"">Bill Holbert</a>",ML2,23,176,173,10,32,0,34,12,3,0,14,.185,.199,.197,.395,.187,-0.74
@@ -51,7 +51,7 @@ Name,Tm,Age,PA,AB,R,H,HR,TB,RBI,BB,SB,K,AVG,OBP,SLG,OPS,wOBA,WAR
 "<a href=""https://www.baseball-reference.com/players/n/nolanth01.shtml"">T. Nolan</a>",IN1,22,154,152,11,37,0,45,16,2,0,10,.243,.253,.296,.549,.255,0.58
 "<a href=""https://www.baseball-reference.com/players/o/o'rouji01.shtml"">Jim O'Rourke</a>",BSN,27,260,255,44,71,1,105,29,5,0,21,.278,.292,.412,.704,.322,0.95
 "<a href=""https://www.baseball-reference.com/players/p/peterjo01.shtml"">John Peters</a>",ML2,28,251,246,33,76,0,84,22,5,0,8,.309,.323,.341,.664,.311,1.17
-"<a href=""https://www.baseball-reference.com/players/p/pikeli01.shtml"">Lip Pike</a>",2,33,172,167,32,52,0,61,15,5,0,10,.311,.331,.365,.697,.309,0.58
+"<a href=""https://www.baseball-reference.com/players/p/pikeli01.shtml"">Lip Pike</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnotepikeli01"" style=""display:none;""></input><label for=""footnotepikeli01"" class=""footnoteLabel"">2</label><div id=""footnoteDivpikeli01"">CN1, PRO</div></span>",33,172,167,32,52,0,61,15,5,0,10,.311,.331,.365,.697,.309,0.58
 "<a href=""https://www.baseball-reference.com/players/p/powerph01.shtml"">Phil Powers</a>",CHN,23,32,31,2,5,0,8,2,1,0,5,.161,.188,.258,.446,.206,0.00
 "<a href=""https://www.baseball-reference.com/players/q/questjo01.shtml"">Joe Quest</a>",IN1,25,290,278,45,57,0,64,13,12,0,24,.205,.238,.230,.468,.224,0.00
 "<a href=""https://www.baseball-reference.com/players/r/redmobi01.shtml"">B. Redmond</a>",ML2,?,195,187,16,43,0,51,21,8,0,13,.230,.262,.273,.534,.253,-0.37

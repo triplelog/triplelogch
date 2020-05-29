@@ -23,7 +23,7 @@ Name,Tm,Age,IP,W,L,SV,H,R,ER,HR,BB,K,ERA,FIP,WHIP,K/BB,WAR
 "<a href=""https://www.baseball-reference.com/players/m/morrijo01.shtml"">John Morrill</a>",BSN,25,32,0,0,0,9,3,1,0,1,0,.844,2.910,.938,0.00,0.38
 "<a href=""https://www.baseball-reference.com/players/m/mountfr01.shtml"">F. Mountain</a>",TRN,20,51,1,1,0,23,17,10,0,6,2,5.294,3.299,1.706,0.33,0.00
 "<a href=""https://www.baseball-reference.com/players/n/nichotr01.shtml"">T. Nichols</a>",WOR,29,53,0,2,0,29,16,8,0,4,4,4.075,2.734,1.868,1.00,-0.37
-"<a href=""https://www.baseball-reference.com/players/p/poormto01.shtml"">Tom Poorman</a>",2,22,300,3,8,1,129,95,43,3,27,13,3.870,3.415,1.560,0.48,-1.81
+"<a href=""https://www.baseball-reference.com/players/p/poormto01.shtml"">Tom Poorman</a>","<span style=""white-space:nowrap""><input type=""checkbox"" class=""footnote"" id=""footnotepoormto01"" style=""display:none;""></input><label for=""footnotepoormto01"" class=""footnoteLabel"">2</label><div class=""footnoteDiv"" id=""footnoteDivpoormto01"">BFN, CHN</div></span>",22,300,3,8,1,129,95,43,3,27,13,3.870,3.415,1.560,0.48,-1.81
 "<a href=""https://www.baseball-reference.com/players/p/purcebl01.shtml"">B. Purcell</a>",CN1,26,588,3,17,0,235,149,70,1,32,47,3.214,2.603,1.362,1.47,0.00
 "<a href=""https://www.baseball-reference.com/players/r/richmle01.shtml"">Lee Richmond</a>",WOR,23,1772,32,32,3,541,278,141,7,74,243,2.148,2.237,1.041,3.28,8.18
 "<a href=""https://www.baseball-reference.com/players/s/stoveha01.shtml"">Harry Stovey</a>",WOR,23,18,0,0,0,8,4,3,0,3,3,4.500,2.991,1.833,1.00,-0.03

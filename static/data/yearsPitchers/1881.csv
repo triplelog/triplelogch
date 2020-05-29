@@ -11,7 +11,7 @@ Name,Tm,Age,IP,W,L,SV,H,R,ER,HR,BB,K,ERA,FIP,WHIP,K/BB,WAR
 "<a href=""https://www.baseball-reference.com/players/k/keefeti01.shtml"">Tim Keefe</a>",TRN,24,1209,18,27,0,434,241,145,4,83,103,3.238,2.929,1.283,1.24,2.85
 "<a href=""https://www.baseball-reference.com/players/l/learyja01.shtml"">Jack Leary</a>",DTN,23,39,0,2,0,13,6,6,0,2,2,4.154,2.849,1.154,1.00,0.00
 "<a href=""https://www.baseball-reference.com/players/l/lynchja01.shtml"">Jack Lynch</a>",BFN,24,497,10,9,0,203,112,66,2,29,32,3.586,2.983,1.400,1.10,0.53
-"<a href=""https://www.baseball-reference.com/players/m/mathebo01.shtml"">B. Mathews</a>",2,29,376,5,8,2,143,92,42,2,32,33,3.016,3.109,1.396,1.03,-1.17
+"<a href=""https://www.baseball-reference.com/players/m/mathebo01.shtml"">B. Mathews</a>","<span style=""white-space:nowrap""><input type=""checkbox"" class=""footnote"" id=""footnotemathebo01"" style=""display:none;""></input><label for=""footnotemathebo01"" class=""footnoteLabel"">2</label><div class=""footnoteDiv"" id=""footnoteDivmathebo01"">PRO, BSN</div></span>",29,376,5,8,2,143,92,42,2,32,33,3.016,3.109,1.396,1.03,-1.17
 "<a href=""https://www.baseball-reference.com/players/m/mccorha01.shtml"">H. McCormick</a>",WOR,25,235,1,8,0,89,50,31,1,15,7,3.562,3.252,1.328,0.47,0.88
 "<a href=""https://www.baseball-reference.com/players/m/mccorji01.shtml"">J. McCormick</a>",CL2,24,1578,26,30,0,484,267,143,4,84,178,2.447,2.586,1.080,2.12,0.00
 "<a href=""https://www.baseball-reference.com/players/m/morrijo01.shtml"">John Morrill</a>",BSN,26,17,0,1,1,9,8,4,0,1,0,6.353,3.152,1.765,0.00,-0.35
@@ -21,7 +21,7 @@ Name,Tm,Age,IP,W,L,SV,H,R,ER,HR,BB,K,ERA,FIP,WHIP,K/BB,WAR
 "<a href=""https://www.baseball-reference.com/players/p/purcebl01.shtml"">B. Purcell</a>",BFN,27,185,4,1,0,62,37,19,2,9,15,2.773,3.066,1.151,1.67,0.63
 "<a href=""https://www.baseball-reference.com/players/r/radboch01.shtml"">O. Radbourn</a>",PRO,26,976,25,11,0,309,162,88,1,64,117,2.434,2.599,1.147,1.83,4.49
 "<a href=""https://www.baseball-reference.com/players/r/richmle01.shtml"">Lee Richmond</a>",WOR,24,1387,25,26,0,547,302,174,7,68,156,3.387,2.652,1.330,2.29,4.40
-"<a href=""https://www.baseball-reference.com/players/t/taylobi01.shtml"">Billy Taylor</a>",2,?,33,0,1,0,15,13,7,0,7,2,5.727,4.085,2.000,0.29,0.00
+"<a href=""https://www.baseball-reference.com/players/t/taylobi01.shtml"">Billy Taylor</a>","<span style=""white-space:nowrap""><input type=""checkbox"" class=""footnote"" id=""footnotetaylobi01"" style=""display:none;""></input><label for=""footnotetaylobi01"" class=""footnoteLabel"">2</label><div class=""footnoteDiv"" id=""footnoteDivtaylobi01"">WOR, CL2</div></span>",?,33,0,1,0,15,13,7,0,7,2,5.727,4.085,2.000,0.29,0.00
 "<a href=""https://www.baseball-reference.com/players/w/wardjo01.shtml"">John Ward</a>",PRO,21,990,18,18,0,326,183,78,2,53,119,2.127,2.529,1.148,2.25,2.70
 "<a href=""https://www.baseball-reference.com/players/w/welchmi01.shtml"">Mickey Welch</a>",TRN,21,1104,21,18,0,371,186,109,7,78,104,2.666,3.016,1.220,1.33,6.01
 "<a href=""https://www.baseball-reference.com/players/w/whitewi01.shtml"">Will White</a>",DTN,26,54,0,2,0,24,18,10,0,2,5,5.000,2.487,1.444,2.50,-0.36

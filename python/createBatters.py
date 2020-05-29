@@ -91,8 +91,8 @@ def readcsvBatters(filen):
 					try:
 						oldbatter = allgamesa[row[1]][bid]
 						totbatter = batter
-						
-						totbatter[1] = oldbatter[1].append(totbatter[1])
+						oldbatter[1].append(totbatter[1][0])
+						totbatter[1] = oldbatter[1]
 						for i in range(3,15):
 							totbatter[i]+=oldbatter[i]
 						allgamesa[row[1]][bid] = totbatter
@@ -131,13 +131,13 @@ def readcsvPitchers(filen):
 					bf = int(row[24])
 				hbp = int(row[22])
 				
-				batter = [name,row[3],age,int(row[12]),int(row[5]),int(row[6]),int(row[11]),int(row[13]),int(row[26]),int(row[14]),int(row[15]),int(row[16]),int(row[17]),bf,hbp]
+				batter = [name,[row[3]],age,int(row[12]),int(row[5]),int(row[6]),int(row[11]),int(row[13]),int(row[26]),int(row[14]),int(row[15]),int(row[16]),int(row[17]),bf,hbp]
 				try:
 					try:
 						oldbatter = allgamesa[row[1]][bid]
 						totbatter = batter
-						
-						totbatter[1] = oldbatter[1].append(totbatter[1])
+						oldbatter[1].append(totbatter[1][0])
+						totbatter[1] = oldbatter[1]
 						for i in range(3,15):
 							totbatter[i]+=oldbatter[i]
 						allgamesa[row[1]][bid] = totbatter
@@ -361,7 +361,7 @@ for year in battingdata.keys():
 					for ii in range(0,len(row[1])):
 						rowstr+=row[1][ii]+', '
 					rowstr = rowstr[:-2]
-					row[1] = '<span style="white-space:nowrap"><input type="checkbox" id="footnote'+yearkeys[i][0]+'" style="display:none;"></input><label for="footnote'+yearkeys[i][0]+'" class="footnoteLabel">'+str(len(row[1]))+'</label><div id="footnoteDiv'+yearkeys[i][0]+'">'+rowstr+'</div></span>'
+					row[1] = '<span style="white-space:nowrap"><input type="checkbox" id="footnote'+yearkeys[i]+'" style="display:none;"></input><label for="footnote'+yearkeys[i]+'" class="footnoteLabel">'+str(len(row[1]))+'</label><div id="footnoteDiv'+yearkeys[i]+'">'+rowstr+'</div></span>'
 				else:
 					row[1] = row[1][0]
 				if row[13]>0:
@@ -415,7 +415,7 @@ for year in battingdata.keys():
 					for ii in range(0,len(row[1])):
 						rowstr+=row[1][ii]+', '
 					rowstr = rowstr[:-2]
-					row[1] = '<span style="white-space:nowrap"><input type="checkbox" id="footnote'+yearkeys[i][0]+'" style="display:none;"></input><label for="footnote'+yearkeys[i][0]+'" class="footnoteLabel">'+str(len(row[1]))+'</label><div id="footnoteDiv'+yearkeys[i][0]+'">'+rowstr+'</div></span>'
+					row[1] = '<span style="white-space:nowrap"><input type="checkbox" class="footnote" id="footnote'+yearkeys[i]+'" style="display:none;"></input><label for="footnote'+yearkeys[i]+'" class="footnoteLabel">'+str(len(row[1]))+'</label><div class="footnoteDiv" id="footnoteDiv'+yearkeys[i]+'">'+rowstr+'</div></span>'
 				else:
 					row[1] = row[1][0]
 				if row[3]>0:

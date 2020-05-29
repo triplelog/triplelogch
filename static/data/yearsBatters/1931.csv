@@ -34,7 +34,7 @@ Name,Tm,Age,PA,AB,R,H,HR,TB,RBI,BB,SB,K,AVG,OBP,SLG,OPS,wOBA,WAR
 "<a href=""https://www.baseball-reference.com/players/b/bladera01.shtml"">Ray Blades</a>",SLN,34,81,67,10,19,1,26,5,10,1,7,.284,.392,.388,.780,.371,-0.07
 "<a href=""https://www.baseball-reference.com/players/b/blaehge01.shtml"">G. Blaeholder</a>",SLA,27,86,77,5,11,0,15,6,6,1,28,.143,.205,.195,.400,.195,0.00
 "<a href=""https://www.baseball-reference.com/players/b/blairfo01.shtml"">F. Blair</a>",CHN,30,258,240,31,62,3,98,29,14,1,26,.258,.302,.408,.710,.323,-0.17
-"<a href=""https://www.baseball-reference.com/players/b/blakesh01.shtml"">S. Blake</a>",2,31,42,41,6,14,0,15,2,1,0,9,.341,.357,.366,.723,.338,0.29
+"<a href=""https://www.baseball-reference.com/players/b/blakesh01.shtml"">S. Blake</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnoteblakesh01"" style=""display:none;""></input><label for=""footnoteblakesh01"" class=""footnoteLabel"">2</label><div id=""footnoteDivblakesh01"">CHN, PHI</div></span>",31,42,41,6,14,0,15,2,1,0,9,.341,.357,.366,.723,.338,0.29
 "<a href=""https://www.baseball-reference.com/players/b/bluegos01.shtml"">Ossie Bluege</a>",WS1,30,634,570,82,155,8,218,98,50,16,39,.272,.336,.382,.718,.335,2.17
 "<a href=""https://www.baseball-reference.com/players/b/bluelu01.shtml"">Lu Blue</a>",CHA,34,725,589,119,179,1,235,62,127,13,60,.304,.430,.399,.829,.395,5.17
 "<a href=""https://www.baseball-reference.com/players/b/bolenst01.shtml"">Stew Bolen</a>",PHI,28,35,32,2,5,0,5,1,3,0,2,.156,.229,.156,.385,.197,-0.08
@@ -46,7 +46,7 @@ Name,Tm,Age,PA,AB,R,H,HR,TB,RBI,BB,SB,K,AVG,OBP,SLG,OPS,wOBA,WAR
 "<a href=""https://www.baseball-reference.com/players/b/bowlegr01.shtml"">Grant Bowler</a>",CHA,23,11,10,2,1,0,2,2,1,0,5,.100,.182,.200,.382,.186,-0.03
 "<a href=""https://www.baseball-reference.com/players/b/brameer01.shtml"">Erv Brame</a>",PIT,29,99,95,6,26,0,32,15,4,0,16,.274,.303,.337,.640,.297,0.43
 "<a href=""https://www.baseball-reference.com/players/b/branded01.shtml"">Ed Brandt</a>",BSN,26,98,82,11,21,0,23,8,9,1,5,.256,.330,.280,.610,.296,0.70
-"<a href=""https://www.baseball-reference.com/players/b/braxtga01.shtml"">G. Braxton</a>",2,31,16,14,2,3,0,3,0,2,0,6,.214,.312,.214,.527,.267,0.02
+"<a href=""https://www.baseball-reference.com/players/b/braxtga01.shtml"">G. Braxton</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnotebraxtga01"" style=""display:none;""></input><label for=""footnotebraxtga01"" class=""footnoteLabel"">2</label><div id=""footnoteDivbraxtga01"">CHA, SLA</div></span>",31,16,14,2,3,0,3,0,2,0,6,.214,.312,.214,.527,.267,0.02
 "<a href=""https://www.baseball-reference.com/players/b/bressru01.shtml"">R. Bressler</a>",BRO,36,167,153,22,43,0,57,26,11,0,10,.281,.329,.373,.702,.325,-0.15
 "<a href=""https://www.baseball-reference.com/players/b/brickfr01.shtml"">F. Brickell</a>",PHI,24,563,514,77,130,1,157,31,42,5,39,.253,.316,.305,.621,.296,-1.19
 "<a href=""https://www.baseball-reference.com/players/b/bridgto01.shtml"">T. Bridges</a>",DET,24,64,54,4,8,0,8,1,5,0,23,.148,.220,.148,.368,.189,-0.32
@@ -106,8 +106,8 @@ Name,Tm,Age,PA,AB,R,H,HR,TB,RBI,BB,SB,K,AVG,OBP,SLG,OPS,wOBA,WAR
 "<a href=""https://www.baseball-reference.com/players/d/detorge01.shtml"">G. Detore</a>",CLE,24,64,56,3,15,0,21,7,8,0,2,.268,.359,.375,.734,.346,-0.08
 "<a href=""https://www.baseball-reference.com/players/d/dickebi01.shtml"">Bill Dickey</a>",NYA,24,523,477,65,156,6,211,78,39,2,20,.327,.378,.442,.820,.378,4.14
 "<a href=""https://www.baseball-reference.com/players/d/doljafr01.shtml"">F. Doljack</a>",DET,23,205,187,20,52,4,83,20,15,3,17,.278,.335,.444,.779,.355,0.29
-"<a href=""https://www.baseball-reference.com/players/d/donohpe01.shtml"">Pete Donohue</a>",2,30,4,4,0,0,0,0,0,0,0,1,.000,.000,.000,.000,.000,-0.03
-"<a href=""https://www.baseball-reference.com/players/d/douthta01.shtml"">T. Douthit</a>",2,30,572,507,63,142,1,171,45,53,5,33,.280,.352,.337,.689,.318,0.00
+"<a href=""https://www.baseball-reference.com/players/d/donohpe01.shtml"">Pete Donohue</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnotedonohpe01"" style=""display:none;""></input><label for=""footnotedonohpe01"" class=""footnoteLabel"">2</label><div id=""footnoteDivdonohpe01"">NY1, CLE</div></span>",30,4,4,0,0,0,0,0,0,0,1,.000,.000,.000,.000,.000,-0.03
+"<a href=""https://www.baseball-reference.com/players/d/douthta01.shtml"">T. Douthit</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnotedouthta01"" style=""display:none;""></input><label for=""footnotedouthta01"" class=""footnoteLabel"">2</label><div id=""footnoteDivdouthta01"">SLN, CIN</div></span>",30,572,507,63,142,1,171,45,53,5,33,.280,.352,.337,.689,.318,0.00
 "<a href=""https://www.baseball-reference.com/players/d/dreesbi01.shtml"">Bill Dreesen</a>",BSN,26,204,180,38,40,1,61,10,23,1,23,.222,.310,.339,.649,.306,0.46
 "<a href=""https://www.baseball-reference.com/players/d/dressch01.shtml"">C. Dressen</a>",CIN,36,16,15,0,1,0,1,0,1,0,1,.067,.125,.067,.192,.105,-0.24
 "<a href=""https://www.baseball-reference.com/players/d/dudlecl01.shtml"">Clise Dudley</a>",PHI,27,88,84,5,18,0,21,3,1,0,16,.214,.241,.250,.491,.232,-0.02
@@ -133,8 +133,8 @@ Name,Tm,Age,PA,AB,R,H,HR,TB,RBI,BB,SB,K,AVG,OBP,SLG,OPS,wOBA,WAR
 "<a href=""https://www.baseball-reference.com/players/f/fischca01.shtml"">Carl Fischer</a>",WS1,25,71,66,2,8,0,10,5,0,0,15,.121,.121,.152,.273,.124,0.00
 "<a href=""https://www.baseball-reference.com/players/f/fitzgra01.shtml"">R. Fitzgerald</a>",CIN,26,1,1,0,0,0,0,0,0,0,0,.000,.000,.000,.000,.000,-0.03
 "<a href=""https://www.baseball-reference.com/players/f/fitzsfr01.shtml"">F. Fitzsimmons</a>",NY1,29,104,92,16,21,4,38,18,7,0,18,.228,.297,.413,.710,.325,0.00
-"<a href=""https://www.baseball-reference.com/players/f/floweja01.shtml"">Jake Flowers</a>",2,29,185,168,22,41,2,60,20,16,8,10,.244,.310,.357,.667,.311,0.77
-"<a href=""https://www.baseball-reference.com/players/f/fonsele01.shtml"">Lew Fonseca</a>",2,32,628,573,86,179,3,235,85,40,7,29,.312,.361,.410,.772,.351,0.79
+"<a href=""https://www.baseball-reference.com/players/f/floweja01.shtml"">Jake Flowers</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnotefloweja01"" style=""display:none;""></input><label for=""footnotefloweja01"" class=""footnoteLabel"">2</label><div id=""footnoteDivfloweja01"">BRO, SLN</div></span>",29,185,168,22,41,2,60,20,16,8,10,.244,.310,.357,.667,.311,0.77
+"<a href=""https://www.baseball-reference.com/players/f/fonsele01.shtml"">Lew Fonseca</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnotefonsele01"" style=""display:none;""></input><label for=""footnotefonsele01"" class=""footnoteLabel"">2</label><div id=""footnoteDivfonsele01"">CLE, CHA</div></span>",32,628,573,86,179,3,235,85,40,7,29,.312,.361,.410,.772,.351,0.79
 "<a href=""https://www.baseball-reference.com/players/f/fordho01.shtml"">Hod Ford</a>",CIN,33,193,175,18,40,0,50,13,13,0,13,.229,.286,.286,.571,.272,0.00
 "<a href=""https://www.baseball-reference.com/players/f/fothebo01.shtml"">B. Fothergill</a>",CHA,33,333,312,25,88,3,114,56,17,2,17,.282,.323,.365,.689,.320,0.35
 "<a href=""https://www.baseball-reference.com/players/f/foxxji01.shtml"">Jimmie Foxx</a>",PHA,23,593,515,93,150,30,292,120,73,4,84,.291,.380,.567,.947,.422,4.60
@@ -160,7 +160,7 @@ Name,Tm,Age,PA,AB,R,H,HR,TB,RBI,BB,SB,K,AVG,OBP,SLG,OPS,wOBA,WAR
 "<a href=""https://www.baseball-reference.com/players/g/gonzami01.shtml"">M. Gonzalez</a>",SLN,40,19,19,1,2,0,2,3,0,0,3,.105,.105,.105,.211,.098,-0.34
 "<a href=""https://www.baseball-reference.com/players/g/gosligo01.shtml"">Goose Goslin</a>",SLA,30,675,591,114,194,24,328,105,80,9,41,.328,.412,.555,.967,.435,5.79
 "<a href=""https://www.baseball-reference.com/players/g/grabojo01.shtml"">J. Grabowski</a>",DET,31,144,136,9,32,1,44,14,6,0,19,.235,.268,.324,.591,.273,-0.38
-"<a href=""https://www.baseball-reference.com/players/g/graceea01.shtml"">Earl Grace</a>",2,24,181,159,10,43,1,54,21,17,0,6,.270,.341,.340,.681,.323,0.16
+"<a href=""https://www.baseball-reference.com/players/g/graceea01.shtml"">Earl Grace</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnotegraceea01"" style=""display:none;""></input><label for=""footnotegraceea01"" class=""footnoteLabel"">2</label><div id=""footnoteDivgraceea01"">CHN, PIT</div></span>",24,181,159,10,43,1,54,21,17,0,6,.270,.341,.340,.681,.323,0.16
 "<a href=""https://www.baseball-reference.com/players/g/grantge01.shtml"">G. Grantham</a>",PIT,31,555,465,91,142,10,210,46,71,5,50,.305,.400,.452,.851,.394,3.45
 "<a href=""https://www.baseball-reference.com/players/g/grantge02.shtml"">George Grant</a>",PIT,28,2,2,0,0,0,0,0,0,0,2,.000,.000,.000,.000,.000,-0.04
 "<a href=""https://www.baseball-reference.com/players/g/graysa01.shtml"">Sam Gray</a>",SLA,33,92,79,9,14,1,17,6,8,0,16,.177,.253,.215,.468,.231,-0.13
@@ -190,8 +190,8 @@ Name,Tm,Age,PA,AB,R,H,HR,TB,RBI,BB,SB,K,AVG,OBP,SLG,OPS,wOBA,WAR
 "<a href=""https://www.baseball-reference.com/players/h/heathmi01.shtml"">Mickey Heath</a>",CIN,27,29,26,2,7,0,7,3,2,0,5,.269,.321,.269,.591,.286,-0.19
 "<a href=""https://www.baseball-reference.com/players/h/heberwa01.shtml"">Wally Hebert</a>",SLA,23,44,43,2,9,0,9,1,0,0,11,.209,.209,.209,.419,.195,-0.13
 "<a href=""https://www.baseball-reference.com/players/h/heimafr01.shtml"">Fred Heimach</a>",BRO,30,65,61,3,12,0,14,5,4,0,7,.197,.246,.230,.476,.229,0.10
-"<a href=""https://www.baseball-reference.com/players/h/hemslro01.shtml"">R. Hemsley</a>",2,24,262,239,31,69,3,106,32,20,4,33,.289,.344,.444,.787,.355,-0.16
-"<a href=""https://www.baseball-reference.com/players/h/hendrha01.shtml"">H. Hendrick</a>",2,33,594,531,74,167,1,220,75,53,3,40,.315,.379,.414,.793,.369,0.00
+"<a href=""https://www.baseball-reference.com/players/h/hemslro01.shtml"">R. Hemsley</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnotehemslro01"" style=""display:none;""></input><label for=""footnotehemslro01"" class=""footnoteLabel"">2</label><div id=""footnoteDivhemslro01"">PIT, CHN</div></span>",24,262,239,31,69,3,106,32,20,4,33,.289,.344,.444,.787,.355,-0.16
+"<a href=""https://www.baseball-reference.com/players/h/hendrha01.shtml"">H. Hendrick</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnotehendrha01"" style=""display:none;""></input><label for=""footnotehendrha01"" class=""footnoteLabel"">2</label><div id=""footnoteDivhendrha01"">BRO, CIN</div></span>",33,594,531,74,167,1,220,75,53,3,40,.315,.379,.414,.793,.369,0.00
 "<a href=""https://www.baseball-reference.com/players/h/henlibu01.shtml"">B. Henline</a>",CHA,36,17,15,2,1,0,2,2,2,0,4,.067,.176,.133,.310,.164,-0.34
 "<a href=""https://www.baseball-reference.com/players/h/hermaba01.shtml"">Babe Herman</a>",BRO,28,661,610,93,191,18,320,97,50,17,65,.313,.365,.525,.890,.399,0.00
 "<a href=""https://www.baseball-reference.com/players/h/hermabi01.shtml"">Billy Herman</a>",CHN,21,115,98,14,32,0,39,16,13,2,6,.327,.405,.398,.803,.379,0.00
@@ -206,10 +206,10 @@ Name,Tm,Age,PA,AB,R,H,HR,TB,RBI,BB,SB,K,AVG,OBP,SLG,OPS,wOBA,WAR
 "<a href=""https://www.baseball-reference.com/players/h/hogansh01.shtml"">Shanty Hogan</a>",NY1,25,430,396,42,119,12,174,65,29,1,29,.301,.354,.439,.794,.365,2.75
 "<a href=""https://www.baseball-reference.com/players/h/hogsech01.shtml"">C. Hogsett</a>",DET,27,49,47,7,11,0,12,1,1,0,10,.234,.265,.255,.521,.248,0.05
 "<a href=""https://www.baseball-reference.com/players/h/hornsro01.shtml"">R. Hornsby</a>",CHN,35,418,357,64,118,16,205,90,56,1,23,.331,.421,.574,.996,.447,0.00
-"<a href=""https://www.baseball-reference.com/players/h/hoytwa01.shtml"">Waite Hoyt</a>",2,31,77,73,6,17,0,20,9,2,0,12,.233,.253,.274,.527,.246,0.00
+"<a href=""https://www.baseball-reference.com/players/h/hoytwa01.shtml"">Waite Hoyt</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnotehoytwa01"" style=""display:none;""></input><label for=""footnotehoytwa01"" class=""footnoteLabel"">2</label><div id=""footnoteDivhoytwa01"">DET, PHA</div></span>",31,77,73,6,17,0,20,9,2,0,12,.233,.253,.274,.527,.246,0.00
 "<a href=""https://www.baseball-reference.com/players/h/hubbeca01.shtml"">Carl Hubbell</a>",NY1,28,93,83,9,20,0,26,8,3,0,9,.241,.276,.313,.589,.275,0.42
 "<a href=""https://www.baseball-reference.com/players/h/hudliwi01.shtml"">W. Hudlin</a>",CLE,25,108,100,11,20,0,30,13,6,0,28,.200,.245,.300,.545,.253,-0.01
-"<a href=""https://www.baseball-reference.com/players/h/hunnebi01.shtml"">B. Hunnefield</a>",3,32,311,288,38,76,1,90,22,18,6,22,.264,.307,.312,.620,.285,-0.32
+"<a href=""https://www.baseball-reference.com/players/h/hunnebi01.shtml"">B. Hunnefield</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnotehunnebi01"" style=""display:none;""></input><label for=""footnotehunnebi01"" class=""footnoteLabel"">3</label><div id=""footnoteDivhunnebi01"">CLE, BSN, NY1</div></span>",32,311,288,38,76,1,90,22,18,6,22,.264,.307,.312,.620,.285,-0.32
 "<a href=""https://www.baseball-reference.com/players/h/huntjo01.shtml"">Joel Hunt</a>",SLN,25,1,1,2,0,0,0,0,0,0,1,.000,.000,.000,.000,.000,-0.03
 "<a href=""https://www.baseball-reference.com/players/h/hurstdo01.shtml"">Don Hurst</a>",PHI,25,567,489,63,149,11,229,91,64,8,28,.305,.386,.468,.855,.392,0.00
 "<a href=""https://www.baseball-reference.com/players/j/jackstr01.shtml"">T. Jackson</a>",NY1,27,594,555,65,172,5,233,71,36,13,23,.310,.353,.420,.773,.356,5.34
@@ -227,7 +227,7 @@ Name,Tm,Age,PA,AB,R,H,HR,TB,RBI,BB,SB,K,AVG,OBP,SLG,OPS,wOBA,WAR
 "<a href=""https://www.baseball-reference.com/players/j/jorgear01.shtml"">A. Jorgens</a>",NYA,26,111,100,12,27,0,32,14,9,0,3,.270,.330,.320,.650,.309,-0.15
 "<a href=""https://www.baseball-reference.com/players/j/judgejo01.shtml"">Joe Judge</a>",WS1,37,84,74,11,21,0,24,9,8,0,8,.284,.354,.324,.678,.325,0.00
 "<a href=""https://www.baseball-reference.com/players/j/jurgebi01.shtml"">Billy Jurges</a>",CHN,23,335,293,34,59,0,84,23,25,2,41,.201,.264,.287,.551,.260,-0.64
-"<a href=""https://www.baseball-reference.com/players/k/kammwi01.shtml"">Willie Kamm</a>",2,31,553,469,77,136,0,181,75,71,14,19,.290,.384,.386,.770,.360,2.25
+"<a href=""https://www.baseball-reference.com/players/k/kammwi01.shtml"">Willie Kamm</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnotekammwi01"" style=""display:none;""></input><label for=""footnotekammwi01"" class=""footnoteLabel"">2</label><div id=""footnoteDivkammwi01"">CHA, CLE</div></span>",31,553,469,77,136,0,181,75,71,14,19,.290,.384,.386,.770,.360,2.25
 "<a href=""https://www.baseball-reference.com/players/k/kaufmto01.shtml"">T. Kaufmann</a>",SLN,30,19,18,1,2,0,2,0,1,0,3,.111,.158,.111,.269,.137,-0.14
 "<a href=""https://www.baseball-reference.com/players/k/kerrjo01.shtml"">John Kerr</a>",CHA,32,491,444,51,119,2,146,50,35,9,22,.268,.324,.329,.653,.309,0.28
 "<a href=""https://www.baseball-reference.com/players/k/kimsech01.shtml"">Chad Kimsey</a>",SLA,24,47,37,5,10,2,17,5,8,1,11,.270,.413,.459,.873,.407,0.00
@@ -280,7 +280,7 @@ Name,Tm,Age,PA,AB,R,H,HR,TB,RBI,BB,SB,K,AVG,OBP,SLG,OPS,wOBA,WAR
 "<a href=""https://www.baseball-reference.com/players/m/mcdonha01.shtml"">H. McDonald</a>",PHA,20,25,21,1,2,0,2,0,4,0,10,.095,.240,.095,.335,.193,-0.10
 "<a href=""https://www.baseball-reference.com/players/m/mcevolo01.shtml"">Lou McEvoy</a>",NYA,29,4,4,1,0,0,0,0,0,0,2,.000,.000,.000,.000,.000,-0.06
 "<a href=""https://www.baseball-reference.com/players/m/mckaiha01.shtml"">Hal McKain</a>",CHA,24,48,42,5,5,0,9,3,5,0,14,.119,.213,.214,.427,.209,-0.08
-"<a href=""https://www.baseball-reference.com/players/m/mcmanma01.shtml"">M. McManus</a>",2,31,485,424,47,116,4,155,62,57,8,23,.274,.362,.366,.728,.327,1.42
+"<a href=""https://www.baseball-reference.com/players/m/mcmanma01.shtml"">M. McManus</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnotemcmanma01"" style=""display:none;""></input><label for=""footnotemcmanma01"" class=""footnoteLabel"">2</label><div id=""footnoteDivmcmanma01"">DET, BOS</div></span>",31,485,424,47,116,4,155,62,57,8,23,.274,.362,.366,.728,.327,1.42
 "<a href=""https://www.baseball-reference.com/players/m/mcnaier01.shtml"">Eric McNair</a>",PHA,22,299,280,41,76,5,103,33,11,1,19,.271,.306,.368,.674,.312,0.33
 "<a href=""https://www.baseball-reference.com/players/m/mcneeea01.shtml"">Earl McNeely</a>",SLA,33,113,102,12,23,0,27,15,9,4,5,.225,.288,.265,.553,.267,-1.32
 "<a href=""https://www.baseball-reference.com/players/m/mcwilbi01.shtml"">B. McWilliams</a>",BOS,20,2,2,0,0,0,0,0,0,0,1,.000,.000,.000,.000,.000,-0.08
@@ -305,7 +305,7 @@ Name,Tm,Age,PA,AB,R,H,HR,TB,RBI,BB,SB,K,AVG,OBP,SLG,OPS,wOBA,WAR
 "<a href=""https://www.baseball-reference.com/players/m/morrebi01.shtml"">Bill Morrell</a>",NY1,38,23,18,2,2,0,2,1,3,0,2,.111,.238,.111,.349,.195,-0.10
 "<a href=""https://www.baseball-reference.com/players/m/morried02.shtml"">Ed Morris</a>",BOS,31,41,38,5,6,0,7,0,1,0,15,.158,.179,.184,.364,.172,-0.19
 "<a href=""https://www.baseball-reference.com/players/m/mosolji01.shtml"">Jim Mosolf</a>",PIT,25,53,44,7,11,1,15,8,8,0,5,.250,.365,.341,.706,.341,0.17
-"<a href=""https://www.baseball-reference.com/players/m/mossra01.shtml"">Ray Moss</a>",2,29,16,15,0,2,0,2,1,1,0,5,.133,.188,.133,.321,.163,-0.07
+"<a href=""https://www.baseball-reference.com/players/m/mossra01.shtml"">Ray Moss</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnotemossra01"" style=""display:none;""></input><label for=""footnotemossra01"" class=""footnoteLabel"">2</label><div id=""footnoteDivmossra01"">BRO, BSN</div></span>",29,16,15,0,2,0,2,1,1,0,5,.133,.188,.133,.321,.163,-0.07
 "<a href=""https://www.baseball-reference.com/players/m/mungova01.shtml"">Van Mungo</a>",BRO,20,12,12,1,3,0,5,0,0,0,2,.250,.250,.417,.667,.293,0.07
 "<a href=""https://www.baseball-reference.com/players/m/myattgl01.shtml"">Glenn Myatt</a>",CLE,33,217,195,21,48,1,69,29,21,2,13,.246,.319,.354,.673,.316,0.48
 "<a href=""https://www.baseball-reference.com/players/m/myerbu01.shtml"">Buddy Myer</a>",WS1,27,662,591,114,173,4,240,56,58,11,42,.293,.360,.406,.766,.356,3.35
@@ -352,14 +352,14 @@ Name,Tm,Age,PA,AB,R,H,HR,TB,RBI,BB,SB,K,AVG,OBP,SLG,OPS,wOBA,WAR
 "<a href=""https://www.baseball-reference.com/players/r/richano01.shtml"">N. Richardson</a>",DET,28,158,148,13,40,0,53,16,6,2,3,.270,.299,.358,.657,.302,0.11
 "<a href=""https://www.baseball-reference.com/players/r/richbla01.shtml"">L. Richbourg</a>",BSN,33,311,286,32,82,2,111,29,19,9,14,.287,.331,.388,.719,.332,0.64
 "<a href=""https://www.baseball-reference.com/players/r/rixeyep01.shtml"">Eppa Rixey</a>",CIN,40,43,40,0,6,0,7,3,2,0,6,.150,.190,.175,.365,.177,-0.16
-"<a href=""https://www.baseball-reference.com/players/r/roettwa01.shtml"">W. Roettger</a>",2,28,367,336,41,108,1,146,37,16,1,23,.321,.360,.435,.794,.345,1.04
+"<a href=""https://www.baseball-reference.com/players/r/roettwa01.shtml"">W. Roettger</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnoteroettwa01"" style=""display:none;""></input><label for=""footnoteroettwa01"" class=""footnoteLabel"">2</label><div id=""footnoteDivroettwa01"">CIN, SLN</div></span>",28,367,336,41,108,1,146,37,16,1,23,.321,.360,.435,.794,.345,1.04
 "<a href=""https://www.baseball-reference.com/players/r/rogelbi01.shtml"">Billy Rogell</a>",DET,26,211,185,21,56,2,80,24,24,8,17,.303,.383,.432,.815,.378,1.22
 "<a href=""https://www.baseball-reference.com/players/r/rommeed01.shtml"">Eddie Rommel</a>",PHA,33,60,54,6,14,0,17,4,6,0,5,.259,.333,.315,.648,.310,0.26
 "<a href=""https://www.baseball-reference.com/players/r/rootch01.shtml"">Charlie Root</a>",CHN,32,95,90,7,20,0,28,8,4,0,31,.222,.255,.311,.566,.262,0.20
 "<a href=""https://www.baseball-reference.com/players/r/rosenma01.shtml"">M. Rosenfeld</a>",BRO,28,10,9,0,2,0,3,0,1,0,1,.222,.300,.333,.633,.298,-0.04
 "<a href=""https://www.baseball-reference.com/players/r/rothrja01.shtml"">J. Rothrock</a>",BOS,26,524,475,81,132,4,182,42,47,13,48,.278,.343,.383,.726,.339,1.39
 "<a href=""https://www.baseball-reference.com/players/r/roushed01.shtml"">Edd Roush</a>",CIN,38,400,376,46,102,1,127,41,17,2,5,.271,.308,.338,.646,.301,-0.37
-"<a href=""https://www.baseball-reference.com/players/r/ruelmu01.shtml"">Muddy Ruel</a>",2,35,148,133,7,31,0,37,9,14,0,7,.233,.306,.278,.584,.270,-0.01
+"<a href=""https://www.baseball-reference.com/players/r/ruelmu01.shtml"">Muddy Ruel</a>","<span style=""white-space:nowrap""><input type=""checkbox"" id=""footnoteruelmu01"" style=""display:none;""></input><label for=""footnoteruelmu01"" class=""footnoteLabel"">2</label><div id=""footnoteDivruelmu01"">BOS, DET</div></span>",35,148,133,7,31,0,37,9,14,0,7,.233,.306,.278,.584,.270,-0.01
 "<a href=""https://www.baseball-reference.com/players/r/ruffire01.shtml"">Red Ruffing</a>",NYA,26,116,109,14,36,3,55,12,1,0,13,.330,.336,.505,.841,.377,1.27
 "<a href=""https://www.baseball-reference.com/players/r/russeja01.shtml"">Jack Russell</a>",BOS,25,88,82,12,16,0,23,5,2,1,28,.195,.214,.280,.495,.227,0.00
 "<a href=""https://www.baseball-reference.com/players/r/ruthba01.shtml"">Babe Ruth</a>",NYA,36,663,534,149,199,46,374,163,128,5,51,.373,.495,.700,1.195,.525,10.53
