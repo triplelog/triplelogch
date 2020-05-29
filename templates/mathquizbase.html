@@ -351,10 +351,18 @@ div.displayAngle {
 	left: calc(50% - 1.5rem);
 	top: calc(50% - .75rem);
 	background: transparent;
-	color:white;
+	line-height:1.5rem;
 	width: 3rem;
 	height: 1.5rem;
 	z-index:10001;
+}
+div.innerDisplay {
+	display: inline-block;
+	margin:auto;
+	position: relative;
+	text-align: center;
+	line-height:1.5rem;
+	color:white;
 }
 div.displayNeedle {
 	display: none;
@@ -554,7 +562,7 @@ div.displayNeedle {
 							<polygon stroke="red" stroke-width="3" points="0,0 {{ angle.needle }} 0,0"></polygon>
 						</svg>
 					</div>
-					<div class="c{{idx + 1}}t{{turn}} displayAngle">{{angle.numer + (turn - halfnturns) * (2*angle.denom) }}pi/{{angle.denom}}</div>
+					<div class="c{{idx + 1}}t{{turn}} displayAngle"><div class="innerDisplay">{{angle.numer + (turn - halfnturns) * (2*angle.denom) }}pi/{{angle.denom}}</div></div>
 					
 					{% set idx= idx+1 %}
 				{% endfor %}
