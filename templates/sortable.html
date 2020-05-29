@@ -18,11 +18,25 @@
 
 
 {% block moreCSS %}
-
+.title:hover .titleBG {
+  	background-position: 350px 0px;
+  	transition: all 2s linear;
+}
+.titleBG {
+  	background-position: -50px 0px;
+  	transition: all 2s linear;
+}
 .content-33 .title {
-	background-image: url("../sudokubannercolor.jpg");
+	background-image: url("../img/baseballbg.jpg");
   	background-size: 100% 100%;
   	background-repeat: no-repeat;
+}
+.content-33 .titleBG {
+	background-image: url("../img/baseballfg.png");
+  	background-size: auto 100%;
+  	background-repeat: no-repeat;
+  	width: 100%;
+  	height: 100%;
 }
 
 .content-33 {
@@ -342,7 +356,7 @@ input[type="radio"] {
 
 {% block title33 %}
 <div class="title">
-	<div class="titleBG" style="width:100%;height:100%;">
+	<div class="titleBG">
 
 	</div>
 	<span class="titleLeft">
