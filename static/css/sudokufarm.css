@@ -5,7 +5,7 @@
     --left-margin: 0px;
     --color-bg1: rgba(180,180,180,.75);
     --color-text1: black;
-    --sudoku-top: 12rem;
+    --sudoku-top: 100px;
     --sudoku-left: 0px;
     --turns-taken: 0px;
 }
