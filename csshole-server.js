@@ -376,7 +376,7 @@ app.get('/sortable.html',
 			var nrows = results.data.length-1;
 			//var nrows = 1000;
 			var header = results.data[0];
-			if (isPitchers){header[14]='<label for="footnote" id="footnoteLabel">~</label><div id="footnoteDiv"></div>FIP';}
+			if (isPitchers){header[14]='<span style="white-space:nowrap"><label for="footnote" id="footnoteLabel">~</label><div id="footnoteDiv"></div>FIP</span>';}
 			var ncols = results.data[0].length;
 			var content = results.data.slice(1,nrows+1);
 			var minList = [];
