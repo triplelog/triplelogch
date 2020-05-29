@@ -361,7 +361,7 @@ for year in battingdata.keys():
 					for ii in range(0,len(row[1])):
 						rowstr+=row[1][ii]+', '
 					rowstr = rowstr[:-2]
-					row[1] = '<span style="white-space:nowrap"><input type="checkbox" id="footnote'+yearkeys[i]+'" style="display:none;"></input><label for="footnote'+yearkeys[i]+'" class="footnoteLabel">'+str(len(row[1]))+'</label><div id="footnoteDiv'+yearkeys[i]+'">'+rowstr+'</div></span>'
+					row[1] = '<span style="white-space:nowrap"><input type="checkbox" class="footnote" id="footnote'+yearkeys[i]+'" style="display:none;"></input><label for="footnote'+yearkeys[i]+'" class="footnoteLabel">'+str(len(row[1]))+'</label><div class="footnoteDiv" id="footnoteDiv'+yearkeys[i]+'">'+rowstr+'</div></span>'
 				else:
 					row[1] = row[1][0]
 				if row[13]>0:
