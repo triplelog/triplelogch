@@ -464,6 +464,7 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 		overflow-y: auto;
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+		grid-gap-row: .25rem;
 	}
 	.content-11 {
 		grid-row:  2;
