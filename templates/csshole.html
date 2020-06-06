@@ -88,6 +88,10 @@ div:Not(.content-22) > .title a{
 	 font-family: Tahoma, Geneva, sans-serif;
 	 letter-spacing: 2px;
 }
+
+div.content-11 {
+	overflow-y: visible;
+}
 {% endblock %}
 
 
@@ -196,15 +200,13 @@ Test your knowledge of <a href="../mathquiz.html">Trigonometric values</a>.
 </div>
 {% endblock %}
 {% block content33 %}
-Sortable stats from every MLB season since 1871.
+Sortable stats for each MLB season since 1871.
 <form  action="../sortable.html" method="get">
 	<div>
 		<select name="p">
 			<option value="false">Batters</option>
 			<option value="true">Pitchers</option>
 		</select>
-	</div>
-	<div>
 		Year: <input name="y" type="number" min="1871" max="2019" value="2019"></input>
 	</div>
 	<div>
