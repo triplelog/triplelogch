@@ -452,3 +452,90 @@ input.footnote:checked + * + div.footnoteDiv {
 input.footnote:Not(:checked) + * + div.footnoteDiv {
 	display: none;
 }
+
+@media screen and (max-width: 450px) {
+	div.container {
+		--height-container: calc(100vh - 3rem);
+		--width-container: calc(100vw - 1rem);
+		height: var(--height-container);
+		width: var(--width-container);
+		max-width: 60rem;
+		margin: .25rem auto;
+		overflow-y: auto;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+	}
+	.content-11 {
+		grid-row:  2;
+		grid-column:  1;
+	}
+	.content-31 {
+		grid-row:  4;
+		grid-column:  1;
+	}
+	.content-22 {
+		grid-row:  1;
+		grid-column:  1;
+	}
+	.content-13 {
+		grid-row:  3;
+		grid-column:  1;
+	}
+
+	.content-33 {
+		grid-row:  5;
+		grid-column:  1;
+	}
+
+	#radio11-1:checked ~ .content-11 {
+		grid-row:  2;
+		grid-column:  1;
+	}
+	#radio11-2:checked ~ .content-11 {
+		grid-row:  2 / 6;
+		grid-column:  1 / 2;
+	}
+	#radio11-3:checked ~ .content-11 {
+		grid-row:  2 / 6;
+		grid-column:  1 / 2;
+	}
+
+	#radio13-1:checked ~ .content-13 {
+		grid-row:  3;
+		grid-column:  3;
+	}
+	#radio13-2:checked ~ .content-13 {
+		grid-row: 2 / 6;
+		grid-column:  1 / 2;
+	}
+	#radio13-3:checked ~ .content-13 {
+		grid-row:  2 / 6;
+		grid-column:  1 / 2;
+	}
+
+	#radio31-1:checked ~ .content-31 {
+		grid-row:  4;
+		grid-column:  1;
+	}
+	#radio31-2:checked ~ .content-31 {
+		grid-row:  2 / 6;
+		grid-column:  1 / 2;
+	}
+	#radio31-3:checked ~ .content-31 {
+		grid-row:  2 / 6;
+		grid-column:  1 / 2;
+	}
+
+	#radio33-1:checked ~ .content-33 {
+		grid-row:  5;
+		grid-column:  3;
+	}
+	#radio33-2:checked ~ .content-33 {
+		grid-row:  2 / 6;
+		grid-column:  1 / 2;
+	}
+	#radio33-3:checked ~ .content-33 {
+		grid-row:  2 / 6;
+		grid-column:  1 / 2;
+	}
+}
