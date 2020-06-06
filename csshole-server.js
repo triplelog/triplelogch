@@ -366,6 +366,16 @@ app.get('/mathquiz.html',
 						if (s<0){a = '-'+a;}
 					}
 				}
+				if (a == 'sqrt3/2'){a = 'sqrt\(3\)/2|sqrt3/2|root\(3\)/2|root3/2';}
+				if (a == 'sqrt2/2'){a = 'sqrt\(2\)/2|sqrt2/2|root\(2\)/2|root2/2';}
+				if (a == '-sqrt3/2'){a = '-sqrt\(3\)/2|-sqrt3/2|-root\(3\)/2|-root3/2';}
+				if (a == '-sqrt2/2'){a = '-sqrt\(2\)/2|-sqrt2/2|-root\(2\)/2|-root2/2';}
+				if (a == '1/sqrt3'){a = '1/sqrt\(3\)|1/sqrt3|1/root3|1/root\(3\)|sqrt(3)/3|sqrt3/3|root\(3\)/3|root3/3';}
+				if (a == 'sqrt3'){a = 'sqrt\(3\)|sqrt3|root3|root\(3\)';}
+				if (a == '-1/sqrt3'){a = '-1/sqrt\(3\)|-1/sqrt3|-1/root3|-1/root\(3\)|-sqrt(3)/3|-sqrt3/3|-root\(3\)/3|-root3/3';}
+				if (a == '-sqrt3'){a = '-sqrt\(3\)|-sqrt3|-root3|-root\(3\)';}
+				if (a == 'und'){a = 'undefined|und';}
+				
 				question['question'] = q;
 				question['answer'] = a;
 				questions.push(question);
@@ -373,9 +383,49 @@ app.get('/mathquiz.html',
 		}
 		console.log('akatex',performance.now());
 		var nturns= 16;
+		var halfnturns = 8;
 		var nangles = 16;
 		var angles= [{"points": "184,76 184,-76", "numer": 0, "denom": 1, "needle": "200,0"},{"points": "199,-17 147,-135", "numer": 1, "denom": 6, "needle": "179,-88"},{"points": "173,-99 100,-173", "numer": 1, "denom": 4, "needle": "141,-141"},{"points": "135,-147 17,-199", "numer": 1, "denom": 3, "needle": "88,-179"},{"points": "76,-184 -76,-184", "numer": 1, "denom": 2, "needle": "0,-199"},{"points": "-17,-199 -135,-147", "numer": 2, "denom": 3, "needle": "-88,-179"},{"points": "-99,-173 -173,-100", "numer": 3, "denom": 4, "needle": "-141,-141"},{"points": "-147,-135 -199,-17", "numer": 5, "denom": 6, "needle": "-179,-88"},{"points": "-184,-76 -184,76", "numer": 1, "denom": 1, "needle": "-199,0"},{"points": "-199,17 -147,135", "numer": 7, "denom": 6, "needle": "-179,88"},{"points": "-173,99 -100,173", "numer": 5, "denom": 4, "needle": "-141,141"},{"points": "-135,147 -17,199", "numer": 4, "denom": 3, "needle": "-88,179"},{"points": "-76,184 76,184", "numer": 3, "denom": 2, "needle": "0,199"},{"points": "17,199 135,147", "numer": 5, "denom": 3, "needle": "88,179"},{"points": "99,173 173,100", "numer": 7, "denom": 4, "needle": "141,141"},{"points": "147,135 199,17", "numer": 11, "denom": 6, "needle": "179,88"}]
-
+		var katexangles = {};
+		for(var angle=0;angle<angles.length;angle++){
+			
+			var d = angles[angle].denom;
+			for (var turn=1;turn<nturns+1;turn++){
+				var n = angles[angle].numer + (turn - halfnturns) * (2*d);
+				var q = katex.renderToString("\\frac{"+n+"\\pi}{"+d+"}", {throwOnError: false});
+				if (n == 0){
+					q = katex.renderToString("0", {throwOnError: false});
+				}
+				else if (d == 1){
+					if (n == 1){
+						q = katex.renderToString("\\pi", {throwOnError: false});
+					}
+					else if (n == -1){
+						q = katex.renderToString("-\\pi", {throwOnError: false});
+					}
+					else {
+						q = katex.renderToString(n+"\\pi", {throwOnError: false});
+					}
+				}
+				else {
+					if (n == 1){
+						q = katex.renderToString("\\frac{\\pi}{"+d+"}", {throwOnError: false});
+					}
+					if (n == -1){
+						q = katex.renderToString("\\frac{-\\pi}{"+d+"}", {throwOnError: false});
+					}
+				}
+				if (katexangles[n]){
+					katexangles[n][d]=q;
+				}
+				else {
+					katexangles[n]= {};
+					katexangles[n][d]=q;
+				}
+				
+			}
+			
+		}
 		//var nlevels = 15;
 		//var questions = [{'question':'What is the derivative of x^3','answer':'3x\\^2','id':1,'level':0},
 		//{'question':'What is the derivative of x^4','answer':'4x\\^3','id':2,'level':0},{'question':'What is the derivative of x^5','answer':'5x\\^4','id':1,'level':1}]
@@ -387,6 +437,7 @@ app.get('/mathquiz.html',
 			nturns:nturns,
 			nangles:nangles,
 			angles:angles,
+			katexangles:katexangles,
 		}));
 		res.end();
 	}
