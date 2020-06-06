@@ -301,38 +301,77 @@ app.get('/mathquiz.html',
 		var denoms = [1,2,3,4,6];
 		var questions = [];
 		for (var id=1;id<11;id++){
+			var funcs = [];
+			if (Math.random() < .5){funcs.push('sin'); funcs.push('cos'); funcs.push('tan');}
+			else {funcs.push('cos'); funcs.push('sin'); funcs.push('tan');}
+			
+			if (Math.random() < .5){funcs.push('sin'); funcs.push('cos'); funcs.push('tan');}
+			else {funcs.push('cos'); funcs.push('sin'); funcs.push('tan');}
+			
+			if (Math.random() < .34){funcs.push('sec'); funcs.push('csc'); funcs.push('cot');}
+			else if (Math.random() < .5){funcs.push('csc'); funcs.push('sec'); funcs.push('cot');}
+			else {funcs.push('cot'); funcs.push('sec'); funcs.push('csc');}
+			
+			if (Math.random() < .34){funcs.push('sin'); funcs.push('cos'); funcs.push('tan');}
+			else if (Math.random() < .5){funcs.push('cos'); funcs.push('sin'); funcs.push('tan');}
+			else {funcs.push('tan'); funcs.push('sin'); funcs.push('cos');}
+			
+			if (Math.random() < .34){funcs.push('sec'); funcs.push('csc'); funcs.push('cot');}
+			else if (Math.random() < .5){funcs.push('csc'); funcs.push('sec'); funcs.push('cot');}
+			else {funcs.push('cot'); funcs.push('sec'); funcs.push('csc');}
+			
+			if (Math.random() < .5){funcs.push('sin'); funcs.push('cos');}
+			else {funcs.push('cos'); funcs.push('sin');}
+			
+			var hturns = [0,0,0,1,1,1];
+			if (Math.random() < .34){hturns.push(0); hturns.push(1); hturns.push(1);}
+			else if (Math.random() < .5){hturns.push(1); hturns.push(0); hturns.push(1);}
+			else {hturns.push(0); hturns.push(1); hturns.push(0);}
+			
+			if (Math.random() < .34){hturns.push(2); hturns.push(4); hturns.push(-1);}
+			else if (Math.random() < .5){hturns.push(5); hturns.push(2); hturns.push(-2);}
+			else {hturns.push(-1); hturns.push(3); hturns.push(4);}
+			
+			if (Math.random() < .34){hturns.push(4); hturns.push(-3); hturns.push(7);}
+			else if (Math.random() < .5){hturns.push(6); hturns.push(5); hturns.push(-4);}
+			else {hturns.push(-6); hturns.push(-3); hturns.push(7);}
+			
+			if (Math.random() < .34){hturns.push(9); hturns.push(-8);}
+			else if (Math.random() < .5){hturns.push(-9); hturns.push(8);}
+			else {hturns.push(8); hturns.push(-9);}
+			
 			for (var level=0;level<nlevels+1;level++){
 				var question = {'id':id,'level':level};
-				var funcs = ['sin','cos'];
-				var f = funcs[Math.floor(Math.random()*funcs.length)];
+				var f = funcs[level];
 				var d = denoms[Math.floor(Math.random()*5)];
 				var n = 1;
 				if (d == 1 || d==3 || d ==4 || d==6){
 					if (Math.random()<.5){n = d-1;}
 				}
+				n = n + d*hturns[level];
 				//move a to different quadrant
 				
-				var q = katex.renderToString("\\text{What is }\\"+f+"{\\frac{"+n+"\\pi}{"+d+"}}\\text{?}", {throwOnError: false});
+				var q = katex.renderToString("\\text{What is }\\"+f+"{\\left(\\frac{"+n+"\\pi}{"+d+"}\\right)}\\text{?}", {throwOnError: false});
 				if (n == 0){
-					q = katex.renderToString("\\text{What is }\\"+f+"{0}\\text{?}", {throwOnError: false});
+					q = katex.renderToString("\\text{What is }\\"+f+"{(0)}\\text{?}", {throwOnError: false});
 				}
 				else if (d == 1){
 					if (n == 1){
-						q = katex.renderToString("\\text{What is }\\"+f+"{\\pi}\\text{?}", {throwOnError: false});
+						q = katex.renderToString("\\text{What is }\\"+f+"{(\\pi)}\\text{?}", {throwOnError: false});
 					}
 					else if (n == -1){
-						q = katex.renderToString("\\text{What is }\\"+f+"{-\\pi}\\text{?}", {throwOnError: false});
+						q = katex.renderToString("\\text{What is }\\"+f+"{(-\\pi)}\\text{?}", {throwOnError: false});
 					}
 					else {
-						q = katex.renderToString("\\text{What is }\\"+f+"{"+n+"\\pi}\\text{?}", {throwOnError: false});
+						q = katex.renderToString("\\text{What is }\\"+f+"{("+n+"\\pi)}\\text{?}", {throwOnError: false});
 					}
 				}
 				else {
 					if (n == 1){
-						q = katex.renderToString("\\text{What is }\\"+f+"{\\frac{\\pi}{"+d+"}}\\text{?}", {throwOnError: false});
+						q = katex.renderToString("\\text{What is }\\"+f+"{\\left(\\frac{\\pi}{"+d+"}\\right)}\\text{?}", {throwOnError: false});
 					}
 					if (n == -1){
-						q = katex.renderToString("\\text{What is }\\"+f+"{\\frac{-\\pi}{"+d+"}}\\text{?}", {throwOnError: false});
+						q = katex.renderToString("\\text{What is }\\"+f+"{\\left(\\frac{-\\pi}{"+d+"}\\right)}\\text{?}", {throwOnError: false});
 					}
 				}
 				
@@ -366,6 +405,64 @@ app.get('/mathquiz.html',
 						if (s<0){a = '-'+a;}
 					}
 				}
+				else if (f == 'tan'){
+					if (d == 1){a = '0';}
+					else if (d == 2){a = 'und';}
+					else {
+						if (d == 3){a = 'sqrt3';}
+						if (d == 4){a = '1';}
+						if (d == 6){a = '1/sqrt3';}
+					
+						if (n < 0){n *= -1; s = -1;}
+						n = n % (2 * d);
+						if (n > d/2 && n < d){s *= -1;}
+						else if (n > 3*d/2 && n < 2*d){s *= -1;}
+						if (s<0){a = '-'+a;}
+					}
+				}
+				else if (f == 'cot'){
+					if (d == 1){a = 'und';}
+					else if (d == 2){a = '0';}
+					else {
+						if (d == 3){a = '1/sqrt3';}
+						if (d == 4){a = '1';}
+						if (d == 6){a = 'sqrt3';}
+					
+						if (n < 0){n *= -1; s = -1;}
+						n = n % (2 * d);
+						if (n > d/2 && n < d){s *= -1;}
+						else if (n > 3*d/2 && n < 2*d){s *= -1;}
+						if (s<0){a = '-'+a;}
+					}
+				}
+				else if (f == 'sec'){
+					if (d == 2){a = 'und';}
+					else {
+						if (d == 3){a = '2';}
+						if (d == 4){a = 'sqrt2';}
+						if (d == 6){a = '2/sqrt3';}
+						if (d == 1){a = '1';}
+					
+						if (n < 0){n *= -1;}
+						n = n % (2 * d);
+						if (n > d/2 && n < 3*d/2){s *= -1;}
+						if (s<0){a = '-'+a;}
+					}
+				}
+				else if (f == 'csc'){
+					if (d == 1){a = 'und';}
+					else {
+						if (d == 6){a = '2';}
+						if (d == 4){a = 'sqrt2';}
+						if (d == 3){a = '2/sqrt3';}
+						if (d == 2){a = '1';}
+					
+						if (n < 0){n *= -1; s = -1;}
+						n = n % (2 * d);
+						if (n > d){s *= -1;}
+						if (s<0){a = '-'+a;}
+					}
+				}
 				if (a == 'sqrt3/2'){a = 'sqrt\(3\)/2|sqrt3/2|root\(3\)/2|root3/2';}
 				if (a == 'sqrt2/2'){a = 'sqrt\(2\)/2|sqrt2/2|root\(2\)/2|root2/2';}
 				if (a == '-sqrt3/2'){a = '-sqrt\(3\)/2|-sqrt3/2|-root\(3\)/2|-root3/2';}
@@ -374,7 +471,14 @@ app.get('/mathquiz.html',
 				if (a == 'sqrt3'){a = 'sqrt\(3\)|sqrt3|root3|root\(3\)';}
 				if (a == '-1/sqrt3'){a = '-1/sqrt\(3\)|-1/sqrt3|-1/root3|-1/root\(3\)|-sqrt(3)/3|-sqrt3/3|-root\(3\)/3|-root3/3';}
 				if (a == '-sqrt3'){a = '-sqrt\(3\)|-sqrt3|-root3|-root\(3\)';}
+				if (a == '2/sqrt3'){a = '2/sqrt\(3\)|2/sqrt3|2/root3|2/root\(3\)|2sqrt(3)/3|2sqrt3/3|2root\(3\)/3|2root3/3|2\*sqrt(3)/3|2\*sqrt3/3|2\*root\(3\)/3|2\*root3/3';}
+				if (a == 'sqrt2'){a = 'sqrt\(2\)|sqrt2|root2|root\(2\)';}
+				if (a == '-2/sqrt3'){a = '-2/sqrt\(3\)|-2/sqrt3|-2/root3|-2/root\(3\)|-2sqrt(3)/3|-2sqrt3/3|-2root\(3\)/3|-2root3/3|-2\*sqrt(3)/3|-2\*sqrt3/3|-2\*root\(3\)/3|-2\*root3/3';}
+				if (a == '-sqrt2'){a = '-sqrt\(2\)|-sqrt2|-root2|-root\(2\)';}
 				if (a == 'und'){a = 'undefined|und';}
+				if (a == '2'){a = '2|two';}
+				if (a == '1'){a = '1|one';}
+				if (a == '0'){a = '0|zero';}
 				
 				question['question'] = q;
 				question['answer'] = a;
