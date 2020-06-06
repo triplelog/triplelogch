@@ -299,7 +299,7 @@ app.get('/mathquiz.html',
 		//}
 		var nlevels = 16;
 		var denoms = [1,2,3,4,6];
-		//var questions = [];
+		var questions = [];
 		for (var id=1;id<11;id++){
 			for (var level=0;level<nlevels+1;level++){
 				var question = {'id':id,'level':level};
