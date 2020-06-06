@@ -455,7 +455,7 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 
 @media screen and (max-width: 450px) {
 	div.container {
-		--height-container: calc(100vh - 3rem);
+		--height-container: calc(200vh - 3rem);
 		--width-container: calc(100vw - 1rem);
 		height: var(--height-container);
 		width: var(--width-container);
@@ -463,7 +463,7 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 		margin: .25rem auto;
 		overflow-y: auto;
 		grid-template-columns: 1fr;
-		grid-template-rows: 1fr;
+		grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 	}
 	.content-11 {
 		grid-row:  2;
