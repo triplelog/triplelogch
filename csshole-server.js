@@ -335,8 +335,37 @@ app.get('/mathquiz.html',
 						q = katex.renderToString("\\text{What is }\\"+f+"{\\frac{-\\pi}{"+d+"}}\\text{?}", {throwOnError: false});
 					}
 				}
-				var a = '1/2';
 				
+				var a = '1/2';
+				var s = 1;
+				if (f == 'sin'){
+					if (d == 1){a = '0';}
+					else {
+						if (d == 6){a = '1/2';}
+						if (d == 4){a = 'sqrt2/2';}
+						if (d == 3){a = 'sqrt3/2';}
+						if (d == 2){a = '1';}
+					
+						if (n < 0){n *= -1; s = -1;}
+						n = n % (2 * d);
+						if (n > d){s *= -1;}
+						if (s<0){a = '-'+a;}
+					}
+				}
+				else if (f == 'cos'){
+					if (d == 2){a = '0';}
+					else {
+						if (d == 3){a = '1/2';}
+						if (d == 4){a = 'sqrt2/2';}
+						if (d == 6){a = 'sqrt3/2';}
+						if (d == 1){a = '1';}
+					
+						if (n < 0){n *= -1;}
+						n = n % (2 * d);
+						if (n > d/2 && n < 3*d/2){s *= -1;}
+						if (s<0){a = '-'+a;}
+					}
+				}
 				question['question'] = q;
 				question['answer'] = a;
 				questions.push(question);
