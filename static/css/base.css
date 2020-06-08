@@ -541,15 +541,14 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 	}
 	span.logoText {
 		width:var(--width-center);
-		left:0rem;
-		top:0rem;
-		margin:auto;
+		left:calc((100% - var(--width-center)) / 2);
+		top:2rem;
+		text-align: middle;
 	}
 	div.logoDiv img {
 		width:var(--width-center);
-		left:0rem;
+		left:calc((100% - var(--width-center)) / 2);
 		top:0rem;
-		margin:auto;
 		position:absolute;
 	}
 	.title label i {
