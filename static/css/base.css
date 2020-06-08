@@ -463,7 +463,7 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 		margin: .25rem auto;
 		overflow-y: auto;
 		grid-template-columns: 1fr;
-		grid-template-rows: var(--height-center) 15rem 15rem 15rem 15rem;
+		grid-template-rows: var(--height-center) auto 15rem 15rem 15rem;
 		grid-row-gap: .5rem;
 	}
 	.content-11 {
@@ -540,10 +540,10 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 		grid-column:  1 / 2;
 	}
 	span.logoText {
-		width:var(--width-center);
-		left:calc((100% - var(--width-center)) / 2);
+		width:calc(2 * var(--width-center));
+		left:calc(50% - var(--width-center));
 		top:2rem;
-		text-align: middle;
+		text-align: center;
 	}
 	div.logoDiv img {
 		width:var(--width-center);
