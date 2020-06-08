@@ -2,6 +2,9 @@
 
 {% block borderRadius %}
 	--border-radius: 1.25rem;
+	@media screen and (max-width: 450px) {
+		--border-radius: 1rem;
+	}
 {% endblock %}
 	
 {% block centerSize %}
