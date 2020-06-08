@@ -463,7 +463,7 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 		margin: .25rem auto;
 		overflow-y: auto;
 		grid-template-columns: 1fr;
-		grid-template-rows: var(--height-center) 13rem 13rem 13rem 13rem;
+		grid-template-rows: var(--height-center) 13rem 13rem 13rem 13rem auto;
 		grid-row-gap: .5rem;
 	}
 	.content-11 {
@@ -503,14 +503,14 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 
 	#radio13-1:checked ~ .content-13 {
 		grid-row:  3;
-		grid-column:  3;
+		grid-column:  1;
 	}
 	#radio13-2:checked ~ .content-13 {
-		grid-row: 2 / 6;
+		grid-row: 3 / 7;
 		grid-column:  1 / 2;
 	}
 	#radio13-3:checked ~ .content-13 {
-		grid-row:  2 / 6;
+		grid-row:  3 / 7;
 		grid-column:  1 / 2;
 	}
 
@@ -519,24 +519,24 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 		grid-column:  1;
 	}
 	#radio31-2:checked ~ .content-31 {
-		grid-row:  2 / 6;
+		grid-row:  4 / 7;
 		grid-column:  1 / 2;
 	}
 	#radio31-3:checked ~ .content-31 {
-		grid-row:  2 / 6;
+		grid-row:  4 / 7;
 		grid-column:  1 / 2;
 	}
 
 	#radio33-1:checked ~ .content-33 {
 		grid-row:  5;
-		grid-column:  3;
+		grid-column:  1;
 	}
 	#radio33-2:checked ~ .content-33 {
-		grid-row:  2 / 6;
+		grid-row:  5 / 7;
 		grid-column:  1 / 2;
 	}
 	#radio33-3:checked ~ .content-33 {
-		grid-row:  2 / 6;
+		grid-row:  5 / 7;
 		grid-column:  1 / 2;
 	}
 	span.logoText {
