@@ -463,7 +463,7 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 		margin: .25rem auto;
 		overflow-y: auto;
 		grid-template-columns: 1fr;
-		grid-template-rows: var(--height-center) auto auto auto atuo;
+		grid-template-rows: var(--height-center) auto auto auto auto;
 		grid-row-gap: .5rem;
 	}
 	.content-11 {
