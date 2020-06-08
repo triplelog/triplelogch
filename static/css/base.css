@@ -463,7 +463,7 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 		margin: .25rem auto;
 		overflow-y: auto;
 		grid-template-columns: 1fr;
-		grid-template-rows: var(--height-center) 10rem 10rem 10rem 10rem;
+		grid-template-rows: var(--height-center) 15rem 15rem 15rem 15rem;
 		grid-row-gap: .5rem;
 	}
 	.content-11 {
@@ -539,7 +539,7 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 		grid-row:  2 / 6;
 		grid-column:  1 / 2;
 	}
-	.logoText {
+	span.logoText {
 		width:var(--width-center);
 		left:0rem;
 		top:0rem;
