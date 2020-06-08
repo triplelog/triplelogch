@@ -2,9 +2,7 @@
 
 {% block borderRadius %}
 	--border-radius: 1.25rem;
-	@media screen and (max-width: 450px) {
-		--border-radius: 1rem;
-	}
+	
 {% endblock %}
 	
 {% block centerSize %}
@@ -13,7 +11,11 @@
 {% endblock %}
 
 {% block titleCSS %}
-
+@media screen and (max-width: 450px) {
+	div.container {
+		--border-radius: 1rem;
+	}
+}
 
 .title:hover .titleBG {
   	background-position: 350px 0px;
