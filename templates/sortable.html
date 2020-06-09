@@ -378,7 +378,7 @@ label.basic:hover {
 	div.container {
 		--height-center: 35rem;
 		--width-center: 0rem;
-		grid-template-rows: var(--height-center) 20rem auto;
+		grid-template-rows: var(--height-center) 16rem auto;
 		grid-template-columns: 1fr;
 		height: 45rem;
 		width: var(--width-container);
@@ -440,6 +440,14 @@ label.basic:hover {
 		grid-column:  1;
 		z-index: 13;
 	}
+	#minPA {
+		display: inline-block;
+		width: 10rem;
+	}
+	#newTable {
+		display: inline-block;
+		width: 15rem;
+	}
 }
 
 {% for i in range(1,ncols) %} #sort-col{{ i }}, {% endfor %}{% for i in range(ncols,ncols+1) %} #sort-col{{ i }} {% endfor %} { display: none; }
@@ -494,7 +502,7 @@ input[type="radio"], input[name="deleter"] {
 {% endblock %}
 {% block content33 %}
 
-<div>
+<div id="minPA">
 	Min {{ minstat }}: <span class="hundreds-0"></span>{% for i in range(1,10) %}<span class="hundreds-{{ i }}">{{ i}}</span>{% endfor %}{% for i in range(0,10) %}<span class="tens-{{ i }}">{{ i}}</span>{% endfor %}{% for i in range(0,10) %}<span class="ones-{{ i }}">{{ i}}</span>{% endfor %}
 	<div>
 		<div id="hundredsColumn">
@@ -514,7 +522,7 @@ input[type="radio"], input[name="deleter"] {
 		</div>
 	</div>
 </div>
-<form  action="../sortable.html" method="get">
+<form  action="../sortable.html" method="get" id="newTable">
 	<select name="p">
 		<option value="false">Batters</option>
 		<option value="true">Pitchers</option>
