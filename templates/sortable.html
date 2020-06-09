@@ -142,6 +142,10 @@ div.container {
 	font-size: .9rem;
 	text-align: left;
 }
+
+
+
+
 .deleteColumn {
 	display: none;
 }
@@ -165,8 +169,12 @@ div.container {
 	height: 1.2rem;
 	left:0px;
 	top:0px;
-	transition: z-index 5s linear;
+	transition: z-index 500ms linear;
 }
+
+
+
+
 
 .data-cell.sortable-col2, .header-cell.sortable-col2  { 
 	width: 2rem;
@@ -514,7 +522,7 @@ input[type="radio"] {
 	
 	<div class="tableHolder">
 		<div class="sortable-header">
-			{% for i in range(1,ncols+1) %}<label class="header-cell sortable-col{{ i }}" for="sort-col{{ i }}"><b>{{ header[i-1] | safe}}</b></label><label class="deleteColumn header-cell sortable-col{{ i }}" for="sort-col{{ i }}"></label>{% endfor %}
+			{% for i in range(1,ncols+1) %}<label class="header-cell sortable-col{{ i }}" for="sort-col{{ i }}"><b>{{ header[i-1] | safe}}</b></label><label class="deleteColumn header-cell sortable-col{{ i }}" for="delete-col{{ i }}"></label>{% endfor %}
 		</div>
 	
 		<div class="sortHolder">
@@ -536,6 +544,7 @@ input[type="radio"] {
 	</div>
 	<div>
 		<span style="float: left;">
+			<input type="radio" name="deleter" id="delete-col1"></input>
 			Sort Order: 
 			<label for="sort-ascending" class="basic">Descending</label>
 			<label for="sort-descending" class="basic">Ascending</label>
