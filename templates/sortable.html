@@ -556,12 +556,12 @@ label.basic:hover {
 @media screen and (max-width: 1000px) and (min-width: 37rem) {
 
 	.data-cell, .header-cell {
-		width: calc( (95vw - 7.5rem - 2rem * {{ widecols.length }})/{{ ncols - 2 - widecols.length }});
+		width: calc( (95vw - 1rem - 7.5rem - 2rem * {{ widecols.length }})/{{ ncols - 2 - widecols.length }});
 
 	}
 
 	.tableHolder {
-		width: 95vw;
+		width: calc(95vw - 1rem);
 	}
 
 }
