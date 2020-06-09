@@ -79,7 +79,45 @@ div.container {
 	grid-template-rows: 0px var(--height-center) calc((var(--height-container) - var(--height-center)));
 
 }
+@media screen and (max-width: 450px) {
+	div.container {
+		--width-center: 0rem;
+		grid-template-rows: var(--height-center) 1fr auto;
+		grid-template-columns: 1fr;
+		width: var(--width-container);
+	}
 
+
+	label.basic {
+		padding: .2rem .4rem;
+		border-radius: .6rem;
+		margin: .1rem 0rem;
+		font-size: .9rem;
+		line-height: 1.6rem;
+		height: 1.6rem;
+	}
+	.content-33 {
+		grid-column: 2;
+		grid-row: 3;
+		z-index: 11;
+	}
+	#radio33-1:checked ~ .content-33 {
+		grid-row:  2;
+		grid-column:  1;
+		z-index: 11;
+	}
+	#radio33-2:checked ~ .content-33 {
+		grid-row:  2 / 4;
+		grid-column:  1;
+		z-index: 12;
+	}
+	#radio33-3:checked ~ .content-33 {
+		grid-row:  2 / 4;
+		grid-column:  1;
+		z-index: 13;
+	}
+
+}
 html, body {margin: 0; height: 100%; overflow: hidden}
 body {
 	background: hsl(240,24%,90%);
