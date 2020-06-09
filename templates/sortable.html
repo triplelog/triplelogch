@@ -148,11 +148,13 @@ div.container {
 .header-cell.sortable-col1:Not(.deleteColumn) {
 	position: absolute;
 	z-index: 100;
-	transition: z-index 5s linear;
 	background:white;
 }
-.header-cell.sortable-col1:Not(.deleteColumn):hover {
-	z-index: 0;
+.header-cell.sortable-col1:Not(.deleteColumn):active {
+	z-index: 201;
+}
+.header-cell.sortable-col1:Not(.deleteColumn):active + .deleteColumn{
+	z-index: 200;
 }
 .header-cell.sortable-col1 + .deleteColumn {
 	position: relative;
@@ -162,6 +164,7 @@ div.container {
 	height: 1.2rem;
 	left:0px;
 	top:0px;
+	transition: z-index 5s linear;
 }
 
 .data-cell.sortable-col2, .header-cell.sortable-col2  { 
