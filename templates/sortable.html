@@ -18,6 +18,21 @@
 
 
 {% block moreCSS %}
+div.container {
+	grid-template-rows: 1fr var(--height-center) 1fr;
+	grid-template-columns: 1fr var(--width-center) 0px;
+}
+@media screen and (max-width: 450px) {
+	div.container {
+		--height-center: 35rem;
+		--width-center: 0rem;
+		grid-template-rows: var(--height-center) 1fr;
+		grid-template-columns: 1fr;
+		height: 40rem;
+		width: var(--width-container);
+	}
+}
+
 .title:hover .titleBG {
   	background-position: 350px 0px;
   	transition: all 2s linear;
@@ -50,8 +65,8 @@
 	z-index: 11;
 }
 #radio33-3:checked ~ .content-33 {
-	grid-row:  1 / 4;
-	grid-column:  1 / 4;
+	grid-row:  2 / 4;
+	grid-column:  1;
 	z-index: 13;
 }
 
@@ -71,10 +86,7 @@
 .content-23 {
 	display: none;
 }
-div.container {
-	grid-template-rows: 1fr var(--height-center) 1fr;
-	grid-template-columns: 1fr var(--width-center) 0px;
-}
+
 
 .title a {
 	text-decoration: none;
