@@ -224,9 +224,22 @@ div.container {
 	display: block;
 }
 {% for i in range(0,10) %}
+	.hundreds-{{ i }} { display: none; }
+{% endfor %}
+{% for i in range(0,10) %}
+	.tens-{{ i }} { display: none; }
+{% endfor %}
+{% for i in range(0,10) %}
+	.ones-{{ i }} { display: none; }
+{% endfor %}
+	
+{% for i in range(0,10) %}
 	#radio{{ i }}00:checked ~ div.container label[for=radio{{ i }}00] { color: red;}
 	#radio{{ i }}0:checked ~ div.container label[for=radio{{ i }}0] { color: red;}
 	#radio{{ i }}:checked ~ div.container label[for=radio{{ i }}] { color: red;}
+	#radio{{ i }}00:checked ~ div.container .hundreds-{{ i }} { display: inline;}
+	#radio{{ i }}0:checked ~ div.container .tens-{{ i }} { display: inline;}
+	#radio{{ i }}:checked ~ div.container .ones-{{ i }} { display: inline;}
 {% endfor %}
 {% for i in range(1,10) %}
 	{% for ii in range(i,10) %}
@@ -482,7 +495,17 @@ input[type="radio"], input[name="deleter"] {
 {% block content33 %}
 
 <div>
-	Min {{ minstat }}:
+	Min {{ minstat }}: <span class="hundreds-0"></span>
+	{% for i in range(1,10) %}
+		<span class="hundreds-{{ i }}">{{ i}}</span>
+	{% endfor %}
+	<span class="tens-0"></span>
+	{% for i in range(1,10) %}
+		<span class="tens-{{ i }}">{{ i}}</span>
+	{% endfor %}
+	{% for i in range(0,10) %}
+		<span class="ones-{{ i }}">{{ i}}</span>
+	{% endfor %}
 	<div>
 		<div id="hundredsColumn">
 			{% for i in range(0,10) %}
