@@ -673,9 +673,6 @@ app.get('/sortable.html',
 					}
 				}
 				order.push(thiscol);
-				if (i == 1){
-					console.log(thiscol.slice(0,5));
-				}
 			}
 			console.log(performance.now());
 			res.write(nunjucks.render('templates/sortable.html',{
