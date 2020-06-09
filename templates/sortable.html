@@ -495,17 +495,7 @@ input[type="radio"], input[name="deleter"] {
 {% block content33 %}
 
 <div>
-	Min {{ minstat }}: <span class="hundreds-0"></span>
-	{% for i in range(1,10) %}
-		<span class="hundreds-{{ i }}">{{ i}}</span>
-	{% endfor %}
-	<span class="tens-0"></span>
-	{% for i in range(1,10) %}
-		<span class="tens-{{ i }}">{{ i}}</span>
-	{% endfor %}
-	{% for i in range(0,10) %}
-		<span class="ones-{{ i }}">{{ i}}</span>
-	{% endfor %}
+	Min {{ minstat }}: <span class="hundreds-0"></span>{% for i in range(1,10) %}<span class="hundreds-{{ i }}">{{ i}}</span>{% endfor %}<span class="tens-0"></span>{% for i in range(0,10) %}<span class="tens-{{ i }}">{{ i}}</span>{% endfor %}{% for i in range(0,10) %}<span class="ones-{{ i }}">{{ i}}</span>{% endfor %}
 	<div>
 		<div id="hundredsColumn">
 			{% for i in range(0,10) %}
