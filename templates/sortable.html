@@ -324,8 +324,11 @@ label.basic:hover {
 	background: #22aa33;
 }
 
-.header-cell.sortable-col2:active {
-	background: red;
+.deleteColumn {
+	display: none;
+}
+.header-cell.sortable-col2:active + div.deleteColumn {
+	display: block;
 }
 @media screen and (max-width: 450px) {
 	div.container {
@@ -490,7 +493,7 @@ input[type="radio"] {
 	
 	<div class="tableHolder">
 		<div class="sortable-header">
-			{% for i in range(1,ncols+1) %}<label class="header-cell sortable-col{{ i }}" for="sort-col{{ i }}"><b>{{ header[i-1] | safe}}</b></label>{% endfor %}
+			{% for i in range(1,ncols+1) %}<label class="header-cell sortable-col{{ i }}" for="sort-col{{ i }}"><b>{{ header[i-1] | safe}}</b></label><div class="deleteColumn">Delete</div>{% endfor %}
 		</div>
 	
 		<div class="sortHolder">
