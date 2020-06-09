@@ -339,19 +339,19 @@ label.basic:hover {
 	}
 
 	.data-cell, .header-cell {
-		width: calc( (40rem - 6.5rem - 2rem * {{ widecols.length }})/{{ ncols - 2 - widecols.length }});
+		width: calc( (36rem - 7.5rem - 2rem * {{ widecols.length }})/{{ ncols - 2 - widecols.length }});
 		max-height: 1.2rem;
 		line-height: 1.2rem;
 		font-size: .8rem;
 	}
 
 	.data-cell.sortable-col1, .header-cell.sortable-col1 { 
-		width: 5rem;
+		width: 5.5rem;
 		font-size: .75rem;
 	}
 
 	.data-cell.sortable-col2, .header-cell.sortable-col2  { 
-		width: 1.5rem;
+		width: 2rem;
 		font-size: .8rem;
 	}
 	{% for i in widecols %}
@@ -373,8 +373,8 @@ label.basic:hover {
 		height: 1.6rem;
 	}
 	.tableHolder {
-		width: 40rem;
-		height: 35rem;
+		width: 36rem;
+		height: 30rem;
 	}
 }
 
