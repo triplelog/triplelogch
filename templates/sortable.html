@@ -149,19 +149,19 @@ div.container {
 .deleteColumn {
 	display: none;
 }
-.header-cell.sortable-col1:Not(.deleteColumn) {
+.header-cell:Not(.deleteColumn) {
 	position: absolute;
 	z-index: 100;
 	background:white;
 }
-.header-cell.sortable-col1:Not(.deleteColumn):active {
+.header-cell:Not(.deleteColumn):active {
 	z-index: 201;
 }
-.header-cell.sortable-col1:Not(.deleteColumn):active + .deleteColumn{
+.header-cell:Not(.deleteColumn):active + .deleteColumn{
 	z-index: 200;
 	transition: z-index 30ms linear;
 }
-.header-cell.sortable-col1 + .deleteColumn {
+.header-cell + .deleteColumn {
 	position: relative;
 	display: inline-block;
 	background: blue;
@@ -272,7 +272,7 @@ div.container {
 {% endfor %}
 
 {% for i in range(1,ncols+1) %}
-	#delete-col{{ i }}:checked ~ div > .sortable-col{{ i }} { display: none; }
+	#delete-col{{ i }}:checked ~ div .sortable-col{{ i }} { display: none; }
 	{% for ii in range(1,nrows+1) %}
 		{% if order[i-1][ii-1] == -1 %}
 		#sort-col{{ i }}:checked ~ .sortable-row{{ ii }} { display: none; }
@@ -522,6 +522,10 @@ input[type="radio"], input[name="deleter"] {
 	<input type="radio" name="pageNumber" id="page5"></input>
 	
 	<div class="tableHolder">
+		{% for i in range(1,ncols+1) %}
+				<input type="checkbox" name="deleter" id="delete-col{{ i }}"></input>
+		{% endfor %}
+		
 		<div class="sortable-header">
 			{% for i in range(1,ncols+1) %}<label class="header-cell sortable-col{{ i }}" for="sort-col{{ i }}"><b>{{ header[i-1] | safe}}</b></label><label class="deleteColumn header-cell sortable-col{{ i }}" for="delete-col{{ i }}"></label>{% endfor %}
 		</div>
@@ -530,7 +534,7 @@ input[type="radio"], input[name="deleter"] {
 			<div class="sortable">
 			
 			
-				<input type="checkbox" name="deleter" id="delete-col1"></input>
+				
 				{% for i in range(1,ncols+1) %}
 				<input type="radio" name="sorter" id="sort-col{{ i }}" {% if i == 4 %}checked{% endif %}></input>
 				{% endfor %}
