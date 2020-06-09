@@ -272,6 +272,7 @@ div.container {
 {% endfor %}
 
 {% for i in range(1,ncols+1) %}
+	#delete-col{{ i }}:checked ~ div > .sortable-col{{ i }} { display: none; }
 	{% for ii in range(1,nrows+1) %}
 		{% if order[i-1][ii-1] == -1 %}
 		#sort-col{{ i }}:checked ~ .sortable-row{{ ii }} { display: none; }
@@ -529,7 +530,7 @@ input[type="radio"] {
 			<div class="sortable">
 			
 			
-			
+				<input type="checkbox" name="deleter" id="delete-col1"></input>
 				{% for i in range(1,ncols+1) %}
 				<input type="radio" name="sorter" id="sort-col{{ i }}" {% if i == 4 %}checked{% endif %}></input>
 				{% endfor %}
@@ -544,7 +545,7 @@ input[type="radio"] {
 	</div>
 	<div>
 		<span style="float: left;">
-			<input type="checkbox" name="deleter" id="delete-col1"></input>
+			
 			Sort Order: 
 			<label for="sort-ascending" class="basic">Descending</label>
 			<label for="sort-descending" class="basic">Ascending</label>
