@@ -151,6 +151,9 @@ div.container {
 	transition: z-index 5s linear;
 	background:white;
 }
+.header-cell.sortable-col1:Not(.deleteColumn):hover {
+	z-index: 0;
+}
 .header-cell.sortable-col1 + .deleteColumn {
 	position: relative;
 	display: inline-block;
