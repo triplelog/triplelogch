@@ -22,16 +22,7 @@ div.container {
 	grid-template-rows: 1fr var(--height-center) 1fr;
 	grid-template-columns: 1fr var(--width-center) 0px;
 }
-@media screen and (max-width: 450px) {
-	div.container {
-		--height-center: 35rem;
-		--width-center: 0rem;
-		grid-template-rows: var(--height-center) 1fr;
-		grid-template-columns: 1fr;
-		height: 40rem;
-		width: var(--width-container);
-	}
-}
+
 
 .title:hover .titleBG {
   	background-position: 350px 0px;
@@ -167,6 +158,47 @@ div.container {
 	text-align: center;
 }
 
+@media screen and (max-width: 450px) {
+	div.container {
+		--height-center: 35rem;
+		--width-center: 0rem;
+		grid-template-rows: var(--height-center) 1fr;
+		grid-template-columns: 1fr;
+		height: 45rem;
+		width: var(--width-container);
+		font-size: .8rem;
+	}
+	{% for i in range(1,ncols) %} .sortable-col{{ i }}, {% endfor %}{% for i in range(ncols,ncols+1) %} .sortable-col{{ i }} {% endfor %} {
+	  padding: 0.1em .2em;
+	}
+
+	.data-cell, .header-cell {
+		width: calc( (100% - 6.5rem - 2rem * {{ widecols.length }})/{{ ncols - 2 - widecols.length }});
+		max-height: 1.2rem;
+		line-height: 1.2rem;
+		font-size: .8rem;
+	}
+
+	.data-cell.sortable-col1, .header-cell.sortable-col1 { 
+		width: 5rem;
+		font-size: .75rem;
+	}
+
+	.data-cell.sortable-col2, .header-cell.sortable-col2  { 
+		width: 1.5rem;
+		font-size: .8rem;
+	}
+	{% for i in widecols %}
+	.data-cell.sortable-col{{i+1}}, .header-cell.sortable-col{{i+1}}  { 
+		width: 2rem;
+		font-size: .8rem;
+	}
+	{% endfor %}
+
+	.header-cell.sortable-col1, .header-cell.sortable-col2  { 
+		font-size: .8rem;
+	}
+}
 
 .sortable-header  { 
 	width: 100%;
