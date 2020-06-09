@@ -12,7 +12,7 @@
 	
 {% block centerSize %}
 	--height-center: 20rem;
-	--width-center: calc(30rem);
+	--width-center: calc(28rem);
 	--knob-width: 13rem;
 	--knob-height: var(--knob-width);
 	--knob-margin: .5rem;
@@ -32,7 +32,7 @@
 {% block moreCSS %}
 
 body {
-	background-image: url("../img/lightbg.png");
+	background-image: url("../img/pagebg.png");
 	background-size: cover;
 	
 }
@@ -466,7 +466,7 @@ div.displayNeedle {
 {% endfor %}
 {% endif %}
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 480px) {
 	div.container {
 		--width-center: var(--width-container);
 		grid-template-rows: var(--height-center) 1fr auto;
