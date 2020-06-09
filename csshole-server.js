@@ -715,7 +715,7 @@ function sortContent(a,b,i,p=false) {
 		return bi - ai;
 	}
 	else if (i < 2) {
-		return a[i] - b[i];
+		return a[i].localeCompare(b[i]);
 	}
 	else {
 		return b[i] - a[i];
