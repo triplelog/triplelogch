@@ -373,7 +373,7 @@ label.basic:hover {
 }
 
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1000px) {
 	div.container {
 		--height-container: calc(100vh - 2rem);
 		--width-container: calc(100vw - 2rem);
@@ -475,7 +475,7 @@ label.basic:hover {
 		font-size: .8rem;
 	}
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1000px) {
 	div.container {
 		--height-center: 35rem;
 		--width-center: 0rem;
@@ -553,57 +553,6 @@ label.basic:hover {
 	}
 }
 
-@media screen and (min-width: 721px) and (max-width: 1000px) {
-	div.container {
-		--width-center: 32.5rem;
-		grid-template-rows: 1fr var(--height-center) 1fr;
-		grid-template-columns: 1fr var(--width-center) 0px;
-		width: var(--width-container);
-		font-size: .9rem;
-	}
-	{% for i in range(1,ncols) %} .sortable-col{{ i }}, {% endfor %}{% for i in range(ncols,ncols+1) %} .sortable-col{{ i }} {% endfor %} {
-	  padding: 0.1em .2em;
-	}
-
-	.data-cell, .header-cell {
-		width: calc( (32rem - 8rem - 2rem * {{ widecols.length }})/{{ ncols - 2 - widecols.length }});
-		max-height: 1.2rem;
-		line-height: 1.2rem;
-		font-size: .9rem;
-	}
-
-	.data-cell.sortable-col1, .header-cell.sortable-col1 { 
-		width: 6rem;
-		font-size: .8rem;
-	}
-
-	.data-cell.sortable-col2, .header-cell.sortable-col2  { 
-		width: 2rem;
-		font-size: .85rem;
-	}
-	{% for i in widecols %}
-	.data-cell.sortable-col{{i+1}}, .header-cell.sortable-col{{i+1}}  { 
-		width: 2rem;
-		font-size: .85rem;
-	}
-	{% endfor %}
-
-	.header-cell.sortable-col1, .header-cell.sortable-col2  { 
-		font-size: .85rem;
-	}
-	label.basic {
-		padding: .2rem .5rem;
-		border-radius: .6rem;
-		margin: .1rem 0rem;
-		font-size: .9rem;
-		line-height: 1.6rem;
-		height: 1.6rem;
-	}
-	.tableHolder {
-		width: 32rem;
-	}
-	
-}
 
 {% for i in range(1,ncols) %} #sort-col{{ i }}, {% endfor %}{% for i in range(ncols,ncols+1) %} #sort-col{{ i }} {% endfor %} { display: none; }
 
