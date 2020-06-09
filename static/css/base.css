@@ -453,7 +453,7 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 	display: none;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 480px) {
 	div.container {
 		--height-container: calc(100vh - 2rem);
 		--width-container: calc(100vw - 2rem);
