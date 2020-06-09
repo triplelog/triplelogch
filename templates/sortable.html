@@ -145,21 +145,13 @@ div.container {
 .deleteColumn {
 	display: none;
 }
-.header-cell.sortable-col1 {
+.header-cell.sortable-col1:Not(.deleteColumn) {
 	position: absolute;
 	z-index: 100;
 	transition: z-index 5s linear;
 }
 .header-cell.sortable-col1 + .deleteColumn {
 	position: relative;
-	width: 6rem;
-	padding: 0px 2px;
-	border-right: 0px solid black;
-	border-left: 0px solid black;
-	max-height: 1.2rem;
-	line-height: 1.2rem;
-	font-size: .95rem;
-	overflow: hidden;
 	display: inline-block;
 	background: blue;
 	z-index: 50;
