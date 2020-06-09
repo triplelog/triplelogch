@@ -142,6 +142,28 @@ div.container {
 	font-size: .9rem;
 	text-align: left;
 }
+.deleteColumn {
+	display: none;
+}
+.header-cell.sortable-col1 {
+	position: absolute;
+	z-index: 100;
+	transition: z-index 5s linear;
+}
+.header-cell.sortable-col1 + .deleteColumn {
+	position: relative;
+	width: 6rem;
+	padding: 0px 2px;
+	border-right: 0px solid black;
+	border-left: 0px solid black;
+	max-height: 1.2rem;
+	line-height: 1.2rem;
+	font-size: .95rem;
+	overflow: hidden;
+	display: inline-block;
+	background: blue;
+	z-index: 50;
+}
 
 .data-cell.sortable-col2, .header-cell.sortable-col2  { 
 	width: 2rem;
@@ -324,15 +346,8 @@ label.basic:hover {
 	background: #22aa33;
 }
 
-.deleteColumn {
-	display: none;
-}
-.container:hover {
-	background: red;
-}
-.header-cell.sortable-col2:active + div.deleteColumn {
-	display: block;
-}
+
+
 @media screen and (max-width: 450px) {
 	div.container {
 		--height-center: 35rem;
@@ -496,7 +511,7 @@ input[type="radio"] {
 	
 	<div class="tableHolder">
 		<div class="sortable-header">
-			{% for i in range(1,ncols+1) %}<label class="header-cell sortable-col{{ i }}" for="sort-col{{ i }}"><b>{{ header[i-1] | safe}}</b></label><div class="deleteColumn">Delete</div>{% endfor %}
+			{% for i in range(1,ncols+1) %}<label class="header-cell sortable-col{{ i }}" for="sort-col{{ i }}"><b>{{ header[i-1] | safe}}</b></label><label class="deleteColumn header-cell sortable-col{{ i }}" for="sort-col{{ i }}"></label>{% endfor %}
 		</div>
 	
 		<div class="sortHolder">
