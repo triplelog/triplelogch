@@ -554,14 +554,22 @@ label.basic:hover {
 }
 
 @media screen and (max-width: 1000px) and (min-width: 37rem) {
-
+	div.container {
+		--height-center: 35rem;
+		--width-center: 0rem;
+		grid-template-rows: var(--height-center) 16rem auto;
+		grid-template-columns: 37rem;
+		height: 45rem;
+		width: 37rem;
+		font-size: .8rem;
+	}
 	.data-cell, .header-cell {
-		width: calc( (95vw - 1rem - 7.5rem - 2rem * {{ widecols.length }})/{{ ncols - 2 - widecols.length }});
+		width: calc( (36rem - 7.5rem - 2rem * {{ widecols.length }})/{{ ncols - 2 - widecols.length }});
 
 	}
 
 	.tableHolder {
-		width: calc(95vw - 1rem);
+		width: 36rem;
 	}
 
 }
