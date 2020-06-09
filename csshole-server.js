@@ -673,6 +673,9 @@ app.get('/sortable.html',
 					}
 				}
 				order.push(thiscol);
+				if (i == 1){
+					console.log(thiscol.slice(0,5));
+				}
 			}
 			console.log(performance.now());
 			res.write(nunjucks.render('templates/sortable.html',{
@@ -710,6 +713,9 @@ function sortContent(a,b,i,p=false) {
 			bi+=.6
 		}
 		return bi - ai;
+	}
+	else if (i < 2) {
+		return a[i] - b[i];
 	}
 	else {
 		return b[i] - a[i];
