@@ -373,7 +373,7 @@ label.basic:hover {
 }
 
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 720px) {
 	div.container {
 		--height-container: calc(100vh - 2rem);
 		--width-container: calc(100vw - 2rem);
@@ -475,7 +475,7 @@ label.basic:hover {
 		font-size: .8rem;
 	}
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 720px) {
 	div.container {
 		--height-center: 35rem;
 		--width-center: 0rem;
@@ -553,9 +553,9 @@ label.basic:hover {
 	}
 }
 
-@media screen and (min-width: 641px) and (max-width: 900px) {
+@media screen and (min-width: 721px) and (max-width: 1000px) {
 	div.container {
-		--width-center: 37rem;
+		--width-center: 32.5rem;
 		grid-template-rows: 1fr var(--height-center) 1fr;
 		grid-template-columns: 1fr var(--width-center) 0px;
 		width: var(--width-container);
@@ -566,7 +566,7 @@ label.basic:hover {
 	}
 
 	.data-cell, .header-cell {
-		width: calc( (36rem - 8rem - 2rem * {{ widecols.length }})/{{ ncols - 2 - widecols.length }});
+		width: calc( (32rem - 8rem - 2rem * {{ widecols.length }})/{{ ncols - 2 - widecols.length }});
 		max-height: 1.2rem;
 		line-height: 1.2rem;
 		font-size: .9rem;
@@ -600,7 +600,7 @@ label.basic:hover {
 		height: 1.6rem;
 	}
 	.tableHolder {
-		width: 36rem;
+		width: 32rem;
 	}
 	
 }
