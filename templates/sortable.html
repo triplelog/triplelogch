@@ -158,7 +158,7 @@ div.container {
 	z-index: 201;
 }
 .header-cell:Not(.deleteColumn):active + .deleteColumn{
-	z-index: 200;
+	z-index: 99;/* increase to make double click delete */
 	transition: z-index 30ms linear;
 }
 .header-cell + .deleteColumn {
