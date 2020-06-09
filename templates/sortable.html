@@ -255,25 +255,25 @@ div.container {
 	position: relative;
 	overflow: visible;
 }
-#page1:checked ~ .sortHolder .sortable {
+#page1:checked ~ .tableHolder .sortable {
 	top: 0rem;
 }
-#page2:checked ~ .sortHolder .sortable {
+#page2:checked ~ .tableHolder .sortable {
 	top: -30rem;
 }
-#page3:checked ~ .sortHolder .sortable {
+#page3:checked ~ .tableHolder .sortable {
 	top: -60rem;
 }
-#page4:checked ~ .sortHolder .sortable {
+#page4:checked ~ .tableHolder .sortable {
 	top: -90rem;
 }
-#page5:checked ~ .sortHolder .sortable {
+#page5:checked ~ .tableHolder .sortable {
 	top: -120rem;
 }
-#sort-ascending:checked ~ .sortHolder .sortable {
+#sort-ascending:checked ~ .tableHolder .sortable {
 	flex-direction: column;
 }
-#sort-descending:checked ~ .sortHolder .sortable {
+#sort-descending:checked ~ .tableHolder .sortable {
 	flex-direction: column-reverse;
 }
 
@@ -481,25 +481,26 @@ input[type="radio"] {
 	<input type="radio" name="pageNumber" id="page4"></input>
 	<input type="radio" name="pageNumber" id="page5"></input>
 	
-
-	<div class="sortable-header">
-		{% for i in range(1,ncols+1) %}<label class="header-cell sortable-col{{ i }}" for="sort-col{{ i }}"><b>{{ header[i-1] | safe}}</b></label>{% endfor %}
-	</div>
+	<div class="tableHolder">
+		<div class="sortable-header">
+			{% for i in range(1,ncols+1) %}<label class="header-cell sortable-col{{ i }}" for="sort-col{{ i }}"><b>{{ header[i-1] | safe}}</b></label>{% endfor %}
+		</div>
 	
-	<div class="sortHolder">
-		<div class="sortable">
+		<div class="sortHolder">
+			<div class="sortable">
 			
 			
 			
-			{% for i in range(1,ncols+1) %}
-			<input type="radio" name="sorter" id="sort-col{{ i }}" {% if i == 4 %}checked{% endif %}></input>
-			{% endfor %}
+				{% for i in range(1,ncols+1) %}
+				<input type="radio" name="sorter" id="sort-col{{ i }}" {% if i == 4 %}checked{% endif %}></input>
+				{% endfor %}
 		
-			{% for ii in range(1,nrows+1) %}
-				<div class="sortable-row{{ ii }} {{ minList[ii-1]}}">{% for i in range(1,ncols+1) %}<div class="data-cell sortable-col{{ i }} ">{{ content[ii-1][i-1] | safe}}</div>{% endfor %}</div>
-			{% endfor %}
+				{% for ii in range(1,nrows+1) %}
+					<div class="sortable-row{{ ii }} {{ minList[ii-1]}}">{% for i in range(1,ncols+1) %}<div class="data-cell sortable-col{{ i }} ">{{ content[ii-1][i-1] | safe}}</div>{% endfor %}</div>
+				{% endfor %}
 
 
+			</div>
 		</div>
 	</div>
 	<div>
