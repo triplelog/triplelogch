@@ -613,6 +613,7 @@ app.get('/sortable.html',
 			if (isPitchers){header[14]='<span style="white-space:nowrap"><input type="checkbox" id="footnote" style="display:none;"></input><label for="footnote" id="footnoteLabel">~</label><div id="footnoteDiv">~FIP has the same formula as FIP but uses expected IP instead of actual IP. Expected IP is based on batters faced, balls in play, and strikeouts.</div>FIP</span>';}
 			var ncols = results.data[0].length;
 			var content = results.data.slice(1,nrows+1);
+			content = content.slice().sort(function(a,b) { return sortContent(a,b,3,isPitchers);})
 			var minList = [];
 			for (var i=0;i<content.length;i++){
 				
@@ -648,7 +649,7 @@ app.get('/sortable.html',
 				
 				content[i].push(i);
 			}
-			content = content.slice().sort(function(a,b) { return sortContent(a,b,3,isPitchers);})
+			
 				
 			console.log(performance.now());
 			var showrows = nrows;
