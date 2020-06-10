@@ -168,11 +168,12 @@ div:Not(.content-22) > .title a{
 	}
 	div.logoDiv img {
 		width:8rem;
-		left:-8rem;
+		left:1rem;
+		position: absolute;
 	}
 	span.logoText {
 		width:12rem;
-		left:-8rem;
+		left:-2rem;
 		top:2.5rem;
 	}
 	.title {
@@ -180,6 +181,10 @@ div:Not(.content-22) > .title a{
 	}
 	div:Not(.content-22) > .content {
 		font-size: 1rem;
+	}
+	.centerLinks {
+		display: inline-block;
+		
 	}
 }
 {% endblock %}
@@ -274,14 +279,16 @@ Experiment with images and color using <a href="https://qblur.com">QbluR</a>. Ea
 	<!--<div class="centerLink">
 		<button class="basic" onclick="window.location.href='../account';">My Account</button>
 	</div>-->
-	<div class="centerLink">
-		<button class="basic" onclick="window.location.href='../about';">About</button>
-	</div>
-	<div class="centerLink">
-		<button class="basic" onclick="window.location.href='../privay';">Privacy Policy</button>
-	</div>
-	<div class="centerLink">
-		<button class="basic" onclick="window.location.href='../terms';">Terms</button>
+	<div class="centerLinks">
+		<div class="centerLink">
+			<button class="basic" onclick="window.location.href='../about';">About</button>
+		</div>
+		<div class="centerLink">
+			<button class="basic" onclick="window.location.href='../privay';">Privacy Policy</button>
+		</div>
+		<div class="centerLink">
+			<button class="basic" onclick="window.location.href='../terms';">Terms</button>
+		</div>
 	</div>
 
 
