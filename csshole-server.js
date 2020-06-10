@@ -648,7 +648,7 @@ app.get('/sortable.html',
 				
 				content[i].push(i);
 			}
-			
+			content = content.slice().sort(function(a,b) { return sortContent(a,b,3,isPitchers);})
 				
 			console.log(performance.now());
 			var showrows = nrows;
@@ -674,16 +674,14 @@ app.get('/sortable.html',
 				}
 				order.push(thiscol);
 			}
-			console.log(content.slice(0,5));
-			var sorted = content.slice().sort(function(a,b) { return sortContent(a,b,3,isPitchers);})
-			console.log(sorted.slice(0,5));
+			
 			console.log(performance.now());
 			res.write(nunjucks.render('templates/sortable.html',{
 				title: "Sortable Table",
 				ncols: ncols,
 				nrows: nrows,
 				order: order,
-				content: sorted,
+				content: content,
 				header: header,
 				minList: minList,
 				widecols: widecols,
