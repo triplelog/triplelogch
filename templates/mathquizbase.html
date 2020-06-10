@@ -473,7 +473,7 @@ div.displayNeedle {
 		grid-template-columns: 1fr;
 		width: var(--width-container);
 		overflow: hidden;
-		--knob-width: calc(85vw - 12.5rem);
+		--knob-width: calc(20rem);
 	}
 
 
@@ -506,6 +506,11 @@ div.displayNeedle {
 		z-index: 13;
 	}
 
+}
+@media screen and (max-width: 480px) {
+	div.container {
+		--knob-width: calc(85vw - 12.5rem);
+	}
 }
 {% endblock %}
 
