@@ -1,7 +1,7 @@
 :root {
 	--width-block: 17px;
     --shift-cover-puzzle: calc(-40px - var(--width-block)*9); 
-    --left-margin: 100px;
+    --left-margin: 0px;
     --color-bg1: rgba(180,180,180,.75);
     --color-text1: black;
 }
