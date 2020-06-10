@@ -168,12 +168,13 @@ div:Not(.content-22) > .title a{
 	}
 	div.logoDiv img {
 		width:8rem;
-		left:1rem;
+		left:2rem;
 		position: absolute;
 	}
 	span.logoText {
 		width:12rem;
-		left:-2rem;
+		left:0rem;
+		position: relative;
 		top:2.5rem;
 	}
 	.title {
@@ -184,7 +185,12 @@ div:Not(.content-22) > .title a{
 	}
 	.centerLinks {
 		display: inline-block;
+		position: relative;
+		float: right;
 		
+	}
+	.content-22 .content {
+		text-align: center;
 	}
 }
 {% endblock %}
