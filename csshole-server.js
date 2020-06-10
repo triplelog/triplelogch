@@ -674,13 +674,14 @@ app.get('/sortable.html',
 				}
 				order.push(thiscol);
 			}
+			var sorted = content.slice().sort(function(a,b) { return sortContent(a,b,3,isPitchers);})
 			console.log(performance.now());
 			res.write(nunjucks.render('templates/sortable.html',{
 				title: "Sortable Table",
 				ncols: ncols,
 				nrows: nrows,
 				order: order,
-				content: content,
+				content: sorted,
 				header: header,
 				minList: minList,
 				widecols: widecols,
