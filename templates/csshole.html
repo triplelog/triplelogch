@@ -11,11 +11,7 @@
 {% endblock %}
 
 {% block titleCSS %}
-@media screen and (max-width: 480px) {
-	div.container {
-		--border-radius: 1rem;
-	}
-}
+
 
 .title:hover .titleBG {
   	background-position: 350px 0px;
@@ -99,7 +95,22 @@ div:Not(.content-22) > .title a{
 	 font-family: Tahoma, Geneva, sans-serif;
 	 letter-spacing: 2px;
 }
-
+@media screen and (max-width: 840px) {
+	div.container {
+		--border-radius: 1rem;
+		--height-center: 7rem;
+		--width-center: 7rem;
+	}
+	.logoDiv img {
+		width:10rem;
+		left:-1.5rem;
+	}
+	.logoText {
+		width:10rem;
+		left:-1.5rem;
+		top:1.5rem;
+	}
+}
 div.content-11 {
 	overflow: unset;
 }
