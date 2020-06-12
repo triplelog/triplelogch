@@ -290,11 +290,13 @@ app.get('/css/sudoku.css',
 					console.error('An error occurred:', err);
 					process.exitCode = 1;
 				  }
+				    console.log('made css',performance.now());
+					var raw = fs.createReadStream("static/css/sudokucss.css.gz");
+					res.writeHead(200, {'Content-Type': 'text/css', 'Content-Encoding': 'gzip'});
+					raw.pipe(res);
+					console.log('sent it',performance.now());
 				});
 				
-				res.writeHead(200, {'Content-Type': 'text/css'});
-				res.write(cssstr);
-				res.end();
 			}
 			else {
 				console.log('found css',performance.now());
