@@ -342,56 +342,121 @@ function makePuzzle(puzzleRaw) {
 app.get('/sudokufarm.html', 
 	
 	function(req, res) {
-		itemPerThing = [[0,0,0,0,0,0,0,0,0],[21,16,3,0,0,10,30,15,6],[0,0,0,30,0,0,0,0,0],[0,0,0,0,0,3,0,15,24],[10,10,10,0,0,0,0,0,0],[0,0,0,0,15,2,0,0,0],[5,0,13,0,0,0,0,0,0]]
-		spendPerThing = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[1,1,1,0,0,0,5,5,5],[20,10,10,0,0,0,0,0,0],[0,0,0,0,0,0,10,10,10],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]]
-		var params = {
-			startFood: 200,
-			startWater: 200,
-			startFeed: 200,
-			startPoop: 200,
-			startFire: 200,
-			startClothes: 200,
+		console.log('bsfarm',performance.now());
+		var rand = Math.floor(Math.random()*100);
+		rand = 1;
+		fs.readFile("static/html/sudokufarm/"+rand+".html.gz", 'utf8', function(err, fileData) {
+			if (err){
+				itemPerThing = [[0,0,0,0,0,0,0,0,0],[21,16,3,0,0,10,30,15,6],[0,0,0,30,0,0,0,0,0],[0,0,0,0,0,3,0,15,24],[10,10,10,0,0,0,0,0,0],[0,0,0,0,15,2,0,0,0],[5,0,13,0,0,0,0,0,0]]
+				spendPerThing = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[1,1,1,0,0,0,5,5,5],[20,10,10,0,0,0,0,0,0],[0,0,0,0,0,0,10,10,10],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]]
+				var params = {
+					startFood: 200,
+					startWater: 200,
+					startFeed: 200,
+					startPoop: 200,
+					startFire: 200,
+					startClothes: 200,
 
-			startPeople:  12,
-			maxTurns:  45,
-			puzzle:  [[0, 0, 4, 0, 0, 0, 7, 8, 0], [8, 9, 3, 6, 2, 0, 0, 1, 0], [7, 0, 0, 0, 0, 4, 0, 9, 2], [0, 0, 6, 0, 8, 0, 0, 5, 0], [0, 8, 0, 5, 0, 1, 0, 3, 0], [0, 5, 0, 0, 7, 0, 9, 0, 0], [6, 0, 0, 2, 0, 0, 0, 4, 1], [0, 3, 0, 0, 6, 5, 0, 7, 9], [0, 1, 8, 0, 4, 0, 2, 0, 0]],
-			existingPlots:  [4, 4, 3, 4, 4, 4, 4, 5, 4],
-			maxPlots:  [5, 5, 6, 5, 5, 5, 5, 4, 5],
-			winpuzzle:  [[1, 2, 4, 9, 5, 3, 7, 8, 6], [8, 9, 3, 6, 2, 7, 4, 1, 5], [7, 6, 5, 8, 1, 4, 3, 9, 2], [9, 4, 6, 3, 8, 2, 1, 5, 7], [2, 8, 7, 5, 9, 1, 6, 3, 4], [3, 5, 1, 4, 7, 6, 9, 2, 8], [6, 7, 9, 2, 3, 8, 5, 4, 1], [4, 3, 2, 1, 6, 5, 8, 7, 9], [5, 1, 8, 7, 4, 9, 2, 6, 3]],
+					startPeople:  12,
+					maxTurns:  45,
+					puzzle:  [[0, 0, 4, 0, 0, 0, 7, 8, 0], [8, 9, 3, 6, 2, 0, 0, 1, 0], [7, 0, 0, 0, 0, 4, 0, 9, 2], [0, 0, 6, 0, 8, 0, 0, 5, 0], [0, 8, 0, 5, 0, 1, 0, 3, 0], [0, 5, 0, 0, 7, 0, 9, 0, 0], [6, 0, 0, 2, 0, 0, 0, 4, 1], [0, 3, 0, 0, 6, 5, 0, 7, 9], [0, 1, 8, 0, 4, 0, 2, 0, 0]],
+					existingPlots:  [4, 4, 3, 4, 4, 4, 4, 5, 4],
+					maxPlots:  [5, 5, 6, 5, 5, 5, 5, 4, 5],
+					winpuzzle:  [[1, 2, 4, 9, 5, 3, 7, 8, 6], [8, 9, 3, 6, 2, 7, 4, 1, 5], [7, 6, 5, 8, 1, 4, 3, 9, 2], [9, 4, 6, 3, 8, 2, 1, 5, 7], [2, 8, 7, 5, 9, 1, 6, 3, 4], [3, 5, 1, 4, 7, 6, 9, 2, 8], [6, 7, 9, 2, 3, 8, 5, 4, 1], [4, 3, 2, 1, 6, 5, 8, 7, 9], [5, 1, 8, 7, 4, 9, 2, 6, 3]],
 
-		}
-		params.itemPerThing = [[0,0,0,0,0,0,0,0,0],[21,16,3,0,0,10,30,15,6],[0,0,0,30,0,0,0,0,0],[0,0,0,0,0,3,0,15,24],[10,10,10,0,0,0,0,0,0],[0,0,0,0,15,2,0,0,0],[5,0,13,0,0,0,0,0,0]];
-		params.spendPerThing = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[1,1,1,0,0,0,5,5,5],[20,10,10,0,0,0,0,0,0],[0,0,0,0,0,0,10,10,10],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
-		params.spendPerPerson = [0,30,3,0,0,5,5];
-		params.initFood = 0;
-		for (var i=0;i<9;i++){
-			params.initFood += itemPerThing[1][i]*params.existingPlots[i]-spendPerThing[1][i]*params.existingPlots[i];
-		}
-		params.initWater = 0;
-		for (var i=0;i<9;i++){
-			params.initWater += itemPerThing[2][i]*params.existingPlots[i]-spendPerThing[2][i]*params.existingPlots[i];
-		}
-		params.initFeed = 0;
-		for (var i=0;i<9;i++){
-			params.initFeed += itemPerThing[3][i]*params.existingPlots[i]-spendPerThing[3][i]*params.existingPlots[i];
-		}
-		params.initPoop = 0;
-		for (var i=0;i<9;i++){
-			params.initPoop += itemPerThing[4][i]*params.existingPlots[i]-spendPerThing[4][i]*params.existingPlots[i];
-		}
-		params.initFire = 0;
-		for (var i=0;i<9;i++){
-			params.initFire += itemPerThing[5][i]*params.existingPlots[i]-spendPerThing[5][i]*params.existingPlots[i];
-		}
-		params.initClothes = 0;
-		for (var i=0;i<9;i++){
-			params.initClothes += itemPerThing[6][i]*params.existingPlots[i]-spendPerThing[6][i]*params.existingPlots[i];
-		}
-		res.write(nunjucks.render('templates/sudokufarmbase.html', params));
-		res.end();
+				}
+				params.itemPerThing = [[0,0,0,0,0,0,0,0,0],[21,16,3,0,0,10,30,15,6],[0,0,0,30,0,0,0,0,0],[0,0,0,0,0,3,0,15,24],[10,10,10,0,0,0,0,0,0],[0,0,0,0,15,2,0,0,0],[5,0,13,0,0,0,0,0,0]];
+				params.spendPerThing = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[1,1,1,0,0,0,5,5,5],[20,10,10,0,0,0,0,0,0],[0,0,0,0,0,0,10,10,10],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
+				params.spendPerPerson = [0,30,3,0,0,5,5];
+				params.initFood = 0;
+				for (var i=0;i<9;i++){
+					params.initFood += itemPerThing[1][i]*params.existingPlots[i]-spendPerThing[1][i]*params.existingPlots[i];
+				}
+				params.initWater = 0;
+				for (var i=0;i<9;i++){
+					params.initWater += itemPerThing[2][i]*params.existingPlots[i]-spendPerThing[2][i]*params.existingPlots[i];
+				}
+				params.initFeed = 0;
+				for (var i=0;i<9;i++){
+					params.initFeed += itemPerThing[3][i]*params.existingPlots[i]-spendPerThing[3][i]*params.existingPlots[i];
+				}
+				params.initPoop = 0;
+				for (var i=0;i<9;i++){
+					params.initPoop += itemPerThing[4][i]*params.existingPlots[i]-spendPerThing[4][i]*params.existingPlots[i];
+				}
+				params.initFire = 0;
+				for (var i=0;i<9;i++){
+					params.initFire += itemPerThing[5][i]*params.existingPlots[i]-spendPerThing[5][i]*params.existingPlots[i];
+				}
+				params.initClothes = 0;
+				for (var i=0;i<9;i++){
+					params.initClothes += itemPerThing[6][i]*params.existingPlots[i]-spendPerThing[6][i]*params.existingPlots[i];
+				}
+				var htmlstr = nunjucks.render('templates/sudokufarmbase.html', params);
+				
+				console.log('rendered it',performance.now());
+				fs.writeFile("static/html/sudokufarm/"+rand+".html", htmlstr, function(err, fileData) {
+					console.log('wrote it',performance.now(), err);
+					const gzip = createGzip();
+					const source = createReadStream("static/html/sudokufarm/"+rand+".html");
+					const destination = createWriteStream("static/html/sudokufarm/"+rand+".html.gz");
+
+					pipeline(source, gzip, destination, (err) => {
+					  if (err) {
+						console.error('An error occurred:', err);
+						process.exitCode = 1;
+					  }
+					});
+				});
+				res.write(htmlstr);
+				console.log('sent it',performance.now());
+				res.end();
+			}
+			else {
+				
+				console.log('found it',performance.now());
+				var raw = fs.createReadStream("static/html/sudokufarm/"+rand+".html.gz");
+				res.writeHead(200, {'Content-Type': 'text/html', 'Content-Encoding': 'gzip'});
+				raw.pipe(res);
+				console.log('sent it',performance.now());
+			}
+		});
+			
 	}
 );
+app.get('/css/sudokufarm.css', 
+	function(req, res) {
+		console.log('getting css from server');
+		fs.readFile("static/css/sudokufarmcss.css.gz", 'utf8', function(err, fileData) {
+			if (err){
+				
+				const gzip = createGzip();
+				const source = createReadStream('static/css/sudokufarmcss.css');
+				const destination = createWriteStream('static/css/sudokufarmcss.css.gz');
 
+				pipeline(source, gzip, destination, (err) => {
+				  if (err) {
+					console.error('An error occurred:', err);
+					process.exitCode = 1;
+				  }
+				    console.log('made css',performance.now());
+					var raw = fs.createReadStream("static/css/sudokufarmcss.css.gz");
+					res.writeHead(200, {'Content-Type': 'text/css', 'Content-Encoding': 'gzip'});
+					raw.pipe(res);
+					console.log('sent it',performance.now());
+				});
+				
+			}
+			else {
+				console.log('found css',performance.now());
+				var raw = fs.createReadStream("static/css/sudokufarmcss.css.gz");
+				res.writeHead(200, {'Content-Type': 'text/css', 'Content-Encoding': 'gzip'});
+				raw.pipe(res);
+				console.log('sent it',performance.now());
+			}
+		});
+	}
+);
 
 app.get('/mathquiz.html', 
 	
