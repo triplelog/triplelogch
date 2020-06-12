@@ -449,6 +449,8 @@ input.footnote:checked + * + div.footnoteDiv {
 	z-index:2000;
 	display:inline-block;
 	font-size:90%;
+	min-width:10rem;
+	max-width:20rem;
 }
 input.footnote:Not(:checked) + * + div.footnoteDiv {
 	display: none;
