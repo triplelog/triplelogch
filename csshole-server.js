@@ -298,7 +298,7 @@ app.get('/mathquiz.html',
 	function(req, res) {
 		console.log('bkatex',performance.now());
 		var rand = Math.floor(Math.random()*100);
-		fs.readFile("static/html/mathquiz"+rand+".html.gz", 'utf8', function(err, fileData) {
+		fs.readFile("static/html/mathquiz/"+rand+".html.gz", 'utf8', function(err, fileData) {
 			if (err){
 				var nlevels = 16;
 				var denoms = [1,2,3,4,6];
@@ -545,11 +545,11 @@ app.get('/mathquiz.html',
 				});
 					
 				console.log('rendered it',performance.now());
-				fs.writeFile("static/html/mathquiz"+rand+".html", htmlstr, function(err, fileData) {
+				fs.writeFile("static/html/mathquiz/"+rand+".html", htmlstr, function(err, fileData) {
 					console.log('wrote it',performance.now(), err);
 					const gzip = createGzip();
-					const source = createReadStream("static/html/mathquiz"+rand+".html");
-					const destination = createWriteStream("static/html/mathquiz"+rand+".html.gz");
+					const source = createReadStream("static/html/mathquiz/"+rand+".html");
+					const destination = createWriteStream("static/html/mathquiz/"+rand+".html.gz");
 
 					pipeline(source, gzip, destination, (err) => {
 					  if (err) {
@@ -563,8 +563,9 @@ app.get('/mathquiz.html',
 				res.end();
 			}
 			else {
+				
 				console.log('found it',performance.now());
-				var raw = fs.createReadStream("static/html/mathquiz"+rand+".html.gz");
+				var raw = fs.createReadStream("static/html/mathquiz/"+rand+".html.gz");
 				res.writeHead(200, {'Content-Type': 'text/html', 'Content-Encoding': 'gzip'});
 				raw.pipe(res);
 				console.log('sent it',performance.now());
