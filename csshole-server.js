@@ -344,7 +344,7 @@ app.get('/sudokufarm.html',
 	function(req, res) {
 		console.log('bsfarm',performance.now());
 		var rand = Math.floor(Math.random()*100);
-		rand = 5;
+		rand = 6;
 		fs.readFile("static/html/sudokufarm/"+rand+".html.gz", 'utf8', function(err, fileData) {
 			if (err){
 				itemPerThing = [[0,0,0,0,0,0,0,0,0],[21,16,3,0,0,10,30,15,6],[0,0,0,30,0,0,0,0,0],[0,0,0,0,0,3,0,15,24],[10,10,10,0,0,0,0,0,0],[0,0,0,0,15,2,0,0,0],[5,0,13,0,0,0,0,0,0]]
