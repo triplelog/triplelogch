@@ -724,9 +724,9 @@ app.get('/sortable.html',
 	}
 );
 app.get('/css/sortablePitchers.css', 
-	console.log('getting css from server');
+	
 	function(req, res) {
-		
+		console.log('getting css from server');
 		fs.readFile("/static/css/sortableP.css.gz', 'utf8', function(err, fileData) {
 			if (err){
 				
