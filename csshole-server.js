@@ -85,7 +85,8 @@ for (var ii=0;ii<5;ii++ ){
 					gametype: puzzleTypes[ii],
 					gameid: id,
 				});
-				fs.writeFile("static/html/sudoku/"+gametype+"/"+id+".html", htmlstr, function(err, fileData) {
+				fs.writeFileSync("static/html/sudoku/"+gametype+"/"+id+".html", htmlstr);
+				
 					
 					const gzip = createGzip();
 					const source = createReadStream("static/html/sudoku/"+gametype+"/"+id+".html");
@@ -97,7 +98,7 @@ for (var ii=0;ii<5;ii++ ){
 						process.exitCode = 1;
 					  }
 					});
-				});
+				
 				//create gzip
 				//delete unzipped
 			}
