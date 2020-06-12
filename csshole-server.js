@@ -234,8 +234,6 @@ app.get('/sudoku.html',
 				var month = d.getMonth()+1;
 				var date = d.getDate();
 				var year = d.getYear()+1900;
-				var puzzleRaw = puzzles['daily'][month+'/'+date+'/'+year];
-				puzzle = makePuzzle(puzzleRaw);
 				d.setDate(d.getDate()-1);
 				month = d.getMonth()+1;
 				date = d.getDate();
@@ -247,8 +245,6 @@ app.get('/sudoku.html',
 				var month = d.getMonth()+1;
 				var date = d.getDate();
 				var year = d.getYear()+1900;
-				var puzzleRaw = puzzles['daily'][month+'/'+date+'/'+year];
-				puzzle = makePuzzle(puzzleRaw);
 				d.setDate(d.getDate()-1);
 				month = d.getMonth()+1;
 				date = d.getDate();
@@ -280,8 +276,6 @@ app.get('/sudoku.html',
 			var month = d.getMonth()+1;
 			var date = d.getDate();
 			var year = d.getYear()+1900;
-			var puzzleRaw = puzzles['daily'][month+'/'+date+'/'+year];
-			puzzle = makePuzzle(puzzleRaw);
 			d.setDate(d.getDate()-1);
 			month = d.getMonth()+1;
 			date = d.getDate();
