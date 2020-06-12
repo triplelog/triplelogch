@@ -106,6 +106,7 @@ console.log('bb',performance.now());
 app.get('/sudoku.html', 
 	
 	function(req, res) {
+		console.log('sudoku',performance.now());
 		var puzzle;
 		var gametype = 'easy';
 		var gameid = 1;
@@ -219,6 +220,7 @@ app.get('/sudoku.html',
 			gametype: gametype,
 			gameid: gameid,
 		}));
+		console.log('sudoku rendered',performance.now());
 		res.end();
 	}
 );
@@ -574,7 +576,6 @@ app.get('/mathquiz.html',
 			
 	}
 );
-
 app.get('/css/mathquiz.css', 
 	function(req, res) {
 		console.log('getting css from server');
