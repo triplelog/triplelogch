@@ -713,8 +713,10 @@ app.get('/sortable.html',
 			}
 			else {
 				console.log('found it',performance.now());
+				var raw = fs.createReadStream("static/html/"+htmlname+'.gz');
 				res.writeHead(200, {'Content-Type': 'text/html', 'Content-Encoding': 'gzip'});
-				res.end(fileData);
+				raw.pipe(res);
+				//res.end(fileData);
 				console.log('sent it',performance.now());
 				/*const buf = new Buffer(fileData, 'utf-8');   // Choose encoding for the string.
 				zlib.gzip(buf, function (_, result) {  // The callback will give you the 
