@@ -603,7 +603,7 @@ app.get('/sortable.html',
 		}
 		var htmlname = dataset.replace('.csv','.html');
 		console.log(htmlname);
-		fs.readFile("static/html/"+htmlname, 'utf8', function(err, fileData) {
+		fs.readFile("static/html/"+htmlname+'.gz', 'utf8', function(err, fileData) {
 			if (err){
 				console.log('no file',performance.now());
 				fs.readFile("static/data/"+dataset, 'utf8', function(err, fileData) {
@@ -695,6 +695,16 @@ app.get('/sortable.html',
 					console.log('rendered it',performance.now());
 					fs.writeFile("static/html/"+htmlname, htmlstr, function(err, fileData) {
 						console.log('wrote it',performance.now(), err);
+						const gzip = createGzip();
+						const source = createReadStream("static/html/"+htmlname);
+						const destination = createWriteStream("static/html/"+htmlname+'.gz');
+
+						pipeline(source, gzip, destination, (err) => {
+						  if (err) {
+							console.error('An error occurred:', err);
+							process.exitCode = 1;
+						  }
+						});
 					});
 					res.write(htmlstr);
 					console.log('sent it',performance.now());
@@ -704,12 +714,13 @@ app.get('/sortable.html',
 			else {
 				console.log('found it',performance.now());
 				res.writeHead(200, {'Content-Type': 'text/html', 'Content-Encoding': 'gzip'});
-
-				const buf = new Buffer(fileData, 'utf-8');   // Choose encoding for the string.
+				res.end(fileData);
+				console.log('sent it',performance.now());
+				/*const buf = new Buffer(fileData, 'utf-8');   // Choose encoding for the string.
 				zlib.gzip(buf, function (_, result) {  // The callback will give you the 
 					console.log('sent it',performance.now());
 					res.end(result);                     // result, so just send it.
-				});
+				});*/
 			}
 		});
 		
