@@ -603,6 +603,8 @@ app.get('/sortable.html',
 		}
 		var htmlname = dataset.replace('.csv','.html');
 		console.log(htmlname);
+		var raw = fs.createReadStream("static/html/"+htmlname+'.gz');
+		console.log(raw);
 		fs.readFile("static/html/"+htmlname+'.gz', 'utf8', function(err, fileData) {
 			if (err){
 				console.log('no file',performance.now());
@@ -713,7 +715,7 @@ app.get('/sortable.html',
 			}
 			else {
 				console.log('found it',performance.now());
-				var raw = fs.createReadStream("static/html/"+htmlname+'.gz');
+				
 				res.writeHead(200, {'Content-Type': 'text/html', 'Content-Encoding': 'gzip'});
 				raw.pipe(res);
 				//res.end(fileData);
