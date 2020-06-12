@@ -88,16 +88,16 @@ for (var ii=0;ii<5;ii++ ){
 				fs.writeFileSync("static/html/sudoku/"+gametype+"/"+id+".html", htmlstr);
 				
 					
-					const gzip = createGzip();
-					const source = createReadStream("static/html/sudoku/"+gametype+"/"+id+".html");
-					const destination = createWriteStream("static/html/sudoku/"+gametype+"/"+id+".html.gz");
+				const gzip = createGzip();
+				const source = createReadStream("static/html/sudoku/"+gametype+"/"+id+".html");
+				const destination = createWriteStream("static/html/sudoku/"+gametype+"/"+id+".html.gz");
 
-					pipeline(source, gzip, destination, (err) => {
-					  if (err) {
-						console.error('An error occurred:', err);
-						process.exitCode = 1;
-					  }
-					});
+				pipeline(source, gzip, destination, (err) => {
+				  if (err) {
+					console.error('An error occurred:', err);
+					process.exitCode = 1;
+				  }
+				});
 				
 				//create gzip
 				//delete unzipped
@@ -114,10 +114,33 @@ for (var ii=0;ii<5;ii++ ){
 	  				if (!isNaN(da.getDate())){
 	  					var day = da.getDay();
 	  					var puzzle = daily[200*day+(w%200)];
-	  					puzzles['daily'][m+'/'+d+'/'+y]=puzzle;
 	  					if (day == 0){
 	  						w++;
 	  					}
+	  					
+	  					puzzles['daily'][m+'/'+d+'/'+y]=puzzle;
+	  					var puzz = makePuzzle(puzzle);
+						var gametype = 'daily';
+						var id = m+'/'+d+'/'+y;
+						var htmlstr = nunjucks.render('templates/sudokubase.html',{
+							puzzle: puzz,
+							gametype: puzzleTypes[ii],
+							gameid: id,
+						});
+						fs.writeFileSync("static/html/sudoku/"+gametype+"/"+id.replace('/','_').replace('/','_')+".html", htmlstr);
+				
+					
+						const gzip = createGzip();
+						const source = createReadStream("static/html/sudoku/"+gametype+"/"+id.replace('/','_').replace('/','_')+".html");
+						const destination = createWriteStream("static/html/sudoku/"+gametype+"/"+id.replace('/','_').replace('/','_')+".html.gz");
+
+						pipeline(source, gzip, destination, (err) => {
+						  if (err) {
+							console.error('An error occurred:', err);
+							process.exitCode = 1;
+						  }
+						});
+	  					
 	  				}
 	  			}
 	  		}
@@ -125,7 +148,7 @@ for (var ii=0;ii<5;ii++ ){
 	  }
 }
 console.log('bb',performance.now());
-
+puzzles = {};
 
 app.get('/sudoku.html', 
 	
@@ -232,13 +255,13 @@ app.get('/sudoku.html',
 				year = d.getYear()+1900;
 				gameid = month+'/'+date+'/'+year;
 			}
-			res.write(nunjucks.render('templates/sudokubase.html',{
-				puzzle: puzzle,
-				gametype: gametype,
-				gameid: gameid,
-			}));
-			console.log('sudoku rendered',performance.now());
-			res.end();
+			
+			var raw = fs.createReadStream("static/html/sudoku/daily/"+gameid.replace('/','_').replace('/','_')+".html.gz");
+			res.writeHead(200, {'Content-Type': 'text/html', 'Content-Encoding': 'gzip'});
+			raw.pipe(res);
+			console.log('sent it',performance.now());
+				
+			
 		}
 		else if (req.query && req.query.p){
 			var puzzleRaw = req.query.p;
@@ -264,13 +287,10 @@ app.get('/sudoku.html',
 			date = d.getDate();
 			year = d.getYear()+1900;
 			gameid = month+'/'+date+'/'+year;
-			res.write(nunjucks.render('templates/sudokubase.html',{
-				puzzle: puzzle,
-				gametype: gametype,
-				gameid: gameid,
-			}));
-			console.log('sudoku rendered',performance.now());
-			res.end();
+			var raw = fs.createReadStream("static/html/sudoku/daily/"+gameid.replace('/','_').replace('/','_')+".html.gz");
+			res.writeHead(200, {'Content-Type': 'text/html', 'Content-Encoding': 'gzip'});
+			raw.pipe(res);
+			console.log('sent it',performance.now());
 		}
 		
 	}
