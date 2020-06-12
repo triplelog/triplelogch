@@ -707,7 +707,7 @@ app.get('/sortable.html',
 				console.log('sent it',performance.now());
 				res.end();
 			}
-		}
+		});
 		
 		
 	}
