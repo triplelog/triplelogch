@@ -297,261 +297,381 @@ app.get('/mathquiz.html',
 	
 	function(req, res) {
 		console.log('bkatex',performance.now());
-		//var html = katex.renderToString("\\text{What is }\\sin{\\frac{\\pi}{6}}\\text{?}", {throwOnError: false});
 		
-		//for (var i=0;i<questions.length;i++){
-		//	console.log(i,questions[i].answer,questions[i].id,questions[i].level);
-		//}
-		var nlevels = 16;
-		var denoms = [1,2,3,4,6];
-		var questions = [];
-		for (var id=1;id<11;id++){
-			var funcs = [];
-			if (Math.random() < .5){funcs.push('sin'); funcs.push('cos'); funcs.push('tan');}
-			else {funcs.push('cos'); funcs.push('sin'); funcs.push('tan');}
+		fs.readFile("static/html/"+htmlname+'.gz', 'utf8', function(err, fileData) {
+			if (err){
+				var nlevels = 16;
+				var denoms = [1,2,3,4,6];
+				var questions = [];
+				for (var id=1;id<11;id++){
+					var funcs = [];
+					if (Math.random() < .5){funcs.push('sin'); funcs.push('cos'); funcs.push('tan');}
+					else {funcs.push('cos'); funcs.push('sin'); funcs.push('tan');}
 			
-			if (Math.random() < .5){funcs.push('sin'); funcs.push('cos'); funcs.push('tan');}
-			else {funcs.push('cos'); funcs.push('sin'); funcs.push('tan');}
+					if (Math.random() < .5){funcs.push('sin'); funcs.push('cos'); funcs.push('tan');}
+					else {funcs.push('cos'); funcs.push('sin'); funcs.push('tan');}
 			
-			if (Math.random() < .34){funcs.push('sec'); funcs.push('csc'); funcs.push('cot');}
-			else if (Math.random() < .5){funcs.push('csc'); funcs.push('sec'); funcs.push('cot');}
-			else {funcs.push('cot'); funcs.push('sec'); funcs.push('csc');}
+					if (Math.random() < .34){funcs.push('sec'); funcs.push('csc'); funcs.push('cot');}
+					else if (Math.random() < .5){funcs.push('csc'); funcs.push('sec'); funcs.push('cot');}
+					else {funcs.push('cot'); funcs.push('sec'); funcs.push('csc');}
 			
-			if (Math.random() < .34){funcs.push('sin'); funcs.push('cos'); funcs.push('tan');}
-			else if (Math.random() < .5){funcs.push('cos'); funcs.push('sin'); funcs.push('tan');}
-			else {funcs.push('tan'); funcs.push('sin'); funcs.push('cos');}
+					if (Math.random() < .34){funcs.push('sin'); funcs.push('cos'); funcs.push('tan');}
+					else if (Math.random() < .5){funcs.push('cos'); funcs.push('sin'); funcs.push('tan');}
+					else {funcs.push('tan'); funcs.push('sin'); funcs.push('cos');}
 			
-			if (Math.random() < .34){funcs.push('sec'); funcs.push('csc'); funcs.push('cot');}
-			else if (Math.random() < .5){funcs.push('csc'); funcs.push('sec'); funcs.push('cot');}
-			else {funcs.push('cot'); funcs.push('sec'); funcs.push('csc');}
+					if (Math.random() < .34){funcs.push('sec'); funcs.push('csc'); funcs.push('cot');}
+					else if (Math.random() < .5){funcs.push('csc'); funcs.push('sec'); funcs.push('cot');}
+					else {funcs.push('cot'); funcs.push('sec'); funcs.push('csc');}
 			
-			if (Math.random() < .5){funcs.push('sin'); funcs.push('cos');}
-			else {funcs.push('cos'); funcs.push('sin');}
+					if (Math.random() < .5){funcs.push('sin'); funcs.push('cos');}
+					else {funcs.push('cos'); funcs.push('sin');}
 			
-			var hturns = [0,0,0,1,1,1];
-			if (Math.random() < .34){hturns.push(0); hturns.push(1); hturns.push(1);}
-			else if (Math.random() < .5){hturns.push(1); hturns.push(0); hturns.push(1);}
-			else {hturns.push(0); hturns.push(1); hturns.push(0);}
+					var hturns = [0,0,0,1,1,1];
+					if (Math.random() < .34){hturns.push(0); hturns.push(1); hturns.push(1);}
+					else if (Math.random() < .5){hturns.push(1); hturns.push(0); hturns.push(1);}
+					else {hturns.push(0); hturns.push(1); hturns.push(0);}
 			
-			if (Math.random() < .34){hturns.push(2); hturns.push(4); hturns.push(-1);}
-			else if (Math.random() < .5){hturns.push(5); hturns.push(2); hturns.push(-2);}
-			else {hturns.push(-1); hturns.push(3); hturns.push(4);}
+					if (Math.random() < .34){hturns.push(2); hturns.push(4); hturns.push(-1);}
+					else if (Math.random() < .5){hturns.push(5); hturns.push(2); hturns.push(-2);}
+					else {hturns.push(-1); hturns.push(3); hturns.push(4);}
 			
-			if (Math.random() < .34){hturns.push(4); hturns.push(-3); hturns.push(7);}
-			else if (Math.random() < .5){hturns.push(6); hturns.push(5); hturns.push(-4);}
-			else {hturns.push(-6); hturns.push(-3); hturns.push(7);}
+					if (Math.random() < .34){hturns.push(4); hturns.push(-3); hturns.push(7);}
+					else if (Math.random() < .5){hturns.push(6); hturns.push(5); hturns.push(-4);}
+					else {hturns.push(-6); hturns.push(-3); hturns.push(7);}
 			
-			if (Math.random() < .34){hturns.push(9); hturns.push(-8);}
-			else if (Math.random() < .5){hturns.push(-9); hturns.push(8);}
-			else {hturns.push(8); hturns.push(-9);}
+					if (Math.random() < .34){hturns.push(9); hturns.push(-8);}
+					else if (Math.random() < .5){hturns.push(-9); hturns.push(8);}
+					else {hturns.push(8); hturns.push(-9);}
 			
-			for (var level=0;level<nlevels+1;level++){
-				var question = {'id':id,'level':level};
-				var f = funcs[level];
-				var d = denoms[Math.floor(Math.random()*5)];
-				var n = 1;
-				if (d == 1 || d==3 || d ==4 || d==6){
-					if (Math.random()<.5){n = d-1;}
-				}
-				n = n + d*hturns[level];
-				//move a to different quadrant
+					for (var level=0;level<nlevels+1;level++){
+						var question = {'id':id,'level':level};
+						var f = funcs[level];
+						var d = denoms[Math.floor(Math.random()*5)];
+						var n = 1;
+						if (d == 1 || d==3 || d ==4 || d==6){
+							if (Math.random()<.5){n = d-1;}
+						}
+						n = n + d*hturns[level];
+						//move a to different quadrant
 				
-				var q = katex.renderToString("\\text{What is }\\"+f+"{\\left(\\frac{"+n+"\\pi}{"+d+"}\\right)}\\text{?}", {throwOnError: false});
-				if (n == 0){
-					q = katex.renderToString("\\text{What is }\\"+f+"{(0)}\\text{?}", {throwOnError: false});
-				}
-				else if (d == 1){
-					if (n == 1){
-						q = katex.renderToString("\\text{What is }\\"+f+"{(\\pi)}\\text{?}", {throwOnError: false});
-					}
-					else if (n == -1){
-						q = katex.renderToString("\\text{What is }\\"+f+"{(-\\pi)}\\text{?}", {throwOnError: false});
-					}
-					else {
-						q = katex.renderToString("\\text{What is }\\"+f+"{("+n+"\\pi)}\\text{?}", {throwOnError: false});
-					}
-				}
-				else {
-					if (n == 1){
-						q = katex.renderToString("\\text{What is }\\"+f+"{\\left(\\frac{\\pi}{"+d+"}\\right)}\\text{?}", {throwOnError: false});
-					}
-					if (n == -1){
-						q = katex.renderToString("\\text{What is }\\"+f+"{\\left(\\frac{-\\pi}{"+d+"}\\right)}\\text{?}", {throwOnError: false});
-					}
-				}
+						var q = katex.renderToString("\\text{What is }\\"+f+"{\\left(\\frac{"+n+"\\pi}{"+d+"}\\right)}\\text{?}", {throwOnError: false});
+						if (n == 0){
+							q = katex.renderToString("\\text{What is }\\"+f+"{(0)}\\text{?}", {throwOnError: false});
+						}
+						else if (d == 1){
+							if (n == 1){
+								q = katex.renderToString("\\text{What is }\\"+f+"{(\\pi)}\\text{?}", {throwOnError: false});
+							}
+							else if (n == -1){
+								q = katex.renderToString("\\text{What is }\\"+f+"{(-\\pi)}\\text{?}", {throwOnError: false});
+							}
+							else {
+								q = katex.renderToString("\\text{What is }\\"+f+"{("+n+"\\pi)}\\text{?}", {throwOnError: false});
+							}
+						}
+						else {
+							if (n == 1){
+								q = katex.renderToString("\\text{What is }\\"+f+"{\\left(\\frac{\\pi}{"+d+"}\\right)}\\text{?}", {throwOnError: false});
+							}
+							if (n == -1){
+								q = katex.renderToString("\\text{What is }\\"+f+"{\\left(\\frac{-\\pi}{"+d+"}\\right)}\\text{?}", {throwOnError: false});
+							}
+						}
 				
-				var a = '1/2';
-				var s = 1;
-				if (f == 'sin'){
-					if (d == 1){a = '0';}
-					else {
-						if (d == 6){a = '1/2';}
-						if (d == 4){a = 'sqrt2/2';}
-						if (d == 3){a = 'sqrt3/2';}
-						if (d == 2){a = '1';}
+						var a = '1/2';
+						var s = 1;
+						if (f == 'sin'){
+							if (d == 1){a = '0';}
+							else {
+								if (d == 6){a = '1/2';}
+								if (d == 4){a = 'sqrt2/2';}
+								if (d == 3){a = 'sqrt3/2';}
+								if (d == 2){a = '1';}
 					
-						if (n < 0){n *= -1; s = -1;}
-						n = n % (2 * d);
-						if (n > d){s *= -1;}
-						if (s<0){a = '-'+a;}
-					}
-				}
-				else if (f == 'cos'){
-					if (d == 2){a = '0';}
-					else {
-						if (d == 3){a = '1/2';}
-						if (d == 4){a = 'sqrt2/2';}
-						if (d == 6){a = 'sqrt3/2';}
-						if (d == 1){a = '1';}
+								if (n < 0){n *= -1; s = -1;}
+								n = n % (2 * d);
+								if (n > d){s *= -1;}
+								if (s<0){a = '-'+a;}
+							}
+						}
+						else if (f == 'cos'){
+							if (d == 2){a = '0';}
+							else {
+								if (d == 3){a = '1/2';}
+								if (d == 4){a = 'sqrt2/2';}
+								if (d == 6){a = 'sqrt3/2';}
+								if (d == 1){a = '1';}
 					
-						if (n < 0){n *= -1;}
-						n = n % (2 * d);
-						if (n > d/2 && n < 3*d/2){s *= -1;}
-						if (s<0){a = '-'+a;}
-					}
-				}
-				else if (f == 'tan'){
-					if (d == 1){a = '0';}
-					else if (d == 2){a = 'und';}
-					else {
-						if (d == 3){a = 'sqrt3';}
-						if (d == 4){a = '1';}
-						if (d == 6){a = '1/sqrt3';}
+								if (n < 0){n *= -1;}
+								n = n % (2 * d);
+								if (n > d/2 && n < 3*d/2){s *= -1;}
+								if (s<0){a = '-'+a;}
+							}
+						}
+						else if (f == 'tan'){
+							if (d == 1){a = '0';}
+							else if (d == 2){a = 'und';}
+							else {
+								if (d == 3){a = 'sqrt3';}
+								if (d == 4){a = '1';}
+								if (d == 6){a = '1/sqrt3';}
 					
-						if (n < 0){n *= -1; s = -1;}
-						n = n % (2 * d);
-						if (n > d/2 && n < d){s *= -1;}
-						else if (n > 3*d/2 && n < 2*d){s *= -1;}
-						if (s<0){a = '-'+a;}
-					}
-				}
-				else if (f == 'cot'){
-					if (d == 1){a = 'und';}
-					else if (d == 2){a = '0';}
-					else {
-						if (d == 3){a = '1/sqrt3';}
-						if (d == 4){a = '1';}
-						if (d == 6){a = 'sqrt3';}
+								if (n < 0){n *= -1; s = -1;}
+								n = n % (2 * d);
+								if (n > d/2 && n < d){s *= -1;}
+								else if (n > 3*d/2 && n < 2*d){s *= -1;}
+								if (s<0){a = '-'+a;}
+							}
+						}
+						else if (f == 'cot'){
+							if (d == 1){a = 'und';}
+							else if (d == 2){a = '0';}
+							else {
+								if (d == 3){a = '1/sqrt3';}
+								if (d == 4){a = '1';}
+								if (d == 6){a = 'sqrt3';}
 					
-						if (n < 0){n *= -1; s = -1;}
-						n = n % (2 * d);
-						if (n > d/2 && n < d){s *= -1;}
-						else if (n > 3*d/2 && n < 2*d){s *= -1;}
-						if (s<0){a = '-'+a;}
-					}
-				}
-				else if (f == 'sec'){
-					if (d == 2){a = 'und';}
-					else {
-						if (d == 3){a = '2';}
-						if (d == 4){a = 'sqrt2';}
-						if (d == 6){a = '2/sqrt3';}
-						if (d == 1){a = '1';}
+								if (n < 0){n *= -1; s = -1;}
+								n = n % (2 * d);
+								if (n > d/2 && n < d){s *= -1;}
+								else if (n > 3*d/2 && n < 2*d){s *= -1;}
+								if (s<0){a = '-'+a;}
+							}
+						}
+						else if (f == 'sec'){
+							if (d == 2){a = 'und';}
+							else {
+								if (d == 3){a = '2';}
+								if (d == 4){a = 'sqrt2';}
+								if (d == 6){a = '2/sqrt3';}
+								if (d == 1){a = '1';}
 					
-						if (n < 0){n *= -1;}
-						n = n % (2 * d);
-						if (n > d/2 && n < 3*d/2){s *= -1;}
-						if (s<0){a = '-'+a;}
-					}
-				}
-				else if (f == 'csc'){
-					if (d == 1){a = 'und';}
-					else {
-						if (d == 6){a = '2';}
-						if (d == 4){a = 'sqrt2';}
-						if (d == 3){a = '2/sqrt3';}
-						if (d == 2){a = '1';}
+								if (n < 0){n *= -1;}
+								n = n % (2 * d);
+								if (n > d/2 && n < 3*d/2){s *= -1;}
+								if (s<0){a = '-'+a;}
+							}
+						}
+						else if (f == 'csc'){
+							if (d == 1){a = 'und';}
+							else {
+								if (d == 6){a = '2';}
+								if (d == 4){a = 'sqrt2';}
+								if (d == 3){a = '2/sqrt3';}
+								if (d == 2){a = '1';}
 					
-						if (n < 0){n *= -1; s = -1;}
-						n = n % (2 * d);
-						if (n > d){s *= -1;}
-						if (s<0){a = '-'+a;}
-					}
-				}
-				if (a == 'sqrt3/2'){a = 'sqrt\\(3\\)/2|sqrt3/2|root\\(3\\)/2|root3/2';}
-				if (a == 'sqrt2/2'){a = 'sqrt\\(2\\)/2|sqrt2/2|root\\(2\\)/2|root2/2';}
-				if (a == '-sqrt3/2'){a = '-sqrt\\(3\\)/2|-sqrt3/2|-root\\(3\\)/2|-root3/2';}
-				if (a == '-sqrt2/2'){a = '-sqrt\\(2\\)/2|-sqrt2/2|-root\\(2\\)/2|-root2/2';}
-				if (a == '1/sqrt3'){a = '1/sqrt\\(3\\)|1/sqrt3|1/root3|1/root\\(3\\)|sqrt(3)/3|sqrt3/3|root\\(3\\)/3|root3/3';}
-				if (a == 'sqrt3'){a = 'sqrt\\(3\\)|sqrt3|root3|root\\(3\\)';}
-				if (a == '-1/sqrt3'){a = '-1/sqrt\\(3\\)|-1/sqrt3|-1/root3|-1/root\\(3\\)|-sqrt(3)/3|-sqrt3/3|-root\\(3\\)/3|-root3/3';}
-				if (a == '-sqrt3'){a = '-sqrt\\(3\\)|-sqrt3|-root3|-root\\(3\\)';}
-				if (a == '2/sqrt3'){a = '2/sqrt\\(3\\)|2/sqrt3|2/root3|2/root\\(3\\)|2sqrt(3)/3|2sqrt3/3|2root\\(3\\)/3|2root3/3|2\*sqrt(3)/3|2\*sqrt3/3|2\*root\\(3\\)/3|2\*root3/3';}
-				if (a == 'sqrt2'){a = 'sqrt\\(2\\)|sqrt2|root2|root\\(2\\)';}
-				if (a == '-2/sqrt3'){a = '-2/sqrt\\(3\\)|-2/sqrt3|-2/root3|-2/root\\(3\\)|-2sqrt(3)/3|-2sqrt3/3|-2root\\(3\\)/3|-2root3/3|-2\*sqrt(3)/3|-2\*sqrt3/3|-2\*root\\(3\\)/3|-2\*root3/3';}
-				if (a == '-sqrt2'){a = '-sqrt\\(2\\)|-sqrt2|-root2|-root\\(2\\)';}
-				if (a == 'und'){a = 'undefined|und';}
-				if (a == '2'){a = '2|two';}
-				if (a == '1'){a = '1|one';}
-				if (a == '0'){a = '0|zero';}
+								if (n < 0){n *= -1; s = -1;}
+								n = n % (2 * d);
+								if (n > d){s *= -1;}
+								if (s<0){a = '-'+a;}
+							}
+						}
+						if (a == 'sqrt3/2'){a = 'sqrt\\(3\\)/2|sqrt3/2|root\\(3\\)/2|root3/2';}
+						if (a == 'sqrt2/2'){a = 'sqrt\\(2\\)/2|sqrt2/2|root\\(2\\)/2|root2/2';}
+						if (a == '-sqrt3/2'){a = '-sqrt\\(3\\)/2|-sqrt3/2|-root\\(3\\)/2|-root3/2';}
+						if (a == '-sqrt2/2'){a = '-sqrt\\(2\\)/2|-sqrt2/2|-root\\(2\\)/2|-root2/2';}
+						if (a == '1/sqrt3'){a = '1/sqrt\\(3\\)|1/sqrt3|1/root3|1/root\\(3\\)|sqrt(3)/3|sqrt3/3|root\\(3\\)/3|root3/3';}
+						if (a == 'sqrt3'){a = 'sqrt\\(3\\)|sqrt3|root3|root\\(3\\)';}
+						if (a == '-1/sqrt3'){a = '-1/sqrt\\(3\\)|-1/sqrt3|-1/root3|-1/root\\(3\\)|-sqrt(3)/3|-sqrt3/3|-root\\(3\\)/3|-root3/3';}
+						if (a == '-sqrt3'){a = '-sqrt\\(3\\)|-sqrt3|-root3|-root\\(3\\)';}
+						if (a == '2/sqrt3'){a = '2/sqrt\\(3\\)|2/sqrt3|2/root3|2/root\\(3\\)|2sqrt(3)/3|2sqrt3/3|2root\\(3\\)/3|2root3/3|2\*sqrt(3)/3|2\*sqrt3/3|2\*root\\(3\\)/3|2\*root3/3';}
+						if (a == 'sqrt2'){a = 'sqrt\\(2\\)|sqrt2|root2|root\\(2\\)';}
+						if (a == '-2/sqrt3'){a = '-2/sqrt\\(3\\)|-2/sqrt3|-2/root3|-2/root\\(3\\)|-2sqrt(3)/3|-2sqrt3/3|-2root\\(3\\)/3|-2root3/3|-2\*sqrt(3)/3|-2\*sqrt3/3|-2\*root\\(3\\)/3|-2\*root3/3';}
+						if (a == '-sqrt2'){a = '-sqrt\\(2\\)|-sqrt2|-root2|-root\\(2\\)';}
+						if (a == 'und'){a = 'undefined|und';}
+						if (a == '2'){a = '2|two';}
+						if (a == '1'){a = '1|one';}
+						if (a == '0'){a = '0|zero';}
 				
-				question['question'] = q;
-				question['answer'] = a;
-				questions.push(question);
-			}
-		}
-		console.log('akatex',performance.now());
-		var nturns= 16;
-		var halfnturns = 8;
-		var nangles = 16;
-		var angles= [{"points": "184,76 184,-76", "numer": 0, "denom": 1, "needle": "200,0"},{"points": "199,-17 147,-135", "numer": 1, "denom": 6, "needle": "179,-88"},{"points": "173,-99 100,-173", "numer": 1, "denom": 4, "needle": "141,-141"},{"points": "135,-147 17,-199", "numer": 1, "denom": 3, "needle": "88,-179"},{"points": "76,-184 -76,-184", "numer": 1, "denom": 2, "needle": "0,-199"},{"points": "-17,-199 -135,-147", "numer": 2, "denom": 3, "needle": "-88,-179"},{"points": "-99,-173 -173,-100", "numer": 3, "denom": 4, "needle": "-141,-141"},{"points": "-147,-135 -199,-17", "numer": 5, "denom": 6, "needle": "-179,-88"},{"points": "-184,-76 -184,76", "numer": 1, "denom": 1, "needle": "-199,0"},{"points": "-199,17 -147,135", "numer": 7, "denom": 6, "needle": "-179,88"},{"points": "-173,99 -100,173", "numer": 5, "denom": 4, "needle": "-141,141"},{"points": "-135,147 -17,199", "numer": 4, "denom": 3, "needle": "-88,179"},{"points": "-76,184 76,184", "numer": 3, "denom": 2, "needle": "0,199"},{"points": "17,199 135,147", "numer": 5, "denom": 3, "needle": "88,179"},{"points": "99,173 173,100", "numer": 7, "denom": 4, "needle": "141,141"},{"points": "147,135 199,17", "numer": 11, "denom": 6, "needle": "179,88"}]
-		var katexangles = {};
-		for(var angle=0;angle<angles.length;angle++){
+						question['question'] = q;
+						question['answer'] = a;
+						questions.push(question);
+					}
+				}
+				console.log('akatex',performance.now());
+				var nturns= 16;
+				var halfnturns = 8;
+				var nangles = 16;
+				var angles= [{"points": "184,76 184,-76", "numer": 0, "denom": 1, "needle": "200,0"},{"points": "199,-17 147,-135", "numer": 1, "denom": 6, "needle": "179,-88"},{"points": "173,-99 100,-173", "numer": 1, "denom": 4, "needle": "141,-141"},{"points": "135,-147 17,-199", "numer": 1, "denom": 3, "needle": "88,-179"},{"points": "76,-184 -76,-184", "numer": 1, "denom": 2, "needle": "0,-199"},{"points": "-17,-199 -135,-147", "numer": 2, "denom": 3, "needle": "-88,-179"},{"points": "-99,-173 -173,-100", "numer": 3, "denom": 4, "needle": "-141,-141"},{"points": "-147,-135 -199,-17", "numer": 5, "denom": 6, "needle": "-179,-88"},{"points": "-184,-76 -184,76", "numer": 1, "denom": 1, "needle": "-199,0"},{"points": "-199,17 -147,135", "numer": 7, "denom": 6, "needle": "-179,88"},{"points": "-173,99 -100,173", "numer": 5, "denom": 4, "needle": "-141,141"},{"points": "-135,147 -17,199", "numer": 4, "denom": 3, "needle": "-88,179"},{"points": "-76,184 76,184", "numer": 3, "denom": 2, "needle": "0,199"},{"points": "17,199 135,147", "numer": 5, "denom": 3, "needle": "88,179"},{"points": "99,173 173,100", "numer": 7, "denom": 4, "needle": "141,141"},{"points": "147,135 199,17", "numer": 11, "denom": 6, "needle": "179,88"}]
+				var katexangles = {};
+				for(var angle=0;angle<angles.length;angle++){
 			
-			var d = angles[angle].denom;
-			for (var turn=1;turn<nturns+1;turn++){
-				var n = angles[angle].numer + (turn - halfnturns) * (2*d);
-				var q = katex.renderToString("\\frac{"+n+"\\pi}{"+d+"}", {throwOnError: false});
-				if (n == 0){
-					q = katex.renderToString("0", {throwOnError: false});
-				}
-				else if (d == 1){
-					if (n == 1){
-						q = katex.renderToString("\\pi", {throwOnError: false});
-					}
-					else if (n == -1){
-						q = katex.renderToString("-\\pi", {throwOnError: false});
-					}
-					else {
-						q = katex.renderToString(n+"\\pi", {throwOnError: false});
-					}
-				}
-				else {
-					if (n == 1){
-						q = katex.renderToString("\\frac{\\pi}{"+d+"}", {throwOnError: false});
-					}
-					if (n == -1){
-						q = katex.renderToString("\\frac{-\\pi}{"+d+"}", {throwOnError: false});
-					}
-				}
-				if (katexangles[n]){
-					katexangles[n][d]=q;
-				}
-				else {
-					katexangles[n]= {};
-					katexangles[n][d]=q;
-				}
+					var d = angles[angle].denom;
+					for (var turn=1;turn<nturns+1;turn++){
+						var n = angles[angle].numer + (turn - halfnturns) * (2*d);
+						var q = katex.renderToString("\\frac{"+n+"\\pi}{"+d+"}", {throwOnError: false});
+						if (n == 0){
+							q = katex.renderToString("0", {throwOnError: false});
+						}
+						else if (d == 1){
+							if (n == 1){
+								q = katex.renderToString("\\pi", {throwOnError: false});
+							}
+							else if (n == -1){
+								q = katex.renderToString("-\\pi", {throwOnError: false});
+							}
+							else {
+								q = katex.renderToString(n+"\\pi", {throwOnError: false});
+							}
+						}
+						else {
+							if (n == 1){
+								q = katex.renderToString("\\frac{\\pi}{"+d+"}", {throwOnError: false});
+							}
+							if (n == -1){
+								q = katex.renderToString("\\frac{-\\pi}{"+d+"}", {throwOnError: false});
+							}
+						}
+						if (katexangles[n]){
+							katexangles[n][d]=q;
+						}
+						else {
+							katexangles[n]= {};
+							katexangles[n][d]=q;
+						}
 				
-			}
+					}
 			
-		}
-		//var nlevels = 15;
-		//var questions = [{'question':'What is the derivative of x^3','answer':'3x\\^2','id':1,'level':0},
-		//{'question':'What is the derivative of x^4','answer':'4x\\^3','id':2,'level':0},{'question':'What is the derivative of x^5','answer':'5x\\^4','id':1,'level':1}]
+				}
 
-		res.write(nunjucks.render('templates/mathquizbase.html',{
-			nlevels: nlevels,
-			questions: questions,
-			type: "trig",
-			nturns:nturns,
-			nangles:nangles,
-			angles:angles,
-			katexangles:katexangles,
-		}));
-		res.end();
+				var htmlstr = res.write(nunjucks.render('templates/mathquizbase.html',{
+					nlevels: nlevels,
+					questions: questions,
+					type: "trig",
+					nturns:nturns,
+					nangles:nangles,
+					angles:angles,
+					katexangles:katexangles,
+				}));
+					
+				console.log('rendered it',performance.now());
+				fs.writeFile("static/html/mathquiz.html", htmlstr, function(err, fileData) {
+					console.log('wrote it',performance.now(), err);
+					const gzip = createGzip();
+					const source = createReadStream("static/html/mathquiz.html");
+					const destination = createWriteStream("static/html/mathquiz.html.gz");
+
+					pipeline(source, gzip, destination, (err) => {
+					  if (err) {
+						console.error('An error occurred:', err);
+						process.exitCode = 1;
+					  }
+					});
+				});
+				res.write(htmlstr);
+				console.log('sent it',performance.now());
+				res.end();
+			}
+			else {
+				console.log('found it',performance.now());
+				var raw = fs.createReadStream("static/html/mathquiz.html.gz");
+				res.writeHead(200, {'Content-Type': 'text/html', 'Content-Encoding': 'gzip'});
+				raw.pipe(res);
+				console.log('sent it',performance.now());
+			}
+		});
+			
 	}
 );
 
+app.get('/css/mathquiz.css', 
+	function(req, res) {
+		console.log('getting css from server');
+		fs.readFile("static/css/mathquizcss.css.gz", 'utf8', function(err, fileData) {
+			if (err){
+				var nlevels = 16;
+				var denoms = [1,2,3,4,6];
+				var questions = [];
+				for (var id=1;id<11;id++){
+			
+					for (var level=0;level<nlevels+1;level++){
+						var question = {'id':id,'level':level};
+						questions.push(question);
+					}
+				}
+				var nturns= 16;
+				var halfnturns = 8;
+				var nangles = 16;
+				var angles= [{"points": "184,76 184,-76", "numer": 0, "denom": 1, "needle": "200,0"},{"points": "199,-17 147,-135", "numer": 1, "denom": 6, "needle": "179,-88"},{"points": "173,-99 100,-173", "numer": 1, "denom": 4, "needle": "141,-141"},{"points": "135,-147 17,-199", "numer": 1, "denom": 3, "needle": "88,-179"},{"points": "76,-184 -76,-184", "numer": 1, "denom": 2, "needle": "0,-199"},{"points": "-17,-199 -135,-147", "numer": 2, "denom": 3, "needle": "-88,-179"},{"points": "-99,-173 -173,-100", "numer": 3, "denom": 4, "needle": "-141,-141"},{"points": "-147,-135 -199,-17", "numer": 5, "denom": 6, "needle": "-179,-88"},{"points": "-184,-76 -184,76", "numer": 1, "denom": 1, "needle": "-199,0"},{"points": "-199,17 -147,135", "numer": 7, "denom": 6, "needle": "-179,88"},{"points": "-173,99 -100,173", "numer": 5, "denom": 4, "needle": "-141,141"},{"points": "-135,147 -17,199", "numer": 4, "denom": 3, "needle": "-88,179"},{"points": "-76,184 76,184", "numer": 3, "denom": 2, "needle": "0,199"},{"points": "17,199 135,147", "numer": 5, "denom": 3, "needle": "88,179"},{"points": "99,173 173,100", "numer": 7, "denom": 4, "needle": "141,141"},{"points": "147,135 199,17", "numer": 11, "denom": 6, "needle": "179,88"}]
+				var katexangles = {};
+				for(var angle=0;angle<angles.length;angle++){
+			
+					var d = angles[angle].denom;
+					for (var turn=1;turn<nturns+1;turn++){
+						var n = angles[angle].numer + (turn - halfnturns) * (2*d);
+						var q = katex.renderToString("\\frac{"+n+"\\pi}{"+d+"}", {throwOnError: false});
+						if (n == 0){
+							q = katex.renderToString("0", {throwOnError: false});
+						}
+						else if (d == 1){
+							if (n == 1){
+								q = katex.renderToString("\\pi", {throwOnError: false});
+							}
+							else if (n == -1){
+								q = katex.renderToString("-\\pi", {throwOnError: false});
+							}
+							else {
+								q = katex.renderToString(n+"\\pi", {throwOnError: false});
+							}
+						}
+						else {
+							if (n == 1){
+								q = katex.renderToString("\\frac{\\pi}{"+d+"}", {throwOnError: false});
+							}
+							if (n == -1){
+								q = katex.renderToString("\\frac{-\\pi}{"+d+"}", {throwOnError: false});
+							}
+						}
+						if (katexangles[n]){
+							katexangles[n][d]=q;
+						}
+						else {
+							katexangles[n]= {};
+							katexangles[n][d]=q;
+						}
+				
+					}
+			
+				}
+
+				
+				var cssstr = nunjucks.render('templates/mathquizcss.html',{
+					nlevels: nlevels,
+					questions: questions,
+					type: "trig",
+					nturns:nturns,
+					nangles:nangles,
+					angles:angles,
+					katexangles:katexangles,
+					
+				});
+				fs.writeFile("static/css/mathquizcss.css", cssstr, function(err, fileData) {
+					const gzip = createGzip();
+					const source = createReadStream('static/css/mathquizcss.css');
+					const destination = createWriteStream('static/css/mathquizcss.css.gz');
+
+					pipeline(source, gzip, destination, (err) => {
+					  if (err) {
+						console.error('An error occurred:', err);
+						process.exitCode = 1;
+					  }
+					});
+					
+				});
+				res.writeHead(200, {'Content-Type': 'text/css'});
+				res.write(cssstr);
+				res.end();
+			}
+			else {
+				console.log('found css',performance.now());
+				var raw = fs.createReadStream("static/css/mathquizcss.css.gz");
+				res.writeHead(200, {'Content-Type': 'text/css', 'Content-Encoding': 'gzip'});
+				raw.pipe(res);
+				console.log('sent it',performance.now());
+			}
+		});
+	}
+);
 /*
 app.get('/chart.html', 
 	
