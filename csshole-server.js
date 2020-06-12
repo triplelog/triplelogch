@@ -77,6 +77,27 @@ for (var ii=0;ii<5;ii++ ){
 			}
 			else {
 				puzzles[puzzleTypes[ii]].push(line);
+				var puzz = makePuzzle(line);
+				var htmlstr = nunjucks.render('templates/sudokubase.html',{
+					puzzle: puzz,
+					gametype: puzzleTypes[ii],
+					gameid: i,
+				});
+				fs.writeFile("static/html/sudoku/"+puzzleTypes[ii]+"/"+i+".html", htmlstr, function(err, fileData) {
+					console.log('wrote it',performance.now(), err);
+					const gzip = createGzip();
+					const source = createReadStream("static/html/sudoku/"+puzzleTypes[ii]+"/"+i+".html");
+					const destination = createWriteStream("static/html/sudoku/"+puzzleTypes[ii]+"/"+i+".html.gz");
+
+					pipeline(source, gzip, destination, (err) => {
+					  if (err) {
+						console.error('An error occurred:', err);
+						process.exitCode = 1;
+					  }
+					});
+				});
+				//create gzip
+				//delete unzipped
 			}
 			
 		}
@@ -222,6 +243,37 @@ app.get('/sudoku.html',
 		}));
 		console.log('sudoku rendered',performance.now());
 		res.end();
+	}
+);
+app.get('/css/sudoku.css', 
+	function(req, res) {
+		console.log('getting css from server');
+		fs.readFile("static/css/sudokucss.css.gz", 'utf8', function(err, fileData) {
+			if (err){
+				
+				const gzip = createGzip();
+				const source = createReadStream('static/css/sudokucss.css');
+				const destination = createWriteStream('static/css/sudokucss.css.gz');
+
+				pipeline(source, gzip, destination, (err) => {
+				  if (err) {
+					console.error('An error occurred:', err);
+					process.exitCode = 1;
+				  }
+				});
+				
+				res.writeHead(200, {'Content-Type': 'text/css'});
+				res.write(cssstr);
+				res.end();
+			}
+			else {
+				console.log('found css',performance.now());
+				var raw = fs.createReadStream("static/css/sudokucss.css.gz");
+				res.writeHead(200, {'Content-Type': 'text/css', 'Content-Encoding': 'gzip'});
+				raw.pipe(res);
+				console.log('sent it',performance.now());
+			}
+		});
 	}
 );
 
