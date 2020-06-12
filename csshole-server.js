@@ -534,7 +534,7 @@ app.get('/mathquiz.html',
 			
 				}
 
-				var htmlstr = res.write(nunjucks.render('templates/mathquizbase.html',{
+				var htmlstr = nunjucks.render('templates/mathquizbase.html',{
 					nlevels: nlevels,
 					questions: questions,
 					type: "trig",
@@ -542,7 +542,7 @@ app.get('/mathquiz.html',
 					nangles:nangles,
 					angles:angles,
 					katexangles:katexangles,
-				}));
+				});
 					
 				console.log('rendered it',performance.now());
 				fs.writeFile("static/html/mathquiz.html", htmlstr, function(err, fileData) {
