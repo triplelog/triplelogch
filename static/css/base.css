@@ -430,6 +430,10 @@ body {
 	z-index:2000;
 	display:inline-block;
 	font-size:90%;
+	min-width:8rem;
+	max-width:12rem;
+	white-space: normal;
+	padding: .5rem;
 }
 #footnote:Not(:checked) ~ #footnoteDiv {
 	display:none;
@@ -449,8 +453,10 @@ input.footnote:checked + * + div.footnoteDiv {
 	z-index:2000;
 	display:inline-block;
 	font-size:90%;
-	min-width:10rem;
-	max-width:20rem;
+	min-width:8rem;
+	max-width:12rem;
+	white-space: normal;
+	padding: .5rem;
 }
 input.footnote:Not(:checked) + * + div.footnoteDiv {
 	display: none;
