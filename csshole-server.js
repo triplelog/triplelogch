@@ -344,7 +344,7 @@ app.get('/sudokufarm.html',
 	function(req, res) {
 		console.log('bsfarm',performance.now());
 		var rand = Math.floor(Math.random()*100);
-		rand = 8;
+		rand = 9;
 		fs.readFile("static/html/sudokufarm/"+rand+".html.gz", 'utf8', function(err, fileData) {
 			if (err){
 				itemPerThing = [[0,0,0,0,0,0,0,0,0],[21,16,3,0,0,10,30,15,6],[0,0,0,30,0,0,0,0,0],[0,0,0,0,0,3,0,15,24],[10,10,10,0,0,0,0,0,0],[0,0,0,0,15,2,0,0,0],[5,0,13,0,0,0,0,0,0]]
@@ -463,6 +463,7 @@ app.get('/mathquiz.html',
 	function(req, res) {
 		console.log('bkatex',performance.now());
 		var rand = Math.floor(Math.random()*100);
+		rand = 5;
 		fs.readFile("static/html/mathquiz/"+rand+".html.gz", 'utf8', function(err, fileData) {
 			if (err){
 				var nlevels = 16;
@@ -837,104 +838,7 @@ app.get('/css/mathquiz.css',
 		});
 	}
 );
-app.get('/css/mathquiztouch.css', 
-	function(req, res) {
-		console.log('getting css from server');
-		fs.readFile("static/css/mathquizcsstouch.css.gz", 'utf8', function(err, fileData) {
-			if (err){
-				var nlevels = 16;
-				var denoms = [1,2,3,4,6];
-				var questions = [];
-				for (var id=1;id<11;id++){
-			
-					for (var level=0;level<nlevels+1;level++){
-						var question = {'id':id,'level':level};
-						questions.push(question);
-					}
-				}
-				var nturns= 16;
-				var halfnturns = 8;
-				var nangles = 16;
-				var angles= [{"points": "184,76 184,-76", "numer": 0, "denom": 1, "needle": "200,0"},{"points": "199,-17 147,-135", "numer": 1, "denom": 6, "needle": "179,-88"},{"points": "173,-99 100,-173", "numer": 1, "denom": 4, "needle": "141,-141"},{"points": "135,-147 17,-199", "numer": 1, "denom": 3, "needle": "88,-179"},{"points": "76,-184 -76,-184", "numer": 1, "denom": 2, "needle": "0,-199"},{"points": "-17,-199 -135,-147", "numer": 2, "denom": 3, "needle": "-88,-179"},{"points": "-99,-173 -173,-100", "numer": 3, "denom": 4, "needle": "-141,-141"},{"points": "-147,-135 -199,-17", "numer": 5, "denom": 6, "needle": "-179,-88"},{"points": "-184,-76 -184,76", "numer": 1, "denom": 1, "needle": "-199,0"},{"points": "-199,17 -147,135", "numer": 7, "denom": 6, "needle": "-179,88"},{"points": "-173,99 -100,173", "numer": 5, "denom": 4, "needle": "-141,141"},{"points": "-135,147 -17,199", "numer": 4, "denom": 3, "needle": "-88,179"},{"points": "-76,184 76,184", "numer": 3, "denom": 2, "needle": "0,199"},{"points": "17,199 135,147", "numer": 5, "denom": 3, "needle": "88,179"},{"points": "99,173 173,100", "numer": 7, "denom": 4, "needle": "141,141"},{"points": "147,135 199,17", "numer": 11, "denom": 6, "needle": "179,88"}]
-				var katexangles = {};
-				for(var angle=0;angle<angles.length;angle++){
-			
-					var d = angles[angle].denom;
-					for (var turn=1;turn<nturns+1;turn++){
-						var n = angles[angle].numer + (turn - halfnturns) * (2*d);
-						var q = katex.renderToString("\\frac{"+n+"\\pi}{"+d+"}", {throwOnError: false});
-						if (n == 0){
-							q = katex.renderToString("0", {throwOnError: false});
-						}
-						else if (d == 1){
-							if (n == 1){
-								q = katex.renderToString("\\pi", {throwOnError: false});
-							}
-							else if (n == -1){
-								q = katex.renderToString("-\\pi", {throwOnError: false});
-							}
-							else {
-								q = katex.renderToString(n+"\\pi", {throwOnError: false});
-							}
-						}
-						else {
-							if (n == 1){
-								q = katex.renderToString("\\frac{\\pi}{"+d+"}", {throwOnError: false});
-							}
-							if (n == -1){
-								q = katex.renderToString("\\frac{-\\pi}{"+d+"}", {throwOnError: false});
-							}
-						}
-						if (katexangles[n]){
-							katexangles[n][d]=q;
-						}
-						else {
-							katexangles[n]= {};
-							katexangles[n][d]=q;
-						}
-				
-					}
-			
-				}
 
-				
-				var cssstr = nunjucks.render('templates/mathquizcsstouch.html',{
-					nlevels: nlevels,
-					questions: questions,
-					type: "trig",
-					nturns:nturns,
-					nangles:nangles,
-					angles:angles,
-					katexangles:katexangles,
-					
-				});
-				fs.writeFile("static/css/mathquizcsstouch.css", cssstr, function(err, fileData) {
-					const gzip = createGzip();
-					const source = createReadStream('static/css/mathquizcsstouch.css');
-					const destination = createWriteStream('static/css/mathquizcsstouch.css.gz');
-
-					pipeline(source, gzip, destination, (err) => {
-					  if (err) {
-						console.error('An error occurred:', err);
-						process.exitCode = 1;
-					  }
-					});
-					
-				});
-				res.writeHead(200, {'Content-Type': 'text/css'});
-				res.write(cssstr);
-				res.end();
-			}
-			else {
-				console.log('found css',performance.now());
-				var raw = fs.createReadStream("static/css/mathquizcsstouch.css.gz");
-				res.writeHead(200, {'Content-Type': 'text/css', 'Content-Encoding': 'gzip'});
-				raw.pipe(res);
-				console.log('sent it',performance.now());
-			}
-		});
-	}
-);
 /*
 app.get('/chart.html', 
 	
