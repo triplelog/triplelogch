@@ -723,6 +723,26 @@ app.get('/sortable.html',
 		
 	}
 );
+app.get('/css/sortablePitchers.css', 
+	console.log('getting css from server');
+	function(req, res) {
+		
+		fs.readFile("/static/css/sortableP.css.gz', 'utf8', function(err, fileData) {
+			if (err){
+				
+			}
+			else {
+				console.log('found css',performance.now());
+				var raw = fs.createReadStream("/static/css/sortableP.css.gz');
+				res.writeHead(200, {'Content-Type': 'text/html', 'Content-Encoding': 'gzip'});
+				raw.pipe(res);
+				console.log('sent it',performance.now());
+			}
+		});
+		
+		
+	}
+);
 function sortContent(a,b,i,p=false) {
 	if (p && i==3){
 		var ai = parseInt(a[i]);
