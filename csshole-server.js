@@ -791,7 +791,7 @@ app.get('/css/sortableBatters.css',
 					});
 					
 				});
-				res.writeHead(200, {'Content-Type': 'text/css', 'Content-Encoding': 'gzip'});
+				res.writeHead(200, {'Content-Type': 'text/css'});
 				res.write(cssstr);
 				res.end();
 			}
