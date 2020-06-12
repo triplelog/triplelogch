@@ -601,96 +601,113 @@ app.get('/sortable.html',
 			}
 			dataset += '.csv';
 		}
-		
-		fs.readFile("static/data/"+dataset, 'utf8', function(err, fileData) {
-			var results = Papa.parse(fileData, {
-				delimiter: ",",
-				skipEmptyLines: true,
-			});
-			var nrows = results.data.length-1;
-			//var nrows = 1000;
-			var header = results.data[0];
-			if (isPitchers){header[14]='<span style="white-space:nowrap"><input type="checkbox" id="footnote" style="display:none;"></input><label for="footnote" id="footnoteLabel">~</label><div id="footnoteDiv">~FIP has the same formula as FIP but uses expected IP instead of actual IP. Expected IP is based on batters faced, balls in play, and strikeouts.</div>FIP</span>';}
-			var ncols = results.data[0].length;
-			var content = results.data.slice(1,nrows+1);
-			content = content.slice().sort(function(a,b) { return sortContent(a,b,3,isPitchers);})
-			var minList = [];
-			for (var i=0;i<content.length;i++){
+		var htmlname = dataset.replace('.csv','.html');
+		fs.readFile("static/html/"+htmlname, 'utf8', function(err, fileData) {
+			if (err){
+				console.log('no file',performance.now());
+				fs.readFile("static/data/"+dataset, 'utf8', function(err, fileData) {
+					var results = Papa.parse(fileData, {
+						delimiter: ",",
+						skipEmptyLines: true,
+					});
+					var nrows = results.data.length-1;
+					//var nrows = 1000;
+					var header = results.data[0];
+					if (isPitchers){header[14]='<span style="white-space:nowrap"><input type="checkbox" id="footnote" style="display:none;"></input><label for="footnote" id="footnoteLabel">~</label><div id="footnoteDiv">~FIP has the same formula as FIP but uses expected IP instead of actual IP. Expected IP is based on batters faced, balls in play, and strikeouts.</div>FIP</span>';}
+					var ncols = results.data[0].length;
+					var content = results.data.slice(1,nrows+1);
+					content = content.slice().sort(function(a,b) { return sortContent(a,b,3,isPitchers);})
+					var minList = [];
+					for (var i=0;i<content.length;i++){
 				
 				
-				if (isPitchers){
-					var IPouts = parseInt(content[i][3]);
-					if (IPouts%3 == 0) { content[i][3] = Math.floor(IPouts/3); }
-					else if (IPouts%3 == 1) { content[i][3] = Math.floor(IPouts/3) + '<span class="frac">&frac13;</span>'; }
-					else if (IPouts%3 == 2) { content[i][3] = Math.floor(IPouts/3) + '<span class="frac">&frac23;</span>'; }
-					var x = Math.floor(IPouts/3);
-					if (x< 10){
-						minList.push('min-100 min-10 min-'+(x+1))
-					}
-					else if (x<100){
-						minList.push('min-100 min-'+(parseInt(x/10)+1)+'0 min-'+(x+1))
-					}
-					else if (x<1000){
-						minList.push('min-'+(parseInt(x/100)+1)+'00 min-'+(parseInt(x/10)+1)+'0 min-'+(x+1))
-					}
-				}
-				else {
-					var x = parseInt(content[i][3]);
-					if (x< 10){
-						minList.push('min-100 min-10 min-'+(x+1))
-					}
-					else if (x<100){
-						minList.push('min-100 min-'+(parseInt(x/10)+1)+'0 min-'+(x+1))
-					}
-					else if (x<1000){
-						minList.push('min-'+(parseInt(x/100)+1)+'00 min-'+(parseInt(x/10)+1)+'0 min-'+(x+1))
-					}
-				}
+						if (isPitchers){
+							var IPouts = parseInt(content[i][3]);
+							if (IPouts%3 == 0) { content[i][3] = Math.floor(IPouts/3); }
+							else if (IPouts%3 == 1) { content[i][3] = Math.floor(IPouts/3) + '<span class="frac">&frac13;</span>'; }
+							else if (IPouts%3 == 2) { content[i][3] = Math.floor(IPouts/3) + '<span class="frac">&frac23;</span>'; }
+							var x = Math.floor(IPouts/3);
+							if (x< 10){
+								minList.push('min-100 min-10 min-'+(x+1))
+							}
+							else if (x<100){
+								minList.push('min-100 min-'+(parseInt(x/10)+1)+'0 min-'+(x+1))
+							}
+							else if (x<1000){
+								minList.push('min-'+(parseInt(x/100)+1)+'00 min-'+(parseInt(x/10)+1)+'0 min-'+(x+1))
+							}
+						}
+						else {
+							var x = parseInt(content[i][3]);
+							if (x< 10){
+								minList.push('min-100 min-10 min-'+(x+1))
+							}
+							else if (x<100){
+								minList.push('min-100 min-'+(parseInt(x/10)+1)+'0 min-'+(x+1))
+							}
+							else if (x<1000){
+								minList.push('min-'+(parseInt(x/100)+1)+'00 min-'+(parseInt(x/10)+1)+'0 min-'+(x+1))
+							}
+						}
 				
-				content[i].push(i);
-			}
+						content[i].push(i);
+					}
 			
 				
-			console.log(performance.now());
-			var showrows = nrows;
-			//sort content
-			var order = [];
-			for (var i=0;i<ncols;i++){
-				var thiscol= [];
-				var sorted = content.slice().sort(function(a,b) { return sortContent(a,b,i,isPitchers);})
-				for (var ii=0;ii<content.length;ii++){
-					for (var iii=0;iii<showrows;iii++){
-						if ( sorted[iii][ncols] == ii){
-							thiscol.push(iii+1);
-							break;
+					console.log(performance.now());
+					var showrows = nrows;
+					//sort content
+					var order = [];
+					for (var i=0;i<ncols;i++){
+						var thiscol= [];
+						var sorted = content.slice().sort(function(a,b) { return sortContent(a,b,i,isPitchers);})
+						for (var ii=0;ii<content.length;ii++){
+							for (var iii=0;iii<showrows;iii++){
+								if ( sorted[iii][ncols] == ii){
+									thiscol.push(iii+1);
+									break;
+								}
+								if ( sorted[content.length-1-iii][ncols] == ii){
+									thiscol.push(content.length-1-iii+1);
+									break;
+								}
+								if (iii==showrows*5-1){ //no match in top x rows
+									thiscol.push(-1);
+								}
+							}
 						}
-						if ( sorted[content.length-1-iii][ncols] == ii){
-							thiscol.push(content.length-1-iii+1);
-							break;
-						}
-						if (iii==showrows*5-1){ //no match in top x rows
-							thiscol.push(-1);
-						}
+						order.push(thiscol);
 					}
-				}
-				order.push(thiscol);
-			}
 			
-			console.log(performance.now());
-			res.write(nunjucks.render('templates/sortable.html',{
-				title: "Sortable Table",
-				ncols: ncols,
-				nrows: nrows,
-				order: order,
-				content: content,
-				header: header,
-				minList: minList,
-				widecols: widecols,
-				minstat: minstat,
-			}));
-			console.log(performance.now());
-			res.end();
-		});
+					console.log('ordered it',performance.now());
+					var htmlstr = nunjucks.render('templates/sortable.html',{
+						title: "Sortable Table",
+						ncols: ncols,
+						nrows: nrows,
+						order: order,
+						content: content,
+						header: header,
+						minList: minList,
+						widecols: widecols,
+						minstat: minstat,
+					});
+					console.log('rendered it',performance.now());
+					fs.writeFile("static/html/"+htmlname, htmlstr, function(err, fileData) {
+						console.log('wrote it',performance.now());
+					});
+					res.write(htmlstr);
+					console.log('sent it',performance.now());
+					res.end();
+				});
+			}
+			else {
+				console.log('found it',performance.now());
+				
+				res.write(fileData);
+				console.log('sent it',performance.now());
+				res.end();
+			}
+		}
 		
 		
 	}
