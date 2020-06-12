@@ -1,7 +1,7 @@
 
 const https = require('https');
 var fs = require("fs");
-
+const zlib = require('zlib');
 var qs = require('querystring');
 const { exec } = require('child_process');
 const bodyParser = require('body-parser');
@@ -703,10 +703,13 @@ app.get('/sortable.html',
 			}
 			else {
 				console.log('found it',performance.now());
-				
-				res.write(fileData);
-				console.log('sent it',performance.now());
-				res.end();
+				res.writeHead(200, {'Content-Type': 'text/html', 'Content-Encoding': 'gzip'});
+
+				const buf = new Buffer(fileData, 'utf-8');   // Choose encoding for the string.
+				zlib.gzip(buf, function (_, result) {  // The callback will give you the 
+					console.log('sent it',performance.now());
+					res.end(result);                     // result, so just send it.
+				});
 			}
 		});
 		
@@ -743,6 +746,15 @@ function sortContent(a,b,i,p=false) {
 const server1 = https.createServer(options, app);
 
 server1.listen(1337);
+
+
+const { createGzip } = require('zlib');
+const { pipeline } = require('stream');
+const {
+  createReadStream,
+  createWriteStream
+} = require('fs');
+
 var widecols = [3,13,14,15,16,17];
 var ncols = 18;
 var cssstr = nunjucks.render('templates/sortablecss.html',{
@@ -750,6 +762,19 @@ var cssstr = nunjucks.render('templates/sortablecss.html',{
 	widecols: widecols,
 });
 fs.writeFile("static/css/sortableP.css", cssstr, function(err, fileData) {
-	console.log('wrote css',performance.now(), err);
+	const gzip = createGzip();
+	const source = createReadStream('static/css/sortableP.css');
+	const destination = createWriteStream('static/css/sortableP.css.gz');
+
+	pipeline(source, gzip, destination, (err) => {
+	  if (err) {
+		console.error('An error occurred:', err);
+		process.exitCode = 1;
+	  }
+	});
 });
+
+
+
+
 
