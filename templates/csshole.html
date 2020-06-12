@@ -74,7 +74,7 @@ div:Not(.content-22) > .content {
 div:Not(.content-22) > .title a{
 	font-size: 1.75rem;
 }
-.logoDiv img {
+.logoDiv picture {
 	width:12rem;
 	left:-1.5rem;
 	position:absolute;
@@ -101,7 +101,7 @@ div:Not(.content-22) > .title a{
 		--height-center: 7rem;
 		--width-center: 7rem;
 	}
-	.logoDiv img {
+	.logoDiv picture {
 		width:10rem;
 		left:-1.5rem;
 	}
@@ -120,7 +120,7 @@ div:Not(.content-22) > .title a{
 		--height-center: 5rem;
 		--width-center: 5rem;
 	}
-	.logoDiv img {
+	.logoDiv picture {
 		width:8rem;
 		left:-1.5rem;
 	}
@@ -145,7 +145,7 @@ div:Not(.content-22) > .title a{
 		--height-center: 9rem;
 		--width-center: 9rem;
 	}
-	.logoDiv img {
+	.logoDiv picture {
 		width:12rem;
 		left:-3.5rem;
 	}
@@ -290,7 +290,11 @@ Sortable stats for each MLB season since 1871.
 
 {% block content22 %}
 	<div class="logoDiv">
-		<img src="../chlogo.png">
+		<picture>
+		  <source srcset="../chlogosmall.webp" type="image/webp">
+		  <source srcset="../chlogosmall.png" type="image/png"> 
+		  <img src="../chlogosmall.png" alt="Logo">
+		</picture>
 		<span class="logoText">CSShole</span>	
 	</div>
 {% endblock %}
