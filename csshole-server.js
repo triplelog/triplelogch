@@ -602,6 +602,7 @@ app.get('/sortable.html',
 			dataset += '.csv';
 		}
 		var htmlname = dataset.replace('.csv','.html');
+		console.log(htmlname);
 		fs.readFile("static/html/"+htmlname, 'utf8', function(err, fileData) {
 			if (err){
 				console.log('no file',performance.now());
@@ -693,7 +694,7 @@ app.get('/sortable.html',
 					});
 					console.log('rendered it',performance.now());
 					fs.writeFile("static/html/"+htmlname, htmlstr, function(err, fileData) {
-						console.log('wrote it',performance.now());
+						console.log('wrote it',performance.now(), err);
 					});
 					res.write(htmlstr);
 					console.log('sent it',performance.now());
