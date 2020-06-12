@@ -2,6 +2,12 @@
 const https = require('https');
 var fs = require("fs");
 const zlib = require('zlib');
+const { createGzip } = require('zlib');
+const { pipeline } = require('stream');
+const {
+  createReadStream,
+  createWriteStream
+} = require('fs');
 var qs = require('querystring');
 const { exec } = require('child_process');
 const bodyParser = require('body-parser');
@@ -689,7 +695,7 @@ app.get('/sortable.html',
 						content: content,
 						header: header,
 						minList: minList,
-						widecols: widecols,
+						isPitchers: isPitchers,
 						minstat: minstat,
 					});
 					console.log('rendered it',performance.now());
@@ -724,12 +730,32 @@ app.get('/sortable.html',
 	}
 );
 app.get('/css/sortablePitchers.css', 
-	
 	function(req, res) {
 		console.log('getting css from server');
 		fs.readFile("static/css/sortableP.css.gz", 'utf8', function(err, fileData) {
 			if (err){
-				console.log('err',performance.now());
+				var widecols = [3,13,14,15,16,17];
+				var ncols = 18;
+				var cssstr = nunjucks.render('templates/sortablecss.html',{
+					ncols: ncols,
+					widecols: widecols,
+				});
+				fs.writeFile("static/css/sortableP.css", cssstr, function(err, fileData) {
+					const gzip = createGzip();
+					const source = createReadStream('static/css/sortableP.css');
+					const destination = createWriteStream('static/css/sortableP.css.gz');
+
+					pipeline(source, gzip, destination, (err) => {
+					  if (err) {
+						console.error('An error occurred:', err);
+						process.exitCode = 1;
+					  }
+					});
+					
+				});
+				res.writeHead(200, {'Content-Type': 'text/css', 'Content-Encoding': 'gzip'});
+				res.write(cssstr);
+				res.end();
 			}
 			else {
 				console.log('found css',performance.now());
@@ -739,8 +765,44 @@ app.get('/css/sortablePitchers.css',
 				console.log('sent it',performance.now());
 			}
 		});
-		
-		
+	}
+);
+app.get('/css/sortableBatters.css', 
+	function(req, res) {
+		console.log('getting css from server');
+		fs.readFile("static/css/sortableB.css.gz", 'utf8', function(err, fileData) {
+			if (err){
+				var widecols = [13,14,15,16,17,18];
+				var ncols = 19;
+				var cssstr = nunjucks.render('templates/sortablecss.html',{
+					ncols: ncols,
+					widecols: widecols,
+				});
+				fs.writeFile("static/css/sortableB.css", cssstr, function(err, fileData) {
+					const gzip = createGzip();
+					const source = createReadStream('static/css/sortableB.css');
+					const destination = createWriteStream('static/css/sortableB.css.gz');
+
+					pipeline(source, gzip, destination, (err) => {
+					  if (err) {
+						console.error('An error occurred:', err);
+						process.exitCode = 1;
+					  }
+					});
+					
+				});
+				res.writeHead(200, {'Content-Type': 'text/css', 'Content-Encoding': 'gzip'});
+				res.write(cssstr);
+				res.end();
+			}
+			else {
+				console.log('found css',performance.now());
+				var raw = fs.createReadStream("static/css/sortableB.css.gz");
+				res.writeHead(200, {'Content-Type': 'text/css', 'Content-Encoding': 'gzip'});
+				raw.pipe(res);
+				console.log('sent it',performance.now());
+			}
+		});
 	}
 );
 function sortContent(a,b,i,p=false) {
@@ -775,31 +837,9 @@ const server1 = https.createServer(options, app);
 server1.listen(1337);
 
 
-const { createGzip } = require('zlib');
-const { pipeline } = require('stream');
-const {
-  createReadStream,
-  createWriteStream
-} = require('fs');
 
-var widecols = [3,13,14,15,16,17];
-var ncols = 18;
-var cssstr = nunjucks.render('templates/sortablecss.html',{
-	ncols: ncols,
-	widecols: widecols,
-});
-fs.writeFile("static/css/sortableP.css", cssstr, function(err, fileData) {
-	const gzip = createGzip();
-	const source = createReadStream('static/css/sortableP.css');
-	const destination = createWriteStream('static/css/sortableP.css.gz');
 
-	pipeline(source, gzip, destination, (err) => {
-	  if (err) {
-		console.error('An error occurred:', err);
-		process.exitCode = 1;
-	  }
-	});
-});
+
 
 
 

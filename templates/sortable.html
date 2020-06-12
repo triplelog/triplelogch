@@ -1,7 +1,11 @@
 
 {% extends "templates/base.html" %}
 {% block stylesheets %}
+{% if isPitchers %}
 <link rel="stylesheet" href="../css/sortablePitchers.css">
+{% else %}
+<link rel="stylesheet" href="../css/sortableBatters.css">
+{% endif %}
 {% endblock %}
 
 {% block borderRadius %}
