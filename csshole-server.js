@@ -78,16 +78,18 @@ for (var ii=0;ii<5;ii++ ){
 			else {
 				puzzles[puzzleTypes[ii]].push(line);
 				var puzz = makePuzzle(line);
+				var gametype = puzzleTypes[ii];
+				var id = puzzles[puzzleTypes[ii]].length-1;
 				var htmlstr = nunjucks.render('templates/sudokubase.html',{
 					puzzle: puzz,
 					gametype: puzzleTypes[ii],
-					gameid: i,
+					gameid: id,
 				});
-				fs.writeFile("static/html/sudoku/"+puzzleTypes[ii]+"/"+i+".html", htmlstr, function(err, fileData) {
+				fs.writeFile("static/html/sudoku/"+gametype+"/"+id+".html", htmlstr, function(err, fileData) {
 					console.log('wrote it',performance.now(), err);
 					const gzip = createGzip();
-					const source = createReadStream("static/html/sudoku/"+puzzleTypes[ii]+"/"+i+".html");
-					const destination = createWriteStream("static/html/sudoku/"+puzzleTypes[ii]+"/"+i+".html.gz");
+					const source = createReadStream("static/html/sudoku/"+gametype+"/"+id+".html");
+					const destination = createWriteStream("static/html/sudoku/"+gametype+"/"+id+".html.gz");
 
 					pipeline(source, gzip, destination, (err) => {
 					  if (err) {
