@@ -298,7 +298,7 @@ app.get('/mathquiz.html',
 	function(req, res) {
 		console.log('bkatex',performance.now());
 		
-		fs.readFile("static/html/mathquiz.html.gz', 'utf8', function(err, fileData) {
+		fs.readFile("static/html/mathquiz.html.gz", 'utf8', function(err, fileData) {
 			if (err){
 				var nlevels = 16;
 				var denoms = [1,2,3,4,6];
