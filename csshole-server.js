@@ -727,7 +727,7 @@ app.get('/css/sortablePitchers.css',
 	
 	function(req, res) {
 		console.log('getting css from server');
-		fs.readFile("/static/css/sortableP.css.gz', 'utf8', function(err, fileData) {
+		fs.readFile("/static/css/sortableP.css.gz", 'utf8', function(err, fileData) {
 			if (err){
 				
 			}
