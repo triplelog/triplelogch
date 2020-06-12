@@ -86,7 +86,7 @@ for (var ii=0;ii<5;ii++ ){
 					gameid: id,
 				});
 				fs.writeFile("static/html/sudoku/"+gametype+"/"+id+".html", htmlstr, function(err, fileData) {
-					console.log('wrote it',performance.now(), err);
+					
 					const gzip = createGzip();
 					const source = createReadStream("static/html/sudoku/"+gametype+"/"+id+".html");
 					const destination = createWriteStream("static/html/sudoku/"+gametype+"/"+id+".html.gz");
@@ -145,8 +145,11 @@ app.get('/sudoku.html',
 					res.redirect('../sudoku.html?l=easy81');
 					return;
 				}
-				var puzzleRaw = puzzles[gametype][gameid];
-				puzzle = makePuzzle(puzzleRaw);
+				console.log('found it',performance.now());
+				var raw = fs.createReadStream("static/html/sudoku/easy/"+gameid+".html.gz");
+				res.writeHead(200, {'Content-Type': 'text/html', 'Content-Encoding': 'gzip'});
+				raw.pipe(res);
+				console.log('sent it',performance.now());
 			}
 			else if (req.query.l.substring(0,6) == 'medium'){
 				gametype = 'medium';
@@ -159,8 +162,11 @@ app.get('/sudoku.html',
 					res.redirect('../sudoku.html?l=medium81');
 					return;
 				}
-				var puzzleRaw = puzzles[gametype][gameid];
-				puzzle = makePuzzle(puzzleRaw);
+				console.log('found it',performance.now());
+				var raw = fs.createReadStream("static/html/sudoku/medium/"+gameid+".html.gz");
+				res.writeHead(200, {'Content-Type': 'text/html', 'Content-Encoding': 'gzip'});
+				raw.pipe(res);
+				console.log('sent it',performance.now());
 			}
 			else if (req.query.l.substring(0,4) == 'hard'){
 				gametype = 'hard';
@@ -173,8 +179,11 @@ app.get('/sudoku.html',
 					res.redirect('../sudoku.html?l=hard81');
 					return;
 				}
-				var puzzleRaw = puzzles[gametype][gameid];
-				puzzle = makePuzzle(puzzleRaw);
+				console.log('found it',performance.now());
+				var raw = fs.createReadStream("static/html/sudoku/hard/"+gameid+".html.gz");
+				res.writeHead(200, {'Content-Type': 'text/html', 'Content-Encoding': 'gzip'});
+				raw.pipe(res);
+				console.log('sent it',performance.now());
 			}
 			else if (req.query.l.substring(0,6) == 'expert'){
 				gametype = 'expert';
@@ -187,8 +196,11 @@ app.get('/sudoku.html',
 					res.redirect('../sudoku.html?l=expert81');
 					return;
 				}
-				var puzzleRaw = puzzles[gametype][gameid];
-				puzzle = makePuzzle(puzzleRaw);
+				console.log('found it',performance.now());
+				var raw = fs.createReadStream("static/html/sudoku/expert/"+gameid+".html.gz");
+				res.writeHead(200, {'Content-Type': 'text/html', 'Content-Encoding': 'gzip'});
+				raw.pipe(res);
+				console.log('sent it',performance.now());
 			}
 		}
 		else if (req.query && req.query.d){
@@ -219,10 +231,24 @@ app.get('/sudoku.html',
 				year = d.getYear()+1900;
 				gameid = month+'/'+date+'/'+year;
 			}
+			res.write(nunjucks.render('templates/sudokubase.html',{
+				puzzle: puzzle,
+				gametype: gametype,
+				gameid: gameid,
+			}));
+			console.log('sudoku rendered',performance.now());
+			res.end();
 		}
 		else if (req.query && req.query.p){
 			var puzzleRaw = req.query.p;
 			puzzle = makePuzzle(puzzleRaw);
+			res.write(nunjucks.render('templates/sudokubase.html',{
+				puzzle: puzzle,
+				gametype: gametype,
+				gameid: gameid,
+			}));
+			console.log('sudoku rendered',performance.now());
+			res.end();
 		}
 		else {
 			gametype = 'daily';
@@ -237,14 +263,15 @@ app.get('/sudoku.html',
 			date = d.getDate();
 			year = d.getYear()+1900;
 			gameid = month+'/'+date+'/'+year;
+			res.write(nunjucks.render('templates/sudokubase.html',{
+				puzzle: puzzle,
+				gametype: gametype,
+				gameid: gameid,
+			}));
+			console.log('sudoku rendered',performance.now());
+			res.end();
 		}
-		res.write(nunjucks.render('templates/sudokubase.html',{
-			puzzle: puzzle,
-			gametype: gametype,
-			gameid: gameid,
-		}));
-		console.log('sudoku rendered',performance.now());
-		res.end();
+		
 	}
 );
 app.get('/css/sudoku.css', 
