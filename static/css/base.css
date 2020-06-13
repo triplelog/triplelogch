@@ -1,7 +1,7 @@
 div.container {
 	display: grid;
 	--height-container: calc(100vh - 3rem);
-	--width-container: calc(100vw - 3rem);
+	--width-container: calc(100vw - 2rem);
 	height: var(--height-container);
 	width: var(--width-container);
 	max-width: 60rem;
@@ -468,9 +468,8 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 	div.container {
 		max-height:100%;
 		max-width:100%;
-		width: unset;
-		height: unset;
-		max-width: 60rem;
+		width: auto;
+		height: auto;
 		margin: .25rem auto;
 		overflow-y: auto;
 		grid-template-columns: 1fr;
