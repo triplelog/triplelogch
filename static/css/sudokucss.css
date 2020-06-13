@@ -1,5 +1,5 @@
 :root {
-	--width-block: 20px;
+	--width-block: 19px;
     --shift-cover-puzzle: calc(-40px - var(--width-block)*9); 
     --left-margin: 0px;
     --color-bg1: rgba(180,180,180,.75);
