@@ -463,7 +463,7 @@ app.get('/mathquiz.html',
 	function(req, res) {
 		console.log('bkatex',performance.now());
 		var rand = Math.floor(Math.random()*100);
-		rand = 5;
+		rand = 7;
 		fs.readFile("static/html/mathquiz/"+rand+".html.gz", 'utf8', function(err, fileData) {
 			if (err){
 				var nlevels = 16;
