@@ -466,9 +466,7 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 
 @media screen and (max-width: 600px) {
 	div.container {
-		--height-container: calc(100vh - 2rem);
 		--width-container: calc(100vw - 2rem);
-		height: var(--height-container);
 		width: var(--width-container);
 		max-width: 60rem;
 		margin: .25rem auto;
@@ -564,5 +562,8 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 	}
 	.title label i {
 		font-size: .8rem;
+	}
+	body {
+		overflow: auto;
 	}
 }
