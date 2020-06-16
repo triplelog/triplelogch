@@ -208,40 +208,16 @@ div.container div .title .titleRight label{
 	grid-column:  1 / 4;
 	z-index: 3;
 }
-/*
-.content-11:hover ~ .content-22 {
-	transition: all 1s ease-in;
-	transform: rotate(180deg);
-}
-.content-13:hover ~ .content-22 {
-	transition: all 1s ease-in;
-	transform: rotate(270deg);
-}
-.content-31:hover ~ .content-22 {
-	transition: all 1s ease-in;
-	transform: rotate(90deg);
-}
-.content-12:hover ~ .content-22 {
-	transition: all 1s ease-in;
-	transform: rotate(225deg);
-}
-.content-21:hover ~ .content-22 {
-	transition: all 1s ease-in;
-	transform: rotate(135deg);
-}
-.content-23:hover ~ .content-22 {
-	transition: all 1s ease-in;
-	transform: rotate(315deg);
-}
-.content-32:hover ~ .content-22 {
-	transition: all 1s ease-in;
-	transform: rotate(45deg);
-}
-.content-33:hover ~ .content-22 {
-	transition: all 1s ease-in;
-	transform: rotate(0deg);
-}*/
 
+
+div:Not(.content-22) > .content {
+	overflow-y: auto;
+	overflow-x: auto;
+	overflow: auto;
+	height: calc(100% - 2 * var(--border-radius));
+	padding: calc(.5 * var(--border-radius));
+	text-align: center;
+}
 
 .content-12 { 
   grid-row:  1;
@@ -321,17 +297,17 @@ div:Not(.content-22) > .content {
 	height: calc(100% - 3 * var(--border-radius));
 }
 
-
 .logoDiv {
 	position: relative;
-	left:-5rem;
-	top: .75rem;
+	left:0rem;
+	top: 0rem;
 }
 .centerLink {
 	text-align: center;
 	position: relative;
-	top: 2rem;
+	top: 1rem;
 }
+
 
 
 
