@@ -128,10 +128,9 @@ div:Not(.content-22) > .title a{
 	}
 }
 @media screen and (max-width: 719px) {
-	div.container {
-		--border-radius: 1rem;
-		--height-center: 5rem;
-		--width-center: 5rem;
+
+	.logoDiv {
+		margin:auto;
 	}
 	.logoDiv img {
 		width:6rem;
@@ -153,17 +152,20 @@ div:Not(.content-22) > .title a{
 	div.container .titleRight i {
 		top: 0rem;
 	}
+	.centerLinks {
+		display: none;
+		
+	}
+	.content-22 .content {
+		text-align: center;
+	}
 }
 @media screen and (max-width: 599px) {
-	div.container {
-		--border-radius: 1rem;
-		--height-center: 9rem;
-		--width-center: 9rem;
-	}
+	
 	.logoDiv {
 		height: 8rem;
 		width: 12rem;
-		text-align: center;
+		
 	}
 	div.logoDiv img {
 		width:8rem;
@@ -182,13 +184,8 @@ div:Not(.content-22) > .title a{
 	div:Not(.content-22) > .content {
 		font-size: 1rem;
 	}
-	.centerLinks {
-		display: none;
-		
-	}
-	.content-22 .content {
-		text-align: center;
-	}
+	
+	
 }
 {% endblock %}
 

@@ -571,6 +571,7 @@ div.container {
 }
 @media screen and (max-width: 599px) {
 	div.container {
+		--border-radius: 1rem;
 		--height-container: calc(100vh - 2rem);
 		--width-container: calc(100vw - 2rem);
 		height: unset;
