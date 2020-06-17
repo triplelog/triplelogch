@@ -8,10 +8,7 @@
 	/*border: 1px solid black;*/
 {% endblock %}
 	
-{% block centerSize %}
-	--height-center: calc(86px + var(--width-block)*13); 
-	--width-center: calc(40px + var(--width-block)*9);
-{% endblock %}
+
 
 {% block titleCSS %}
 
@@ -24,7 +21,10 @@
 {% endblock %}
 
 {% block moreCSS %}
-
+div.container {
+	--height-center: calc(86px + var(--width-block)*13); 
+	--width-center: calc(40px + var(--width-block)*9);
+}
 .title:hover .titleBG {
   	background-position: 350px 0px;
   	transition: all 2s linear;

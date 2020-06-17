@@ -11,14 +11,7 @@
 	/*border: 1px solid black;*/
 {% endblock %}
 	
-{% block centerSize %}
-	--height-center: 20rem;
-	--width-center: calc(28rem);
-	--knob-width: 13rem;
-	--knob-height: var(--knob-width);
-	--knob-margin: .5rem;
-	--height-container:30rem;
-{% endblock %}
+
 
 {% block titleCSS %}
 
@@ -32,7 +25,14 @@
 {% endblock %}
 
 {% block moreCSS %}
-
+div.container {
+	--height-center: 20rem;
+	--width-center: calc(28rem);
+	--knob-width: 13rem;
+	--knob-height: var(--knob-width);
+	--knob-margin: .5rem;
+	--height-container:30rem;
+}
 
 @media screen and (max-width: 600px) {
 	div.knob {

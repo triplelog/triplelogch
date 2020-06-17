@@ -12,10 +12,7 @@
 	--border-radius: 1rem;
 {% endblock %}
 
-{% block centerSize %}
-	--height-center: 35rem;
-	--width-center: 45rem;
-{% endblock %}
+
 
 {% block titleCSS %}
 
@@ -25,7 +22,10 @@
 
 
 {% block moreCSS %}
-
+div.container {
+	--height-center: 35rem;
+	--width-center: 45rem;
+}
 
 
 {% for i in range(1,ncols+1) %}

@@ -8,10 +8,7 @@
 	/*border: 1px solid black;*/
 {% endblock %}
 	
-{% block centerSize %}
-	--height-center: calc(var(--width-block) * 14);
-	--width-center: calc(40px + var(--width-block)*9);
-{% endblock %}
+
 
 {% block titleCSS %}
 
@@ -24,6 +21,10 @@
 {% endblock %}
 
 {% block moreCSS %}
+div.container {
+	--height-center: calc(var(--width-block) * 14);
+	--width-center: calc(40px + var(--width-block)*9);
+}
 .title a {
 	text-decoration: none;
 	color: white;
