@@ -106,7 +106,7 @@ div:Not(.content-22) > .title a{
 	padding: .3rem .5rem;
 }
 
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 959px) {
 	div.container {
 		--border-radius: 1rem;
 		--height-center: 6rem;
@@ -127,7 +127,7 @@ div:Not(.content-22) > .title a{
 		font-size: 1.2rem;
 	}
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 719px) {
 	div.container {
 		--border-radius: 1rem;
 		--height-center: 5rem;
@@ -154,7 +154,7 @@ div:Not(.content-22) > .title a{
 		top: 0rem;
 	}
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599px) {
 	div.container {
 		--border-radius: 1rem;
 		--height-center: 9rem;
@@ -183,9 +183,7 @@ div:Not(.content-22) > .title a{
 		font-size: 1rem;
 	}
 	.centerLinks {
-		display: inline-block;
-		position: relative;
-		float: right;
+		display: none;
 		
 	}
 	.content-22 .content {
@@ -299,7 +297,12 @@ Experiment with images and color using <a href="https://qblur.com">QbluR</a>. Ea
 
 {% endblock %}
 
+{% block footer %}
+	<button class="basic" onclick="window.location.href='../about';">About</button>
+	<button class="basic" onclick="window.location.href='../privay';">Privacy Policy</button>
+	<button class="basic" onclick="window.location.href='../terms';">Terms</button>
 
+{% endblock %}
 
 
 
