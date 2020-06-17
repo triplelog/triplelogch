@@ -83,18 +83,23 @@ div.container {
 @media screen and (max-width: 719px) {
 	.content-33 {
 		grid-row: 2;
-		grid-column: 2;
+		grid-column: 1;
 	}
 	.content-22 {
 		grid-row: 1;
-		grid-column: 2;
+		grid-column: 1;
 	}
 	div.container {
 		--width-container: calc(100vw - .5rem);
+		--width-center: 0rem;
 		grid-template-rows: var(--height-center) 1fr auto;
-		grid-template-columns: 1fr var(--width-center) 1fr;
+		grid-template-columns: 1fr;
 		width: var(--width-container);
+		overflow: hidden;
 	}
+	:root { 
+   	 --left-margin: calc(50vw - ( var(--width-block)*4.5 + 40px ) ); 
+   	}
 }
 @media screen and (max-width: 599px) {
 	div.container {
