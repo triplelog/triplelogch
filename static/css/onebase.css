@@ -297,6 +297,7 @@ div:Not(.content-22) > .content {
 	position: relative;
 	left:0rem;
 	top: 0rem;
+	height: var(--height-center);
 }
 .centerLink {
 	text-align: center;
@@ -445,6 +446,19 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 #footer {
 	display: none;
 }
+body {
+	overflow-x: hidden;
+}
+div.container {
+	--height-center: 9rem;
+	--width-center: 9rem;
+}
+@media screen and (max-width: 959px) {
+	div.container {
+		--height-center: 7rem;
+		--width-center: 7rem;
+	}
+}
 @media screen and (max-width: 719px) {
 	div.container {
 		--height-container: calc(100vh - 2rem);
@@ -457,6 +471,7 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: var(--height-center) 15rem 15rem auto;
 		grid-row-gap: .5rem;
+		grid-column-gap: .5rem;
 	}
 	.content-11 {
 		grid-row:  2;
@@ -543,21 +558,15 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 		top:0rem;
 		position:relative;
 	}
-	.logoDiv {
-		position: relative;
-		left:0rem;
-		top:0rem;
-	}
-	.centerLink {
-		text-align: center;
-		position: relative;
-		top: .5rem;
-	}
+
 	.title label i {
 		font-size: .8rem;
 	}
 	#footer {
 		display: block;
+	}
+	body {
+		overflow-x: auto;
 	}
 }
 @media screen and (max-width: 599px) {
@@ -658,16 +667,7 @@ input.footnote:Not(:checked) + * + div.footnoteDiv {
 		top:0rem;
 		position:relative;
 	}
-	.logoDiv {
-		position: relative;
-		left:0rem;
-		top:0rem;
-	}
-	.centerLink {
-		text-align: center;
-		position: relative;
-		top: .5rem;
-	}
+
 	.title label i {
 		font-size: .8rem;
 	}
