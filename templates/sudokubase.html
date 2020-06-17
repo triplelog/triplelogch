@@ -80,7 +80,19 @@ div.container {
 	grid-template-rows: 0px var(--height-center) calc((var(--height-container) - var(--height-center)));
 
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 719px) {
+	.content-33 {
+		grid-row: 2;
+		grid-column: 1;
+	}
+	div.container {
+		--width-container: calc(100vw - .5rem);
+		grid-template-rows: var(--height-center) 1fr auto;
+		grid-template-columns: 1fr;
+		width: var(--width-container);
+	}
+}
+@media screen and (max-width: 599px) {
 	div.container {
 		--width-container: calc(100vw - .5rem);
 		--width-center: 0rem;
