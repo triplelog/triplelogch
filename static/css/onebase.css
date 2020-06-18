@@ -5,7 +5,7 @@ div.container {
 	height: var(--height-container);
 	width: var(--width-container);
 	max-width: 60rem;
-	margin: 1rem auto;
+	margin: auto;
 	grid-template-columns: 1fr var(--width-center) 1fr;
   	grid-template-rows: calc((var(--height-container) - var(--height-center)) / 2) var(--height-center) calc((var(--height-container) - var(--height-center)) / 2);
 }
@@ -466,7 +466,7 @@ div.container {
 		height: unset;
 		width: var(--width-container);
 		max-width: 60rem;
-		margin: .25rem auto;
+		margin: auto;
 		overflow-y: visible;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: var(--height-center) 15rem 15rem auto;
@@ -577,7 +577,7 @@ div.container {
 		height: unset;
 		width: var(--width-container);
 		max-width: 60rem;
-		margin: .25rem auto;
+		margin: auto;
 		overflow-y: visible;
 		grid-template-columns: 1fr;
 		grid-template-rows: var(--height-center) 13rem 13rem 13rem 13rem auto;
