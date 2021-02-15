@@ -17,19 +17,19 @@
 
 <style>
 
-body {
-	--skewX: -0.785;
+
+.container {
+	
 	--block: 1rem;
 	--container-width: 60rem;
 	--container-height: 60rem;
 	
+	--skewX: -0.785;
 	--angle: var(--skewX);
-  --tan1: calc(var(--angle) * var(--angle) * var(--angle) / 3);
-  --tan2: calc(2 * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) / 15);
-  --tan3: calc(17 * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) / 315);
-  --tan: calc(var(--angle) + var(--tan1) + var(--tan2) + var(--tan3));
-}
-.container {
+  	--tan1: calc(var(--angle) * var(--angle) * var(--angle) / 3);
+  	--tan2: calc(2 * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) / 15);
+  	--tan3: calc(17 * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) / 315);
+  	--tan: calc(var(--angle) + var(--tan1) + var(--tan2) + var(--tan3));
 	overflow: hidden;
 	display: inline-block;
 	width: var(--container-width);
@@ -40,7 +40,14 @@ body {
 	transform: skewY(.52359877rad) skewX(calc( 1rad * var(--skewX)));
 	position: absolute;
 }
-
+.zoom[value=zoom1]:checked ~ .container {
+	
+	--block: 2rem;
+	--container-width: 120rem;
+	--container-height: 120rem;
+	
+	
+}
 .bigGrid {
 	display: inline-block;
 	width: 80%;
@@ -347,7 +354,8 @@ body {
 
 </head>
 <body>
-
+<input type="radio" name="zoom" id="zoom0" checked />
+<input type="radio" name="zoom" id="zoom1" />
 <div class="container">
 	<input type="radio" name="zone" id="zone0" checked />
 	<input type="radio" name="zone" id="zone1" />
