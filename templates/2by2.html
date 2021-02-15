@@ -92,7 +92,14 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 	height: calc(100% - 2px);
 }
 
-.pond {
+
+.cellPond {
+	width: 100%;
+	display: inline-block;
+	overflow: visible;
+	flex-grow: 1;
+}
+.cellPond > div {
 	width: 90%;
 	height: 90%;
 	left: 5%;
@@ -481,7 +488,8 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 				</div>
 			</div>
 		</div>
-		<div class="pond" style="z-index:7;">
+		<div class="cellPond" style="z-index:7;">
+			<div></div>
 		</div>
 	</div>
 </div>
