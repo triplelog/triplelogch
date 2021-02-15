@@ -109,7 +109,7 @@ body {
 	display: flex;
 	flex-flow: column wrap;
 	overflow: visible;
-	height: calc(100% - 1.5rem);
+	height: calc(100% - var(--block));
 	width: 100%;
 	background: white;
 }
@@ -124,7 +124,7 @@ body {
 	overflow: visible;
 	transform: rotate(180deg);
 	position: relative;
-	max-width: calc(100% - 2rem);
+	max-width: calc(100% - var(--block) - 1rem);
 	
 }
 .horizontalGrow {
