@@ -1,5 +1,7 @@
 {% extends "templates/4by4.html" %}
 {% macro sfh(angle) %}
+<div class="zoneCell" style="transform: rotate({{ angle }}deg)">
+</div>
 <div class="isoCell" style="transform: rotate({{ angle }}deg)">
 	<div class="notBottom">
 		<div class="cellTop" style="z-index:5; margin-right: 200px;">
