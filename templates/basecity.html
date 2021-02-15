@@ -20,6 +20,8 @@
 body {
 	--skewX: -0.785;
 	--block: 1.5rem;
+	--container-width: 30rem;
+	--container-height: 30rem;
 	
 	--angle: var(--skewX);
   --tan1: calc(var(--angle) * var(--angle) * var(--angle) / 3);
@@ -30,8 +32,8 @@ body {
 .container {
 	overflow: hidden;
 	display: inline-block;
-	width: 500px;
-	height: 500px;
+	width: var(--container-width);
+	height: var(--container-height);
 	border: 1px solid black;
 	left: 300px;
 	top: 100px;
