@@ -156,16 +156,16 @@ body {
 	
 }
 .horizontalGrow.grow8 {
-	width: calc(var(--container-width) * 8 / 10 / 2);
+	width: calc(var(--container-width) * 8 / 10 / 2 - var(--block) / 2);
 }
 .verticalGrow.grow8 {
-	height: calc(16 * var(--block));
+	height: calc(var(--container-height) * 8 / 10 / 2 - var(--block) / 2);
 }
 .horizontalGrow.grow4 {
 	width: calc(8 * var(--block));
 }
 .verticalGrow.grow4 {
-	height: calc(8 * var(--block));
+	height: calc(var(--container-height) * 8 / 10 / 4 - var(--block) * 3 / 4);
 }
 
 .cellTop {
