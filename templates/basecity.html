@@ -194,7 +194,7 @@ body {
 	position: absolute;
 	overflow: visible;
 }
-.cellBottom > div {
+.cellBottom > div:Not(.spacer) {
 	width: var(--block);
 	height: var(--block);
 	border: 1px solid black;
@@ -203,6 +203,16 @@ body {
 	background: blue;
 	vertical-align: top;
 	position: relative;
+}
+.cellBottom > div.spacer {
+	height: var(--block);
+	border: 1px solid black;
+	display: inline-block;
+	margin-bottom:10000px;
+	background: black;
+	vertical-align: top;
+	position: relative;
+	flex-grow: 1;
 }
 
 .leftWall {
