@@ -10,10 +10,10 @@
 	font-size: .4rem;
 	line-height: .5rem;
 }
-input[name=height][value="1"]:checked ~ .notBottom {
+input.heightButton[value="1"]:checked ~ .notBottom {
 	--h: 200%;
 }
-input[name=height][value="0"]:checked ~ .notBottom {
+input.heightButton[value="0"]:checked ~ .notBottom {
 	--h: 100%;
 }
 .apartmentCell .corner {
@@ -399,8 +399,8 @@ input[name=height][value="0"]:checked ~ .notBottom {
 <div class="zoneCell" style="transform: rotate({{ angle }}deg)">
 </div>
 <div class="isoCell apartmentCell" style="transform: rotate({{ angle }}deg)">
-	<input type="radio" id="height0-{{ id }}" name="height-{{ id }}" value="0" style="display: none;" checked />
-	<input type="radio" id="height1-{{ id }}" name="height-{{ id }}" value="1" style="display: none;" />
+	<input type="radio" class="heightButton" id="height0-{{ id }}" name="height-{{ id }}" value="0" style="display: none;" checked />
+	<input type="radio" class="heightButton" id="height1-{{ id }}" name="height-{{ id }}" value="1" style="display: none;" />
 	<div class="notBottom">
 		<div class="cellTop" style="z-index:5; margin-right: 200px;">
 			<div>
