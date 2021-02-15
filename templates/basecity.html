@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+    {% block meta %}
+    <meta name="description" content=".">    <title>CSS City</title>  
+    <link rel="icon" type="image/png" href="../chfaviconcrop.png">
+    {% endblock %}
+    
+
+
+{% block stylesheets %}
+{% endblock %}
+
+
+<style>
+
+.bigGrid {
+	display: inline-block;
+	width: 400px;
+	height: 400px;
+	border: 1px solid black;
+	left: 300px;
+	top: 100px;
+	transform: skewY(30deg) skewX(-45deg);
+	position: absolute;
+}
+.topBottom {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	max-height:100%;
+}
+.top {
+	width: 100%;
+	background: green;
+	position: relative;
+	flex-grow: 1;
+	flex-shrink: 1;
+	overflow: visible;
+}
+
+.mid {
+	width: 100%;
+	height: 1rem;
+	background: silver;
+	position: relative;
+}
+.bottom {
+	width: 100%;
+	background: green;
+	overflow: visible;
+	transform: rotate(180deg);
+	position: relative;
+	max-height: calc(100% - 2rem);
+	
+}
+.verticalGrow {
+	width: 50%;
+	right: 0px;
+	height: 160px;
+	background: transparent;
+	resize: vertical;
+	overflow: auto;
+	position: relative;
+	max-height: calc(100%);
+	pointer-events: none;
+	
+}
+
+
+.smallGrid {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	position:absolute;
+	
+}
+.leftRight {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	max-width:100%;
+	height: 100%;
+}
+.left {
+	height: 100%;
+	background: yellow;
+	position: relative;
+	flex-grow: 1;
+	flex-shrink: 1;
+	overflow: visible;
+	
+}
+.notBottom {
+	display: flex;
+	flex-flow: column wrap;
+	overflow: visible;
+	height: calc(100% - 100px);
+	width: 100%;
+	background: white;
+}
+.center {
+	height: 100%;
+	width: 1rem;
+	background: silver;
+	position: relative;
+}
+.right {
+	height: 100%;
+	background: orange;
+	overflow: visible;
+	transform: rotate(180deg);
+	position: relative;
+	max-width: calc(100% - 2rem);
+	
+}
+.horizontalGrow {
+	height: 50%;
+	margin: auto;
+	width: 80px;
+	background: red;
+	resize: horizontal;
+	overflow: auto;
+	position: relative;
+	max-width: calc(100%);
+	background: transparent;
+	pointer-events: none;
+	
+}
+.cellTop {
+	width: 100%;
+	display: inline-block;
+	height: 100px;
+	overflow: visible;
+}
+.cellTop > div {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	display: inline-block;
+	margin-bottom:10000px;
+	background: red;
+	vertical-align: top;
+	position: relative;
+}
+
+.cellMid {
+	width: 100%;
+	display: inline-block;
+	height: 100px;
+	overflow: visible;
+}
+.cellMid > div {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	display: inline-block;
+	margin-bottom:10000px;
+	background: purple;
+	vertical-align: top;
+	position: relative;
+}
+
+.cellBottom {
+	width: 100%;
+	top: calc(100% - 100px);
+	left:0px;
+	display: inline-block;
+	height: 100px;
+	position: absolute;
+}
+.cellBottom > div {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	display: inline-block;
+	margin-bottom:10000px;
+	background: blue;
+	vertical-align: top;
+}
+
+div.building {
+	height: 400px;
+	width: 60px;
+	background: green;
+	display: inline-block;
+	bottom: 10px;
+	right: 10px;
+	position: absolute;
+}
+
+
+{% block moreCSS %}
+{% endblock %}
+
+
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+	<div class="bigGrid">
+		<div class="topBottom">
+			<div class="top">
+				<div class="smallGrid">
+					<div class="leftRight">
+						<div class="left">
+							
+						</div>
+						<div class="center">
+							i
+						</div>
+						<div class="right">
+							
+							<div class="horizontalGrow"></div>
+						</div>
+					</div>
+				
+				</div>
+			</div>
+			<div class="mid">
+				- - - - - - - - -
+			</div>
+			<div class="bottom">
+				<div class="smallGrid">
+					<div class="leftRight">
+						<div class="left" style="transform: rotate(180deg);">
+							<div class="notBottom">
+								<div class="cellTop" style="z-index:5; margin-right: 200px;">
+									<div>
+										<div class="building"></div>
+									</div>
+									<div>B</div>
+									<div>C</div>
+									<div>D</div>
+									<div>E</div>
+								</div>
+								<div class="cellMid" style="z-index:7;">
+									<div>
+										1
+									</div>
+									<div>
+										<div class="building"></div>
+									</div>
+									<div>3</div>
+									<div>4</div>
+									<div>5</div>
+								</div>
+							</div>
+							<div class="cellBottom" style="z-index:8;">
+								<div>Z</div>
+								<div>Y</div>
+								<div>X</div>
+								<div>W</div>
+								<div>V</div>
+							</div>
+						</div>
+						<div class="center">
+							i
+						</div>
+						<div class="right">
+							
+							<div class="horizontalGrow"></div>
+						</div>
+					</div>
+				
+				</div>
+				<div class="verticalGrow"></div>
+			</div>
+		</div>
+	</div>
+
+	
+	
+</div>
+
+
+</body>
+</html>
+

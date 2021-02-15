@@ -323,6 +323,15 @@ app.get('/css/sudoku.css',
 	}
 );
 
+app.get('/city.html', 
+	function(req, res) {
+		res.write(nunjucks.render('templates/basecity.html',{
+		
+		}));
+		res.end();
+	}
+);
+
 function makePuzzle(puzzleRaw) {
 	var puzzle = [];
 	for (var i=0;i<9;i++){
