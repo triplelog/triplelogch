@@ -1,0 +1,46 @@
+{% extends "templates/basecity.html" %}
+{% macro 8by8(angle,id) %}
+<div class="topBottom">
+	<div class="top">
+		<div class="smallGrid">
+			<div class="leftRight">
+				<div class="left">
+					{{ 4by4(0,0) }}
+				</div>
+				<div class="center">
+			
+				</div>
+				<div class="right">
+			
+					<div class="horizontalGrow"></div>
+					{{ 4by4(180,1) }}
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="mid">
+		- - - - - - - - -
+	</div>
+	<div class="bottom">
+		<div class="smallGrid">
+			<div class="leftRight">
+				<div class="left" style="transform: rotate(180deg); z-index: 50;">
+					{{ 4by4(0,2) }}
+			
+				</div>
+				<div class="center">
+			
+				</div>
+				<div class="right">
+			
+					<div class="horizontalGrow"></div>
+					{{ 4by4(0,3) }}
+				</div>
+			</div>
+
+		</div>
+		<div class="verticalGrow"></div>
+	</div>
+</div>
+{% endmacro %}
