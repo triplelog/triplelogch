@@ -1,8 +1,101 @@
 {% extends "templates/4by4.html" %}
+{% block moreCSS %}
+.apartment .notBottom {
+	display: flex;
+	flex-flow: column wrap;
+	overflow: visible;
+	height: calc(100% - 100px);
+	width: 100%;
+	--h: 150%;
+}
+input[name=height][value="1"]:checked ~ .notBottom {
+	--h: 200%;
+}
+input[name=height][value="0"]:checked ~ .notBottom {
+	--h: 100%;
+}
+.apartment .corner {
+	--x: 1.0;
+	--y: 0.0;
+	--w: .5;
+	--l: .6;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	display: inline-block;
+	right: 0%;
+	bottom: 0%;
+}
+.apartment .leg {
+	--x: 1.0;
+	--y: .1;
+	--w: .5;
+	--l: .9;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	display: inline-block;
+	right: 0%;
+	top: 0%;
+}
+.apartment .main{
+	--x: 1.0;
+	--y: 0.0;
+	--w: 1.0;
+	--l: .6;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	display: inline-block;
+	left: -3px;
+	top: 0%;
+}
+.apartment .leg > .roof > div {
+	border-bottom:0px;
+	height: calc(100% + 2px);
+	background: white;
+}
+.apartment .main > .roof > div {
+	border-right:0px;
+	width: calc(100% - 1px);
+}
+.apartment .main > .roof > div {
+	border-right:0px;
+	width: calc(100% + 3px);
+	background: white;
+}
+.apartment .main > .leftWall > div {
+	border-left:0px;
+	width: calc(100% + 3px);
+	transform: translate(-3px,0px);
+	background: green;
+}
+.apartment .corner > .roof > div {
+	border-left:0px;
+	width: calc(100% - 1px);
+}
+.apartment .leg > div > div {
+	border:1px solid black;
+	width: calc(100% - 2px);
+	height: calc(100% - 2px);
+}
+.apartment .corner > div > div {
+	border:1px solid black;
+	width: calc(100% - 2px);
+	height: calc(100% - 2px);
+}
+.apartment .main > div > div {
+	border:1px solid black;
+	width: calc(100% - 2px);
+	height: calc(100% - 2px);
+}
+{% endblock %}
+
+
 {% macro sfh(angle) %}
 <div class="zoneCell" style="transform: rotate({{ angle }}deg)">
 </div>
-<div class="isoCell" style="transform: rotate({{ angle }}deg)">
+<div class="isoCell sfh" style="transform: rotate({{ angle }}deg)">
 	<div class="notBottom">
 		<div class="cellTop" style="z-index:5; margin-right: 200px;">
 			<div>
@@ -239,6 +332,89 @@
 					<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">AB</div>
 				</div>
 			</div>
+		</div>
+	</div>
+</div>
+{% endmacro %}
+
+{% macro apartment(angle) %}
+<div class="zoneCell" style="transform: rotate({{ angle }}deg)">
+</div>
+<div class="isoCell apartment" style="transform: rotate({{ angle }}deg)">
+	<input type="radio" id="height0" name="height" value="0" style="display: none;" checked />
+	<input type="radio" id="height1" name="height" value="1" style="display: none;" />
+	<div class="notBottom">
+		<div class="cellTop" style="z-index:5; margin-right: 200px;">
+			<div>
+				<div class="corner">
+					<div class="leftWall">
+						<div>ABC</div>
+					</div>
+					<div class="rightWall">
+						<div>ABC</div>
+					</div>
+					<div class="roof">
+						<div>
+							<label for="height0">Short</label>
+							<label for="height1">Tall</label>
+						</div>
+					</div>
+				</div>	
+			</div><div>
+				<div class="main">
+					<div class="leftWall">
+						<div>ABC</div>
+					</div>
+					<div class="rightWall">
+						<div>ABC</div>
+					</div>
+					<div class="roof">
+						<div>ABC</div>
+					</div>
+				</div>	
+			</div><div>
+				<div class="main">
+					<div class="leftWall">
+						<div>ABC</div>
+					</div>
+					<div class="rightWall">
+						<div>ABC</div>
+					</div>
+					<div class="roof">
+						<div>ABC</div>
+					</div>
+				</div>	
+			</div><div>
+				<div class="main">
+					<div class="leftWall">
+						<div>ABC</div>
+					</div>
+					<div class="rightWall">
+						<div>ABC</div>
+					</div>
+					<div class="roof">
+						<div>ABC</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<div class="cellMid" style="z-index:6;">
+			<div>
+				<div class="leg">
+					<div class="leftWall">
+						<div style="overflow: hidden;">ABC<br />DEF<br />DEF<br />DEF<br />DEF<br />DEF<br />DEF</div>
+					</div>
+					<div class="rightWall">
+						<div>ABC</div>
+					</div>
+					<div class="roof">
+						<div>ABC</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cellMid" style="z-index:7;">
+			Park
 		</div>
 	</div>
 </div>
