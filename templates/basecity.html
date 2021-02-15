@@ -19,6 +19,7 @@
 
 body {
 	--skewX: -0.785;
+	--block: 3rem;
 	
 	--angle: var(--skewX);
   --tan1: calc(var(--angle) * var(--angle) * var(--angle) / 3);
@@ -143,12 +144,12 @@ body {
 .cellTop {
 	width: 100%;
 	display: inline-block;
-	height: 1.5rem;
+	height: var(--block);
 	overflow: visible;
 }
 .cellTop > div {
-	width: 1.5rem;
-	height: 1.5rem;
+	width: var(--block);
+	height: var(--block);
 	border: 1px solid black;
 	display: inline-block;
 	margin-bottom:10000px;
@@ -160,12 +161,12 @@ body {
 .cellMid {
 	width: 100%;
 	display: inline-block;
-	height: 1.5rem;
+	height: var(--block);
 	overflow: visible;
 }
 .cellMid > div {
-	width: 1.5rem;
-	height: 1.5rem;
+	width: var(--block);
+	height: var(--block);
 	border: 1px solid black;
 	display: inline-block;
 	margin-bottom:10000px;
@@ -176,15 +177,15 @@ body {
 
 .cellBottom {
 	width: 100%;
-	top: calc(100% - 1.5rem);
+	top: calc(100% - var(--block));
 	left:0px;
 	display: inline-block;
-	height: 1.5rem;
+	height: var(--block);
 	position: absolute;
 }
 .cellBottom > div {
-	width: 1.5rem;
-	height: 1.5rem;
+	width: var(--block);
+	height: var(--block);
 	border: 1px solid black;
 	display: inline-block;
 	margin-bottom:10000px;
@@ -244,12 +245,14 @@ body {
 	--y: .1;
 	--w: .5;
 	--l: .6;
-	width: 1rem;
-	height: 1rem;
+	width: calc(var(--block) * 2 / 3);
+	height: calc(var(--block) * 2 / 3);
 	position: absolute;
 	display: inline-block;
-	left: calc(50% - .5rem);
-	top: calc(50% - .5rem);
+	left: calc(50% - var(--block) / 3);
+	top: calc(50% - var(--block) / 3);
+	font-size: .6rem;
+	line-height: 1rem;
 }
 
 {% block moreCSS %}
