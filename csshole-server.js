@@ -57,7 +57,7 @@ app.get('/index.html',
 console.log('aa',performance.now());
 var puzzles = {}
 var puzzleTypes = ['daily','easy','medium','hard','expert'];
-for (var ii=0;ii<5;ii++ ){
+for (var ii=0;ii<0;ii++ ){//max should be 5
 	var daily;
 	if (puzzleTypes[ii] == 'daily'){
 		puzzles[puzzleTypes[ii]] = {};
@@ -1118,11 +1118,11 @@ function sortContent(a,b,i,p=false) {
 	}
 	
 }
-
+console.log('cc',performance.now());
 const server1 = https.createServer(options, app);
-
+console.log('dd',performance.now());
 server1.listen(1337);
-
+console.log('ee',performance.now());
 
 
 
