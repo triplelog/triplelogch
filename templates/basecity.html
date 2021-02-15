@@ -27,16 +27,27 @@ body {
   --tan3: calc(17 * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) / 315);
   --tan: calc(var(--angle) + var(--tan1) + var(--tan2) + var(--tan3));
 }
-
-.bigGrid {
+.container {
+	overflow: hidden;
 	display: inline-block;
-	width: 400px;
-	height: 400px;
+	width: 500px;
+	height: 500px;
 	border: 1px solid black;
 	left: 300px;
 	top: 100px;
 	transform: skewY(.52359877rad) skewX(calc( 1rad * var(--skewX)));
 	position: absolute;
+}
+
+.bigGrid {
+	display: inline-block;
+	width: 80%;
+	height: 80%;
+	border: 1px solid black;
+	left: 10%;
+	top: 10%;
+	position: absolute;
+	overflow: auto;
 }
 .topBottom {
 	display: flex;
