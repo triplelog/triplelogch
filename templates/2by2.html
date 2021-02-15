@@ -1,6 +1,6 @@
 {% extends "templates/4by4.html" %}
 {% block moreCSS %}
-.apartment .notBottom {
+.apartmentCell .notBottom {
 	display: flex;
 	flex-flow: column wrap;
 	overflow: visible;
@@ -16,7 +16,7 @@ input[name=height][value="1"]:checked ~ .notBottom {
 input[name=height][value="0"]:checked ~ .notBottom {
 	--h: 100%;
 }
-.apartment .corner {
+.apartmentCell .corner {
 	--x: 1.0;
 	--y: 0.0;
 	--w: .5;
@@ -28,7 +28,7 @@ input[name=height][value="0"]:checked ~ .notBottom {
 	right: 0%;
 	bottom: 0%;
 }
-.apartment .leg {
+.apartmentCell .leg {
 	--x: 1.0;
 	--y: .1;
 	--w: .5;
@@ -40,7 +40,7 @@ input[name=height][value="0"]:checked ~ .notBottom {
 	right: 0%;
 	top: 0%;
 }
-.apartment .main{
+.apartmentCell .main{
 	--x: 1.0;
 	--y: 0.0;
 	--w: 1.0;
@@ -52,41 +52,41 @@ input[name=height][value="0"]:checked ~ .notBottom {
 	left: -3px;
 	top: 0%;
 }
-.apartment .leg > .roof > div {
+.apartmentCell .leg > .roof > div {
 	border-bottom:0px;
 	height: calc(100% + 2px);
 	background: white;
 }
-.apartment .main > .roof > div {
+.apartmentCell .main > .roof > div {
 	border-right:0px;
 	width: calc(100% - 1px);
 }
-.apartment .main > .roof > div {
+.apartmentCell .main > .roof > div {
 	border-right:0px;
 	width: calc(100% + 3px);
 	background: white;
 }
-.apartment .main > .leftWall > div {
+.apartmentCell .main > .leftWall > div {
 	border-left:0px;
 	width: calc(100% + 3px);
 	transform: translate(-3px,0px);
 	background: green;
 }
-.apartment .corner > .roof > div {
+.apartmentCell .corner > .roof > div {
 	border-left:0px;
 	width: calc(100% - 1px);
 }
-.apartment .leg > div > div {
+.apartmentCell .leg > div > div {
 	border:1px solid black;
 	width: calc(100% - 2px);
 	height: calc(100% - 2px);
 }
-.apartment .corner > div > div {
+.apartmentCell .corner > div > div {
 	border:1px solid black;
 	width: calc(100% - 2px);
 	height: calc(100% - 2px);
 }
-.apartment .main > div > div {
+.apartmentCell .main > div > div {
 	border:1px solid black;
 	width: calc(100% - 2px);
 	height: calc(100% - 2px);
@@ -97,7 +97,7 @@ input[name=height][value="0"]:checked ~ .notBottom {
 {% macro sfh(angle) %}
 <div class="zoneCell" style="transform: rotate({{ angle }}deg)">
 </div>
-<div class="isoCell sfh" style="transform: rotate({{ angle }}deg)">
+<div class="isoCell sfhCell" style="transform: rotate({{ angle }}deg)">
 	<div class="notBottom">
 		<div class="cellTop" style="z-index:5; margin-right: 200px;">
 			<div>
@@ -339,12 +339,12 @@ input[name=height][value="0"]:checked ~ .notBottom {
 </div>
 {% endmacro %}
 
-{% macro apartment(angle) %}
+{% macro apartment(angle,id) %}
 <div class="zoneCell" style="transform: rotate({{ angle }}deg)">
 </div>
-<div class="isoCell apartment" style="transform: rotate({{ angle }}deg)">
-	<input type="radio" id="height0" name="height" value="0" style="display: none;" checked />
-	<input type="radio" id="height1" name="height" value="1" style="display: none;" />
+<div class="isoCell apartmentCell" style="transform: rotate({{ angle }}deg)">
+	<input type="radio" id="height0-{{ id }}" name="height" value="0" style="display: none;" checked />
+	<input type="radio" id="height1-{{ id }}" name="height" value="1" style="display: none;" />
 	<div class="notBottom">
 		<div class="cellTop" style="z-index:5; margin-right: 200px;">
 			<div>
@@ -357,8 +357,8 @@ input[name=height][value="0"]:checked ~ .notBottom {
 					</div>
 					<div class="roof">
 						<div>
-							<label for="height0">Short</label>
-							<label for="height1">Tall</label>
+							<label for="height0-{{ id }}">Short</label>
+							<label for="height1-{{ id }}">Tall</label>
 						</div>
 					</div>
 				</div>	

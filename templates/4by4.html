@@ -1,5 +1,5 @@
 {% extends "templates/basecity.html" %}
-{% macro 4by4(angle) %}
+{% macro 4by4(angle,id) %}
 <div class="topBottom" style="transform: rotate({{ angle }}deg)">
 	<div class="top">
 		<div class="smallGrid">
@@ -26,7 +26,7 @@
 		<div class="smallGrid">
 			<div class="leftRight">
 				<div class="left" style="transform: rotate(180deg); z-index: 50;">
-					{{ apartment(0) }}
+					{{ apartment(0,id) }}
 					
 				</div>
 				<div class="center">
