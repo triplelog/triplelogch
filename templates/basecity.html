@@ -17,6 +17,16 @@
 
 <style>
 
+body {
+	--skewX: -0.785;
+	
+	--angle: var(--skewX);
+  --tan1: calc(var(--angle) * var(--angle) * var(--angle) / 3);
+  --tan2: calc(2 * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) / 15);
+  --tan3: calc(17 * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) / 315);
+  --tan: calc(var(--angle) + var(--tan1) + var(--tan2) + var(--tan3));
+}
+
 .bigGrid {
 	display: inline-block;
 	width: 400px;
@@ -24,7 +34,7 @@
 	border: 1px solid black;
 	left: 300px;
 	top: 100px;
-	transform: skewY(30deg) skewX(-45deg);
+	transform: skewY(.52359877rad) skewX(calc( 1rad * var(--skewX)));
 	position: absolute;
 }
 .topBottom {
@@ -182,16 +192,58 @@
 	vertical-align: top;
 }
 
-div.building {
-	height: 400px;
-	width: 60px;
+.leftWall {
+	width: calc(var(--w) * 100%);
+	height: var(--h);
+	bottom:calc(var(--y) * 100% - var(--h) / 2);
+	right:calc((1 - var(--x)) * 100%);
+	transform: skewX(calc(-1 * var(--skewX) * 1rad)) translate(0,-50%);
 	background: green;
 	display: inline-block;
-	bottom: 10px;
-	right: 10px;
+	position: absolute;
+}
+.rightWall {
+	
+	
+	width: calc(var(--l) * 100%);
+	height: calc(var(--h) * var(--tan) * -1);
+	bottom: calc(var(--y) * 100%);
+	left:calc(var(--x) * 100% - var(--h) * var(--tan) * -1 / 2);
+	transform: skewY(calc(1.5707963rad + 1rad * var(--skewX))) translate(-50%,0%) rotate(-90deg);
+	background: yellow;
+	display: inline-block;
 	position: absolute;
 }
 
+.roof {
+	
+	width: calc(var(--w) * 100%);
+	height: calc(var(--l) * 100%);
+	bottom:calc(var(--y) * 100%);
+	right:calc((1 - var(--x)) * 100% * var(--tan) * -1);
+	transform: translate(calc(1 * var(--tan) * var(--h) / var(--w)),calc(-1 * var(--h) / var(--l))) rotate(180deg);
+	background: white;
+	display: inline-block;
+	position: absolute;
+}
+
+
+
+
+
+.sfh {
+	--h: 120%;
+	--x: .9;
+	--y: .1;
+	--w: .5;
+	--l: .6;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	display: inline-block;
+	left: calc(50% - 50px);
+	top: calc(50% - 50px);
+}
 
 {% block moreCSS %}
 {% endblock %}
@@ -230,34 +282,103 @@ div.building {
 				<div class="smallGrid">
 					<div class="leftRight">
 						<div class="left" style="transform: rotate(180deg);">
-							<div class="notBottom">
-								<div class="cellTop" style="z-index:5; margin-right: 200px;">
-									<div>
-										<div class="building"></div>
+							<div class="isoCell">
+								<div class="notBottom">
+									<div class="cellTop" style="z-index:5; margin-right: 200px;">
+										<div>
+											<div class="sfh">
+												<div class="leftWall">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+												<div class="rightWall">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+												<div class="roof">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+											</div>
+										</div>
+										<div>
+											<div class="sfh">
+												<div class="leftWall">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+												<div class="rightWall">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+												<div class="roof">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+											</div>	
+										</div>
+										<div>C</div>
+										<div>D</div>
+										<div>E</div>
 									</div>
-									<div>B</div>
-									<div>C</div>
-									<div>D</div>
-									<div>E</div>
+									<div class="cellMid" style="z-index:6;">
+										<div>
+											<div class="sfh">
+												<div class="leftWall">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+												<div class="rightWall">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+												<div class="roof">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+											</div>
+										</div>
+										<div style="float: right;">
+											<div class="sfh">
+												<div class="leftWall">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+												<div class="rightWall">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+												<div class="roof">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="cellMid" style="z-index:7;">
+										<div>
+											<div class="sfh">
+												<div class="leftWall">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+												<div class="rightWall">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+												<div class="roof">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+											</div>
+										</div>
+										<div style="float: right;">
+											<div class="sfh">
+												<div class="leftWall">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+												<div class="rightWall">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+												<div class="roof">
+													<div style="border:1px solid black; width: calc(100% - 2px); height: calc(100% - 2px);">ABC</div>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
-								<div class="cellMid" style="z-index:7;">
-									<div>
-										1
-									</div>
-									<div>
-										<div class="building"></div>
-									</div>
-									<div>3</div>
-									<div>4</div>
-									<div>5</div>
+								<div class="cellBottom" style="z-index:8;">
+									<div>Z</div>
+									<div>Y</div>
+									<div>X</div>
+									<div>W</div>
+									<div>V</div>
 								</div>
-							</div>
-							<div class="cellBottom" style="z-index:8;">
-								<div>Z</div>
-								<div>Y</div>
-								<div>X</div>
-								<div>W</div>
-								<div>V</div>
 							</div>
 						</div>
 						<div class="center">
