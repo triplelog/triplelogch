@@ -248,11 +248,7 @@ body {
 	display: inline-block;
 	position: absolute;
 }
-.leftWall > div {
-	border:1px solid black;
-	width: calc(100% - 2px);
-	height: calc(100% - 2px);
-}
+
 .rightWall {
 	
 	
@@ -277,7 +273,24 @@ body {
 	display: inline-block;
 	position: absolute;
 }
-
+.leftWall > div {
+	border:1px solid black;
+	width: calc(100% - 2px);
+	height: calc(100% - 1px);
+	border-top:0px solid black;
+}
+.rightWall > div {
+	border:1px solid black;
+	width: calc(100% - 1px);
+	height: calc(100% - 1px);
+	border-left:0px solid black;
+	border-top:0px solid black;
+}
+.roof > div {
+	border:1px solid black;
+	width: calc(100% - 2px);
+	height: calc(100% - 2px);
+}
 .isoCell {
 	width: 100%;
 	height: 100%;
