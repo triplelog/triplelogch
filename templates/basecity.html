@@ -252,7 +252,7 @@
 	right:calc((1 - var(--x)) * 100%);
 	transform: skewX(calc(-1 * var(--skewX) * 1rad)) translate(0,-50%);
 	background: green;
-	display: inline-block;
+	display: none;
 	position: absolute;
 }
 
@@ -265,7 +265,7 @@
 	left:calc(var(--x) * 100% - var(--h) * var(--tan) * -1 / 2);
 	transform: skewY(calc(1.5707963rad + 1rad * var(--skewX))) translate(-50%,0%) rotate(-90deg);
 	background: yellow;
-	display: inline-block;
+	display: none;
 	position: absolute;
 }
 
@@ -277,7 +277,7 @@
 	right:calc((1 - var(--x)) * 100% * var(--tan) * -1);
 	transform: translate(calc(1 * var(--tan) * var(--h) / var(--w)),calc(-1 * var(--h) / var(--l))) rotate(180deg);
 	background: white;
-	display: inline-block;
+	display: none;
 	position: absolute;
 }
 .leftWall > div {
