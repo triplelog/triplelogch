@@ -166,9 +166,9 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 		</div>
 	</div>
 {% endmacro %}
-{% macro onehr(direction) %}
+{% macro onehr(direction,r,b) %}
 	<div class="sfh">
-		<div style="position: absolute; right: -100%; bottom: -100%; width: 960%; height: 960%; transform: skew(15deg, 15deg) rotate(-45deg);">
+		<div style="position: absolute; right: {{ r }}; bottom: {{ b }}; width: 960%; height: 960%; transform: skew(15deg, 15deg) rotate(-45deg);">
 			
 			<img src='svg/hrink1.svg#{{ direction }}-house' style="height: 100%; width: 100%;">
 		</div>
@@ -481,9 +481,9 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 		
 		<div class="cellTop" style="z-index:6;">
 			<div>
-				{{ onehr("top") }}
+				{{ onehr("top","-100%","-300%") }}
 			</div>
-			<div class="trees" style="float: right;">
+			<div class="trees" style="position: relative; left: var(--block);">
 				<img src="img/city/tree.png" />
 				<img src="img/city/tree.png" />
 				<img src="img/city/tree.png" />
@@ -588,7 +588,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 		<div class="spacer">
 		</div>
 		<div style="float: right;">
-			{{ onehr("bottom") }}
+			{{ onehr("bottom","50%","-200%") }}
 		</div>
 	</div>
 </div>
