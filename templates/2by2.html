@@ -161,15 +161,15 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 }
 .bottomHR {
 	position: absolute;
-	right: 45%;
-	top: -100%;
+	right: 0%;
+	top: -200%;
 	height: .7rem;
 	line-height: .7rem;
 	font-size: .7rem;
 	background: transparent;
-	text-shadow: 1px -1px grey, 2px -2px grey;
+	text-shadow: -1px -1px grey;
 	border: none;
-	transform: skew(45deg, 0deg) translateY(calc(var(--block) * -2.5));
+	transform: skew(0deg, 45deg) rotate(-90deg) translateY(calc(var(--block) * -3.88));
 }
 {% endblock %}
 
