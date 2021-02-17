@@ -123,7 +123,14 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 
 .cellMid > div.trees {
 	background: green;
-	width: 100%;
+	width: calc(100% - 4px - 2 * var(--block));
+}
+.cellMid > div.trees > img {
+	bottom: 5%;
+	height: 2rem;
+	display: inline-block;
+	position: relative;
+	transform: skewX(45deg) skewY(-30deg);
 }
 
 
@@ -179,7 +186,9 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 				{{ onesfh("left") }}
 			</div>
 			<div class="trees">
-			
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
 			</div>
 			<div style="float: right;">
 				{{ onesfh("right") }}
@@ -189,6 +198,9 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 			<div>
 				{{ onesfh("left") }}
 			</div>
+			<div class="trees">
+			
+			</div>
 			<div style="float: right;">
 				{{ onesfh("right") }}
 			</div>
@@ -197,6 +209,9 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 			<div>
 				{{ onesfh("left") }}
 			</div>
+			<div class="trees">
+			
+			</div>
 			<div style="float: right;">
 				{{ onesfh("right") }}
 			</div>
@@ -204,6 +219,9 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 		<div class="cellMid" style="z-index:9;">
 			<div>
 				{{ onesfh("left") }}
+			</div>
+			<div class="trees">
+			
 			</div>
 			<div style="float: right;">
 				{{ onesfh("right") }}
