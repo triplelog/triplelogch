@@ -155,21 +155,21 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 	line-height: .7rem;
 	font-size: .7rem;
 	background: transparent;
-	text-shadow: 1px -1px grey, 2px -2px grey;
+	text-shadow: 1px -1px grey;
 	border: none;
-	transform: skew(45deg, 0deg) translateY(calc(var(--block) * -2.5));
+	transform: skew(0deg, 30deg);
 }
 .bottomHR {
 	position: absolute;
-	right: 0%;
-	top: calc(-2 * var(--block));
+	right: calc(-0.6 * var(--block));
+	top: calc(1 * var(--block));
 	height: .7rem;
 	line-height: .7rem;
 	font-size: .7rem;
 	background: transparent;
 	text-shadow: -1px -1px grey;
 	border: none;
-	transform: skew(0deg, 45deg) rotate(-90deg) translateY(calc(var(--block) * -3.88));
+	transform: skew(0deg, 30deg);
 }
 .rightOffice {
 	position: absolute;
@@ -206,7 +206,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 		<div style="position: absolute; right: {{ r }}; bottom: {{ b }}; width: calc(9 * var(--block)); height: calc(9 * var(--block)); transform: skew(15deg, 15deg) rotate(-45deg);">
 			
 			<img src='svg/hrink1.svg#{{ direction }}-house' style="height: 100%; width: 100%;">
-			<input class="bottomHR" type="text" value="Shioh" />
+			<input class="{{ direction }}HR" type="text" value="Shioh" />
 		</div>
 	</div>
 {% endmacro %}
