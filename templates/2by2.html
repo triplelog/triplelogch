@@ -125,11 +125,11 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 
 {% endblock %}
 
-{% macro onesfh(name) %}
+{% macro onesfh(direction) %}
 	<div class="sfh">
 		<div style="position: absolute; left: -75%; top: -75%; width: 250%; height: 250%; transform: skew(15deg, 15deg) rotate(-45deg);">
 			
-			<img src='svg/sfhink1.svg#left-house' style="height: 100%; width: 100%;">
+			<img src='svg/sfhink1.svg#{{ direction }}-house' style="height: 100%; width: 100%;">
 		</div>
 	</div>
 {% endmacro %}
@@ -141,40 +141,40 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 		<div class="cellTop" style="z-index:5; margin-right: 200px;">
 			
 			<div>
-				{{ onesfh(0) }}
+				{{ onesfh("top") }}
 			</div>
 			<div class="spacer">
 			</div>
 			<div>
-				{{ onesfh(0) }}
+				{{ onesfh("top") }}
 			</div>
 			<div class="spacer">
 			</div>
 			<div>
-				{{ onesfh(0) }}
+				{{ onesfh("top") }}
 			</div>
 			<div class="spacer">
 			</div>
 			<div>
-				{{ onesfh(0) }}
+				{{ onesfh("top") }}
 			</div>
 			<div class="spacer">
 			</div>
 			<div>
-				{{ onesfh(0) }}
+				{{ onesfh("top") }}
 			</div>
 			<div class="spacer">
 			</div>
 			<div>
-				{{ onesfh(0) }}
+				{{ onesfh("top") }}
 			</div>
 		</div>
 		<div class="cellMid" style="z-index:6;">
 			<div>
-				{{ onesfh(0) }}
+				{{ onesfh("left") }}
 			</div>
 			<div style="float: right;">
-				{{ onesfh(0) }}
+				{{ onesfh("right") }}
 			</div>
 		</div>
 		<div class="cellMid" style="z-index:7;">
