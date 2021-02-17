@@ -163,13 +163,13 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 	position: absolute;
 	left: 76.5%;
 	top: 20.0%;
-	height: .7rem;
-	line-height: .7rem;
-	font-size: .7rem;
+	height: calc(var(--block) / 3);
+	line-height: calc(var(--block) / 3);
+	font-size: calc(var(--block) / 3);
 	background: transparent;
 	text-shadow: -1px -1px grey;
 	border: none;
-	transform: skew(0deg, -30deg) translateY(calc(-2.8rem + var(--block) / 5));
+	transform: skew(0deg, -30deg) translateY(calc(-0.5 * var(--block)));
 }
 .rightOffice {
 	position: absolute;
