@@ -198,6 +198,16 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 	</div>
 {% endmacro %}
 
+
+{% macro oneoffice(direction) %}
+	<div class="sfh">
+		<div style="position: absolute; right: -100%; bottom: -100%; width: 960%; height: 960%; transform: skew(15deg, 15deg) rotate(-45deg);">
+			
+			<img src='svg/officeink1.svg#{{ direction }}-office' style="height: 100%; width: 100%;">
+		</div>
+	</div>
+{% endmacro %}
+
 {% macro sfh(angle) %}
 <div class="zoneCell" style="transform: rotate({{ angle }}deg)">
 </div>
@@ -613,6 +623,128 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 		</div>
 		<div style="float: right;">
 			{{ onehr("bottom","50%","-200%") }}
+			<input class="bottomHR" type="text" value="Shioh" />
+		</div>
+	</div>
+</div>
+{% endmacro %}
+
+{% macro office(angle) %}
+<div class="zoneCell" style="transform: rotate({{ angle }}deg)">
+</div>
+<div class="isoCell sfhCell" style="transform: rotate({{ angle }}deg); background: green;">
+	<div class="notBottom">
+		
+		<div class="cellTop" style="z-index:6;">
+			<div>
+				
+			</div>
+			<div class="trees" style="position: relative; left: calc(var(--block) / 2);">
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+			</div>
+			
+		</div>
+		<div class="cellMid" style="z-index:7;">
+			
+			<div class="trees">
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+			</div>
+		</div>
+		<div class="cellMid" style="z-index:8;">
+			
+			<div class="trees">
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+			</div>
+		</div>
+		<div class="cellMid" style="z-index:9;">
+			
+			<div class="trees">
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+			</div>
+		</div>
+		<div class="cellMid" style="z-index:9;">
+			
+			<div class="trees">
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+			</div>
+		</div>
+	</div>
+	<div class="cellBottom" style="z-index:10;">
+		<div>
+			<div class="trees">
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+				<img src="img/city/tree.png" />
+			</div>
+		</div>
+		<div class="spacer">
+		</div>
+		<div style="float: right;">
+			{{ oneoffice("right") }}
 			<input class="bottomHR" type="text" value="Shioh" />
 		</div>
 	</div>
