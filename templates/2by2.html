@@ -155,7 +155,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 	line-height: calc(var(--block) / 3);
 	font-size: calc(var(--block) / 3);
 	background: transparent;
-	text-shadow: 1px -1px grey;
+	text-shadow: calc(var(--block) / 64) calc(var(--block) / -64) grey, calc(var(--block) * 2 / 64) calc(var(--block) * 2 / -64) grey, calc(var(--block) * 3 / 64) calc(var(--block) *3 / -64) grey;
 	border: none;
 	transform: skew(0deg, 30deg) translateY(calc(1 * var(--block)));
 }
@@ -167,7 +167,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 	line-height: calc(var(--block) / 3);
 	font-size: calc(var(--block) / 3);
 	background: transparent;
-	text-shadow: -1px -1px grey;
+	text-shadow: calc(var(--block) / -64) calc(var(--block) / -64) grey, calc(var(--block) * 2 / -64) calc(var(--block) * 2 / -64) grey, calc(var(--block) * 3 / -64) calc(var(--block) *3 / -64) grey;
 	border: none;
 	transform: skew(0deg, -30deg) translateY(calc(-1 * var(--block)));
 }
