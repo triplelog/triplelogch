@@ -171,6 +171,18 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 	border: none;
 	transform: skew(0deg, 45deg) rotate(-90deg) translateY(calc(var(--block) * -3.88));
 }
+.rightOffice {
+	position: absolute;
+	right: -50%;
+	top: -200%;
+	height: .7rem;
+	line-height: .7rem;
+	font-size: .7rem;
+	background: transparent;
+	text-shadow: -1px -1px grey;
+	border: none;
+	transform: skew(0deg, 45deg) rotate(-90deg) translateY(calc(var(--block) * -0.4));
+}
 {% endblock %}
 
 {% macro onesfh(direction) %}
@@ -201,7 +213,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 
 {% macro oneoffice(direction) %}
 	<div class="sfh">
-		<div style="position: absolute; right: -100%; bottom: -100%; width: 960%; height: 960%; transform: skew(15deg, 15deg) rotate(-45deg);">
+		<div style="position: absolute; right: 100%; bottom: -100%; width: 1200%; height: 1200%; transform: skew(15deg, 15deg) rotate(-45deg);">
 			
 			<img src='svg/officeink1.svg#{{ direction }}-office' style="height: 100%; width: 100%;">
 		</div>
@@ -745,7 +757,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 		</div>
 		<div style="float: right;">
 			{{ oneoffice("right") }}
-			<input class="bottomHR" type="text" value="Shioh" />
+			<input class="rightOffice" type="text" value="Shioh" />
 		</div>
 	</div>
 </div>
