@@ -173,15 +173,15 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 }
 .rightOffice {
 	position: absolute;
-	right: calc(var(--block) / -2);
-	top: calc(-2 * var(--block));
-	height: .7rem;
-	line-height: .7rem;
-	font-size: .7rem;
+	left: 76.5%;
+	top: 80.0%;
+	height: calc(var(--block) / 3);
+	line-height: calc(var(--block) / 3);
+	font-size: calc(var(--block) / 3);
 	background: transparent;
-	text-shadow: -1px -1px grey;
+	text-shadow: calc(var(--block) / -64) calc(var(--block) / -64) #333, calc(var(--block) * 2 / -64) calc(var(--block) * 2 / -64) #777, calc(var(--block) * 3 / -64) calc(var(--block) *3 / -64) #BBB;
 	border: none;
-	transform: skew(0deg, 45deg) rotate(-90deg) translateY(calc(var(--block) * -0.4));
+	transform: skew(0deg, -30deg) translateY(calc(-1 * var(--block)));
 }
 {% endblock %}
 
@@ -217,6 +217,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 		<div style="position: absolute; right: calc(1 * var(--block)); bottom: calc(-1 * var(--block)); width: calc(12 * var(--block)); height: calc(12 * var(--block)); transform: skew(15deg, 15deg) rotate(-45deg);">
 			
 			<img src='svg/officeink1.svg#{{ direction }}-office' style="height: 100%; width: 100%;">
+			<input class="rightOffice" type="text" value="Shioh" />
 		</div>
 	</div>
 {% endmacro %}
@@ -757,7 +758,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 		</div>
 		<div style="float: right;">
 			{{ oneoffice("right") }}
-			<input class="rightOffice" type="text" value="Shioh" />
+			
 		</div>
 	</div>
 </div>
