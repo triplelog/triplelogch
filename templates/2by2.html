@@ -135,7 +135,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 }
 
 .cellTop > div.trees {
-	width: calc(100% - 4px - var(--block));
+	width: calc(100% - 4px - 2 * var(--block));
 	
 }
 .cellTop > div.trees > img {
@@ -168,7 +168,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 {% endmacro %}
 {% macro onehr(direction) %}
 	<div class="sfh">
-		<div style="position: absolute; left: -200%; top: -150%; width: 480%; height: 480%; transform: skew(15deg, 15deg) rotate(-45deg);">
+		<div style="position: absolute; left: -700%; top: -550%; width: 960%; height: 960%; transform: skew(15deg, 15deg) rotate(-45deg);">
 			
 			<img src='svg/hrink1.svg#{{ direction }}-house' style="height: 100%; width: 100%;">
 		</div>
@@ -483,7 +483,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 			<div>
 				{{ onehr("top") }}
 			</div>
-			<div class="trees">
+			<div class="trees" style="float: right;">
 				<img src="img/city/tree.png" />
 				<img src="img/city/tree.png" />
 				<img src="img/city/tree.png" />
