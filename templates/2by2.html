@@ -127,14 +127,9 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 
 {% macro onesfh(name) %}
 	<div class="sfh">
-		<div class="leftWall">
-			<div></div>
-		</div>
-		<div class="rightWall">
-			<div></div>
-		</div>
-		<div class="roof">
-			<div></div>
+		<div style="position: absolute; left: -75%; top: -75%; width: 250%; height: 250%; transform: skew(15deg, 15deg) rotate(-45deg);">
+			
+			<img src='svg/sfhink1.svg#left-house' style="height: 100%; width: 100%;">
 		</div>
 	</div>
 {% endmacro %}
@@ -146,26 +141,17 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 		<div class="cellTop" style="z-index:5; margin-right: 200px;">
 			
 			<div>
-				<div class="sfh">
-					<object data="svg/sfh1-left.svg" height="200%" width="200%" style="position: absolute; left:-20%; top:-75%; transform: skew(15deg, 15deg) rotate(-45deg);"></object>
-				</div>
+				{{ onesfh(0) }}
 			</div>
 			<div class="spacer">
 			</div>
 			<div>
-				<div class="sfh">
-					<object data="svg/sfh1-left.svg" height="200%" width="200%" style="position: absolute; left:-20%; top:-75%; transform: skew(15deg, 15deg) rotate(-45deg);"></object>
-				</div>
+				{{ onesfh(0) }}
 			</div>
 			<div class="spacer">
 			</div>
 			<div>
-				<div class="sfh">
-					<div style="position: absolute; left: -75%; top: -75%; width: 250%; height: 250%; transform: skew(15deg, 15deg) rotate(-45deg);">
-						
-						<img src='svg/sfhink1.svg#left-house' style="height: 100%; width: 100%;">
-					</div>
-				</div>
+				{{ onesfh(0) }}
 			</div>
 			<div class="spacer">
 			</div>
