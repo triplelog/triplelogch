@@ -134,6 +134,18 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 	margin-bottom: 10000px;
 }
 
+.cellTop > div.trees {
+	width: calc(100% - 4px - var(--block));
+	
+}
+.cellTop > div.trees > img {
+	bottom: 5%;
+	height: var(--block);
+	display: inline-block;
+	position: relative;
+	transform: skewX(45deg) skewY(-30deg);
+	margin-bottom: 10000px;
+}
 
 
 {% endblock %}
@@ -156,7 +168,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 {% endmacro %}
 {% macro onehr(direction) %}
 	<div class="sfh">
-		<div style="position: absolute; left: -75%; top: -50%; width: 240%; height: 240%; transform: skew(15deg, 15deg) rotate(-45deg);">
+		<div style="position: absolute; left: -200%; top: -150%; width: 480%; height: 480%; transform: skew(15deg, 15deg) rotate(-45deg);">
 			
 			<img src='svg/hrink1.svg#{{ direction }}-house' style="height: 100%; width: 100%;">
 		</div>
