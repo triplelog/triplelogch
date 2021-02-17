@@ -122,15 +122,16 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 }
 
 .cellMid > div.trees {
-	background: green;
 	width: calc(100% - 4px - 2 * var(--block));
+	
 }
 .cellMid > div.trees > img {
 	bottom: 5%;
-	height: 2rem;
+	height: var(--block);
 	display: inline-block;
 	position: relative;
 	transform: skewX(45deg) skewY(-30deg);
+	margin-bottom: 10000px;
 }
 
 
@@ -148,7 +149,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 {% macro sfh(angle) %}
 <div class="zoneCell" style="transform: rotate({{ angle }}deg)">
 </div>
-<div class="isoCell sfhCell" style="transform: rotate({{ angle }}deg)">
+<div class="isoCell sfhCell" style="transform: rotate({{ angle }}deg); background: green;">
 	<div class="notBottom">
 		<div class="cellTop" style="z-index:5; margin-right: 200px;">
 			
