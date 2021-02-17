@@ -147,7 +147,11 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 	margin-bottom: 10000px;
 }
 
-
+.topHR {
+	position: absolute;
+	right: 0%;
+	top: 0%;
+}
 {% endblock %}
 
 {% macro onesfh(direction) %}
@@ -482,8 +486,9 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 		<div class="cellTop" style="z-index:6;">
 			<div>
 				{{ onehr("top","-100%","-300%") }}
+				<input class="topHR" type="text" value="Shioh" />
 			</div>
-			<div class="trees" style="position: relative; left: var(--block);">
+			<div class="trees" style="position: relative; left: calc(var(--block) / 2);">
 				<img src="img/city/tree.png" />
 				<img src="img/city/tree.png" />
 				<img src="img/city/tree.png" />
