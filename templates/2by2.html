@@ -173,13 +173,13 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 }
 .rightOffice {
 	position: absolute;
-	left: 76.5%;
-	top: 80.0%;
+	left: 72.4%;
+	top: 87.0%;
 	height: calc(var(--block) / 3);
 	line-height: calc(var(--block) / 3);
 	font-size: calc(var(--block) / 3);
 	background: transparent;
-	text-shadow: calc(var(--block) / -64) calc(var(--block) / -64) #333, calc(var(--block) * 2 / -64) calc(var(--block) * 2 / -64) #777, calc(var(--block) * 3 / -64) calc(var(--block) *3 / -64) #BBB;
+	text-shadow: calc(var(--block) / -64) calc(var(--block) / -64) #333, calc(var(--block) * 2 / -64) calc(var(--block) * 2 / -64) #777, calc(var(--block) * 3 / -64) calc(var(--block) *3 / -64) #777;
 	border: none;
 	transform: skew(0deg, -30deg) translateY(calc(-1 * var(--block)));
 }
@@ -223,298 +223,307 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 {% endmacro %}
 
 {% macro sfh(angle) %}
-<div class="zoneCell" style="transform: rotate({{ angle }}deg)">
-</div>
-<div class="isoCell sfhCell" style="transform: rotate({{ angle }}deg); background: green;">
-	<div class="notBottom">
-		<div class="cellTop" style="z-index:5; margin-right: 200px;">
+<div class="sfhCell" style="transform: rotate({{ angle }}deg);">
+	<div class="zoneCell">
+		<div>
+		</div>
+	</div>
+	<div class="isoCell sfhCell" style="background: green;">
+		<div class="notBottom">
+			<div class="cellTop" style="z-index:5; margin-right: 200px;">
 			
-			<div>
-				{{ onesfh("top") }}
+				<div>
+					{{ onesfh("top") }}
+				</div>
+				<div class="spacer">
+				</div>
+				<div>
+					{{ onesfh("top") }}
+				</div>
+				<div class="spacer">
+				</div>
+				<div>
+					{{ onesfh("top") }}
+				</div>
+				<div class="spacer">
+				</div>
+				<div>
+					{{ onesfh("top") }}
+				</div>
+				<div class="spacer">
+				</div>
+				<div>
+					{{ onesfh("top") }}
+				</div>
+				<div class="spacer">
+				</div>
+				<div>
+					{{ onesfh("top") }}
+				</div>
 			</div>
-			<div class="spacer">
+			<div class="cellMid" style="z-index:6;">
+				<div>
+					{{ onesfh("left") }}
+				</div>
+				<div class="trees">
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+				</div>
+				<div style="float: right;">
+					{{ onesfh("right") }}
+				</div>
 			</div>
-			<div>
-				{{ onesfh("top") }}
+			<div class="cellMid" style="z-index:7;">
+				<div>
+					{{ onesfh("left") }}
+				</div>
+				<div class="trees">
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+				</div>
+				<div style="float: right;">
+					{{ onesfh("right") }}
+				</div>
 			</div>
-			<div class="spacer">
+			<div class="cellMid" style="z-index:8;">
+				<div>
+					{{ onesfh("left") }}
+				</div>
+				<div class="trees">
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+				</div>
+				<div style="float: right;">
+					{{ onesfh("right") }}
+				</div>
 			</div>
-			<div>
-				{{ onesfh("top") }}
-			</div>
-			<div class="spacer">
-			</div>
-			<div>
-				{{ onesfh("top") }}
-			</div>
-			<div class="spacer">
-			</div>
-			<div>
-				{{ onesfh("top") }}
-			</div>
-			<div class="spacer">
-			</div>
-			<div>
-				{{ onesfh("top") }}
+			<div class="cellMid" style="z-index:9;">
+				<div>
+					{{ onesfh("left") }}
+				</div>
+				<div class="trees">
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+				</div>
+				<div style="float: right;">
+					{{ onesfh("right") }}
+				</div>
 			</div>
 		</div>
-		<div class="cellMid" style="z-index:6;">
+		<div class="cellBottom" style="z-index:10;">
 			<div>
-				{{ onesfh("left") }}
+				{{ onesfh("bottom") }}
 			</div>
-			<div class="trees">
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
+			<div class="spacer">
 			</div>
-			<div style="float: right;">
-				{{ onesfh("right") }}
-			</div>
-		</div>
-		<div class="cellMid" style="z-index:7;">
 			<div>
-				{{ onesfh("left") }}
+				{{ onesfh("bottom") }}
 			</div>
-			<div class="trees">
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
+			<div class="spacer">
 			</div>
-			<div style="float: right;">
-				{{ onesfh("right") }}
-			</div>
-		</div>
-		<div class="cellMid" style="z-index:8;">
 			<div>
-				{{ onesfh("left") }}
+				{{ onesfh("bottom") }}
 			</div>
-			<div class="trees">
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
+			<div class="spacer">
 			</div>
-			<div style="float: right;">
-				{{ onesfh("right") }}
-			</div>
-		</div>
-		<div class="cellMid" style="z-index:9;">
 			<div>
-				{{ onesfh("left") }}
+				{{ onesfh("bottom") }}
 			</div>
-			<div class="trees">
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
+			<div class="spacer">
 			</div>
-			<div style="float: right;">
-				{{ onesfh("right") }}
+			<div>
+				{{ onesfh("bottom") }}
+			</div>
+			<div class="spacer">
+			</div>
+			<div>
+				{{ onesfh("bottom") }}
 			</div>
 		</div>
 	</div>
-	<div class="cellBottom" style="z-index:10;">
-		<div>
-			{{ onesfh("bottom") }}
-		</div>
-		<div class="spacer">
-		</div>
-		<div>
-			{{ onesfh("bottom") }}
-		</div>
-		<div class="spacer">
-		</div>
-		<div>
-			{{ onesfh("bottom") }}
-		</div>
-		<div class="spacer">
-		</div>
-		<div>
-			{{ onesfh("bottom") }}
-		</div>
-		<div class="spacer">
-		</div>
-		<div>
-			{{ onesfh("bottom") }}
-		</div>
-		<div class="spacer">
-		</div>
-		<div>
-			{{ onesfh("bottom") }}
-		</div>
 	</div>
 </div>
 {% endmacro %}
 
 {% macro mfh(angle) %}
-<div class="zoneCell" style="transform: rotate({{ angle }}deg)">
-</div>
-<div class="isoCell sfhCell" style="transform: rotate({{ angle }}deg); background: green;">
-	<div class="notBottom">
-		
-		<div class="cellMid" style="z-index:6;">
-			
-			<div class="trees">
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-			</div>
-			<div style="float: right;">
-				{{ onemfh("right") }}
-			</div>
-		</div>
-		<div class="cellMid" style="z-index:7;">
-			
-			<div class="trees">
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-			</div>
-			<div style="float: right;">
-				{{ onemfh("right") }}
-			</div>
-		</div>
-		<div class="cellMid" style="z-index:8;">
-			
-			<div class="trees">
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-			</div>
-			<div style="float: right;">
-				{{ onemfh("right") }}
-			</div>
-		</div>
-		<div class="cellMid" style="z-index:9;">
-			
-			<div class="trees">
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-			</div>
-			<div style="float: right;">
-				{{ onemfh("right") }}
-			</div>
-		</div>
-		<div class="cellMid" style="z-index:9;">
-			
-			<div class="trees">
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-				<img src="img/city/tree.png" />
-			</div>
-			<div style="float: right;">
-				{{ onemfh("right") }}
-			</div>
+<div class="mfhCell" style="transform: rotate({{ angle }}deg);">
+	<div class="zoneCell">
+		<div>
 		</div>
 	</div>
-	<div class="cellBottom" style="z-index:10;">
-		<div>
-			{{ onemfh("bottom") }}
+	<div class="isoCell sfhCell" style="background: green;">
+		<div class="notBottom">
+		
+			<div class="cellMid" style="z-index:6;">
+			
+				<div class="trees">
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+				</div>
+				<div style="float: right;">
+					{{ onemfh("right") }}
+				</div>
+			</div>
+			<div class="cellMid" style="z-index:7;">
+			
+				<div class="trees">
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+				</div>
+				<div style="float: right;">
+					{{ onemfh("right") }}
+				</div>
+			</div>
+			<div class="cellMid" style="z-index:8;">
+			
+				<div class="trees">
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+				</div>
+				<div style="float: right;">
+					{{ onemfh("right") }}
+				</div>
+			</div>
+			<div class="cellMid" style="z-index:9;">
+			
+				<div class="trees">
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+				</div>
+				<div style="float: right;">
+					{{ onemfh("right") }}
+				</div>
+			</div>
+			<div class="cellMid" style="z-index:9;">
+			
+				<div class="trees">
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+					<img src="img/city/tree.png" />
+				</div>
+				<div style="float: right;">
+					{{ onemfh("right") }}
+				</div>
+			</div>
 		</div>
-		<div class="spacer">
-		</div>
-		<div>
-			{{ onemfh("bottom") }}
-		</div>
-		<div class="spacer">
-		</div>
-		<div>
-			{{ onemfh("bottom") }}
-		</div>
-		<div class="spacer">
-		</div>
-		<div>
-			{{ onemfh("bottom") }}
-		</div>
-		<div class="spacer">
-		</div>
-		<div>
-			{{ onemfh("bottom") }}
-		</div>
-		<div class="spacer">
-		</div>
-		<div>
-			{{ onemfh("bottom") }}
+		<div class="cellBottom" style="z-index:10;">
+			<div>
+				{{ onemfh("bottom") }}
+			</div>
+			<div class="spacer">
+			</div>
+			<div>
+				{{ onemfh("bottom") }}
+			</div>
+			<div class="spacer">
+			</div>
+			<div>
+				{{ onemfh("bottom") }}
+			</div>
+			<div class="spacer">
+			</div>
+			<div>
+				{{ onemfh("bottom") }}
+			</div>
+			<div class="spacer">
+			</div>
+			<div>
+				{{ onemfh("bottom") }}
+			</div>
+			<div class="spacer">
+			</div>
+			<div>
+				{{ onemfh("bottom") }}
+			</div>
 		</div>
 	</div>
 </div>
