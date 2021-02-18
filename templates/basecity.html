@@ -240,6 +240,22 @@
 	position: relative;
 	flex-grow: 1;
 }
+.cellSpread > div:nth-child(1) > div:Not(.spacer) {
+	width: var(--block);
+	height: var(--block);
+	display: inline-block;
+	margin-bottom:10000px;
+	vertical-align: top;
+	position: relative;
+}
+.cellSpread > div:nth-child(1) > div.spacer {
+	height: var(--block);
+	display: inline-block;
+	margin-bottom:10000px;
+	vertical-align: top;
+	position: relative;
+	flex-grow: 1;
+}
 
 .leftWall {
 	width: calc(var(--w) * 100%);
