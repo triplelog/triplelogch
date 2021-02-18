@@ -1023,7 +1023,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 			
 			<div style="float:right; clear: none;">
 				<div class="sfh">
-					<div style="position: absolute; right: calc(.75 * var(--block)); bottom: calc(-.25 * var(--block)); width: calc(2 * var(--block)); height: calc(2 * var(--block)); transform: skew(15deg, 15deg) rotate(-45deg);">
+					<div style="position: absolute; right: calc(.7 * var(--block)); bottom: calc(-.25 * var(--block)); width: calc(2 * var(--block)); height: calc(2 * var(--block)); transform: skew(15deg, 15deg) rotate(-45deg);">
 		
 						<img src='svg/exink1.svg#pool' style="height: 100%; width: 100%;">
 					</div>
@@ -1031,7 +1031,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 			</div>
 			<div style="float:right; clear: none;">
 				<div class="sfh">
-					<div style="position: absolute; right: calc(0.75 * var(--block)); bottom: calc(-1 * var(--block)); width: calc(7 * var(--block)); height: calc(7 * var(--block)); transform: skew(15deg, 15deg) rotate(-45deg);">
+					<div style="position: absolute; right: calc(0.5 * var(--block)); bottom: calc(-1 * var(--block)); width: calc(7 * var(--block)); height: calc(7 * var(--block)); transform: skew(15deg, 15deg) rotate(-45deg);">
 		
 						<img src='svg/hotink1.svg#hotel' style="height: 100%; width: 100%;">
 					</div>
@@ -1043,6 +1043,41 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 </div>
 {% endmacro %}
 
+{% macro solar(angle) %}
+<div class="solHolder" style="transform: rotate({{ angle }}deg);">
+
+	<div class="isoCell sfhCell" style="background: green;">
+		<div>
+			<div class="sfh">
+				<div style="position: absolute; right: calc(0.5 * var(--block)); bottom: calc(-1 * var(--block)); width: calc(2 * var(--block)); height: calc(2 * var(--block)); transform: skew(15deg, 15deg) rotate(-45deg);">
+	
+					<img src='svg/powink1.svg#solar' style="height: 100%; width: 100%;">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endmacro %}
+
+{% macro wind(angle) %}
+<div class="windHolder" style="transform: rotate({{ angle }}deg);">
+
+	<div class="isoCell sfhCell" style="background: green;">
+		<div>
+			<div class="sfh">
+				<div style="position: absolute; right: calc(0.5 * var(--block)); bottom: calc(-1 * var(--block)); width: calc(2 * var(--block)); height: calc(2 * var(--block)); transform: skew(15deg, 15deg) rotate(-45deg);">
+	
+					<img src='svg/powink1.svg#pole' style="height: 100%; width: 100%;">
+				</div>
+				<div style="position: absolute; right: calc(0.5 * var(--block)); bottom: calc(-1 * var(--block)); width: calc(2 * var(--block)); height: calc(2 * var(--block)); transform: skew(15deg, 15deg) rotate(-45deg);">
+	
+					<img src='svg/powink1.svg#blades' style="height: 100%; width: 100%;">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endmacro %}
 {% macro apartment(angle,id) %}
 <div class="zoneCell" style="transform: rotate({{ angle }}deg)">
 </div>
