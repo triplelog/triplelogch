@@ -1,11 +1,17 @@
 {% extends "templates/8by8.html" %}
-{% macro 4by4(angle,id) %}
+{% macro 4by4(angle,id1,id2) %}
 <div class="topBottom" style="transform: rotate({{ angle }}deg)">
 	<div class="top">
 		<div class="smallGrid">
 			<div class="leftRight">
 				<div class="left">
-					{{ sfh(0) }}
+					<div class="zoneCell cell-{{ id1 }}{{ id2 }}0">
+						<label for="blank-{{ id1 }}{{ id2 }}0">Blank</label>
+						<label for="sfh-{{ id1 }}{{ id2 }}0">SFH</label>
+						<label for="mfh-{{ id1 }}{{ id2 }}0">MFH</label>
+					</div>
+					{{ sfh(0,id1,id2,0) }}
+					{{ mfh(0,id1,id2,0) }}
 				</div>
 				<div class="center">
 					
@@ -13,7 +19,7 @@
 				<div class="right">
 					
 					<div class="horizontalGrow"></div>
-					{{ office(180) }}
+					{{ office(180,id1,id2,1) }}
 				</div>
 			</div>
 		
@@ -26,7 +32,7 @@
 		<div class="smallGrid">
 			<div class="leftRight">
 				<div class="left" style="transform: rotate(180deg); z-index: 50;">
-					{{ mfh(0) }}
+					{{ mfh(0,id1,id2,2) }}
 					
 				</div>
 				<div class="center">
@@ -35,7 +41,7 @@
 				<div class="right">
 					
 					<div class="horizontalGrow"></div>
-					{{ hr(0) }}
+					{{ hr(0,id1,id2,3) }}
 				</div>
 			</div>
 		
@@ -43,4 +49,10 @@
 		<div class="verticalGrow"></div>
 	</div>
 </div>
+{% endmacro %}
+
+{% macro zoneButtons(name) %}
+	<input type="radio" name="cell-000" id="blank-000" checked>
+	<input type="radio" name="cell-000" id="sfh-000">
+	<input type="radio" name="cell-000" id="mfh-000">
 {% endmacro %}

@@ -20,9 +20,9 @@
 
 .container {
 	
-	--block: 6rem;
-	--container-width: 360rem;
-	--container-height: 360rem;
+	--block: 2rem;
+	--container-width: 120rem;
+	--container-height: 120rem;
 	
 	--skewX: -0.5235;
 	--angle: var(--skewX);
@@ -317,7 +317,7 @@
 	left:0px;
 	top:0px;
 	position: absolute;
-	display: inline-block;
+	display: none;
 	background: green;
 }
 .mfhHolder {
@@ -326,10 +326,24 @@
 	left:0px;
 	top:0px;
 	position: absolute;
-	display: inline-block;
+	display: none;
 	background: red;
 }
-
+#blank-000:checked ~ div .cell-000 {
+	border: 2px solid white;
+}
+#sfh-000:checked ~ div .cell-000 {
+	border: 2px solid green;
+}
+#mfh-000:checked ~ div .cell-000 {
+	border: 2px solid red;
+}
+#sfh-000:checked ~ div .cell-000 ~ .sfhHolder {
+	display: inline-block;
+}
+#mfh-000:checked ~ div .cell-000 ~ .mfhHolder {
+	display: inline-block;
+}
 
 .sfh {
 	--h: 120%;
@@ -383,6 +397,8 @@
 <div class="container">
 	<input type="radio" name="zone" id="zone0" checked />
 	<input type="radio" name="zone" id="zone1" />
+	
+	{{ zoneButtons }}
 	<div class="bigGrid">
 		
 		<div class="topBottom">
