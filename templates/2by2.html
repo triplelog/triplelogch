@@ -185,12 +185,14 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 }
 @keyframes rotateBlades {
   from {transform: skew(15deg, 15deg) rotate(-45deg);}
-  to {transform: skew(15deg, 15deg) rotate(45deg);}
+  to {transform: skew(15deg, 15deg) rotate(315deg);}
 }
 .rotating {
 	transform: skew(15deg, 15deg) rotate(-45deg);
 	animation-name: rotateBlades;
-	animation-duration: 5s;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
 }
 {% endblock %}
 
