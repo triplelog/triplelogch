@@ -183,6 +183,15 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 	border: none;
 	transform: skew(0deg, -30deg) translateY(calc(-1 * var(--block)));
 }
+@keyframes rotateBlades {
+  from {transform: skew(15deg, 15deg) rotate(-45deg);}
+  to {transform: skew(15deg, 15deg) rotate(45deg);}
+}
+.rotating {
+	transform: skew(15deg, 15deg) rotate(-45deg);
+	animation-name: rotateBlades;
+	animation-duration: 5s;
+}
 {% endblock %}
 
 {% macro onesfh(direction) %}
@@ -1069,7 +1078,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 	
 					<img src='svg/powink1.svg#pole' style="height: 100%; width: 100%;">
 				</div>
-				<div style="position: absolute; right: calc(1.1 * var(--block)); bottom: calc(0.9 * var(--block)); width: calc(2 * var(--block)); height: calc(2 * var(--block)); transform: skew(15deg, 15deg) rotate(-45deg);">
+				<div class="rotating" style="position: absolute; right: calc(0.98 * var(--block)); bottom: calc(0.81 * var(--block)); width: calc(2 * var(--block)); height: calc(2 * var(--block)); ">
 	
 					<img src='svg/powink1.svg#blades' style="height: 100%; width: 100%;">
 				</div>
