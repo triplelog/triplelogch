@@ -40,9 +40,10 @@
 	top: 0px;
 	width: inherit;
 	height: 20px;
-	background: red;
+	background: white;
 	display: flex;
 	flex-wrap: wrap;
+	border: 1px solid black;
 }
 .leftRight {
 	display: flex;
@@ -85,11 +86,12 @@
 .horizontalGrow {
 	height: 50%;
 	margin: auto;
-	width: 100px;
+	width: 50px;
+	min-width: 50px;
+	max-width: 56px;
 	resize: horizontal;
 	overflow: auto;
 	position: relative;
-	max-width: calc(100%);
 	background: yellow;
 	pointer-events: none;
 	z-index: 100;
