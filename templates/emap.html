@@ -10,24 +10,29 @@
 	overflow: hidden;
 	transform: scale(5,5);
 	height: 50px;
-	width: 10px;
+	width: 50px;
+	min-width:100px;
+	max-width:150px;
 	background: yellow;
 	position: absolute;
+	left:-125px;
+	right:-125px;
 }
 .cover {
-	height: 250px;
-	width: 250px;
+	height: 500px;
+	width: 500px;
 	background: rgba(0,0,0,.2);
 	position: absolute;
 	left: 0px;
 	top: 0px;
+	pointer-events: none;
 }
 .state {
 	height: 50px;
 	width: 50px;
 	background: rgba(0,0,0,.2);
 	position: absolute;
-	left: 25px;
+	left: 125px;
 	top: 125px;
 	pointer-events: none;
 }
