@@ -200,6 +200,21 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
 }
+
+.fullCell > div:Not(.spacer) {
+	width: calc(var(--block) * 1);
+	height: calc(var(--block) * 1);
+	display: inline-block;
+	font-size: .4rem;
+	line-height: .5rem;
+	flex-grow: 0;
+	flex-shrink: 0;
+	position: relative;
+}
+.fullCell > div.spacer {
+	flex-grow: 1;
+	flex-shrink: 1;
+}
 {% endblock %}
 
 {% macro onesfh(direction) %}
@@ -1090,7 +1105,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 				<img src='svg/powink1.svg#blades2' style="height: 100%; width: 100%;">
 			</div>
 		</div>
-		<div class="spacer" style="flex-grow: 1;">
+		<div class="spacer">
 		</div>
 		<div>
 			<div style="position: absolute; right: calc(0.4 * var(--block)); bottom: calc(0 * var(--block)); width: calc(2 * var(--block)); height: calc(2 * var(--block)); transform: skew(15deg, 15deg) rotate(-45deg);">
