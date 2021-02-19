@@ -201,15 +201,33 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 	animation-timing-function: linear;
 }
 
-.fullCell > div:Not(.spacer) {
+.fullCell > div > div:Not(.spacer) {
 	width: calc(var(--block) * 1);
 	height: calc(var(--block) * 1);
-	display: inline-block;
 	font-size: .4rem;
 	line-height: .5rem;
 	flex-grow: 0;
 	flex-shrink: 0;
 	position: relative;
+	display: inline-block;
+}
+.fullCell > div > div.spacer {
+	flex-grow: 1;
+	flex-shrink: 1;
+}
+.fullCell > div:Not(.spacer) {
+	width: 100%;
+	height: calc(var(--block) * 1);
+	font-size: .4rem;
+	line-height: .5rem;
+	flex-grow: 0;
+	flex-shrink: 0;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	margin-bottom: 10000px;
+	border: 1px solid black;
 }
 .fullCell > div.spacer {
 	flex-grow: 1;
@@ -1106,12 +1124,18 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 {% macro wind(angle) %}
 <div class="windHolder" style="transform: rotate({{ angle }}deg);">
 
-	<div class="isoCell">
-		<div class="fullCell" style="background: green; display: flex; flex-wrap: wrap; position: absolute; left: 0px; top:0px; width: 100%; height: 100%;">
-			{% for i in range(0,36) %}
+	<div class="isoCell" style="background: green;">
+		<div class="fullCell" style="display: flex; flex-direction: row; flex-wrap: wrap; position: absolute; left: 0px; top:0px; width: 100%; height: 100%;">
+			{% for i in range(0,6) %}
+			<div>
+				{% for i in range(0,6) %}
 				{{ onewind(0) }}
 				<div class="spacer">
 				</div>
+				{% endfor %}
+			</div>
+			<div class="spacer">
+			</div>
 			{% endfor %}
 		</div>
 	</div>
