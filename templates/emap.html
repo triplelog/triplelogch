@@ -15,12 +15,22 @@
 	position: absolute;
 }
 .cover {
+	height: 250px;
+	width: 250px;
+	background: rgba(0,0,0,.2);
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	pointer-events: none;
+}
+.state {
 	height: 50px;
 	width: 50px;
 	background: rgba(0,0,0,.2);
 	position: absolute;
 	left: 25px;
 	top: 125px;
+	pointer-events: none;
 }
 </style>
 </head>
@@ -28,6 +38,8 @@
 	<div class="hResize">
 	</div>
 	<div class="cover">
+		<div class="state">
+		</div>
 	</div>
 </body>
 </html>
