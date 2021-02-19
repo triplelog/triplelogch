@@ -44,16 +44,24 @@
 }
 .resizeHolder {
 	overflow: visible;
+	width: 500px;
+	height: 500px;
+	display: flex;
 }
 </style>
 </head>
 <body>
 	<div class="resizeHolder">
-		<div class="hResize">
+		<div style="flex-grow: 1; flex-shrink: 1;">
+		</div>
+		<div style="max-wdith: 500px;">
+			<div class="hResize">
 		
+			</div>
+			<div class="key">
+			</div>
 		</div>
-		<div class="key">
-		</div>
+		
 	</div>
 	<div class="cover">
 		<div class="state">
