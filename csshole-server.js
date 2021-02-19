@@ -332,6 +332,15 @@ app.get('/city.html',
 	}
 );
 
+app.get('/emap.html', 
+	function(req, res) {
+		res.write(nunjucks.render('templates/emap.html',{
+		
+		}));
+		res.end();
+	}
+);
+
 function makePuzzle(puzzleRaw) {
 	var puzzle = [];
 	for (var i=0;i<9;i++){
