@@ -228,7 +228,6 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 	flex-direction: row;
 	flex-wrap: wrap;
 	margin-right: 9000px;
-	border: 1px solid black;
 }
 .fullCell > div.spacer {
 	flex-grow: 1;
@@ -1096,15 +1095,26 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 
 {% macro solar(angle) %}
 <div class="solHolder" style="transform: rotate({{ angle }}deg);">
-
-	<div class="isoCell sfhCell" style="background: green;">
-		<div>
-			<div class="sfh">
-				<div style="position: absolute; right: calc(0.5 * var(--block)); bottom: calc(-1 * var(--block)); width: calc(2 * var(--block)); height: calc(2 * var(--block)); transform: skew(15deg, 15deg) rotate(-45deg);">
+	<div class="isoCell" style="background: green;">
+		<div class="fullCell" style="display: flex; flex-direction: column; flex-wrap: wrap; position: absolute; left: 0px; top:0px; width: 100%; height: 100%;">
+			{% for i in range(0,6) %}
+			<div>
+				{% for i in range(0,6) %}
+				<div>
+					<div class="sfh">
+						<div style="position: absolute; right: calc(0.5 * var(--block)); bottom: calc(-1 * var(--block)); width: calc(2 * var(--block)); height: calc(2 * var(--block)); transform: skew(15deg, 15deg) rotate(-45deg);">
 	
-					<img src='svg/powink1.svg#solar' style="height: 100%; width: 100%;">
+							<img src='svg/powink1.svg#solar' style="height: 100%; width: 100%;">
+						</div>
+					</div>
 				</div>
+				<div class="spacer">
+				</div>
+				{% endfor %}
 			</div>
+			<div class="spacer">
+			</div>
+			{% endfor %}
 		</div>
 	</div>
 </div>
