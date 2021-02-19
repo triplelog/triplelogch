@@ -191,8 +191,12 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 }
 .rotating {
 
+	transform: skew(0deg,-30deg);
+}
+.rotating img {
+
 	animation-name: rotateBlades;
-	animation-duration: 1s;
+	animation-duration: 2s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
 }
@@ -1084,7 +1088,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 				</div>
 				<div class="rotating" style="position: absolute; right: calc(0.98 * var(--block)); bottom: calc(0.81 * var(--block)); width: calc(2 * var(--block)); height: calc(2 * var(--block)); ">
 	
-					<img src='svg/powink1.svg#blades2' style="height: 100%; width: 100%; background: rgba(0,0,0,.2); transform: skew(0deg,-30deg);">
+					<img src='svg/powink1.svg#blades2' style="height: 100%; width: 100%; background: rgba(0,0,0,.2);">
 				</div>
 			</div>
 		</div>
