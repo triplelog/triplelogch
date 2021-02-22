@@ -2,10 +2,10 @@
 {% macro 4by4(angle1,angle2,angle3,angle4,id1,id2) %}
 
 {% if angle1 > 0 %}
-{% set id2 = 4 - id2 %}
+{% set id2 = 3 - id2 %}
 {% endif %}
 {% if angle2 > 0 %}
-{% set id2 = 4 - id2 %}
+{% set id2 = 3 - id2 %}
 {% endif %}
 <div class="topBottom" style="transform: rotate({{ angle3 }}deg)">
 	<div class="vresize">
