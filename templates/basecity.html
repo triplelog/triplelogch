@@ -120,7 +120,7 @@
 	max-width:100%;
 	height: 100%;
 }
-.left {
+.hflex {
 	height: 100%;
 	position: relative;
 	flex-grow: 1;
@@ -145,10 +145,9 @@
 	background-repeat: repeat;
 	position: relative;
 }
-.right {
+.hresize {
 	height: 100%;
 	overflow: visible;
-	transform: rotate(180deg);
 	position: relative;
 	max-width: calc(100% - var(--block) - 1rem);
 	
@@ -475,14 +474,14 @@
 			<div class="vresize">
 				<div class="smallGrid">
 					<div class="leftRight">
-						<div class="left">
+						<div class="hresize">
 							<div class="horizontalGrow grow8"></div>
 							{{ 8by8(0,4) }}
 						</div>
 						<div class="vroad">
 					
 						</div>
-						<div class="right" style="transform: rotate(0deg);">
+						<div class="hflex" style="transform: rotate(0deg);">
 					
 							
 							{{ 8by8(180,3) }}
@@ -497,7 +496,7 @@
 			<div class="vflex">
 				<div class="smallGrid">
 					<div class="leftRight">
-						<div class="left" style="">
+						<div class="hresize" style="">
 							<div class="horizontalGrow grow8"></div>
 							{{ 8by8(0,2) }}
 					
@@ -505,7 +504,7 @@
 						<div class="vroad">
 					
 						</div>
-						<div class="right">
+						<div class="hflex">
 					
 							{{ 8by8(0,1) }}
 						</div>

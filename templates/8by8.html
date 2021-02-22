@@ -1,17 +1,17 @@
 {% extends "templates/basecity.html" %}
 {% macro 8by8(angle,id) %}
 <div class="leftRight">
-	<div class="left">
+	<div class="hresize">
 		<div class="smallGrid">
 			<div class="topBottom">
-				<div class="top">
+				<div class="vresize">
 					<div class="verticalGrow grow4"></div>
 					<!--{{ 4by4(0,id,0) }}-->
 				</div>
 				<div class="hroad">
 			
 				</div>
-				<div class="bottom">
+				<div class="vflex">
 			
 					
 					<!--{{ 4by4(180,id,1) }}-->
@@ -23,10 +23,10 @@
 	</div>
 	<div class="vroad">
 	</div>
-	<div class="right">
+	<div class="hflex">
 		<div class="smallGrid">
 			<div class="topBottom">
-				<div class="top" style="transform: rotate(180deg); z-index: 50;">
+				<div class="vresize" style="">
 					<div class="verticalGrow grow4"></div>
 					<!--{{ 4by4(0,id,2) }}-->
 			
@@ -34,7 +34,7 @@
 				<div class="hroad">
 			
 				</div>
-				<div class="bottom">
+				<div class="vflex">
 			
 					
 					<!--{{ 4by4(0,id,3) }}-->
