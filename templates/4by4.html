@@ -1,9 +1,9 @@
 {% extends "templates/8by8.html" %}
-{% macro 4by4(angle3,id1,id2) %}
+{% macro 4by4(angle3,angle4,id1,id2) %}
 <div class="topBottom" style="transform: rotate({{ angle3 }}deg)">
 	<div class="vresize">
 		<div class="smallGrid">
-			<div class="leftRight">
+			<div class="leftRight" style="transform: rotate({{ angle4 }}deg)">
 				<div class="hresize">
 					<div class="horizontalGrow"></div>
 					<div class="zoneCell cell-{{ id1 }}{{ id2 }}0">
@@ -31,7 +31,7 @@
 	</div>
 	<div class="vflex">
 		<div class="smallGrid">
-			<div class="leftRight">
+			<div class="leftRight" style="transform: rotate({{ angle4 }}deg)">
 				<div class="hresize">
 					<div class="horizontalGrow"></div>
 					{{ solar(0,id1,id2,2) }}
