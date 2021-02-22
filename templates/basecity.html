@@ -81,7 +81,7 @@
 	height: calc(1 * var(--block));
 	background: black;
 	background-image: url("img/hroad.png");
-	background-size: 100% auto;
+	background-size: auto 100%;
 	background-repeat: repeat;
 	position: relative;
 }
@@ -477,27 +477,29 @@
 				<div class="smallGrid">
 					<div class="leftRight">
 						<div class="left">
-							{{ 8by8(0,0) }}
+							<div class="horizontalGrow grow8"></div>
+							{{ 8by8(0,4) }}
 						</div>
 						<div class="vroad">
 					
 						</div>
 						<div class="right" style="transform: rotate(0deg);">
 					
-							<div class="horizontalGrow grow8"></div>
-							{{ 8by8(180,1) }}
+							
+							{{ 8by8(180,3) }}
 						</div>
 					</div>
 		
 				</div>
+				<div class="verticalGrow grow8"></div>
 			</div>
 			<div class="hroad">
-				- - - - - - - - -
 			</div>
 			<div class="bottom">
 				<div class="smallGrid">
 					<div class="leftRight">
 						<div class="left" style="transform: rotate(180deg); z-index: 50;">
+							<div class="horizontalGrow grow8"></div>
 							{{ 8by8(0,2) }}
 					
 						</div>
@@ -506,13 +508,12 @@
 						</div>
 						<div class="right">
 					
-							<div class="horizontalGrow grow8"></div>
-							{{ 8by8(0,3) }}
+							{{ 8by8(0,1) }}
 						</div>
 					</div>
 		
 				</div>
-				<div class="verticalGrow grow8"></div>
+				
 			</div>
 		</div>
 	</div>
