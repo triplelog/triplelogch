@@ -42,14 +42,16 @@
 				{% endif %}
 				<div class="hresize">
 					
-					<div class="horizontalGrow"></div>
+					<div class="horizontalGrow">
+						<div style="position: fixed; top: 0px; left: 250px; width: inherit; height: 20px; backdrop-filter: contrast(2); z-index: {{ id1*200 + id2*20 + idr*2 + 1 }};"></div>
+					</div>
 					<div class="zoneCell cell-{{ id1 }}{{ id2 }}{{ idr }}" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
 						<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}{{ idr }}">Blank-{{ id1 }}-{{ id2 }}-{{ idr }}</label>
 						<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}{{ idr }}"></label>
 						<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}{{ idr }}"></label>
 						
 					</div>
-					{{ sfh(angle1 + angle3 + angle4,id1,id2,idr) }}
+					{{ sfh(angle1 + angle3 + angle4,id1*200 + id2*20 + idr*2) }}
 					{{ mfh(angle1 + angle3 + angle4,id1,id2,idr) }}
 				</div>
 				<div class="vroad" style="z-index: {{ id1*200 + id2*20 + (idf + idr) }};">

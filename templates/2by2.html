@@ -272,8 +272,9 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 	</div>
 {% endmacro %}
 
-{% macro sfh(angle) %}
+{% macro sfh(angle,zIndex) %}
 <div class="sfhHolder" style="transform: rotate({{ angle }}deg);">
+	<div style="position: fixed; background: rgb(150,0,0,.1); top: 0px; left: 250px; width: inherit; height: 20px; backdrop-filter: contrast(2); z-index: {{ zIndex }};"></div>
 	
 	<div class="isoCell sfhCell" style="background: green;">
 		<div class="notBottom">
