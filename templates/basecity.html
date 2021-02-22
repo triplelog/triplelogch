@@ -20,9 +20,9 @@
 
 .container {
 	
-	--block: 3rem;
-	--container-width: 180rem;
-	--container-height: 180rem;
+	--block: 2rem;
+	--container-width: 120rem;
+	--container-height: 120rem;
 	
 	--skewX: -0.5235;
 	--angle: var(--skewX);
@@ -134,10 +134,11 @@
 	width: 100%;
 }
 
-.center {
+.vroad {
 	height: 100%;
 	width: calc(1 * var(--block));
-	background: silver;
+	background: black;
+	background-image: url("img/vroad.png");
 	position: relative;
 }
 .right {
@@ -473,7 +474,7 @@
 						<div class="left">
 							{{ 8by8(0,0) }}
 						</div>
-						<div class="center">
+						<div class="vroad">
 					
 						</div>
 						<div class="right" style="transform: rotate(0deg);">
@@ -495,7 +496,7 @@
 							{{ 8by8(0,2) }}
 					
 						</div>
-						<div class="center">
+						<div class="vroad">
 					
 						</div>
 						<div class="right">
