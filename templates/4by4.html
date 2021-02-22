@@ -44,10 +44,9 @@
 					
 					<div class="horizontalGrow"></div>
 					<div class="zoneCell cell-{{ id1 }}{{ id2 }}{{ idr }}" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
-						<label for="blank-{{ id1 }}{{ id2 }}{{ idr }}">Blank-{{ id1 }}-{{ id2 }}-{{ idr }}</label>
-						<label for="sfh-{{ id1 }}{{ id2 }}{{ idr }}">SFH</label>
-						<label for="mfh-{{ id1 }}{{ id2 }}{{ idr }}">MFH</label>
-						<label for="mfh-{{ id1 }}{{ id2 }}{{ idr }}">MFH</label>
+						<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}{{ idr }}">Blank-{{ id1 }}-{{ id2 }}-{{ idr }}</label>
+						<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}{{ idr }}"></label>
+						<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}{{ idr }}"></label>
 						
 					</div>
 					{{ sfh(angle1 + angle3 + angle4,id1,id2,idr) }}
