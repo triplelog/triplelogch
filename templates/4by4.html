@@ -43,10 +43,10 @@
 				<div class="hresize">
 					
 					<div class="horizontalGrow"></div>
-					<div class="zoneCell cell-{{ id1 }}{{ id2 }}3" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
-						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-{{ idr }}</label>
-						<label for="sfh-{{ id1 }}{{ id2 }}3">SFH</label>
-						<label for="mfh-{{ id1 }}{{ id2 }}3">MFH</label>
+					<div class="zoneCell cell-{{ id1 }}{{ id2 }}{{ idr }}" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
+						<label for="blank-{{ id1 }}{{ id2 }}{{ idr }}">Blank-{{ id1 }}-{{ id2 }}-{{ idr }}</label>
+						<label for="sfh-{{ id1 }}{{ id2 }}{{ idr }}">SFH</label>
+						<label for="mfh-{{ id1 }}{{ id2 }}{{ idr }}">MFH</label>
 					</div>
 					{{ sfh(angle1 + angle3 + angle4,id1,id2,idr) }}
 					{{ mfh(angle1 + angle3 + angle4,id1,id2,idr) }}
@@ -57,13 +57,14 @@
 				
 				<div class="hflex">
 					
-					<div class="zoneCell cell-{{ id1 }}{{ id2 }}3" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
-						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-{{ idf }}</label>
-						<label for="sfh-{{ id1 }}{{ id2 }}3">SFH</label>
-						<label for="mfh-{{ id1 }}{{ id2 }}3">MFH</label>
+					<div class="zoneCell cell-{{ id1 }}{{ id2 }}{{ idf }}" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
+						<label for="blank-{{ id1 }}{{ id2 }}{{ idf }}">Blank-{{ id1 }}-{{ id2 }}-{{ idf }}</label>
+						<label for="sfh-{{ id1 }}{{ id2 }}{{ idf }}">SFH</label>
+						<label for="mfh-{{ id1 }}{{ id2 }}{{ idf }}">MFH</label>
 					</div>
 					
-					{{ park(angle1 + angle3 + angle4,id1,id2,idf) }}
+					{{ sfh(angle1 + angle3 + angle4,id1,id2,idf) }}
+					{{ mfh(angle1 + angle3 + angle4,id1,id2,idf) }}
 				</div>
 			</div>
 		
@@ -113,12 +114,13 @@
 					
 					
 					<div class="horizontalGrow"></div>
-					<div class="zoneCell cell-{{ id1 }}{{ id2 }}3" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
-						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-{{ idr }}</label>
-						<label for="sfh-{{ id1 }}{{ id2 }}3">SFH</label>
-						<label for="mfh-{{ id1 }}{{ id2 }}3">MFH</label>
+					<div class="zoneCell cell-{{ id1 }}{{ id2 }}{{ idr }}" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
+						<label for="blank-{{ id1 }}{{ id2 }}{{ idr }}">Blank-{{ id1 }}-{{ id2 }}-{{ idr }}</label>
+						<label for="sfh-{{ id1 }}{{ id2 }}{{ idr }}">SFH</label>
+						<label for="mfh-{{ id1 }}{{ id2 }}{{ idr }}">MFH</label>
 					</div>
-					{{ solar(angle1 + angle3 + angle4,id1,id2,idr) }}
+					{{ sfh(angle1 + angle3 + angle4,id1,id2,idr) }}
+					{{ mfh(angle1 + angle3 + angle4,id1,id2,idr) }}
 					
 				</div>
 				<div class="vroad" style="z-index: {{ id1*200 + id2*20 + (idf + idr) }};">
@@ -126,13 +128,14 @@
 				</div>
 				<div class="hflex">
 					
-					<div class="zoneCell cell-{{ id1 }}{{ id2 }}3" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
-						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-{{ idf }}</label>
-						<label for="sfh-{{ id1 }}{{ id2 }}3">SFH</label>
-						<label for="mfh-{{ id1 }}{{ id2 }}3">MFH</label>
+					<div class="zoneCell cell-{{ id1 }}{{ id2 }}{{ idf }}" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
+						<label for="blank-{{ id1 }}{{ id2 }}{{ idf }}">Blank-{{ id1 }}-{{ id2 }}-{{ idf }}</label>
+						<label for="sfh-{{ id1 }}{{ id2 }}{{ idf }}">SFH</label>
+						<label for="mfh-{{ id1 }}{{ id2 }}{{ idf }}">MFH</label>
 					</div>
 					
-					{{ wind(angle1 + angle3 + angle4,id1,id2,idf) }}
+					{{ sfh(angle1 + angle3 + angle4,id1,id2,idf) }}
+					{{ mfh(angle1 + angle3 + angle4,id1,id2,idf) }}
 				</div>
 			</div>
 		
@@ -143,7 +146,13 @@
 {% endmacro %}
 
 {% macro zoneButtons(name) %}
-	<input type="radio" name="cell-000" id="blank-000" checked>
-	<input type="radio" name="cell-000" id="sfh-000">
-	<input type="radio" name="cell-000" id="mfh-000">
+	{% for i in range(0,4) %}
+		{% for ii in range(0,4) %}
+			{% for iii in range(0,4) %}
+			<input type="radio" style="display: none;" name="cell-{{ i }}{{ ii }}{{ iii }}" id="blank-{{ i }}{{ ii }}{{ iii }}" checked>
+			<input type="radio" style="display: none;" name="cell-{{ i }}{{ ii }}{{ iii }}" id="sfh-{{ i }}{{ ii }}{{ iii }}">
+			<input type="radio" style="display: none;" name="cell-{{ i }}{{ ii }}{{ iii }}" id="mfh-{{ i }}{{ ii }}{{ iii }}">
+			{% endfor %}
+		{% endfor %}
+	{% endfor %}
 {% endmacro %}
