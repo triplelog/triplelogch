@@ -1,20 +1,47 @@
 {% extends "templates/basecity.html" %}
 {% macro 8by8(angle1,angle2,id) %}
+
 <div class="leftRight" style="transform: rotate({{angle1}}deg);">
 	<div class="hresize">
 		<div class="smallGrid">
 			<div class="topBottom" style="transform: rotate({{angle2}}deg);">
+				{% set idr = 0 %}
+				{% set idf = 1 %}
+				{% if angle1 > 0 %}
+				{% set idr = 3 - idr %}
+				{% set idf = 3 - idf %}
+				{% endif %}
+				{% if angle2 > 0 %}
+					{% if idr == 0 %}
+					{% set idr = 1 %}
+					{% elif idr == 2 %}
+					{% set idr = 3 %}
+					{% elif idr == 1 %}
+					{% set idr = 0 %}
+					{% elif idr == 3 %}
+					{% set idr = 2 %}
+					{% endif %}
+					{% if idf == 0 %}
+					{% set idf = 1 %}
+					{% elif idf == 2 %}
+					{% set idf = 3 %}
+					{% elif idf == 1 %}
+					{% set idf = 0 %}
+					{% elif idf == 3 %}
+					{% set idf = 2 %}
+					{% endif %}
+				{% endif %}
 				<div class="vresize">
 					<div class="verticalGrow grow4"></div>
-					{{ 4by4(angle1,angle2,0,0,id,0) }}
+					{{ 4by4(angle1,angle2,0,0,id,idr) }}
 				</div>
-				<div class="hroad">
+				<div class="hroad" style="z-index: {{ id*100 + (idf + idr)*5 }};">
 			
 				</div>
 				<div class="vflex">
 			
 					
-					{{ 4by4(angle1,angle2,180,180,id,1) }}
+					{{ 4by4(angle1,angle2,180,180,id,idf) }}
 				</div>
 			</div>
 
@@ -26,18 +53,44 @@
 	<div class="hflex">
 		<div class="smallGrid">
 			<div class="topBottom" style="transform: rotate({{angle2}}deg);">
+				{% set idr = 2 %}
+				{% set idf = 3 %}
+				{% if angle1 > 0 %}
+				{% set idr = 3 - idr %}
+				{% set idf = 3 - idf %}
+				{% endif %}
+				{% if angle2 > 0 %}
+					{% if idr == 0 %}
+					{% set idr = 1 %}
+					{% elif idr == 2 %}
+					{% set idr = 3 %}
+					{% elif idr == 1 %}
+					{% set idr = 0 %}
+					{% elif idr == 3 %}
+					{% set idr = 2 %}
+					{% endif %}
+					{% if idf == 0 %}
+					{% set idf = 1 %}
+					{% elif idf == 2 %}
+					{% set idf = 3 %}
+					{% elif idf == 1 %}
+					{% set idf = 0 %}
+					{% elif idf == 3 %}
+					{% set idf = 2 %}
+					{% endif %}
+				{% endif %}
 				<div class="vresize" style="">
 					<div class="verticalGrow grow4"></div>
-					{{ 4by4(angle1,angle2,0,180,id,2) }}
+					{{ 4by4(angle1,angle2,0,180,id,idr) }}
 			
 				</div>
-				<div class="hroad">
+				<div class="hroad"  style="z-index: {{ id*100 + (idr + idf)*5 }};">
 			
 				</div>
 				<div class="vflex">
 			
 					
-					{{ 4by4(angle1,angle2,180,0,id,3) }}
+					{{ 4by4(angle1,angle2,180,0,id,idf) }}
 				</div>
 			</div>
 
