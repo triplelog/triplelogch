@@ -14,21 +14,21 @@
 				<div class="vflex">
 			
 					
-					{{ 4by4(angle1,angle2,180,180,id,2) }}
+					{{ 4by4(angle1,angle2,180,180,id,1) }}
 				</div>
 			</div>
 
 		</div>
 		<div class="horizontalGrow grow4"></div>
 	</div>
-	<div class="vroad">
+	<div class="vroad" style="z-index: {{ id*100 + }};">
 	</div>
 	<div class="hflex">
 		<div class="smallGrid">
 			<div class="topBottom" style="transform: rotate({{angle2}}deg);">
 				<div class="vresize" style="">
 					<div class="verticalGrow grow4"></div>
-					{{ 4by4(angle1,angle2,0,180,id,1) }}
+					{{ 4by4(angle1,angle2,0,180,id,2) }}
 			
 				</div>
 				<div class="hroad">
