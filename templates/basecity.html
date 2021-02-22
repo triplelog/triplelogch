@@ -409,21 +409,28 @@
 	pointer-events: none;
 }
 
-#blank-000:checked ~ div .cell-000 {
-	border: 2px solid white;
-}
-#sfh-000:checked ~ div .cell-000 {
-	border: 2px solid green;
-}
-#mfh-000:checked ~ div .cell-000 {
-	border: 2px solid red;
-}
-#sfh-000:checked ~ div .cell-000 ~ .sfhHolder {
-	display: inline-block;
-}
-#mfh-000:checked ~ div .cell-000 ~ .mfhHolder {
-	display: inline-block;
-}
+{% for i in range(0,4) %}
+	{% for ii in range(0,4) %}
+		{% for iii in range(0,4) %}
+		#blank-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
+			border: 2px solid white;
+		}
+		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
+			border: 2px solid green;
+		}
+		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
+			border: 2px solid red;
+		}
+		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .sfhHolder {
+			display: inline-block;
+		}
+		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .mfhHolder {
+			display: inline-block;
+		}
+		{% endfor %}
+	{% endfor %}
+{% endfor %}
+
 
 .sfh {
 	--h: 120%;
