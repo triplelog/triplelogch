@@ -1,9 +1,9 @@
 {% extends "templates/basecity.html" %}
-{% macro 8by8(angle,id) %}
-<div class="leftRight" style="transform: rotate({{angle}}deg);">
+{% macro 8by8(angle1,angle2,id) %}
+<div class="leftRight" style="transform: rotate({{angle1}}deg);">
 	<div class="hresize">
 		<div class="smallGrid">
-			<div class="topBottom">
+			<div class="topBottom" style="transform: rotate({{angle2}}deg);">
 				<div class="vresize">
 					<div class="verticalGrow grow4"></div>
 					<!--{{ 4by4(0,id,0) }}-->
@@ -25,7 +25,7 @@
 	</div>
 	<div class="hflex">
 		<div class="smallGrid">
-			<div class="topBottom">
+			<div class="topBottom" style="transform: rotate({{angle2}}deg);">
 				<div class="vresize" style="">
 					<div class="verticalGrow grow4"></div>
 					<!--{{ 4by4(0,id,2) }}-->
