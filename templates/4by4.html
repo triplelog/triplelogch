@@ -47,6 +47,12 @@
 						<label for="blank-{{ id1 }}{{ id2 }}{{ idr }}">Blank-{{ id1 }}-{{ id2 }}-{{ idr }}</label>
 						<label for="sfh-{{ id1 }}{{ id2 }}{{ idr }}">SFH</label>
 						<label for="mfh-{{ id1 }}{{ id2 }}{{ idr }}">MFH</label>
+						<input type="radio" name="tSelect" id="tt-{{ id1 }}{{ id2 }}{{ idr }}" />
+						<input type="radio" name="tSelect" id="ttt-{{ id1 }}{{ id2 }}{{ idr }}" />
+						<select name="testSelect" id="testSelect">
+							<option value="sfh"><label for="tt-{{ id1 }}{{ id2 }}{{ idr }}">SFH</label></option>
+							<option value="mfh"><label for="ttt-{{ id1 }}{{ id2 }}{{ idr }}">MFH</label></option>
+						</select>
 					</div>
 					{{ sfh(angle1 + angle3 + angle4,id1,id2,idr) }}
 					{{ mfh(angle1 + angle3 + angle4,id1,id2,idr) }}
