@@ -25,6 +25,18 @@
 					{% else %}
 					{% set id3 = 0 %}
 					{% endif %}
+					
+					{% if angle2 + angle4 == 180 %}
+						{% if id3 == 0 %}
+						{% set id3 = 1 %}
+						{% elif id3 == 1 %}
+						{% set id3 = 0 %}
+						{% elif id3 == 2 %}
+						{% set id3 = 3 %}
+						{% elif id3 == 3 %}
+						{% set id3 = 2 %}
+						{% endif %}
+					{% endif %}
 					<div class="horizontalGrow"></div>
 					<div class="zoneCell cell-{{ id1 }}{{ id2 }}3" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
 						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-{{ id3 }}</label>
@@ -42,6 +54,18 @@
 					{% set id3 = 2 %}
 					{% else %}
 					{% set id3 = 1 %}
+					{% endif %}
+					
+					{% if angle2 + angle4 == 180 %}
+						{% if id3 == 0 %}
+						{% set id3 = 1 %}
+						{% elif id3 == 1 %}
+						{% set id3 = 0 %}
+						{% elif id3 == 2 %}
+						{% set id3 = 3 %}
+						{% elif id3 == 3 %}
+						{% set id3 = 2 %}
+						{% endif %}
 					{% endif %}
 					<div class="zoneCell cell-{{ id1 }}{{ id2 }}3" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
 						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-{{ id3 }}</label>
@@ -67,6 +91,18 @@
 					{% else %}
 					{% set id3 = 2 %}
 					{% endif %}
+					
+					{% if angle2 + angle4 == 180 %}
+						{% if id3 == 0 %}
+						{% set id3 = 1 %}
+						{% elif id3 == 1 %}
+						{% set id3 = 0 %}
+						{% elif id3 == 2 %}
+						{% set id3 = 3 %}
+						{% elif id3 == 3 %}
+						{% set id3 = 2 %}
+						{% endif %}
+					{% endif %}
 					<div class="horizontalGrow"></div>
 					<div class="zoneCell cell-{{ id1 }}{{ id2 }}3" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
 						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-{{ id3 }}</label>
@@ -84,6 +120,18 @@
 					{% set id3 = 0 %}
 					{% else %}
 					{% set id3 = 3 %}
+					{% endif %}
+					
+					{% if angle2 + angle4 == 180 %}
+						{% if id3 == 0 %}
+						{% set id3 = 1 %}
+						{% elif id3 == 1 %}
+						{% set id3 = 0 %}
+						{% elif id3 == 2 %}
+						{% set id3 = 3 %}
+						{% elif id3 == 3 %}
+						{% set id3 = 2 %}
+						{% endif %}
 					{% endif %}
 					<div class="zoneCell cell-{{ id1 }}{{ id2 }}3" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
 						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-{{ id3 }}</label>
