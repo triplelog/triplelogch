@@ -68,7 +68,7 @@
 	position: absolute;
 }
 
-.top {
+.vflex {
 	width: 100%;
 	position: relative;
 	flex-grow: 1;
@@ -85,10 +85,9 @@
 	background-repeat: repeat;
 	position: relative;
 }
-.bottom {
+.vresize {
 	width: 100%;
 	overflow: visible;
-	transform: rotate(180deg);
 	position: relative;
 	max-height: calc(100% - 2rem);
 	
@@ -473,7 +472,7 @@
 	<div class="bigGrid">
 		
 		<div class="topBottom">
-			<div class="top">
+			<div class="vresize">
 				<div class="smallGrid">
 					<div class="leftRight">
 						<div class="left">
@@ -495,10 +494,10 @@
 			</div>
 			<div class="hroad">
 			</div>
-			<div class="bottom">
+			<div class="vflex">
 				<div class="smallGrid">
 					<div class="leftRight">
-						<div class="left" style="transform: rotate(180deg); z-index: 50;">
+						<div class="left" style="">
 							<div class="horizontalGrow grow8"></div>
 							{{ 8by8(0,2) }}
 					
