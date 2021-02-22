@@ -6,127 +6,133 @@
 	<div class="vresize">
 		<div class="smallGrid">
 			<div class="leftRight" style="transform: rotate({{ angle2 + angle4 }}deg)">
+				{% if angle1 + angle2 + angle3 == 180 or  angle1 + angle2 + angle3 == 540 %}
+				{% set idr = 3 %}
+				{% else %}
+				{% set idr = 0 %}
+				{% endif %}
+				
+				{% if angle2 + angle4 == 180 %}
+					{% if idr == 0 %}
+					{% set idr = 1 %}
+					{% elif idr == 1 %}
+					{% set idr = 0 %}
+					{% elif idr == 2 %}
+					{% set idr = 3 %}
+					{% elif idr == 3 %}
+					{% set idr = 2 %}
+					{% endif %}
+				{% endif %}
+				{% if angle1 + angle2 + angle3 == 180 or  angle1 + angle2 + angle3 == 540 %}
+				{% set idf = 2 %}
+				{% else %}
+				{% set idf = 1 %}
+				{% endif %}
+				
+				{% if angle2 + angle4 == 180 %}
+					{% if idf == 0 %}
+					{% set idf = 1 %}
+					{% elif idf == 1 %}
+					{% set idf = 0 %}
+					{% elif idf == 2 %}
+					{% set idf = 3 %}
+					{% elif idf == 3 %}
+					{% set idf = 2 %}
+					{% endif %}
+				{% endif %}
 				<div class="hresize">
-					{% if angle1 + angle2 + angle3 == 180 or  angle1 + angle2 + angle3 == 540 %}
-					{% set id3 = 3 %}
-					{% else %}
-					{% set id3 = 0 %}
-					{% endif %}
 					
-					{% if angle2 + angle4 == 180 %}
-						{% if id3 == 0 %}
-						{% set id3 = 1 %}
-						{% elif id3 == 1 %}
-						{% set id3 = 0 %}
-						{% elif id3 == 2 %}
-						{% set id3 = 3 %}
-						{% elif id3 == 3 %}
-						{% set id3 = 2 %}
-						{% endif %}
-					{% endif %}
 					<div class="horizontalGrow"></div>
 					<div class="zoneCell cell-{{ id1 }}{{ id2 }}3" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
-						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-{{ id3 }}</label>
+						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-{{ idr }}</label>
 						<label for="sfh-{{ id1 }}{{ id2 }}3">SFH</label>
 						<label for="mfh-{{ id1 }}{{ id2 }}3">MFH</label>
 					</div>
-					{{ sfh(angle1 + angle3 + angle4,id1,id2,id3) }}
-					{{ mfh(angle1 + angle3 + angle4,id1,id2,id3) }}
+					{{ sfh(angle1 + angle3 + angle4,id1,id2,idr) }}
+					{{ mfh(angle1 + angle3 + angle4,id1,id2,idr) }}
 				</div>
-				<div class="vroad">
+				<div class="vroad" style="z-index: {{ id1*200 + id2*20 + (idf + idr) }};">
 					
 				</div>
+				
 				<div class="hflex">
-					{% if angle1 + angle2 + angle3 == 180 or  angle1 + angle2 + angle3 == 540 %}
-					{% set id3 = 2 %}
-					{% else %}
-					{% set id3 = 1 %}
-					{% endif %}
 					
-					{% if angle2 + angle4 == 180 %}
-						{% if id3 == 0 %}
-						{% set id3 = 1 %}
-						{% elif id3 == 1 %}
-						{% set id3 = 0 %}
-						{% elif id3 == 2 %}
-						{% set id3 = 3 %}
-						{% elif id3 == 3 %}
-						{% set id3 = 2 %}
-						{% endif %}
-					{% endif %}
 					<div class="zoneCell cell-{{ id1 }}{{ id2 }}3" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
-						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-{{ id3 }}</label>
+						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-{{ idf }}</label>
 						<label for="sfh-{{ id1 }}{{ id2 }}3">SFH</label>
 						<label for="mfh-{{ id1 }}{{ id2 }}3">MFH</label>
 					</div>
 					
-					{{ park(angle1 + angle3 + angle4,id1,id2,id3) }}
+					{{ park(angle1 + angle3 + angle4,id1,id2,idf) }}
 				</div>
 			</div>
 		
 		</div>
 		<div class="verticalGrow"></div>
 	</div>
-	<div class="hroad">
+	<div class="hroad" style="z-index: {{ id1*200 + id2*20 + 3}};">
 	</div>
 	<div class="vflex">
 		<div class="smallGrid">
 			<div class="leftRight" style="transform: rotate({{ angle2 + angle4 }}deg)">
+				{% if angle1 + angle2 + angle3 == 180 or  angle1 + angle2 + angle3 == 540 %}
+				{% set idr = 1 %}
+				{% else %}
+				{% set idr = 2 %}
+				{% endif %}
+				{% if angle2 + angle4 == 180 %}
+					{% if idr == 0 %}
+					{% set idr = 1 %}
+					{% elif idr == 1 %}
+					{% set idr = 0 %}
+					{% elif idr == 2 %}
+					{% set idr = 3 %}
+					{% elif idr == 3 %}
+					{% set idr = 2 %}
+					{% endif %}
+				{% endif %}
+				
+				{% if angle1 + angle2 + angle3 == 180 or  angle1 + angle2 + angle3 == 540 %}
+				{% set idf = 0 %}
+				{% else %}
+				{% set idf = 3 %}
+				{% endif %}
+				{% if angle2 + angle4 == 180 %}
+					{% if idf == 0 %}
+					{% set idf = 1 %}
+					{% elif idf == 1 %}
+					{% set idf = 0 %}
+					{% elif idf == 2 %}
+					{% set idf = 3 %}
+					{% elif idf == 3 %}
+					{% set idf = 2 %}
+					{% endif %}
+				{% endif %}
 				<div class="hresize">
-					{% if angle1 + angle2 + angle3 == 180 or  angle1 + angle2 + angle3 == 540 %}
-					{% set id3 = 1 %}
-					{% else %}
-					{% set id3 = 2 %}
-					{% endif %}
 					
-					{% if angle2 + angle4 == 180 %}
-						{% if id3 == 0 %}
-						{% set id3 = 1 %}
-						{% elif id3 == 1 %}
-						{% set id3 = 0 %}
-						{% elif id3 == 2 %}
-						{% set id3 = 3 %}
-						{% elif id3 == 3 %}
-						{% set id3 = 2 %}
-						{% endif %}
-					{% endif %}
+					
+					
 					<div class="horizontalGrow"></div>
 					<div class="zoneCell cell-{{ id1 }}{{ id2 }}3" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
-						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-{{ id3 }}</label>
+						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-{{ idr }}</label>
 						<label for="sfh-{{ id1 }}{{ id2 }}3">SFH</label>
 						<label for="mfh-{{ id1 }}{{ id2 }}3">MFH</label>
 					</div>
-					{{ solar(angle1 + angle3 + angle4,id1,id2,id3) }}
+					{{ solar(angle1 + angle3 + angle4,id1,id2,idr) }}
 					
 				</div>
-				<div class="vroad">
+				<div class="vroad" style="z-index: {{ id1*200 + id2*20 + (idf + idr) }};">
 					
 				</div>
 				<div class="hflex">
-					{% if angle1 + angle2 + angle3 == 180 or  angle1 + angle2 + angle3 == 540 %}
-					{% set id3 = 0 %}
-					{% else %}
-					{% set id3 = 3 %}
-					{% endif %}
 					
-					{% if angle2 + angle4 == 180 %}
-						{% if id3 == 0 %}
-						{% set id3 = 1 %}
-						{% elif id3 == 1 %}
-						{% set id3 = 0 %}
-						{% elif id3 == 2 %}
-						{% set id3 = 3 %}
-						{% elif id3 == 3 %}
-						{% set id3 = 2 %}
-						{% endif %}
-					{% endif %}
 					<div class="zoneCell cell-{{ id1 }}{{ id2 }}3" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
-						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-{{ id3 }}</label>
+						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-{{ idf }}</label>
 						<label for="sfh-{{ id1 }}{{ id2 }}3">SFH</label>
 						<label for="mfh-{{ id1 }}{{ id2 }}3">MFH</label>
 					</div>
 					
-					{{ wind(angle1 + angle3 + angle4,id1,id2,id3) }}
+					{{ wind(angle1 + angle3 + angle4,id1,id2,idf) }}
 				</div>
 			</div>
 		
