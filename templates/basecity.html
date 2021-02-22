@@ -416,6 +416,12 @@
 	display: inline-block;
 }
 
+#deleteButton {
+	position: -webkit-sticky;
+	position: sticky;
+	left:0px;
+	top:0px;
+}
 {% for i in range(0,4) %}
 	{% for ii in range(0,4) %}
 		{% for iii in range(0,4) %}
@@ -482,13 +488,15 @@
 	 		
 <input type="radio" name="zoom" id="zoom0" checked />
 <input type="radio" name="zoom" id="zoom1" />
+
+<input type="radio" name="zoneSelected" id="deleteButton" checked />
+<input type="radio" name="zoneSelected" id="sfhButton" />
+<input type="radio" name="zoneSelected" id="mfhButton" />
 <div class="container">
 	<input type="radio" name="zone" id="zone0" checked />
 	<input type="radio" name="zone" id="zone1" />
 	
-	<input type="radio" name="zoneSelected" id="deleteButton" checked />
-	<input type="radio" name="zoneSelected" id="sfhButton" />
-	<input type="radio" name="zoneSelected" id="mfhButton" />
+	
 	{{ zoneButtons(all) }}
 	<div class="bigGrid">
 		
