@@ -420,7 +420,10 @@
 	position: -webkit-sticky;
 	position: sticky;
 	left:0px;
-	top:0px;
+	top:20px;
+}
+.navContainer {
+	overflow: auto;
 }
 {% for i in range(0,4) %}
 	{% for ii in range(0,4) %}
@@ -484,7 +487,7 @@
 <body>
 
 
-
+<div class="navContainer">
 	 		
 <input type="radio" name="zoom" id="zoom0" checked />
 <input type="radio" name="zoom" id="zoom1" />
@@ -548,7 +551,7 @@
 
 </div>
 
-
+</div>
 </body>
 </html>
 
