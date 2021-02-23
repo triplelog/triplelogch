@@ -8,7 +8,7 @@
 	{% for ziii in range(0,4) %}
 		{% for ziiii in range(0,4) %}
 			{% set ziSum[zii][ziii][ziiii] = s %}
-			{% set s = s + zi[zii][ziii][ziiii] %}
+			{% set s = s + zi[zii][ziii][ziiii]}
 		{% endfor %}
 	{% endfor %}
 {% endfor %}
@@ -31,7 +31,7 @@
 				
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}0">
-					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}0">Blank-{{ zi[id1][id2][0] }}-{{ ziSum[id1][id2][0] }}</label>
+					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}0">Blank-{{ id1 }}-{{ id2 }}-0</label>
 					<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}0"></label>
 					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}0"></label>
 					
@@ -69,7 +69,7 @@
 			<div {% if id2 == 2 or id2 == 3 %}class="hresize"{% else %}class="hflex"{% endif %}>
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}1">
-					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}1">Blank-{{ zi[id1][id2][1] }}-{{ ziSum[id1][id2][1] }}</label>
+					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}1">Blank-{{ id1 }}-{{ id2 }}-1</label>
 					<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}1"></label>
 					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}1"></label>
 					
@@ -110,7 +110,7 @@
 			<div {% if id2 == 0 or id2 == 1 %}class="hresize"{% else %}class="hflex"{% endif %}>
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}2">
-					<label for="blank-{{ id1 }}{{ id2 }}2">Blank-{{ zi[id1][id2][2] }}-{{ ziSum[id1][id2][2] }}</label>
+					<label for="blank-{{ id1 }}{{ id2 }}2">Blank-{{ id1 }}-{{ id2 }}-2</label>
 					<label for="sfh-{{ id1 }}{{ id2 }}2">SFH</label>
 					<label for="mfh-{{ id1 }}{{ id2 }}2">MFH</label>
 				</div>
@@ -127,7 +127,7 @@
 			<div {% if id2 == 2 or id2 == 3 %}class="hresize"{% else %}class="hflex"{% endif %}>
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}3">
-					<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ zi[id1][id2][3] }}-{{ ziSum[id1][id2][3] }}</label>
+					<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-3</label>
 					<label for="sfh-{{ id1 }}{{ id2 }}3">SFH</label>
 					<label for="mfh-{{ id1 }}{{ id2 }}3">MFH</label>
 				</div>
