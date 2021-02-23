@@ -28,7 +28,7 @@
 					
 				</div>
 				{% for zii in range(0,zi[id1][id2][0]) %}
-				<div style="position: fixed; backdrop-filter: contrast(1); background: rgb(170,0,0,{{ (1.0 + zii) / (1.0 + ziSum[id1][id2][0]) }}); top: 0px; right: 500px; width: 200px; height: 20px; z-index: {{ ziSum[id1][id2][0]*100 + 5*(zii+1)}};"></div>
+				<div class="scoreColor" style="position: fixed; backdrop-filter: contrast(1); background-color: rgb(128,128,128); opacity: {{ (1.0 + zii) / (1.0 + ziSum[id1][id2][0]) }}); top: 0px; right: 500px; width: 200px; height: 20px; z-index: {{ ziSum[id1][id2][0]*100 + 5*(zii+1)}};"></div>
 				{% endfor %}
 				
 				{% if id2 == 0 or id2 == 1 %}

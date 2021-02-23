@@ -336,8 +336,7 @@ app.get('/city.html',
 				}
 			}
 		}
-		console.log(zi);
-		console.log(zi[0][1][2]);
+		
 
 		res.write(nunjucks.render('templates/cells.html',{
 			zi: zi,
