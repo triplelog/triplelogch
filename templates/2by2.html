@@ -11,7 +11,7 @@
 					{% if id2 == 0 or id2 == 1 %}
 					<div class="horizontalGrow">
 						<div style="display: none; position: fixed; top: 0px; left: 250px; width: inherit; height: 20px; backdrop-filter: contrast(.5); z-index: {{ 6000 + id1*200 + id2*20 + 0*2 - 1 }}; background: transparent;"></div>
-
+						<div style="position: fixed; background: rgb(150,0,0,.4); top: 0px; left: 250px; width: 200px; height: 20px; z-index: {{ 6000 + id1*200 + id2*20 + 0*2 }};"></div>
 						<div style="display: none; position: fixed; top: 0px; left: 250px; width: inherit; height: 20px; backdrop-filter: contrast(2); z-index: {{ 6000 + id1*200 + id2*20 + 0*2 + 1 }}; background: transparent;"></div>
 					</div>
 					{% endif %}
