@@ -29,6 +29,8 @@
 				</div>
 				{% if id2 == 0 or id2 == 1 %}
 				<div class="horizontalGrow">
+					<div style="position: fixed; background: rgb(180,0,0,1); top: 0px; right: 500px; width: 200px; height: 20px; z-index: {{ id1*20000 + id2*2000 + 0*200 + 0}};"></div>
+					
 					<div style="flex-wrap: wrap; position: fixed; top: 0px; right: 500px; width: inherit; height: 20px; z-index: {{ id1*20000 + id2*2000 + 0*200 +1 }}; background: transparent;">
 						<div style="width: 20px; height: 20px; backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
 						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.5); background: transparent; flex-grow: 1;"></div>
