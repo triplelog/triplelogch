@@ -275,7 +275,8 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 {% macro sfh(zIndex) %}
 <div class="sfhHolder">
 	<div style="position: fixed; background: rgb(150,0,0,.4); top: 0px; left: 250px; width: 200px; height: 20px; z-index: {{ 6000 + zIndex }};"></div>
-	
+	<div style="position: fixed; top: 0px; left: 250px; width: inherit; height: 20px; backdrop-filter: contrast(2); z-index: {{ 6000 + zIndex + 1 }}; background: transparent;"></div>
+
 	<div class="isoCell sfhCell" style="background: green;">
 		<div class="notBottom">
 			<div class="cellTop" style="z-index:5; margin-right: 200px;">
