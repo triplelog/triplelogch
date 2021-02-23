@@ -326,7 +326,7 @@ app.get('/css/sudoku.css',
 app.get('/city.html', 
 	function(req, res) {
 		var zi = [ [[1,2,2,4],[1,2,3,6],[3,1,6,2],[3,1,9,3]], [[1,3,2,6],[1,3,3,9],[2,1,4,2],[2,1,6,3]], [[1,2,3,6],[2,4,1,2],[3,1,9,3],[6,2,3,1]], [[1,3,3,9],[2,6,1,3],[2,1,6,3],[4,2,2,1]] ];
-		var ziSum = zi;
+		var ziSum = zi.slice();
 		var s = 0;
 		for (var zii=0; zii<4;zii++){
 			for (var ziii=0; ziii<4;ziii++){
