@@ -7,11 +7,13 @@
 		<div class="smallGrid">
 			<div class="leftRight">
 				
-				<div class="hresize">
-					
-					<div class="horizontalGrow">
-						<div style="all: revert; position: fixed; top: 0px; left: 250px; width: inherit; height: 20px; backdrop-filter: contrast(2); z-index: {{ 6000 + id1*200 + id2*20 + 0*2 + 1 }}; background: transparent;"></div>
-					</div>
+				<div {% if id2 == 0 or id2 == 1 %}class="hresize"{% else %}class="hflex"{% endif %}>
+					{% if id2 == 0 or id2 == 1 %}
+					<div class="horizontalGrow"></div>
+					{% endif %}
+					<!--<div class="horizontalGrow">
+						<div style="position: fixed; top: 0px; left: 250px; width: inherit; height: 20px; backdrop-filter: contrast(2); z-index: {{ 6000 + id1*200 + id2*20 + 0*2 + 1 }}; background: transparent;"></div>
+					</div>-->
 					<div class="zoneCell cell-{{ id1 }}{{ id2 }}0">
 						<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}0">Blank-{{ id1 }}-{{ id2 }}-0</label>
 						<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}0"></label>
@@ -25,8 +27,10 @@
 					
 				</div>
 				
-				<div class="hflex">
-					
+				<div {% if id == 2 or id == 3 %}class="hresize"{% else %}class="hflex"{% endif %}>
+					{% if id == 2 or id == 3 %}
+					<div class="horizontalGrow" style="direction: rtl;"></div>
+					{% endif %}
 					<div class="zoneCell cell-{{ id1 }}{{ id2 }}1">
 						<label for="blank-{{ id1 }}{{ id2 }}1">Blank-{{ id1 }}-{{ id2 }}-1</label>
 						<label for="sfh-{{ id1 }}{{ id2 }}1">SFH</label>
@@ -47,9 +51,10 @@
 		<div class="smallGrid">
 			<div class="leftRight">
 				
-				<div class="hresize">
-					
-					<div class="horizontalGrow"></div>
+				<div {% if id2 == 0 or id2 == 1 %}class="hresize"{% else %}class="hflex"{% endif %}>
+					{% if id2 == 0 or id2 == 1 %}
+					<div class="horizontalGrow grow4"></div>
+					{% endif %}
 					<div class="zoneCell cell-{{ id1 }}{{ id2 }}2">
 						<label for="blank-{{ id1 }}{{ id2 }}2">Blank-{{ id1 }}-{{ id2 }}-2</label>
 						<label for="sfh-{{ id1 }}{{ id2 }}2">SFH</label>
@@ -62,8 +67,10 @@
 				<div class="vroad" style="z-index: {{ id1*200 + id2*20 + 5 }};">
 					
 				</div>
-				<div class="hflex">
-					
+				<div {% if id2 == 2 or id2 == 3 %}class="hresize"{% else %}class="hflex"{% endif %}>
+					{% if id2 == 2 or id2 == 3 %}
+					<div class="horizontalGrow" style="direction: rtl;"></div>
+					{% endif %}
 					<div class="zoneCell cell-{{ id1 }}{{ id2 }}3">
 						<label for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ id1 }}-{{ id2 }}-3</label>
 						<label for="sfh-{{ id1 }}{{ id2 }}3">SFH</label>
