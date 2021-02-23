@@ -325,7 +325,7 @@ app.get('/css/sudoku.css',
 
 app.get('/city.html', 
 	function(req, res) {
-		res.write(nunjucks.render('templates/2by2.html',{
+		res.write(nunjucks.render('templates/cells.html',{
 		
 		}));
 		res.end();

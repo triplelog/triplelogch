@@ -1,161 +1,55 @@
-{% extends "templates/8by8.html" %}
-{% macro 4by4(angle1,angle2,angle3,angle4,id1,id2) %}
+{% extends "templates/basecity.html" %}
+{% macro 8by8(id) %}
 
-
-<div class="topBottom" style="transform: rotate({{ angle3 }}deg)">
-	<div class="vresize">
+<div class="leftRight">
+	<div {% if id == 0 or id == 2 %}class="hresize"{% else %}class="hflex"{% endif %}>
 		<div class="smallGrid">
-			<div class="leftRight" style="transform: rotate({{ angle2 + angle4 }}deg)">
-				{% if angle1 + angle2 + angle3 == 180 or  angle1 + angle2 + angle3 == 540 %}
-				{% set idr = 3 %}
-				{% else %}
-				{% set idr = 0 %}
-				{% endif %}
+			<div class="topBottom">
 				
-				{% if angle2 + angle4 == 180 %}
-					{% if idr == 0 %}
-					{% set idr = 1 %}
-					{% elif idr == 1 %}
-					{% set idr = 0 %}
-					{% elif idr == 2 %}
-					{% set idr = 3 %}
-					{% elif idr == 3 %}
-					{% set idr = 2 %}
-					{% endif %}
-				{% endif %}
-				{% if angle1 + angle2 + angle3 == 180 or  angle1 + angle2 + angle3 == 540 %}
-				{% set idf = 2 %}
-				{% else %}
-				{% set idf = 1 %}
-				{% endif %}
-				
-				{% if angle2 + angle4 == 180 %}
-					{% if idf == 0 %}
-					{% set idf = 1 %}
-					{% elif idf == 1 %}
-					{% set idf = 0 %}
-					{% elif idf == 2 %}
-					{% set idf = 3 %}
-					{% elif idf == 3 %}
-					{% set idf = 2 %}
-					{% endif %}
-				{% endif %}
-				<div class="hresize">
-					
-					<div class="horizontalGrow">
-						<div style="all: revert; position: fixed; top: 0px; left: 250px; width: inherit; height: 20px; backdrop-filter: contrast(2); z-index: {{ 6000 + id1*200 + id2*20 + idr*2 + 1 }}; background: transparent;"></div>
-					</div>
-					<div class="zoneCell cell-{{ id1 }}{{ id2 }}{{ idr }}" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
-						<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}{{ idr }}">Blank-{{ id1 }}-{{ id2 }}-{{ idr }}</label>
-						<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}{{ idr }}"></label>
-						<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}{{ idr }}"></label>
-						
-					</div>
-					{{ sfh(angle1 + angle3 + angle4,id1*200 + id2*20 + idr*2) }}
-					{{ mfh(angle1 + angle3 + angle4,id1,id2,idr) }}
+				<div class="vresize">
+					<div class="verticalGrow grow4"></div>
+					{{ 2by2(id,0) }}
 				</div>
-				<div class="vroad" style="z-index: {{ id1*200 + id2*20 + (idf + idr) }};">
-					
+				<div class="hroad" style="z-index: {{ id*200 + 10 }};">
+			
 				</div>
-				
-				<div class="hflex">
+				<div class="vflex">
+			
 					
-					<div class="zoneCell cell-{{ id1 }}{{ id2 }}{{ idf }}" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
-						<label for="blank-{{ id1 }}{{ id2 }}{{ idf }}">Blank-{{ id1 }}-{{ id2 }}-{{ idf }}</label>
-						<label for="sfh-{{ id1 }}{{ id2 }}{{ idf }}">SFH</label>
-						<label for="mfh-{{ id1 }}{{ id2 }}{{ idf }}">MFH</label>
-					</div>
-					
-					{{ sfh(angle1 + angle3 + angle4,id1,id2,idf) }}
-					{{ mfh(angle1 + angle3 + angle4,id1,id2,idf) }}
+					{{ 2by2(id,1) }}
 				</div>
 			</div>
-		
+
 		</div>
-		<div class="verticalGrow"></div>
+		{% if id == 2 or id == 0 %}
+		<div class="horizontalGrow grow4"></div>
+		{% endif %}
 	</div>
-	<div class="hroad" style="z-index: {{ id1*200 + id2*20 + 3}};">
+	<div class="vroad" style="z-index: {{ id*200 + 30 }};">
 	</div>
-	<div class="vflex">
+	<div {% if id == 3 or id == 1 %}class="hresize"{% else %}class="hflex"{% endif %}>
 		<div class="smallGrid">
-			<div class="leftRight" style="transform: rotate({{ angle2 + angle4 }}deg)">
-				{% if angle1 + angle2 + angle3 == 180 or  angle1 + angle2 + angle3 == 540 %}
-				{% set idr = 1 %}
-				{% else %}
-				{% set idr = 2 %}
-				{% endif %}
-				{% if angle2 + angle4 == 180 %}
-					{% if idr == 0 %}
-					{% set idr = 1 %}
-					{% elif idr == 1 %}
-					{% set idr = 0 %}
-					{% elif idr == 2 %}
-					{% set idr = 3 %}
-					{% elif idr == 3 %}
-					{% set idr = 2 %}
-					{% endif %}
-				{% endif %}
+			<div class="topBottom">
 				
-				{% if angle1 + angle2 + angle3 == 180 or  angle1 + angle2 + angle3 == 540 %}
-				{% set idf = 0 %}
-				{% else %}
-				{% set idf = 3 %}
-				{% endif %}
-				{% if angle2 + angle4 == 180 %}
-					{% if idf == 0 %}
-					{% set idf = 1 %}
-					{% elif idf == 1 %}
-					{% set idf = 0 %}
-					{% elif idf == 2 %}
-					{% set idf = 3 %}
-					{% elif idf == 3 %}
-					{% set idf = 2 %}
-					{% endif %}
-				{% endif %}
-				<div class="hresize">
-					
-					
-					
-					<div class="horizontalGrow"></div>
-					<div class="zoneCell cell-{{ id1 }}{{ id2 }}{{ idr }}" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
-						<label for="blank-{{ id1 }}{{ id2 }}{{ idr }}">Blank-{{ id1 }}-{{ id2 }}-{{ idr }}</label>
-						<label for="sfh-{{ id1 }}{{ id2 }}{{ idr }}">SFH</label>
-						<label for="mfh-{{ id1 }}{{ id2 }}{{ idr }}">MFH</label>
-					</div>
-					{{ sfh(angle1 + angle3 + angle4,id1,id2,idr) }}
-					{{ mfh(angle1 + angle3 + angle4,id1,id2,idr) }}
-					
+				<div class="vresize" style="">
+					<div class="verticalGrow grow4"></div>
+					{{ 2by2(id,2) }}
+			
 				</div>
-				<div class="vroad" style="z-index: {{ id1*200 + id2*20 + (idf + idr) }};">
-					
+				<div class="hroad"  style="z-index: {{ id*200 + 50 }};">
+			
 				</div>
-				<div class="hflex">
+				<div class="vflex">
+			
 					
-					<div class="zoneCell cell-{{ id1 }}{{ id2 }}{{ idf }}" style="transform: rotate({{ angle1 + angle3 + angle4 }}deg)">
-						<label for="blank-{{ id1 }}{{ id2 }}{{ idf }}">Blank-{{ id1 }}-{{ id2 }}-{{ idf }}</label>
-						<label for="sfh-{{ id1 }}{{ id2 }}{{ idf }}">SFH</label>
-						<label for="mfh-{{ id1 }}{{ id2 }}{{ idf }}">MFH</label>
-					</div>
-					
-					{{ sfh(angle1 + angle3 + angle4,id1,id2,idf) }}
-					{{ mfh(angle1 + angle3 + angle4,id1,id2,idf) }}
+					{{ 2by2(id,3) }}
 				</div>
 			</div>
-		
+
 		</div>
-		
+		{% if id == 3 or id == 1 %}
+		<div class="horizontalGrow grow4"></div>
+		{% endif %}
 	</div>
 </div>
-{% endmacro %}
-
-{% macro zoneButtons(name) %}
-	{% for i in range(0,4) %}
-		{% for ii in range(0,4) %}
-			{% for iii in range(0,4) %}
-			<input type="radio" style="display: none;" name="cell-{{ i }}{{ ii }}{{ iii }}" id="blank-{{ i }}{{ ii }}{{ iii }}" checked>
-			<input type="radio" style="display: none;" name="cell-{{ i }}{{ ii }}{{ iii }}" id="sfh-{{ i }}{{ ii }}{{ iii }}">
-			<input type="radio" style="display: none;" name="cell-{{ i }}{{ ii }}{{ iii }}" id="mfh-{{ i }}{{ ii }}{{ iii }}">
-			{% endfor %}
-		{% endfor %}
-	{% endfor %}
 {% endmacro %}
