@@ -3,7 +3,7 @@
 
 
 <div class="topBottom">
-	<div class="vresize">
+	<div {% if (id1 == 2 or id1 == 3) and (id2 == 1 or id2 == 3) %}class="vflex"{% else %}class="vresize"{% endif %}>
 		<div class="smallGrid">
 			<div class="leftRight">
 				
@@ -43,11 +43,14 @@
 			</div>
 		
 		</div>
+		{% if (id1 == 2 or id1 == 3) and (id2 == 1 or id2 == 3) %}
+		{% else %}
 		<div class="verticalGrow"></div>
+		{% endif %}
 	</div>
 	<div class="hroad" style="z-index: {{ id1*200 + id2*20 + 3}};">
 	</div>
-	<div class="vflex">
+	<div {% if (id1 == 2 or id1 == 3) and (id2 == 1 or id2 == 3) %}class="vresize"{% else %}class="vflex"{% endif %}>
 		<div class="smallGrid">
 			<div class="leftRight">
 				
@@ -83,6 +86,9 @@
 			</div>
 		
 		</div>
+		{% if (id1 == 2 or id1 == 3) and (id2 == 1 or id2 == 3) %}
+		<div class="verticalGrow" style="transform: rotate(180deg); right: -50%;"></div>
+		{% endif %}
 		
 	</div>
 </div>

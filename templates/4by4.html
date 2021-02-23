@@ -18,7 +18,7 @@
 				</div>
 				<div {% if id == 2 or id == 3 %}class="vresize"{% else %}class="vflex"{% endif %}>
 					{% if id == 2 or id == 3 %}
-					<div class="verticalGrow grow4" style="transform: rotate(180deg);"></div>
+					<div class="verticalGrow grow4" style="transform: rotate(180deg); right: -50%;"></div>
 					{% endif %}
 			
 					
@@ -49,7 +49,7 @@
 				</div>
 				<div {% if id == 2 or id == 3 %}class="vresize"{% else %}class="vflex"{% endif %}>
 					{% if id == 2 or id == 3 %}
-					<div class="verticalGrow grow4" style="transform: rotate(180deg);"></div>
+					<div class="verticalGrow grow4" style="transform: rotate(180deg); right: -50%;"></div>
 					{% endif %}
 					
 					{{ 2by2(id,3) }}
