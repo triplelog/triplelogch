@@ -8,7 +8,7 @@
 	{% for ziii in range(0,4) %}
 		{% for ziiii in range(0,4) %}
 			{% set ziSum[zii][ziii][ziiii] = s %}
-			{% s += zi[zii][ziii][ziiii] %}
+			{% set s = zi[zii][ziii][ziiii] %}
 		{% endfor %}
 	{% endfor %}
 {% endfor %}
