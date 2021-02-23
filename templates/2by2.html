@@ -7,11 +7,11 @@
 		{% if (id1 == 2 or id1 == 3) and (id2 == 1 or id2 == 3) %}
 		{% else %}
 		<div class="verticalGrow">
-			<div style="display: none; position: fixed; top: 0px; left: 250px; width: inherit; height: 20px; backdrop-filter: contrast(.5); z-index: {{ 12000 + id1*200 + id2*20 + 0*2 - 1 }}; background: transparent;">
+			<div style="display: none; position: fixed; top: 0px; left: 250px; width: inherit; height: 20px; backdrop-filter: contrast(.5); z-index: {{ 6000 + id1*200 + id2*20 + 0*2 - 2 }}; background: transparent;">
 						
 			</div>
-			<div style="display: none; position: fixed; background: rgb(150,0,0,.4); top: 0px; left: 250px; width: 200px; height: 20px; z-index: {{ 12000 + id1*200 + id2*20 + 0*2 }};"></div>
-			<div style="display: none; position: fixed; top: 0px; left: 250px; width: inherit; height: 20px; backdrop-filter: contrast(3); z-index: {{ 12000 + id1*200 + id2*20 + 0*2 + 1 }}; background: transparent;">
+			<div style="display: none; position: fixed; background: rgb(180,0,0,1); top: 0px; left: 250px; width: 200px; height: 20px; z-index: {{ 6000 + id1*200 + id2*20 + 0*2 - 3}};"></div>
+			<div style="display: none; position: fixed; top: 0px; left: 250px; width: inherit; height: 20px; backdrop-filter: contrast(2); z-index: {{ 6000 + id1*200 + id2*20 + 0*2 + 2 }}; background: transparent;">
 			
 			</div>
 		</div>
@@ -24,8 +24,8 @@
 					<div style="display: none; position: fixed; top: 0px; left: 250px; width: inherit; height: 20px; backdrop-filter: contrast(.5); z-index: {{ 6000 + id1*200 + id2*20 + 0*2 - 1 }}; background: transparent;">
 						
 					</div>
-					<div style="display: none; position: fixed; background: rgb(150,0,0,.4); top: 0px; left: 250px; width: 200px; height: 20px; z-index: {{ 6000 + id1*200 + id2*20 + 0*2 }};"></div>
-					<div style="display: none; position: fixed; top: 0px; left: 250px; width: inherit; height: 20px; backdrop-filter: contrast(3); z-index: {{ 6000 + id1*200 + id2*20 + 0*2 + 1 }}; background: transparent;">
+					<div style="display: none; position: fixed; background: rgb(150,0,0,.5); top: 0px; left: 250px; width: 200px; height: 20px; z-index: {{ 6000 + id1*200 + id2*20 + 0*2 }};"></div>
+					<div style="display: none; position: fixed; top: 0px; left: 250px; width: inherit; height: 20px; backdrop-filter: contrast(2); z-index: {{ 6000 + id1*200 + id2*20 + 0*2 + 1 }}; background: transparent;">
 					
 					</div>
 				</div>
