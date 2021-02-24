@@ -1,7 +1,7 @@
 {% extends "templates/4by4.html" %}
 
 {% macro horizontalCover(top,right,zIndex,cellSize,leftRight) %}
-<div style="flex-wrap: wrap; {% if leftRight == 1 %}flex-direction: reverse; {% endif %}position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); {% if leftRight == 1 %}left: calc({{ 15 + right }} * var(--block));{% else %}right: calc({{ 45 - right }} * var(--block));{% endif %} width: inherit; height: var(--block); z-index: {{ zIndex + 1 }}; background: transparent; ">
+<div style="direction: ltr; flex-wrap: wrap; {% if leftRight == 1 %}flex-direction: reverse; {% endif %}position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); {% if leftRight == 1 %}left: calc({{ 15 + right }} * var(--block));{% else %}right: calc({{ 45 - right }} * var(--block));{% endif %} width: inherit; height: var(--block); z-index: {{ zIndex + 1 }}; background: transparent; ">
 	{% if cellSize == 1 %}
 	<div style="display: flex; flex-wrap: wrap; flex-grow: 0; flex-shrink: 0; width: 400%; right: 0px; position: absolute; height: 100%; top:0px; background: transparent;">
 		<div style="width: calc(8 * var(--block)); height: var(--block); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
@@ -94,14 +94,6 @@
 				{% if id2 == 0 or id2 == 1 %}
 				<div class="horizontalGrow">
 					
-					<!--<div style="flex-wrap: wrap; position: fixed; top: {{ top }}px; right: {{ 400 - right }}px; width: inherit; height: 10px; z-index: {{ id1*20000 + id2*2000 + 0*200 +1 }}; background: transparent; ">
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.5); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.3333); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.25); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.2); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.1667); background: transparent; flex-grow: 1;"></div>
-					</div>-->
 					{{ horizontalCover(top,right,zIndex,cellSize,leftRight) }}
 					
 				</div>
@@ -123,9 +115,12 @@
 				{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
 				{% set right = right + 1 %}
 				{% set zIndex = (top)*800+100 + (7-right)*100 %}
+				{% set cellSize = 1 %}
+				{% set leftRight = 0 %}
 				
 				{% if id1 == 0 or id1 == 1 %}
 				{% set widthHeight = "width: var(--block); height: var(--block);" %}
+				{% set cellSize = 0 %}
 				{% elif id1 == 2 and id2 == 3 %}
 				{% set zIndex = 4100 + 5*100 %}
 				{% set top = 4.25 + 5.0/4 %}
@@ -138,11 +133,13 @@
 				{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
 				{% else %}
 				{% set widthHeight = "width: var(--block); height: var(--block);" %}
+				{% set cellSize = 0 %}
 				{% endif %}
 				
 				{% if id1 == 2 and id2 == 1 %}
 				{% set zIndex = 6100 %}
 				{% elif id1 == 3 and id2 == 3 %}
+				{% set leftRight = 1 %}
 				{% set zIndex = 5600 %}
 				{% endif %}
 				
@@ -161,22 +158,9 @@
 				
 				{% if id2 == 2 or id2 == 3 %}
 				<div class="horizontalGrow" style="direction: rtl;">
-					<!--<div style="direction: ltr; flex-wrap: wrap; position: fixed; top: 0px; right: 500px; width: inherit; height: 20px; z-index: {{ id1*20000 + id2*2000 + 1*200 +1 }}; background: transparent; ">
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.5); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.3333); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.25); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.2); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.1667); background: transparent; flex-grow: 1;"></div>
-					</div>
-					<div style="direction: ltr; flex-wrap: wrap; position: fixed; top: 0px; right: 500px; width: inherit; height: 20px; z-index: {{ id1*20000 + id2*2000 + 1*200 + 3 }}; background: transparent; ">
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
-					</div>-->
+					
+					{{ horizontalCover(top,right,zIndex,cellSize,leftRight) }}
+					
 				</div>
 				{% endif %}
 				{{ sfh(id1,id2,1) }}
