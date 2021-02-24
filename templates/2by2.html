@@ -63,9 +63,14 @@
 				{% set widthHeight = "width: var(--block); height: var(--block);" %}
 				{% endif %}
 				
-				
+				{% if id1 == 2 and id2 == 1 %}
+				{% set zIndex = 6200 %}
+				{% elif id1 == 3 and id2 == 3 %}
+				{% set zIndex = 5500 %}
+				{% endif %}
 				
 				{% for zii in range(0,1) %}
+				{% set zIndex = zIndex + 5 %}
 				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); {{ widthHeight }}"></div>
 				{% endfor %}
 				
@@ -125,9 +130,15 @@
 				{% set widthHeight = "width: var(--block); height: var(--block);" %}
 				{% endif %}
 				
+				{% if id1 == 2 and id2 == 1 %}
+				{% set zIndex = 6100 %}
+				{% elif id1 == 3 and id2 == 3 %}
+				{% set zIndex = 5600 %}
+				{% endif %}
 				
 				
 				{% for zii in range(0,zi[id1][id2][1]) %}
+				{% set zIndex = zIndex + 5 %}
 				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); {{ widthHeight }}"></div>
 				{% endfor %}
 				
@@ -207,11 +218,20 @@
 				{% set widthHeight = "width: var(--block); height: var(--block);" %}
 				{% endif %}
 				
-				
+				{% if id1 == 2 and id2 == 1 %}
+				{% set zIndex = 6400 %}
+				{% elif id1 == 3 and id2 == 3 %}
+				{% set zIndex = 5700 %}
+				{% if id1 == 2 and id2 == 0 %}
+				{% set zIndex = 6000 %}
+				{% elif id1 == 3 and id2 == 2 %}
+				{% set zIndex = 5300 %}
+				{% endif %}
 				
 			
 				
 				{% for zii in range(0,zi[id1][id2][2]) %}
+				{% set zIndex = zIndex + 5 %}
 				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); {{ widthHeight }}"></div>
 				{% endfor %}
 				
@@ -274,7 +294,6 @@
 			
 				
 				{% for zii in range(0,zi[id1][id2][3]) %}
-				
 				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); {{ widthHeight }}"></div>
 				{% endfor %}
 				
