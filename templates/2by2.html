@@ -1,7 +1,7 @@
 {% extends "templates/4by4.html" %}
 
-{% macro horizontalCover(top,right,cellSize) %}
-<div style="flex-wrap: wrap; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ (7-top)*800+100 + (7-right)*100 + 6 }}; background: transparent; ">
+{% macro horizontalCover(top,right,zIndex,cellSize) %}
+<div style="flex-wrap: wrap; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ zIndex + 1 }}; background: transparent; ">
 	{% if cellSize == 1 %}
 	<div style="display: flex; flex-wrap: wrap; flex-grow: 0; flex-shrink: 0; width: 400%; right: 0px; position: absolute; height: 100%; top:0px; background: transparent;">
 		<div style="width: calc(8 * var(--block)); height: var(--block); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
@@ -100,7 +100,7 @@
 						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.2); background: transparent; flex-grow: 1;"></div>
 						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.1667); background: transparent; flex-grow: 1;"></div>
 					</div>-->
-					{{ horizontalCover(top,right,cellSize) }}
+					{{ horizontalCover(top,right,zIndex,cellSize) }}
 					
 				</div>
 				{% endif %}
