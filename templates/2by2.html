@@ -1,14 +1,25 @@
 {% extends "templates/4by4.html" %}
 
-{% macro horizontalCover(top,right) %}
+{% macro horizontalCover(top,right,cellSize) %}
 <div style="flex-wrap: wrap-reverse; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ (7-top)*800+100 + (7-right)*100 + 6 }}; background: transparent; ">
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
-	
+	{% if cellSize == 1 %}
+	<div style="width: 400%; right: 0px; position: relative; height: 100%; top:0px; background: transparent;">
+		<div style="width: calc(8 * var(--block)); height: var(--block); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
+		<div style="width: calc(8 * var(--block)); height: var(--block); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
+		<div style="width: calc(8 * var(--block)); height: var(--block); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
+		<div style="width: calc(8 * var(--block)); height: var(--block); backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
+		<div style="width: calc(8 * var(--block)); height: var(--block); backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
+		<div style="width: calc(8 * var(--block)); height: var(--block); backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
+	</div>
+	{% else %}
+		<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
+		<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
+		<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
+		<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
+		<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
+		<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
+
+	{% endif %}
 </div>
 {% endmacro %}		
 	
@@ -39,9 +50,11 @@
 				{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
 				{% set right = right + 0 %}
 				{% set zIndex = (top)*800+100 + (7-right)*100 %}
+				{% set cellSize = 1 %}
 				
 				{% if id1 == 0 or id1 == 1 %}
 				{% set widthHeight = "width: var(--block); height: var(--block);" %}
+				{% set cellSize = 0 %}
 				{% elif id1 == 2 and id2 == 3 %}
 				{% set zIndex = 4100 + 4*100 %}
 				{% set top = 4.25 + 4.0/4 %}
@@ -54,6 +67,7 @@
 				{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
 				{% else %}
 				{% set widthHeight = "width: var(--block); height: var(--block);" %}
+				{% set cellSize = 0 %}
 				{% endif %}
 				
 				{% if id1 == 2 and id2 == 1 %}
@@ -86,7 +100,7 @@
 						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.2); background: transparent; flex-grow: 1;"></div>
 						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.1667); background: transparent; flex-grow: 1;"></div>
 					</div>-->
-					{{ horizontalCover(top,right) }}
+					{{ horizontalCover(top,right,cellSize) }}
 					
 				</div>
 				{% endif %}
