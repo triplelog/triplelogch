@@ -1,7 +1,7 @@
 {% extends "templates/4by4.html" %}
 
 {% macro horizontalCover(top,right) %}
-<div style="flex-wrap: wrap-reverse; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 15 - right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ (7-top)*800+100 + (7-right)*100 + 6 }}; background: transparent; ">
+<div style="flex-wrap: wrap-reverse; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ (7-top)*800+100 + (7-right)*100 + 6 }}; background: transparent; ">
 	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
 	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
 	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
