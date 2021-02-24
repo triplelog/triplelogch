@@ -1,5 +1,17 @@
 {% extends "templates/4by4.html" %}
 
+{% macro horizontalCover(top,right) %}
+<div style="flex-wrap: wrap-reverse; position: fixed; top: {{ top }}px; right: {{ 400 - right }}px; width: inherit; height: 10px; z-index: {{ (70-top)*80+100 + (70-right)*10 + 6 }}; background: transparent; ">
+	<div style="width: calc(2 * var(--block)); height: 10px; backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: 10px; backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: 10px; backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: 10px; backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: 10px; backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: 10px; backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
+	
+</div>
+{% endmacro %}		
+	
 {% macro 2by2(id1,id2) %}
 
 
@@ -49,14 +61,8 @@
 						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.2); background: transparent; flex-grow: 1;"></div>
 						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.1667); background: transparent; flex-grow: 1;"></div>
 					</div>-->
-					<div style="flex-wrap: wrap-reverse; position: fixed; top: {{ top }}px; right: {{ 400 - right }}px; width: inherit; height: 10px; z-index: {{ (70-top)*80+100 + (70-right)*10 + 6 }}; background: transparent; ">
-						<div style="width: var(--block); height: 10px; backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
-						<div style="width: var(--block); height: 10px; backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
-						<div style="width: var(--block); height: 10px; backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
-						<div style="width: var(--block); height: 10px; backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
-						<div style="width: var(--block); height: 10px; backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
-						<div style="width: var(--block); height: 10px; backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
-					</div>
+					{{ horizontalCover(top,right) }}
+					
 				</div>
 				{% endif %}
 				
