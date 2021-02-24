@@ -29,7 +29,13 @@
 				</div>
 				{% for zii in range(0,zi[id1][id2][0]) %}
 				{% set rem = (id2*4 + 0) % 8 %}
-				<div class="scoreColor" style="position: fixed; top: {{10 * ( id1*16 + id2*4 + 0 - rem) / 8}}px; left: {{ 200 + rem*10 }}px; width: 10px; height: 10px;"></div>
+				{% set top = (id1 - (id1 % 2)) / 2 * 40 %}
+				{% set top = top + (id2 % 2) * 20 %}
+				{% set top = top + 0 %}
+				{% set left = 200 + (id1 % 2) * 40 %}
+				{% set left = left + (id2 - (id2 % 2)) / 2 * 20 %}
+				{% set left = left + 0 %}
+				<div class="scoreColor" style="position: fixed; top: {{ top }}px; left: {{ left }}px; width: 10px; height: 10px;"></div>
 				{% endfor %}
 				
 				{% if id2 == 0 or id2 == 1 %}
@@ -71,7 +77,13 @@
 				</div>
 				{% for zii in range(0,zi[id1][id2][1]) %}
 				{% set rem = (id2*4 + 1) % 8 %}
-				<div class="scoreColor" style="position: fixed; top: {{10 * ( id1*16 + id2*4 + 1 - rem) / 8}}px; left: {{ 200 + rem*10 }}px; width: 10px; height: 10px;"></div>
+				{% set top = (id1 - (id1 % 2)) / 2 * 40 %}
+				{% set top = top + (id2 % 2) * 20 %}
+				{% set top = top + 0 %}
+				{% set left = 200 + (id1 % 2) * 40 %}
+				{% set left = left + (id2 - (id2 % 2)) / 2 * 20 %}
+				{% set left = left + 10 %}
+				<div class="scoreColor" style="position: fixed; top: {{ top }}px; left: {{ left }}px; width: 10px; height: 10px;"></div>
 				{% endfor %}
 				
 				{% if id2 == 2 or id2 == 3 %}
@@ -117,7 +129,13 @@
 				</div>
 				{% for zii in range(0,zi[id1][id2][2]) %}
 				{% set rem = (id2*4 + 2) % 8 %}
-				<div class="scoreColor" style="position: fixed; top: {{10 * ( id1*16 + id2*4 + 2 - rem) / 8}}px; left: {{ 200 + rem*10 }}px; width: 10px; height: 10px;"></div>
+				{% set top = (id1 - (id1 % 2)) / 2 * 40 %}
+				{% set top = top + (id2 % 2) * 20 %}
+				{% set top = top + 10 %}
+				{% set left = 200 + (id1 % 2) * 40 %}
+				{% set left = left + (id2 - (id2 % 2)) / 2 * 20 %}
+				{% set left = left + 0 %}
+				<div class="scoreColor" style="position: fixed; top: {{ top }}px; left: {{ left }}px; width: 10px; height: 10px;"></div>
 				{% endfor %}
 				
 				
@@ -141,7 +159,13 @@
 				</div>
 				{% for zii in range(0,zi[id1][id2][3]) %}
 				{% set rem = (id2*4 + 3) % 8 %}
-				<div class="scoreColor" style="position: fixed; top: {{10 * ( id1*16 + id2*4 + 3 - rem) / 8}}px; left: {{ 200 + rem*10 }}px; width: 10px; height: 10px;"></div>
+				{% set top = (id1 - (id1 % 2)) / 2 * 40 %}
+				{% set top = top + (id2 % 2) * 20 %}
+				{% set top = top + 10 %}
+				{% set left = 200 + (id1 % 2) * 40 %}
+				{% set left = left + (id2 - (id2 % 2)) / 2 * 20 %}
+				{% set left = left + 10 %}
+				<div class="scoreColor" style="position: fixed; top: {{ top }}px; left: {{ left }}px; width: 10px; height: 10px;"></div>
 				{% endfor %}
 				
 				
