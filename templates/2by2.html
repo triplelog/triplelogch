@@ -32,13 +32,6 @@
 			
 			<div {% if id2 == 0 or id2 == 1 %}class="hresize"{% else %}class="hflex"{% endif %}>
 				
-				
-				<div class="zoneCell cell-{{ id1 }}{{ id2 }}0">
-					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}0">Blank-{{ zi[id1][id2][0] }}-{{ ziSum[id1][id2][0] }}</label>
-					<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}0"></label>
-					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}0"></label>
-					
-				</div>
 				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
 				{% set top = top + (id2 % 2) * 2 %}
 				{% set top = top + 0 %}
@@ -68,6 +61,14 @@
 				{% elif id1 == 3 and id2 == 3 %}
 				{% set zIndex = 5500 %}
 				{% endif %}
+				
+				<div class="zoneCell cell-{{ id1 }}{{ id2 }}0">
+					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}0">Blank-{{ zi[id1][id2][0] }}-{{ ziSum[id1][id2][0] }}-{{ zIndex }}</label>
+					<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}0"></label>
+					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}0"></label>
+					
+				</div>
+				
 				
 				{% for zii in range(0,1) %}
 				{% set zIndex = zIndex + 5 %}
@@ -99,13 +100,6 @@
 			
 			<div {% if id2 == 2 or id2 == 3 %}class="hresize"{% else %}class="hflex"{% endif %}>
 				
-				<div class="zoneCell cell-{{ id1 }}{{ id2 }}1">
-					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}1">Blank-{{ zi[id1][id2][1] }}-{{ ziSum[id1][id2][1] }}</label>
-					<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}1"></label>
-					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}1"></label>
-					
-				</div>
-				
 				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
 				{% set top = top + (id2 % 2) * 2 %}
 				{% set top = top + 0 %}
@@ -135,6 +129,13 @@
 				{% elif id1 == 3 and id2 == 3 %}
 				{% set zIndex = 5600 %}
 				{% endif %}
+				
+				<div class="zoneCell cell-{{ id1 }}{{ id2 }}1">
+					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}1">Blank-{{ zi[id1][id2][1] }}-{{ ziSum[id1][id2][1] }}-{{ zIndex }}</label>
+					<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}1"></label>
+					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}1"></label>
+					
+				</div>
 				
 				
 				{% for zii in range(0,zi[id1][id2][1]) %}
@@ -176,13 +177,6 @@
 			
 			<div {% if id2 == 0 or id2 == 1 %}class="hresize"{% else %}class="hflex"{% endif %}>
 				
-				
-				<div class="zoneCell cell-{{ id1 }}{{ id2 }}2">
-					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}2">Blank-{{ zi[id1][id2][2] }}-{{ ziSum[id1][id2][2] }}</label>
-					<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}2"></label>
-					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}2"></label>
-					
-				</div>
 				{% set rem = (id2*4 + 2) % 8 %}
 				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
 				{% set top = top + (id2 % 2) * 2 %}
@@ -228,7 +222,13 @@
 				{% set zIndex = 5300 %}
 				{% endif %}
 				
-			
+				<div class="zoneCell cell-{{ id1 }}{{ id2 }}2">
+					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}2">Blank-{{ zi[id1][id2][2] }}-{{ ziSum[id1][id2][2] }}-{{ zIndex }}</label>
+					<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}2"></label>
+					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}2"></label>
+					
+				</div>
+				
 				
 				{% for zii in range(0,zi[id1][id2][2]) %}
 				{% set zIndex = zIndex + 5 %}
@@ -248,12 +248,6 @@
 			</div>
 			<div {% if id2 == 2 or id2 == 3 %}class="hresize"{% else %}class="hflex"{% endif %}>
 				
-				<div class="zoneCell cell-{{ id1 }}{{ id2 }}3">
-					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ zi[id1][id2][3] }}-{{ ziSum[id1][id2][3] }}</label>
-					<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}3"></label>
-					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}3"></label>
-					
-				</div>
 				
 				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
 				{% set top = top + (id2 % 2) * 2 %}
@@ -299,7 +293,13 @@
 				{% set zIndex = 5400 %}
 				{% endif %}
 				
-			
+				<div class="zoneCell cell-{{ id1 }}{{ id2 }}3">
+					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ zi[id1][id2][3] }}-{{ ziSum[id1][id2][3] }}-{{ zIndex }}</label>
+					<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}3"></label>
+					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}3"></label>
+					
+				</div>
+				
 				
 				{% for zii in range(0,zi[id1][id2][3]) %}
 				{% set zIndex = zIndex + 5 %}
