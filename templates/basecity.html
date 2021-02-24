@@ -442,10 +442,10 @@ body {
 			border: 2px solid white;
 		}
 		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
-			border: 2px solid green;
+			border: 3px solid green;
 		}
 		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
-			border: 2px solid red;
+			border: 3px solid red;
 		}
 		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .sfhHolder {
 			display: inline-block;
@@ -458,6 +458,12 @@ body {
 		}
 		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .mfhHolder {
 			display: inline-block;
+		}
+		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .horizontalGrow > div{
+			display: flex;
+		}
+		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
+			background-color: rgb(70,0,0);
 		}
 		{% endfor %}
 	{% endfor %}
@@ -560,7 +566,7 @@ body {
 			</div>
 		</div>
 	</div>
-	<div style="position: fixed; left: 200px; top: 0px; width: 80px; height: 80px; backdrop-filter: blur(80px); background: transparent;">
+	<div style="position: fixed; left: 220px; top: 20px; width: 40px; height: 40px; backdrop-filter: blur(40px); background: transparent;">
 	</div>
 
 </div>
