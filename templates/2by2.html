@@ -34,7 +34,7 @@
 	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
 </div>
 {% elif cellSize == 2 %}
-<div style="flex-wrap: wrap; flex-direction: column; position: fixed; top: calc((1 + (-1 * {{ top }})) * var(--block) - 100%); right: calc({{ 6 + right }} * var(--block)); width: var(--block); height: inherit; z-index: {{ zIndex + 2 }}; background: transparent; ">
+<div style="flex-wrap: wrap; flex-direction: column; position: fixed; top: calc((-1 + (-1 * {{ top }})) * var(--block) - 100%); right: calc({{ 5 + right }} * var(--block) - 100%); width: var(--block); height: inherit; z-index: {{ zIndex + 2 }}; background: transparent; ">
 	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
 	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
 	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
@@ -43,7 +43,7 @@
 	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
 </div>
 {% elif cellSize == 3 %}
-<div style="flex-wrap: wrap; flex-direction: column; position: fixed; top: calc(({{ top }}) * var(--block) - 100%); left: calc({{ 36 - right }} * var(--block)); width: var(--block); height: inherit; z-index: {{ zIndex + 2 }}; background: transparent; ">
+<div style="flex-wrap: wrap; flex-direction: column; position: fixed; top: calc((-1 + (-1 * {{ top }})) * var(--block) - 100%); left: calc({{ 35 - right }} * var(--block)); width: var(--block); height: inherit; z-index: {{ zIndex + 2 }}; background: transparent; ">
 	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
 	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
 	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
