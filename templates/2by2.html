@@ -24,9 +24,9 @@
 {% endmacro %}		
 	
 {% macro verticalCover(top,right,zIndex,cellSize,leftRight) %}
-<div style="flex-wrap: wrap; flex-direction: column; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: var(--block); height: inherit; z-index: {{ zIndex + 2 }}; background: transparent; ">
+<div style="flex-wrap: wrap; flex-direction: column-reverse; position: fixed; top: calc((52 + {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: var(--block); height: inherit; z-index: {{ zIndex + 2 }}; background: transparent; ">
 	{% if cellSize == 1 %}
-	<div style="display: flex; flex-wrap: wrap; flex-direction: column; flex-grow: 0; flex-shrink: 0; width: calc(120 * var(--block)); right: calc(-60 * var(--block)); position: absolute; height: 100%; top:0px; background: transparent;">
+	<div style="display: flex; flex-wrap: wrap; flex-direction: column-reverse; flex-grow: 0; flex-shrink: 0; width: calc(120 * var(--block)); right: calc(-60 * var(--block)); position: absolute; height: 100%; top:0px; background: transparent;">
 		<div style="width: calc(120 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
 		<div style="width: calc(120 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
 		<div style="width: calc(120 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
