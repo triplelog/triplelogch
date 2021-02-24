@@ -1,7 +1,7 @@
 {% extends "templates/4by4.html" %}
 
 {% macro horizontalCover(top,right) %}
-<div style="flex-wrap: wrap-reverse; position: fixed; top: {{ top }}px; right: {{ 400 - right }}px; width: inherit; height: 10px; z-index: {{ (70-top)*80+100 + (70-right)*10 + 6 }}; background: transparent; ">
+<div style="flex-wrap: wrap-reverse; position: fixed; top: calc({{ top }} * var(--block)); right: calc({{ 15 - right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ (7-top)*800+100 + (7-right)*100 + 6 }}; background: transparent; ">
 	<div style="width: calc(2 * var(--block)); height: 10px; backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
 	<div style="width: calc(2 * var(--block)); height: 10px; backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
 	<div style="width: calc(2 * var(--block)); height: 10px; backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
@@ -39,15 +39,15 @@
 					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}0"></label>
 					
 				</div>
-				{% set top = (id1 - (id1 % 2)) / 2 * 40 %}
-				{% set top = top + (id2 % 2) * 20 %}
+				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
+				{% set top = top + (id2 % 2) * 2 %}
 				{% set top = top + 0 %}
-				{% set right = (id1 % 2) * 40 %}
-				{% set right = right + (id2 - (id2 % 2)) / 2 * 20 %}
+				{% set right = (id1 % 2) * 4 %}
+				{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
 				{% set right = right + 0 %}
 				
 				{% for zii in range(0,1) %}
-				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ (70-top)*80+100 + (70-right)*10 + (zii+1)*5 }}; position: fixed; top: {{ top }}px; right: {{ 400 - right }}px; width: 10px; height: 10px;"></div>
+				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ (7-top)*800+100 + (7-right)*100 + (zii+1)*5 }}; position: fixed; top: calc({{ top }} * var(--block)); right: calc({{ 15 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
 				{% endfor %}
 				
 				{% if id2 == 0 or id2 == 1 %}
@@ -81,15 +81,16 @@
 					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}1"></label>
 					
 				</div>
-				{% for zii in range(0,zi[id1][id2][1]) %}
-				{% set rem = (id2*4 + 1) % 8 %}
-				{% set top = (id1 - (id1 % 2)) / 2 * 40 %}
-				{% set top = top + (id2 % 2) * 20 %}
+				
+				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
+				{% set top = top + (id2 % 2) * 2 %}
 				{% set top = top + 0 %}
-				{% set right = (id1 % 2) * 40 %}
-				{% set right = right + (id2 - (id2 % 2)) / 2 * 20 %}
-				{% set right = right + 10 %}
-				<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ (70-top)*80+100 + (70-right)*10 + (zii+1)*5 }}; position: fixed; top: {{ top }}px; right: {{ 400 - right }}px; width: 10px; height: 10px;"></div>
+				{% set right = (id1 % 2) * 4 %}
+				{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
+				{% set right = right + 1 %}
+				
+				{% for zii in range(0,zi[id1][id2][1]) %}
+				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ (7-top)*800+100 + (7-right)*100 + (zii+1)*5 }}; position: fixed; top: calc({{ top }} * var(--block)); right: calc({{ 15 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
 				{% endfor %}
 				
 				{% if id2 == 2 or id2 == 3 %}
@@ -133,15 +134,16 @@
 					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}2"></label>
 					
 				</div>
-				{% for zii in range(0,zi[id1][id2][2]) %}
 				{% set rem = (id2*4 + 2) % 8 %}
-				{% set top = (id1 - (id1 % 2)) / 2 * 40 %}
-				{% set top = top + (id2 % 2) * 20 %}
-				{% set top = top + 10 %}
-				{% set right = (id1 % 2) * 40 %}
-				{% set right = right + (id2 - (id2 % 2)) / 2 * 20 %}
+				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
+				{% set top = top + (id2 % 2) * 2 %}
+				{% set top = top + 1 %}
+				{% set right = (id1 % 2) * 4 %}
+				{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
 				{% set right = right + 0 %}
-				<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ (70-top)*80+100 + (70-right)*10 + (zii+1)*5 }}; position: fixed; top: {{ top }}px; right: {{ 400 - right }}px; width: 10px; height: 10px;"></div>
+				
+				{% for zii in range(0,zi[id1][id2][2]) %}
+				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ (7-top)*800+100 + (7-right)*100 + (zii+1)*5 }}; position: fixed; top: calc({{ top }} * var(--block)); right: calc({{ 15 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
 				{% endfor %}
 				
 				
@@ -163,15 +165,15 @@
 					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}3"></label>
 					
 				</div>
+				
+				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
+				{% set top = top + (id2 % 2) * 2 %}
+				{% set top = top + 1 %}
+				{% set right = (id1 % 2) * 4 %}
+				{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
+				{% set right = right + 1 %}
 				{% for zii in range(0,zi[id1][id2][3]) %}
-				{% set rem = (id2*4 + 3) % 8 %}
-				{% set top = (id1 - (id1 % 2)) / 2 * 40 %}
-				{% set top = top + (id2 % 2) * 20 %}
-				{% set top = top + 10 %}
-				{% set right = (id1 % 2) * 40 %}
-				{% set right = right + (id2 - (id2 % 2)) / 2 * 20 %}
-				{% set right = right + 10 %}
-				<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ (70-top)*80+100 + (70-right)*10 + (zii+1)*5 }}; position: fixed; top: {{ top }}px; right: {{ 400 - right }}px; width: 10px; height: 10px;"></div>
+				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ (7-top)*800+100 + (7-right)*100 + (zii+1)*5 }}; position: fixed; top: calc({{ top }} * var(--block)); right: calc({{ 15 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
 				{% endfor %}
 				
 				
