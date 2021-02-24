@@ -27,7 +27,7 @@
 					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}0"></label>
 					
 				</div>
-				{% for zii in range(0,zi[id1][id2][0]) %}
+				{% for zii in range(0,1) %}
 				{% set rem = (id2*4 + 0) % 8 %}
 				{% set top = (id1 - (id1 % 2)) / 2 * 40 %}
 				{% set top = top + (id2 % 2) * 20 %}
@@ -41,22 +41,22 @@
 				{% if id2 == 0 or id2 == 1 %}
 				<div class="horizontalGrow">
 					
-					<!--<div style="flex-wrap: wrap; position: fixed; top: 0px; right: 500px; width: inherit; height: 20px; z-index: {{ id1*20000 + id2*2000 + 0*200 +1 }}; background: transparent; ">
+					<!--<div style="flex-wrap: wrap; position: fixed; top: {{ top }}px; right: {{ 400 - right }}px; width: inherit; height: 10px; z-index: {{ id1*20000 + id2*2000 + 0*200 +1 }}; background: transparent; ">
 						<div style="width: 20px; height: 20px; backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
 						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.5); background: transparent; flex-grow: 1;"></div>
 						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.3333); background: transparent; flex-grow: 1;"></div>
 						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.25); background: transparent; flex-grow: 1;"></div>
 						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.2); background: transparent; flex-grow: 1;"></div>
 						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.1667); background: transparent; flex-grow: 1;"></div>
-					</div>
-					<div style="flex-wrap: wrap; position: fixed; top: 0px; right: 500px; width: inherit; height: 20px; z-index: {{ id1*20000 + id2*2000 + 0*200 + 3 }}; background: transparent; ">
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
-						<div style="width: 20px; height: 20px; backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
 					</div>-->
+					<div style="flex-wrap: wrap-reverse; position: fixed; top: {{ top }}px; right: {{ 400 - right }}px; width: inherit; height: 10px; z-index: {{ (70-top)*80+100 + (70-right)*10 + 6 }}; background: transparent; ">
+						<div style="width: 10px; height: 10px; backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
+						<div style="width: 10px; height: 10px; backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
+						<div style="width: 10px; height: 10px; backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
+						<div style="width: 10px; height: 10px; backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
+						<div style="width: 10px; height: 10px; backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
+						<div style="width: 10px; height: 10px; backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
+					</div>
 				</div>
 				{% endif %}
 				
