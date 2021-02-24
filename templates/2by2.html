@@ -24,26 +24,28 @@
 {% endmacro %}		
 	
 {% macro verticalCover(top,right,zIndex,cellSize) %}
+{% if cellSize == 0 %}
 <div style="flex-wrap: wrap; flex-direction: column-reverse; position: fixed; top: calc((52 + {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: var(--block); height: inherit; z-index: {{ zIndex + 2 }}; background: transparent; ">
-	{% if cellSize == 1 %}
-	<div style="display: flex; flex-wrap: wrap; flex-direction: column-reverse; flex-grow: 0; flex-shrink: 0; width: calc(120 * var(--block)); right: calc(-60 * var(--block)); position: absolute; height: 100%; top:0px; background: transparent;">
-		<div style="margin-right: calc(8 * var(--block)); width: calc(120 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
-		<div style="margin-right: calc(8 * var(--block)); width: calc(120 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
-		<div style="margin-right: calc(8 * var(--block)); width: calc(120 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
-		<div style="margin-right: calc(8 * var(--block)); width: calc(120 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
-		<div style="margin-right: calc(8 * var(--block)); width: calc(120 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
-		<div style="margin-right: calc(8 * var(--block)); width: calc(120 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
-	</div>
-	{% else %}
-		<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
-		<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
-		<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
-		<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
-		<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
-		<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
-
-	{% endif %}
+	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
+	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
+	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
+	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
+	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
+	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
 </div>
+{% else %}
+<div style="flex-wrap: wrap; flex-direction: column; position: fixed; top: calc({{ top }} * var(--block) - 100%); right: calc(-60 * var(--block)); width: calc(120 * var(--block)); height: inherit; z-index: {{ zIndex + 2 }}; background: transparent; ">
+
+	<div style="margin-right: calc(8 * var(--block)); width: calc(120 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
+	<div style="margin-right: calc(8 * var(--block)); width: calc(120 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
+	<div style="margin-right: calc(8 * var(--block)); width: calc(120 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
+	<div style="margin-right: calc(8 * var(--block)); width: calc(120 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
+	<div style="margin-right: calc(8 * var(--block)); width: calc(120 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
+	<div style="margin-right: calc(8 * var(--block)); width: calc(120 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
+</div>
+
+</div>
+{% endif %}
 {% endmacro %}	
 
 {% macro 2by2(id1,id2) %}
@@ -53,8 +55,6 @@
 	<div {% if (id1 == 2 or id1 == 3) and (id2 == 1 or id2 == 3) %}class="vflex"{% else %}class="vresize"{% endif %}>
 		{% if (id1 == 2 or id1 == 3) and (id2 == 1 or id2 == 3) %}
 		{% else %}
-		
-		
 		<div class="verticalGrow">
 			{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
 			{% set top = top + (id2 % 2) * 2 %}
@@ -63,8 +63,6 @@
 			{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
 			{% set right = right + 0 %}
 			{% set zIndex = (top)*800+100 + (7-right)*100 %}
-			{% set cellSize = 1 %}
-			{% set leftRight = 0 %}
 		
 			{% if id1 == 0 or id1 == 1 %}
 			{% set widthHeight = "width: var(--block); height: var(--block);" %}
@@ -88,9 +86,8 @@
 			{% set zIndex = 6200 %}
 			{% elif id1 == 3 and id2 == 3 %}
 			{% set zIndex = 5500 %}
-			{% set leftRight = 1 %}
 			{% endif %}
-			{{ verticalCover(top,right,zIndex,cellSize,leftRight) }}
+			{{ verticalCover(top,right,zIndex,0) }}
 			
 			{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
 			{% set top = top + (id2 % 2) * 2 %}
@@ -99,12 +96,9 @@
 			{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
 			{% set right = right + 1 %}
 			{% set zIndex = (top)*800+100 + (7-right)*100 %}
-			{% set cellSize = 1 %}
-			{% set leftRight = 0 %}
 			
 			{% if id1 == 0 or id1 == 1 %}
 			{% set widthHeight = "width: var(--block); height: var(--block);" %}
-			{% set cellSize = 0 %}
 			{% elif id1 == 2 and id2 == 3 %}
 			{% set zIndex = 4100 + 5*100 %}
 			{% set top = 4.25 + 5.0/4 %}
@@ -117,16 +111,14 @@
 			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
 			{% else %}
 			{% set widthHeight = "width: var(--block); height: var(--block);" %}
-			{% set cellSize = 0 %}
 			{% endif %}
 			
 			{% if id1 == 2 and id2 == 1 %}
 			{% set zIndex = 6100 %}
 			{% elif id1 == 3 and id2 == 3 %}
-			{% set leftRight = 1 %}
 			{% set zIndex = 5600 %}
 			{% endif %}
-			{{ verticalCover(top,right,zIndex,cellSize,leftRight) }}
+			{{ verticalCover(top,right,zIndex,0) }}
 		</div>
 		{% endif %}
 		<div class="leftRight">
@@ -267,7 +259,7 @@
 			
 			<div {% if id2 == 0 or id2 == 1 %}class="hresize"{% else %}class="hflex"{% endif %}>
 				
-				{% set rem = (id2*4 + 2) % 8 %}
+				
 				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
 				{% set top = top + (id2 % 2) * 2 %}
 				{% set top = top + 1 %}
@@ -280,6 +272,7 @@
 				
 				{% if id1 == 0 or id1 == 1 %}
 				{% set widthHeight = "width: var(--block); height: var(--block);" %}
+				{% set cellSize = 0 %}
 				{% elif id1 == 2 and id2 == 3 %}
 				{% set zIndex = 4100 + 8*100 %}
 				{% set top = 4.25 + 8.0/4 %}
@@ -302,16 +295,19 @@
 				{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
 				{% else %}
 				{% set widthHeight = "width: var(--block); height: var(--block);" %}
+				{% set cellSize = 0 %}
 				{% endif %}
 				
 				{% if id1 == 2 and id2 == 1 %}
 				{% set zIndex = 6400 %}
 				{% elif id1 == 3 and id2 == 3 %}
 				{% set zIndex = 5700 %}
+				{% set leftRight = 1 %}
 				{% elif id1 == 2 and id2 == 0 %}
 				{% set zIndex = 6000 %}
 				{% elif id1 == 3 and id2 == 2 %}
 				{% set zIndex = 5300 %}
+				{% set leftRight = 1 %}
 				{% endif %}
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}2">
@@ -355,6 +351,7 @@
 				
 				{% if id1 == 0 or id1 == 1 %}
 				{% set widthHeight = "width: var(--block); height: var(--block);" %}
+				{% set cellSize = 0 %}
 				{% elif id1 == 2 and id2 == 3 %}
 				{% set zIndex = 4100 + 9*100 %}
 				{% set top = 4.25 + 9.0/4 %}
@@ -377,16 +374,19 @@
 				{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
 				{% else %}
 				{% set widthHeight = "width: var(--block); height: var(--block);" %}
+				{% set cellSize = 0 %}
 				{% endif %}
 				
 				{% if id1 == 2 and id2 == 1 %}
 				{% set zIndex = 6300 %}
 				{% elif id1 == 3 and id2 == 3 %}
 				{% set zIndex = 5800 %}
+				{% set leftRight = 1 %}
 				{% elif id1 == 2 and id2 == 0 %}
 				{% set zIndex = 5900 %}
 				{% elif id1 == 3 and id2 == 2 %}
 				{% set zIndex = 5400 %}
+				{% set leftRight = 1 %}
 				{% endif %}
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}3">
@@ -415,7 +415,98 @@
 		</div>
 
 		{% if (id1 == 2 or id1 == 3) and (id2 == 1 or id2 == 3) %}
-		<div class="verticalGrow" style="transform: rotate(180deg); right: -50%;"></div>
+		<div class="verticalGrow" style="transform: rotate(180deg); right: -50%;">
+			
+			{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
+			{% set top = top + (id2 % 2) * 2 %}
+			{% set top = top + 1 %}
+			{% set right = (id1 % 2) * 4 %}
+			{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
+			{% set right = right + 0 %}
+			{% set zIndex = (top)*800+100 + (7-right)*100 %}
+			
+			{% if id1 == 0 or id1 == 1 %}
+			{% set widthHeight = "width: var(--block); height: var(--block);" %}
+			{% elif id1 == 2 and id2 == 3 %}
+			{% set zIndex = 4100 + 8*100 %}
+			{% set top = 4.25 + 8.0/4 %}
+			{% set right = 5 %}
+			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
+			{% elif id1 == 3 and id2 == 1 %}
+			{% set zIndex = 4100 + 10*100 %}
+			{% set top = 4.25 + 10.0/4 %}
+			{% set right = 5 %}
+			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
+			{% elif id1 == 2 and id2 == 2 %}
+			{% set zIndex = 4100 + 0*100 %}
+			{% set top = 4.25 + 0.0/4 %}
+			{% set right = 5 %}
+			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
+			{% elif id1 == 3 and id2 == 0 %}
+			{% set zIndex = 4100 + 2*100 %}
+			{% set top = 4.25 + 2.0/4 %}
+			{% set right = 5 %}
+			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
+			{% else %}
+			{% set widthHeight = "width: var(--block); height: var(--block);" %}
+			{% endif %}
+			
+			{% if id1 == 2 and id2 == 1 %}
+			{% set zIndex = 6400 %}
+			{% elif id1 == 3 and id2 == 3 %}
+			{% set zIndex = 5700 %}
+			{% elif id1 == 2 and id2 == 0 %}
+			{% set zIndex = 6000 %}
+			{% elif id1 == 3 and id2 == 2 %}
+			{% set zIndex = 5300 %}
+			{% endif %}
+			{{ verticalCover(top,right,zIndex,1) }}
+			
+			{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
+			{% set top = top + (id2 % 2) * 2 %}
+			{% set top = top + 1 %}
+			{% set right = (id1 % 2) * 4 %}
+			{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
+			{% set right = right + 1 %}
+			{% set zIndex = (top)*800+100 + (7-right)*100 %}
+			
+			{% if id1 == 0 or id1 == 1 %}
+			{% set widthHeight = "width: var(--block); height: var(--block);" %}
+			{% elif id1 == 2 and id2 == 3 %}
+			{% set zIndex = 4100 + 9*100 %}
+			{% set top = 4.25 + 9.0/4 %}
+			{% set right = 5 %}
+			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
+			{% elif id1 == 3 and id2 == 1 %}
+			{% set zIndex = 4100 + 11*100 %}
+			{% set top = 4.25 + 11.0/4 %}
+			{% set right = 5 %}
+			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
+			{% elif id1 == 2 and id2 == 2 %}
+			{% set zIndex = 4100 + 1*100 %}
+			{% set top = 4.25 + 1.0/4 %}
+			{% set right = 5 %}
+			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
+			{% elif id1 == 3 and id2 == 0 %}
+			{% set zIndex = 4100 + 3*100 %}
+			{% set top = 4.25 + 3.0/4 %}
+			{% set right = 5 %}
+			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
+			{% else %}
+			{% set widthHeight = "width: var(--block); height: var(--block);" %}
+			{% endif %}
+			
+			{% if id1 == 2 and id2 == 1 %}
+			{% set zIndex = 6300 %}
+			{% elif id1 == 3 and id2 == 3 %}
+			{% set zIndex = 5800 %}
+			{% elif id1 == 2 and id2 == 0 %}
+			{% set zIndex = 5900 %}
+			{% elif id1 == 3 and id2 == 2 %}
+			{% set zIndex = 5400 %}
+			{% endif %}
+			{{ verticalCover(top,right,zIndex,1) }}
+		</div>
 		{% endif %}
 		
 	</div>
