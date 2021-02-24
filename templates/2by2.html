@@ -1,7 +1,7 @@
 {% extends "templates/4by4.html" %}
 
-{% macro horizontalCover(top,right,zIndex,cellSize) %}
-<div style="flex-wrap: wrap; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ zIndex + 1 }}; background: transparent; ">
+{% macro horizontalCover(top,right,zIndex,cellSize,leftRight) %}
+<div style="flex-wrap: wrap; {% if leftRight == 1 %}flex-direction: reverse; {% endif %}position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); {% if leftRight == 1 %}left: calc({{ 15 + right }} * var(--block));{% else %}right: calc({{ 45 - right }} * var(--block));{% endif %} width: inherit; height: var(--block); z-index: {{ zIndex + 1 }}; background: transparent; ">
 	{% if cellSize == 1 %}
 	<div style="display: flex; flex-wrap: wrap; flex-grow: 0; flex-shrink: 0; width: 400%; right: 0px; position: absolute; height: 100%; top:0px; background: transparent;">
 		<div style="width: calc(8 * var(--block)); height: var(--block); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
@@ -51,6 +51,7 @@
 				{% set right = right + 0 %}
 				{% set zIndex = (top)*800+100 + (7-right)*100 %}
 				{% set cellSize = 1 %}
+				{% set leftRight = 0 %}
 				
 				{% if id1 == 0 or id1 == 1 %}
 				{% set widthHeight = "width: var(--block); height: var(--block);" %}
@@ -74,6 +75,7 @@
 				{% set zIndex = 6200 %}
 				{% elif id1 == 3 and id2 == 3 %}
 				{% set zIndex = 5500 %}
+				{% set leftRight = 1 %}
 				{% endif %}
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}0">
@@ -100,7 +102,7 @@
 						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.2); background: transparent; flex-grow: 1;"></div>
 						<div style="width: 20px; height: 20px; backdrop-filter: contrast(.1667); background: transparent; flex-grow: 1;"></div>
 					</div>-->
-					{{ horizontalCover(top,right,zIndex,cellSize) }}
+					{{ horizontalCover(top,right,zIndex,cellSize,leftRight) }}
 					
 				</div>
 				{% endif %}
