@@ -1,13 +1,13 @@
 {% extends "templates/4by4.html" %}
 
 {% macro horizontalCover(top,right) %}
-<div style="flex-wrap: wrap-reverse; position: fixed; top: calc({{ top }} * var(--block)); right: calc({{ 15 - right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ (7-top)*800+100 + (7-right)*100 + 6 }}; background: transparent; ">
-	<div style="width: calc(2 * var(--block)); height: 10px; backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: 10px; backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: 10px; backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: 10px; backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: 10px; backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: 10px; backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
+<div style="flex-wrap: wrap-reverse; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 15 - right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ (7-top)*800+100 + (7-right)*100 + 6 }}; background: transparent; ">
+	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
 	
 </div>
 {% endmacro %}		
@@ -47,7 +47,7 @@
 				{% set right = right + 0 %}
 				
 				{% for zii in range(0,1) %}
-				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ (7-top)*800+100 + (7-right)*100 + (zii+1)*5 }}; position: fixed; top: calc({{ top }} * var(--block)); right: calc({{ 15 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
+				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ (7-top)*800+100 + (7-right)*100 + (zii+1)*5 }}; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
 				{% endfor %}
 				
 				{% if id2 == 0 or id2 == 1 %}
@@ -90,7 +90,7 @@
 				{% set right = right + 1 %}
 				
 				{% for zii in range(0,zi[id1][id2][1]) %}
-				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ (7-top)*800+100 + (7-right)*100 + (zii+1)*5 }}; position: fixed; top: calc({{ top }} * var(--block)); right: calc({{ 15 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
+				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ (7-top)*800+100 + (7-right)*100 + (zii+1)*5 }}; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
 				{% endfor %}
 				
 				{% if id2 == 2 or id2 == 3 %}
@@ -143,7 +143,7 @@
 				{% set right = right + 0 %}
 				
 				{% for zii in range(0,zi[id1][id2][2]) %}
-				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ (7-top)*800+100 + (7-right)*100 + (zii+1)*5 }}; position: fixed; top: calc({{ top }} * var(--block)); right: calc({{ 15 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
+				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ (7-top)*800+100 + (7-right)*100 + (zii+1)*5 }}; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
 				{% endfor %}
 				
 				
@@ -173,7 +173,7 @@
 				{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
 				{% set right = right + 1 %}
 				{% for zii in range(0,zi[id1][id2][3]) %}
-				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ (7-top)*800+100 + (7-right)*100 + (zii+1)*5 }}; position: fixed; top: calc({{ top }} * var(--block)); right: calc({{ 15 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
+				<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ (7-top)*800+100 + (7-right)*100 + (zii+1)*5 }}; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
 				{% endfor %}
 				
 				
