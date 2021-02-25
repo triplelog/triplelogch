@@ -5,20 +5,18 @@
 	<div {% if id == 0 or id == 2 %}class="hresize"{% else %}class="hflex"{% endif %}>
 		<div class="topBottom">
 			
-			<div {% if id == 0 or id == 1 %}class="vresize"{% else %}class="vflex"{% endif %}>
-				{% if id == 0 or id == 1 %}
+			<div class="vresize">
+				
 				<div class="verticalGrow grow4"></div>
-				{% endif %}
+				
 				
 				{{ 2by2(id,0) }}
 			</div>
 			<div class="hroad" style="z-index: {{ id*200 + 10 }};">
 		
 			</div>
-			<div {% if id == 2 or id == 3 %}class="vresize"{% else %}class="vflex"{% endif %}>
-				{% if id == 2 or id == 3 %}
-				<div class="verticalGrow grow4" style="transform: rotate(180deg); right: -50%;"></div>
-				{% endif %}
+			<div class="vflex">
+				
 		
 				
 				{{ 2by2(id,1) }}
@@ -34,20 +32,16 @@
 	<div {% if id == 3 or id == 1 %}class="hresize"{% else %}class="hflex"{% endif %}>
 		<div class="topBottom">
 			
-			<div {% if id == 0 or id == 1 %}class="vresize"{% else %}class="vflex"{% endif %}>
-				{% if id == 0 or id == 1 %}
+			<div class="vresize">
 				<div class="verticalGrow grow4"></div>
-				{% endif %}
 				{{ 2by2(id,2) }}
 		
 			</div>
 			<div class="hroad"  style="z-index: {{ id*200 + 50 }};">
 		
 			</div>
-			<div {% if id == 2 or id == 3 %}class="vresize"{% else %}class="vflex"{% endif %}>
-				{% if id == 2 or id == 3 %}
-				<div class="verticalGrow grow4" style="transform: rotate(180deg); right: -50%;"></div>
-				{% endif %}
+			<div class="vflex">
+				
 				
 				{{ 2by2(id,3) }}
 			</div>
