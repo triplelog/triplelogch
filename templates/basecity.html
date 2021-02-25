@@ -438,6 +438,35 @@ body {
 .scoreColor {
 	background-color: rgb(128,128,128);
 }
+.hCover {
+	width: calc(2 * var(--block));
+	height: var(--block);
+	background: transparent;
+	flex-grow: 1;
+}
+.hCoverDiv {
+	direction: ltr;
+	flex-wrap: wrap-reverse;
+	position: fixed;
+	width: inherit;
+	height: var(--block);
+	background: transparent;
+}
+.vCover {
+	margin-right: calc(8 * var(--block));
+	width: calc(1 * var(--block));
+	height: calc(2 * var(--block));
+	background: transparent;
+	flex-grow: 1;
+}
+.vCoverDiv {
+	flex-wrap: wrap;
+	flex-direction: column-reverse;
+	position: fixed;
+	width: var(--block);
+	height: inherit;
+	background: transparent;
+}
 {% for i in range(0,4) %}
 	{% for ii in range(0,4) %}
 		{% for iii in range(0,4) %}
@@ -568,9 +597,8 @@ body {
 			</div>
 		</div>
 	</div>
-	<!--<div style="z-index: 6500; position: fixed; bottom: calc(2 * var(--block)); right: calc({{ 45 - 5 }} * var(--block)); width: calc( 4 * var(--block)); height: calc( 4 * var(--block)); backdrop-filter: blur(calc( 4 * var(--block))) contrast(3); background: transparent;"></div>-->
-	<div style="z-index: 6500; position: fixed; bottom: calc(-2 * var(--block)); right: calc({{ 45 - 9 }} * var(--block)); width: calc( 12 * var(--block)); height: calc( 12 * var(--block)); background: black;">
-	</div>
+	<div style="z-index: 6500; position: fixed; bottom: calc(2 * var(--block)); right: calc({{ 45 - 5 }} * var(--block)); width: calc( 4 * var(--block)); height: calc( 4 * var(--block)); backdrop-filter: blur(calc( 4 * var(--block))) contrast(3); background: transparent;"></div>
+	<!--<div style="z-index: 6500; position: fixed; bottom: calc(-2 * var(--block)); right: calc({{ 45 - 9 }} * var(--block)); width: calc( 12 * var(--block)); height: calc( 12 * var(--block)); background: black; backdrop-filter: contrast(1);"></div>-->
 
 </div>
 

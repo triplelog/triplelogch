@@ -2,17 +2,12 @@
 
 {% macro horizontalCover(top,right,zIndex,leftRight,pn,frac) %}
 {% if leftRight == 0 %}
-<div style="direction: ltr; flex-wrap: wrap; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ zIndex  }}; background: transparent; ">
-	{% for fpn in range(1,7) %}
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: {% if pn < 0 %}invert(100%) {% endif %}contrast({% if frac > 0 %}{{1.0 / fpn}}{% else %}{{ fpn}}{% endif %}); background: transparent; flex-grow: 1;"></div>
-	{% endfor %}
-	
+<div class="hCoverDiv" style="bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex  }};">
+	{% for fpn in range(1,7) %}<div class="hCover" style="backdrop-filter: {% if pn < 0 %}invert(100%) {% endif %}contrast({% if frac > 0 %}{{1.0 / fpn}}{% else %}{{ fpn}}{% endif %});"></div>{% endfor %}
 </div>
 {% else %}
-<div style="direction: ltr; flex-wrap: wrap-reverse; position: fixed; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ zIndex  }}; background: transparent; ">
-	{% for fpn in range(1,7) %}
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: {% if pn < 0 %}invert(100%) {% endif %}contrast({% if frac > 0 %}{{1.0 / fpn}}{% else %}{{ fpn}}{% endif %}); background: transparent; flex-grow: 1;"></div>
-	{% endfor %}
+<div class="hCoverDiv" style="top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex  }};">
+	{% for fpn in range(1,7) %}<div class="hCover" style="backdrop-filter: {% if pn < 0 %}invert(100%) {% endif %}contrast({% if frac > 0 %}{{1.0 / fpn}}{% else %}{{ fpn}}{% endif %});"></div>{% endfor %}
 </div>
 {% endif %}
 {% endmacro %}		
@@ -20,24 +15,12 @@
 {% macro verticalCover(top,right,zIndex,leftRight) %}
 
 {% if leftRight == 0 %}
-<div style="flex-wrap: wrap; flex-direction: column-reverse; position: fixed; top: calc((52 + {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: var(--block); height: inherit; z-index: {{ zIndex + 2 }}; background: transparent; ">
-	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
-	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
-	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
-	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
-	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
-	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
-
+<div class="vCoverDiv" style="top: calc((52 + {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex + 7 }};">
+	{% for fpn in range(1,7) %}<div class="vCover" style="backdrop-filter: contrast({{ fpn }});"></div>{% endfor %}
 </div>
 {% else %}
-<div style="flex-wrap: wrap; flex-direction: column; position: fixed; bottom: calc(100% + (1 + {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); width: var(--block); height: inherit; z-index: {{ zIndex + 2 }}; background: transparent; ">
-	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
-	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
-	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
-	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
-	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
-	<div style="margin-right: calc(8 * var(--block)); width: calc(1 * var(--block)); height: calc(2 * var(--block)); backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
-
+<div class="vCoverDiv" style="bottom: calc(100% + (1 + {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex + 7 }};">
+	{% for fpn in range(1,7) %}<div class="vCover" style="backdrop-filter: contrast({{ fpn }});"></div>{% endfor %}
 </div>
 {% endif %}
 {% endmacro %}	
