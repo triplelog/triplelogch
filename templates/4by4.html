@@ -24,7 +24,7 @@
 		</div>
 
 		{% if id == 2 or id == 0 %}
-		<div class="horizontalGrow grow4">
+		<div class="horizontalGrow grow4"><!--HG2 when id==0, HG6 when id==2-->
 			{% set top = (id - (id % 2)) / 2 * 4 %}
 			{% set top = top + 0 %}
 			{% set right = (id % 2) * 4 %}
@@ -32,7 +32,7 @@
 			{% set zIndex = (top)*800+100 + (7-right)*100 %}
 			{% set leftRight = 0 %}
 		
-			{% if id1 > 1 %}
+			{% if id > 1 %}
 			{% set top = 7 - (top - 4) %}
 			{% set right = 7 - right %}
 			{% set zIndex = (top)*800+100 + (right)*100 %}
@@ -48,7 +48,7 @@
 			{% set zIndex = (top)*800+100 + (7-right)*100 %}
 			{% set leftRight = 0 %}
 		
-			{% if id1 > 1 %}
+			{% if id > 1 %}
 			{% set top = 7 - (top - 4) %}
 			{% set right = 7 - right %}
 			{% set zIndex = (top)*800+100 + (right)*100 %}
@@ -64,7 +64,7 @@
 			{% set zIndex = (top)*800+100 + (7-right)*100 %}
 			{% set leftRight = 0 %}
 		
-			{% if id1 > 1 %}
+			{% if id > 1 %}
 			{% set top = 7 - (top - 4) %}
 			{% set right = 7 - right %}
 			{% set zIndex = (top)*800+100 + (right)*100 %}
@@ -80,7 +80,7 @@
 			{% set zIndex = (top)*800+100 + (7-right)*100 %}
 			{% set leftRight = 0 %}
 		
-			{% if id1 > 1 %}
+			{% if id > 1 %}
 			{% set top = 7 - (top - 4) %}
 			{% set right = 7 - right %}
 			{% set zIndex = (top)*800+100 + (right)*100 %}
@@ -111,7 +111,7 @@
 			</div>
 		</div>
 		{% if id == 3 or id == 1 %}
-		<div class="horizontalGrow grow4" style="direction: rtl;">
+		<div class="horizontalGrow grow4" style="direction: rtl;"><!--HG6 when id==1, HG2 when id==3-->
 			{% set top = (id - (id % 2)) / 2 * 4 %}
 			{% set top = top + 0 %}
 			{% set right = (id % 2) * 4 %}
@@ -119,7 +119,7 @@
 			{% set zIndex = (top)*800+100 + (7-right)*100 %}
 			{% set leftRight = 0 %}
 		
-			{% if id1 > 1 %}
+			{% if id > 1 %}
 			{% set top = 7 - (top - 4) %}
 			{% set right = 7 - right %}
 			{% set zIndex = (top)*800+100 + (right)*100 %}
@@ -135,7 +135,7 @@
 			{% set zIndex = (top)*800+100 + (7-right)*100 %}
 			{% set leftRight = 0 %}
 		
-			{% if id1 > 1 %}
+			{% if id > 1 %}
 			{% set top = 7 - (top - 4) %}
 			{% set right = 7 - right %}
 			{% set zIndex = (top)*800+100 + (right)*100 %}
@@ -151,7 +151,7 @@
 			{% set zIndex = (top)*800+100 + (7-right)*100 %}
 			{% set leftRight = 0 %}
 		
-			{% if id1 > 1 %}
+			{% if id > 1 %}
 			{% set top = 7 - (top - 4) %}
 			{% set right = 7 - right %}
 			{% set zIndex = (top)*800+100 + (right)*100 %}
@@ -167,7 +167,7 @@
 			{% set zIndex = (top)*800+100 + (7-right)*100 %}
 			{% set leftRight = 0 %}
 		
-			{% if id1 > 1 %}
+			{% if id > 1 %}
 			{% set top = 7 - (top - 4) %}
 			{% set right = 7 - right %}
 			{% set zIndex = (top)*800+100 + (right)*100 %}
