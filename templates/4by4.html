@@ -41,6 +41,7 @@
 			{% set zIndex = zIndex + 6 %}
 			{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
 			
+			
 			{% set top = (id - (id % 2)) / 2 * 4 %}
 			{% set top = top + 1 %}
 			{% set right = (id % 2) * 4 %}
@@ -56,6 +57,11 @@
 			{% endif %}
 			{% set zIndex = zIndex + 6 %}
 			{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
+			{% set zIndex = zIndex + 13 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
+			
 			
 			{% set top = (id - (id % 2)) / 2 * 4 %}
 			{% set top = top + 2 %}
@@ -73,6 +79,7 @@
 			{% set zIndex = zIndex + 6 %}
 			{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
 			
+			
 			{% set top = (id - (id % 2)) / 2 * 4 %}
 			{% set top = top + 3 %}
 			{% set right = (id % 2) * 4 %}
@@ -88,6 +95,104 @@
 			{% endif %}
 			{% set zIndex = zIndex + 6 %}
 			{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
+			{% set zIndex = zIndex + 13 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
+			{% set zIndex = zIndex + 13 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
+			
+			
+			
+			
+			{% set top = (id - (id % 2)) / 2 * 4 %}
+			{% set top = top + 0 %}
+			{% set right = (id % 2) * 4 %}
+			{% set right = right + 2 %}
+			{% set zIndex = (top)*800+100 + (7-right)*100 %}
+			{% set leftRight = 0 %}
+		
+			{% if id > 1 %}
+			{% set top = 7 - (top - 4) %}
+			{% set right = 7 - right %}
+			{% set zIndex = (top)*800+100 + (right)*100 %}
+			{% set leftRight = 1 %}
+			{% endif %}
+			{% set zIndex = zIndex + 14 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
+			
+			
+			{% set top = (id - (id % 2)) / 2 * 4 %}
+			{% set top = top + 1 %}
+			{% set right = (id % 2) * 4 %}
+			{% set right = right + 2 %}
+			{% set zIndex = (top)*800+100 + (7-right)*100 %}
+			{% set leftRight = 0 %}
+		
+			{% if id > 1 %}
+			{% set top = 7 - (top - 4) %}
+			{% set right = 7 - right %}
+			{% set zIndex = (top)*800+100 + (right)*100 %}
+			{% set leftRight = 1 %}
+			{% endif %}
+			{% set zIndex = zIndex + 14 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
+			{% set zIndex = zIndex + 13 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
+			
+			
+			{% set top = (id - (id % 2)) / 2 * 4 %}
+			{% set top = top + 2 %}
+			{% set right = (id % 2) * 4 %}
+			{% set right = right + 2 %}
+			{% set zIndex = (top)*800+100 + (7-right)*100 %}
+			{% set leftRight = 0 %}
+		
+			{% if id > 1 %}
+			{% set top = 7 - (top - 4) %}
+			{% set right = 7 - right %}
+			{% set zIndex = (top)*800+100 + (right)*100 %}
+			{% set leftRight = 1 %}
+			{% endif %}
+			{% set zIndex = zIndex + 14 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
+			
+			
+			{% set top = (id - (id % 2)) / 2 * 4 %}
+			{% set top = top + 3 %}
+			{% set right = (id % 2) * 4 %}
+			{% set right = right + 2 %}
+			{% set zIndex = (top)*800+100 + (7-right)*100 %}
+			{% set leftRight = 0 %}
+		
+			{% if id > 1 %}
+			{% set top = 7 - (top - 4) %}
+			{% set right = 7 - right %}
+			{% set zIndex = (top)*800+100 + (right)*100 %}
+			{% set leftRight = 1 %}
+			{% endif %}
+			{% set zIndex = zIndex + 14 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
+			{% set zIndex = zIndex + 13 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,-1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
+			{% set zIndex = zIndex + 13 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,-1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
 		</div>
 		{% endif %}
 	</div>
@@ -128,6 +233,7 @@
 			{% set zIndex = zIndex + 6 %}
 			{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
 			
+			
 			{% set top = (id - (id % 2)) / 2 * 4 %}
 			{% set top = top + 1 %}
 			{% set right = (id % 2) * 4 %}
@@ -143,6 +249,11 @@
 			{% endif %}
 			{% set zIndex = zIndex + 6 %}
 			{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
+			{% set zIndex = zIndex + 13 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
+			
 			
 			{% set top = (id - (id % 2)) / 2 * 4 %}
 			{% set top = top + 2 %}
@@ -160,6 +271,7 @@
 			{% set zIndex = zIndex + 6 %}
 			{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
 			
+			
 			{% set top = (id - (id % 2)) / 2 * 4 %}
 			{% set top = top + 3 %}
 			{% set right = (id % 2) * 4 %}
@@ -175,6 +287,103 @@
 			{% endif %}
 			{% set zIndex = zIndex + 6 %}
 			{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
+			{% set zIndex = zIndex + 13 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
+			{% set zIndex = zIndex + 13 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
+			
+			
+			
+			{% set top = (id - (id % 2)) / 2 * 4 %}
+			{% set top = top + 0 %}
+			{% set right = (id % 2) * 4 %}
+			{% set right = right + 1 %}
+			{% set zIndex = (top)*800+100 + (7-right)*100 %}
+			{% set leftRight = 0 %}
+		
+			{% if id > 1 %}
+			{% set top = 7 - (top - 4) %}
+			{% set right = 7 - right %}
+			{% set zIndex = (top)*800+100 + (right)*100 %}
+			{% set leftRight = 1 %}
+			{% endif %}
+			{% set zIndex = zIndex + 14 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
+			
+			
+			{% set top = (id - (id % 2)) / 2 * 4 %}
+			{% set top = top + 1 %}
+			{% set right = (id % 2) * 4 %}
+			{% set right = right + 1 %}
+			{% set zIndex = (top)*800+100 + (7-right)*100 %}
+			{% set leftRight = 0 %}
+		
+			{% if id > 1 %}
+			{% set top = 7 - (top - 4) %}
+			{% set right = 7 - right %}
+			{% set zIndex = (top)*800+100 + (right)*100 %}
+			{% set leftRight = 1 %}
+			{% endif %}
+			{% set zIndex = zIndex + 14 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
+			{% set zIndex = zIndex + 13 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
+			
+			
+			{% set top = (id - (id % 2)) / 2 * 4 %}
+			{% set top = top + 2 %}
+			{% set right = (id % 2) * 4 %}
+			{% set right = right + 1 %}
+			{% set zIndex = (top)*800+100 + (7-right)*100 %}
+			{% set leftRight = 0 %}
+		
+			{% if id > 1 %}
+			{% set top = 7 - (top - 4) %}
+			{% set right = 7 - right %}
+			{% set zIndex = (top)*800+100 + (right)*100 %}
+			{% set leftRight = 1 %}
+			{% endif %}
+			{% set zIndex = zIndex + 14 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
+			
+			
+			{% set top = (id - (id % 2)) / 2 * 4 %}
+			{% set top = top + 3 %}
+			{% set right = (id % 2) * 4 %}
+			{% set right = right + 1 %}
+			{% set zIndex = (top)*800+100 + (7-right)*100 %}
+			{% set leftRight = 0 %}
+		
+			{% if id > 1 %}
+			{% set top = 7 - (top - 4) %}
+			{% set right = 7 - right %}
+			{% set zIndex = (top)*800+100 + (right)*100 %}
+			{% set leftRight = 1 %}
+			{% endif %}
+			{% set zIndex = zIndex + 14 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
+			{% set zIndex = zIndex + 13 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
+			{% set zIndex = zIndex + 13 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+			{% set zIndex = zIndex + 2 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
 		</div>
 		{% endif %}
 	</div>
