@@ -387,7 +387,7 @@
 					{% set zIndex = (top)*800+100 + ( right)*100 %}
 					{% set leftRight = 1 %}
 					{% endif %}
-					{% set zIndex = zIndex + 20 %}
+					{% set zIndex = zIndex + 35 %}
 					{% set zii = zii + 1 %}
 					{% if id1 < 2 %}
 						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
@@ -549,7 +549,7 @@
 				{% set leftRight = 1 %}
 				{% endif %}
 				{% set zIndex = zIndex + 20 %}
-				{% set zii = 0 %}
+				{% set zii = zii + 1 %}
 				{% if id1 < 2 %}
 					<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
 					{% if id2 < 2  %}
@@ -591,8 +591,8 @@
 					{% set zIndex = (top)*800+100 + (right)*100 %}
 					{% set leftRight = 1 %}
 					{% endif %}
-					{% set zIndex = zIndex + 20 %}
-					{% set zii = 0 %}
+					{% set zIndex = zIndex + 35 %}
+					{% set zii = zii + 1 %}
 					{% if id1 < 2 %}
 						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
 						{% if id2 < 2  %}
