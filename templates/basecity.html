@@ -430,7 +430,7 @@ body {
 
 
 .horizontalGrow > div {
-	display: none;
+	display: flex;
 }
 .verticalGrow > div {
 	display: flex;
@@ -453,18 +453,14 @@ body {
 		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .sfhHolder {
 			display: inline-block;
 		}
-		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .horizontalGrow > div{
-			display: flex;
-		}
+		
 		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
 			background-color: rgb(156,128,128);
 		}
 		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .mfhHolder {
 			display: inline-block;
 		}
-		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .horizontalGrow > div{
-			display: flex;
-		}
+		
 		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
 			background-color: rgb(100,128,128);
 		}
