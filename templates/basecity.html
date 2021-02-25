@@ -550,10 +550,19 @@ body {
 			<div class="hroad" style="z-index: 300;">
 			</div>
 			<div class="vflex" style="transform: rotate(180deg);">
-				<div style="position: fixed; height: 100%; left: 0px; top: 0px; background: red;"></div>
+				<div style="position: fixed; height: 100%; width: var(--block); left: 0px; bottom: 100%; background: rgba(255,0,0,.3); backdrop-filter: contrast(1); z-index: 5;">
+				
+				</div>
 				<div class="leftRight">
 					<div class="hresize" style="">
-						<div class="horizontalGrow grow8"></div>
+						<div class="horizontalGrow grow8">
+							<div style="position: fixed; height: 50%; width: var(--block); left: 0px; bottom: 100%; background: rgba(0,255,0,.3); backdrop-filter: contrast(1); z-index: 4;">
+				
+							</div>
+							<div style="position: fixed; height: 50%; width: var(--block); left: 0px; bottom: 100%; background: rgba(0,0,255,.3); backdrop-filter: contrast(1); z-index: 6;">
+				
+							</div>
+						</div>
 						{{ 4by4(2) }}
 				
 					</div>
