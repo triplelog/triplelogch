@@ -24,7 +24,23 @@
 		</div>
 
 		{% if id == 2 or id == 0 %}
-		<div class="horizontalGrow grow4"></div>
+		<div class="horizontalGrow grow4">
+			{% set top = (id - (id % 2)) / 2 * 4 %}
+			{% set top = top + 0 %}
+			{% set right = (id % 2) * 4 %}
+			{% set right = right + 1 %}
+			{% set zIndex = (top)*800+100 + (7-right)*100 %}
+			{% set leftRight = 0 %}
+		
+			{% if id1 > 1 %}
+			{% set top = 7 - (top - 4) %}
+			{% set right = 7 - right %}
+			{% set zIndex = (top)*800+100 + (right)*100 %}
+			{% set leftRight = 1 %}
+			{% endif %}
+			{% set zIndex = zIndex + 6 %}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
+		</div>
 		{% endif %}
 	</div>
 	<div class="vroad" style="z-index: {{ id*200 + 30 }};">
