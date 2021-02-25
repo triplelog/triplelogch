@@ -1,27 +1,18 @@
 {% extends "templates/4by4.html" %}
 
-{% macro horizontalCover(top,right,zIndex,leftRight) %}
+{% macro horizontalCover(top,right,zIndex,leftRight,pn,frac) %}
 {% if leftRight == 0 %}
-<div style="direction: ltr; flex-wrap: wrap; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ zIndex + 1 }}; background: transparent; ">
-
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
-
+<div style="direction: ltr; flex-wrap: wrap; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ zIndex  }}; background: transparent; ">
+	{% for fpn in range(1,7) %}
+	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast({% if frac > 0 %}{{1.0 * pn / fpn}}{% else %}{{pn * fpn}}{% endif %}); background: transparent; flex-grow: 1;"></div>
+	{% endfor %}
+	
 </div>
 {% else %}
-<div style="direction: ltr; flex-wrap: wrap-reverse; position: fixed; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ zIndex + 1 }}; background: transparent; ">
-
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
-
+<div style="direction: ltr; flex-wrap: wrap-reverse; position: fixed; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ zIndex  }}; background: transparent; ">
+	{% for fpn in range(1,7) %}
+	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast({% if frac > 0 %}{{1.0 * pn / fpn}}{% else %}{{pn * fpn}}{% endif %}); background: transparent; flex-grow: 1;"></div>
+	{% endfor %}
 </div>
 {% endif %}
 {% endmacro %}		
@@ -123,8 +114,8 @@
 				</div>
 				
 				
-				{% for zii in range(0,1) %}
-				{% set zIndex = zIndex + 5 %}
+				{% for zii in range(0,zi[id1][id2][0]) %}
+					{% set zIndex = zIndex + 5 %}
 					{% if id1 < 2 %}
 					<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
 					{% else %}
@@ -133,9 +124,38 @@
 				{% endfor %}
 				
 				{% if id2 == 0 or id2 == 1 %}
-				<div class="horizontalGrow">
+				<div class="horizontalGrow"><!--HG1 when id1 == 0, HG5 when id1 == 1, HG7 when id1==2, HG3 when id1 ==3 -->
 					
-					{{ horizontalCover(top,right,zIndex,leftRight) }}
+					{% set zIndex = (top)*800+100 + (7-right)*100 %}
+					{% set leftRight = 0 %}
+				
+					{% if id1 > 1 %}
+					{% set zIndex = (top)*800+100 + (right)*100 %}
+					{% set leftRight = 1 %}
+					{% endif %}
+				
+					{% set zIndex = zIndex + 6 %}
+					{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
+					
+					{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
+					{% set top = top + (id2 % 2) * 2 %}
+					{% set top = top + 0 %}
+					{% set right = (id1 % 2) * 4 %}
+					{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
+					{% set right = right + 1 %}
+					{% set zIndex = (top)*800+100 + (7-right)*100 %}
+					{% set leftRight = 0 %}
+				
+					{% if id1 > 1 %}
+					{% set top = 7 - (top - 4) %}
+					{% set right = 7 - right %}
+					{% set zIndex = (top)*800+100 + (right)*100 %}
+					{% set leftRight = 1 %}
+					{% endif %}
+					{% set zIndex = zIndex + 9 %}
+					{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+					{% set zIndex = zIndex + 11 %}
+					{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
 					
 				</div>
 				{% endif %}
@@ -183,9 +203,38 @@
 				{% endfor %}
 				
 				{% if id2 == 2 or id2 == 3 %}
-				<div class="horizontalGrow" style="direction: rtl;">
+				<div class="horizontalGrow" style="direction: rtl;"><!--HG3 when id1 == 0, HG7 when id1 == 1, HG5 when id1==2, HG1 when id1 ==3 -->
 					
-					{{ horizontalCover(top,right,zIndex,leftRight) }}
+					{% set zIndex = (top)*800+100 + (7-right)*100 %}
+					{% set leftRight = 0 %}
+				
+					{% if id1 > 1 %}
+					{% set zIndex = (top)*800+100 + (right)*100 %}
+					{% set leftRight = 1 %}
+					{% endif %}
+				
+					{% set zIndex = zIndex + 6 %}
+					{{ horizontalCover(top,right,zIndex,leftRight,1,0) }}
+					
+					{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
+					{% set top = top + (id2 % 2) * 2 %}
+					{% set top = top + 0 %}
+					{% set right = (id1 % 2) * 4 %}
+					{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
+					{% set right = right + 0 %}
+					{% set zIndex = (top)*800+100 + (7-right)*100 %}
+					{% set leftRight = 0 %}
+				
+					{% if id1 > 1 %}
+					{% set top = 7 - (top - 4) %}
+					{% set right = 7 - right %}
+					{% set zIndex = (top)*800+100 + (right)*100 %}
+					{% set leftRight = 1 %}
+					{% endif %}
+					{% set zIndex = zIndex + 9 %}
+					{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+					{% set zIndex = zIndex + 11 %}
+					{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
 					
 				</div>
 				{% endif %}
