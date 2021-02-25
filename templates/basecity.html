@@ -412,6 +412,9 @@ body {
 #showScore:checked ~ div .horizontalGrow > div {
 	display: flex;
 }
+#showScore:checked ~ div .horizontalGrow > div.hCoverFDiv {
+	display: inline-block;
+}
 #showScore:checked ~ div .scoreColor {
 	display: inline-block;
 }
@@ -465,6 +468,23 @@ body {
 	width: inherit;
 	height: var(--block);
 	background: transparent;
+}
+.horizontalGrow > div.hCoverFDiv {
+	direction: ltr;
+	position: fixed;
+	width: inherit;
+	height: var(--block);
+	background: transparent;
+}
+.hCoverFSubDiv {
+	direction: ltr;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	width: calc( 42 * var(--block) - 100%);
+	height: var(--block);
+	background: transparent;
+	display: flex;
 }
 .vCover {
 	margin-right: calc(8 * var(--block));
@@ -573,7 +593,9 @@ body {
 			<div class="vresize">
 				<div class="leftRight">
 					<div class="hresize">
-						<div class="horizontalGrow grow8"></div>
+						<div class="horizontalGrow grow8">
+							{{ hGrow8by8(0) }}
+						</div>
 						{{ 4by4(0) }}
 					</div>
 					<div class="vroad" style="z-index: 100;">
@@ -597,7 +619,7 @@ body {
 				<div class="leftRight">
 					<div class="hresize" style="">
 						<div class="horizontalGrow grow8">
-							
+							{{ hGrow8by8(4) }}
 						</div>
 						{{ 4by4(2) }}
 				
