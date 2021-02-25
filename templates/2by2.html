@@ -1,6 +1,7 @@
 {% extends "templates/4by4.html" %}
 
 {% macro horizontalCover(top,right,zIndex,cellSize,leftRight) %}
+{% if leftRight == 0 %}
 <div style="direction: ltr; flex-wrap: wrap; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ zIndex + 1 }}; background: transparent; ">
 
 	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
@@ -11,6 +12,18 @@
 	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
 
 </div>
+{% else %}
+<div style="direction: ltr; flex-wrap: wrap; position: fixed; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 6 + right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ zIndex + 1 }}; background: transparent; ">
+
+	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(1); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(2); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(3); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(4); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(5); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast(6); background: transparent; flex-grow: 1;"></div>
+
+</div>
+{% endif %}
 {% endmacro %}		
 	
 {% macro verticalCover(top,right,zIndex,cellSize) %}
