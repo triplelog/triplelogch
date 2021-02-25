@@ -4,14 +4,14 @@
 {% if leftRight == 0 %}
 <div style="direction: ltr; flex-wrap: wrap; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ zIndex  }}; background: transparent; ">
 	{% for fpn in range(1,7) %}
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast({% if frac > 0 %}{{1.0 * pn / fpn}}{% else %}{{pn * fpn}}{% endif %}); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: {% if pn < 0 %}invert(100%) {% endif %}contrast({% if frac > 0 %}{{1.0 / fpn}}{% else %}{{ fpn}}{% endif %}); background: transparent; flex-grow: 1;"></div>
 	{% endfor %}
 	
 </div>
 {% else %}
 <div style="direction: ltr; flex-wrap: wrap-reverse; position: fixed; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); width: inherit; height: var(--block); z-index: {{ zIndex  }}; background: transparent; ">
 	{% for fpn in range(1,7) %}
-	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: contrast({% if frac > 0 %}{{1.0 * pn / fpn}}{% else %}{{pn * fpn}}{% endif %}); background: transparent; flex-grow: 1;"></div>
+	<div style="width: calc(2 * var(--block)); height: var(--block); backdrop-filter: {% if pn < 0 %}invert(100%) {% endif %}contrast({% if frac > 0 %}{{1.0 / fpn}}{% else %}{{ fpn}}{% endif %}); background: transparent; flex-grow: 1;"></div>
 	{% endfor %}
 </div>
 {% endif %}
@@ -154,7 +154,7 @@
 					{% endif %}
 					{% set zIndex = zIndex + 9 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
-					{% set zIndex = zIndex + 11 %}
+					{% set zIndex = zIndex + 2 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
 					
 				</div>
@@ -233,7 +233,7 @@
 					{% endif %}
 					{% set zIndex = zIndex + 9 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
-					{% set zIndex = zIndex + 11 %}
+					{% set zIndex = zIndex + 2 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
 					
 				</div>
