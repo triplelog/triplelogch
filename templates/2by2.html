@@ -97,14 +97,35 @@
 				</div>
 				
 				
-				{% for zii in range(0,zi[id1][id2][0]) %}
-					{% set zIndex = zIndex + 5 %}
-					{% if id1 < 2 %}
-					<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
-					{% else %}
-					<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; position: fixed; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); width: var(--block); height: var(--block);"></div>
+				
+				{% set zIndex = zIndex + 5 %}
+				{% set zii = 0 %}
+				{% if id1 < 2 %}
+					<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+					{% if id2 >1  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
 					{% endif %}
-				{% endfor %}
+					{% if id2 >1 and id1 == 0  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+					{% endif %}
+				{% else %}
+					<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% if id2 >1  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% endif %}
+					{% if id2 >1 and id1 == 0  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% endif %}
+				{% endif %}
+				
 				
 				{% if id2 == 0 or id2 == 1 %}
 				<div class="horizontalGrow"><!--HG1 when id1 == 0, HG5 when id1 == 1, HG7 when id1==2, HG3 when id1 ==3 -->
@@ -176,14 +197,33 @@
 				</div>
 				
 				
-				{% for zii in range(0,zi[id1][id2][1]) %}
 				{% set zIndex = zIndex + 5 %}
+				{% set zii = 0 %}
 				{% if id1 < 2 %}
-					<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
-					{% else %}
-					<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; position: fixed; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); width: var(--block); height: var(--block);"></div>
+					<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+					{% if id2 < 2  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
 					{% endif %}
-				{% endfor %}
+					{% if id2 < 2 and id1 == 1  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+					{% endif %}
+				{% else %}
+					<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% if id2 < 2  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% endif %}
+					{% if id2 < 2 and id1 == 1  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% endif %}
+				{% endif %}
 				
 				{% if id2 == 2 or id2 == 3 %}
 				<div class="horizontalGrow" style="direction: rtl;"><!--HG3 when id1 == 0, HG7 when id1 == 1, HG5 when id1==2, HG1 when id1 ==3 -->
@@ -260,14 +300,90 @@
 				</div>
 				
 				
-				{% for zii in range(0,zi[id1][id2][2]) %}
 				{% set zIndex = zIndex + 5 %}
+				{% set zii = 0 %}
 				{% if id1 < 2 %}
-					<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
-					{% else %}
-					<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; position: fixed; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); width: var(--block); height: var(--block);"></div>
+					<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+					{% if id2 >1  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
 					{% endif %}
-				{% endfor %}
+					{% if id2 >1 and id1 == 0  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+					{% endif %}
+				{% else %}
+					<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% if id2 >1  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% endif %}
+					{% if id2 >1 and id1 == 0  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% endif %}
+				{% endif %}
+				{% set zIndex = zIndex + 15 %}
+				{% set zii = zii + 1 %}
+				{% if id1 < 2 %}
+					<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+					{% if id2 >1  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+					{% endif %}
+					{% if id2 >1 and id1 == 0  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+					{% endif %}
+				{% else %}
+					<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% if id2 >1  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% endif %}
+					{% if id2 >1 and id1 == 0  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% endif %}
+				{% endif %}
+				
+				{% if id2 == 1 or id2 == 3 %}
+					{% set zIndex = zIndex + 15 %}
+					{% set zii = zii + 1 %}
+					{% if id1 < 2 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+						{% if id2 >1  %}
+							{% set zIndex = zIndex + 5 %}
+							{% set zii = zii + 1 %}
+							<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+						{% endif %}
+						{% if id2 >1 and id1 == 0  %}
+							{% set zIndex = zIndex + 5 %}
+							{% set zii = zii + 1 %}
+							<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+						{% endif %}
+					{% else %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+						{% if id2 >1  %}
+							{% set zIndex = zIndex + 5 %}
+							{% set zii = zii + 1 %}
+							<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+						{% endif %}
+						{% if id2 >1 and id1 == 0  %}
+							{% set zIndex = zIndex + 5 %}
+							{% set zii = zii + 1 %}
+							<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+						{% endif %}
+					{% endif %}
+				{% endif %}
 				
 				
 				{% if id2 == 0 or id2 == 1 %}
@@ -358,15 +474,89 @@
 				</div>
 				
 				
-				{% for zii in range(0,zi[id1][id2][3]) %}
 				{% set zIndex = zIndex + 5 %}
+				{% set zii = 0 %}
 				{% if id1 < 2 %}
-					<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; position: fixed; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); width: var(--block); height: var(--block);"></div>
-					{% else %}
-					<div class="scoreColor" style="backdrop-filter: contrast(1); opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; position: fixed; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); width: var(--block); height: var(--block);"></div>
+					<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+					{% if id2 < 2  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
 					{% endif %}
-				{% endfor %}
-				
+					{% if id2 < 2 and id1 == 1  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+					{% endif %}
+				{% else %}
+					<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% if id2 < 2  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% endif %}
+					{% if id2 < 2 and id1 == 1  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% endif %}
+				{% endif %}
+				{% set zIndex = zIndex + 5 %}
+				{% set zii = 0 %}
+				{% if id1 < 2 %}
+					<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+					{% if id2 < 2  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+					{% endif %}
+					{% if id2 < 2 and id1 == 1  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+					{% endif %}
+				{% else %}
+					<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% if id2 < 2  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% endif %}
+					{% if id2 < 2 and id1 == 1  %}
+						{% set zIndex = zIndex + 5 %}
+						{% set zii = zii + 1 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+					{% endif %}
+				{% endif %}
+				{% if id2 ==1 or id2 == 3 %}
+					{% set zIndex = zIndex + 5 %}
+					{% set zii = 0 %}
+					{% if id1 < 2 %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+						{% if id2 < 2  %}
+							{% set zIndex = zIndex + 5 %}
+							{% set zii = zii + 1 %}
+							<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+						{% endif %}
+						{% if id2 < 2 and id1 == 1  %}
+							{% set zIndex = zIndex + 5 %}
+							{% set zii = zii + 1 %}
+							<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block));"></div>
+						{% endif %}
+					{% else %}
+						<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+						{% if id2 < 2  %}
+							{% set zIndex = zIndex + 5 %}
+							{% set zii = zii + 1 %}
+							<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+						{% endif %}
+						{% if id2 < 2 and id1 == 1  %}
+							{% set zIndex = zIndex + 5 %}
+							{% set zii = zii + 1 %}
+							<div class="scoreColor" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
+						{% endif %}
+					{% endif %}
+				{% endif %}
 				
 				{% if id2 == 2 or id2 == 3 %}
 				<div class="horizontalGrow" style="direction: rtl;">
