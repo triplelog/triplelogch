@@ -409,6 +409,12 @@ body {
 #mfhButton:checked ~ div .mfhButton {
 	display: inline-block;
 }
+#showScore:checked ~ div .horizontalGrow > div {
+	display: flex;
+}
+#showScore:checked ~ div .scoreColor {
+	display: inline-block;
+}
 
 .stickyButtons {
 	position: -webkit-sticky;
@@ -418,9 +424,9 @@ body {
 	z-index: 5000;
 }
 
-#deleteButton { left: 100px;}
-#sfhButton { left: 120px;}
-#mfhButton { left: 140px;}
+#deleteButton { left: 140px;}
+#sfhButton { left: 160px;}
+#mfhButton { left: 180px;}
 
 #zoom0 { left: 20px;}
 #zoom1 { left: 40px;}
@@ -428,17 +434,18 @@ body {
 #zone0 { left: 60px;}
 #zone1 { left: 80px;}
 
+#hideScore { left: 100px;}
+#showScore { left: 120px;}
 
 .horizontalGrow > div {
 	display: none;
-	display: flex;
 }
 .verticalGrow > div {
 	display: none;
 }
 .scoreColor {
 	background-color: rgb(128,128,128);
-	/*display: none;*/
+	display: none;
 	backdrop-filter: contrast(1);
 	position: fixed;
 	width: var(--block);
@@ -549,6 +556,8 @@ body {
 <input class="stickyButtons" type="radio" name="zoom" id="zoom1" />
 <input class="stickyButtons" type="radio" name="zone" id="zone0" checked />
 <input class="stickyButtons" type="radio" name="zone" id="zone1" />
+<input class="stickyButtons" type="radio" name="score" id="hideScore" checked />
+<input class="stickyButtons" type="radio" name="score" id="showScore" />
 <input class="stickyButtons" type="radio" name="zoneSelected" id="deleteButton" checked />
 <input class="stickyButtons" type="radio" name="zoneSelected" id="sfhButton" />
 <input class="stickyButtons" type="radio" name="zoneSelected" id="mfhButton" />
