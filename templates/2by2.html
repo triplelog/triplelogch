@@ -93,35 +93,14 @@
 				{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
 				{% set right = right + 1 %}
 				{% set zIndex = (top)*800+100 + (7-right)*100 %}
-				{% set cellSize = 1 %}
 				{% set leftRight = 0 %}
 				
-				{% if id1 == 0 or id1 == 1 %}
-				{% set widthHeight = "width: var(--block); height: var(--block);" %}
-				{% set cellSize = 0 %}
-				{% elif id1 == 2 and id2 == 3 %}
-				{% set zIndex = 4100 + 5*100 %}
-				{% set top = 4.25 + 5.0/4 %}
-				{% set right = 5 %}
-				{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-				{% elif id1 == 3 and id2 == 1 %}
-				{% set zIndex = 4100 + 7*100 %}
-				{% set top = 4.25 + 7.0/4 %}
-				{% set right = 5 %}
-				{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-				{% else %}
-				{% set widthHeight = "width: var(--block); height: var(--block);" %}
-				{% set cellSize = 0 %}
-				{% endif %}
-				
-				{% if id1 == 2 and id2 == 1 %}
-				{% set zIndex = 6100 %}
-				{% elif id1 == 3 and id2 == 3 %}
+				{% if id1 > 1 %}
+				{% set zIndex = (7 - (top - 4))*800+100 + (right)*100 %}
 				{% set leftRight = 1 %}
-				{% set zIndex = 5600 %}
 				{% endif %}
 				
-				<div class="zoneCell cell-{{ id1 }}{{ id2 }}1">
+				<div class="zoneCell cell-{{ id1 }}{{ id2 }}1" {% if id1 > 1 %}style="transform: rotate(180deg);"{% endif %}>
 					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}1">Blank-{{ zi[id1][id2][1] }}-{{ ziSum[id1][id2][1] }}-{{ zIndex }}</label>
 					<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}1"></label>
 					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}1"></label>
@@ -155,7 +134,6 @@
 			
 			<div {% if id2 == 0 or id2 == 1 %}class="hresize"{% else %}class="hflex"{% endif %}>
 				
-				
 				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
 				{% set top = top + (id2 % 2) * 2 %}
 				{% set top = top + 1 %}
@@ -163,50 +141,15 @@
 				{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
 				{% set right = right + 0 %}
 				{% set zIndex = (top)*800+100 + (7-right)*100 %}
-				{% set cellSize = 1 %}
 				{% set leftRight = 0 %}
 				
-				{% if id1 == 0 or id1 == 1 %}
-				{% set widthHeight = "width: var(--block); height: var(--block);" %}
-				{% set cellSize = 0 %}
-				{% elif id1 == 2 and id2 == 3 %}
-				{% set zIndex = 4100 + 8*100 %}
-				{% set top = 4.25 + 8.0/4 %}
-				{% set right = 5 %}
-				{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-				{% elif id1 == 3 and id2 == 1 %}
-				{% set zIndex = 4100 + 10*100 %}
-				{% set top = 4.25 + 10.0/4 %}
-				{% set right = 5 %}
-				{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-				{% elif id1 == 2 and id2 == 2 %}
-				{% set zIndex = 4100 + 0*100 %}
-				{% set top = 4.25 + 0.0/4 %}
-				{% set right = 5 %}
-				{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-				{% elif id1 == 3 and id2 == 0 %}
-				{% set zIndex = 4100 + 2*100 %}
-				{% set top = 4.25 + 2.0/4 %}
-				{% set right = 5 %}
-				{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-				{% else %}
-				{% set widthHeight = "width: var(--block); height: var(--block);" %}
-				{% set cellSize = 0 %}
-				{% endif %}
-				
-				{% if id1 == 2 and id2 == 1 %}
-				{% set zIndex = 6400 %}
-				{% elif id1 == 3 and id2 == 3 %}
-				{% set zIndex = 5700 %}
-				{% set leftRight = 1 %}
-				{% elif id1 == 2 and id2 == 0 %}
-				{% set zIndex = 6000 %}
-				{% elif id1 == 3 and id2 == 2 %}
-				{% set zIndex = 5300 %}
+				{% if id1 > 1 %}
+				{% set zIndex = (7 - (top - 4))*800+100 + (right)*100 %}
 				{% set leftRight = 1 %}
 				{% endif %}
 				
-				<div class="zoneCell cell-{{ id1 }}{{ id2 }}2">
+				
+				<div class="zoneCell cell-{{ id1 }}{{ id2 }}2" {% if id1 > 1 %}style="transform: rotate(180deg);"{% endif %}>
 					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}2">Blank-{{ zi[id1][id2][2] }}-{{ ziSum[id1][id2][2] }}-{{ zIndex }}</label>
 					<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}2"></label>
 					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}2"></label>
@@ -234,7 +177,6 @@
 			</div>
 			<div {% if id2 == 2 or id2 == 3 %}class="hresize"{% else %}class="hflex"{% endif %}>
 				
-				
 				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
 				{% set top = top + (id2 % 2) * 2 %}
 				{% set top = top + 1 %}
@@ -242,50 +184,15 @@
 				{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
 				{% set right = right + 1 %}
 				{% set zIndex = (top)*800+100 + (7-right)*100 %}
-				{% set cellSize = 1 %}
 				{% set leftRight = 0 %}
 				
-				{% if id1 == 0 or id1 == 1 %}
-				{% set widthHeight = "width: var(--block); height: var(--block);" %}
-				{% set cellSize = 0 %}
-				{% elif id1 == 2 and id2 == 3 %}
-				{% set zIndex = 4100 + 9*100 %}
-				{% set top = 4.25 + 9.0/4 %}
-				{% set right = 5 %}
-				{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-				{% elif id1 == 3 and id2 == 1 %}
-				{% set zIndex = 4100 + 11*100 %}
-				{% set top = 4.25 + 11.0/4 %}
-				{% set right = 5 %}
-				{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-				{% elif id1 == 2 and id2 == 2 %}
-				{% set zIndex = 4100 + 1*100 %}
-				{% set top = 4.25 + 1.0/4 %}
-				{% set right = 5 %}
-				{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-				{% elif id1 == 3 and id2 == 0 %}
-				{% set zIndex = 4100 + 3*100 %}
-				{% set top = 4.25 + 3.0/4 %}
-				{% set right = 5 %}
-				{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-				{% else %}
-				{% set widthHeight = "width: var(--block); height: var(--block);" %}
-				{% set cellSize = 0 %}
-				{% endif %}
-				
-				{% if id1 == 2 and id2 == 1 %}
-				{% set zIndex = 6300 %}
-				{% elif id1 == 3 and id2 == 3 %}
-				{% set zIndex = 5800 %}
-				{% set leftRight = 1 %}
-				{% elif id1 == 2 and id2 == 0 %}
-				{% set zIndex = 5900 %}
-				{% elif id1 == 3 and id2 == 2 %}
-				{% set zIndex = 5400 %}
+				{% if id1 > 1 %}
+				{% set zIndex = (7 - (top - 4))*800+100 + (right)*100 %}
 				{% set leftRight = 1 %}
 				{% endif %}
 				
-				<div class="zoneCell cell-{{ id1 }}{{ id2 }}3">
+				
+				<div class="zoneCell cell-{{ id1 }}{{ id2 }}3" {% if id1 > 1 %}style="transform: rotate(180deg);"{% endif %}>
 					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ zi[id1][id2][3] }}-{{ ziSum[id1][id2][3] }}-{{ zIndex }}</label>
 					<label class="sfhButton" for="sfh-{{ id1 }}{{ id2 }}3"></label>
 					<label class="mfhButton" for="mfh-{{ id1 }}{{ id2 }}3"></label>
@@ -313,115 +220,7 @@
 		{% if (id1 == 2 or id1 == 3) and (id2 == 1 or id2 == 3) %}
 		<div class="verticalGrow" style="transform: rotate(180deg); right: -50%;">
 			
-			{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
-			{% set top = top + (id2 % 2) * 2 %}
-			{% set top = top + 1 %}
-			{% set right = (id1 % 2) * 4 %}
-			{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
-			{% set right = right + 0 %}
-			{% set zIndex = (top)*800+100 + (7-right)*100 %}
-			{% set cellSize = 1 %}
-			{% set leftRight = 0 %}
 			
-			{% if id1 == 0 or id1 == 1 %}
-			{% set widthHeight = "width: var(--block); height: var(--block);" %}
-			{% set cellSize = 2 %}
-			{% elif id1 == 2 and id2 == 3 %}
-			{% set zIndex = 4100 + 8*100 %}
-			{% set top = 4.25 + 8.0/4 %}
-			{% set right = 5 %}
-			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-			{% elif id1 == 3 and id2 == 1 %}
-			{% set zIndex = 4100 + 10*100 %}
-			{% set top = 4.25 + 10.0/4 %}
-			{% set right = 5 %}
-			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-			{% elif id1 == 2 and id2 == 2 %}
-			{% set zIndex = 4100 + 0*100 %}
-			{% set top = 4.25 + 0.0/4 %}
-			{% set right = 5 %}
-			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-			{% elif id1 == 3 and id2 == 0 %}
-			{% set zIndex = 4100 + 2*100 %}
-			{% set top = 4.25 + 2.0/4 %}
-			{% set right = 5 %}
-			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-			{% else %}
-			{% set widthHeight = "width: var(--block); height: var(--block);" %}
-			{% set cellSize = 2 %}
-			{% endif %}
-			
-			{% if id1 == 2 and id2 == 1 %}
-			{% set zIndex = 6400 %}
-			{% set cellSize = 2 %}
-			{% elif id1 == 3 and id2 == 3 %}
-			{% set zIndex = 5700 %}
-			{% set leftRight = 1 %}
-			{% set cellSize = 3 %}
-			{% elif id1 == 2 and id2 == 0 %}
-			{% set zIndex = 6000 %}
-			{% set cellSize = 2 %}
-			{% elif id1 == 3 and id2 == 2 %}
-			{% set zIndex = 5300 %}
-			{% set leftRight = 1 %}
-			{% set cellSize = 3 %}
-			{% endif %}
-			{{ verticalCover(top,right,zIndex,cellSize) }}
-			
-			{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
-			{% set top = top + (id2 % 2) * 2 %}
-			{% set top = top + 1 %}
-			{% set right = (id1 % 2) * 4 %}
-			{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
-			{% set right = right + 1 %}
-			{% set zIndex = (top)*800+100 + (7-right)*100 %}
-			{% set cellSize = 1 %}
-			{% set leftRight = 0 %}
-			
-			{% if id1 == 0 or id1 == 1 %}
-			{% set widthHeight = "width: var(--block); height: var(--block);" %}
-			{% set cellSize = 2 %}
-			{% elif id1 == 2 and id2 == 3 %}
-			{% set zIndex = 4100 + 9*100 %}
-			{% set top = 4.25 + 9.0/4 %}
-			{% set right = 5 %}
-			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-			{% elif id1 == 3 and id2 == 1 %}
-			{% set zIndex = 4100 + 11*100 %}
-			{% set top = 4.25 + 11.0/4 %}
-			{% set right = 5 %}
-			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-			{% elif id1 == 2 and id2 == 2 %}
-			{% set zIndex = 4100 + 1*100 %}
-			{% set top = 4.25 + 1.0/4 %}
-			{% set right = 5 %}
-			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-			{% elif id1 == 3 and id2 == 0 %}
-			{% set zIndex = 4100 + 3*100 %}
-			{% set top = 4.25 + 3.0/4 %}
-			{% set right = 5 %}
-			{% set widthHeight = "width: calc(4 * var(--block)); height: calc(var(--block) / 3);" %}
-			{% else %}
-			{% set widthHeight = "width: var(--block); height: var(--block);" %}
-			{% set cellSize = 2 %}
-			{% endif %}
-			
-			{% if id1 == 2 and id2 == 1 %}
-			{% set zIndex = 6300 %}
-			{% set cellSize = 2 %}
-			{% elif id1 == 3 and id2 == 3 %}
-			{% set zIndex = 5800 %}
-			{% set leftRight = 1 %}
-			{% set cellSize = 3 %}
-			{% elif id1 == 2 and id2 == 0 %}
-			{% set zIndex = 5900 %}
-			{% set cellSize = 2 %}
-			{% elif id1 == 3 and id2 == 2 %}
-			{% set zIndex = 5400 %}
-			{% set leftRight = 1 %}
-			{% set cellSize = 3 %}
-			{% endif %}
-			{{ verticalCover(top,right,zIndex,cellSize) }}
 		</div>
 		{% endif %}
 		
