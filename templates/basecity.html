@@ -418,6 +418,9 @@ body {
 #showScore:checked ~ div .scoreColor {
 	display: inline-block;
 }
+#showScore:checked ~ div .scoreColorN {
+	display: inline-block;
+}
 
 .stickyButtons {
 	position: -webkit-sticky;
@@ -447,6 +450,14 @@ body {
 	display: none;
 }
 .scoreColor {
+	background-color: rgb(128,128,128);
+	display: none;
+	backdrop-filter: contrast(1);
+	position: fixed;
+	width: var(--block);
+	height: var(--block);
+}
+.scoreColorN {
 	background-color: rgb(128,128,128);
 	display: none;
 	backdrop-filter: contrast(1);
@@ -524,14 +535,20 @@ body {
 		}
 		
 		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: rgb(156,128,128);
+			background-color: rgb(138,128,128);
+		}
+		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
+			background-color: rgb(118,128,128);
 		}
 		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .mfhHolder {
 			display: inline-block;
 		}
 		
 		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: rgb(100,128,128);
+			background-color: rgb(118,128,128);
+		}
+		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
+			background-color: rgb(138,128,128);
 		}
 		{% endfor %}
 	{% endfor %}
