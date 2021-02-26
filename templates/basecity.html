@@ -105,17 +105,7 @@ body {
 	max-height: calc(100% - 2rem);
 	
 }
-.verticalGrow {
-	width: 50%;
-	right: 0px;
-	height: calc(var(--container-height) * 7 / 10 / 8 - var(--block) * 7 / 8);
-	background: transparent;
-	resize: vertical;
-	overflow: auto;
-	position: relative;
-	max-height: calc(100%);
-	pointer-events: none;
-}
+
 
 
 
@@ -152,6 +142,17 @@ body {
 	max-width: calc(100% - var(--block) - 1rem);
 	
 }
+.verticalGrow {
+	width: 50%;
+	right: 0px;
+	height: calc(var(--container-height) * 7 / 10 / 8 - var(--block) * 7 / 8);
+	background: transparent;
+	resize: vertical;
+	overflow: auto;
+	position: relative;
+	max-height: min(calc(16 * var(--block)),100% - 2.5 * var(--block));
+	pointer-events: none;
+}
 .horizontalGrow {
 	height: 50%;
 	margin: auto;
@@ -159,22 +160,26 @@ body {
 	resize: horizontal;
 	overflow: auto;
 	position: relative;
-	max-width: calc(100%);
+	max-width: min(calc(16 * var(--block)),100% - 2.5 * var(--block));
 	background: transparent;
 	pointer-events: none;
 	
 }
 .horizontalGrow.grow8 {
 	width: calc(var(--container-width) * 7 / 10 / 2 - var(--block) / 2);
+	max-width: min(calc(29 * var(--block)),100% - 10 * var(--block));
 }
 .verticalGrow.grow8 {
 	height: calc(var(--container-height) * 7 / 10 / 2 - var(--block) / 2);
+	max-height: min(calc(16 * var(--block)),100% - 10 * var(--block));
 }
 .horizontalGrow.grow4 {
 	width: calc(var(--container-width) * 7 / 10 / 4 - var(--block) * 3 / 4);
+	max-width: min(calc(21 * var(--block)),100% - 5 * var(--block));
 }
 .verticalGrow.grow4 {
 	height: calc(var(--container-height) * 7 / 10 / 4 - var(--block) * 3 / 4);
+	max-height: min(calc(16 * var(--block)),100% - 5 * var(--block));
 }
 
 .cellTop {
@@ -472,11 +477,19 @@ body {
 	height: var(--block);
 }
 .hCover {
-	width: calc(2 * var(--block));
 	height: var(--block);
 	background: transparent;
 	flex-grow: 1;
 	margin-bottom: calc(8 * var(--block));
+}
+.hCover1 {
+	width: calc(1 * var(--block));
+}
+.hCover2 {
+	width: calc(2 * var(--block));
+}
+.hCover4 {
+	width: calc(4 * var(--block));
 }
 .hCoverDiv {
 	direction: ltr;
