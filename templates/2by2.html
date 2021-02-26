@@ -173,7 +173,13 @@
 					{% set zIndex = (top)*800+100 + (right)*100 %}
 					{% set leftRight = 1 %}
 					{% endif %}
-					{% set zIndex = zIndex + 6 %}
+					{% if id1 == 1 or id1 == 3 %}
+					{% set zIndex = zIndex + 14 %}
+					{% else %}
+					{% set zIndex = zIndex + 9 %}
+					{% endif %}
+					{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+					{% set zIndex = zIndex + 2 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
 					
 				</div>
@@ -271,7 +277,13 @@
 					{% set zIndex = (top)*800+100 + (right)*100 %}
 					{% set leftRight = 1 %}
 					{% endif %}
-					{% set zIndex = zIndex + 6 %}
+					{% if id1 == 1 or id1 == 3 %}
+					{% set zIndex = zIndex + 9 %}
+					{% else %}
+					{% set zIndex = zIndex + 14 %}
+					{% endif %}
+					{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+					{% set zIndex = zIndex + 2 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
 					
 				</div>
@@ -471,7 +483,13 @@
 					{% set zIndex = (top)*800+100 + (right)*100 %}
 					{% set leftRight = 1 %}
 					{% endif %}
-					{% set zIndex = zIndex + 6 %}
+					{% if id1 == 1 or id1 == 3 %}
+					{% set zIndex = zIndex + 14 %}
+					{% else %}
+					{% set zIndex = zIndex + 9 %}
+					{% endif %}
+					{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+					{% set zIndex = zIndex + 2 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
 					{% set zIndex = zIndex + 13 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
@@ -673,7 +691,13 @@
 					{% set zIndex = (top)*800+100 + (right)*100 %}
 					{% set leftRight = 1 %}
 					{% endif %}
-					{% set zIndex = zIndex + 6 %}
+					{% if id1 == 1 or id1 == 3 %}
+					{% set zIndex = zIndex + 9 %}
+					{% else %}
+					{% set zIndex = zIndex + 14 %}
+					{% endif %}
+					{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
+					{% set zIndex = zIndex + 2 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
 					{% set zIndex = zIndex + 13 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
