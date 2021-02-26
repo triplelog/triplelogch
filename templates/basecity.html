@@ -177,7 +177,8 @@ body {
 	resize: horizontal;
 	overflow: auto;
 	position: relative;
-	max-width: min(calc(21 * var(--block)),100%);
+	max-width: min(calc(16 * var(--block)),100%);
+	min-width: calc(2 * var(--block));
 	background: transparent;
 	pointer-events: none;
 	
@@ -351,6 +352,7 @@ body {
 	position: absolute;
 	display: inline-block;
 	background: transparent;
+	pointer-events: all;
 }
 .sfhHolder, .mfhHolder {
 	width: 100%;
