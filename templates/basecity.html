@@ -184,12 +184,16 @@ body {
 }
 .horizontalGrow.grow8 {
 	width: calc(var(--container-width) * 7 / 10 / 2 - var(--block) / 2);
+	max-width: min(calc(29 * var(--block)),100%);
+	min-width: calc(13 * var(--block));
 }
 .verticalGrow.grow8 {
 	height: calc(var(--container-height) * 7 / 10 / 2 - var(--block) / 2);
 }
 .horizontalGrow.grow4 {
 	width: calc(var(--container-width) * 7 / 10 / 4 - var(--block) * 3 / 4);
+	max-width: min(calc(21 * var(--block)),100%);
+	min-width: calc(4 * var(--block));
 }
 .verticalGrow.grow4 {
 	height: calc(var(--container-height) * 7 / 10 / 4 - var(--block) * 3 / 4);
