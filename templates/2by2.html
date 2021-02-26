@@ -46,14 +46,14 @@
 {% macro verticalCover(top,right,zIndex,leftRight,frac) %}
 
 {% if leftRight == 0 %}
-<div class="vCoverDiv" style="top: calc((52 + {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex + 7 }};">
+<div class="vCoverDiv" style="top: calc((52 + {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex }};">
 	<div class="vCover vCover2" style="backdrop-filter: contrast({% if frac > 0 %}{{2}}{% else %}{{ 0.5}}{% endif %});"></div>
 	{% for fpn in range(1,5) %}<div class="vCover vCover1" style="backdrop-filter: contrast({% if frac > 0 %}{{1.0 / (0.5 + fpn*0.25)}}{% else %}{{ 0.5 + fpn*0.25}}{% endif %});"></div>{% endfor %}
 	{% for fpn in range(5,8) %}<div class="vCover vCover2" style="backdrop-filter: contrast({% if frac > 0 %}{{1.0 / (-0.5 + fpn*0.5)}}{% else %}{{ -0.5 + fpn*0.5}}{% endif %});"></div>{% endfor %}
 	{% for fpn in range(8,12) %}<div class="vCover vCover4" style="backdrop-filter: contrast({% if frac > 0 %}{{1.0 / (-4.0 + fpn)}}{% else %}{{ -4.0 + fpn}}{% endif %});"></div>{% endfor %}
 </div>
 {% else %}
-<div class="vCoverDiv" style="flex-direction: column; bottom: calc(100% + (1 + {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex + 7 }};">
+<div class="vCoverDiv" style="flex-direction: column; bottom: calc(100% + (1 + {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex }};">
 	<div class="vCover vCover2" style="backdrop-filter: contrast({% if frac > 0 %}{{2}}{% else %}{{ 0.5}}{% endif %});"></div>
 	{% for fpn in range(1,5) %}<div class="vCover vCover1" style="backdrop-filter: contrast({% if frac > 0 %}{{1.0 / (0.5 + fpn*0.25)}}{% else %}{{ 0.5 + fpn*0.25}}{% endif %});"></div>{% endfor %}
 	{% for fpn in range(5,8) %}<div class="vCover vCover2" style="backdrop-filter: contrast({% if frac > 0 %}{{1.0 / (-0.5 + fpn*0.5)}}{% else %}{{ -0.5 + fpn*0.5}}{% endif %});"></div>{% endfor %}
