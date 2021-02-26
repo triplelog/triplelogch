@@ -15,13 +15,11 @@
 {% if leftRight == 0 %}
 <div class="hCoverFDiv" style="bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex  }};">
 	<div class="hCoverFSubDiv">
-		{% for fpn in range(1,22) %}<div class="hCover" style="backdrop-filter: {% if pn < 0 %}invert(100%) {% endif %}contrast({% if frac > 0 %}{{1.0 / fpn}}{% else %}{{ fpn}}{% endif %});"></div>{% endfor %}
+		{% for fpn in range(1,22) %}<div class="hCover" style="backdrop-filter: contrast({% if frac > 0 %}{{1.0 / fpn}}{% else %}{{ fpn}}{% endif %});"></div>{% endfor %}
 	</div>
 </div>
 {% else %}
-<div class="hCoverDiv" style="flex-wrap: wrap-reverse; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex  }};">
-	{% for fpn in range(1,22) %}<div class="hCover" style="backdrop-filter: {% if pn < 0 %}invert(100%) {% endif %}contrast({% if frac > 0 %}{{1.0 / fpn}}{% else %}{{ fpn}}{% endif %});"></div>{% endfor %}
-</div>
+
 {% endif %}
 {% endmacro %}
 
