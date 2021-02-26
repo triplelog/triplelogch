@@ -151,10 +151,10 @@
 {% macro 4by4(id) %}
 
 <div class="leftRight">
-	<div {% if id == 0 or id == 2 %}class="hresize"{% else %}class="hflex"{% endif %}>
+	<div {% if id == 0 or id == 2 %}class="hresize grow4"{% else %}class="hflex"{% endif %}>
 		<div class="topBottom">
 			
-			<div class="vresize">
+			<div class="vresize grow4">
 				
 				<div class="verticalGrow grow4"></div>
 				
@@ -347,10 +347,10 @@
 	</div>
 	<div class="vroad" style="z-index: {{ id*200 + 30 }};">
 	</div>
-	<div {% if id == 3 or id == 1 %}class="hresize"{% else %}class="hflex"{% endif %}>
+	<div {% if id == 3 or id == 1 %}class="hresize grow4"{% else %}class="hflex"{% endif %}>
 		<div class="topBottom">
 			
-			<div class="vresize">
+			<div class="vresize grow4">
 				<div class="verticalGrow grow4"></div>
 				{{ 2by2(id,2) }}
 		
