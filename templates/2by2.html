@@ -19,7 +19,11 @@
 	</div>
 </div>
 {% else %}
-
+<div class="hCoverFDiv" style="flex-wrap: wrap-reverse; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex  }};">
+	<div class="hCoverFSubDiv">
+		{% for fpn in range(1,22) %}<div class="hCover" style="backdrop-filter: contrast({% if frac > 0 %}{{1.0 / fpn}}{% else %}{{ fpn}}{% endif %});"></div>{% endfor %}
+	</div>
+</div>
 {% endif %}
 {% endmacro %}
 
@@ -168,9 +172,7 @@
 					{% set zIndex = (top)*800+100 + (right)*100 %}
 					{% set leftRight = 1 %}
 					{% endif %}
-					{% set zIndex = zIndex + 9 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
-					{% set zIndex = zIndex + 2 %}
+					{% set zIndex = zIndex + 6 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
 					
 				</div>
@@ -266,9 +268,7 @@
 					{% set zIndex = (top)*800+100 + (right)*100 %}
 					{% set leftRight = 1 %}
 					{% endif %}
-					{% set zIndex = zIndex + 9 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
-					{% set zIndex = zIndex + 2 %}
+					{% set zIndex = zIndex + 6 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
 					
 				</div>
@@ -467,9 +467,7 @@
 					{% set zIndex = (top)*800+100 + (right)*100 %}
 					{% set leftRight = 1 %}
 					{% endif %}
-					{% set zIndex = zIndex + 9 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
-					{% set zIndex = zIndex + 2 %}
+					{% set zIndex = zIndex + 6 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
 					{% set zIndex = zIndex + 13 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
@@ -670,9 +668,7 @@
 					{% set zIndex = (top)*800+100 + (right)*100 %}
 					{% set leftRight = 1 %}
 					{% endif %}
-					{% set zIndex = zIndex + 9 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
-					{% set zIndex = zIndex + 2 %}
+					{% set zIndex = zIndex + 6 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,-1,0) }}
 					{% set zIndex = zIndex + 13 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,-1,1) }}
