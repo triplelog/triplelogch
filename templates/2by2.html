@@ -7,7 +7,7 @@
 </div>
 {% else %}
 <div class="hCoverDiv" style="flex-wrap: wrap-reverse; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex  }};">
-	{% for fpn in range(1,22) %}<div class="hCover" style="backdrop-filter: contrast({% if frac > 0 %}{{1.0 / fpn}}{% else %}{{ fpn}}{% endif %});"></div>{% endfor %}
+	{% for fpn in range(1,22) %}<div class="hCover" style="margin-bottom: 0px; margin-top: calc(8 * var(--block)); backdrop-filter: contrast({% if frac > 0 %}{{1.0 / fpn}}{% else %}{{ fpn}}{% endif %});"></div>{% endfor %}
 </div>
 {% endif %}
 {% endmacro %}		
@@ -21,7 +21,7 @@
 {% else %}
 <div class="hCoverFDiv" style="flex-wrap: wrap-reverse; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex  }};">
 	<div class="hCoverFSubDiv">
-		{% for fpn in range(1,22) %}<div class="hCover" style="backdrop-filter: contrast({% if frac > 0 %}{{1.0 / fpn}}{% else %}{{ fpn}}{% endif %});"></div>{% endfor %}
+		{% for fpn in range(1,22) %}<div class="hCover" style="margin-bottom: 0px; margin-top: calc(8 * var(--block)); backdrop-filter: contrast({% if frac > 0 %}{{1.0 / fpn}}{% else %}{{ fpn}}{% endif %});"></div>{% endfor %}
 	</div>
 </div>
 {% endif %}
