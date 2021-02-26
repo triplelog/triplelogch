@@ -31,8 +31,8 @@
 	</div>
 </div>
 {% else %}
-<div class="hCoverFDiv" style="flex-wrap: wrap-reverse; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex  }};">
-	<div class="hCoverFSubDiv">
+<div class="hCoverFDiv" style="top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex  }};">
+	<div class="hCoverFSubDiv" style="flex-wrap: wrap-reverse;">
 		<div class="hCover hCover2" style="margin-bottom: 0px; margin-top: calc(8 * var(--block)); backdrop-filter: contrast({% if frac > 0 %}{{2}}{% else %}{{ 0.5}}{% endif %});"></div>
 		{% for fpn in range(1,5) %}<div class="hCover hCover1" style="margin-bottom: 0px; margin-top: calc(8 * var(--block)); backdrop-filter: contrast({% if frac > 0 %}{{1.0 / (0.5 + fpn*0.25)}}{% else %}{{ 0.5 + fpn*0.25}}{% endif %});"></div>{% endfor %}
 		{% for fpn in range(5,8) %}<div class="hCover hCover2" style="margin-bottom: 0px; margin-top: calc(8 * var(--block)); backdrop-filter: contrast({% if frac > 0 %}{{1.0 / (-0.5 + fpn*0.5)}}{% else %}{{ -0.5 + fpn*0.5}}{% endif %});"></div>{% endfor %}
