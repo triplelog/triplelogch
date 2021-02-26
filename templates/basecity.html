@@ -475,10 +475,10 @@ body {
 	width: inherit;
 	height: var(--block);
 	background: transparent;
+	backdrop-filter: contrast(1);
 }
 .hCoverFSubDiv {
-	direction: ltr;
-	position: absolute;
+	position: relative;
 	bottom: 0px;
 	right: 0px;
 	width: calc( 42 * var(--block) - 100%);
@@ -486,6 +486,7 @@ body {
 	background: transparent;
 	display: flex;
 	flex-wrap: wrap;
+	backdrop-filter: contrast(1);
 }
 .vCover {
 	margin-right: calc(8 * var(--block));
