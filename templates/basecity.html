@@ -495,7 +495,7 @@ input {
 	/*pointer-events: all;*/
 }
 .scoreColorN {
-	background-color: rgb(128,128,128);
+	background-color: rgb(127,127,127);
 	display: none;
 	backdrop-filter: contrast(1);
 	position: fixed;
@@ -685,7 +685,17 @@ input {
 					</div>
 				</div>
 		
-				<div class="verticalGrow grow8"></div>
+				<div class="verticalGrow grow8">
+					{% for right in range(0,8) %}
+						{% set top = 3 %}
+						{% set zIndex = (top)*800+100 + (7-right)*100 %}
+						{% set leftRight = 0 %}
+			
+						{% set zIndex = zIndex + 17 %}
+						{{ verticalCover(top,right,zIndex,leftRight,0) }}
+					{% endfor %}
+			
+				</div>
 			</div>
 			<div class="hroad" style="z-index: 300;">
 			</div>
