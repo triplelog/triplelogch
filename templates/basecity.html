@@ -442,6 +442,9 @@ input {
 #showScore:checked ~ div .verticalGrow > div {
 	display: flex;
 }
+#showScore:checked ~ div .vCoverDivI {
+	display: flex;
+}
 #showScore:checked ~ div .horizontalGrow > div.hCoverFDiv {
 	display: inline-block;
 }
@@ -579,6 +582,7 @@ input {
 	width: var(--block);
 	height: 100%;
 	background: transparent;
+	display: none;
 }
 
 {% for i in range(0,4) %}
