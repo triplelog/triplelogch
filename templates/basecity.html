@@ -701,12 +701,6 @@ input {
 			
 						{% set zIndex = zIndex + 17 %}
 						{{ verticalCover(top,right,zIndex,0,0) }}
-						
-						{% set top = 4 %}
-						{% set zIndex = (top)*800+100 + (7-right)*100 %}
-			
-						{% set zIndex = zIndex + 17 %}
-						{{ verticalCover(top,right,zIndex,1,0) }}
 					{% endfor %}
 			
 				</div>
@@ -714,7 +708,14 @@ input {
 			<div class="hroad" style="z-index: 300;">
 			</div>
 			<div class="vflex" style="transform: rotate(180deg); z-index: 3;">
-				
+				{% for right in range(0,8) %}
+					
+					{% set top = 4 %}
+					{% set zIndex = (top)*800+100 + (7-right)*100 %}
+		
+					{% set zIndex = zIndex + 17 %}
+					{{ verticalCover(top,right,zIndex,1,0) }}
+				{% endfor %}
 				<div class="leftRight">
 					<div class="hresize grow8">
 						<div class="horizontalGrow grow8">
