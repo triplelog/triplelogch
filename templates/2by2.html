@@ -219,10 +219,11 @@
 					{% endif %}
 					
 				{% endif %}
+				
 				{% if id1 < 2 %}
-				<div class="finalContrast" style="z-index: {{ zIndex + 30 }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); backdrop-filter: contrast({{ zii + 1 }});"></div>
+				<div class="finalContrast" style="z-index: {{ zIndex + 70 }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); backdrop-filter: contrast({{ zii + 1 }});"></div>
 				{% else %}
-				<div class="finalContrast" style="z-index: {{ zIndex + 30 }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); backdrop-filter: contrast({{ zii + 1 }});"></div>
+				<div class="finalContrast" style="z-index: {{ zIndex + 70 }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); backdrop-filter: contrast({{ zii + 1 }});"></div>
 				{% endif %}
 				
 				{% if id2 == 0 or id2 == 1 %}
@@ -326,10 +327,11 @@
 						<div class="scoreColorN" style="opacity: {{ 1.0/(zii + 1.0) }}; z-index: {{ zIndex }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block));"></div>
 					{% endif %}
 				{% endif %}
+				
 				{% if id1 < 2 %}
-				<div class="finalContrast" style="z-index: {{ zIndex + 30 }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); backdrop-filter: contrast({{ zii + 1 }});"></div>
+				<div class="finalContrast" style="z-index: {{ zIndex + 70 }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); backdrop-filter: contrast({{ zii + 1 }});"></div>
 				{% else %}
-				<div class="finalContrast" style="z-index: {{ zIndex + 30 }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); backdrop-filter: contrast({{ zii + 1 }});"></div>
+				<div class="finalContrast" style="z-index: {{ zIndex + 70 }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); backdrop-filter: contrast({{ zii + 1 }});"></div>
 				{% endif %}
 
 				{% if id2 == 2 or id2 == 3 %}
@@ -439,6 +441,12 @@
 					{% endif %}
 				{% endif %}
 				
+				{% if id1 < 2 %}
+				<div class="finalContrast" style="z-index: {{ zIndex + 70 }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); backdrop-filter: contrast({{ zii + 1 }});"></div>
+				{% else %}
+				<div class="finalContrast" style="z-index: {{ zIndex + 70 }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); backdrop-filter: contrast({{ zii + 1 }});"></div>
+				{% endif %}
+				
 				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
 				{% set top = top + (id2 % 2) * 2 %}
 				{% set top = top + 1 %}
@@ -526,11 +534,7 @@
 						{% endif %}
 					{% endif %}
 				{% endif %}
-				{% if id1 < 2 %}
-				<div class="finalContrast" style="z-index: {{ zIndex + 30 }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); backdrop-filter: contrast({{ zii + 1 }});"></div>
-				{% else %}
-				<div class="finalContrast" style="z-index: {{ zIndex + 30 }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); backdrop-filter: contrast({{ zii + 1 }});"></div>
-				{% endif %}
+				
 				
 				{% if id2 == 0 or id2 == 1 %}
 				<div class="horizontalGrow">
@@ -652,6 +656,12 @@
 					{% endif %}
 				{% endif %}
 				
+				{% if id1 < 2 %}
+				<div class="finalContrast" style="z-index: {{ zIndex + 70 }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); backdrop-filter: contrast({{ zii + 1 }});"></div>
+				{% else %}
+				<div class="finalContrast" style="z-index: {{ zIndex + 70 }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); backdrop-filter: contrast({{ zii + 1 }});"></div>
+				{% endif %}
+				
 				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
 				{% set top = top + (id2 % 2) * 2 %}
 				{% set top = top + 1 %}
@@ -738,11 +748,7 @@
 						{% endif %}
 					{% endif %}
 				{% endif %}
-				{% if id1 < 2 %}
-				<div class="finalContrast" style="z-index: {{ zIndex + 30 }}; bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); backdrop-filter: contrast({{ zii + 1 }});"></div>
-				{% else %}
-				<div class="finalContrast" style="z-index: {{ zIndex + 30 }}; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); backdrop-filter: contrast({{ zii + 1 }});"></div>
-				{% endif %}
+				
 				
 				{% if id2 == 2 or id2 == 3 %}
 				<div class="horizontalGrow" style="direction: rtl;">
