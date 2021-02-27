@@ -486,7 +486,7 @@ input {
 }*/
 .verticalGrow > div {
 	display: none;
-	pointer-events: all;
+	pointer-events: none;
 }
 .scoreColor {
 	background-color: rgb(128,128,128);
@@ -583,6 +583,7 @@ input {
 	height: 100%;
 	background: transparent;
 	display: none;
+	pointer-events: all;
 }
 
 {% for i in range(0,4) %}
