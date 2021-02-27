@@ -230,14 +230,16 @@
 					{{ verticalCover(top,right,zIndex,leftRight,0) }}
 					
 					
-					{% for right in range(0,8) %}
+					{% if id == 2 %}
+						{% for right in range(0,8) %}
 					
-						{% set top = 4 %}
-						{% set zIndex = (top)*800+100 + (7-right)*100 %}
+							{% set top = 4 %}
+							{% set zIndex = (top)*800+100 + (7-right)*100 %}
 		
-						{% set zIndex = zIndex + 17 %}
-						{{ verticalCover(top,right,zIndex,1,0) }}
-					{% endfor %}
+							{% set zIndex = zIndex + 17 %}
+							{{ verticalCover(top,right,zIndex,1,0) }}
+						{% endfor %}
+					{% endif %}
 				</div>
 				
 				
@@ -505,6 +507,8 @@
 					{{ verticalCover(top,right,zIndex,leftRight,1) }}
 					{% set zIndex = zIndex + 14 %}
 					{{ verticalCover(top,right,zIndex,leftRight,0) }}
+					
+					
 				</div>
 				{{ 2by2(id,2) }}
 		
