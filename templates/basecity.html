@@ -572,6 +572,15 @@ input {
 	height: inherit;
 	background: transparent;
 }
+.vCoverDivI {
+	flex-wrap: wrap;
+	flex-direction: column-reverse;
+	position: fixed;
+	width: var(--block);
+	height: 100%;
+	background: transparent;
+}
+
 {% for i in range(0,4) %}
 	{% for ii in range(0,4) %}
 		{% for iii in range(0,4) %}
@@ -689,10 +698,15 @@ input {
 					{% for right in range(0,8) %}
 						{% set top = 3 %}
 						{% set zIndex = (top)*800+100 + (7-right)*100 %}
-						{% set leftRight = 0 %}
 			
 						{% set zIndex = zIndex + 17 %}
-						{{ verticalCover(top,right,zIndex,leftRight,0) }}
+						{{ verticalCover(top,right,zIndex,0,0) }}
+						
+						{% set top = 4 %}
+						{% set zIndex = (top)*800+100 + (7-right)*100 %}
+			
+						{% set zIndex = zIndex + 17 %}
+						{{ verticalCover(top,right,zIndex,1,0) }}
 					{% endfor %}
 			
 				</div>
@@ -700,9 +714,7 @@ input {
 			<div class="hroad" style="z-index: 300;">
 			</div>
 			<div class="vflex" style="transform: rotate(180deg); z-index: 3;">
-				<div style="position: fixed; height: 100%; width: var(--block); left: 0px; bottom: 100%; background: rgba(255,0,0,.3); backdrop-filter: contrast(1); z-index: 5;">
 				
-				</div>
 				<div class="leftRight">
 					<div class="hresize grow8">
 						<div class="horizontalGrow grow8">
