@@ -276,8 +276,8 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 {% endmacro %}
 
 {% macro sfh(zIndex, r) %}
-<div class="sfhHolder" {% if r > 1 %}style="transform: rotate(180deg);"{% endif %}>
-	<div class="isoCell sfhCell" style="background: green; z-index: {{zIndex}};">
+<div class="sfhHolder" {% if r > 1 %}style="transform: rotate(180deg); z-index: {{zIndex}};"{% else %}style="z-index: {{zIndex}};"{% endif %}>
+	<div class="isoCell sfhCell" style="background: green;">
 		<div class="notBottom">
 			<div class="cellTop" style="z-index:5; margin-right: 200px;">
 			
@@ -434,8 +434,8 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 {% endmacro %}
 
 {% macro mfh(zIndex, r) %}
-<div class="mfhHolder" {% if r > 1 %}style="transform: rotate(180deg);"{% endif %}>
-	<div class="isoCell sfhCell" style="background: green; z-index: {{zIndex}};">
+<div class="mfhHolder" {% if r > 1 %}style="transform: rotate(180deg); z-index: {{zIndex}};"{% else %}style="z-index: {{zIndex}};"{% endif %}>
+	<div class="isoCell sfhCell" style="background: green;">
 		<div class="notBottom">
 		
 			<div class="cellMid" style="z-index:6;">
