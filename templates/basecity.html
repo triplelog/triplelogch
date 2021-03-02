@@ -688,27 +688,27 @@ input {
 	display: none;
 }
 
-.savedWidth {
+.horizontalGrow > div..savedWidth {
 	position: fixed;
 	width: inherit;
 	bottom: 1rem;
-	right: 50rem;
+	right: 20rem;
 	height: 2rem;
 	line-height: 2rem;
 	display: inline-block;
 }
-.savedWidthRotate {
+.horizontalGrow > div.savedWidthRotate {
 	position: fixed;
 	width: inherit;
 	top: -8rem;
-	left: 41rem;
+	left: 11rem;
 	height: 2rem;
 	line-height: 2rem;
 	display: inline-block;
 	transform: rotate(180deg);
 }
 .savedWidth > div, .savedWidthRotate > div {
-	position: absolute;
+	position: relative;
 	width: calc(10 * var(--block));
 	right: 0rem;
 	top: 0px;
