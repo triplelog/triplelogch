@@ -697,7 +697,7 @@ input {
 	line-height: 2rem;
 	display: flex;
 	flex-wrap: wrap;
-	
+	padding-left: 1rem;
 }
 .horizontalGrow > div.savedWidthRotate {
 	position: fixed;
@@ -709,6 +709,7 @@ input {
 	display: flex;
 	flex-wrap: wrap;
 	transform: rotate(180deg);
+	padding-left: 2rem;
 }
 .savedWidth > div, .savedWidthRotate > div {
 	position: relative;
@@ -719,14 +720,10 @@ input {
 	line-height: 2rem;
 	display: inline-block;
 	border: 1px dashed black;
-	padding-left: 1rem;
-}
-.savedWidthRotate > div {
-	padding-left: 2rem;
-}
-.savedWidth > div > span, .savedWidthRotate > div > span {
 	pointer-events: all;
 }
+
+
 {% block moreCSS %}
 {% endblock %}
 
@@ -763,8 +760,8 @@ input {
 						<div class="horizontalGrow grow8">
 							{{ hGrow8by8(0) }}
 							<div class="savedWidth">
-								<div><span>A</span></div>
-								<div><span>B</span></div>
+								<div>A</div>
+								<div>B</div>
 							</div>
 						</div>
 						<div class="resizeCoverH"></div>
@@ -804,8 +801,8 @@ input {
 						<div class="horizontalGrow grow8">
 							{{ hGrow8by8(4) }}
 							<div class="savedWidthRotate">
-								<div><span>C</span></div>
-								<div><span>D</span></div>
+								<div>C</div>
+								<div>D</div>
 							</div>
 						</div>
 						<div class="resizeCoverH"></div>
