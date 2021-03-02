@@ -687,6 +687,36 @@ input {
 #zone0:checked ~ div .resizeCoverV {
 	display: none;
 }
+
+.savedWidth {
+	position: fixed;
+	width: inherit;
+	bottom: 1rem;
+	right: 50rem;
+	height: 2rem;
+	line-height: 2rem;
+	display: inline-block;
+}
+.savedWidthRotate {
+	position: fixed;
+	width: inherit;
+	top: -8rem;
+	left: 41rem;
+	height: 2rem;
+	line-height: 2rem;
+	display: inline-block;
+	transform: rotate(180deg);
+}
+.savedWidth > div, .savedWidthRotate > div {
+	position: absolute;
+	width: calc(10 * var(--block));
+	right: 0rem;
+	top: 0px;
+	height: 2rem;
+	line-height: 2rem;
+	display: inline-block;
+	border: 1px dashed black;
+}
 {% block moreCSS %}
 {% endblock %}
 
@@ -722,6 +752,10 @@ input {
 					<div class="hresize grow8">
 						<div class="horizontalGrow grow8">
 							{{ hGrow8by8(0) }}
+							<div class="savedWidth">
+								<div>A</div>
+								<div>B</div>
+							</div>
 						</div>
 						<div class="resizeCoverH"></div>
 				
@@ -745,6 +779,7 @@ input {
 						{% set zIndex = zIndex + 17 %}
 						{{ verticalCover(top,right,zIndex,0,0) }}
 					{% endfor %}
+					
 			
 				</div>
 				<div class="resizeCoverV"></div>
@@ -758,6 +793,10 @@ input {
 					<div class="hresize grow8">
 						<div class="horizontalGrow grow8">
 							{{ hGrow8by8(4) }}
+							<div class="savedWidthRotate">
+								<div>C</div>
+								<div>D</div>
+							</div>
 						</div>
 						<div class="resizeCoverH"></div>
 				
