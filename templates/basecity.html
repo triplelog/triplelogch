@@ -87,16 +87,16 @@ body {
 	max-width: calc(100% - 0.5 * var(--block));
 }
 .hresize > .zoneCell {
-	width: calc(100% - 1.0 * var(--block) - 9px);
-	max-width: calc(100% - 1.0 * var(--block) - 9px);
-	left: calc(0.25 * var(--block));
+	width: calc(100% - 1.0 * var(--block) - 8px);
+	max-width: calc(100% - 1.0 * var(--block) - 8px);
+	left: calc(0.25 * var(--block) + 1px);
 }
 .hresize.rtl > .topBottom, .hresize.rtl > .leftRight, .hresize.rtl > .cellHolder {
 	right:0px;
 	left:unset;
 }
 .hresize.rtl > .zoneCell {
-	right:calc(0.25 * var(--block));
+	right:calc(0.25 * var(--block) + 1px);
 	left:unset;
 }
 
@@ -389,10 +389,10 @@ body {
 	display: inline-block;
 }
 .zoneCell {
-	width: calc(100% - 0.5 * var(--block) - 9px);
-	height: calc(100% - 0.5 * var(--block) - 9px);
-	left:calc(0.25 * var(--block));
-	top:calc(0.25 * var(--block));
+	width: calc(100% - 0.5 * var(--block) - 8px);
+	height: calc(100% - 0.5 * var(--block) - 8px);
+	left:calc(0.25 * var(--block) + 1px);
+	top:calc(0.25 * var(--block) + 1px);
 	position: absolute;
 	display: inline-block;
 	background: transparent;
