@@ -166,7 +166,7 @@ body {
 .verticalGrow {
 	width: calc(50% + 0.5rem);
 	right: 0px;
-	height: calc(var(--container-height) * 7 / 10 / 8 - var(--block) * 7 / 8);
+	height: calc(var(--container-height) * 7 / 10 / 8 - var(--block) * 7 / 16);
 	background: transparent;
 	resize: vertical;
 	overflow: auto;
@@ -177,7 +177,7 @@ body {
 .horizontalGrow {
 	height: calc(50% + 0.5rem);
 	margin: auto;
-	width: calc(var(--container-width) * 7 / 10 / 8 - var(--block) * 7 / 8);
+	width: calc(var(--container-width) * 7 / 10 / 8 - var(--block) * 7 / 16);
 	resize: horizontal;
 	overflow: auto;
 	position: relative;
@@ -188,20 +188,20 @@ body {
 	
 }
 .horizontalGrow.grow8 {
-	width: calc(var(--container-width) * 7 / 10 / 2 - var(--block) / 2);
+	width: calc(var(--container-width) * 7 / 10 / 2 - var(--block) / 4);
 	max-width: min(calc(29 * var(--block)),100%);
 	min-width: calc(13 * var(--block));
 }
 .verticalGrow.grow8 {
-	height: calc(var(--container-height) * 7 / 10 / 2 - var(--block) / 2);
+	height: calc(var(--container-height) * 7 / 10 / 2 - var(--block) / 4);
 }
 .horizontalGrow.grow4 {
-	width: calc(var(--container-width) * 7 / 10 / 4 - var(--block) * 3 / 4);
+	width: calc(var(--container-width) * 7 / 10 / 4 - var(--block) * 3 / 8);
 	max-width: min(calc(21 * var(--block)),100%);
 	min-width: calc(4 * var(--block));
 }
 .verticalGrow.grow4 {
-	height: calc(var(--container-height) * 7 / 10 / 4 - var(--block) * 3 / 4);
+	height: calc(var(--container-height) * 7 / 10 / 4 - var(--block) * 3 / 8);
 }
 
 .cellTop {
@@ -751,7 +751,7 @@ input {
 						<div class="resizeCoverH"><span><-</span><span>-></span></div>
 				
 						{{ 4by4(0) }}
-						<div class="vroad" style="z-index: 1550;">
+						<div class="vroad" style="z-index: 1550; position: absolute; right: 0px; top: 0px;">
 						
 						</div>
 					</div>
@@ -788,7 +788,7 @@ input {
 						<div class="resizeCoverH"><span><-</span><span>-></span></div>
 				
 						{{ 4by4(2) }}
-						<div class="vroad" style="z-index: 4750;">
+						<div class="vroad" style="z-index: 4750; position: absolute; right: 0px; top: 0px;">
 				
 						</div>
 					</div>
