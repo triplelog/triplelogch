@@ -241,7 +241,8 @@
 						{% endfor %}
 					{% endif %}
 				</div>
-				
+				<div style="position: absolute; width: 1rem; height: 1rem; bottom: 0px; right: calc(50% - 0.5rem); background: red;"></div>
+		
 				
 				{{ 2by2(id,0) }}
 			</div>
@@ -427,6 +428,8 @@
 			{% set zIndex = zIndex + 2 %}
 			{{ horizontalCover(top,right,zIndex,leftRight,0) }}
 		</div>
+		<div style="position: absolute; width: 1rem; height: 1rem; right: 0px; bottom: calc(50% - 0.5rem); background: blue;"></div>
+				
 		{% endif %}
 	</div>
 	<div class="vroad" style="z-index: {{ id*200 + 30 }};">
@@ -510,6 +513,8 @@
 					
 					
 				</div>
+				<div style="position: absolute; width: 1rem; height: 1rem; bottom: 0px; right: calc(50% - 0.5rem); background: red;"></div>
+		
 				{{ 2by2(id,2) }}
 		
 			</div>
@@ -692,6 +697,8 @@
 			{% set zIndex = zIndex + 2 %}
 			{{ horizontalCover(top,right,zIndex,leftRight,0) }}
 		</div>
+		<div style="position: absolute; width: 1rem; height: 1rem; left: 0px; bottom: calc(50% - 0.5rem); background: blue;"></div>
+				
 		{% endif %}
 	</div>
 </div>
