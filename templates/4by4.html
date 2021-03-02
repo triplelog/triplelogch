@@ -246,7 +246,11 @@
 				
 				{{ 2by2(id,0) }}
 			</div>
-			<div class="hroad" style="z-index: {{ id*200 + 10 }};">
+			{% set  zIndexRoad = id*1600 + 350 %}
+			{% if id > 1 %}
+			{% set  zIndexRoad = (5-id)*1600 + 1150 %}
+			{% endif %}
+			<div class="hroad" style="z-index: {{ zIndexRoad }};">
 		
 			</div>
 			<div class="vflex">
@@ -432,7 +436,11 @@
 				
 		{% endif %}
 	</div>
-	<div class="vroad" style="z-index: {{ id*200 + 30 }};">
+	{% set  zIndexRoad = id*1600 + 750 %}
+	{% if id > 1 %}
+	{% set  zIndexRoad = (5-id)*1600 + 750 %}
+	{% endif %}
+	<div class="vroad" style="z-index: {{ zIndexRoad }};">
 	</div>
 	<div {% if id == 3 or id == 1 %}class="hresize grow4"{% else %}class="hflex"{% endif %}>
 		<div class="topBottom">
@@ -518,7 +526,11 @@
 				{{ 2by2(id,2) }}
 		
 			</div>
-			<div class="hroad"  style="z-index: {{ id*200 + 50 }};">
+			{% set  zIndexRoad = id*1600 + 1150 %}
+			{% if id > 1 %}
+			{% set  zIndexRoad = (5-id)*1600 + 350 %}
+			{% endif %}
+			<div class="hroad"  style="z-index: {{ zIndexRoad }};">
 		
 			</div>
 			<div class="vflex">
