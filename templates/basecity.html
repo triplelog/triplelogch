@@ -82,6 +82,10 @@ body {
 	top:0px;
 	pointer-events: none;
 }
+.hresize.grow8 > .leftRight {
+	width: calc(100% - .5 * var(--block));
+	max-width: calc(100% - .5 * var(--block));
+}
 
 .vflex {
 	width: 100%;
@@ -93,7 +97,7 @@ body {
 
 .hroad {
 	width: 100%;
-	height: calc(1 * var(--block));
+	height: calc(.5 * var(--block));
 	background: black;
 	background-image: url("img/hroad.png");
 	background-size: auto 100%;
@@ -129,7 +133,7 @@ body {
 
 .vroad {
 	height: 100%;
-	width: calc(1 * var(--block));
+	width: calc(.5 * var(--block));
 	background: black;
 	background-image: url("img/vroad.png");
 	background-size: 100% auto;
@@ -747,9 +751,9 @@ input {
 						<div class="resizeCoverH"><span><-</span><span>-></span></div>
 				
 						{{ 4by4(0) }}
-					</div>
-					<div class="vroad" style="z-index: 1550;">
+						<div class="vroad" style="z-index: 1550;">
 						
+						</div>
 					</div>
 					<div class="hflex">
 				
@@ -784,11 +788,11 @@ input {
 						<div class="resizeCoverH"><span><-</span><span>-></span></div>
 				
 						{{ 4by4(2) }}
+						<div class="vroad" style="z-index: 4750;">
 				
+						</div>
 					</div>
-					<div class="vroad" style="z-index: 4750;">
-				
-					</div>
+					
 					<div class="hflex">
 				
 						{{ 4by4(3) }}
