@@ -192,7 +192,7 @@ body {
 	max-height: min(calc(21 * var(--block)),calc(100% - 5 * var(--block)));
 }
 .verticalGrow {
-	width: calc(50%);
+	width: calc(50% + .25 * var(--block));
 	right: 0px;
 	height: calc(var(--container-height) * 7 / 10 / 8  + .25 * var(--block));
 	background: transparent;
@@ -204,7 +204,7 @@ body {
 	pointer-events: none;
 }
 .horizontalGrow {
-	height: calc(50%);
+	height: calc(50% + .25 * var(--block));
 	margin: auto;
 	width: calc(var(--container-width) * 7 / 10 / 8  + .25 * var(--block) );
 	resize: horizontal;
@@ -621,6 +621,8 @@ input {
 	background: transparent;
 	display: none;
 }
+
+
 .resizeCoverV {
 	position: absolute;
 	width: 1rem;
