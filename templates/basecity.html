@@ -688,14 +688,15 @@ input {
 	display: none;
 }
 
-.horizontalGrow > div..savedWidth {
+.horizontalGrow > div.savedWidth {
 	position: fixed;
 	width: inherit;
 	bottom: 1rem;
 	right: 20rem;
 	height: 2rem;
 	line-height: 2rem;
-	display: inline-block;
+	display: flex;
+	flex-wrap: wrap;
 }
 .horizontalGrow > div.savedWidthRotate {
 	position: fixed;
@@ -704,7 +705,8 @@ input {
 	left: 11rem;
 	height: 2rem;
 	line-height: 2rem;
-	display: inline-block;
+	display: flex;
+	flex-wrap: wrap;
 	transform: rotate(180deg);
 }
 .savedWidth > div, .savedWidthRotate > div {
