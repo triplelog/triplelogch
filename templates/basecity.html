@@ -590,8 +590,10 @@ input {
 	height: 1rem;
 	bottom: 0px;
 	right: calc(50% - 0.5rem);
-	background: red;
+	background: #CCC;
 	z-index: 10000;
+	color: blue;
+	transform: rotate(90deg);
 }
 .resizeCoverH {
 	position: absolute;
@@ -600,20 +602,20 @@ input {
 	right: 0px;
 	bottom: calc(50% - 0.5rem);
 	background: #CCC;
-	border: 1px dashed #999;
 	z-index: 10000;
+	color: red;
 }
-.resizeCoverH > span, .resizeCoverHR > span {
+.resizeCoverH > span, .resizeCoverHR > span, .resizeCoverV > span {
 	position: absolute;
 	top: 0px;
 	line-height:1rem;
 	height: 1rem;
 	font-size:.66rem;
 }
-.resizeCoverH > span:nth-child(1), .resizeCoverHR > span:nth-child(1) {
+.resizeCoverH > span:nth-child(1), .resizeCoverHR > span:nth-child(1), .resizeCoverV > span:nth-child(1) {
 	left:0px;
 }
-.resizeCoverH > span:nth-child(2), .resizeCoverHR > span:nth-child(2) {
+.resizeCoverH > span:nth-child(2), .resizeCoverHR > span:nth-child(2), .resizeCoverV > span:nth-child(2) {
 	right:0px;
 }
 .resizeCoverHR {
@@ -623,8 +625,8 @@ input {
 	left: 0px;
 	bottom: calc(50% - 0.5rem);
 	background: #CCC;
-	border: 1px dashed #666;
 	z-index: 10000;
+	color: red;
 }
 
 
@@ -767,7 +769,7 @@ input {
 					
 			
 				</div>
-				<div class="resizeCoverV"></div>
+				<div class="resizeCoverV"><span><-</span><span>-></span></div>
 		
 			</div>
 			<div class="hroad" style="z-index: 3150;">
