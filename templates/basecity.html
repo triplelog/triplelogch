@@ -82,16 +82,23 @@ body {
 	top:0px;
 	pointer-events: none;
 }
-.hresize > .leftRight, .hresize > .topBottom, .hresize > .cellHolder, .hresize > .zoneCell {
-	width: calc(100% - .5 * var(--block));
-	max-width: calc(100% - .5 * var(--block));
+.hresize > .leftRight, .hresize > .topBottom, .hresize > .cellHolder {
+	width: calc(100% - 0.5 * var(--block));
+	max-width: calc(100% - 0.5 * var(--block));
 }
-
-.hresize.rtl > .topBottom, .hresize.rtl > .leftRight, .hresize.rtl > .cellHolder, .hresize.rtl > .zoneCell {
+.hresize > .zoneCell {
+	width: calc(100% - 1.0 * var(--block));
+	max-width: calc(100% - 1.0 * var(--block));
+	left: calc(0.25 * var(--block));
+}
+.hresize.rtl > .topBottom, .hresize.rtl > .leftRight, .hresize.rtl > .cellHolder {
 	right:0px;
 	left:unset;
 }
-
+.hresize.rtl > .zoneCell {
+	right:calc(0.25 * var(--block));
+	left:unset;
+}
 
 .hresize > .vroad {
 	position: absolute;
@@ -628,7 +635,7 @@ input {
 	width: 1rem;
 	height: 1rem;
 	bottom: 0px;
-	right: calc(50% - 0.5rem);
+	right: calc(50% - 0.25rem);
 	background: #CCC;
 	z-index: 10000;
 	color: blue;
@@ -639,7 +646,7 @@ input {
 	width: 1rem;
 	height: 1rem;
 	right: 0px;
-	bottom: calc(50% - 0.5rem);
+	bottom: calc(50% - 0.25rem);
 	background: #CCC;
 	z-index: 10000;
 	color: red;
