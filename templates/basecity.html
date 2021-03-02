@@ -194,7 +194,7 @@ body {
 .verticalGrow {
 	width: calc(50%);
 	right: 0px;
-	height: calc(var(--container-height) * 7 / 10 / 8 );
+	height: calc(var(--container-height) * 7 / 10 / 8  + .25 * var(--block));
 	background: transparent;
 	resize: vertical;
 	overflow: auto;
@@ -206,7 +206,7 @@ body {
 .horizontalGrow {
 	height: calc(50%);
 	margin: auto;
-	width: calc(var(--container-width) * 7 / 10 / 8 );
+	width: calc(var(--container-width) * 7 / 10 / 8  + .25 * var(--block) );
 	resize: horizontal;
 	overflow: auto;
 	position: relative;
@@ -217,22 +217,22 @@ body {
 	
 }
 .horizontalGrow.grow8 {
-	width: calc(var(--container-width) * 7 / 10 / 2 );
+	width: calc(var(--container-width) * 7 / 10 / 2 + .25 * var(--block));
 	max-width: min(calc(29 * var(--block)),100%);
 	min-width: calc(13 * var(--block));
 }
 .verticalGrow.grow8 {
-	height: calc(var(--container-height) * 7 / 10 / 2 );
+	height: calc(var(--container-height) * 7 / 10 / 2 + .25 * var(--block) );
 	max-height: min(calc(29 * var(--block)),100%);
 	min-height: calc(13 * var(--block));
 }
 .horizontalGrow.grow4 {
-	width: calc(var(--container-width) * 7 / 10 / 4 );
+	width: calc(var(--container-width) * 7 / 10 / 4 + .25 * var(--block) );
 	max-width: min(calc(21 * var(--block)),100%);
 	min-width: calc(4 * var(--block));
 }
 .verticalGrow.grow4 {
-	height: calc(var(--container-height) * 7 / 10 / 4 );
+	height: calc(var(--container-height) * 7 / 10 / 4 + .25 * var(--block) );
 	max-height: min(calc(21 * var(--block)),100%);
 	min-height: calc(4 * var(--block));
 }
