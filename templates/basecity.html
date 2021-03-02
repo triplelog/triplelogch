@@ -160,7 +160,7 @@ body {
 	max-height: min(calc(21 * var(--block)),calc(100% - 5 * var(--block)));
 }
 .verticalGrow {
-	width: 50%;
+	width: calc(50% + 0.5rem);
 	right: 0px;
 	height: calc(var(--container-height) * 7 / 10 / 8 - var(--block) * 7 / 8);
 	background: transparent;
@@ -171,7 +171,7 @@ body {
 	pointer-events: none;
 }
 .horizontalGrow {
-	height: 50%;
+	height: calc(50% + 0.5rem);
 	margin: auto;
 	width: calc(var(--container-width) * 7 / 10 / 8 - var(--block) * 7 / 8);
 	resize: horizontal;
