@@ -698,11 +698,10 @@ input {
 	display: flex;
 	flex-wrap: wrap;
 	pointer-events: all;
+	user-select: none;
 }
-.horizontalGrow > div.savedWidth::before {
-	content: "7";
+.savedWidth > div::hover {
 	user-select: all;
-	pointer-events: all;
 }
 .horizontalGrow > div.savedWidthRotate {
 	position: fixed;
