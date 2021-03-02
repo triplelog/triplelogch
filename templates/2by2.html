@@ -236,17 +236,10 @@
 					{% set zIndex = zIndex + 2 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
 				</div>
-				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
-				{% set top = top + (id2 % 2) * 2 %}
-				{% set top = top + 0 %}
-				{% set right = (id1 % 2) * 4 %}
-				{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
-				{% set right = right + 0 %}
+				
 				{% set zIndexRoad = id1*1600 + id2*400 + 50 %}
 			
 				{% if id1 > 1 %}
-				{% set top = 7 - (top - 4) %}
-				{% set right = 7 - right %}
 				{% set zIndexRoad = (5 - id1)*1600 + (3 - id2)*400 + 250 %}
 				{% endif %}
 				<div class="vroad" style="z-index: {{ zIndexRoad }};">
@@ -364,17 +357,10 @@
 				</div>
 				<div class="resizeCoverHR"><span><-</span><span>-></span></div>
 				
-				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
-				{% set top = top + (id2 % 2) * 2 %}
-				{% set top = top + 0 %}
-				{% set right = (id1 % 2) * 4 %}
-				{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
-				{% set right = right + 0 %}
+				
 				{% set zIndexRoad = id1*1600 + id2*400 + 50 %}
 			
 				{% if id1 > 1 %}
-				{% set top = 7 - (top - 4) %}
-				{% set right = 7 - right %}
 				{% set zIndexRoad = (5 - id1)*1600 + (3 - id2)*400 + 250 %}
 				{% endif %}
 				<div class="vroad" style="z-index: {{ zIndexRoad }};">
@@ -386,22 +372,15 @@
 			</div>
 		</div>
 		
-	</div>
-	{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
-	{% set top = top + (id2 % 2) * 2 %}
-	{% set top = top + 0 %}
-	{% set right = (id1 % 2) * 4 %}
-	{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
-	{% set right = right + 1 %}
-	{% set zIndexRoad = id1*1600 + id2*400 + 150 %}
+		{% set zIndexRoad = id1*1600 + id2*400 + 150 %}
 	
-	{% if id1 > 1 %}
-	{% set top = 7 - (top - 4) %}
-	{% set right = 7 - right %}
-	{% set zIndexRoad = (5 - id1)*1600 + (3 - id2)*400 + 150 %}
-	{% endif %}
-	<div class="hroad" style="z-index: {{ zIndexRoad}};">
+		{% if id1 > 1 %}
+		{% set zIndexRoad = (5 - id1)*1600 + (3 - id2)*400 + 150 %}
+		{% endif %}
+		<div class="hroad" style="z-index: {{ zIndexRoad}};">
+		</div>
 	</div>
+	
 	<div class="vflex">
 
 		<div class="leftRight">
@@ -617,17 +596,10 @@
 				</div>
 				<div class="resizeCoverH"><span><-</span><span>-></span></div>
 				
-				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
-				{% set top = top + (id2 % 2) * 2 %}
-				{% set top = top + 1 %}
-				{% set right = (id1 % 2) * 4 %}
-				{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
-				{% set right = right + 0 %}
+				
 				{% set zIndexRoad = id1*1600 + id2*400 + 250 %}
 			
 				{% if id1 > 1 %}
-				{% set top = 7 - (top - 4) %}
-				{% set right = 7 - right %}
 				{% set zIndexRoad = (5 - id1)*1600 + (3 - id2)*400 + 50 %}
 				{% endif %}
 				<div class="vroad" style="z-index: {{ zIndexRoad }};">
@@ -850,17 +822,10 @@
 				</div>
 				<div class="resizeCoverHR"><span><-</span><span>-></span></div>
 				
-				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
-				{% set top = top + (id2 % 2) * 2 %}
-				{% set top = top + 1 %}
-				{% set right = (id1 % 2) * 4 %}
-				{% set right = right + (id2 - (id2 % 2)) / 2 * 2 %}
-				{% set right = right + 0 %}
+				
 				{% set zIndexRoad = id1*1600 + id2*400 + 250 %}
 			
 				{% if id1 > 1 %}
-				{% set top = 7 - (top - 4) %}
-				{% set right = 7 - right %}
 				{% set zIndexRoad = (5 - id1)*1600 + (3 - id2)*400 + 50 %}
 				{% endif %}
 				<div class="vroad" style="z-index: {{ zIndexRoad }};">
