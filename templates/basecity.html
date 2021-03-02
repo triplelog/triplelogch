@@ -82,30 +82,16 @@ body {
 	top:0px;
 	pointer-events: none;
 }
-.hresize > .leftRight {
+.hresize > .leftRight, .hresize > .topBottom, .hresize > .cellHolder, .hresize > .zoneCell {
 	width: calc(100% - .5 * var(--block));
 	max-width: calc(100% - .5 * var(--block));
 }
-.hresize > .topBottom {
-	width: calc(100% - .5 * var(--block));
-	max-width: calc(100% - .5 * var(--block));
-}
-.hresize > .cellHolder {
-	width: calc(100% - .5 * var(--block));
-	max-width: calc(100% - .5 * var(--block));
-}
-.hresize.rtl > .topBottom {
+
+.hresize.rtl > .topBottom, .hresize.rtl > .leftRight, .hresize.rtl > .cellHolder, .hresize.rtl > .zoneCell {
 	right:0px;
 	left:unset;
 }
-.hresize.rtl > .leftRight {
-	right:0px;
-	left:unset;
-}
-.hresize.rtl > .cellHolder {
-	right:0px;
-	left:unset;
-}
+
 
 .hresize > .vroad {
 	position: absolute;
