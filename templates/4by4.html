@@ -262,6 +262,12 @@
 		</div>
 
 		{% if id == 2 or id == 0 %}
+		{% set  zIndexRoad = id*1600 + 750 %}
+		{% if id > 1 %}
+		{% set  zIndexRoad = (5-id)*1600 + 750 %}
+		{% endif %}
+		<div class="vroad" style="z-index: {{ zIndexRoad }};">
+		</div>
 		<div class="horizontalGrow grow4"><!--HG2 when id==0, HG6 when id==2-->
 			{% set top = (id - (id % 2)) / 2 * 4 %}
 			{% set top = top + 0 %}
@@ -435,14 +441,10 @@
 		<div class="resizeCoverH"><span><-</span><span>-></span></div>
 				
 		{% endif %}
+		
 	</div>
-	{% set  zIndexRoad = id*1600 + 750 %}
-	{% if id > 1 %}
-	{% set  zIndexRoad = (5-id)*1600 + 750 %}
-	{% endif %}
-	<div class="vroad" style="z-index: {{ zIndexRoad }};">
-	</div>
-	<div {% if id == 3 or id == 1 %}class="hresize grow4"{% else %}class="hflex"{% endif %}>
+	
+	<div {% if id == 3 or id == 1 %}class="hresize grow4 rtl"{% else %}class="hflex"{% endif %}>
 		<div class="topBottom">
 			
 			<div class="vresize grow4">
@@ -540,6 +542,12 @@
 			</div>
 		</div>
 		{% if id == 3 or id == 1 %}
+		{% set  zIndexRoad = id*1600 + 750 %}
+		{% if id > 1 %}
+		{% set  zIndexRoad = (5-id)*1600 + 750 %}
+		{% endif %}
+		<div class="vroad" style="z-index: {{ zIndexRoad }};">
+		</div>
 		<div class="horizontalGrow grow4" style="direction: rtl;"><!--HG6 when id==1, HG2 when id==3-->
 			{% set top = (id - (id % 2)) / 2 * 4 %}
 			{% set top = top + 0 %}

@@ -86,6 +86,33 @@ body {
 	width: calc(100% - .5 * var(--block));
 	max-width: calc(100% - .5 * var(--block));
 }
+.hresize.grow8 > .leftRight {
+	width: calc(100% - .5 * var(--block));
+	max-width: calc(100% - .5 * var(--block));
+}
+.hresize.grow8 > .vroad {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+.hresize.grow4 > .topBottom {
+	width: calc(100% - .5 * var(--block));
+	max-width: calc(100% - .5 * var(--block));
+}
+.hresize.grow4.rtl > .topBottom {
+	right:0px;
+	left:unset;
+}
+.hresize.grow4 > .vroad {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+.hresize.grow4.rtl > .vroad {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
 
 .vflex {
 	width: 100%;
@@ -751,7 +778,7 @@ input {
 						<div class="resizeCoverH"><span><-</span><span>-></span></div>
 				
 						{{ 4by4(0) }}
-						<div class="vroad" style="z-index: 1550; position: absolute; right: 0px; top: 0px;">
+						<div class="vroad" style="z-index: 1550;">
 						
 						</div>
 					</div>
@@ -788,7 +815,7 @@ input {
 						<div class="resizeCoverH"><span><-</span><span>-></span></div>
 				
 						{{ 4by4(2) }}
-						<div class="vroad" style="z-index: 4750; position: absolute; right: 0px; top: 0px;">
+						<div class="vroad" style="z-index: 4750;">
 				
 						</div>
 					</div>
