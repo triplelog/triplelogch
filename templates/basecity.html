@@ -82,33 +82,37 @@ body {
 	top:0px;
 	pointer-events: none;
 }
-.hresize.grow8 > .leftRight {
+.hresize > .leftRight {
 	width: calc(100% - .5 * var(--block));
 	max-width: calc(100% - .5 * var(--block));
 }
-.hresize.grow8 > .leftRight {
+.hresize > .topBottom {
 	width: calc(100% - .5 * var(--block));
 	max-width: calc(100% - .5 * var(--block));
 }
-.hresize.grow8 > .vroad {
-	position: absolute;
-	right: 0px;
-	top: 0px;
-}
-.hresize.grow4 > .topBottom {
+.hresize > .cellHolder {
 	width: calc(100% - .5 * var(--block));
 	max-width: calc(100% - .5 * var(--block));
 }
-.hresize.grow4.rtl > .topBottom {
+.hresize.rtl > .topBottom {
 	right:0px;
 	left:unset;
 }
-.hresize.grow4 > .vroad {
+.hresize.rtl > .leftRight {
+	right:0px;
+	left:unset;
+}
+.hresize.rtl > .cellHolder {
+	right:0px;
+	left:unset;
+}
+
+.hresize > .vroad {
 	position: absolute;
 	right: 0px;
 	top: 0px;
 }
-.hresize.grow4.rtl > .vroad {
+.hresize.rtl > .vroad {
 	position: absolute;
 	left: 0px;
 	top: 0px;
