@@ -104,15 +104,15 @@ body {
 	top: 0px;
 }
 
-.vresize > .leftRight, .vresize > .topBottom, .vresize > .cellHolder, .vresize > .zoneCell {
-	width: calc(100% - .5 * var(--block));
-	max-width: calc(100% - .5 * var(--block));
+.vresize > .leftRight, .vresize > .topBottom {
+	height: calc(100% - .5 * var(--block));
+	max-height: calc(100% - .5 * var(--block));
 }
 
 .vresize > .hroad {
 	position: absolute;
-	right: 0px;
-	top: 0px;
+	left: 0px;
+	bottom: 0px;
 }
 
 .vflex {
