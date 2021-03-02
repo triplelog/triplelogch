@@ -697,7 +697,6 @@ input {
 	line-height: 2rem;
 	display: flex;
 	flex-wrap: wrap;
-	pointer-events: all;
 }
 .horizontalGrow > div.savedWidthRotate {
 	position: fixed;
@@ -709,7 +708,6 @@ input {
 	display: flex;
 	flex-wrap: wrap;
 	transform: rotate(180deg);
-	pointer-events: all;
 }
 .savedWidth > div, .savedWidthRotate > div {
 	position: relative;
@@ -761,9 +759,9 @@ input {
 						<div class="horizontalGrow grow8">
 							{{ hGrow8by8(0) }}
 							<div class="savedWidth">
-								<div>A</div>
-								<div></div>
-								<div>B</div>
+								<div style="pointer-events: all;">A</div>
+								<div style="pointer-events: none;"></div>
+								<div style="pointer-events: all;">B</div>
 							</div>
 						</div>
 						<div class="resizeCoverH"></div>
@@ -803,10 +801,10 @@ input {
 						<div class="horizontalGrow grow8">
 							{{ hGrow8by8(4) }}
 							<div class="savedWidthRotate">
-								<div></div>
-								<div>C</div>
 								<div style="pointer-events: none;"></div>
-								<div>D</div>
+								<div style="pointer-events: all;">C</div>
+								<div style="pointer-events: none;"></div>
+								<div style="pointer-events: all;">D</div>
 							</div>
 						</div>
 						<div class="resizeCoverH"></div>
