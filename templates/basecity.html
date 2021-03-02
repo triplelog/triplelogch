@@ -584,6 +584,33 @@ input {
 	background: transparent;
 	display: none;
 }
+.resizeCoverV {
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	bottom: 0px;
+	right: calc(50% - 0.5rem);
+	background: red;
+	z-index: 10000;
+}
+.resizeCoverH {
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	right: 0px;
+	bottom: calc(50% - 0.5rem);
+	background: blue;
+	z-index: 10000;
+}
+.resizeCoverHR {
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	left: 0px;
+	bottom: calc(50% - 0.5rem);
+	background: blue;
+	z-index: 10000;
+}
 
 
 {% for i in range(0,4) %}
@@ -687,7 +714,7 @@ input {
 						<div class="horizontalGrow grow8">
 							{{ hGrow8by8(0) }}
 						</div>
-						<div style="position: absolute; width: 1rem; height: 1rem; right: 0px; bottom: calc(50% - 0.5rem); background: blue;"></div>
+						<div class="resizeCoverH"></div>
 				
 						{{ 4by4(0) }}
 					</div>
@@ -711,7 +738,7 @@ input {
 					{% endfor %}
 			
 				</div>
-				<div style="position: absolute; width: 1rem; height: 1rem; bottom: 0px; right: calc(50% - 0.5rem); background: red;"></div>
+				<div class="resizeCoverV"></div>
 		
 			</div>
 			<div class="hroad" style="z-index: 300;">
@@ -723,7 +750,7 @@ input {
 						<div class="horizontalGrow grow8">
 							{{ hGrow8by8(4) }}
 						</div>
-						<div style="position: absolute; width: 1rem; height: 1rem; right: 0px; bottom: calc(50% - 0.5rem); background: blue;"></div>
+						<div class="resizeCoverH"></div>
 				
 						{{ 4by4(2) }}
 				

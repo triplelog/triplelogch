@@ -126,7 +126,7 @@
 		
 			
 		</div>
-		<div style="position: absolute; width: 1rem; height: 1rem; bottom: 0px; right: calc(50% - 0.5rem); background: red;"></div>
+		<div class="resizeCoverV"></div>
 				
 		<div class="leftRight">
 			
@@ -235,7 +235,7 @@
 					{% set zIndex = zIndex + 2 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
 				</div>
-				<div style="position: absolute; width: 1rem; height: 1rem; right: 0px; bottom: calc(50% - 0.5rem); background: blue;"></div>
+				<div class="resizeCoverH"></div>
 				{% endif %}
 				
 				
@@ -360,7 +360,7 @@
 					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
 					
 				</div>
-				<div style="position: absolute; width: 1rem; height: 1rem; left: 0px; bottom: calc(50% - 0.5rem); background: blue;"></div>
+				<div class="resizeCoverHR"></div>
 				
 				{% endif %}
 				{{ sfh(zIndexCell,id1) }}
@@ -597,7 +597,7 @@
 					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
 					{% endif %}
 				</div>
-				<div style="position: absolute; width: 1rem; height: 1rem; right: 0px; bottom: calc(50% - 0.5rem); background: blue;"></div>
+				<div class="resizeCoverH"></div>
 				
 				{% endif %}
 				
@@ -829,7 +829,7 @@
 					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
 					{% endif %}
 				</div>
-				<div style="position: absolute; width: 1rem; height: 1rem; left: 0px; bottom: calc(50% - 0.5rem); background: blue;"></div>
+				<div class="resizeCoverHR"></div>
 				
 				{% endif %}
 				
