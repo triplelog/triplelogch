@@ -87,8 +87,8 @@ body {
 	max-width: calc(100% - 0.5 * var(--block));
 }
 .hresize > .zoneCell {
-	width: calc(100% - 1.0 * var(--block));
-	max-width: calc(100% - 1.0 * var(--block));
+	width: calc(100% - 1.0 * var(--block) - 6px);
+	max-width: calc(100% - 1.0 * var(--block) - 6px);
 	left: calc(0.25 * var(--block));
 }
 .hresize.rtl > .topBottom, .hresize.rtl > .leftRight, .hresize.rtl > .cellHolder {
@@ -389,8 +389,8 @@ body {
 	display: inline-block;
 }
 .zoneCell {
-	width: calc(100% - 0.5 * var(--block));
-	height: calc(100% - 0.5 * var(--block));
+	width: calc(100% - 0.5 * var(--block) - 6px);
+	height: calc(100% - 0.5 * var(--block) - 6px);
 	left:calc(0.25 * var(--block));
 	top:calc(0.25 * var(--block));
 	position: absolute;
