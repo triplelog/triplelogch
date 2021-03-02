@@ -698,6 +698,10 @@ input {
 	display: flex;
 	flex-wrap: wrap;
 }
+.horizontalGrow > div.savedWidth::before {
+	content: "7";
+	user-select: all;
+}
 .horizontalGrow > div.savedWidthRotate {
 	position: fixed;
 	width: inherit;
@@ -762,22 +766,8 @@ input {
 							{{ hGrow8by8(0) }}
 							<div class="savedWidth">
 								<div style="pointer-events: all;">A</div>
-								<div style="pointer-events: none;"></div>
-								<div style="pointer-events: none;"></div>
 								<div style="pointer-events: all;">B</div>
-								<div style="pointer-events: none;"></div>
-								<div style="pointer-events: none;"></div>
 								<div style="pointer-events: all;">C</div>
-							</div>
-							<div class="savedWidth">
-								<div style="pointer-events: none;"></div>
-								<div style="pointer-events: all;">D</div>
-								<div style="pointer-events: none;"></div>
-								<div style="pointer-events: none;"></div>
-								<div style="pointer-events: all;">E</div>
-								<div style="pointer-events: none;"></div>
-								<div style="pointer-events: none;"></div>
-								<div style="pointer-events: all;">F</div>
 							</div>
 						</div>
 						<div class="resizeCoverH"></div>
@@ -816,17 +806,6 @@ input {
 					<div class="hresize grow8">
 						<div class="horizontalGrow grow8">
 							{{ hGrow8by8(4) }}
-							<div class="savedWidthRotate">
-								<div style="pointer-events: none;"></div>
-								<div style="pointer-events: none;"></div>
-								<div style="pointer-events: all;">G</div>
-								<div style="pointer-events: none;"></div>
-								<div style="pointer-events: none;"></div>
-								<div style="pointer-events: all;">H</div>
-								<div style="pointer-events: none;"></div>
-								<div style="pointer-events: none;"></div>
-								<div style="pointer-events: all;">I</div>
-							</div>
 						</div>
 						<div class="resizeCoverH"></div>
 				
