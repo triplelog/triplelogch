@@ -37,7 +37,7 @@
 	position: absolute;
 	left: 50%;
 	width: var(--wr);
-	bottom: calc(var(--wr) * 0.258819 / 2);
+	bottom: calc(var(--wr) * 0.267949 / 2); /*tan(15deg)/2*/
 	display: inline-block;
 }
 .leftWall {
@@ -56,9 +56,9 @@
 	border: 0px solid black;
 	background: blue;
 	position: absolute;
-	left: calc( 50% - var(--wl) / 1.7);
-	bottom: calc(var(--h) + var(--wr) * 0.258819 / 2);
+	left: calc( 50% - var(--wl) / 2.0);
 	height: calc( 1.4142 * var(--wl));
+	bottom: calc(var(--h) + var(--wr) * 0.267949 / 2);
 	width: calc( var(--wr));
 	display: inline-block;
 }
