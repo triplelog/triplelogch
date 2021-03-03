@@ -46,17 +46,17 @@
 	position: absolute;
 	right: 50%;
 	width: var(--wl);
-	bottom: calc(var(--wl) * 0.7071);
+	bottom: calc(var(--wl) * 0.7071 / 2);
 	display: inline-block;
 }
 .roof {
-	transform: rotate(60deg) skew(-15deg, -15deg);
+	transform: rotate(60deg) skew(-15deg, -15deg) rotate(90deg);
 	border: 1px solid black;
-	height: 30%;
 	position: absolute;
-	left: 50%;
+	left: calc( 50% - var(--wl) / 1.4142);
 	bottom: calc(var(--h) + var(--wr) * 0.258819 / 2);
-	width: calc( 1.4142 * var(--wl));
+	height: calc( 1.4142 * var(--wl));
+	width: calc( var(--wr));
 	display: inline-block;
 }
 </style>
