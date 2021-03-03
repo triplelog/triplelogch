@@ -23,7 +23,8 @@ body {
 	position: absolute;
 	left: calc(50% - 10rem);
 	top: calc(50% - 5rem);
-	width: 20rem;
+	width: calc(100% - 80rem);
+	max-width:20%;
 	height: 10rem;
 	display: inline-block;
 }
@@ -109,12 +110,12 @@ body {
 
 .topLeft {
 	position: absolute;
-	left: 1rem;
-	top: 1rem;
-	width: calc(50% - 1.5rem);
-	max-width: 50rem;
-	height: calc(50% - 1.5rem);
-	max-height: 50rem;
+	left: 0rem;
+	top: 0rem;
+	width: 40%;
+	max-width: 40rem;
+	height: 50%;
+	max-height: 30rem;
 	display: inline-block;
 	--wl: 1rem;
 	--wr: 20rem;
@@ -123,12 +124,12 @@ body {
 
 .bottomLeft {
 	position: absolute;
-	left: 1rem;
-	bottom: 1rem;
-	width: calc(50% - 1.5rem);
-	max-width: 50rem;
-	height: calc(50% - 1.5rem);
-	max-height: 50rem;
+	left: 0rem;
+	bottom: 0rem;
+	width: 40%;
+	max-width: 40rem;
+	height: 50%;
+	max-height: 30rem;
 	display: inline-block;
 	--wl: 1rem;
 	--wr: 20rem;
@@ -138,10 +139,10 @@ body {
 	position: absolute;
 	right: 1rem;
 	top: 1rem;
-	width: calc(50% - 1.5rem);
-	max-width: 50rem;
-	height: calc(50% - 1.5rem);
-	max-height: 50rem;
+	width: 40%;
+	max-width: 40rem;
+	height: 50%;
+	max-height: 30rem;
 	display: inline-block;
 	--wl: 20rem;
 	--wr: 1rem;
@@ -151,10 +152,10 @@ body {
 	position: absolute;
 	right: 1rem;
 	bottom: 1rem;
-	width: calc(50% - 1.5rem);
-	max-width: 50rem;
-	height: calc(50% - 1.5rem);
-	max-height: 50rem;
+	width: 40%;
+	max-width: 40rem;
+	height: 50%;
+	max-height: 30rem;
 	display: inline-block;
 	--wl: 20rem;
 	--wr: 1rem;
@@ -168,7 +169,7 @@ body {
 	left: 10%;
 	height: calc( 1.0 * var(--wl));
 	bottom: calc( 0.0 * var(--wl));
-	width: calc( var(--wr) + 1rem);
+	width: calc( var(--wr) + 2rem);
 	display: inline-block;
 }
 .rightWall {
