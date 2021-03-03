@@ -75,7 +75,7 @@
 	background: white;
 	height: var(--h);
 	position: absolute;
-	left: 20%;
+	left: calc( 10% + var(--wl) / 2.0);
 	width: var(--wr);
 	bottom: calc(var(--wr) * 0.176327 / 2); /*tan(15deg)/2*/
 	display: inline-block;
@@ -86,7 +86,7 @@
 	background: #333;
 	height: var(--h);
 	position: absolute;
-	right: 80%;
+	right: calc( 90% - var(--wl) / 2.0);
 	width: var(--wl);
 	bottom: calc(var(--wl) * 1.0 / 2);
 	display: inline-block;
@@ -97,7 +97,7 @@
 	border-top: 1px solid #666;
 	background: white;
 	position: absolute;
-	left: calc( 20% - var(--wl) / 2.0);
+	left: calc( var(--wl) / 2.0);
 	height: calc( 1.0 * var(--wl));
 	bottom: calc(var(--h) + var(--wr) * 0.176327 / 2);
 	width: calc( var(--wr));
