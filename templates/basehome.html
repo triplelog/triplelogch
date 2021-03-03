@@ -50,17 +50,23 @@ body {
 	--h: 3rem;
 }
 
-.leftPost .base {
+.base {
 	transform: skew(45deg, -10deg);
-	background: white;
+	background: transparent;
 	position: absolute;
-	left: calc(10% - 0.25 * var(--block));
+	left: calc(10% - 0.15 * var(--block));
 	height: calc(0.5 * var(--block));
-	bottom: calc(- 0.25 * var(--block));
+	bottom: calc(-0.2 * var(--block));
 	width: calc(0.5 * var(--block));
 	display: inline-block;
 }
-.leftPost .base svg {
+.rtl .base {
+	transform: skew(-45deg, 10deg);
+	right: calc(10% - 0.15 * var(--block));
+	left: unset;
+	display: inline-block;
+}
+.base svg {
 	height: 100%;
 	width: 100%;
 }
@@ -93,6 +99,7 @@ body {
 	--wr: 1rem;
 	--h: 3rem;
 }
+
 .rightSign .roof {
 	border-left: 0px solid black;
 }
@@ -289,7 +296,7 @@ body {
 	<div class="leftPost">
 		<div class="base">
 			<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-				<circle cx="50" cy="50" r="50" />
+				<circle cx="50" cy="50" r="50" fill="blue" />
 			</svg>
 		</div>
 		<div class="leftWall">
@@ -312,6 +319,11 @@ body {
 		</div>
 	</div>
 	<div class="rightPost rtl">
+		<div class="base">
+			<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<circle cx="50" cy="50" r="50" fill="blue" />
+			</svg>
+		</div>
 		<div class="leftWall">
 			
 		</div>
