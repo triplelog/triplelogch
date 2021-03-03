@@ -32,7 +32,7 @@
 	height: 80%;
 	position: absolute;
 	left: 50%;
-	top: 10%;
+	bottom: 0%;
 	width: 40%;
 	display: inline-block;
 }
@@ -42,12 +42,13 @@
 	height: 80%;
 	position: absolute;
 	right: 50%;
-	top: 10%;
-	width: 1rem;
+	--w: 1rem;
+	width: var(--w);
+	bottom: calc(var(--w) * 0.866);
 	display: inline-block;
 }
 .roof {
-	transform: rotate(60deg) skew(-15deg, -15deg);
+	transform: rotate(60deg) skew(-15deg, 0deg);
 	border: 1px solid black;
 	height: 30%;
 	position: absolute;
