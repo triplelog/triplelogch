@@ -31,7 +31,8 @@
 }
 .rightWall {
 	transform: rotate(0deg) skew(0deg, -15deg);
-	border: 1px solid black;
+	border: 0px solid black;
+	background: green;
 	height: var(--h);
 	position: absolute;
 	left: 50%;
@@ -41,7 +42,8 @@
 }
 .leftWall {
 	transform: rotate(0deg) skew(0deg, 45deg);
-	border: 1px solid black;
+	border: 0px solid black;
+	background: red;
 	height: var(--h);
 	position: absolute;
 	right: 50%;
@@ -51,7 +53,8 @@
 }
 .roof {
 	transform: rotate(60deg) skew(-15deg, -15deg) rotate(90deg);
-	border: 1px solid black;
+	border: 0px solid black;
+	background: blue;
 	position: absolute;
 	left: calc( 50% - var(--wl) / 1.7);
 	bottom: calc(var(--h) + var(--wr) * 0.258819 / 2);
