@@ -41,13 +41,16 @@
 .leftSign {
 	position: absolute;
 	left: 0rem;
-	bottom: 20rem;
+	bottom: 17rem;
 	width: calc(50%);
 	height: calc(100%);
 	display: inline-block;
 	--wl: 1rem;
 	--wr: 5rem;
 	--h: 3rem;
+}
+.leftSign .roof {
+	border-right: 0px solid black;
 }
 .rightPost {
 	position: absolute;
@@ -59,6 +62,20 @@
 	--wl: 1rem;
 	--wr: 1rem;
 	--h: 20rem;
+}
+.rightSign {
+	position: absolute;
+	right: 0rem;
+	bottom: 17rem;
+	width: calc(50%);
+	height: calc(100%);
+	display: inline-block;
+	--wl: 5rem;
+	--wr: 1rem;
+	--h: 3rem;
+}
+.rightSign .roof {
+	border-left: 0px solid black;
 }
 
 .topLeft {
@@ -266,12 +283,20 @@
 		<div class="roof">
 			
 		</div>
-		<div class="leftSign">
-		</div>
 	</div>
 	<div class="rightPost rtl">
 		<div class="leftWall">
 			
+		</div>
+		<div class="rightWall">
+		
+		</div>
+		<div class="roof">
+			
+		</div>
+	</div>
+	<div class="rightSign rtl">
+		<div class="leftWall">
 		</div>
 		<div class="rightWall">
 		
