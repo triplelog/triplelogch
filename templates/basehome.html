@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+    {% block meta %}
+    <meta name="description" content=".">    <title>CSS City</title>  
+    <link rel="icon" type="image/png" href="../chfaviconcrop.png">
+    {% endblock %}
+    
+
+
+{% block stylesheets %}
+{% endblock %}
+
+
+<style>
+.topLeft {
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
+	width: calc(50% - 1.5rem);
+	max-width: 50rem;
+	height: calc(50% - 1.5rem);
+	max-height: 50rem;
+}
+.rightWall {
+	transform: rotate(45deg) skew(-15deg, -15deg);
+	border: 1px solid black;
+	height: 80%;
+	position: absolute;
+	left: 50%;
+	top: 90%;
+	width: 40%;
+}
+</style>
+</head>
+<body>
+<div class="topLeft">
+	<div class="leftWall">
+	</div>
+	<div class="rightWall">
+	</div>
+	<div class="roof">
+	</div>
+</div>
+</body>
+</html>

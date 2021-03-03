@@ -354,6 +354,14 @@ app.get('/emap.html',
 		res.end();
 	}
 );
+app.get('/home.html', 
+	function(req, res) {
+		res.write(nunjucks.render('templates/basehome.html',{
+		
+		}));
+		res.end();
+	}
+);
 
 function makePuzzle(puzzleRaw) {
 	var puzzle = [];
