@@ -56,13 +56,26 @@
 	--wr: 1rem;
 	--h: 10rem;
 }
+.bottomRight {
+	position: absolute;
+	right: 1rem;
+	bottom: 1rem;
+	width: calc(50% - 1.5rem);
+	max-width: 50rem;
+	height: calc(50% - 1.5rem);
+	max-height: 50rem;
+	display: inline-block;
+	--wl: 10rem;
+	--wr: 1rem;
+	--h: 10rem;
+}
 .rightWall {
 	transform: skew(0deg, -10deg);
 	border: 1px solid black;
 	background: white;
 	height: var(--h);
 	position: absolute;
-	left: 50%;
+	left: 20%;
 	width: var(--wr);
 	bottom: calc(var(--wr) * 0.176327 / 2); /*tan(15deg)/2*/
 	display: inline-block;
@@ -73,7 +86,7 @@
 	background: #333;
 	height: var(--h);
 	position: absolute;
-	right: 50%;
+	right: 80%;
 	width: var(--wl);
 	bottom: calc(var(--wl) * 1.0 / 2);
 	display: inline-block;
@@ -84,38 +97,38 @@
 	border-top: 1px solid #666;
 	background: white;
 	position: absolute;
-	left: calc( 50% - var(--wl) / 2.0);
+	left: calc( 20% - var(--wl) / 2.0);
 	height: calc( 1.0 * var(--wl));
 	bottom: calc(var(--h) + var(--wr) * 0.176327 / 2);
 	width: calc( var(--wr));
 	display: inline-block;
 }
 
-.topRight .rightWall {
+.rtl .rightWall {
 	transform: skew(0deg, -45deg);
 	border: 1px solid black;
 	background: #333;
 	height: var(--h);
 	position: absolute;
-	left: 50%;
+	left: 80%;
 	width: var(--wr);
 	bottom: calc(var(--wr) * 1.0 / 2); /*tan(15deg)/2*/
 	display: inline-block;
 }
-.topRight .leftWall {
+.rtl .leftWall {
 	transform: skew(0deg, 10deg);
 	border: 1px solid black;
 	background: white;
 	height: var(--h);
 	position: absolute;
-	right: 50%;
+	right: 20%;
 	width: var(--wl);
 	bottom: calc(var(--wl) * 0.176327 / 2);
 	display: inline-block;
 }
-.topRight .roof {
+.rtl .roof {
 	transform: skew(-45deg, 10deg);
-	right: calc( 50% - var(--wr) / 2.0);
+	right: calc( 20% - var(--wr) / 2.0);
 	left: unset;
 	height: calc( 1.0 * var(--wr));
 	bottom: calc(var(--h) + var(--wl) * 0.176327 / 2);
@@ -135,7 +148,7 @@
 	left: 0.5rem;
 	position: absolute;
 }
-.topRight .roofText {
+.rtl .roofText {
 	transform: skew(45deg, 0deg);
 	top:-1rem;
 	text-shadow: 0.8px -0.8px #CCC, 1.6px -1.6px #CCC, 2.4px -2.4px #ccc, 3.2px -3.2px #ccc, 4px -4px #ccc;
@@ -165,7 +178,7 @@
 		<div class="roofText"><center>Header</center></div>
 	</div>
 </div>
-<div class="topRight">
+<div class="topRight rtl">
 	<div class="leftWall">
 		This is a test
 	</div>
@@ -174,6 +187,17 @@
 	</div>
 	<div class="roof">
 		<div class="roofText"><center>Headering</center></div>
+	</div>
+</div>
+<div class="bottomRight rtl">
+	<div class="leftWall">
+		This is a test
+	</div>
+	<div class="rightWall">
+		
+	</div>
+	<div class="roof">
+		<div class="roofText"><center>Header 4</center></div>
 	</div>
 </div>
 </body>
