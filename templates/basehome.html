@@ -32,8 +32,9 @@
 	height: 80%;
 	position: absolute;
 	left: 50%;
-	bottom: 0%;
-	width: 40%;
+	--w: 10rem;
+	width: var(--w);
+	bottom: calc(var(--w) * 0.866);
 	display: inline-block;
 }
 .leftWall {
