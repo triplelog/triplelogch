@@ -24,15 +24,27 @@
 	max-width: 50rem;
 	height: calc(50% - 1.5rem);
 	max-height: 50rem;
+	display: inline-block;
 }
 .rightWall {
-	transform: rotate(45deg) skew(-15deg, -15deg);
+	transform: rotate(0deg) skew(0deg, -15deg);
 	border: 1px solid black;
 	height: 80%;
 	position: absolute;
 	left: 50%;
 	top: 90%;
 	width: 40%;
+	display: inline-block;
+}
+.leftWall {
+	transform: rotate(0deg) skew(0deg, 75deg);
+	border: 1px solid black;
+	height: 80%;
+	position: absolute;
+	right: 50%;
+	top: 90%;
+	width: 1rem;
+	display: inline-block;
 }
 </style>
 </head>
