@@ -56,7 +56,7 @@ body {
 	transform: skew(45deg, -10deg);
 	background: transparent;
 	position: absolute;
-	left: calc(10% - 0.1 * var(--block));
+	left: calc(10% - 0.2 * var(--block));
 	height: calc(0.5 * var(--block));
 	bottom: calc(0rem + -0.2 * var(--block));
 	width: calc(0.5 * var(--block));
@@ -64,7 +64,7 @@ body {
 }
 .rtl .base {
 	transform: skew(-45deg, 10deg);
-	right: calc(10% - 0.1 * var(--block));
+	right: calc(10% - 0.2 * var(--block));
 	left: unset;
 	display: inline-block;
 }
@@ -165,7 +165,7 @@ body {
 	position: absolute;
 	left: 10%;
 	height: calc( 1.0 * var(--wl));
-	bottom: calc( 0.0 * var(--wl));
+	bottom: calc( 0.0 * var(--wl) + 2rem);
 	width: calc( var(--wr) + 5rem);
 	display: inline-block;
 }
@@ -177,7 +177,7 @@ body {
 	position: absolute;
 	left: calc( 10% + var(--wl) / 2.0);
 	width: var(--wr);
-	bottom: calc(var(--wr) * 0.176327 / 2); /*tan(15deg)/2*/
+	bottom: calc(var(--wr) * 0.176327 / 2 + 2rem); /*tan(15deg)/2*/
 	display: inline-block;
 }
 .leftWall {
@@ -188,7 +188,7 @@ body {
 	position: absolute;
 	right: calc( 90% - var(--wl) / 2.0);
 	width: var(--wl);
-	bottom: calc(var(--wl) * 1.0 / 2);
+	bottom: calc(var(--wl) * 1.0 / 2 + 2rem);
 	display: inline-block;
 }
 .roof {
@@ -199,7 +199,7 @@ body {
 	position: absolute;
 	left: 10%;
 	height: calc( 1.0 * var(--wl));
-	bottom: calc(var(--h) + var(--wr) * 0.176327 / 2);
+	bottom: calc(var(--h) + var(--wr) * 0.176327 / 2 + 2rem);
 	width: calc( var(--wr));
 	display: inline-block;
 }
@@ -212,7 +212,7 @@ body {
 	position: absolute;
 	left: calc( 90% - var(--wr) / 2.0);
 	width: var(--wr);
-	bottom: calc(var(--wr) * 1.0 / 2); /*tan(15deg)/2*/
+	bottom: calc(var(--wr) * 1.0 / 2 + 2rem); /*tan(15deg)/2*/
 	display: inline-block;
 }
 .rtl .leftWall {
@@ -223,7 +223,7 @@ body {
 	position: absolute;
 	right: calc( 10% + var(--wr) / 2.0);
 	width: var(--wl);
-	bottom: calc(var(--wl) * 0.176327 / 2);
+	bottom: calc(var(--wl) * 0.176327 / 2 + 2rem);
 	display: inline-block;
 }
 .rtl .roof {
@@ -231,7 +231,7 @@ body {
 	right: 10%;
 	left: unset;
 	height: calc( 1.0 * var(--wr));
-	bottom: calc(var(--h) + var(--wl) * 0.176327 / 2);
+	bottom: calc(var(--h) + var(--wl) * 0.176327 / 2 + 2rem);
 	width: calc( var(--wl));
 	display: inline-block;
 }
@@ -243,7 +243,7 @@ body {
 	right: 10%;
 	left: unset;
 	height: calc( 1.0 * var(--wr));
-	bottom: calc( 0.0 * var(--wr));
+	bottom: calc( 0.0 * var(--wr) + 2rem);
 	width: calc( var(--wl) + 5rem);
 	display: inline-block;
 }
