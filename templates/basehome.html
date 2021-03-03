@@ -52,12 +52,11 @@ body {
 
 .leftPost .base {
 	transform: skew(45deg, -10deg);
-	border: 1px solid black;
 	background: white;
 	position: absolute;
-	left: -10%;
+	left: calc(10% - 0.25 * var(--block));
 	height: calc(0.5 * var(--block));
-	bottom: -10%;
+	bottom: calc(- 0.25 * var(--block));
 	width: calc(0.5 * var(--block));
 	display: inline-block;
 }
