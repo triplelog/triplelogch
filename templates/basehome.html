@@ -160,6 +160,17 @@ body {
 	--wr: 1rem;
 	--h: 10rem;
 }
+.road {
+	transform: skew(45deg, -10deg);
+	border: 0px solid black;
+	background: gray;
+	position: absolute;
+	left: 10%;
+	height: calc( 1.0 * var(--wl));
+	bottom: calc( -1.0 * var(--wl));
+	width: calc( var(--wr));
+	display: inline-block;
+}
 .rightWall {
 	transform: skew(0deg, -10deg);
 	border: 1px solid black;
@@ -257,6 +268,8 @@ body {
 	</div>
 	<div class="roof">
 		<div class="roofText"><center>Headering</center></div>
+	</div>
+	<div class="road">
 	</div>
 </div>
 <div class="bottomLeft">
