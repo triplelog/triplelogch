@@ -93,7 +93,7 @@
 .topRight .rightWall {
 	transform: skew(0deg, -45deg);
 	border: 1px solid black;
-	background: white;
+	background: #333;
 	height: var(--h);
 	position: absolute;
 	left: 50%;
@@ -104,7 +104,7 @@
 .topRight .leftWall {
 	transform: skew(0deg, 10deg);
 	border: 1px solid black;
-	background: #333;
+	background: white;
 	height: var(--h);
 	position: absolute;
 	right: 50%;
@@ -117,10 +117,10 @@
 	border: 1px solid black;
 	background: #CCC;
 	position: absolute;
-	left: calc( 50% - 0.176327 * var(--wl) / 2.0);
-	height: calc( 0.176327 * var(--wl));
-	bottom: calc(var(--h) + var(--wr) * 1.0 / 2);
-	width: calc( var(--wr));
+	left: calc( 50% - 0.176327 * var(--wr) / 2.0);
+	height: calc( 0.176327 * var(--wr));
+	bottom: calc(var(--h) + var(--wl) * 1.0 / 2);
+	width: calc( var(--wl));
 	display: inline-block;
 }
 </style>
@@ -148,9 +148,10 @@
 </div>
 <div class="topRight">
 	<div class="leftWall">
+		This is a test
 	</div>
 	<div class="rightWall">
-		This is a test
+		
 	</div>
 	<div class="roof">
 		<center>Header</center>
