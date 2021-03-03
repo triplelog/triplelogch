@@ -30,7 +30,7 @@
 	--h: 10rem;
 }
 .rightWall {
-	transform: rotate(0deg) skew(0deg, -15deg);
+	transform: skew(0deg, -15deg);
 	border: 0px solid black;
 	background: green;
 	height: var(--h);
@@ -41,7 +41,7 @@
 	display: inline-block;
 }
 .leftWall {
-	transform: rotate(0deg) skew(0deg, 45deg);
+	transform: skew(0deg, 45deg);
 	border: 0px solid black;
 	background: red;
 	height: var(--h);
@@ -52,12 +52,12 @@
 	display: inline-block;
 }
 .roof {
-	transform: rotate(60deg) skew(-15deg, -15deg) rotate(90deg);
+	transform: skew(45deg, -15deg);
 	border: 0px solid black;
 	background: blue;
 	position: absolute;
 	left: calc( 50% - var(--wl) / 2.0);
-	height: calc( 1.4142 * var(--wl));
+	height: calc( 1.0 * var(--wl));
 	bottom: calc(var(--h) + var(--wr) * 0.267949 / 2);
 	width: calc( var(--wr));
 	display: inline-block;
