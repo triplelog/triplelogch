@@ -29,39 +29,6 @@
 	--wr: 10rem;
 	--h: 10rem;
 }
-.rightWall {
-	transform: skew(0deg, -15deg);
-	border: 1px solid black;
-	background: white;
-	height: var(--h);
-	position: absolute;
-	left: 50%;
-	width: var(--wr);
-	bottom: calc(var(--wr) * 0.267949 / 2); /*tan(15deg)/2*/
-	display: inline-block;
-}
-.leftWall {
-	transform: skew(0deg, 45deg);
-	border: 1px solid black;
-	background: #333;
-	height: var(--h);
-	position: absolute;
-	right: 50%;
-	width: var(--wl);
-	bottom: calc(var(--wl) * 1.0 / 2);
-	display: inline-block;
-}
-.roof {
-	transform: skew(45deg, -15deg);
-	border: 1px solid black;
-	background: #CCC;
-	position: absolute;
-	left: calc( 50% - var(--wl) / 2.0);
-	height: calc( 1.0 * var(--wl));
-	bottom: calc(var(--h) + var(--wr) * 0.267949 / 2);
-	width: calc( var(--wr));
-	display: inline-block;
-}
 
 .bottomLeft {
 	position: absolute;
@@ -76,7 +43,20 @@
 	--wr: 10rem;
 	--h: 10rem;
 }
-.rightWall2 {
+.topRight {
+	position: absolute;
+	right: 1rem;
+	top: 1rem;
+	width: calc(50% - 1.5rem);
+	max-width: 50rem;
+	height: calc(50% - 1.5rem);
+	max-height: 50rem;
+	display: inline-block;
+	--wl: 1rem;
+	--wr: 10rem;
+	--h: 10rem;
+}
+.rightWall {
 	transform: skew(0deg, -10deg);
 	border: 1px solid black;
 	background: white;
@@ -87,7 +67,7 @@
 	bottom: calc(var(--wr) * 0.176327 / 2); /*tan(15deg)/2*/
 	display: inline-block;
 }
-.leftWall2 {
+.leftWall {
 	transform: skew(0deg, 45deg);
 	border: 1px solid black;
 	background: #333;
@@ -98,8 +78,41 @@
 	bottom: calc(var(--wl) * 1.0 / 2);
 	display: inline-block;
 }
-.roof2 {
+.roof {
 	transform: skew(45deg, -10deg);
+	border: 1px solid black;
+	background: #CCC;
+	position: absolute;
+	left: calc( 50% - var(--wl) / 2.0);
+	height: calc( 1.0 * var(--wl));
+	bottom: calc(var(--h) + var(--wr) * 0.176327 / 2);
+	width: calc( var(--wr));
+	display: inline-block;
+}
+.topRight .rightWall {
+	transform: skew(0deg, -45deg);
+	border: 1px solid black;
+	background: white;
+	height: var(--h);
+	position: absolute;
+	left: 50%;
+	width: var(--wr);
+	bottom: calc(var(--wr) * 0.176327 / 2); /*tan(15deg)/2*/
+	display: inline-block;
+}
+.topRight .leftWall {
+	transform: skew(0deg, 10deg);
+	border: 1px solid black;
+	background: #333;
+	height: var(--h);
+	position: absolute;
+	right: 50%;
+	width: var(--wl);
+	bottom: calc(var(--wl) * 1.0 / 2);
+	display: inline-block;
+}
+.topRight .roof {
+	transform: skew(-45deg, 10deg);
 	border: 1px solid black;
 	background: #CCC;
 	position: absolute;
@@ -123,12 +136,22 @@
 	</div>
 </div>
 <div class="bottomLeft">
-	<div class="leftWall2">
+	<div class="leftWall">
 	</div>
-	<div class="rightWall2">
+	<div class="rightWall">
 		This is a test
 	</div>
-	<div class="roof2">
+	<div class="roof">
+		<center>Header</center>
+	</div>
+</div>
+<div class="topRight">
+	<div class="leftWall">
+	</div>
+	<div class="rightWall">
+		This is a test
+	</div>
+	<div class="roof">
 		<center>Header</center>
 	</div>
 </div>
