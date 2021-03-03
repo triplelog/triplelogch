@@ -25,27 +25,28 @@
 	height: calc(50% - 1.5rem);
 	max-height: 50rem;
 	display: inline-block;
+	--wl: 1rem;
+	--wr: 10rem;
+	--h: 10rem;
 }
 .rightWall {
 	transform: rotate(0deg) skew(0deg, -15deg);
 	border: 1px solid black;
-	height: 80%;
+	height: var(--h);
 	position: absolute;
 	left: 50%;
-	--w: 10rem;
-	width: var(--w);
-	bottom: calc(var(--w) * 0.866);
+	width: var(--wr);
+	bottom: calc(var(--wr) * 0.258819 / 2);
 	display: inline-block;
 }
 .leftWall {
 	transform: rotate(0deg) skew(0deg, 60deg);
 	border: 1px solid black;
-	height: 80%;
+	height: var(--h);
 	position: absolute;
 	right: 50%;
-	--w: 1rem;
-	width: var(--w);
-	bottom: calc(var(--w) * 0.866);
+	width: var(--wl);
+	bottom: calc(var(--wl) * 0.866);
 	display: inline-block;
 }
 .roof {
