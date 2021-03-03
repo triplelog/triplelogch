@@ -40,7 +40,7 @@
 	display: inline-block;
 }
 .leftWall {
-	transform: rotate(0deg) skew(0deg, 60deg);
+	transform: rotate(0deg) skew(0deg, 45deg);
 	border: 1px solid black;
 	height: var(--h);
 	position: absolute;
@@ -50,13 +50,13 @@
 	display: inline-block;
 }
 .roof {
-	transform: rotate(60deg) skew(-15deg, 0deg);
+	transform: rotate(45deg) skew(-15deg, 0deg);
 	border: 1px solid black;
 	height: 30%;
 	position: absolute;
 	left: 50%;
-	bottom: 90%;
-	width: 2rem;
+	bottom: var(--h);
+	width: calc( 2 * var(--wl));
 	display: inline-block;
 }
 </style>
