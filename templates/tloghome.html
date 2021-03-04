@@ -274,9 +274,9 @@ body {
 	background: white;
 	height: var(--h);
 	position: absolute;
-	left: calc( var(--wr) + 10% + var(--wl) / 2.0);
+	left: calc( -1*var(--wl) + 10% + var(--wl) / 2.0);
 	width: var(--wr);
-	bottom: calc(var(--h)  + var(--wr) * 0.176327 / 2 + 2rem);
+	bottom: calc(var(--wl)  + var(--wr) * 0.176327 / 2 + 2rem);
 	display: inline-block;
 }
 .under .leftWall {
@@ -285,11 +285,9 @@ body {
 	background: #333;
 	height: var(--h);
 	position: absolute;
-	left: calc( 90% - var(--wl) / 2.0);
-	right: unset;
+	right: calc( -1*var(--wr)  + 90% - var(--wl) / 2.0);
 	width: var(--wl);
-	top: calc(100% - var(--wl) * 1.0 / 2 + 2rem);
-	bottom: unset;
+	bottom: calc(var(--wl) * 1.0 / 2 + 2rem);
 	display: inline-block;
 }
 .under .roof {
