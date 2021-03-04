@@ -287,7 +287,7 @@ body {
 	position: absolute;
 	right: calc( -1*var(--wr)  + 75% - var(--wl) / 2.0);
 	width: var(--wl);
-	bottom: calc(3rem + var(--wl) * 1.0 / 2 + 2rem);
+	bottom: calc(var(--wr) * 0.176327 + var(--wl) * 1.0 / 2 + 2rem);
 	display: inline-block;
 }
 .under .roof {
@@ -303,9 +303,9 @@ body {
 	display: inline-block;
 }
 .under .roofText {
-	transform: skew(45deg, 0deg);
-	top:-1rem;
-	text-shadow: 0.8px -0.8px #CCC, 1.6px -1.6px #CCC, 2.4px -2.4px #ccc, 3.2px -3.2px #ccc, 4px -4px #ccc;
+	transform: skew(0deg, 0deg);
+	top:0rem;
+	text-shadow: -0.8px -0.8px #CCC, -1.6px -1.6px #CCC, -2.4px -2.4px #ccc, -3.2px -3.2px #ccc, -4px -4px #ccc;
 	right: 0.5rem;
 	left: unset;
 }
