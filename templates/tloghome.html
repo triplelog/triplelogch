@@ -270,7 +270,8 @@ body {
 
 .under .leftUnder {
 	transform: skew(0deg, -10deg);
-	border: 1px solid black;
+	border: 0px solid black;
+	border-bottom: 1px solid black;
 	background: white;
 	height: var(--h);
 	position: absolute;
@@ -281,7 +282,7 @@ body {
 }
 .under .rightUnder {
 	transform: skew(0deg, 45deg);
-	border: 1px solid black;
+	border: 0px solid black;
 	background: #333;
 	height: var(--h);
 	position: absolute;
@@ -312,8 +313,7 @@ body {
 	bottom: calc(var(--h) + var(--wr) * 0.176327 / 2 + 2rem);
 	width: calc( var(--wr));
 	display: inline-block;
-	padding-top: 2rem;
-	padding-left: 2rem;
+	
 }
 .under .roofText {
 	transform: skew(0deg, 0deg);
@@ -321,6 +321,8 @@ body {
 	text-shadow: -0.8px -0.8px #CCC, -1.6px -1.6px #CCC, -2.4px -2.4px #ccc, -3.2px -3.2px #ccc, -4px -4px #ccc;
 	right: 0.5rem;
 	left: unset;
+	padding-top: 2rem;
+	padding-left: 2rem;
 }
 </style>
 </head>
