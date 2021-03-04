@@ -559,7 +559,12 @@ body {
 	<div class="rightPost rtl">
 		<div class="base">
 			<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-				<circle cx="50" cy="50" r="50" fill="blue" />
+				<defs>
+				  <pattern id="img1" patternUnits="userSpaceOnUse" width="100" height="100">
+					<image href="img/grass.jpg" x="0" y="0" width="100" height="100" />
+				  </pattern>
+				</defs>
+				<circle cx="50" cy="50" r="50" fill="url(#img1)" />
 			</svg>
 		</div>
 		<div class="leftWall">
