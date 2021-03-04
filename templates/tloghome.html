@@ -431,7 +431,7 @@ body {
 
 	transform: skew(15deg, 15deg) rotate(-45deg) skew(0deg,-30deg);
 }
-.rotating img {
+.windmill:hover .rotating img {
 
 	animation-name: rotateBlades;
 	animation-duration: 1.5s;
@@ -575,12 +575,12 @@ body {
 <div class="center">
 	<img src='svg/exink1.svg#pond' style="width: 10rem; position: absolute; left: 60%; bottom: 8%;">
 	<img src='svg/exink1.svg#billboard' style="width: 6rem; position: absolute; right: 52%; bottom: 0%;">
-	<div style="position: absolute; left: -10%; top: -5%; width: calc(1 * var(--block)); height: calc(1 * var(--block)); transform: rotate(45deg) skew(-15deg, -15deg) ;">
-		<div style="position: absolute; left: calc(0 * var(--block)); bottom: calc(0 * var(--block)); width: calc(1 * var(--block)); height: calc(1 * var(--block)); transform: skew(15deg, 15deg) rotate(-45deg);">
+	<div class="windmill" style="position: absolute; left: -10%; top: -10%; width: calc(0.8 * var(--block)); height: calc(0.8 * var(--block)); transform: rotate(45deg) skew(-15deg, -15deg) ;">
+		<div style="position: absolute; left: calc(0 * var(--block)); bottom: calc(0 * var(--block)); width: calc(0.8 * var(--block)); height: calc(0.8 * var(--block)); transform: skew(15deg, 15deg) rotate(-45deg);">
 
 			<img src='svg/powink1.svg#pole' style="height: 100%; width: 100%;">
 		</div>
-		<div class="rotating" style="position: absolute; left: calc(-0.3 * var(--block)); bottom: calc(0.4 * var(--block)); width: calc(1 * var(--block)); height: calc(1 * var(--block)); ">
+		<div class="rotating" style="position: absolute; left: calc(-0.24 * var(--block)); bottom: calc(0.32 * var(--block)); width: calc(0.8 * var(--block)); height: calc(0.8 * var(--block)); ">
 
 			<img src='svg/powink1.svg#blades2' style="height: 100%; width: 100%;">
 		</div>
