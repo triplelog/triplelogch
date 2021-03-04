@@ -279,12 +279,14 @@ body {
 }
 .bottomRight .roof {
 	transform: skew(-18deg, 10deg);
-	right: calc( 10% + var(--wr) / 4.0);
+	right: calc( 20% + var(--wr) / 4.0);
 	left: unset;
 	height: calc( 1.6 * var(--wr));
 	bottom: calc(var(--h) + var(--wl) * 0.176327 / 2 + 2rem);
 	width: calc( var(--wl) + 0.0rem);
 	display: inline-block;
+	background: #7C0A02;
+	color: white;
 }
 .bottomRight .roof .roofText {
 	transform: skew(0deg, 0deg);
@@ -299,11 +301,7 @@ body {
 .bottomRight .leftWall {
 	right: calc( 20% + var(--wr) / 2.0);
 }
-.bottomRight .roof {
-	background: #7C0A02;
-	right: 20%;
-	left: unset;
-}
+
 .rtl .road {
 	transform: skew(-45deg, 10deg);
 	border: 0px solid black;
@@ -462,6 +460,9 @@ body {
 		This is a test
 	</div>
 	<div class="rightWall">
+		
+	</div>
+	<div class="rightWallTop">
 		
 	</div>
 	<div class="roof">
