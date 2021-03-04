@@ -268,7 +268,7 @@ body {
 	left: unset;
 }
 
-.under .rightWall {
+.under .leftUnder {
 	transform: skew(0deg, -10deg);
 	border: 0px solid black;
 	background: #AAA;
@@ -279,7 +279,7 @@ body {
 	bottom: calc(var(--wl)  + var(--wr) * 0.176327 / 2 + 2rem);
 	display: inline-block;
 }
-.under .leftWall {
+.under .rightUnder {
 	transform: skew(0deg, 45deg);
 	border: 0px solid black;
 	background: #333;
@@ -289,6 +289,10 @@ body {
 	width: var(--wl);
 	bottom: calc(var(--wr) * 0.176327 + var(--wl) * 1.0 / 2 + 2rem);
 	display: inline-block;
+}
+.under .leftWall, .under .rightWall {
+	background: white;
+	border: 0px;
 }
 .under .roof {
 	transform: skew(45deg, -10deg);
@@ -332,10 +336,14 @@ body {
 	<div class="roof">
 		This is a test
 	</div>
+	<div class="rightUnder">
+	</div>
+	<div class="leftUnder">
+		<div class="roofText"><center>Header</center></div>
+	</div>
 	<div class="leftWall">
 	</div>
 	<div class="rightWall">
-		<div class="roofText"><center>Header</center></div>
 	</div>
 	<div class="road">
 		<svg style="width:100%; height: 100%;" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
