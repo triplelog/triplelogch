@@ -21,11 +21,13 @@ body {
 }
 .center {
 	position: absolute;
-	left: 0px;
-	top: 0px;
-	width: calc(100%);
-	height: calc(100%);
+	left: min(30rem,30%);
+	bottom: 2.5rem;
+	width: calc(100% - 60rem);
+	min-width:40%;
+	height: calc(50% + 10rem);
 	display: inline-block;
+	border: 0px solid black;
 }
 .leftPost {
 	position: absolute;
@@ -537,11 +539,11 @@ body {
 	<div class="roof">
 		<div class="roofText"><center>Inline Math</center></div>
 	</div>
-	<!--<div class="road">
+	<div class="road">
 		<svg style="width:100%; height: 100%;" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<path d="M0 50 L 100 50" stroke-dasharray="2 2" stroke-width="12" stroke="yellow" fill="none" />
 		</svg>
-	</div>-->
+	</div>
 </div>
 <div class="bottomLeft under">
 	
