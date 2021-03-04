@@ -235,6 +235,18 @@ body {
 	width: calc( var(--wl));
 	display: inline-block;
 }
+.bottomRight .roof {
+	transform: skew(-15deg, 10deg);
+	right: 10%;
+	left: unset;
+	height: calc( 1.0 * var(--wr));
+	bottom: calc(var(--h) + var(--wl) * 0.176327 / 2 + 2rem);
+	width: calc( var(--wl) + 2rem);
+	display: inline-block;
+}
+.bottomRight .roof .roofText {
+	transform: skew(-15deg, 0deg);
+}
 .rtl .road {
 	transform: skew(-45deg, 10deg);
 	border: 0px solid black;
@@ -343,7 +355,7 @@ body {
 		This is a test
 	</div>
 	<div class="roof">
-		<div class="roofText"><center>Headering</center></div>
+		<div class="roofText"><center>Inline Math</center></div>
 	</div>
 	<div class="road">
 		<svg style="width:100%; height: 100%;" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -357,7 +369,7 @@ body {
 	<div class="rightUnder">
 	</div>
 	<div class="leftUnder">
-		<div class="roofText"><center>Header</center></div>
+		<div class="roofText"><center>CSS Hole</center></div>
 	</div>
 	<div class="roof">
 		<div>This is a test</div>
