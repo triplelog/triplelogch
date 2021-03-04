@@ -443,15 +443,18 @@ body {
 	  </pattern>
 	</defs>
 	<defs>
-		<pattern id="img2" patternUnits="userSpaceOnUse" width=".3" height=".3" patternTransform="rotate(-25)">
+		<pattern id="img2" patternUnits="userSpaceOnUse" width=".25" height=".25" patternTransform="rotate(-25)">
 			<rect x="0" y="0" width="100" height="100" fill="#4FCF1F" />
-			<line x1="0" y="0" x2="0" y2=".3" stroke="#18663F" stroke-width=".24" />
+			<line x1="0" y="0" x2="0" y2=".25" stroke="#18663F" stroke-width=".2" />
 		</pattern>
 	</defs>
 </svg>
 <div class="sky" style="width:100%; height: 100%; position: absolute; left:0px; top: 0px;">
 	<svg style="width:100%; height: 100%; position: absolute; left:0px; top: 0px;" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<rect width="100" height="100" x="0" y="0" fill="url(#img2)"/>
+		<rect width="50" height="100" x="0" y="0" fill="url(#img2)"/>
+	</svg>
+	<svg style="width:100%; height: 100%; position: absolute; left:0px; top: 0px;" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<rect width="50" height="100" x="50" y="0" fill="url(#img2)"/>
 	</svg>
 	<svg style="width:100%; height: 8rem; position: absolute; left:0px; top: 0px;" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 		<rect width="100" height="100" x="0" y="0" fill="#87ceeb" />
@@ -475,7 +478,7 @@ body {
 
 <div class="topLeft">
 	<svg style="width:30rem; height: 30rem; position: absolute; left:0px; bottom: 0px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<rect width="100" height="20" x="0" y="80" fill="url(#img1)" />
+		<rect width="100" height="20" x="0" y="80" fill="url(#img2)" />
 		<path d="M0 98 Q 4 98, 6 98 Q 83 83, 100 83" stroke-width="4" stroke="gray" fill="none" />
 		<path d="M0 98 Q 4 98, 6 98 Q 83 83, 100 83" stroke-dasharray="2 2" stroke-width=".5" stroke="yellow" fill="none" />
 	</svg>
