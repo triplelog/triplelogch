@@ -276,6 +276,7 @@ body {
 	bottom: calc(var(--h) + var(--wl) * 0.176327 / 2 + 2rem);
 	width: calc( var(--wl));
 	display: inline-block;
+	border: 1px solid #CCC;
 }
 .bottomRight .roof {
 	transform: skew(-18deg, 10deg);
@@ -300,6 +301,17 @@ body {
 }
 .bottomRight .leftWall {
 	right: calc( 20% + var(--wr) / 2.0);
+}
+.rtl .rightWallTop {
+	transform: skew(0deg, -45deg);
+	border: 1px solid #CCC;
+	background: transparent;
+	height: calc( 1.6 * var(--wr));
+	position: absolute;
+	left: calc( 90% - var(--wr) / 2.0);
+	width: var(--wr);
+	bottom: calc(var(--h) + var(--wr) * 1.0 / 2 + 2rem); /*tan(15deg)/2*/
+	display: inline-block;
 }
 
 .rtl .road {
