@@ -362,6 +362,14 @@ app.get('/home.html',
 		res.end();
 	}
 );
+app.get('/tloghome.html', 
+	function(req, res) {
+		res.write(nunjucks.render('templates/tloghome.html',{
+		
+		}));
+		res.end();
+	}
+);
 
 function makePuzzle(puzzleRaw) {
 	var puzzle = [];

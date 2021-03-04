@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+    {% block meta %}
+    <meta name="description" content=".">    <title>CSS City</title>  
+    <link rel="icon" type="image/png" href="../chfaviconcrop.png">
+    {% endblock %}
+    
+
+
+{% block stylesheets %}
+{% endblock %}
+
+
+<style>
+body {
+	--block: 10rem;
+}
+.center {
+	position: absolute;
+	left: min(30rem,30%);
+	bottom: 2.5rem;
+	width: calc(100% - 60rem);
+	min-width:40%;
+	height: calc(50% + 10rem);
+	display: inline-block;
+	border: 0px solid black;
+}
+.leftPost {
+	position: absolute;
+	left: 5rem;
+	bottom: 12.5rem;
+	width: calc(50%);
+	height: calc(100%);
+	display: inline-block;
+	--wl: 1rem;
+	--wr: 1rem;
+	--h: 16rem;
+}
+.leftSign {
+	position: absolute;
+	left: 5rem;
+	bottom: 25.5rem;
+	width: calc(50%);
+	height: calc(100%);
+	display: inline-block;
+	--wl: 1rem;
+	--wr: 6rem;
+	--h: 3rem;
+}
+
+.base {
+	transform: skew(45deg, -10deg);
+	background: transparent;
+	position: absolute;
+	left: calc(10% - 0.2 * var(--block));
+	height: calc(0.5 * var(--block));
+	bottom: calc(0rem + 0.0 * var(--block));
+	width: calc(0.5 * var(--block));
+	display: inline-block;
+}
+.rtl .base {
+	transform: skew(-45deg, 10deg);
+	right: calc(10% - 0.2 * var(--block));
+	left: unset;
+	display: inline-block;
+}
+.base svg {
+	height: 100%;
+	width: 100%;
+}
+.leftSign .roof {
+	border-right: 1px solid black;
+}
+.leftSign .rightWall {
+	border-right: 1px solid black;
+}
+
+.rightPost {
+	position: absolute;
+	right: 5rem;
+	bottom: 12.5rem;
+	width: calc(50%);
+	height: calc(100%);
+	display: inline-block;
+	--wl: 1rem;
+	--wr: 1rem;
+	--h: 16rem;
+}
+.rightSign {
+	position: absolute;
+	right: 5rem;
+	bottom: 25.5rem;
+	width: calc(50%);
+	height: calc(100%);
+	display: inline-block;
+	--wl: 6rem;
+	--wr: 1rem;
+	--h: 3rem;
+}
+
+.rightSign .roof {
+	border-left: 1px solid black;
+}
+.rightSign.rtl div.leftWall {
+	border-left: 1px solid black;
+}
+
+.topLeft {
+	position: absolute;
+	left: 0rem;
+	top: 0rem;
+	width: 30%;
+	max-width: 30rem;
+	height: 50%;
+	display: inline-block;
+	--wl: 1rem;
+	--wr: 20rem;
+	--h: 12rem;
+}
+
+.bottomLeft {
+	position: absolute;
+	left: 0rem;
+	bottom: 0rem;
+	width: 30%;
+	max-width: 30rem;
+	height: 50%;
+	display: inline-block;
+	--wl: 12rem;
+	--wr: 20rem;
+	--h: 1rem;
+}
+.topRight {
+	position: absolute;
+	right: 0rem;
+	top: 0rem;
+	width: 30%;
+	max-width: 30rem;
+	height: 50%;
+	display: inline-block;
+	--wl: 20rem;
+	--wr: 1rem;
+	--h: 12rem;
+}
+.bottomRight {
+	position: absolute;
+	right: 0rem;
+	bottom: 0rem;
+	width: 30%;
+	max-width: 30rem;
+	height: 50%;
+	display: inline-block;
+	--wl: 20rem;
+	--wr: 1rem;
+	--h: 12rem;
+}
+.road {
+	transform: skew(45deg, -10deg);
+	border: 0px solid black;
+	background: gray;
+	position: absolute;
+	left: 10%;
+	height: calc( 1.0 * var(--wl));
+	bottom: calc( 0.0 * var(--wl) + 2.5rem);
+	width: calc( var(--wr) + 5rem);
+	display: inline-block;
+}
+.rightWall {
+	transform: skew(0deg, -10deg);
+	border: 1px solid black;
+	background: white;
+	height: var(--h);
+	position: absolute;
+	left: calc( 10% + var(--wl) / 2.0);
+	width: var(--wr);
+	bottom: calc(var(--wr) * 0.176327 / 2 + 2rem); /*tan(15deg)/2*/
+	display: inline-block;
+}
+.leftWall {
+	transform: skew(0deg, 45deg);
+	border: 1px solid black;
+	background: #333;
+	height: var(--h);
+	position: absolute;
+	right: calc( 90% - var(--wl) / 2.0);
+	width: var(--wl);
+	bottom: calc(var(--wl) * 1.0 / 2 + 2rem);
+	display: inline-block;
+}
+.roof {
+	transform: skew(45deg, -10deg);
+	border: 1px solid black;
+	border-top: 1px solid #666;
+	background: white;
+	position: absolute;
+	left: 10%;
+	height: calc( 1.0 * var(--wl));
+	bottom: calc(var(--h) + var(--wr) * 0.176327 / 2 + 2rem);
+	width: calc( var(--wr));
+	display: inline-block;
+}
+
+.rtl .rightWall {
+	transform: skew(0deg, -45deg);
+	border: 1px solid black;
+	background: #333;
+	height: var(--h);
+	position: absolute;
+	left: calc( 90% - var(--wr) / 2.0);
+	width: var(--wr);
+	bottom: calc(var(--wr) * 1.0 / 2 + 2rem); /*tan(15deg)/2*/
+	display: inline-block;
+}
+.rtl .leftWall {
+	transform: skew(0deg, 10deg);
+	border: 1px solid black;
+	background: white;
+	height: var(--h);
+	position: absolute;
+	right: calc( 10% + var(--wr) / 2.0);
+	width: var(--wl);
+	bottom: calc(var(--wl) * 0.176327 / 2 + 2rem);
+	display: inline-block;
+}
+.rtl .roof {
+	transform: skew(-45deg, 10deg);
+	right: 10%;
+	left: unset;
+	height: calc( 1.0 * var(--wr));
+	bottom: calc(var(--h) + var(--wl) * 0.176327 / 2 + 2rem);
+	width: calc( var(--wl));
+	display: inline-block;
+}
+.rtl .road {
+	transform: skew(-45deg, 10deg);
+	border: 0px solid black;
+	background: gray;
+	position: absolute;
+	right: 10%;
+	left: unset;
+	height: calc( 1.0 * var(--wr));
+	bottom: calc( 0.0 * var(--wr) + 2.5rem);
+	width: calc( var(--wl) + 5rem);
+	display: inline-block;
+}
+.roofText {
+	transform: skew(-45deg, 0deg);
+	border: 0px solid black;
+	width: 100%;
+	height: 2rem;
+	line-height:2rem;
+	font-size:2rem;
+	top:-1rem;
+	letter-spacing: 1.6px;
+	text-shadow: -0.8px -0.8px #ccc, -1.6px -1.6px #ccc, -2.4px -2.4px #ccc, -3.2px -3.2px #ccc, -4px -4px #ccc;
+	left: 0.5rem;
+	position: absolute;
+}
+.rtl .roofText {
+	transform: skew(45deg, 0deg);
+	top:-1rem;
+	text-shadow: 0.8px -0.8px #CCC, 1.6px -1.6px #CCC, 2.4px -2.4px #ccc, 3.2px -3.2px #ccc, 4px -4px #ccc;
+	right: 0.5rem;
+	left: unset;
+}
+
+.under .rightWall {
+	transform: skew(0deg, -10deg);
+	border: 1px solid black;
+	background: white;
+	height: var(--h);
+	position: absolute;
+	right: calc( 10% + var(--wl) / 2.0);
+	left:unset;
+	width: var(--wr);
+	top: calc(100% - var(--wr) * 0.176327 / 2 + 2rem); /*tan(15deg)/2*/
+	bottom: unset;
+	display: inline-block;
+}
+.under .leftWall {
+	transform: skew(0deg, 45deg);
+	border: 1px solid black;
+	background: #333;
+	height: var(--h);
+	position: absolute;
+	left: calc( 90% - var(--wl) / 2.0);
+	right: unset;
+	width: var(--wl);
+	top: calc(100% - var(--wl) * 1.0 / 2 + 2rem);
+	bottom: unset;
+	display: inline-block;
+}
+.under .roof {
+	transform: skew(45deg, -10deg);
+	border: 1px solid black;
+	border-top: 1px solid #666;
+	background: white;
+	position: absolute;
+	left: 10%;
+	height: calc( 1.0 * var(--wl));
+	bottom: calc(var(--h) + var(--wr) * 0.176327 / 2 + 2rem);
+	width: calc( var(--wr));
+	display: inline-block;
+}
+.under .roofText {
+	transform: skew(45deg, 0deg);
+	top:-1rem;
+	text-shadow: 0.8px -0.8px #CCC, 1.6px -1.6px #CCC, 2.4px -2.4px #ccc, 3.2px -3.2px #ccc, 4px -4px #ccc;
+	right: 0.5rem;
+	left: unset;
+}
+</style>
+</head>
+<body>
+<div class="topLeft">
+	<div class="leftWall">
+	</div>
+	<div class="rightWall">
+		This is a test
+	</div>
+	<div class="roof">
+		<div class="roofText"><center>Headering</center></div>
+	</div>
+	<div class="road">
+		<svg style="width:100%; height: 100%;" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<path d="M0 50 L 100 50" stroke-dasharray="2 2" stroke-width="12" stroke="yellow" fill="none" />
+		</svg>
+	</div>
+</div>
+<div class="bottomLeft under">
+	<div class="leftWall">
+	</div>
+	<div class="rightWall">
+		<div class="roofText"><center>Header</center></div>
+	</div>
+	<div class="roof">
+		This is a test
+	</div>
+	<div class="road">
+		<svg style="width:100%; height: 100%;" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<path d="M0 50 L 100 50" stroke-dasharray="2 2" stroke-width="12" stroke="yellow" fill="none" />
+		</svg>
+	</div>
+</div>
+<div class="topRight rtl">
+	<div class="leftWall">
+		This is a test
+	</div>
+	<div class="rightWall">
+		
+	</div>
+	<div class="roof">
+		<div class="roofText"><center>Headering</center></div>
+	</div>
+	<div class="road">
+		<svg style="width:100%; height: 100%;" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<path d="M0 50 L 100 50" stroke-dasharray="2 2" stroke-width="12" stroke="yellow" fill="none" />
+		</svg>
+	</div>
+</div>
+<div class="bottomRight rtl">
+	<div class="leftWall">
+		This is a test
+	</div>
+	<div class="rightWall">
+		
+	</div>
+	<div class="roof">
+		<div class="roofText"><center>Header 4</center></div>
+	</div>
+	<div class="road">
+		<svg style="width:100%; height: 100%;" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<path d="M0 50 L 100 50" stroke-dasharray="2 2" stroke-width="12" stroke="yellow" fill="none" />
+		</svg>
+	</div>
+</div>
+
+<div class="center">
+
+	<svg style="width:100%; height: 100%;" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<path d="M3 26.5 Q 35 20, 50 20 Q 65 20, 97 26.5" stroke-width="4" stroke="gray" fill="none" />
+		<path d="M3 92.5 Q 35 86, 50 86 Q 65 86, 97 92.5" stroke-width="4" stroke="gray" fill="none" />
+		<path d="M50 20 L 50 86" stroke-width="4" stroke="gray" fill="none" />
+		
+		<path d="M3 26.5 Q 35 20, 45 20" stroke-dashoffset="2" stroke-dasharray="2 2" stroke-width=".5" stroke="yellow" fill="none" />
+		<path d="M3 92.5 Q 35 86, 45 86" stroke-dashoffset="2" stroke-dasharray="2 2" stroke-width=".5" stroke="yellow" fill="none" />
+		<path d="M55 20 Q 65 20, 97 26.5" stroke-dasharray="2 2" stroke-width=".5" stroke="yellow" fill="none" />
+		<path d="M55 86 Q 65 86, 97 92.5" stroke-dasharray="2 2" stroke-width=".5" stroke="yellow" fill="none" />
+		<path d="M50 24 L 50 82" stroke-dasharray="2 2" stroke-width=".5" stroke="yellow" fill="none" />
+		
+	</svg>
+
+
+	<div class="leftPost">
+		<div class="base">
+			<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<circle cx="50" cy="50" r="50" fill="blue" />
+			</svg>
+		</div>
+		<div class="leftWall">
+		</div>
+		<div class="rightWall">
+		
+		</div>
+		<div class="roof">
+			
+		</div>
+	</div>
+	<div class="leftSign">
+		<div class="leftWall">
+		</div>
+		<div class="rightWall">
+		
+		</div>
+		<div class="roof">
+			
+		</div>
+	</div>
+	<div class="rightPost rtl">
+		<div class="base">
+			<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<circle cx="50" cy="50" r="50" fill="blue" />
+			</svg>
+		</div>
+		<div class="leftWall">
+			
+		</div>
+		<div class="rightWall">
+		
+		</div>
+		<div class="roof">
+			
+		</div>
+	</div>
+	<div class="rightSign rtl">
+		<div class="leftWall">
+		</div>
+		<div class="rightWall">
+		
+		</div>
+		<div class="roof">
+			
+		</div>
+	</div>
+</div>
+</body>
+</html>
