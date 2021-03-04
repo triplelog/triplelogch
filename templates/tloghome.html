@@ -282,18 +282,18 @@ body {
 }
 .under .rightUnder {
 	transform: skew(0deg, 45deg);
-	border: 0px solid black;
+	border: 1px solid black;
 	background: #333;
 	height: var(--h);
 	position: absolute;
-	right: calc( -1*var(--wr)  + 75% - var(--wl) / 2.0);
+	right: calc( -1*var(--wr)  + 75% - var(--wl) / 2.0 -2px);
 	width: var(--wl);
 	bottom: calc(var(--wr) * 0.176327 + var(--wl) * 1.0 / 2 + 2rem);
 	display: inline-block;
 }
 .under .leftWall, .under .rightWall {
 	background: white;
-	border: 0px;
+	border: 1px solid white;
 }
 .under .leftWall {
 	right: calc( 75% - var(--wl) / 2.0);
@@ -316,8 +316,8 @@ body {
 	
 }
 .under .roof div {
-	padding-top: 2rem;
-	padding-left: 1rem;
+	padding-top: 2.4rem;
+	padding-left: .7rem;
 }
 .under .roofText {
 	transform: skew(0deg, 0deg);
