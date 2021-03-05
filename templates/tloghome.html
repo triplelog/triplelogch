@@ -30,6 +30,7 @@ body {
 	border: 0px solid black;
 	--post-right: calc(50% - 10rem);
 	--post-left: calc(50% - 10rem);
+	--font-size: 3.14rem;
 }
 .leftPost {
 	position: absolute;
@@ -54,15 +55,15 @@ body {
 }
 .middleSign1 {
 	position: absolute;
-	left: calc(50% - 5.5rem);
+	left: calc(50% - 5rem);
 	padding-left:1rem;
 	top: -5.06rem;
-	width: 11rem;
+	width: 10rem;
 	height: 3.95rem;
 	border: 1px solid black;
 	display: inline-block;
 	background: white;
-	font-size:4rem;
+	font-size:var(--font-size);
 
 }
 .leftSign1 {
@@ -72,7 +73,7 @@ body {
 	width: calc(50%);
 	height: 4rem;
 	display: inline-block;
-	font-size:4rem;
+	font-size:var(--font-size);
 	text-align: right;
 	--wl: 1rem;
 	--wr: 5rem;
@@ -136,7 +137,7 @@ body {
 	width: calc(50%);
 	height: 4rem;
 	display: inline-block;
-	font-size:4rem;
+	font-size:var(--font-size);
 	--wl: 5rem;
 	--wr: 1rem;
 	--h: 4rem;
