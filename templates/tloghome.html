@@ -94,29 +94,7 @@ body {
 	--wr: 5rem;
 	--h: 1.5rem;
 }
-@media screen and (max-width: 67rem) {
-	.center {
-		--post-right: calc(50% - 7.5rem);
-		--post-left: calc(50% - 7.5rem);
-		--font-size: 2.5rem;
-	}
-	.middleSign1 {
-		left: calc(50% - 3.25rem);
-		padding-left:1rem;
-		width: 6.5rem;
-	}
-	.leftSign1 {
-		height: 3rem;
-		--wr: 3rem;
-		--h: 3rem;
-	}
-	.leftSign2 {
-		top: -1rem;
-		height: 1.5rem;
-		--wr: 3rem;
-		--h: 1.5rem;
-	}
-}
+
 .base {
 	transform: skew(45deg, -10deg);
 	background: transparent;
@@ -179,7 +157,40 @@ body {
 	--wr: 1rem;
 	--h: 1.5rem;
 }
-
+@media screen and (max-width: 67rem) {
+	.center {
+		--post-right: calc(50% - 7.5rem);
+		--post-left: calc(50% - 7.5rem);
+		--font-size: 2.5rem;
+	}
+	.middleSign1 {
+		left: calc(50% - 3.25rem);
+		padding-left:1rem;
+		width: 6.5rem;
+	}
+	.leftSign1 {
+		height: 3rem;
+		--wr: 3rem;
+		--h: 3rem;
+	}
+	.leftSign2 {
+		top: 1rem;
+		height: 1.5rem;
+		--wr: 3rem;
+		--h: 1.5rem;
+	}
+	.rightSign1 {
+		height: 3rem;
+		--wl: 3rem;
+		--h: 3rem;
+	}
+	.rightSign2 {
+		top: 1rem;
+		height: 1.5rem;
+		--wl: 3rem;
+		--h: 1.5rem;
+	}
+}
 .rightSign1 .roof {
 	border-left: 0px solid black;
 }
