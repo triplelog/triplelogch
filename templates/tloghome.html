@@ -156,89 +156,7 @@ body {
 	--wr: 1rem;
 	--h: 1.5rem;
 }
-@media screen and (max-width: 67rem) {
-	.center {
-		--post-right: calc(50% - 7.5rem);
-		--post-left: calc(50% - 7.5rem);
-		--font-size: 2.5rem;
-	}
-	.middleSign1 {
-		left: calc(50% - 3.25rem);
-		padding-left:0.6rem;
-		width: 6.5rem;
-		top: -4.6rem;
-		height: 3.0rem;
-	}
-	.middleSign1Roof {
-		top: -5.7rem;
-		width: 8rem;
-		left: calc(50% - 4rem);
-	}
-	.leftSign1 {
-		height: 3rem;
-		--wr: 3rem;
-		--h: 3rem;
-	}
-	.leftSign2 {
-		top: 1rem;
-		height: 1.5rem;
-		--wr: 3rem;
-		--h: 1.5rem;
-	}
-	.rightSign1 {
-		height: 3rem;
-		--wl: 3rem;
-		--h: 3rem;
-		padding-left:0.1rem;
-	}
-	.rightSign2 {
-		top: 1rem;
-		height: 1.5rem;
-		--wl: 3rem;
-		--h: 1.5rem;
-	}
-	.pond {
-		display: none;
-	}
-}
-@media screen and (max-width: 60rem) {
-	.leftPost {
-		top: 9rem;
-		height: 7rem;
-		--h: 7rem;
-	}
-	.rightPost {
-		top: 9rem;
-		height: 7rem;
-		--h: 7rem;
-	}
-	.rightSign1 {
-		top:9rem;
-	}
-	.rightSign2 {
-		top:12rem;
-	}
-	.leftSign1 {
-		top:9rem;
-	}
-	.leftSign2 {
-		top:12rem;
-	}
-	.middleSign1 {
-		top: 6.2rem;
-	}
-	.middleSign1Roof {
-		top: 5.3rem;
-	}
-	.base {
-		display: none;
-	}
-}
-@media screen and (max-width: 50rem) {
-	.center {
-		display: none;
-	}
-}
+
 .rightSign1 .roof {
 	border-left: 0px solid black;
 }
@@ -428,6 +346,10 @@ body {
 	/*text-shadow: 1px 1px #CCC, -1px -1px #CCC, -1px 1px #CCC, 1px -1px #CCC{% for i in range(2,4) %}, {{ i }}px {{ i }}px {{ 2*i }}px #CCC, -{{ i }}px -{{ i }}px {{ 2*i }}px #CCC, -{{ i }}px {{ i }}px {{ 2*i }}px #CCC, {{ i }}px -{{ i }}px {{ 2*i }}px #CCC{% endfor %};*/
 	border: 2px solid black;
 }
+.bottomRight > svg, .bottomLeft > svg {
+	width: 30rem;
+	height: 30rem;
+}
 .rtl .rightWallTop {
 	transform: skew(0deg, -45deg);
 	border: 0px solid #CCC;
@@ -548,6 +470,93 @@ body {
 }
 
 
+@media screen and (max-width: 67rem) {
+	.center {
+		--post-right: calc(50% - 7.5rem);
+		--post-left: calc(50% - 7.5rem);
+		--font-size: 2.5rem;
+	}
+	.middleSign1 {
+		left: calc(50% - 3.25rem);
+		padding-left:0.6rem;
+		width: 6.5rem;
+		top: -4.6rem;
+		height: 3.0rem;
+	}
+	.middleSign1Roof {
+		top: -5.7rem;
+		width: 8rem;
+		left: calc(50% - 4rem);
+	}
+	.leftSign1 {
+		height: 3rem;
+		--wr: 3rem;
+		--h: 3rem;
+	}
+	.leftSign2 {
+		top: 1rem;
+		height: 1.5rem;
+		--wr: 3rem;
+		--h: 1.5rem;
+	}
+	.rightSign1 {
+		height: 3rem;
+		--wl: 3rem;
+		--h: 3rem;
+		padding-left:0.1rem;
+	}
+	.rightSign2 {
+		top: 1rem;
+		height: 1.5rem;
+		--wl: 3rem;
+		--h: 1.5rem;
+	}
+	.pond {
+		display: none;
+	}
+}
+@media screen and (max-width: 60rem) {
+	.leftPost {
+		top: 9rem;
+		height: 7rem;
+		--h: 7rem;
+	}
+	.rightPost {
+		top: 9rem;
+		height: 7rem;
+		--h: 7rem;
+	}
+	.rightSign1 {
+		top:9rem;
+	}
+	.rightSign2 {
+		top:12rem;
+	}
+	.leftSign1 {
+		top:9rem;
+	}
+	.leftSign2 {
+		top:12rem;
+	}
+	.middleSign1 {
+		top: 6.2rem;
+	}
+	.middleSign1Roof {
+		top: 5.3rem;
+	}
+	.base {
+		display: none;
+	}
+	.bottomRight > svg, .bottomLeft > svg {
+		width: 20rem;
+		height: 20rem;
+	}
+}
+@media screen and (max-width: 50rem) {
+	.center {
+		display: none;
+	}
+}
 </style>
 </head>
 <body>
@@ -648,7 +657,7 @@ body {
 		
 		</div>
 	</div>
-	<svg style="width:30rem; height: 30rem; position: absolute; left:0px; bottom: 0px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<svg style="position: absolute; left:0px; bottom: 0px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
 		<path d="M0 100 Q 80 85, 100 85" stroke-width="4" stroke="gray" fill="none" />
 		<path d="M0 100 Q 80 85, 100 85" stroke-dasharray="2 2" stroke-width=".5" stroke="yellow" fill="none" />
@@ -679,7 +688,7 @@ body {
 	
 </div>
 <div class="bottomRight rtl">
-	<svg style="width:30rem; height: 30rem; position: absolute; right:0px; bottom: 0px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<svg style="position: absolute; right:0px; bottom: 0px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
 		<path d="M100 100 Q 20 85, 0 85" stroke-width="4" stroke="gray" fill="none" />
 		<path d="M100 100 Q 20 85, 0 85" stroke-dasharray="2 2" stroke-width=".5" stroke="yellow" fill="none" />
