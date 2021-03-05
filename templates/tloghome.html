@@ -346,8 +346,11 @@ body {
 	/*text-shadow: 1px 1px #CCC, -1px -1px #CCC, -1px 1px #CCC, 1px -1px #CCC{% for i in range(2,4) %}, {{ i }}px {{ i }}px {{ 2*i }}px #CCC, -{{ i }}px -{{ i }}px {{ 2*i }}px #CCC, -{{ i }}px {{ i }}px {{ 2*i }}px #CCC, {{ i }}px -{{ i }}px {{ 2*i }}px #CCC{% endfor %};*/
 	border: 2px solid black;
 }
-.bottomRight > svg, .bottomLeft > svg {
+.bottomRight > svg, .bottomLeft > svg, .topLeft > svg, .topRight > svg {
 	width: 30rem;
+	height: 30rem;
+}
+.bottomCenter > svg, .topCenter > svg {
 	height: 30rem;
 }
 .rtl .rightWallTop {
@@ -551,9 +554,16 @@ body {
 		width: 20rem;
 		height: 20rem;
 	}
-	.bottomCenter {
+	.topRight > svg, .topLeft > svg {
+		width: 20rem;
+		height: 20rem;
+	}
+	.bottomCenter, .topCenter {
 		left: 20rem;
 		width: calc(100% - 40rem);
+	}
+	.bottomCenter > svg, .topCenter > svg {
+		height: 20rem;
 	}
 }
 @media screen and (max-width: 50rem) {
@@ -615,7 +625,7 @@ body {
 
 
 <div class="topLeft">
-	<svg style="width:30rem; height: 30rem; position: absolute; left:0px; bottom: 0px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<svg style="position: absolute; left:0px; bottom: 0px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
 		<path d="M0 98 Q 4 98, 6 98 Q 83 83, 100 83" stroke-width="4" stroke="gray" fill="none" />
 		<path d="M0 98 Q 4 98, 6 98 Q 83 83, 100 83" stroke-dasharray="2 2" stroke-width=".5" stroke="yellow" fill="none" />
@@ -668,7 +678,7 @@ body {
 	</svg>
 </div>
 <div class="topRight rtl">
-	<svg style="width:30rem; height: 30rem; position: absolute; right:0px; bottom: 0px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<svg style="position: absolute; right:0px; bottom: 0px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 		<path d="M100 98 Q 96 98, 94 98 Q 17 83, 0 83" stroke-width="4" stroke="gray" fill="none" />
 		<path d="M100 98 Q 96 98, 94 98 Q 17 83, 0 83" stroke-dasharray="2 2" stroke-width=".5" stroke="yellow" fill="none" />
 	</svg>
