@@ -330,10 +330,10 @@ body {
 	transform: skew(0deg, -45deg);
 	border: 0px solid #CCC;
 	background: transparent;
-	height: calc( 1.0 * var(--wr));
+	height: calc( 1.0 * var(--wr) + 2px);
 	position: absolute;
 	left: calc( 84% - var(--wr) / 2.0);
-	width: var(--wr);
+	width: calc(var(--wr) + 2px);
 	bottom: calc(var(--h) + var(--wr) * 1.0 / 2 + 2rem); /*tan(15deg)/2*/
 	display: inline-block;
 }
