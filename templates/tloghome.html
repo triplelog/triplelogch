@@ -109,7 +109,6 @@ body {
 	transform: skew(-45deg, 10deg);
 	right: calc(10% - 0.2 * var(--block));
 	left: unset;
-	display: inline-block;
 }
 .base svg {
 	height: 100%;
@@ -198,17 +197,20 @@ body {
 		--wl: 3rem;
 		--h: 1.5rem;
 	}
+	.pond {
+		display: none;
+	}
 }
 @media screen and (max-width: 60rem) {
 	.leftPost {
 		top: 9rem;
-		height: 6rem;
-		--h: 6rem;
+		height: 7rem;
+		--h: 7rem;
 	}
 	.rightPost {
 		top: 9rem;
-		height: 6rem;
-		--h: 6rem;
+		height: 7rem;
+		--h: 7rem;
 	}
 	.rightSign1 {
 		top:9rem;
@@ -711,9 +713,9 @@ body {
 
 
 <div class="center">
-	<img src='svg/exink1.svg#pond' style="width: 10rem; position: absolute; left: 60%; bottom: 8%;">
-	<img src='svg/treeink1.svg#tree2' style="width: 7rem; position: absolute; left: 75%; bottom: 21%;">
-	<img src='svg/treeink1.svg#tree2' style="width: 7rem; position: absolute; left: 83%; bottom: 33%;">
+	<img class="pond" src='svg/exink1.svg#pond' style="width: 10rem; position: absolute; left: 60%; bottom: 8%;">
+	<img class="pond" src='svg/treeink1.svg#tree2' style="width: 7rem; position: absolute; left: 75%; bottom: 21%;">
+	<img class="pond" src='svg/treeink1.svg#tree2' style="width: 7rem; position: absolute; left: 83%; bottom: 33%;">
 	<img src='svg/treeink1.svg#tree1' style="width: 7rem; position: absolute; left: 10%; bottom: 30%;">
 	<img src='svg/treeink1.svg#tree1' style="width: 7rem; position: absolute; left: calc(10% - 4rem); bottom: calc(30% + 3.7rem);">
 	<img src='svg/treeink1.svg#tree1' style="width: 7rem; position: absolute; left: calc(10% - 8rem); bottom: calc(30% + 7.4rem);">
