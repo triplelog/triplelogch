@@ -211,10 +211,10 @@ body {
 	--wr: 16rem;
 	--h: 2rem;
 }
-.topRight {
+.bottomRight {
 	position: absolute;
 	right: 0rem;
-	top: 0rem;
+	bottom: 0rem;
 	width: 30%;
 	max-width: 30rem;
 	height: 50%;
@@ -225,10 +225,10 @@ body {
 	--wr: 1rem;
 	--h: 11rem;
 }
-.bottomRight {
+.topRight {
 	position: absolute;
 	right: 0rem;
-	bottom: 0rem;
+	top: 0rem;
 	width: 30%;
 	max-width: 30rem;
 	height: 50%;
@@ -316,7 +316,7 @@ body {
 	width: calc( var(--wl));
 	display: inline-block;
 }
-.bottomRight .roof {
+.topRight .roof {
 	transform: skew(-20deg, 10deg);
 	right: calc( 16% + var(--wr) * .23);
 	left: unset;
@@ -328,18 +328,18 @@ body {
 	border: 2px solid black;
 	color: white;
 }
-.bottomRight .roof .roofText {
+.topRight .roof .roofText {
 	transform: skew(0deg, 0deg);
 	top:0rem;
 	text-shadow: 0.8px -0.8px #CCC;
 	
 }
-.bottomRight .rightWall {
+.topRight .rightWall {
 	background: #7C0A02;
 	left: calc( 84% - var(--wr) / 2.0);
 	border: 2px solid black;
 }
-.bottomRight .leftWall {
+.topRight .leftWall {
 	right: calc( 16% + var(--wr) / 2.0);
 	background: #7C0A02;
 	color: white;
@@ -534,11 +534,11 @@ body {
 		left: calc(50% - 2.5rem);
 		padding-left:0.6rem;
 		width: 5.0rem;
-		top: -2.6rem;
+		top: 7.45rem;
 		height: 2.0rem;
 	}
 	.middleSign1Roof {
-		top: -3.7rem;
+		top: 6.4rem;
 		width: 7rem;
 		left: calc(50% - 3.5rem);
 	}
@@ -586,12 +586,6 @@ body {
 	}
 	.leftSign2 {
 		top:12rem;
-	}
-	.middleSign1 {
-		top: 6.2rem;
-	}
-	.middleSign1Roof {
-		top: 5.3rem;
 	}
 	.base {
 		display: none;
@@ -725,30 +719,6 @@ body {
 </div>
 <div class="topRight rtl">
 	<svg style="position: absolute; right:0px; bottom: 0px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<path d="M100 98 Q 96 98, 94 98 Q 17 83, 0 83" stroke-width="4" stroke="gray" fill="none" />
-		<path d="M100 98 Q 96 98, 94 98 Q 17 83, 0 83" stroke-dasharray="2 2" stroke-width=".5" stroke="yellow" fill="none" />
-	</svg>
-	<div class="leftWall">
-		<ul>
-			<li>MLB standings</li>
-			<li>MLB Box Scores</li>
-			<li>NCAAF Recruiting Rankings</li>
-			<li>NFL Draft simulator</li>
-			<li>Simple baseball simulator</li>
-		</ul>
-	</div>
-	<div class="rightWall">
-		
-	</div>
-	<div class="roof">
-		<img src='svg/powink1.svg#solar2' style="width: 2.5rem; position: absolute; left: 0%; bottom: -10%; transform: skew(45deg, -10deg) rotate(-18deg) rotateX(20deg);">
-		<img src='svg/powink1.svg#solar2' style="width: 2.5rem; position: absolute; right: 1%; bottom: -10%; transform: skew(45deg, -10deg) rotate(-18deg) rotateX(20deg);">
-		<div class="roofText"><center>Ball Monitor</center></div>
-	</div>
-	
-</div>
-<div class="bottomRight rtl">
-	<svg style="position: absolute; right:0px; bottom: 0px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
 		<path d="M100 100 Q 20 85, 0 85" stroke-width="4" stroke="gray" fill="none" />
 		<path d="M100 100 Q 20 85, 0 85" stroke-dasharray="2 2" stroke-width=".5" stroke="yellow" fill="none" />
@@ -778,6 +748,31 @@ body {
 		<div class="roofText"><center>Sudoku Farm</center></div>
 	</div>
 </div>
+<div class="bottomRight rtl">
+	<svg style="position: absolute; right:0px; bottom: 0px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<path d="M100 98 Q 96 98, 94 98 Q 17 83, 0 83" stroke-width="4" stroke="gray" fill="none" />
+		<path d="M100 98 Q 96 98, 94 98 Q 17 83, 0 83" stroke-dasharray="2 2" stroke-width=".5" stroke="yellow" fill="none" />
+	</svg>
+	<div class="leftWall">
+		<ul>
+			<li>MLB standings</li>
+			<li>MLB Box Scores</li>
+			<li>NCAAF Recruiting Rankings</li>
+			<li>NFL Draft simulator</li>
+			<li>Simple baseball simulator</li>
+		</ul>
+	</div>
+	<div class="rightWall">
+		
+	</div>
+	<div class="roof">
+		<img src='svg/powink1.svg#solar2' style="width: 2.5rem; position: absolute; left: 0%; bottom: -10%; transform: skew(45deg, -10deg) rotate(-18deg) rotateX(20deg);">
+		<img src='svg/powink1.svg#solar2' style="width: 2.5rem; position: absolute; right: 1%; bottom: -10%; transform: skew(45deg, -10deg) rotate(-18deg) rotateX(20deg);">
+		<div class="roofText"><center>Handy Memes</center></div>
+	</div>
+	
+</div>
+
 
 
 
