@@ -758,7 +758,10 @@ body {
 		<ul>
 			<li>Easily add text to images</li>
 			<li>Handwriting support</li>
-			<li>Create handcrafted memes</li>
+			<li>Website tooltips</li>
+			<li>Handcrafted memes</li>
+			<li><button id="myButton">My button</button></li>
+			
 		</ul>
 	</div>
 	<div class="rightWall">
@@ -896,5 +899,16 @@ body {
 	</div>
 </div>
 
+<!-- Development -->
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+
+<script>
+      // With the above scripts loaded, you can call `tippy()` with a CSS
+      // selector and a `content` prop:
+      tippy('#myButton', {
+        content: 'My tooltip!',
+      });
+</script>
 </body>
 </html>
