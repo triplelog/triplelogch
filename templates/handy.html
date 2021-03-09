@@ -76,7 +76,7 @@ function inputDown(evt) {
 function inputMove(evt) {
 	if (isDown){
 		currentCurve.push([evt.clientX,evt.clientY]);
-		drawCurveIn();
+		drawCurveIn([evt.clientX,evt.clientY]);
 	}
 }
 function inputUp(evt) {
@@ -88,15 +88,20 @@ function inputUp(evt) {
 	}
 }
 
-function drawCurveIn(){
+function drawCurveIn(pt){
 	
-	for (var i=0;i<currentCurve.length;i++){
+	/*for (var i=0;i<currentCurve.length;i++){
 		var el = document.createElement('div');
 		el.classList.add("pt");
 		el.style.left = currentCurve[i][0]+"px";
 		el.style.top = currentCurve[i][1]+"px";
 		inputEl.appendChild(el);
-	}
+	}*/
+	var el = document.createElement('div');
+	el.classList.add("pt");
+	el.style.left = pt[0]+"px";
+	el.style.top = pt[1]+"px";
+	inputEl.appendChild(el);
 }
 function drawCurveOut(){
 	var svg = document.querySelector('.output > svg');
@@ -121,7 +126,6 @@ function drawCurveOut(){
 		pd += " " + currentCurve[i][1];
 		
 	}
-	console.log(pd);
 	path.setAttribute('d',pd);
 	path.setAttribute('stroke','black');
 	path.setAttribute('stroke-width','5');
