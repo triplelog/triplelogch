@@ -900,6 +900,9 @@ body {
 </div>
 
 <div style="position: absolute; top:0px; left: 0px; height: 200%; width: 100%;">
+	<div style="position: absolute; top:100%; left: 0px;">
+		<button onclick="showData();">Click</button>
+	</div>
 </div>
 <!-- Development -->
 <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
@@ -912,6 +915,11 @@ body {
         content: 'My tooltip!\nYour tooltip',
         placement: "right",
       });
+      instance[0].show();
+      function showData() {
+      	console.log(instance[0].popperInstance.state.modifiersData);
+      }
 </script>
 </body>
 </html>
+
