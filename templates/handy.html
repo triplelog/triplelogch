@@ -65,6 +65,9 @@
 		
 	</svg>
 </div>
+<div class="tools">
+	<button onclick="selectGroup();">Group</button>
+</div>
 <script>
 var inputEl = document.querySelector('.input');
 var outputEl = document.querySelector('.output');
@@ -75,6 +78,7 @@ inputEl.addEventListener('pointerup',inputUp);
 var currentCurve = [];
 var allCurves = {};
 var isDown = false;
+var isGroup = false;
 function inputDown(evt) {
 	console.log(evt);
 	currentCurve = [[evt.clientX,evt.clientY]];
@@ -152,6 +156,7 @@ function drawCurveOut(id){
 	cEnd.setAttribute('stroke','none');
 	cEnd.setAttribute('fill','white');
 	svg.appendChild(cEnd);
+	path.id = "bg-"+id;
 	svg.appendChild(path);
 	
 	var svg2 = document.querySelector('.output > .fgSVG');
@@ -174,10 +179,25 @@ function drawCurveOut(id){
 	cEnd2.setAttribute('stroke','none');
 	cEnd2.setAttribute('fill','black');
 	svg.appendChild(cEnd2);
+	path2.id = "fg-"+id;
 	svg2.appendChild(path2);
 	
 	allCurves[id]= currentCurve;
 	console.log(allCurves);
+}
+
+function selectGroup(){
+	isGroup = true;
+}
+
+function groupDown() {
+
+}
+function groupMove() {
+
+}
+function groupUp() {
+	isGroup = false;
 }
 </script>
 </body>
