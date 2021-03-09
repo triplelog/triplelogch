@@ -62,19 +62,25 @@ inputEl.addEventListener('mousemove',inputMove);
 inputEl.addEventListener('mouseup',inputUp);
 
 var currentCurve = [];
-
+var isDown = false;
 function inputDown(evt) {
 	console.log(evt);
 	inputEl.innerHTML = "";
 	currentCurve = [[evt.clientX,evt.clientY]];
+	isDown = true;
 }
 function inputMove(evt) {
-	currentCurve.push([evt.clientX,evt.clientY]);
-	drawCurveIn();
+	if (isDown){
+		currentCurve.push([evt.clientX,evt.clientY]);
+		drawCurveIn();
+	}
 }
 function inputUp(evt) {
-	console.log(evt);
-	currentCurve.push([evt.clientX,evt.clientY]);
+	if (isDown){
+		console.log(evt);
+		currentCurve.push([evt.clientX,evt.clientY]);
+		isDown = false:
+	}
 }
 
 function drawCurveIn(){
