@@ -613,8 +613,11 @@ body {
 }
 
 .tippy-box {
-	background: transparent;
+	background: rgba(0,0,0,.5);
 	border: 2px solid black;
+}
+.tippy-box[data-placement^=right]>.tippy-arrow:before {
+	left: -8px;
 }
 
 
