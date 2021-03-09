@@ -370,6 +370,14 @@ app.get('/tloghome.html',
 		res.end();
 	}
 );
+app.get('/handy.html', 
+	function(req, res) {
+		res.write(nunjucks.render('templates/handy.html',{
+		
+		}));
+		res.end();
+	}
+);
 
 function makePuzzle(puzzleRaw) {
 	var puzzle = [];
