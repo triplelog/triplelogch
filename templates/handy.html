@@ -37,6 +37,14 @@
 	
 }
 
+.pt {
+	position: absolute;
+	display: inline-block;
+	background: black;
+	width: 1px;
+	height: 1px;
+}
+
 </style>
 </head>
 <body>
@@ -48,12 +56,36 @@
 </div>
 <script>
 var inputEl = document.querySelector('.input');
+var outputEl = document.querySelector('.output');
 inputEl.addEventListener('mousedown',inputDown);
 inputEl.addEventListener('mousemove',inputMove);
 inputEl.addEventListener('mouseup',inputUp);
 
+var currentCurve = [];
+
 function inputDown(evt) {
 	console.log(evt);
+	inputEl.innerHTML = "";
+	currentCurve = [[evt.clientX,evt.clientY]];
+}
+function inputMove(evt) {
+	currentCurve.push([evt.clientX,evt.clientY]);
+	drawCurveIn();
+}
+function inputUp(evt) {
+	console.log(evt);
+	currentCurve.push([evt.clientX,evt.clientY]);
+}
+
+function drawCurveIn(){
+	
+	for (var i=0;i<currentCurve.length;i++){
+		var el = document.createElement('div');
+		el.classList.add("pt");
+		el.style.left = currentCurve[i][0]+"px";
+		el.style.top = currentCurve[i][1]+"px";
+		inputEl.appendChild(el);
+	}
 }
 </script>
 </body>
