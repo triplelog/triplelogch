@@ -107,11 +107,24 @@ function drawCurveOut(){
 	var svg = document.querySelector('.output > svg');
 	var path = document.createElementNS("http://www.w3.org/2000/svg", 'path');
 	var pd = "M"; 
-	for (var i=0;i<currentCurve.length;i++){
-		pd += " " + currentCurve[i][0];
-		pd += " " + currentCurve[i][1];
-		
+	if (currentCurve.length < 3){
+		return;
 	}
+	pd += " " + currentCurve[0][0];
+	pd += " " + currentCurve[0][1];
+		
+	for (var i=1; i<currentCurve.length - 2; i++){
+		pd += " Q " + currentCurve[i][0];
+		pd += " " + currentCurve[i][1];
+		var xc = (currentCurve[i][0] + currentCurve[i+1][0]) / 2;
+		var yc = (currentCurve[i][1] + currentCurve[i+1][1]) / 2;
+		pd += " " + xc;
+		pd += " " + yc;
+	}
+	pd += " Q " + currentCurve[currentCurve.length - 2][0];
+	pd += " " + currentCurve[currentCurve.length - 2][1];
+	pd += " " + currentCurve[currentCurve.length - 1][0];
+	pd += " " + currentCurve[currentCurve.length - 1][1];
 	console.log(pd);
 	path.setAttribute('d',pd);
 	path.setAttribute('stroke','white');
@@ -119,18 +132,12 @@ function drawCurveOut(){
 	path.setAttribute('fill','none');
 	svg.appendChild(path);
 	
-	var path = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-	var pd = "M"; 
-	for (var i=0;i<currentCurve.length;i++){
-		pd += " " + currentCurve[i][0];
-		pd += " " + currentCurve[i][1];
-		
-	}
-	path.setAttribute('d',pd);
-	path.setAttribute('stroke','black');
-	path.setAttribute('stroke-width','5');
-	path.setAttribute('fill','none');
-	svg.appendChild(path);
+	var path2 = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+	path2.setAttribute('d',pd);
+	path2.setAttribute('stroke','black');
+	path2.setAttribute('stroke-width','5');
+	path2.setAttribute('fill','none');
+	svg.appendChild(path2);
 }
 </script>
 </body>
