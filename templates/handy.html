@@ -69,7 +69,6 @@ var currentCurve = [];
 var isDown = false;
 function inputDown(evt) {
 	console.log(evt);
-	inputEl.innerHTML = "";
 	currentCurve = [[evt.clientX,evt.clientY]];
 	isDown = true;
 }
