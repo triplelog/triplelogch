@@ -107,7 +107,9 @@ function drawCurveOut(){
 		
 	}
 	console.log(pd);
-	path.d = pd;
+	path.setAttribute('d',pd);
+	path.setAttribute('stroke','black');
+	path.setAttribute('stroke-width','1');
 	svg.appendChild(path);
 }
 </script>
