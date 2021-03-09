@@ -48,12 +48,7 @@
 	height: 1px;
 }
 
-.bgSVG {
-	transform: rotate(45deg) skew(-15deg, -15deg);
-}
-.fgSVG {
-	transform: rotate(45deg) skew(-15deg, -15deg);
-}
+
 
 </style>
 </head>
@@ -78,6 +73,7 @@ inputEl.addEventListener('pointermove',inputMove);
 inputEl.addEventListener('pointerup',inputUp);
 
 var currentCurve = [];
+var allCurves = {};
 var isDown = false;
 function inputDown(evt) {
 	console.log(evt);
@@ -95,7 +91,8 @@ function inputUp(evt) {
 		console.log(evt);
 		currentCurve.push([evt.clientX,evt.clientY]);
 		isDown = false;
-		drawCurveOut();
+		var curveId = "curve-"+Math.random().toString(36).substr(3,12);
+		drawCurveOut(curveId);
 	}
 }
 
@@ -114,7 +111,7 @@ function drawCurveIn(pt){
 	el.style.top = pt[1]+"px";
 	inputEl.appendChild(el);
 }
-function drawCurveOut(){
+function drawCurveOut(id){
 	var svg = document.querySelector('.output > .bgSVG');
 	var path = document.createElementNS("http://www.w3.org/2000/svg", 'path');
 	var pd = "M"; 
@@ -178,6 +175,9 @@ function drawCurveOut(){
 	cEnd2.setAttribute('fill','black');
 	svg.appendChild(cEnd2);
 	svg2.appendChild(path2);
+	
+	allCurves[id]= currentCurve;
+	console.log(allCurves);
 }
 </script>
 </body>
