@@ -79,7 +79,7 @@ function inputDown(evt) {
 function inputMove(evt) {
 	if (isDown){
 		currentCurve.push([evt.clientX,evt.clientY]);
-		//drawCurveIn([evt.clientX,evt.clientY]);
+		drawCurveIn([evt.clientX,evt.clientY]);
 	}
 }
 function inputUp(evt) {
@@ -155,6 +155,20 @@ function drawCurveOut(){
 	path2.setAttribute('stroke','black');
 	path2.setAttribute('stroke-width','5');
 	path2.setAttribute('fill','none');
+	var cStart2 = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+	cStart2.setAttribute('cx', currentCurve[0][0]);
+	cStart2.setAttribute('cy', currentCurve[0][1]);
+	cStart2.setAttribute('r', '2.5');
+	cStart2.setAttribute('stroke','none');
+	cStart2.setAttribute('fill','black');
+	svg.appendChild(cStart2);
+	var cEnd2 = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+	cEnd2.setAttribute('cx', currentCurve[currentCurve.length - 1][0]);
+	cEnd2.setAttribute('cy', currentCurve[currentCurve.length - 1][1]);
+	cEnd2.setAttribute('r', '2.5');
+	cEnd2.setAttribute('stroke','none');
+	cEnd2.setAttribute('fill','black');
+	svg.appendChild(cEnd2);
 	svg2.appendChild(path2);
 }
 </script>
