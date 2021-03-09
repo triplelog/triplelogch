@@ -917,7 +917,9 @@ body {
       });
       instance[0].show();
       function showData() {
-      	console.log(instance[0].popperInstance.state.modifiersData);
+      	console.log(instance[0].popperInstance.state.modifiersData.preventOverflow);
+      	console.log(instance[0].popperInstance.state.modifiersData.arrow);
+      	console.log(instance[0].popperInstance.state.placement);
       }
 </script>
 </body>
