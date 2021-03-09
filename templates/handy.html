@@ -55,8 +55,11 @@
 </div>
 
 <div class="output">
-	<svg viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<svg class="bgSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 		<rect x="0" y="0" width="300" height="300" fill="black" />
+	</svg>
+	<svg class="fgSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		
 	</svg>
 </div>
 <script>
@@ -104,7 +107,7 @@ function drawCurveIn(pt){
 	inputEl.appendChild(el);
 }
 function drawCurveOut(){
-	var svg = document.querySelector('.output > svg');
+	var svg = document.querySelector('.output > .bgSVG');
 	var path = document.createElementNS("http://www.w3.org/2000/svg", 'path');
 	var pd = "M"; 
 	if (currentCurve.length < 3){
@@ -130,8 +133,16 @@ function drawCurveOut(){
 	path.setAttribute('stroke','white');
 	path.setAttribute('stroke-width','7');
 	path.setAttribute('fill','none');
+	var cStart = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+	cStart.setAttribute('cx', currentCurve[0][0]);
+	cStart.setAttribute('cy', currentCurve[0][1]);
+	cStart.setAttribute('r', '3.5');
+	cStart.setAttribute('stroke','none');
+	cStart.setAttribute('fill','white');
+	svg.appendChild(cStart);
 	svg.appendChild(path);
 	
+	var svg2 = document.querySelector('.output > .fgSVG');
 	var path2 = document.createElementNS("http://www.w3.org/2000/svg", 'path');
 	path2.setAttribute('d',pd);
 	path2.setAttribute('stroke','black');
