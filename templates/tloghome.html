@@ -611,6 +611,11 @@ body {
 		display: none;
 	}
 }
+
+.myTippy {
+	background: transparent;
+	border: 1px solid black;
+}
 </style>
 </head>
 <body>
@@ -912,9 +917,10 @@ body {
       // With the above scripts loaded, you can call `tippy()` with a CSS
       // selector and a `content` prop:
       var instance = tippy('#myButton', {
-        content: 'My tooltip!\nYour tooltip',
+        content: '<div class="myTippy">My tooltip!<br />Your tooltip</div>',
         placement: "right",
         hideOnClick: false,
+        allowHTML: true,
       });
       instance[0].show();
       function showData() {
