@@ -54,8 +54,8 @@
 </div>
 
 <div class="output">
-	<svg viewBox="0 0 300 300" width="100" height="100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-
+	<svg viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<rect x="0" y="0" width="300" height="300" fill="black" />
 	</svg>
 </div>
 <script>
@@ -100,6 +100,20 @@ function drawCurveIn(){
 }
 function drawCurveOut(){
 	var svg = document.querySelector('.output > svg');
+	var path = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+	var pd = "M"; 
+	for (var i=0;i<currentCurve.length;i++){
+		pd += " " + currentCurve[i][0];
+		pd += " " + currentCurve[i][1];
+		
+	}
+	console.log(pd);
+	path.setAttribute('d',pd);
+	path.setAttribute('stroke','white');
+	path.setAttribute('stroke-width','3');
+	path.setAttribute('fill','none');
+	svg.appendChild(path);
+	
 	var path = document.createElementNS("http://www.w3.org/2000/svg", 'path');
 	var pd = "M"; 
 	for (var i=0;i<currentCurve.length;i++){
