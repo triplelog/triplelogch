@@ -161,6 +161,7 @@ function convexHull(points){
 			maxAngle = a;
 			currentPoint = i;
 		}
+		console.log(cx,cy,points[i],a,maxAngle);
 	}
 	if (!toRight){
 		currentPoint = 0;
