@@ -36,6 +36,7 @@
 	height: 300px;
 	display: inline-block;
 	border: 1px solid red;
+	background: black;
 	
 }
 .tools {
@@ -101,7 +102,7 @@ curveWorker.onmessage = function(evt){
 		drawCurveOut(evt.data.id,evt.data.pd,evt.data.startPoint,evt.data.endPoint);
 	}
 	else if (evt.data.type == 'convexHull'){
-		drawConvexHull(evt.data.pdIn,evt.data.pdMid,evt.data.pdOut);
+		drawConvexHull(evt.data.pdArray);
 	}
 }
 
