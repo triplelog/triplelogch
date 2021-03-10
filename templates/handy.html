@@ -146,7 +146,7 @@ function drawCurveOut(id,pd,startPoint,endPoint){
 	var path0 = document.createElementNS("http://www.w3.org/2000/svg", 'path');
 	
 	path0.setAttribute('d',pd);
-	path0.setAttribute('stroke','rgba(255,255,255,.33)');
+	path0.setAttribute('stroke','rgba(255,255,255,.25)');
 	path0.setAttribute('stroke-width','11');
 	path0.setAttribute('fill','none');
 	var cStart0 = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
@@ -154,14 +154,14 @@ function drawCurveOut(id,pd,startPoint,endPoint){
 	cStart0.setAttribute('cy', startPoint[1]);
 	cStart0.setAttribute('r', '5.5');
 	cStart0.setAttribute('stroke','none');
-	cStart0.setAttribute('fill','rgba(255,255,255,.33)');
+	cStart0.setAttribute('fill','rgba(255,255,255,.25)');
 	svg.appendChild(cStart0);
 	var cEnd0 = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
 	cEnd0.setAttribute('cx', endPoint[0]);
 	cEnd0.setAttribute('cy', endPoint[1]);
 	cEnd0.setAttribute('r', '5.5');
 	cEnd0.setAttribute('stroke','none');
-	cEnd0.setAttribute('fill','rgba(255,255,255,.33)');
+	cEnd0.setAttribute('fill','rgba(255,255,255,.25)');
 	svg.appendChild(cEnd0);
 	path0.id = "bbg-"+id;
 	svg.appendChild(path0);
