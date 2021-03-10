@@ -91,9 +91,13 @@ var isDown = false;
 var isGroup = false;
 
 curveWorker.onmessage = function(evt){
-	console.log(evt.data);
-	for (var i=0;i<evt.data.length;i++){
-		drawCurveIn(evt.data[i]);
+	if (evt.data.type == 'inputCurve'){
+		for (var i=0;i<evt.data.points.length;i++){
+			drawCurveIn(evt.data.points[i]);
+		}
+	}
+	else if (evt.data.type == 'outputCurve'){
+		drawCurveOut(evt.data.id,evt.data.pd,evt.data.startPoint,evt.data.endPoint);
 	}
 }
 
@@ -110,10 +114,9 @@ function inputMove(evt) {
 function inputUp(evt) {
 	if (isDown){
 		console.log(evt);
-		currentCurve.push([evt.clientX,evt.clientY]);
 		isDown = false;
-		var curveId = "curve-"+Math.random().toString(36).substr(3,12);
-		drawCurveOut(curveId);
+		
+		curveWorker.postMessage({'type':'up','x':evt.clientX,'y':evt.clientY});
 	}
 }
 
@@ -132,43 +135,24 @@ function drawCurveIn(pt){
 	el.style.top = pt[1]+"px";
 	inputEl.appendChild(el);
 }
-function drawCurveOut(id){
+function drawCurveOut(id,pd,startPoint,endPoint){
 	var svg = document.querySelector('.output > .bgSVG');
 	var path = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-	var pd = "M"; 
-	if (currentCurve.length < 3){
-		return;
-	}
-	pd += " " + currentCurve[0][0];
-	pd += " " + currentCurve[0][1];
-		
-	for (var i=1; i<currentCurve.length - 2; i++){
-		pd += " Q " + currentCurve[i][0];
-		pd += " " + currentCurve[i][1];
-		var xc = (currentCurve[i][0] + currentCurve[i+1][0]) / 2;
-		var yc = (currentCurve[i][1] + currentCurve[i+1][1]) / 2;
-		pd += " " + xc;
-		pd += " " + yc;
-	}
-	pd += " Q " + currentCurve[currentCurve.length - 2][0];
-	pd += " " + currentCurve[currentCurve.length - 2][1];
-	pd += " " + currentCurve[currentCurve.length - 1][0];
-	pd += " " + currentCurve[currentCurve.length - 1][1];
-	console.log(pd);
+	
 	path.setAttribute('d',pd);
 	path.setAttribute('stroke','white');
 	path.setAttribute('stroke-width','11');
 	path.setAttribute('fill','none');
 	var cStart = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
-	cStart.setAttribute('cx', currentCurve[0][0]);
-	cStart.setAttribute('cy', currentCurve[0][1]);
+	cStart.setAttribute('cx', startPoint[0]);
+	cStart.setAttribute('cy', startPoint[1]);
 	cStart.setAttribute('r', '5.5');
 	cStart.setAttribute('stroke','none');
 	cStart.setAttribute('fill','white');
 	svg.appendChild(cStart);
 	var cEnd = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
-	cEnd.setAttribute('cx', currentCurve[currentCurve.length - 1][0]);
-	cEnd.setAttribute('cy', currentCurve[currentCurve.length - 1][1]);
+	cEnd.setAttribute('cx', endPoint[0]);
+	cEnd.setAttribute('cy', endPoint[1]);
 	cEnd.setAttribute('r', '5.5');
 	cEnd.setAttribute('stroke','none');
 	cEnd.setAttribute('fill','white');
@@ -183,15 +167,15 @@ function drawCurveOut(id){
 	path2.setAttribute('stroke-width','5');
 	path2.setAttribute('fill','none');
 	var cStart2 = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
-	cStart2.setAttribute('cx', currentCurve[0][0]);
-	cStart2.setAttribute('cy', currentCurve[0][1]);
+	cStart2.setAttribute('cx', startPoint[0]);
+	cStart2.setAttribute('cy', startPoint[1]);
 	cStart2.setAttribute('r', '2.5');
 	cStart2.setAttribute('stroke','none');
 	cStart2.setAttribute('fill','black');
 	svg.appendChild(cStart2);
 	var cEnd2 = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
-	cEnd2.setAttribute('cx', currentCurve[currentCurve.length - 1][0]);
-	cEnd2.setAttribute('cy', currentCurve[currentCurve.length - 1][1]);
+	cEnd2.setAttribute('cx', endPoint[0]);
+	cEnd2.setAttribute('cy', endPoint[1]);
 	cEnd2.setAttribute('r', '2.5');
 	cEnd2.setAttribute('stroke','none');
 	cEnd2.setAttribute('fill','black');

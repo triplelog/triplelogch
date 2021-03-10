@@ -1,11 +1,17 @@
-recentPoints = [];
+var recentPoints = [];
 onmessage = function(evt){
-	recentPoints.push([evt.data.x,evt.data.y]);
+	if (evt.data.type == "move"){
+		recentPoints.push([evt.data.x,evt.data.y]);
+	}
+	else if (evt.data.type == "up"){
+		drawCurveOut();
+	}
 	
 }
 
 function sendPoints() {
 	var rlen = recentPoints.length;
+	if (rlen == 0){return;}
 	var points = [[0,0,0],[0,0,0],[0,0,0]];
 	if (rlen > 3){
 		
@@ -45,8 +51,10 @@ function sendPoints() {
 	else {
 		points = recentPoints;
 	}
-	console.log(points);
-	postMessage(points);
+	for (var i=0;i<points.length;i++){
+		currentCurve.push([points[i][0],points[i][1]]);
+	}
+	postMessage({'type':'inputCurve','points':points});
 	recentPoints = [];
 }
 setInterval(sendPoints, 100);
@@ -55,27 +63,7 @@ var currentCurve = [];
 var allCurves = {};
 var isDown = false;
 var isGroup = false;
-function inputDown(evt) {
-	console.log(evt);
-	currentCurve = [[evt.clientX,evt.clientY]];
-	isDown = true;
-}
-function inputMove(evt) {
-	if (isDown){
-		curveWorker.postMessage([evt.clientX,evt.clientY]);
-		currentCurve.push();
-		drawCurveIn([evt.clientX,evt.clientY]);
-	}
-}
-function inputUp(evt) {
-	if (isDown){
-		console.log(evt);
-		currentCurve.push([evt.clientX,evt.clientY]);
-		isDown = false;
-		var curveId = "curve-"+Math.random().toString(36).substr(3,12);
-		drawCurveOut(curveId);
-	}
-}
+
 
 function drawCurveIn(pt){
 	
@@ -92,9 +80,8 @@ function drawCurveIn(pt){
 	el.style.top = pt[1]+"px";
 	inputEl.appendChild(el);
 }
-function drawCurveOut(id){
-	var svg = document.querySelector('.output > .bgSVG');
-	var path = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+function drawCurveOut(){
+	var id = "curve-"+Math.random().toString(36).substr(3,12);
 	var pd = "M"; 
 	if (currentCurve.length < 3){
 		return;
@@ -160,7 +147,7 @@ function drawCurveOut(id){
 	svg2.appendChild(path2);
 	
 	allCurves[id]= currentCurve;
-	console.log(allCurves);
+	postMessage({'type':'outputCurve','id':id,'pd':pd,'startPoint':[currentCurve[0][0],currentCurve[0][1]],'endPoint':[currentCurve[currentCurve.length - 1][0],currentCurve[currentCurve.length - 1][1]]});
 }
 
 function selectGroup(){
