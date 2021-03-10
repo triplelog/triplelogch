@@ -79,6 +79,11 @@
 			  <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
 			  <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
 			</linearGradient>
+			<radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+			  <stop offset="0%" style="stop-color:rgb(0,0,0);
+			  stop-opacity:1" />
+			  <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+			</radialGradient>
 		</defs>
 	</svg>
 </div>
@@ -198,7 +203,7 @@ function drawCurveOut(id,pd,startPoint,endPoint){
 	var svg2 = document.querySelector('.output > .fgSVG');
 	var path2 = document.createElementNS("http://www.w3.org/2000/svg", 'path');
 	path2.setAttribute('d',pd);
-	path2.setAttribute('stroke','url(#grad1)');
+	path2.setAttribute('stroke','url(#grad2)');
 	path2.setAttribute('stroke-width','5');
 	path2.setAttribute('fill','none');
 	var cStart2 = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
@@ -206,14 +211,14 @@ function drawCurveOut(id,pd,startPoint,endPoint){
 	cStart2.setAttribute('cy', startPoint[1]);
 	cStart2.setAttribute('r', '2.5');
 	cStart2.setAttribute('stroke','none');
-	cStart2.setAttribute('fill','url(#grad1)');
+	cStart2.setAttribute('fill','url(#grad2)');
 	svg.appendChild(cStart2);
 	var cEnd2 = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
 	cEnd2.setAttribute('cx', endPoint[0]);
 	cEnd2.setAttribute('cy', endPoint[1]);
 	cEnd2.setAttribute('r', '2.5');
 	cEnd2.setAttribute('stroke','none');
-	cEnd2.setAttribute('fill','url(#grad1)');
+	cEnd2.setAttribute('fill','url(#grad2)');
 	svg.appendChild(cEnd2);
 	path2.id = "fg-"+id;
 	svg2.appendChild(path2);
