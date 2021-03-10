@@ -83,28 +83,31 @@
 		
 	</canvas>
 <div class="o2">
-	<svg class="hullSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<svg id="textSVG" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<defs>
+			<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+			  <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+			  <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+			</linearGradient>
+			<radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%" gradientUnits="userSpaceOnUse">
+			  <stop offset="0%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+			  <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+			</radialGradient>
+			<pattern id="img1" patternUnits="userSpaceOnUse" width="100%" height="100%">
+				<image href="img/pnggrad16rgb.png" x="0" y="0" width="100%" height="100%" />
+			</pattern>
+		</defs>
+		<g class="hullSVG">
 			{% for idx in range(0,10) %}<path class="convexHull-{{ idx }}" fill="rgba(255,255,255,{{ 0.04 - idx*1.0/400.0 }})" {% if idx == 5 %}stroke="none"{% else %}stroke="none"{% endif %} stroke-width="2" d="M5 5 150 5 295 25 295 275 150 295 5 295Z" />
 			{% endfor %}
-		</svg>
-		<svg class="bgSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		</g>
+		<g class="bgSVG">
 
-		</svg>
-		<svg id="fg" class="fgSVG" style="position: absolute; left: 0px; top: 0px; height: 300px; width: 300px;" viewBox="0 0 300 300" width="300px" height="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-			<defs>
-				<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-				  <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
-				  <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
-				</linearGradient>
-				<radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%" gradientUnits="userSpaceOnUse">
-				  <stop offset="0%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
-				  <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
-				</radialGradient>
-				<pattern id="img1" patternUnits="userSpaceOnUse" width="100%" height="100%">
-					<image href="img/pnggrad16rgb.png" x="0" y="0" width="100%" height="100%" />
-				</pattern>
-			</defs>
-		</svg>
+		</g>
+		<g class="fgSVG">
+			
+		</g>
+	</svg>
 </div>
 <div class="tools">
 	<button onclick="selectGroup();">Group</button>
@@ -176,7 +179,7 @@ function drawCurveIn(pt){
 	inputEl.appendChild(el);
 }
 function drawCurveOut(id,pd,startPoint,endPoint){
-	var svg = document.querySelector('.o2 > .bgSVG');
+	var svg = document.querySelector('.o2 .bgSVG');
 	var path0 = document.createElementNS("http://www.w3.org/2000/svg", 'path');
 	
 	path0.setAttribute('d',pd);
@@ -224,7 +227,7 @@ function drawCurveOut(id,pd,startPoint,endPoint){
 	path.id = "bg-"+id;
 	svg.appendChild(path);
 	
-	var svg2 = document.querySelector('.o2 > .fgSVG');
+	var svg2 = document.querySelector('.o2  .fgSVG');
 	var path2 = document.createElementNS("http://www.w3.org/2000/svg", 'path');
 	path2.setAttribute('d',pd);
 	path2.setAttribute('stroke','black');
@@ -257,7 +260,7 @@ function drawConvexHull(pdArray) {
 		el.setAttribute('d',pdArray[i]);
 	}
 	
-	let clonedSvgElement = document.getElementById("fg").cloneNode(true);
+	let clonedSvgElement = document.getElementById("textSVG").cloneNode(true);
 	var img2 = new Image();
 	
 	img2.onload = function() {
