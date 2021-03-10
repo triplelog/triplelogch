@@ -136,6 +136,7 @@ function convexHull(points){
 	var cy = 0;
 	var idx = 0;
 	var pd = "M"; 
+	var pdMid = "M"; 
 	var pdOut = "M"; 
 	console.log(points.length);
 	const t0 = performance.now();
