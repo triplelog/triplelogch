@@ -81,11 +81,12 @@ function drawCurveIn(pt){
 	inputEl.appendChild(el);
 }
 function createPD(){
-	var id = "curve-"+Math.random().toString(36).substr(3,12);
-	var pd = "M"; 
-	if (currentCurve.length < 3){
+	if (currentCurve.length < 1){
 		return;
 	}
+	var id = "curve-"+Math.random().toString(36).substr(3,12);
+	var pd = "M"; 
+	
 	pd += " " + currentCurve[0][0];
 	pd += " " + currentCurve[0][1];
 		
@@ -97,15 +98,17 @@ function createPD(){
 		pd += " " + xc;
 		pd += " " + yc;
 	}
-	pd += " Q " + currentCurve[currentCurve.length - 2][0];
-	pd += " " + currentCurve[currentCurve.length - 2][1];
+	if (currentCurve.length > 1){
+		pd += " Q " + currentCurve[currentCurve.length - 2][0];
+		pd += " " + currentCurve[currentCurve.length - 2][1];
+	}
 	pd += " " + currentCurve[currentCurve.length - 1][0];
 	pd += " " + currentCurve[currentCurve.length - 1][1];
-	console.log(pd);
-	
+
 	
 	allCurves[id]= currentCurve;
 	postMessage({'type':'outputCurve','id':id,'pd':pd,'startPoint':[currentCurve[0][0],currentCurve[0][1]],'endPoint':[currentCurve[currentCurve.length - 1][0],currentCurve[currentCurve.length - 1][1]]});
+	convexHull(currentCurve);
 	currentCurve = [];
 	recentPoints = [];
 }
@@ -122,4 +125,50 @@ function groupMove() {
 }
 function groupUp() {
 	isGroup = false;
+}
+
+function convexHull(points){
+	var minX = points[0][0]+1;
+	var len = points.length;
+	var hullPoints = [[0,0]];
+	var currentPoint = 0;
+	var cx = 0;
+	var cy = 0;
+	for (var i=0;i<len;i++){
+		if (points[i][0] < minX) {
+			minX = points[i][0];
+			currentPoint = i;
+		}
+	}
+	hullPoints[0] = [points[currentPoint][0],points[currentPoint][1]];
+	points.splice(currentPoint,1);
+	cx = points[currentPoint][0];
+	cy = points[currentPoint][1];
+	len--;
+	
+	var maxAngle = -10;
+	var toRight = false;
+	for (var i=0;i<len;i++){
+		var a = -11;
+		if (points[i][0]>cx){
+			var a = Math.atan((points[i][1]-cy)/(points[i][0]-cx));
+			toRight = true;
+		}
+		else if (toRight){
+			continue;
+		}
+		if (a > maxAngle) {
+			maxAngle = a;
+			currentPoint = i;
+		}
+	}
+	if (!toRight){
+		
+	}
+	hullPoints[1] = [points[currentPoint][0],points[currentPoint][1]];
+	points.splice(currentPoint,1);
+	cx = points[currentPoint][0];
+	cy = points[currentPoint][1];
+	len--;
+	console.log(hullPoints);
 }
