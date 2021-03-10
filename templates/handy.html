@@ -66,7 +66,7 @@
 <div class="output">
 	<svg class="hullSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 		{% for idx in range(0,10) %}
-		<path class="convexHull-{{ idx }}" fill="rgba(255,255,255,{{ 0.05 - i*1.0/400.0 }})" stroke="none" d="M5 5 150 5 295 25 295 275 150 295 5 295Z" />
+		<path class="convexHull-{{ idx }}" fill="rgba(255,255,255,{{ 0.05 - idx*1.0/400.0 }})" stroke="none" d="M5 5 150 5 295 25 295 275 150 295 5 295Z" />
 		{% endfor %}
 	</svg>
 	<svg class="bgSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
