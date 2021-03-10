@@ -242,8 +242,9 @@ function drawConvexHull(pdArray) {
 		el.setAttribute('d',pdArray[i]);
 	}
 	
-	let outerHTML = document.getElementById("fg").outerHTML;
-  	blob = new Blob([outerHTML],{type:'image/svg+xml;charset=utf-8'});
+	let clonedSvgElement = document.getElementById("fg").cloneNode(true);
+	let outerHTML = clonedSvgElement.outerHTML;
+  	let blob = new Blob([outerHTML],{type:'image/svg+xml;charset=utf-8'});
   	let URL = window.URL || window.webkitURL || window;
 	let blobURL = URL.createObjectURL(blob);
 	console.log(blobURL);
@@ -252,6 +253,7 @@ function drawConvexHull(pdArray) {
 	img2.onload = function() {
 		ctx.drawImage(img2, 0, 0,300,300);
 		var url = canvas.toDataURL();
+		console.log("done");
 		//console.log(url);
 	}
 	img2.src = blobURL;
