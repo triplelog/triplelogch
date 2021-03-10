@@ -249,14 +249,14 @@ function drawConvexHull(pdArray) {
 	let blobURL = URL.createObjectURL(blob);
 	console.log(blobURL);
 	var img2 = new Image();
-	
+	img2.src = blobURL;
 	img2.onload = function() {
 		ctx.drawImage(img2, 0, 0,300,300);
 		var url = canvas.toDataURL();
 		console.log("done");
 		//console.log(url);
 	}
-	img2.src = blobURL;
+	
 
 	
 
