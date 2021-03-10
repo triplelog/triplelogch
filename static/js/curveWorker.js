@@ -1,8 +1,49 @@
+recentPoints = [];
 onmessage = function(evt){
-	console.log(evt.data);
-	postMessage([evt.data.x,evt.data.y]);
+	recentPoints.push([evt.data.x,evt.data.y]);
+	
 }
 
+function sendPoints() {
+	var rlen = recentPoints.length;
+	var points = [[0,0,0],[0,0,0],[0,0,0]];
+	if (rlen > 3){
+		
+		for (var i=0;i<rlen/4;i++){
+			points[0][0]+=recentPoints[i][0];
+			points[0][1]+=recentPoints[i][1];
+			points[0][2]++;
+		}
+		for (var i=rlen/4;i<rlen/2;i++){
+			points[0][0]+=recentPoints[i][0];
+			points[0][1]+=recentPoints[i][1];
+			points[0][2]++;
+			points[1][0]+=recentPoints[i][0];
+			points[1][1]+=recentPoints[i][1];
+			points[1][2]++;
+		}
+		for (var i=rlen/2;i<rlen*3/4;i++){
+			points[2][0]+=recentPoints[i][0];
+			points[2][1]+=recentPoints[i][1];
+			points[2][2]++;
+			points[1][0]+=recentPoints[i][0];
+			points[1][1]+=recentPoints[i][1];
+			points[1][2]++;
+		}
+		for (var i=rlen*3/4;i<rlen;i++){
+			points[2][0]+=recentPoints[i][0];
+			points[2][1]+=recentPoints[i][1];
+			points[2][2]++;
+		}
+	}
+	else {
+		points = recentPoints;
+	}
+	console.log(points);
+	postMessage(points);
+	recentPoints = [];
+}
+setInterval(sendPoints, 300);
 
 var currentCurve = [];
 var allCurves = {};

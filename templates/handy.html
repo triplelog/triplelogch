@@ -92,7 +92,9 @@ var isGroup = false;
 
 curveWorker.onmessage = function(evt){
 	console.log(evt.data);
-	drawCurveIn(evt.data);
+	for (var i=0;i<evt.data.length;i++){
+		drawCurveIn(evt.data[i]);
+	}
 }
 
 function inputDown(evt) {
