@@ -90,7 +90,7 @@
 		<svg class="bgSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
 		</svg>
-		<svg id="fg" class="fgSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<svg id="fg" class="fgSVG" style="position: absolute; left: 0px; top: 0px; height: 300px; width: 300px;" viewBox="0 0 300 300" width="300px" height="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<defs>
 				<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
 				  <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
@@ -260,13 +260,14 @@ function drawConvexHull(pdArray) {
 	let clonedSvgElement = document.getElementById("fg").cloneNode(true);
 	var svgURL = new XMLSerializer().serializeToString(clonedSvgElement);
 	var img2 = new Image();
+	img2.src = "data:image/svg+xml;base64," + window.btoa(svgURL.outerHTML);
 	img2.onload = function() {
 		ctx.drawImage(img2, 0, 0,300,300);
 		var url = canvas.toDataURL();
 		console.log("done");
 		console.log(url);
 	}
-	img2.src = 'data:image/svg+xml; charset=utf8, ' + encodeURIComponent(svgURL);
+	
 	
 
 	
