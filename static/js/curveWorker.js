@@ -135,6 +135,7 @@ function convexHull(points){
 	var cx = 0;
 	var cy = 0;
 	var idx = 0;
+	var pd = "M"; 
 	console.log(points.length);
 	const t0 = performance.now();
 	for (var i=0;i<len;i++){
@@ -143,10 +144,12 @@ function convexHull(points){
 			currentPoint = i;
 		}
 	}
-	hullPoints[0] = [points[currentPoint][0],points[currentPoint][1]];
+	
 	
 	cx = points[currentPoint][0];
 	cy = points[currentPoint][1];
+	hullPoints[0] = [cx,cy];
+	pd += " "+cx+" "+cy;
 	points.splice(currentPoint,1);
 	len--;
 	
@@ -175,6 +178,7 @@ function convexHull(points){
 		cx = points[currentPoint][0];
 		cy = points[currentPoint][1];
 		hullPoints.push([cx,cy]);
+		pd += " "+cx+" "+cy;
 		points.splice(currentPoint,1);
 		len--;
 		
@@ -202,6 +206,7 @@ function convexHull(points){
 		cx = points[currentPoint][0];
 		cy = points[currentPoint][1];
 		hullPoints.push([cx,cy]);
+		pd += " "+cx+" "+cy;
 		points.splice(currentPoint,1);
 		len--;
 		
@@ -209,4 +214,6 @@ function convexHull(points){
 	const t1 = performance.now();
 	console.log(`Convex Hull took ${t1 - t0} milliseconds.`);
 	console.log(hullPoints.length);
+	postMessage({'type':'convexHull','pd':pd);
+	
 }

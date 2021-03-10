@@ -63,9 +63,9 @@
 </div>
 
 <div class="output">
-	<svg class="containerSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<path fill="rgba(0,0,0,.25)" stroke="white" stroke-width="11" d="M5 5 150 5 295 25 295 275 150 295 5 295Z" />
-		<path fill="none" stroke="black" stroke-width="5" d="M5 5 150 5 295 25 295 275 150 295 5 295Z" />
+	<svg class="hullSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<path class="convexHullFill" fill="rgba(0,0,0,.25)" stroke="white" stroke-width="11" d="M5 5 150 5 295 25 295 275 150 295 5 295Z" />
+		<path class="convexHullStroke" fill="none" stroke="red" stroke-width="1" d="M5 5 150 5 295 25 295 275 150 295 5 295Z" />
 	</svg>
 	<svg class="bgSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
@@ -98,6 +98,9 @@ curveWorker.onmessage = function(evt){
 	}
 	else if (evt.data.type == 'outputCurve'){
 		drawCurveOut(evt.data.id,evt.data.pd,evt.data.startPoint,evt.data.endPoint);
+	}
+	else if (evt.data.type == 'convexHull'){
+		drawConvexHull(evt.data.pd);
 	}
 }
 
@@ -187,6 +190,12 @@ function drawCurveOut(id,pd,startPoint,endPoint){
 	console.log(allCurves);
 }
 
+function drawConvexHull(pd) {
+	var el = document.querySelctor('.convexHullFill');
+	el.setAttribute('path',pd);
+	var el2 = document.querySelctor('.convexHullStroke');
+	el2.setAttribute('path',pd);
+}
 function selectGroup(){
 	isGroup = true;
 }
