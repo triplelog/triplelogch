@@ -107,6 +107,7 @@ function createPD(){
 	allCurves[id]= currentCurve;
 	postMessage({'type':'outputCurve','id':id,'pd':pd,'startPoint':[currentCurve[0][0],currentCurve[0][1]],'endPoint':[currentCurve[currentCurve.length - 1][0],currentCurve[currentCurve.length - 1][1]]});
 	currentCurve = [];
+	recentPoints = [];
 }
 
 function selectGroup(){
