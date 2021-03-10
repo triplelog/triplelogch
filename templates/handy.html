@@ -41,6 +41,19 @@
 	background-size: 300px 300px;*/
 	
 }
+.o2 {
+	position: absolute;
+	left: 0px;
+	top:50%;
+	width: 300px;
+	height: 300px;
+	display: inline-block;
+	border: 1px solid red;
+	/*background-image: url("img/pexels-photo-963278.jpeg");
+	background-color: black;
+	background-size: 300px 300px;*/
+	
+}
 .tools {
 	position: absolute;
 	left: 300px;
@@ -67,7 +80,10 @@
 </div>
 
 	<canvas class="output" width="300px" height="300px">
-		<svg class="hullSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		
+	</canvas>
+<div class="o2">
+	<svg class="hullSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			{% for idx in range(0,10) %}<path class="convexHull-{{ idx }}" fill="rgba(255,255,255,{{ 0.04 - idx*1.0/400.0 }})" {% if idx == 5 %}stroke="none"{% else %}stroke="none"{% endif %} stroke-width="2" d="M5 5 150 5 295 25 295 275 150 295 5 295Z" />
 			{% endfor %}
 		</svg>
@@ -89,8 +105,7 @@
 				</pattern>
 			</defs>
 		</svg>
-	</canvas>
-
+</div>
 <div class="tools">
 	<button onclick="selectGroup();">Group</button>
 </div>
