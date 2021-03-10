@@ -61,7 +61,7 @@
 </style>
 </head>
 <body>
-<img src="img/pexels-photo-963278.jpeg" style="display: none;"/>
+<img id="imgBG" src="img/pexels-photo-963278.jpeg" style="display: none;"/>
 <div class="input">
 
 </div>
@@ -240,6 +240,10 @@ function drawConvexHull(pdArray) {
 		var el = document.querySelector('.convexHull-'+i);
 		el.setAttribute('d',pdArray[i]);
 	}
+	
+	
+	var svgImg = document.querySelector('.fgSVG');
+	ctx.drawImage(svgImg, 0, 0, 300, 300);
 	var url = canvas.toDataURL();
 	console.log(url);
 
