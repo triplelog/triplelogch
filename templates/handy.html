@@ -36,9 +36,9 @@
 	height: 300px;
 	display: inline-block;
 	border: 1px solid red;
-	background-image: url("img/pexels-photo-963278.jpeg");
+	/*background-image: url("img/pexels-photo-963278.jpeg");
 	background-color: black;
-	background-size: 300px 300px;
+	background-size: 300px 300px;*/
 	
 }
 .tools {
@@ -61,8 +61,9 @@
 </style>
 </head>
 <body>
-
+<img src="img/pexels-photo-963278.jpeg" style="display: none;"/>
 <div class="input">
+
 </div>
 
 	<canvas class="output" width="300px" height="300px">
@@ -95,6 +96,9 @@
 </div>
 <script>
 var canvas = document.querySelector('canvas');
+var ctx = canvas.getContext("2d");
+var img = document.getElementById("imgBG");
+ctx.drawImage(img, 0, 0, 300, 300);
 var curveWorker = new Worker('js/curveWorker.js');
 var inputEl = document.querySelector('.input');
 var outputEl = document.querySelector('.output');
