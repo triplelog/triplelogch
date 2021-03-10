@@ -261,12 +261,12 @@ function drawConvexHull(pdArray) {
 	var svgURL = new XMLSerializer().serializeToString(clonedSvgElement);
 	var img2 = new Image();
 	img2.src = "data:image/svg+xml;base64," + window.btoa(svgURL.outerHTML);
-	img2.onload = function() {
+	//img2.onload = function() {
 		ctx.drawImage(img2, 0, 0,300,300);
 		var url = canvas.toDataURL();
 		console.log("done");
 		console.log(url);
-	}
+	//}
 	
 	
 
