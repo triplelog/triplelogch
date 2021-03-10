@@ -151,7 +151,7 @@ function convexHull(points){
 	for (var i=0;i<len;i++){
 		var a = -11;
 		if (points[i][0]>cx){
-			var a = Math.atan((points[i][1]-cy)/(points[i][0]-cx));
+			a = Math.atan((points[i][1]-cy)/(points[i][0]-cx));
 			toRight = true;
 		}
 		else if (toRight){
@@ -171,4 +171,5 @@ function convexHull(points){
 	cy = points[currentPoint][1];
 	len--;
 	console.log(hullPoints);
+	console.log(points);
 }
