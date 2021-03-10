@@ -145,11 +145,11 @@ function convexHull(points){
 		}
 	}
 	
-	
+	var margin = 10;
 	cx = points[currentPoint][0];
 	cy = points[currentPoint][1];
 	hullPoints[0] = [cx,cy];
-	pd += " "+cx+" "+cy;
+	pd += " "+(cx - margin)+" "+cy;
 	points.splice(currentPoint,1);
 	len--;
 	
@@ -175,10 +175,16 @@ function convexHull(points){
 		if (currentPoint == -1){
 			break;
 		}
+		
+		var d= Math.pow(Math.pow(points[currentPoint][1]-cy,2)+Math.pow(points[currentPoint][0]-cx,2),.5);
+		var adj = margin/d;
+		var mx = (points[currentPoint][1]-cy)*adj;
+		var my = -1*(points[currentPoint][0]-cx)*adj;
 		cx = points[currentPoint][0];
 		cy = points[currentPoint][1];
 		hullPoints.push([cx,cy]);
-		pd += " "+cx+" "+cy;
+		
+		pd += " "+(cx-mx)+" "+(cy-my);
 		points.splice(currentPoint,1);
 		len--;
 		
