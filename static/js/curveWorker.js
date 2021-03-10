@@ -154,7 +154,7 @@ function convexHull(points){
 			a = Math.atan((points[i][1]-cy)/(points[i][0]-cx));
 			toRight = true;
 		}
-		else if (toRight){
+		else {
 			continue;
 		}
 		if (a > maxAngle) {
@@ -163,7 +163,7 @@ function convexHull(points){
 		}
 	}
 	if (!toRight){
-		
+		currentPoint = 0;
 	}
 	hullPoints[1] = [points[currentPoint][0],points[currentPoint][1]];
 	points.splice(currentPoint,1);
