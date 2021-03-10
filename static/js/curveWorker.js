@@ -144,9 +144,10 @@ function convexHull(points){
 		}
 	}
 	hullPoints[0] = [points[currentPoint][0],points[currentPoint][1]];
-	points.splice(currentPoint,1);
+	
 	cx = points[currentPoint][0];
 	cy = points[currentPoint][1];
+	points.splice(currentPoint,1);
 	len--;
 	idx++;
 	
@@ -172,9 +173,10 @@ function convexHull(points){
 			break;
 		}
 		hullPoints[idx] = [points[currentPoint][0],points[currentPoint][1]];
-		points.splice(currentPoint,1);
+		
 		cx = points[currentPoint][0];
 		cy = points[currentPoint][1];
+		points.splice(currentPoint,1);
 		len--;
 		
 	}
@@ -198,9 +200,10 @@ function convexHull(points){
 			break;
 		}
 		hullPoints[idx] = [points[currentPoint][0],points[currentPoint][1]];
-		points.splice(currentPoint,1);
+		
 		cx = points[currentPoint][0];
 		cy = points[currentPoint][1];
+		points.splice(currentPoint,1);
 		len--;
 		
 	}
