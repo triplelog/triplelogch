@@ -199,7 +199,7 @@ function convexHull(points){
 		len--;
 		
 	}
-	ppd[0] += margin/2;
+	ppd[0] += margin*2;
 	while (len>0){
 		var maxAngle = -10;
 		currentPoint = -1;
