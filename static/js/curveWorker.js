@@ -128,6 +128,12 @@ function groupUp() {
 }
 
 function convexHull(points){
+	var points = [];
+	for (var i of Object.values(allCurves)){
+		for (var ii=0;ii<i.length;ii++){
+			points.push(i[ii]);
+		}
+	}
 	var minX = points[0][0]+1;
 	var len = points.length;
 	var hullPoints = [[0,0]];
