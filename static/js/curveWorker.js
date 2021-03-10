@@ -1,100 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      
-    {% block meta %}
-    <meta name="description" content=".">    <title>CSS City</title>  
-    <link rel="icon" type="image/png" href="../chfaviconcrop.png">
-    {% endblock %}
-    
-
-
-{% block stylesheets %}
-{% endblock %}
-
-
-<style>
-
-.input {
-	position: absolute;
-	left: 0px;
-	top:0px;
-	width: 100%;
-	height: 50%;
-	display: inline-block;
-	border: 1px solid black;
-	touch-action: none;
-	
-}
-.output {
-	position: absolute;
-	left: 0px;
-	top:50%;
-	width: 300px;
-	height: 300px;
-	display: inline-block;
-	border: 1px solid red;
-	
-}
-.tools {
-	position: absolute;
-	left: 300px;
-	top:50%;
-	display: inline-block;
-	
-}
-.pt {
-	position: absolute;
-	display: inline-block;
-	background: black;
-	width: 1px;
-	height: 1px;
+onmessage = function(evt){
+	console.log(evt.data);
+	postMessage([evt.data.x,evt.data.y]);
 }
 
-
-
-</style>
-</head>
-<body>
-
-<div class="input">
-</div>
-
-<div class="output">
-	<svg class="containerSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<path fill="rgba(0,0,0,.25)" stroke="white" stroke-width="11" d="M5 5 150 5 295 25 295 275 150 295 5 295Z" />
-		<path fill="none" stroke="black" stroke-width="5" d="M5 5 150 5 295 25 295 275 150 295 5 295Z" />
-	</svg>
-	<svg class="bgSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-
-	</svg>
-	<svg class="fgSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		
-	</svg>
-</div>
-<div class="tools">
-	<button onclick="selectGroup();">Group</button>
-</div>
-<script>
-var curveWorker = new Worker('js/curveWorker.js');
-var inputEl = document.querySelector('.input');
-var outputEl = document.querySelector('.output');
-inputEl.addEventListener('pointerdown',inputDown);
-inputEl.addEventListener('pointermove',inputMove);
-inputEl.addEventListener('pointerup',inputUp);
 
 var currentCurve = [];
 var allCurves = {};
 var isDown = false;
 var isGroup = false;
-
-curveWorker.onmessage = function(evt){
-	console.log(evt.data);
-	drawCurveIn(evt.data);
-}
-
 function inputDown(evt) {
 	console.log(evt);
 	currentCurve = [[evt.clientX,evt.clientY]];
@@ -102,7 +15,9 @@ function inputDown(evt) {
 }
 function inputMove(evt) {
 	if (isDown){
-		curveWorker.postMessage({'type':'move','x':evt.clientX,'y':evt.clientY});
+		curveWorker.postMessage([evt.clientX,evt.clientY]);
+		currentCurve.push();
+		drawCurveIn([evt.clientX,evt.clientY]);
 	}
 }
 function inputUp(evt) {
@@ -214,7 +129,3 @@ function groupMove() {
 function groupUp() {
 	isGroup = false;
 }
-</script>
-</body>
-</html>
-
