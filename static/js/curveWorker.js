@@ -49,7 +49,7 @@ function sendPoints() {
 	postMessage(points);
 	recentPoints = [];
 }
-setInterval(sendPoints, 300);
+setInterval(sendPoints, 100);
 
 var currentCurve = [];
 var allCurves = {};
