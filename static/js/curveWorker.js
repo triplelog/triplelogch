@@ -135,8 +135,8 @@ function convexHull(points){
 	var cx = 0;
 	var cy = 0;
 	var idx = 0;
-	console.log(points);
-	
+	console.log(points.length);
+	const t0 = performance.now();
 	for (var i=0;i<len;i++){
 		if (points[i][0] < minX) {
 			minX = points[i][0];
@@ -206,5 +206,7 @@ function convexHull(points){
 		len--;
 		
 	}
-	console.log(hullPoints);
+	const t1 = performance.now();
+	console.log(`Convex Hull took ${t1 - t0} milliseconds.`);
+	console.log(hullPoints.length);
 }
