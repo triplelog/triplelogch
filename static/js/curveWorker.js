@@ -4,7 +4,7 @@ onmessage = function(evt){
 		recentPoints.push([evt.data.x,evt.data.y]);
 	}
 	else if (evt.data.type == "up"){
-		drawCurveOut();
+		createPD();
 	}
 	
 }
@@ -80,7 +80,7 @@ function drawCurveIn(pt){
 	el.style.top = pt[1]+"px";
 	inputEl.appendChild(el);
 }
-function drawCurveOut(){
+function createPD(){
 	var id = "curve-"+Math.random().toString(36).substr(3,12);
 	var pd = "M"; 
 	if (currentCurve.length < 3){
@@ -106,6 +106,7 @@ function drawCurveOut(){
 	
 	allCurves[id]= currentCurve;
 	postMessage({'type':'outputCurve','id':id,'pd':pd,'startPoint':[currentCurve[0][0],currentCurve[0][1]],'endPoint':[currentCurve[currentCurve.length - 1][0],currentCurve[currentCurve.length - 1][1]]});
+	currentCurve = [];
 }
 
 function selectGroup(){
