@@ -214,6 +214,6 @@ function convexHull(points){
 	const t1 = performance.now();
 	console.log(`Convex Hull took ${t1 - t0} milliseconds.`);
 	console.log(hullPoints.length);
-	postMessage({'type':'convexHull','pd':pd);
+	postMessage({'type':'convexHull','pd':pd});
 	
 }
