@@ -246,7 +246,7 @@ function convexHull(points){
 	}
 	if (ppd[0] != -10000){
 		pd += " "+(cx-ppd[0])+" "+(cy-ppd[1]);
-		pdOut += " "+(cx-ppd[0])+" "+(cy-ppd[1]);
+		pdOut += " "+(cx-ppd[0]*2)+" "+(cy-ppd[1]*2);
 	}
 	pd += "Z";
 	pdOut += "Z";
