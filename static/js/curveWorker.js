@@ -134,6 +134,9 @@ function convexHull(points){
 	var currentPoint = 0;
 	var cx = 0;
 	var cy = 0;
+	var idx = 0;
+	console.log(points);
+	
 	for (var i=0;i<len;i++){
 		if (points[i][0] < minX) {
 			minX = points[i][0];
@@ -145,32 +148,61 @@ function convexHull(points){
 	cx = points[currentPoint][0];
 	cy = points[currentPoint][1];
 	len--;
+	idx++;
 	
-	var maxAngle = -10;
-	var toRight = false;
-	for (var i=0;i<len;i++){
-		var a = -11;
-		if (points[i][0]>cx){
-			a = Math.atan(-1*(points[i][1]-cy)/(points[i][0]-cx));
-			toRight = true;
+	var toRight = true;
+	while (toRight && len>0){
+		var maxAngle = -10;
+		toRight = false;
+		for (var i=0;i<len;i++){
+			var a = -11;
+			if (points[i][0]>cx){
+				a = Math.atan(-1*(points[i][1]-cy)/(points[i][0]-cx));
+				toRight = true;
+			}
+			else {
+				continue;
+			}
+			if (a > maxAngle) {
+				maxAngle = a;
+				currentPoint = i;
+			}
 		}
-		else {
-			continue;
+		if (!toRight){
+			break;
 		}
-		if (a > maxAngle) {
-			maxAngle = a;
-			currentPoint = i;
-		}
-		console.log(cx,cy,points[i],a,maxAngle);
+		hullPoints[idx] = [points[currentPoint][0],points[currentPoint][1]];
+		points.splice(currentPoint,1);
+		cx = points[currentPoint][0];
+		cy = points[currentPoint][1];
+		len--;
+		
 	}
-	if (!toRight){
-		currentPoint = 0;
+	while (len>0){
+		var minAngle = 10;
+		for (var i=0;i<len;i++){
+			var a = 11;
+			if (points[i][0]<=cx){
+				a = Math.atan(-1*(points[i][1]-cy)/(points[i][0]-cx));
+				toRight = true;
+			}
+			else {
+				continue;
+			}
+			if (a < minAngle) {
+				minAngle = a;
+				currentPoint = i;
+			}
+		}
+		if (!toRight){
+			break;
+		}
+		hullPoints[idx] = [points[currentPoint][0],points[currentPoint][1]];
+		points.splice(currentPoint,1);
+		cx = points[currentPoint][0];
+		cy = points[currentPoint][1];
+		len--;
+		
 	}
-	hullPoints[1] = [points[currentPoint][0],points[currentPoint][1]];
-	points.splice(currentPoint,1);
-	cx = points[currentPoint][0];
-	cy = points[currentPoint][1];
-	len--;
 	console.log(hullPoints);
-	console.log(points);
 }
