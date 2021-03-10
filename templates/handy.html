@@ -246,6 +246,7 @@ function drawConvexHull(pdArray) {
   	blob = new Blob([outerHTML],{type:'image/svg+xml;charset=utf-8'});
   	let URL = window.URL || window.webkitURL || window;
 	let blobURL = URL.createObjectURL(blob);
+	console.log(blobURL);
 	var img2 = new Image();
 	
 	img2.onload = function() {
