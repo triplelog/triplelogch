@@ -9,12 +9,12 @@ function sendPoints() {
 	var points = [[0,0,0],[0,0,0],[0,0,0]];
 	if (rlen > 3){
 		
-		for (var i=0;i<rlen/4;i++){
+		for (var i=0;i<Math.floor(rlen/4);i++){
 			points[0][0]+=recentPoints[i][0];
 			points[0][1]+=recentPoints[i][1];
 			points[0][2]++;
 		}
-		for (var i=rlen/4;i<rlen/2;i++){
+		for (var i=Math.floor(rlen/4);i<Math.floor(rlen/2);i++){
 			points[0][0]+=recentPoints[i][0];
 			points[0][1]+=recentPoints[i][1];
 			points[0][2]++;
@@ -22,7 +22,7 @@ function sendPoints() {
 			points[1][1]+=recentPoints[i][1];
 			points[1][2]++;
 		}
-		for (var i=rlen/2;i<rlen*3/4;i++){
+		for (var i=Math.floor(rlen/2);i<Math.floor(rlen*3/4);i++){
 			points[2][0]+=recentPoints[i][0];
 			points[2][1]+=recentPoints[i][1];
 			points[2][2]++;
@@ -30,7 +30,7 @@ function sendPoints() {
 			points[1][1]+=recentPoints[i][1];
 			points[1][2]++;
 		}
-		for (var i=rlen*3/4;i<rlen;i++){
+		for (var i=Math.floor(rlen*3/4);i<rlen;i++){
 			points[2][0]+=recentPoints[i][0];
 			points[2][1]+=recentPoints[i][1];
 			points[2][2]++;
