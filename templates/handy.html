@@ -191,9 +191,9 @@ function drawCurveOut(id,pd,startPoint,endPoint){
 }
 
 function drawConvexHull(pd) {
-	var el = document.querySelctor('.convexHullFill');
+	var el = document.querySelector('.convexHullFill');
 	el.setAttribute('path',pd);
-	var el2 = document.querySelctor('.convexHullStroke');
+	var el2 = document.querySelector('.convexHullStroke');
 	el2.setAttribute('path',pd);
 }
 function selectGroup(){
