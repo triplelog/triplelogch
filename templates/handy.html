@@ -36,7 +36,7 @@
 	height: 300px;
 	display: inline-block;
 	border: 1px solid red;
-	background-image: url("img/pexels-photo-963278.jpeg");
+	/*background-image: url("img/pexels-photo-963278.jpeg");*/
 	background-color: black;
 	background-size: 300px 300px;
 	
@@ -80,10 +80,12 @@
 			  <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
 			</linearGradient>
 			<radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%" gradientUnits="userSpaceOnUse">
-			  <stop offset="0%" style="stop-color:rgb(0,0,0);
-			  stop-opacity:1" />
+			  <stop offset="0%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
 			  <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
 			</radialGradient>
+			<pattern id="img1" patternUnits="userSpaceOnUse" width="100%" height="100%">
+				<image href="img/pexels-photo-963278.jpeg" x="0" y="0" width="100%" height="100%" />
+			</pattern>
 		</defs>
 	</svg>
 </div>
@@ -156,7 +158,7 @@ function drawCurveOut(id,pd,startPoint,endPoint){
 	var path0 = document.createElementNS("http://www.w3.org/2000/svg", 'path');
 	
 	path0.setAttribute('d',pd);
-	path0.setAttribute('stroke','rgba(255,255,255,.25)');
+	path0.setAttribute('stroke','rgba(255,255,255,.2)');
 	path0.setAttribute('stroke-width','11');
 	path0.setAttribute('fill','none');
 	var cStart0 = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
@@ -164,14 +166,14 @@ function drawCurveOut(id,pd,startPoint,endPoint){
 	cStart0.setAttribute('cy', startPoint[1]);
 	cStart0.setAttribute('r', '5.5');
 	cStart0.setAttribute('stroke','none');
-	cStart0.setAttribute('fill','rgba(255,255,255,.25)');
+	cStart0.setAttribute('fill','rgba(255,255,255,.2)');
 	svg.appendChild(cStart0);
 	var cEnd0 = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
 	cEnd0.setAttribute('cx', endPoint[0]);
 	cEnd0.setAttribute('cy', endPoint[1]);
 	cEnd0.setAttribute('r', '5.5');
 	cEnd0.setAttribute('stroke','none');
-	cEnd0.setAttribute('fill','rgba(255,255,255,.25)');
+	cEnd0.setAttribute('fill','rgba(255,255,255,.2)');
 	svg.appendChild(cEnd0);
 	path0.id = "bbg-"+id;
 	svg.appendChild(path0);
@@ -203,7 +205,7 @@ function drawCurveOut(id,pd,startPoint,endPoint){
 	var svg2 = document.querySelector('.output > .fgSVG');
 	var path2 = document.createElementNS("http://www.w3.org/2000/svg", 'path');
 	path2.setAttribute('d',pd);
-	path2.setAttribute('stroke','url(#grad2)');
+	path2.setAttribute('stroke','url(#img1)');
 	path2.setAttribute('stroke-width','5');
 	path2.setAttribute('fill','none');
 	var cStart2 = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
