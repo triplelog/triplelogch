@@ -184,19 +184,19 @@ function convexHull(points){
 		
 	}
 	while (len>0){
-		var minAngle = 10;
+		var maxAngle = -10;
 		currentPoint = -1;
 		for (var i=0;i<len;i++){
-			var a = 11;
+			var a = -11;
 			if (points[i][0]<=cx){
-				a = Math.atan(-1*(points[i][1]-cy)/(points[i][0]-cx));
+				a = -1*Math.atan(-1*(points[i][1]-cy)/(points[i][0]-cx));
 				toRight = true;
 			}
 			else {
 				continue;
 			}
-			if (a < minAngle) {
-				minAngle = a;
+			if (a > maxAngle) {
+				maxAngle = a;
 				currentPoint = i;
 			}
 		}
@@ -211,6 +211,7 @@ function convexHull(points){
 		len--;
 		
 	}
+	pd += "Z";
 	const t1 = performance.now();
 	console.log(`Convex Hull took ${t1 - t0} milliseconds.`);
 	console.log(hullPoints.length);
