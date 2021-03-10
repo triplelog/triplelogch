@@ -64,10 +64,9 @@
 
 <div class="output">
 	<svg class="hullSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<path class="convexHullOut" fill="rgba(255,255,255,.05)" stroke="none" d="M5 5 150 5 295 25 295 275 150 295 5 295Z" />
-		<path class="convexHullMid" fill="rgba(255,255,255,.1)" stroke="black" stroke-width="2" d="M5 5 150 5 295 25 295 275 150 295 5 295Z" />
-		<path class="convexHullIn" fill="rgba(255,255,255,.2)" stroke="none" stroke-width="1" d="M5 5 150 5 295 25 295 275 150 295 5 295Z" />
-
+		{% for idx in range(0,10) %}
+		<path class="convexHull-{{ idx }}" fill="rgba(255,255,255,.05)" stroke="none" d="M5 5 150 5 295 25 295 275 150 295 5 295Z" />
+		{% endfor %}
 	</svg>
 	<svg class="bgSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
@@ -192,13 +191,12 @@ function drawCurveOut(id,pd,startPoint,endPoint){
 	console.log(allCurves);
 }
 
-function drawConvexHull(pdIn,pdMid,pdOut) {
-	var el = document.querySelector('.convexHullOut');
-	el.setAttribute('d',pdOut);
-	var el2 = document.querySelector('.convexHullIn');
-	el2.setAttribute('d',pdIn);
-	var el3 = document.querySelector('.convexHullMid');
-	el3.setAttribute('d',pdMid);
+function drawConvexHull(pdArray) {
+	for (var i=0;i<10;i++){
+		var el = document.querySelector('.convexHull-'+i);
+		el.setAttribute('d',pdArray[i]);
+	}
+
 }
 function selectGroup(){
 	isGroup = true;

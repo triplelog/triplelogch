@@ -135,9 +135,11 @@ function convexHull(points){
 	var cx = 0;
 	var cy = 0;
 	var idx = 0;
-	var pd = "M"; 
-	var pdMid = "M"; 
-	var pdOut = "M"; 
+	var pdArray = [];
+	var n = 10;
+	for (var i=0;i<n;i++){
+		pdArray.push("M");
+	}
 	console.log(points.length);
 	const t0 = performance.now();
 	for (var i=0;i<len;i++){
@@ -147,13 +149,13 @@ function convexHull(points){
 		}
 	}
 	
-	var margin = 25;
+	var margin = 5;
 	cx = points[currentPoint][0];
 	cy = points[currentPoint][1];
 	hullPoints[0] = [cx,cy];
-	pd += " "+(cx)+" "+cy;
-	pdMid += " "+(cx - margin)+" "+cy;
-	pdOut += " "+(cx - margin*2)+" "+cy;
+	for (var i=0;i<n;i++){
+		pdArray[i] += " "+(cx - margin*i)+" "+cy;;
+	}
 	var ppd = [-10000,-1];
 	points.splice(currentPoint,1);
 	len--;
@@ -191,9 +193,9 @@ function convexHull(points){
 		else {
 			ppd[0] += mx;
 			ppd[1] += my;
-			pd += " "+(cx)+" "+(cy);
-			pdMid += " "+(cx-ppd[0]/2)+" "+(cy-ppd[1]/2);
-			pdOut += " "+(cx-ppd[0])+" "+(cy-ppd[1]);
+			for (var i=0;i<n;i++){
+				pdArray[i] += " "+(cx - ppd[0]/2*i)+" "+(cy-ppd[1]/2*i);
+			}
 			ppd = [mx,my];
 		}
 		cx = points[currentPoint][0];
@@ -236,9 +238,9 @@ function convexHull(points){
 		else {
 			ppd[0] += mx;
 			ppd[1] += my;
-			pd += " "+(cx)+" "+(cy);
-			pdMid += " "+(cx-ppd[0]/2)+" "+(cy-ppd[1]/2);
-			pdOut += " "+(cx-ppd[0])+" "+(cy-ppd[1]);
+			for (var i=0;i<n;i++){
+				pdArray[i] += " "+(cx - ppd[0]/2*i)+" "+(cy-ppd[1]/2*i);
+			}
 			ppd = [mx,my];
 		}
 		cx = points[currentPoint][0];
@@ -249,16 +251,17 @@ function convexHull(points){
 		
 	}
 	if (ppd[0] != -10000){
-		pd += " "+(cx)+" "+(cy);
-		pdMid += " "+(cx-ppd[0])+" "+(cy-ppd[1]);
-		pdOut += " "+(cx-ppd[0]*2)+" "+(cy-ppd[1]*2);
+		for (var i=0;i<n;i++){
+			pdArray[i] += " "+(cx - ppd[0]*i)+" "+(cy-ppd[1]*i);
+		}
 	}
-	pd += "Z";
-	pdMid += "Z";
-	pdOut += "Z";
+
+	for (var i=0;i<n;i++){
+		pdArray[i] += "Z";
+	}
 	const t1 = performance.now();
 	console.log(`Convex Hull took ${t1 - t0} milliseconds.`);
 	console.log(hullPoints.length);
-	postMessage({'type':'convexHull','pdOut':pdOut,'pdIn':pd,'pdMid':pdMid});
+	postMessage({'type':'convexHull','pdArray':pdArray});
 	
 }
