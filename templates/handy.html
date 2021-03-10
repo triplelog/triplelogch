@@ -67,7 +67,7 @@
 
 <div class="output">
 	<svg class="hullSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		{% for idx in range(0,10) %}<path class="convexHull-{{ idx }}" fill="rgba(255,255,255,{{ 0.05 - idx*1.0/400.0 }})" {% if idx == 5 %}stroke="black"{% else %}stroke="none"{% endif %} stroke-width="2" d="M5 5 150 5 295 25 295 275 150 295 5 295Z" />
+		{% for idx in range(0,10) %}<path class="convexHull-{{ idx }}" fill="rgba(255,255,255,{{ 0.05 - idx*1.0/400.0 }})" {% if idx == 5 %}stroke="none"{% else %}stroke="none"{% endif %} stroke-width="2" d="M5 5 150 5 295 25 295 275 150 295 5 295Z" />
 		{% endfor %}
 	</svg>
 	<svg class="bgSVG" style="position: absolute; left: 0px; top: 0px;" viewBox="0 0 300 300" width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -143,23 +143,47 @@ function drawCurveIn(pt){
 }
 function drawCurveOut(id,pd,startPoint,endPoint){
 	var svg = document.querySelector('.output > .bgSVG');
+	var path0 = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+	
+	path0.setAttribute('d',pd);
+	path0.setAttribute('stroke','rgba(255,255,255,.25)');
+	path0.setAttribute('stroke-width','9');
+	path0.setAttribute('fill','none');
+	var cStart0 = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+	cStart0.setAttribute('cx', startPoint[0]);
+	cStart0.setAttribute('cy', startPoint[1]);
+	cStart0.setAttribute('r', '4.5');
+	cStart0.setAttribute('stroke','none');
+	cStart0.setAttribute('fill','rgba(255,255,255,.25)');
+	svg.appendChild(cStart0);
+	var cEnd0 = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+	cEnd0.setAttribute('cx', endPoint[0]);
+	cEnd0.setAttribute('cy', endPoint[1]);
+	cEnd0.setAttribute('r', '4.5');
+	cEnd0.setAttribute('stroke','none');
+	cEnd0.setAttribute('fill','rgba(255,255,255,.25)');
+	svg.appendChild(cEnd0);
+	path0.id = "bbg-"+id;
+	svg.appendChild(path0);
+	
+
 	var path = document.createElementNS("http://www.w3.org/2000/svg", 'path');
 	
 	path.setAttribute('d',pd);
 	path.setAttribute('stroke','white');
-	path.setAttribute('stroke-width','8');
+	path.setAttribute('stroke-width','7');
 	path.setAttribute('fill','none');
 	var cStart = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
 	cStart.setAttribute('cx', startPoint[0]);
 	cStart.setAttribute('cy', startPoint[1]);
-	cStart.setAttribute('r', '4.0');
+	cStart.setAttribute('r', '3.5');
 	cStart.setAttribute('stroke','none');
 	cStart.setAttribute('fill','white');
 	svg.appendChild(cStart);
 	var cEnd = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
 	cEnd.setAttribute('cx', endPoint[0]);
 	cEnd.setAttribute('cy', endPoint[1]);
-	cEnd.setAttribute('r', '4.0');
+	cEnd.setAttribute('r', '3.5');
 	cEnd.setAttribute('stroke','none');
 	cEnd.setAttribute('fill','white');
 	svg.appendChild(cEnd);
