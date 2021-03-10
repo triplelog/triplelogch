@@ -242,17 +242,19 @@ function drawConvexHull(pdArray) {
 		el.setAttribute('d',pdArray[i]);
 	}
 	
-	
+	let outerHTML = document.getElementById("fg").outerHTML;
+  	blob = new Blob([outerHTML],{type:'image/svg+xml;charset=utf-8'});
+  	let URL = window.URL || window.webkitURL || window;
+	let blobURL = URL.createObjectURL(blob);
 	var img2 = new Image();
-	img2.src = "#fg";
+	
 	img2.onload = function() {
 		ctx.drawImage(img2, 0, 0,300,300);
 		var url = canvas.toDataURL();
 		console.log(url);
 	}
-	
-	//var svgImg = document.querySelector('.fgSVG');
-	ctx.drawImage(img2, 0, 0, 300, 300);
+	img2.src = blobURL;
+
 	
 
 }
