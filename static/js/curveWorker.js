@@ -150,6 +150,7 @@ function convexHull(points){
 	cy = points[currentPoint][1];
 	hullPoints[0] = [cx,cy];
 	pd += " "+(cx - margin)+" "+cy;
+	var ppd = [-10000,-1];
 	points.splice(currentPoint,1);
 	len--;
 	
@@ -180,11 +181,20 @@ function convexHull(points){
 		var adj = margin/d;
 		var mx = -1*(points[currentPoint][1]-cy)*adj;
 		var my = 1*(points[currentPoint][0]-cx)*adj;
+		if (ppd[0] == -10000){
+			ppd = [mx,my];
+		}
+		else {
+			ppd[0] += mx;
+			ppd[1] += my;
+			pd += " "+(cx-ppd[0]/2)+" "+(cy-ppd[1]/2);
+			ppd = [mx,my];
+		}
 		cx = points[currentPoint][0];
 		cy = points[currentPoint][1];
 		hullPoints.push([cx,cy]);
 		
-		pd += " "+(cx-mx)+" "+(cy-my);
+		
 		points.splice(currentPoint,1);
 		len--;
 		
@@ -213,13 +223,24 @@ function convexHull(points){
 		var adj = margin/d;
 		var mx = -1*(points[currentPoint][1]-cy)*adj;
 		var my = 1*(points[currentPoint][0]-cx)*adj;
+		if (ppd[0] == -10000){
+			ppd = [mx,my];
+		}
+		else {
+			ppd[0] += mx;
+			ppd[1] += my;
+			pd += " "+(cx-ppd[0]/2)+" "+(cy-ppd[1]/2);
+			ppd = [mx,my];
+		}
 		cx = points[currentPoint][0];
 		cy = points[currentPoint][1];
 		hullPoints.push([cx,cy]);
-		pd += " "+(cx-mx)+" "+(cy-my);
 		points.splice(currentPoint,1);
 		len--;
 		
+	}
+	if (ppd[0] != -10000){
+		pd += " "+(cx-ppd[0])+" "+(cy-ppd[1]);
 	}
 	pd += "Z";
 	const t1 = performance.now();
