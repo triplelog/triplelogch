@@ -100,6 +100,7 @@ curveWorker.onmessage = function(evt){
 		drawCurveOut(evt.data.id,evt.data.pd,evt.data.startPoint,evt.data.endPoint);
 	}
 	else if (evt.data.type == 'convexHull'){
+		console.log(evt.data.pd);
 		drawConvexHull(evt.data.pd);
 	}
 }
@@ -191,10 +192,11 @@ function drawCurveOut(id,pd,startPoint,endPoint){
 }
 
 function drawConvexHull(pd) {
+	console.log(pd);
 	var el = document.querySelector('.convexHullFill');
-	el.setAttribute('path',pd);
+	el.setAttribute('d',pd);
 	var el2 = document.querySelector('.convexHullStroke');
-	el2.setAttribute('path',pd);
+	el2.setAttribute('d',pd);
 }
 function selectGroup(){
 	isGroup = true;
