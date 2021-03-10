@@ -259,14 +259,14 @@ function drawConvexHull(pdArray) {
 	
 	let clonedSvgElement = document.getElementById("fg").cloneNode(true);
 	var img2 = new Image();
-	img2.src = "data:image/svg+xml;base64," + window.btoa(clonedSvgElement.outerHTML);
-	console.log("data:image/svg+xml;base64," + window.btoa(clonedSvgElement.outerHTML));
-	//img2.onload = function() {
+	
+	img2.onload = function() {
 		ctx.drawImage(img2, 0, 0,300,300);
 		var url = canvas.toDataURL();
 		console.log("done");
 		console.log(url);
-	//}
+	}
+	img2.src = "data:image/svg+xml;base64," + window.btoa(clonedSvgElement.outerHTML);
 	
 	
 
