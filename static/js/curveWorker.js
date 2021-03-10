@@ -149,7 +149,6 @@ function convexHull(points){
 	cy = points[currentPoint][1];
 	points.splice(currentPoint,1);
 	len--;
-	idx++;
 	
 	var toRight = true;
 	while (toRight && len>0){
@@ -172,7 +171,7 @@ function convexHull(points){
 		if (!toRight){
 			break;
 		}
-		hullPoints[idx] = [points[currentPoint][0],points[currentPoint][1]];
+		hullPoints.push([points[currentPoint][0],points[currentPoint][1]]);
 		
 		cx = points[currentPoint][0];
 		cy = points[currentPoint][1];
@@ -199,7 +198,7 @@ function convexHull(points){
 		if (!toRight){
 			break;
 		}
-		hullPoints[idx] = [points[currentPoint][0],points[currentPoint][1]];
+		hullPoints.push([points[currentPoint][0],points[currentPoint][1]]);
 		
 		cx = points[currentPoint][0];
 		cy = points[currentPoint][1];
