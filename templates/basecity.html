@@ -44,9 +44,12 @@ body {
 }
 #zoom1:checked ~ .container {
 	
-	--block: 4rem;
+	/*--block: 4rem;
 	--container-width: 240rem;
-	--container-height: 240rem;
+	--container-height: 240rem;*/
+	transform: rotate(45deg) skew(-15deg, -15deg) scale(2);
+	width: calc(2 * var(--container-width));
+	height: calc(2 * var(--container-height));
 	
 	
 }
@@ -507,7 +510,7 @@ input {
 	z-index: 5000;
 	
 }
-.stickyButton label {
+.stickyButtons label {
 	border: 1px solid black;
 	border-radius: 0.25rem;
 	padding: 0.125rem;
