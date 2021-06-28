@@ -500,13 +500,17 @@ input {
 }
 
 .stickyButtons {
-	position: -webkit-sticky;
-	position: sticky;
+	
+	position: fixed;
 	left:20px;
-	top:20px;
+	top:10px;
 	z-index: 5000;
 	border: 1px solid black;
-	border-radius: 0.5rem;
+	border-radius: 0.25rem;
+	padding: 0.25rem;
+}
+.stickyButtons.zoneB {
+	top: 30px;
 }
 
 #deleteButtonLabel { left: 140px;}
@@ -799,9 +803,9 @@ input {
 <label class="stickyButtons" for="zone1" id="zone1Label">Hide Buildings</label>
 <label class="stickyButtons" for="hideScore" id="hideScoreLabel">Hide Score</label>
 <label class="stickyButtons" for="showScore" id="showScoreLabel">Show Score</label>
-<label class="stickyButtons" for="deleteButton" id="deleteButtonLabel">Delete</label>
-<label class="stickyButtons" for="sfhButton" id="sfhButtonLabel">SFH</label>
-<label class="stickyButtons" for="mfhButton" id="mfhButtonLabel">MFH</label>
+<label class="stickyButtons zoneB" for="deleteButton" id="deleteButtonLabel">Delete</label>
+<label class="stickyButtons zoneB" for="sfhButton" id="sfhButtonLabel">SFH</label>
+<label class="stickyButtons zoneB" for="mfhButton" id="mfhButtonLabel">MFH</label>
 
 <input type="select" id="szone">
 	<option>Delete</option>
