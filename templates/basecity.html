@@ -45,9 +45,13 @@ body {
 body:hover input.af {
 	display: none;
 }
-input.naf:focus {
+input.naf {
 	color: red;
 }
+input.af:focus ~ input.naf {
+	color: black;
+}
+
 #zoom1:checked ~ .container {
 	
 	/*--block: 4rem;
