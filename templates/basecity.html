@@ -859,7 +859,7 @@ input {
 
 <div class="zoomButtons">
 	{% for i in range(0,20) %}<div>
-			{% for ii in range(0,20) %}<label for="zoomLoc{{i}}-{{ ii }}" id="zoomLoc{{i}}-{{ ii }}Label">{{i}}-{{ii}}</label>{% endfor %}</div>
+			{% for ii in range(0,20) %}<label for="zoomLoc{{i}}-{{ ii }}" id="zoomLoc{{i}}-{{ ii }}Label" {% if i == 11 && ii == 11 %}autofocus{% endif %}>{{i}}-{{ii}}</label>{% endfor %}</div>
 	{% endfor %}
 </div>
 <div class="container">
