@@ -770,7 +770,7 @@ input {
 .zoomButtons {
 	/*display: none;*/
 	z-index: 100001;
-	position: absolute;
+	position: fixed;
 	width: 300%;
 	height: 300%;
 	left:-100%;
@@ -797,14 +797,22 @@ input {
 #zoomLoc44:checked ~ .zoomButtons #zoomLoc44Label {
 	background: red;
 }
+#zoomLoc44:checked ~ .zoomButtons {
+	left:-100%;
+	top:-100%;
+}
 #zoomLoc44:checked ~ .container {
-	transform: rotate(45deg) skew(-15deg, -15deg) scale(1) translateX(0px) translateY(0px);
+	transform: translateX(0px) translateY(0px) rotate(45deg) skew(-15deg, -15deg) scale(1);
 }
 .zoomButtons #zoomLoc45Label {
 	background: yellow;
 }
 #zoomLoc45:checked ~ .zoomButtons #zoomLoc45Label {
 	background: orange;
+}
+#zoomLoc45:checked ~ .zoomButtons {
+	left:-133%;
+	top:-100%;
 }
 #zoomLoc45:checked ~ .container {
 	transform: translateX(-33%) translateY(0px) rotate(45deg) skew(-15deg, -15deg) scale(1) ;
