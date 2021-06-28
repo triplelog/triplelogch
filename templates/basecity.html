@@ -787,7 +787,9 @@ input {
 #zoomLoc00:checked ~ .container > .zoomButtons #zoomLoc00Label {
 	background: red;
 }
-
+#zoomLoc00:checked ~ .container {
+	transform: rotate(45deg) skew(-15deg, -15deg) scale(2) translateX(500px) translateY(100px);
+}
 {% block moreCSS %}
 {% endblock %}
 
