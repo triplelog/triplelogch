@@ -515,8 +515,10 @@ input {
 #zoom1Label { left: 40px;}
 
 #zone0Label { left: 60px;}
+#zone1Label { left: 80px;}
 
-#showScoreLabel { left: 100px;}
+#hideScoreLabel { left: 100px;}
+#showScoreLabel { left: 120px;}
 
 .horizontalGrow > div {
 	display: none;
@@ -733,13 +735,12 @@ input {
 #zone0:checked ~ div .isoCell {
 	display: inline-block;
 }
-#zone0:Not(:checked) ~ div .zoneCell {
-	display: inline-block;
-}
-#zone0:Not(:checked) ~ div .isoCell {
+#zone1:checked ~ div .isoCell {
 	display: none;
 }
-
+#zone1:checked ~ div .zoneCell {
+	display: inline-block;
+}
 #zone0:checked ~ div .resizeCoverHR {
 	display: none;
 }
@@ -749,20 +750,14 @@ input {
 #zone0:checked ~ div .resizeCoverV {
 	display: none;
 }
-/*
-#zone0 ~ #zone0Label::before {
-	content: 'Show ';
+
+#zone0:checked ~ #zone0Label > button::before {
+	content: 'Hide Buildings';
 }
-#zone0:checked ~ #zone0Label::before {
-	content: 'Hide ';
+#zone0:Not(:checked) ~ #zone0Label > button::before {
+	content: 'Show Buildings';
 }
-#showScore ~ #showScoreLabel::before {
-	content: 'Show ';
-}
-#showScore:checked ~ #showScoreLabel::before {
-	content: 'Hide ';
-}
-*/
+
 {% block moreCSS %}
 {% endblock %}
 
@@ -778,6 +773,8 @@ input {
 <input style="display: none;" type="radio" name="zoom" id="zoom0" checked />
 <input style="display: none;" type="radio" name="zoom" id="zoom1" />
 <input style="display: none;" type="radio" name="zone" id="zone0" checked />
+<input style="display: none;" type="radio" name="zone" id="zone1" />
+<input style="display: none;" type="radio" name="score" id="hideScore" checked />
 <input style="display: none;" type="radio" name="score" id="showScore" />
 <input style="display: none;" type="radio" name="zoneSelected" id="deleteButton" checked />
 <input style="display: none;" type="radio" name="zoneSelected" id="sfhButton" />
@@ -785,8 +782,10 @@ input {
 
 <label class="stickyButtons" for="zoom0" id="zoom0Label">Zoom Out</label>
 <label class="stickyButtons" for="zoom1" id="zoom1Label">Zoom In</label>
-<label class="stickyButtons" for="zone0" id="zone0Label">Buildings</label>
-<label class="stickyButtons" for="showScore" id="showScoreLabel">Score</label>
+<label class="stickyButtons" for="zone0" id="zone0Label"><button></button></label>
+<label class="stickyButtons" for="zone1" id="zone1Label">Hide Buildings</label>
+<label class="stickyButtons" for="hideScore" id="hideScoreLabel">Hide Score</label>
+<label class="stickyButtons" for="showScore" id="showScoreLabel">Show Score</label>
 <label class="stickyButtons" for="deleteButton" id="deleteButtonLabel">Delete Zone</label>
 <label class="stickyButtons" for="sfhButton" id="sfhButtonLabel">SFH</label>
 <label class="stickyButtons" for="mfhButton" id="mfhButtonLabel">MFH</label>
