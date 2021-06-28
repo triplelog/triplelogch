@@ -45,11 +45,10 @@ body {
 body:hover input.af {
 	display: none;
 }
-input.naf {
-	color: red;
-}
-input.af:focus ~ input.naf {
-	color: black;
+
+input.af:Not(:focus) ~ .container {
+	left: 50vw;
+	top: 50vh;
 }
 
 #zoom1:checked ~ .container {
