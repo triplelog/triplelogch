@@ -37,10 +37,14 @@ body {
 	width: var(--container-width);
 	height: var(--container-height);
 	border: 1px solid black;
-	left: 100vw;
-	top: 100vh;
+	left: 0vw;
+	top: 0vh;
 	transform: rotate(45deg) skew(-15deg, -15deg);
 	position: relative;
+}
+body:hover .container {
+	left: 100vw;
+	top: 100vh;
 }
 #zoom1:checked ~ .container {
 	
@@ -859,7 +863,7 @@ input {
 
 <div class="zoomButtons">
 	{% for i in range(0,20) %}<div>
-			{% for ii in range(0,20) %}<label for="zoomLoc{{i}}-{{ ii }}" id="zoomLoc{{i}}-{{ ii }}Label" {% if i == 11 and ii == 11 %}autofocus{% endif %}>{{i}}-{{ii}}</label>{% endfor %}</div>
+			{% for ii in range(0,20) %}<label for="zoomLoc{{i}}-{{ ii }}" id="zoomLoc{{i}}-{{ ii }}Label">{{i}}-{{ii}}</label>{% endfor %}</div>
 	{% endfor %}
 </div>
 <div class="container">
