@@ -733,6 +733,12 @@ input {
 #zone0:checked ~ div .isoCell {
 	display: inline-block;
 }
+#zone0:Not(:checked) ~ div .zoneCell {
+	display: inline-block;
+}
+#zone0:Not(:checked) ~ div .isoCell {
+	display: none;
+}
 
 #zone0:checked ~ div .resizeCoverHR {
 	display: none;
