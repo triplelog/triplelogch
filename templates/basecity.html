@@ -751,12 +751,7 @@ input {
 	display: none;
 }
 
-#zone0:checked ~ #zone0Label > button::before {
-	content: 'Hide Buildings';
-}
-#zone0:Not(:checked) ~ #zone0Label > button::before {
-	content: 'Show Buildings';
-}
+
 
 {% block moreCSS %}
 {% endblock %}
@@ -782,7 +777,7 @@ input {
 
 <label class="stickyButtons" for="zoom0" id="zoom0Label">Zoom Out</label>
 <label class="stickyButtons" for="zoom1" id="zoom1Label">Zoom In</label>
-<label class="stickyButtons" for="zone0" id="zone0Label"><button></button></label>
+<label class="stickyButtons" for="zone0" id="zone0Label">Show Buildings</label>
 <label class="stickyButtons" for="zone1" id="zone1Label">Hide Buildings</label>
 <label class="stickyButtons" for="hideScore" id="hideScoreLabel">Hide Score</label>
 <label class="stickyButtons" for="showScore" id="showScoreLabel">Show Score</label>
