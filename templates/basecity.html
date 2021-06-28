@@ -770,7 +770,7 @@ input {
 .zoomButtons {
 	/*display: none;*/
 	z-index: 100001;
-	position: fixed;
+	position: absolute;
 	width: 300%;
 	height: 300%;
 	left:-100%;
@@ -791,10 +791,13 @@ input {
 	padding: 0px;
 }
 
-#zoomLoc55:checked ~ .zoomButtons #zoomLoc55Label {
+.zoomButtons #zoomLoc44Label {
+	background: green;
+}
+#zoomLoc44:checked ~ .zoomButtons #zoomLoc44Label {
 	background: red;
 }
-#zoomLoc55:checked ~ .container {
+#zoomLoc44:checked ~ .container {
 	transform: rotate(45deg) skew(-15deg, -15deg) scale(1) translateX(100px) translateY(100px);
 }
 {% block moreCSS %}
