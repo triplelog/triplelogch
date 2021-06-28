@@ -826,6 +826,9 @@ button:hover {
 button:focus {
 	color: blue;
 }
+button:active {
+	color: green;
+}
 {% block moreCSS %}
 {% endblock %}
 
@@ -838,7 +841,7 @@ button:focus {
 
 <input type="text" class="af" value="AF" style="position: absolute; top: 0px; right: 0px;" autofocus />
 <input type="text" class="naf" value="NAF" style="position: absolute; top: 0px; right: 50px;" />
-<button draggable="false" style="position: absolute; top: 50px; left: 5px;">Drag</button>
+<button draggable="false" style="position: absolute; top: 50px; left: 5px;"><button>Drag</button> More</button>
 <button draggable="false" style="position: absolute; top: 80px; left: 5px;">Drag</button>
 
 <input style="display: none;" type="radio" name="zoom" id="zoom0" checked />
