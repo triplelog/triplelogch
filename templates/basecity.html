@@ -771,29 +771,31 @@ input {
 	/*display: none;*/
 	z-index: 100001;
 	position: fixed;
-	width: 100%;
-	height: 100%;
+	width: 300%;
+	height: 300%;
+	left:-100%;
+	top:-100%;
 	margin: 0px;
 	padding: 0px;
 }
 .zoomButtons > div {
-	height: 33.3333%;
+	height: 11.1111%;
 	margin: 0px;
 	padding: 0px;
 }
 .zoomButtons > div > label {
-	width: 33.3333%;
+	width: 11.1111%;
 	height: 100%;
 	display: inline-block;
 	margin: 0px;
 	padding: 0px;
 }
 
-#zoomLoc00:checked ~ .container > .zoomButtons #zoomLoc00Label {
+#zoomLoc55:checked ~ .zoomButtons #zoomLoc55Label {
 	background: red;
 }
-#zoomLoc00:checked ~ .container {
-	transform: rotate(45deg) skew(-15deg, -15deg) scale(2) translateX(100px) translateY(300px);
+#zoomLoc55:checked ~ .container {
+	transform: rotate(45deg) skew(-15deg, -15deg) scale(1) translateX(100px) translateY(100px);
 }
 {% block moreCSS %}
 {% endblock %}
@@ -833,32 +835,21 @@ input {
 	</div>
 </div>
 
-<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc00" />
-<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc01" />
-<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc02" />
-<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc10" />
-<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc11" checked />
-<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc12" />
-<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc20" />
-<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc21" />
-<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc22" />
+{% for i in range(0,9) %}
+	{% for ii in range(0,9) %}
+		<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc{{ i }}{{ ii }}" />
+	{% endfor %}
+{% endfor %}
+
 
 <div class="zoomButtons">
-	<div>
-		<label for="zoomLoc00" id="zoomLoc00Label"></label>
-		<label for="zoomLoc01" id="zoomLoc01Label"></label>
-		<label for="zoomLoc02" id="zoomLoc02Label"></label>
-	</div>
-	<div>
-		<label for="zoomLoc10" id="zoomLoc10Label"></label>
-		<label for="zoomLoc11" id="zoomLoc11Label"></label>
-		<label for="zoomLoc12" id="zoomLoc12Label"></label>
-	</div>
-	<div>
-		<label for="zoomLoc20" id="zoomLoc20Label"></label>
-		<label for="zoomLoc21" id="zoomLoc21Label"></label>
-		<label for="zoomLoc22" id="zoomLoc22Label"></label>
-	</div>
+	{% for i in range(0,9) %}
+		<div>
+			{% for ii in range(0,9) %}
+			<label for="zoomLoc{{i}}{{ ii }}" id="zoomLoc{{i}}{{ ii }}Label"></label>
+			{% endfor %}
+		</div>
+	{% endfor %}
 </div>
 <div class="container">
 	
