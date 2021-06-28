@@ -514,8 +514,14 @@ input {
 #zoom0Label { left: 20px;}
 #zoom1Label { left: 40px;}
 
+#zoom0:checked ~ #zoom0Label {
+	display: none;
+}
+#zoom1:checked ~ #zoom1Label {
+	display: none;
+}
 #zone0Label { left: 60px;}
-#zone1Label { left: 80px;}
+#zone1Label { left: 60px;}
 
 #hideScoreLabel { left: 100px;}
 #showScoreLabel { left: 120px;}
