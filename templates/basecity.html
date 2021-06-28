@@ -507,18 +507,18 @@ input {
 	z-index: 5000;
 }
 
-#deleteButton { left: 140px;}
-#sfhButton { left: 160px;}
-#mfhButton { left: 180px;}
+#deleteButtonLabel { left: 140px;}
+#sfhButtonLabel { left: 160px;}
+#mfhButtonLabel { left: 180px;}
 
-#zoom0 { left: 20px;}
-#zoom1 { left: 40px;}
+#zoom0Label { left: 20px;}
+#zoom1Label { left: 40px;}
 
-#zone0 { left: 60px;}
-#zone1 { left: 80px;}
+#zone0Label { left: 60px;}
+#zone1Label { left: 80px;}
 
-#hideScore { left: 100px;}
-#showScore { left: 120px;}
+#hideScoreLabel { left: 100px;}
+#showScoreLabel { left: 120px;}
 
 .horizontalGrow > div {
 	display: none;
@@ -765,15 +765,25 @@ input {
 
 
  		
-<input class="stickyButtons" type="radio" name="zoom" id="zoom0" checked />
-<input class="stickyButtons" type="radio" name="zoom" id="zoom1" />
-<input class="stickyButtons" type="radio" name="zone" id="zone0" checked />
-<input class="stickyButtons" type="radio" name="zone" id="zone1" />
-<input class="stickyButtons" type="radio" name="score" id="hideScore" checked />
-<input class="stickyButtons" type="radio" name="score" id="showScore" />
-<input class="stickyButtons" type="radio" name="zoneSelected" id="deleteButton" checked />
-<input class="stickyButtons" type="radio" name="zoneSelected" id="sfhButton" />
-<input class="stickyButtons" type="radio" name="zoneSelected" id="mfhButton" />
+<input style="display: none;" type="radio" name="zoom" id="zoom0" checked />
+<input style="display: none;" type="radio" name="zoom" id="zoom1" />
+<input style="display: none;" type="radio" name="zone" id="zone0" checked />
+<input style="display: none;" type="radio" name="zone" id="zone1" />
+<input style="display: none;" type="radio" name="score" id="hideScore" checked />
+<input style="display: none;" type="radio" name="score" id="showScore" />
+<input style="display: none;" type="radio" name="zoneSelected" id="deleteButton" checked />
+<input style="display: none;" type="radio" name="zoneSelected" id="sfhButton" />
+<input style="display: none;" type="radio" name="zoneSelected" id="mfhButton" />
+
+<label class="stickyButtons" for="zoom0" id="zoom0Label">Zoom Out</label>
+<label class="stickyButtons" for="zoom1" id="zoom1Label">Zoom In</label>
+<label class="stickyButtons" for="zone0" id="zone0Label">Show Buildings</label>
+<label class="stickyButtons" for="zone1" id="zone1Label">Hide Buildings</label>
+<label class="stickyButtons" for="hideScore" id="hideScoreLabel">Hide Score</label>
+<label class="stickyButtons" for="showScore" id="showScoreLabel">Show Score</label>
+<label class="stickyButtons" for="deleteButton" id="deleteButtonLabel">Hide Buildings</label>
+<label class="stickyButtons" for="sfhButton" id="sfhButtonLabel">Hide Score</label>
+<label class="stickyButtons" for="mfhButton" id="mfhButtonLabel">Show Score</label>
 
 <div class="container">
 	
