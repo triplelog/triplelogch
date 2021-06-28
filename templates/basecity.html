@@ -794,10 +794,10 @@ input {
 {% for i in range(0,9) %}
 	{% for ii in range(0,9) %}
 	.zoomButtons #zoomLoc{{i}}{{ii}}Label {
-		background: green;
+		background: rgba(0,255,0,0.1);
 	}
 	#zoomLoc{{i}}{{ii}}:checked ~ .zoomButtons #zoomLoc{{i}}{{ii}}Label {
-		background: red;
+		background: rgba(255,0,0,0.1);
 	}
 	#zoomLoc{{i}}{{ii}}:checked ~ .zoomButtons {
 		left:{{100/3 - 100*i/3}}%;
