@@ -800,13 +800,13 @@ input {
 		background: rgba(255,0,0,0.1);
 	}
 	#zoomLoc{{i}}-{{ii}}:checked ~ .zoomButtons {
-		left:{{200/5 - 100*ii/5}}vw;
+		left:{{100*ii/5 - 200/5}}vw;
 		top:{{200/5 - 100*i/5}}vh;
 	}
 	#zoomLoc{{i}}-{{ii}}:checked ~ .container {
-		transform: translateX({{950/5 - 100*ii/5}}vw) translateY({{950/5 - 100*i/5}}vh) rotate(45deg) skew(-15deg, -15deg) scale(1);
+		transform: translateX({{100*ii/5 - 950/5}}vw) translateY({{950/5 - 100*i/5}}vh) rotate(45deg) skew(-15deg, -15deg) scale(1);
 		top: calc({{100*i/5 - 950/5}}vh + 0px);
-		/*left: calc({{100*ii/5 - 950/5}}vw + 0px);*/
+		left: calc({{100*ii/5 - 950/5}}vw + 0px);
 	}
 	{% endfor %}
 {% endfor %}
