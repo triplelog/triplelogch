@@ -798,7 +798,16 @@ input {
 	background: red;
 }
 #zoomLoc44:checked ~ .container {
-	transform: rotate(45deg) skew(-15deg, -15deg) scale(1) translateX(100px) translateY(100px);
+	transform: rotate(45deg) skew(-15deg, -15deg) scale(1) translateX(0px) translateY(0px);
+}
+.zoomButtons #zoomLoc45Label {
+	background: yellow;
+}
+#zoomLoc45:checked ~ .zoomButtons #zoomLoc45Label {
+	background: orange;
+}
+#zoomLoc45:checked ~ .container {
+	transform: rotate(45deg) skew(-15deg, -15deg) scale(1) translateX(33%) translateY(0px);
 }
 {% block moreCSS %}
 {% endblock %}
