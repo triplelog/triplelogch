@@ -751,7 +751,9 @@ input {
 	display: none;
 }
 
-
+#zone0Label > button::before {
+	content: 'Show Buildings';
+}
 
 {% block moreCSS %}
 {% endblock %}
@@ -777,13 +779,13 @@ input {
 
 <label class="stickyButtons" for="zoom0" id="zoom0Label">Zoom Out</label>
 <label class="stickyButtons" for="zoom1" id="zoom1Label">Zoom In</label>
-<label class="stickyButtons" for="zone0" id="zone0Label">Show Buildings</label>
+<label class="stickyButtons" for="zone0" id="zone0Label"><button></button></label>
 <label class="stickyButtons" for="zone1" id="zone1Label">Hide Buildings</label>
 <label class="stickyButtons" for="hideScore" id="hideScoreLabel">Hide Score</label>
 <label class="stickyButtons" for="showScore" id="showScoreLabel">Show Score</label>
-<label class="stickyButtons" for="deleteButton" id="deleteButtonLabel">Hide Buildings</label>
-<label class="stickyButtons" for="sfhButton" id="sfhButtonLabel">Hide Score</label>
-<label class="stickyButtons" for="mfhButton" id="mfhButtonLabel">Show Score</label>
+<label class="stickyButtons" for="deleteButton" id="deleteButtonLabel">Delete Zone</label>
+<label class="stickyButtons" for="sfhButton" id="sfhButtonLabel">SFH</label>
+<label class="stickyButtons" for="mfhButton" id="mfhButtonLabel">MFH</label>
 
 <div class="container">
 	
