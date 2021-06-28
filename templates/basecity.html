@@ -791,32 +791,25 @@ input {
 	padding: 0px;
 }
 
-.zoomButtons #zoomLoc44Label {
-	background: green;
-}
-#zoomLoc44:checked ~ .zoomButtons #zoomLoc44Label {
-	background: red;
-}
-#zoomLoc44:checked ~ .zoomButtons {
-	left:-100%;
-	top:-100%;
-}
-#zoomLoc44:checked ~ .container {
-	transform: translateX(0px) translateY(0px) rotate(45deg) skew(-15deg, -15deg) scale(1);
-}
-.zoomButtons #zoomLoc45Label {
-	background: yellow;
-}
-#zoomLoc45:checked ~ .zoomButtons #zoomLoc45Label {
-	background: orange;
-}
-#zoomLoc45:checked ~ .zoomButtons {
-	left:-133%;
-	top:-100%;
-}
-#zoomLoc45:checked ~ .container {
-	transform: translateX(-33%) translateY(0px) rotate(45deg) skew(-15deg, -15deg) scale(1) ;
-}
+{% for i in range(0,9) %}
+	{% for ii in range(0,9) %}
+	.zoomButtons #zoomLoc{{i}}{{ii}}Label {
+		background: green;
+	}
+	#zoomLoc{{i}}{{ii}}:checked ~ .zoomButtons #zoomLoc{{i}}{{ii}}Label {
+		background: red;
+	}
+	#zoomLoc{{i}}{{ii}}:checked ~ .zoomButtons {
+		left:{{100/3 - 100*i/3}}%;
+		top:{{100/3 - 100*ii/3}}%;
+	}
+	#zoomLoc{{i}}{{ii}}:checked ~ .container {
+		transform: translateX({{0/3 - 100*ii/3}}%) translateY({{0/3 - 100*i/3}}%) rotate(45deg) skew(-15deg, -15deg) scale(1);
+	}
+	{% endfor %}
+{% endfor %}
+
+
 {% block moreCSS %}
 {% endblock %}
 
@@ -863,12 +856,8 @@ input {
 
 
 <div class="zoomButtons">
-	{% for i in range(0,9) %}
-		<div>
-			{% for ii in range(0,9) %}
-			<label for="zoomLoc{{i}}{{ ii }}" id="zoomLoc{{i}}{{ ii }}Label"></label>
-			{% endfor %}
-		</div>
+	{% for i in range(0,9) %}<div>
+			{% for ii in range(0,9) %}<label for="zoomLoc{{i}}{{ ii }}" id="zoomLoc{{i}}{{ ii }}Label"></label>{% endfor %}</div>
 	{% endfor %}
 </div>
 <div class="container">
