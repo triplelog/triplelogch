@@ -42,10 +42,11 @@ body {
 	transform: rotate(45deg) skew(-15deg, -15deg);
 	position: relative;
 }
-body:hover .container {
-	left: 100vw;
-	top: 100vh;
-	transform: translateX(-100vw) translateY(-100vh) rotate(45deg) skew(-15deg, -15deg);
+body:hover input.af {
+	display: none;
+}
+input.naf:focus {
+	color: red;
 }
 #zoom1:checked ~ .container {
 	
@@ -827,8 +828,9 @@ input {
 </head>
 <body>
 
-<div style="position: absolute; top: -5px; right: 0px;">Testing</div>
- 		
+<input type="text" class="af" value="AF" style="position: absolute; top: 0px; right: 0px;" autofocus />
+<input type="text" class="naf" value="NAF" style="position: absolute; top: 0px; right: 50px;" />
+	
 <input style="display: none;" type="radio" name="zoom" id="zoom0" checked />
 <input style="display: none;" type="radio" name="zoom" id="zoom1" />
 <input style="display: none;" type="radio" name="zone" id="zone0" checked />
