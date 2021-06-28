@@ -56,7 +56,7 @@ input.af:Not(:focus) ~ .container {
 	/*--block: 4rem;
 	--container-width: 240rem;
 	--container-height: 240rem;*/
-	transform: rotate(45deg) skew(-15deg, -15deg) scale(2) translateX(500px) translateY(100px);
+	transform: translateX(-50%) translateY(-50%) rotate(45deg) skew(-15deg, -15deg) scale(2) ;
 
 	
 	
@@ -820,15 +820,7 @@ input {
 {% endfor %}
 */
 
-button:hover {
-	color: red;
-}
-button:focus {
-	color: blue;
-}
-button:active {
-	color: green;
-}
+
 {% block moreCSS %}
 {% endblock %}
 
@@ -839,10 +831,6 @@ button:active {
 </head>
 <body>
 
-<input type="text" class="af" value="AF" style="position: absolute; top: 0px; right: 0px;" autofocus />
-<input type="text" class="naf" value="NAF" style="position: absolute; top: 0px; right: 50px;" />
-<button draggable="false" style="position: absolute; top: 50px; left: 5px;"><button>Drag</button> More</button>
-<button draggable="false" style="position: absolute; top: 80px; left: 5px;">Drag</button>
 
 <input style="display: none;" type="radio" name="zoom" id="zoom0" checked />
 <input style="display: none;" type="radio" name="zoom" id="zoom1" />
