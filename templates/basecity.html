@@ -23,6 +23,7 @@ body {
 .cc {
 	left:100px;
 	top:100px;
+	position: absolute;
 }
 .container {
 	
@@ -55,10 +56,14 @@ body {
 	--container-height: 240rem;*/
 	left: 100vw;
 	top: 100vh;
-	transform: translateX(0%) translateY(0%) scale(2) rotate(45deg) skew(-15deg, -15deg)  ;
+	transform: translateX(0%) translateY(0%) scale(1.5) rotate(45deg) skew(-15deg, -15deg)  ;
 
-	
-	
+}
+#zoom1:checked ~ .cc >  {
+
+	left: 100vw;
+	top: 100vh;
+
 }
 .bigGrid {
 	display: inline-block;
