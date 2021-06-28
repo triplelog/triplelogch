@@ -744,16 +744,16 @@ input {
 	display: none;
 }
 
-#zone0 ~ #zone0Label > button::before {
+#zone0 ~ #zone0Label::before {
 	content: 'Show Buildings';
 }
-#zone0:checked ~ #zone0Label > button::before {
+#zone0:checked ~ #zone0Label::before {
 	content: 'Hide Buildings';
 }
-#showScore ~ #showScoreLabel > button::before {
+#showScore ~ #showScoreLabel::before {
 	content: 'Show Score';
 }
-#showScore:checked ~ #showScoreLabel > button::before {
+#showScore:checked ~ #showScoreLabel::before {
 	content: 'Hide Score';
 }
 
@@ -779,8 +779,8 @@ input {
 
 <label class="stickyButtons" for="zoom0" id="zoom0Label">Zoom Out</label>
 <label class="stickyButtons" for="zoom1" id="zoom1Label">Zoom In</label>
-<label class="stickyButtons" for="zone0" id="zone0Label"><button></button></label>
-<label class="stickyButtons" for="showScore" id="showScoreLabel"><button></button></label>
+<label class="stickyButtons" for="zone0" id="zone0Label"></label>
+<label class="stickyButtons" for="showScore" id="showScoreLabel"></label>
 <label class="stickyButtons" for="deleteButton" id="deleteButtonLabel">Delete Zone</label>
 <label class="stickyButtons" for="sfhButton" id="sfhButtonLabel">SFH</label>
 <label class="stickyButtons" for="mfhButton" id="mfhButtonLabel">MFH</label>
