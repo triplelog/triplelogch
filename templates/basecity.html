@@ -806,7 +806,7 @@ input {
 	#zoomLoc{{i}}-{{ii}}:checked ~ .container {
 		transform: translateX({{950/5 - 100*ii/5}}%) translateY({{950/5 - 100*i/5}}%) rotate(45deg) skew(-15deg, -15deg) scale(1);
 		top: calc({{100*i/5 - 950/5}}vh + 100px);
-		left: calc({{100*ii/5 - 950/5}}vw + 300px);
+		/*left: calc({{100*ii/5 - 950/5}}vw + 300px);*/
 	}
 	{% endfor %}
 {% endfor %}
