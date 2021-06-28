@@ -37,26 +37,19 @@ body {
 	width: var(--container-width);
 	height: var(--container-height);
 	border: 1px solid black;
-	left: 50vw;
-	top: 50vh;
+	left: 0vw;
+	top: 0vh;
 	transform: rotate(45deg) skew(-15deg, -15deg);
 	position: relative;
 }
-body:hover input.af {
-	display: none;
-}
 
-input.af:Not(:focus) ~ .container {
-	top: 0vh;
-	transform: translateY(-50vh) rotate(45deg) skew(-15deg, -15deg);
-}
 
 #zoom1:checked ~ .container {
 	
 	/*--block: 4rem;
 	--container-width: 240rem;
 	--container-height: 240rem;*/
-	transform: translateX(-50%) translateY(-50%) rotate(45deg) skew(-15deg, -15deg) scale(2) ;
+	transform: translateX(-50%) translateY(-50%) scale(2) rotate(45deg) skew(-15deg, -15deg)  ;
 
 	
 	
