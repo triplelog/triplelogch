@@ -524,7 +524,16 @@ input {
 #zone1Label { left: 60px;}
 
 #hideScoreLabel { left: 100px;}
-#showScoreLabel { left: 120px;}
+#showScoreLabel { left: 100px;}
+#hideScore:checked ~ #hideScoreLabel {
+	display: none;
+}
+#showScore:checked ~ #showScoreLabel {
+	display: none;
+}
+#deleteButton:checked ~ #deleteButtonLabel > button {
+	background: blue;
+}
 
 .horizontalGrow > div {
 	display: none;
@@ -759,6 +768,7 @@ input {
 
 
 
+
 {% block moreCSS %}
 {% endblock %}
 
@@ -783,14 +793,19 @@ input {
 
 <label class="stickyButtons" for="zoom0" id="zoom0Label">Zoom Out</label>
 <label class="stickyButtons" for="zoom1" id="zoom1Label">Zoom In</label>
-<label class="stickyButtons" for="zone0" id="zone0Label">Show Buildings</label>
-<label class="stickyButtons" for="zone1" id="zone1Label">Hide Buildings</label>
-<label class="stickyButtons" for="hideScore" id="hideScoreLabel">Hide Score</label>
-<label class="stickyButtons" for="showScore" id="showScoreLabel">Show Score</label>
-<label class="stickyButtons" for="deleteButton" id="deleteButtonLabel">Delete Zone</label>
+<label class="stickyButtons" for="zone0" id="zone0Label"><button>Show Buildings</button></label>
+<label class="stickyButtons" for="zone1" id="zone1Label"><button>Hide Buildings</button></label>
+<label class="stickyButtons" for="hideScore" id="hideScoreLabel"><button>Hide Score</button></label>
+<label class="stickyButtons" for="showScore" id="showScoreLabel"><button>Show Score</button></label>
+<label class="stickyButtons" for="deleteButton" id="deleteButtonLabel"><button>Delete</button></label>
 <label class="stickyButtons" for="sfhButton" id="sfhButtonLabel">SFH</label>
 <label class="stickyButtons" for="mfhButton" id="mfhButtonLabel">MFH</label>
 
+<input type="select" id="szone">
+	<option>Delete</option>
+	<option>SFH</option>
+</input>
+<span class="sout"></span>
 <div class="container">
 	
 	
