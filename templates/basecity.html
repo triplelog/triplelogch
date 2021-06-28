@@ -800,6 +800,7 @@ input {
 	padding: 0px;
 }
 
+/*
 {% for i in range(0,20) %}
 	{% for ii in range(0,20) %}
 	.zoomButtons #zoomLoc{{i}}-{{ii}}Label {
@@ -814,12 +815,10 @@ input {
 	}
 	#zoomLoc{{i}}-{{ii}}:checked ~ .container {
 		transform: translateX({{950/5 - 100*ii/5}}vw) translateY({{950/5 - 100*i/5}}vh) rotate(45deg) skew(-15deg, -15deg) scale(1);
-		/*top: calc({{100*i/5 - 950/5}}vh + 0px);*/
-		/*left: calc({{100*ii/5 - 950/5}}vw + 300px);*/
 	}
 	{% endfor %}
 {% endfor %}
-
+*/
 
 {% block moreCSS %}
 {% endblock %}
@@ -833,7 +832,8 @@ input {
 
 <input type="text" class="af" value="AF" style="position: absolute; top: 0px; right: 0px;" autofocus />
 <input type="text" class="naf" value="NAF" style="position: absolute; top: 0px; right: 50px;" />
-	
+<button draggable="true">Drag</button>
+
 <input style="display: none;" type="radio" name="zoom" id="zoom0" checked />
 <input style="display: none;" type="radio" name="zoom" id="zoom1" />
 <input style="display: none;" type="radio" name="zone" id="zone0" checked />
@@ -860,6 +860,7 @@ input {
 	</div>
 </div>
 
+<!--
 {% for i in range(0,20) %}
 	{% for ii in range(0,20) %}
 		<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc{{ i }}-{{ ii }}" />
@@ -871,7 +872,7 @@ input {
 	{% for i in range(0,20) %}<div>
 			{% for ii in range(0,20) %}<label for="zoomLoc{{i}}-{{ ii }}" id="zoomLoc{{i}}-{{ ii }}Label">{{i}}-{{ii}}</label>{% endfor %}</div>
 	{% endfor %}
-</div>
+</div>-->
 <div class="container">
 	
 	
