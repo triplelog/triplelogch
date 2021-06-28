@@ -779,10 +779,12 @@ input {
 }
 .zoomButtons > div > label {
 	width: 33.3333%;
+	height: 100%;
+	display: block;
 	border: 2px solid black;
 }
 
-#zoomLoc00 ~ .container > .zoomButtons #zoomLoc00Label {
+#zoomLoc00:checked ~ .container > .zoomButtons #zoomLoc00Label {
 	background: red;
 }
 
