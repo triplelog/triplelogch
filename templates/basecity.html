@@ -767,7 +767,24 @@ input {
 }
 
 
+.zoomButtons {
+	/*display: none;*/
+	z-index: 100001;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.zoomButtons > div {
+	height: 33.3333%;
+}
+.zoomButtons > div > label {
+	width: 33.3333%;
+	border: 2px solid black;
+}
 
+#zoomLoc00 ~ .container > .zoomButtons #zoomLoc00Label {
+	background: red;
+}
 
 {% block moreCSS %}
 {% endblock %}
@@ -807,9 +824,35 @@ input {
 	</div>
 </div>
 
+<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc00" />
+<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc01" />
+<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc02" />
+<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc10" />
+<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc11" checked />
+<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc12" />
+<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc20" />
+<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc21" />
+<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc22" />
+
 
 <div class="container">
-	
+	<div class="zoomButtons">
+		<div>
+			<label for="zoomLoc00" id="zoomLoc00Label"></label>
+			<label for="zoomLoc01" id="zoomLoc01Label"></label>
+			<label for="zoomLoc02" id="zoomLoc02Label"></label>
+		</div>
+		<div>
+			<label for="zoomLoc10" id="zoomLoc10Label"></label>
+			<label for="zoomLoc11" id="zoomLoc11Label"></label>
+			<label for="zoomLoc12" id="zoomLoc12Label"></label>
+		</div>
+		<div>
+			<label for="zoomLoc20" id="zoomLoc20Label"></label>
+			<label for="zoomLoc21" id="zoomLoc21Label"></label>
+			<label for="zoomLoc22" id="zoomLoc22Label"></label>
+		</div>
+	</div>
 	
 	
 	{{ zoneButtons(all) }}
