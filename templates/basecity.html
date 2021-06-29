@@ -34,7 +34,8 @@ body {
   	--tan3: calc(17 * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) / 315);
   	--tan: calc(var(--angle) + var(--tan1) + var(--tan2) + var(--tan3));
 	overflow: hidden;
-	display: none;
+	display: inline-block;
+	visibility: hidden;
 	width: var(--container-width);
 	height: var(--container-height);
 	border: 1px solid black;
@@ -45,7 +46,7 @@ body {
 }
 
 #C:target ~ .container{
-	display: inline-block;
+	visibility: visible;
 }
 #C {
 	left: calc(100vw + 60rem / 2);
