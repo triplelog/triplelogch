@@ -433,7 +433,7 @@ input {
 	display: none;
 	pointer-events: none;
 }
-.officeHolder {
+.officeHolder, .govHolder, .hrHolder {
 	width: 100%;
 	height: 100%;
 	left:0px;
@@ -442,15 +442,7 @@ input {
 	display: none;
 	pointer-events: none;
 }
-.govHolder {
-	width: 100%;
-	height: 100%;
-	left:0px;
-	top:0px;
-	position: absolute;
-	display: inline-block;
-	pointer-events: none;
-}
+
 .hosHolder {
 	width: 100%;
 	height: 100%;
@@ -497,23 +489,21 @@ input {
 	pointer-events: none;
 }
 
-.deleteButton, .sfhButton, .mfhButton, .officeButton {
+.deleteButton, .sfhButton, .mfhButton, .officeButton, .govButton, .hrButton {
 	width: 100%;
 	height: 100%;
 	display: none;
 }
+
 #deleteButton:checked ~ div .deleteButton {
 	display: inline-block;
 }
-#sfhButton:checked ~ div .sfhButton {
+{% for t in ["sfh","mfh","office","gov","hr"] %}
+#{{t}}Button:checked ~ div .{{t}}Button {
 	display: inline-block;
 }
-#mfhButton:checked ~ div .mfhButton {
-	display: inline-block;
-}
-#officeButton:checked ~ div .officeButton {
-	display: inline-block;
-}
+{% endfor %}
+
 #showScore:checked ~ div .horizontalGrow > div {
 	display: flex;
 }
@@ -571,15 +561,12 @@ input {
 #deleteButton:checked ~ .stickyButtons #deleteButtonLabel {
 	background: blue;
 }
-#sfhButton:checked ~ .stickyButtons #sfhButtonLabel {
+{% for t in ["sfh","mfh","office","gov","hr"] %}
+#{{t}}Button:checked ~ .stickyButtons #{{t}}ButtonLabel {
 	background: green;
 }
-#mfhButton:checked ~ .stickyButtons #mfhButtonLabel {
-	background: red;
-}
-#officeButton:checked ~ .stickyButtons #officeButtonLabel {
-	background: red;
-}
+{% endfor %}
+
 
 .horizontalGrow > div {
 	display: none;
@@ -782,6 +769,32 @@ input {
 		#office-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
 			background-color: rgb(138,127,127);
 		}
+		
+		#gov-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
+			border: 3px solid red;
+		}
+		#gov-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .govHolder {
+			display: inline-block;
+		}
+		#gov-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
+			background-color: rgb(117,128,128);
+		}
+		#gov-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
+			background-color: rgb(138,127,127);
+		}
+		
+		#hr-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
+			border: 3px solid red;
+		}
+		#hr-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .hrHolder {
+			display: inline-block;
+		}
+		#hr-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
+			background-color: rgb(117,128,128);
+		}
+		#hr-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
+			background-color: rgb(138,127,127);
+		}
 		{% endfor %}
 	{% endfor %}
 {% endfor %}
@@ -876,9 +889,9 @@ input {
 <input style="display: none;" type="radio" name="score" id="hideScore" checked />
 <input style="display: none;" type="radio" name="score" id="showScore" />
 <input style="display: none;" type="radio" name="zoneSelected" id="deleteButton" checked />
-<input style="display: none;" type="radio" name="zoneSelected" id="sfhButton" />
-<input style="display: none;" type="radio" name="zoneSelected" id="mfhButton" />
-<input style="display: none;" type="radio" name="zoneSelected" id="officeButton" />
+{% for t in ["sfh","mfh","office","gov","hr"] %}
+<input style="display: none;" type="radio" name="zoneSelected" id="{{t}}Button" />
+{% endfor %}
 
 <div class="stickyButtons">
 	<div>
@@ -891,9 +904,9 @@ input {
 	</div>
 	<div>
 		<label for="deleteButton" id="deleteButtonLabel">Delete</label>
-		<label for="sfhButton" id="sfhButtonLabel">SFH</label>
-		<label for="mfhButton" id="mfhButtonLabel">MFH</label>
-		<label for="officeButton" id="officeButtonLabel">Office</label>
+		{% for t in ["sfh","mfh","office","gov","hr"] %}
+		<label for="{{t}}Button" id="{{t}}ButtonLabel">{{t}}</label>
+		{% endfor %}
 	</div>
 </div>
 

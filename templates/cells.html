@@ -574,6 +574,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 {% endmacro %}
 
 {% macro hr(angle) %}
+<div class="hrHolder cellHolder" {% if r > 1 %}style="transform: rotate(180deg); z-index: {{zIndex}};"{% else %}style="z-index: {{zIndex}};"{% endif %}>
 
 <div class="isoCell sfhCell" style="transform: rotate({{ angle }}deg); background: green;">
 	<div class="notBottom">
@@ -691,6 +692,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 			
 		</div>
 	</div>
+</div>
 </div>
 {% endmacro %}
 
@@ -818,7 +820,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 {% endmacro %}
 
 {% macro gov(angle) %}
-<div class="govHolder" style="transform: rotate({{ angle }}deg);">
+<div class="govHolder cellHolder" {% if r > 1 %}style="transform: rotate(180deg); z-index: {{zIndex}};"{% else %}style="z-index: {{zIndex}};"{% endif %}>
 
 	<div class="isoCell sfhCell" style="background: green;">
 		<div class="notBottom">

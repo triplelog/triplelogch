@@ -154,7 +154,7 @@
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}0" {% if id1 > 1 %}style="transform: rotate(180deg);"{% endif %}>
 					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}0">Blank-{{ zIndexCell }}-{{ zIndex }}</label>
-					{% for t in ["sfh","mfh","office"] %}
+					{% for t in ["sfh","mfh","office","gov","hr","gov","hr"] %}
 					<label class="{{t}}Button" for="{{t}}-{{ id1 }}{{ id2 }}0"></label>
 					{% endfor %}
 					
@@ -253,6 +253,8 @@
 				{{ sfh(zIndexCell,id1) }}
 				{{ mfh(zIndexCell,id1) }}
 				{{ office(zIndexCell,id1) }}
+				{{ gov(zIndexCell,id1) }}
+				{{ hr(zIndexCell,id1) }}
 			</div>
 			
 			
@@ -278,7 +280,7 @@
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}1" {% if id1 > 1 %}style="transform: rotate(180deg);"{% endif %}>
 					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}1">Blank-{{ zIndexCell }}-{{ zIndex }}</label>
-					{% for t in ["sfh","mfh","office"] %}
+					{% for t in ["sfh","mfh","office","gov","hr"] %}
 					<label class="{{t}}Button" for="{{t}}-{{ id1 }}{{ id2 }}1"></label>
 					{% endfor %}
 					
@@ -373,6 +375,8 @@
 				{{ sfh(zIndexCell,id1) }}
 				{{ mfh(zIndexCell,id1) }}
 				{{ office(zIndexCell,id1) }}
+				{{ gov(zIndexCell,id1) }}
+				{{ hr(zIndexCell,id1) }}
 			</div>
 		</div>
 		
@@ -412,7 +416,7 @@
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}2" {% if id1 > 1 %}style="transform: rotate(180deg);"{% endif %}>
 					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}2">Blank-{{ zIndexCell }}-{{ zIndex }}</label>
-					{% for t in ["sfh","mfh","office"] %}
+					{% for t in ["sfh","mfh","office","gov","hr"] %}
 					<label class="{{t}}Button" for="{{t}}-{{ id1 }}{{ id2 }}2"></label>
 					{% endfor %}
 					
@@ -615,6 +619,8 @@
 				{{ sfh(zIndexCell,id1) }}
 				{{ mfh(zIndexCell,id1) }}
 				{{ office(zIndexCell,id1) }}
+				{{ gov(zIndexCell,id1) }}
+				{{ hr(zIndexCell,id1) }}
 				
 			</div>
 			
@@ -641,7 +647,7 @@
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}3" {% if id1 > 1 %}style="transform: rotate(180deg);"{% endif %}>
 					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ zIndexCell }}-{{ zIndex }}</label>
-					{% for t in ["sfh","mfh","office"] %}
+					{% for t in ["sfh","mfh","office","gov","hr"] %}
 					<label class="{{ t}}Button" for="{{ t }}-{{ id1 }}{{ id2 }}3"></label>
 					{% endfor %}
 					
@@ -843,6 +849,8 @@
 				{{ sfh(zIndexCell,id1) }}
 				{{ mfh(zIndexCell,id1) }}
 				{{ office(zIndexCell,id1) }}
+				{{ gov(zIndexCell,id1) }}
+				{{ hr(zIndexCell,id1) }}
 			</div>
 		</div>
 
@@ -857,7 +865,7 @@
 		{% for ii in range(0,4) %}
 			{% for iii in range(0,4) %}
 			<input type="radio" style="display: none;" name="cell-{{ i }}{{ ii }}{{ iii }}" id="blank-{{ i }}{{ ii }}{{ iii }}" checked>
-			{% for t in ["sfh","mfh","office"] %}
+			{% for t in ["sfh","mfh","office","gov","hr"] %}
 			<input type="radio" style="display: none;" name="cell-{{ i }}{{ ii }}{{ iii }}" id="{{ t }}-{{ i }}{{ ii }}{{ iii }}">
 			{% endfor %}
 			{% endfor %}
