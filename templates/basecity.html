@@ -692,7 +692,7 @@ input {
 .second-option-2:checked ~ .powerHolder .fullCell > div > div.solar:Not(.spacer){
 	display: none;
 }
-.second-option {
+.second-option-1L, .second-option-2L {
 	position: absolute;
 	left:0px;
 	top:0px;
@@ -773,8 +773,17 @@ input {
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
 			border: 3px solid yellow;
 		}
-		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} .second-option {
+		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .second-option-1:Not(:checked) ~ .cell-{{ i }}{{ ii }}{{ iii }} .second-option-1L {
 			display: inline-block;
+		}
+		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .second-option-1:Not(:checked) ~ .cell-{{ i }}{{ ii }}{{ iii }} .second-option-1L::before {
+			content: "Solar";
+		}
+		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .second-option-2:Not(:checked) ~ .cell-{{ i }}{{ ii }}{{ iii }} .second-option-2L {
+			display: inline-block;
+		}
+		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .second-option-2:Not(:checked) ~ .cell-{{ i }}{{ ii }}{{ iii }} .second-option-2L::before {
+			content: "Wind";
 		}
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .powerHolder {
 			display: inline-block;
