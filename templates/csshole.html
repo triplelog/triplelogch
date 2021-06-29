@@ -17,15 +17,16 @@
 	    {% endfor %}
 }
 .title:hover .sprite {
-	animation-name: play;
+	/*animation-name: play;
 	animation-delay: 0s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
-	animation-timing-function: steps(10,start);
+	animation-timing-function: steps(10,start);*/
+	animation: play 2s steps(10) infinite;
 }
 @keyframes play {
 
-  to {top: -2.5rem;}
+  100% {top: -2.5rem;}
 
 }
 
