@@ -10,11 +10,10 @@
 {% block titleCSS %}
 
 .sprite {
-	    /*clip-path: polygon(0% 0%, 10% 0%, 10% 100%, 0% 100%);
-	    left: 6rem;*/
+	    left:6rem;
+	    top:0rem;
 	    {% for i in range(8,9) %}
-	    left: calc(6rem - 2.5rem * {{ i*400 }} / 104);
-	    clip-path: polygon({{ i*10 }}% 0%, {{ (i+1)*10 }}% 0%, {{ (i+1)*10 }}% 100%, {{ i*10 }}% 100%);
+	    top: calc(6rem - 2.5rem * {{ i*400 }} / 104);
 	    {% endfor %}
 }
 .title:hover .sprite {
@@ -26,7 +25,7 @@
 }
 @keyframes play {
 	{% for i in range(0,10) %}
-  {{ i }}% {left: calc(6rem - 2.5rem * {{ i*400 }} / 104); clip-path: polygon({{ i*10 }}% 0%, {{ (i+1)*10 }}% 0%, {{ (i+1)*10 }}% 100%, {{ i*10 }}% 100%);}
+  {{ i }}% {top: calc(2.5rem * {{ i }});}
   {% endfor %}
 }
 
@@ -254,7 +253,7 @@ For more of a challenge, try <a href="../sudokufarm.html">Sudoku Farm</a>.
 
 {% block title31 %}
 <div class="title">
-	<img src="../img/sbrooklyn.jpg" class="sprite" style="position: absolute; top:0px; width: calc(2.5rem * 4000 / 104); height: 2.5rem;">
+	<img src="../img/sbrooklyn.jpg" class="sprite" style="position: absolute; width: calc(25rem * 400 / 1040); height: 25rem;">
 	<div class="titleBG">
 	</div>
 	<span class="titleLeft">
