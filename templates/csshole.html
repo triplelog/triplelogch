@@ -12,17 +12,9 @@
 .sprite {
 	    left:6rem;
 	    top:0rem;
-	    {% for i in range(0,1) %}
-	    top: calc(-2.5rem * {{ i }});
-	    {% endfor %}
 }
 .title:hover .sprite {
-	/*animation-name: play;
-	animation-delay: 0s;
-	animation-duration: 1s;
-	animation-fill-mode: forwards;
-	animation-timing-function: steps(10,start);*/
-	animation: play 2s steps(10) infinite;
+	animation: play 1s steps(10) infinite;
 }
 @keyframes play {
 
@@ -52,10 +44,10 @@
 .content-13 .title {
 	transition: opacity 1s linear;
   	background: rgb(228,242,228);
-	background-image: url("../sudokubannercolor.jpg");
+	/*background-image: url("../sudokubannercolor.jpg");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	background-position-x: 50%;
+	background-position-x: 50%;*/
 }
 .content-31 .title {
 	background: white;
@@ -224,6 +216,7 @@ Each page mimics interactive elements with just HTML and CSS. Read our blog for 
 <div class="title">
 	
 	<div class="titleBG">
+		<div style="font-size:0.2rem;">123456789</div>
 	</div>
 	<span class="titleLeft">
 	
