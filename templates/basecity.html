@@ -433,7 +433,7 @@ input {
 	display: none;
 	pointer-events: none;
 }
-.officeHolder, .govHolder, .hrHolder, .hospitalHolder, .powerHolder, .apartmentHolder, .hotelHolder, .parkHolder {
+.officeHolder, .govHolder, .hrHolder, .hospitalHolder, .powerHolder, .hotelHolder, .parkHolder {
 	width: 100%;
 	height: 100%;
 	left:0px;
@@ -446,7 +446,7 @@ input {
 
 
 
-.deleteButton, .sfhButton, .mfhButton, .officeButton, .govButton, .hrButton, .powerButton, .apartmentButton, .hotelButton, .hospitalButton, .parkButton {
+.deleteButton, .sfhButton, .mfhButton, .officeButton, .govButton, .hrButton, .powerButton, .hotelButton, .hospitalButton, .parkButton {
 	width: 100%;
 	height: 100%;
 	display: none;
@@ -455,7 +455,7 @@ input {
 #deleteButton:checked ~ div .deleteButton {
 	display: inline-block;
 }
-{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","apartment"] %}
+{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park"] %}
 #{{t}}Button:checked ~ div .{{t}}Button {
 	display: inline-block;
 }
@@ -518,7 +518,7 @@ input {
 #deleteButton:checked ~ .stickyButtons #deleteButtonLabel {
 	background: blue;
 }
-{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","apartment"] %}
+{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park"] %}
 #{{t}}Button:checked ~ .stickyButtons #{{t}}ButtonLabel {
 	background: green;
 }
@@ -686,6 +686,12 @@ input {
 .fullCell > div > div.solar:Not(.spacer){
 	display: inline-block;
 }
+.second-option {
+	position: absolute;
+	left:0px;
+	top:0px;
+	display: none;
+}
 {% for i in range(0,4) %}
 	{% for ii in range(0,4) %}
 		{% for iii in range(0,4) %}
@@ -759,7 +765,10 @@ input {
 		}
 		
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
-			border: 3px solid red;
+			border: 3px solid yellow;
+		}
+		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} .second-option {
+			display: inline-block;
 		}
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .powerHolder {
 			display: inline-block;
@@ -781,19 +790,6 @@ input {
 			background-color: rgb(117,128,128);
 		}
 		#park-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: rgb(138,127,127);
-		}
-		
-		#apartment-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
-			border: 3px solid red;
-		}
-		#apartment-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .apartmentHolder {
-			display: inline-block;
-		}
-		#apartment-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: rgb(117,128,128);
-		}
-		#apartment-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
 			background-color: rgb(138,127,127);
 		}
 		
@@ -916,7 +912,7 @@ input {
 <input style="display: none;" type="radio" name="score" id="hideScore" checked />
 <input style="display: none;" type="radio" name="score" id="showScore" />
 <input style="display: none;" type="radio" name="zoneSelected" id="deleteButton" checked />
-{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","apartment"] %}
+{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park"] %}
 <input style="display: none;" type="radio" name="zoneSelected" id="{{t}}Button" />
 {% endfor %}
 
@@ -931,7 +927,7 @@ input {
 	</div>
 	<div>
 		<label for="deleteButton" id="deleteButtonLabel">Delete</label>
-		{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","apartment"] %}
+		{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park"] %}
 		<label for="{{t}}Button" id="{{t}}ButtonLabel">{{t}}</label>
 		{% endfor %}
 	</div>

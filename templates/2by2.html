@@ -151,13 +151,15 @@
 				{% set leftRight = 1 %}
 				{% endif %}
 			
-				
+				<input type="radio" style="display: none;" name="option-{{ id1 }}{{ id2 }}0" id="option-{{ id1 }}{{ id2 }}0-1"></input>
+				<input type="radio" style="display: none;" name="option-{{ id1 }}{{ id2 }}0" id="option-{{ id1 }}{{ id2 }}0-2"></input>
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}0" {% if id1 > 1 %}style="transform: rotate(180deg);"{% endif %}>
 					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}0">Blank-{{ zIndexCell }}-{{ zIndex }}</label>
-					{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","apartment"] %}
+					{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park"] %}
 					<label class="{{t}}Button" for="{{t}}-{{ id1 }}{{ id2 }}0"></label>
 					{% endfor %}
-					
+					<label class="second-option" for="option-{{ id1 }}{{ id2 }}0-1">1</label>
+					<label class="second-option" for="option-{{ id1 }}{{ id2 }}0-2">1</label>
 				</div>
 				
 				
@@ -259,7 +261,6 @@
 				{{ hospital(zIndexCell,id1) }}
 				{{ hotel(zIndexCell,id1) }}
 				{{ park(zIndexCell,id1) }}
-				{{ apartment(zIndexCell,id1,0) }}
 			</div>
 			
 			
@@ -285,7 +286,7 @@
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}1" {% if id1 > 1 %}style="transform: rotate(180deg);"{% endif %}>
 					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}1">Blank-{{ zIndexCell }}-{{ zIndex }}</label>
-					{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","apartment"] %}
+					{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park"] %}
 					<label class="{{t}}Button" for="{{t}}-{{ id1 }}{{ id2 }}1"></label>
 					{% endfor %}
 					
@@ -386,7 +387,6 @@
 				{{ hospital(zIndexCell,id1) }}
 				{{ hotel(zIndexCell,id1) }}
 				{{ park(zIndexCell,id1) }}
-				{{ apartment(zIndexCell,id1,0) }}
 			</div>
 		</div>
 		
@@ -426,7 +426,7 @@
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}2" {% if id1 > 1 %}style="transform: rotate(180deg);"{% endif %}>
 					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}2">Blank-{{ zIndexCell }}-{{ zIndex }}</label>
-					{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","apartment"] %}
+					{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park"] %}
 					<label class="{{t}}Button" for="{{t}}-{{ id1 }}{{ id2 }}2"></label>
 					{% endfor %}
 					
@@ -635,7 +635,6 @@
 				{{ hospital(zIndexCell,id1) }}
 				{{ hotel(zIndexCell,id1) }}
 				{{ park(zIndexCell,id1) }}
-				{{ apartment(zIndexCell,id1,0) }}
 				
 			</div>
 			
@@ -662,7 +661,7 @@
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}3" {% if id1 > 1 %}style="transform: rotate(180deg);"{% endif %}>
 					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ zIndexCell }}-{{ zIndex }}</label>
-					{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","apartment"] %}
+					{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park"] %}
 					<label class="{{ t}}Button" for="{{ t }}-{{ id1 }}{{ id2 }}3"></label>
 					{% endfor %}
 					
@@ -870,7 +869,7 @@
 				{{ hospital(zIndexCell,id1) }}
 				{{ hotel(zIndexCell,id1) }}
 				{{ park(zIndexCell,id1) }}
-				{{ apartment(zIndexCell,id1,0) }}
+				{{ ["sfh","mfh","office","gov","hr","power","hospital","hotel","park"],0) }}
 			</div>
 		</div>
 
@@ -885,7 +884,7 @@
 		{% for ii in range(0,4) %}
 			{% for iii in range(0,4) %}
 			<input type="radio" style="display: none;" name="cell-{{ i }}{{ ii }}{{ iii }}" id="blank-{{ i }}{{ ii }}{{ iii }}" checked>
-			{% for t in ["sfh","mfh","office","gov","hr","hospital","hotel","park","apartment"] %}
+			{% for t in ["sfh","mfh","office","gov","hr","hospital","hotel","park"] %}
 			<input type="radio" style="display: none;" name="cell-{{ i }}{{ ii }}{{ iii }}" id="{{ t }}-{{ i }}{{ ii }}{{ iii }}">
 			{% endfor %}
 			{% for t in ["power"] %}
