@@ -19,6 +19,15 @@
 
 body {
 	width: fit-content;
+	--sfh-score: rgb(126,128,128);
+	--sfh-scoreN: rgb(129,127,127);
+	--mfh-score: rgb(125,128,128);
+	--mfh-scoreN: rgb(130,127,127);
+	--power-score: rgb(144,128,128);
+	--power-scoreN: rgb(111,127,127);
+	--zero-score: rgb(128,128,128);
+	--zero-scoreN: rgb(127,127,127);
+	
 }
 
 .container {
@@ -720,10 +729,10 @@ input {
 			display: inline-block;
 		}
 		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: rgb(138,128,128);
+			background-color: var(--sfh-score);
 		}
 		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: rgb(117,127,127);
+			background-color: var(--sfh-scoreN);
 		}
 		
 		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -733,10 +742,10 @@ input {
 			display: inline-block;
 		}
 		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: rgb(117,128,128);
+			background-color: var(--mfh-score);
 		}
 		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: rgb(138,127,127);
+			background-color: var(--mfh-scoreN);
 		}
 		
 		#office-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -746,10 +755,10 @@ input {
 			display: inline-block;
 		}
 		#office-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: rgb(117,128,128);
+			background-color: var(--zero-score);
 		}
 		#office-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: rgb(138,127,127);
+			background-color: var(--zero-scoreN);
 		}
 		
 		#gov-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -759,10 +768,10 @@ input {
 			display: inline-block;
 		}
 		#gov-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: rgb(117,128,128);
+			background-color: var(--zero-score);
 		}
 		#gov-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: rgb(138,127,127);
+			background-color: var(--zero-scoreN);
 		}
 		
 		#hr-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -772,10 +781,10 @@ input {
 			display: inline-block;
 		}
 		#hr-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: rgb(117,128,128);
+			background-color: var(--zero-score);
 		}
 		#hr-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: rgb(138,127,127);
+			background-color: var(--zero-scoreN);
 		}
 		
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -797,10 +806,10 @@ input {
 			display: inline-block;
 		}
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: rgb(117,128,128);
+			background-color: var(--power-score);
 		}
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: rgb(138,127,127);
+			background-color: var(--power-scoreN);
 		}
 		
 		#park-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -810,10 +819,10 @@ input {
 			display: inline-block;
 		}
 		#park-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: rgb(117,128,128);
+			background-color: var(--zero-score);
 		}
 		#park-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: rgb(138,127,127);
+			background-color: var(--zero-scoreN);
 		}
 		
 		#hotel-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -823,10 +832,10 @@ input {
 			display: inline-block;
 		}
 		#hotel-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: rgb(117,128,128);
+			background-color: var(--zero-score);
 		}
 		#hotel-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: rgb(138,127,127);
+			background-color: var(--zero-scoreN);
 		}
 		
 		#hospital-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -836,10 +845,10 @@ input {
 			display: inline-block;
 		}
 		#hospital-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: rgb(117,128,128);
+			background-color: var(--zero-score);
 		}
 		#hospital-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: rgb(138,127,127);
+			background-color: var(--zero-scoreN);
 		}
 		
 		#cc-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -849,10 +858,10 @@ input {
 			display: inline-block;
 		}
 		#cc-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: rgb(117,128,128);
+			background-color: var(--zero-score);
 		}
 		#cc-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: rgb(138,127,127);
+			background-color: var(--zero-scoreN);
 		}
 		
 		#library-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -862,10 +871,10 @@ input {
 			display: inline-block;
 		}
 		#library-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: rgb(117,128,128);
+			background-color: var(--zero-score);
 		}
 		#library-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: rgb(138,127,127);
+			background-color: var(--zero-scoreN);
 		}
 		
 		#retail-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -875,10 +884,10 @@ input {
 			display: inline-block;
 		}
 		#retail-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: rgb(117,128,128);
+			background-color: var(--zero-score);
 		}
 		#retail-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: rgb(138,127,127);
+			background-color: var(--zero-scoreN);
 		}
 		{% endfor %}
 	{% endfor %}
