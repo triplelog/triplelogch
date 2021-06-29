@@ -151,8 +151,8 @@
 				{% set leftRight = 1 %}
 				{% endif %}
 			
-				<input type="radio" style="display: none;" name="option-{{ id1 }}{{ id2 }}0" id="option-{{ id1 }}{{ id2 }}0-1"></input>
-				<input type="radio" style="display: none;" name="option-{{ id1 }}{{ id2 }}0" id="option-{{ id1 }}{{ id2 }}0-2"></input>
+				<input type="radio" style="display: none;" class="second-option-1" name="option-{{ id1 }}{{ id2 }}0" id="option-{{ id1 }}{{ id2 }}0-1"></input>
+				<input type="radio" style="display: none;" class="second-option-2" name="option-{{ id1 }}{{ id2 }}0" id="option-{{ id1 }}{{ id2 }}0-2"></input>
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}0" {% if id1 > 1 %}style="transform: rotate(180deg);"{% endif %}>
 					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}0">Blank-{{ zIndexCell }}-{{ zIndex }}</label>
 					{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park"] %}

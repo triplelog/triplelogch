@@ -686,6 +686,12 @@ input {
 .fullCell > div > div.solar:Not(.spacer){
 	display: inline-block;
 }
+.second-option-2:checked .fullCell > div > div.wind:Not(.spacer){
+	display: inline-block;
+}
+.second-option-2:checked .fullCell > div > div.solar:Not(.spacer){
+	display: none;
+}
 .second-option {
 	position: absolute;
 	left:0px;
@@ -767,7 +773,7 @@ input {
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
 			border: 3px solid yellow;
 		}
-		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} .second-option {
+		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} .second-option:Not(:checked) {
 			display: inline-block;
 		}
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .powerHolder {
