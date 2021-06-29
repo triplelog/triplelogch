@@ -59,7 +59,7 @@ body {
 
 #C2:target ~ .container {
 	left: 100vw;
-	top: 0vh;
+	top: 100vh;
 	transform: translateX(0%) translateY(0%) scale(2) rotate(45deg) skew(-15deg, -15deg);
 }
 #zoom1:checked ~ .container {
@@ -777,13 +777,13 @@ input {
 			display: inline-block;
 		}
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .second-option-1:Not(:checked) ~ .cell-{{ i }}{{ ii }}{{ iii }} .second-option-1L::before {
-			content: "Solar";
+			content: "Wind";
 		}
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .second-option-2:Not(:checked) ~ .cell-{{ i }}{{ ii }}{{ iii }} .second-option-2L {
 			display: inline-block;
 		}
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .second-option-2:Not(:checked) ~ .cell-{{ i }}{{ ii }}{{ iii }} .second-option-2L::before {
-			content: "Wind";
+			content: "Solar";
 		}
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .powerHolder {
 			display: inline-block;
