@@ -12,6 +12,17 @@
 .sprite {
 	    clip-path: polygon(0% 0%, 10% 0%, 10% 100%, 0% 100%);
 }
+.sprite:hover {
+	animation-name: play;
+	animation-delay: 0s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	animation-timing-function: linear;
+}
+@keyframes play {
+  from {left: 5rem;}
+  to {left: -5rem;}
+}
 
 .title:hover .titleBG {
   	background-position: 350px 0px;
@@ -237,7 +248,7 @@ For more of a challenge, try <a href="../sudokufarm.html">Sudoku Farm</a>.
 
 {% block title31 %}
 <div class="title">
-	<img src="../img/sbrooklyn.jpg" class="sprite" style="position: absolute; left:0px; top:0px; width: calc(2.5rem * 4000 / 104); height: 2.5rem;">
+	<img src="../img/sbrooklyn.jpg" class="sprite" style="position: absolute; left:6rem; top:0px; width: calc(2.5rem * 4000 / 104); height: 2.5rem;">
 	<div class="titleBG">
 	</div>
 	<span class="titleLeft">
