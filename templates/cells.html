@@ -573,7 +573,7 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 </div>
 {% endmacro %}
 
-{% macro power(zIndex, r) %}
+{% macro hr(zIndex, r) %}
 <div class="hrHolder cellHolder" {% if r > 1 %}style="transform: rotate(180deg); z-index: {{zIndex}};"{% else %}style="z-index: {{zIndex}};"{% endif %}>
 
 <div class="isoCell sfhCell" style="background: green;">
@@ -958,8 +958,8 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 </div>
 {% endmacro %}
 
-{% macro hospital(angle) %}
-<div class="hosHolder" style="transform: rotate({{ angle }}deg);">
+{% macro hospital(zIndex, r) %}
+<div class="hospitalHolder cellHolder" {% if r > 1 %}style="transform: rotate(180deg); z-index: {{zIndex}};"{% else %}style="z-index: {{zIndex}};"{% endif %}>
 
 	<div class="isoCell sfhCell" style="background: green;">
 		<div class="notBottom">
@@ -1058,8 +1058,9 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 </div>
 {% endmacro %}
 
-{% macro hotel(angle) %}
-<div class="hotHolder" style="transform: rotate({{ angle }}deg);">
+{% macro hotel(zIndex, r) %}
+<div class="hotelHolder cellHolder" {% if r > 1 %}style="transform: rotate(180deg); z-index: {{zIndex}};"{% else %}style="z-index: {{zIndex}};"{% endif %}>
+
 
 	<div class="isoCell sfhCell" style="background: green;">
 		<div class="notBottom">
@@ -1096,8 +1097,8 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 </div>
 {% endmacro %}
 
-{% macro hr(zIndex, r) %}
-<div class="hrHolder cellHolder" {% if r > 1 %}style="transform: rotate(180deg); z-index: {{zIndex}};"{% else %}style="z-index: {{zIndex}};"{% endif %}>
+{% macro power(zIndex, r) %}
+<div class="powerHolder cellHolder" {% if r > 1 %}style="transform: rotate(180deg); z-index: {{zIndex}};"{% else %}style="z-index: {{zIndex}};"{% endif %}>
 
 	<div class="isoCell" style="background: green;">
 		<div class="fullCell" style="display: flex; flex-direction: column; flex-wrap: wrap; position: absolute; left: 0px; top:0px; width: 100%; height: 100%;">
@@ -1182,8 +1183,9 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 </div>
 {% endmacro %}
 
-{% macro park(angle) %}
-<div class="parkHolder" style="transform: rotate({{ angle }}deg);">
+{% macro park(zIndex, r) %}
+<div class="parkHolder cellHolder" {% if r > 1 %}style="transform: rotate(180deg); z-index: {{zIndex}};"{% else %}style="z-index: {{zIndex}};"{% endif %}>
+
 
 	<div class="isoCell sfhCell" style="background: green;">
 		<div class="notBottom">
@@ -1213,10 +1215,10 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 {% endmacro %}
 
 
-{% macro apartment(angle,id) %}
-<div class="zoneCell" style="transform: rotate({{ angle }}deg)">
-</div>
-<div class="isoCell apartmentCell" style="transform: rotate({{ angle }}deg)">
+{% macro apartment(zIndex, r, id) %}
+<div class="apartmentHolder cellHolder" {% if r > 1 %}style="transform: rotate(180deg); z-index: {{zIndex}};"{% else %}style="z-index: {{zIndex}};"{% endif %}>
+
+<div class="isoCell apartmentCell" style="background: green;">
 	<input type="radio" class="heightButton" id="height0-{{ id }}" name="height-{{ id }}" value="0" style="display: none;" checked />
 	<input type="radio" class="heightButton" id="height1-{{ id }}" name="height-{{ id }}" value="1" style="display: none;" />
 	<div class="notBottom">
@@ -1295,5 +1297,6 @@ input.heightButton[value="0"]:checked ~ .notBottom {
 			<img src="img/city/tree.png" />
 		</div>
 	</div>
+</div>
 </div>
 {% endmacro %}

@@ -443,7 +443,7 @@ input {
 	pointer-events: none;
 }
 
-.hosHolder {
+.hospitalHolder {
 	width: 100%;
 	height: 100%;
 	left:0px;
@@ -452,7 +452,7 @@ input {
 	display: inline-block;
 	pointer-events: none;
 }
-.hotHolder {
+.hotelHolder {
 	width: 100%;
 	height: 100%;
 	left:0px;
@@ -461,7 +461,7 @@ input {
 	display: inline-block;
 	pointer-events: none;
 }
-.solarHolder {
+.powerHolder {
 	width: 100%;
 	height: 100%;
 	left:0px;
@@ -470,7 +470,7 @@ input {
 	display: inline-block;
 	pointer-events: none;
 }
-.windHolder {
+.apartmentHolder {
 	width: 100%;
 	height: 100%;
 	left:0px;
@@ -489,7 +489,7 @@ input {
 	pointer-events: none;
 }
 
-.deleteButton, .sfhButton, .mfhButton, .officeButton, .govButton, .hrButton {
+.deleteButton, .sfhButton, .mfhButton, .officeButton, .govButton, .hrButton, .powerButton, .apartmentButton, .hotelButton, .hospitalButton, .parkButton {
 	width: 100%;
 	height: 100%;
 	display: none;
@@ -498,7 +498,7 @@ input {
 #deleteButton:checked ~ div .deleteButton {
 	display: inline-block;
 }
-{% for t in ["sfh","mfh","office","gov","hr"] %}
+{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","apartment"] %}
 #{{t}}Button:checked ~ div .{{t}}Button {
 	display: inline-block;
 }
@@ -561,7 +561,7 @@ input {
 #deleteButton:checked ~ .stickyButtons #deleteButtonLabel {
 	background: blue;
 }
-{% for t in ["sfh","mfh","office","gov","hr"] %}
+{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","apartment"] %}
 #{{t}}Button:checked ~ .stickyButtons #{{t}}ButtonLabel {
 	background: green;
 }
@@ -723,10 +723,10 @@ input {
 	color: red;
 }
 
-.wind {
+.fullCell > div > div.wind:Not(.spacer){
 	display: none;
 }
-.solar {
+.fullCell > div > div.solar:Not(.spacer){
 	display: inline-block;
 }
 {% for i in range(0,4) %}
@@ -798,6 +798,71 @@ input {
 			background-color: rgb(117,128,128);
 		}
 		#hr-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
+			background-color: rgb(138,127,127);
+		}
+		
+		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
+			border: 3px solid red;
+		}
+		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .powerHolder {
+			display: inline-block;
+		}
+		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
+			background-color: rgb(117,128,128);
+		}
+		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
+			background-color: rgb(138,127,127);
+		}
+		
+		#park-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
+			border: 3px solid red;
+		}
+		#park-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .parkHolder {
+			display: inline-block;
+		}
+		#park-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
+			background-color: rgb(117,128,128);
+		}
+		#park-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
+			background-color: rgb(138,127,127);
+		}
+		
+		#apartment-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
+			border: 3px solid red;
+		}
+		#apartment-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .apartmentHolder {
+			display: inline-block;
+		}
+		#apartment-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
+			background-color: rgb(117,128,128);
+		}
+		#apartment-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
+			background-color: rgb(138,127,127);
+		}
+		
+		#hotel-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
+			border: 3px solid red;
+		}
+		#hotel-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .hotelHolder {
+			display: inline-block;
+		}
+		#hotel-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
+			background-color: rgb(117,128,128);
+		}
+		#hotel-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
+			background-color: rgb(138,127,127);
+		}
+		
+		#hospital-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
+			border: 3px solid red;
+		}
+		#hospital-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .hospitalHolder {
+			display: inline-block;
+		}
+		#hospital-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
+			background-color: rgb(117,128,128);
+		}
+		#hospital-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
 			background-color: rgb(138,127,127);
 		}
 		{% endfor %}
@@ -894,7 +959,7 @@ input {
 <input style="display: none;" type="radio" name="score" id="hideScore" checked />
 <input style="display: none;" type="radio" name="score" id="showScore" />
 <input style="display: none;" type="radio" name="zoneSelected" id="deleteButton" checked />
-{% for t in ["sfh","mfh","office","gov","hr"] %}
+{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","apartment"] %}
 <input style="display: none;" type="radio" name="zoneSelected" id="{{t}}Button" />
 {% endfor %}
 
@@ -909,7 +974,7 @@ input {
 	</div>
 	<div>
 		<label for="deleteButton" id="deleteButtonLabel">Delete</label>
-		{% for t in ["sfh","mfh","office","gov","hr"] %}
+		{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","apartment"] %}
 		<label for="{{t}}Button" id="{{t}}ButtonLabel">{{t}}</label>
 		{% endfor %}
 	</div>
