@@ -10,7 +10,7 @@
 {% block titleCSS %}
 
 .sprite {
-	clip: rect(0px,0px,800px,100px);
+	    clip-path: polygon(0% 0%, 10% 0%, 10% 100%, 0% 100%);
 }
 
 .title:hover .titleBG {
@@ -237,7 +237,7 @@ For more of a challenge, try <a href="../sudokufarm.html">Sudoku Farm</a>.
 
 {% block title31 %}
 <div class="title">
-	<img src="../img/sbrooklyn.jpg" class="sprite" style="position: absolute; left:0px; top:0px; width: 20rem; height: 2.5rem;">
+	<img src="../img/sbrooklyn.jpg" class="sprite" style="position: absolute; left:0px; top:0px; width: calc(2.5rem * 4000 / 104); height: 2.5rem;">
 	<div class="titleBG">
 	</div>
 	<span class="titleLeft">
