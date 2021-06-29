@@ -433,7 +433,15 @@ input {
 	display: none;
 	pointer-events: none;
 }
-
+.officeHolder {
+	width: 100%;
+	height: 100%;
+	left:0px;
+	top:0px;
+	position: absolute;
+	display: none;
+	pointer-events: none;
+}
 .govHolder {
 	width: 100%;
 	height: 100%;
@@ -489,7 +497,7 @@ input {
 	pointer-events: none;
 }
 
-.deleteButton, .sfhButton, .mfhButton {
+.deleteButton, .sfhButton, .mfhButton, .officeButton {
 	width: 100%;
 	height: 100%;
 	display: none;
@@ -501,6 +509,9 @@ input {
 	display: inline-block;
 }
 #mfhButton:checked ~ div .mfhButton {
+	display: inline-block;
+}
+#officeButton:checked ~ div .officeButton {
 	display: inline-block;
 }
 #showScore:checked ~ div .horizontalGrow > div {
