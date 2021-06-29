@@ -433,7 +433,7 @@ input {
 	display: none;
 	pointer-events: none;
 }
-.officeHolder, .govHolder, .hrHolder, .hospitalHolder, .powerHolder, .hotelHolder, .parkHolder {
+.officeHolder, .govHolder, .hrHolder, .hospitalHolder, .powerHolder, .hotelHolder, .parkHolder, .ccHolder, .libraryHolder, .retailHolder {
 	width: 100%;
 	height: 100%;
 	left:0px;
@@ -442,7 +442,15 @@ input {
 	display: none;
 	pointer-events: none;
 }
-
+.emptyHolder {
+	width: 100%;
+	height: 100%;
+	left:0px;
+	top:0px;
+	position: absolute;
+	display: inline-block;
+	pointer-events: none;
+}
 
 
 
@@ -455,7 +463,7 @@ input {
 #deleteButton:checked ~ div .deleteButton {
 	display: inline-block;
 }
-{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park"] %}
+{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","library","cc","retail"] %}
 #{{t}}Button:checked ~ div .{{t}}Button {
 	display: inline-block;
 }
@@ -518,7 +526,7 @@ input {
 #deleteButton:checked ~ .stickyButtons #deleteButtonLabel {
 	background: blue;
 }
-{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park"] %}
+{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","library","cc","retail"] %}
 #{{t}}Button:checked ~ .stickyButtons #{{t}}ButtonLabel {
 	background: green;
 }
@@ -833,6 +841,45 @@ input {
 		#hospital-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
 			background-color: rgb(138,127,127);
 		}
+		
+		#cc-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
+			border: 3px solid red;
+		}
+		#cc-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .ccHolder {
+			display: inline-block;
+		}
+		#cc-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
+			background-color: rgb(117,128,128);
+		}
+		#cc-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
+			background-color: rgb(138,127,127);
+		}
+		
+		#library-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
+			border: 3px solid red;
+		}
+		#library-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .libraryHolder {
+			display: inline-block;
+		}
+		#library-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
+			background-color: rgb(117,128,128);
+		}
+		#library-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
+			background-color: rgb(138,127,127);
+		}
+		
+		#retail-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
+			border: 3px solid red;
+		}
+		#retail-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .retailHolder {
+			display: inline-block;
+		}
+		#retail-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
+			background-color: rgb(117,128,128);
+		}
+		#retail-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
+			background-color: rgb(138,127,127);
+		}
 		{% endfor %}
 	{% endfor %}
 {% endfor %}
@@ -927,7 +974,7 @@ input {
 <input style="display: none;" type="radio" name="score" id="hideScore" checked />
 <input style="display: none;" type="radio" name="score" id="showScore" />
 <input style="display: none;" type="radio" name="zoneSelected" id="deleteButton" checked />
-{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park"] %}
+{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","library","cc","retail"] %}
 <input style="display: none;" type="radio" name="zoneSelected" id="{{t}}Button" />
 {% endfor %}
 
@@ -942,7 +989,7 @@ input {
 	</div>
 	<div>
 		<label for="deleteButton" id="deleteButtonLabel">Delete</label>
-		{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park"] %}
+		{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","library","cc","retail"] %}
 		<label for="{{t}}Button" id="{{t}}ButtonLabel">{{t}}</label>
 		{% endfor %}
 	</div>
