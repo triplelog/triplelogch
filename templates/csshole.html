@@ -13,11 +13,22 @@ body {
 	background: #D5D5D5;
 	margin: 0px;
 }
-.bodybg {
-	background: linear-grdient(to top right, rgba(255,200,200,0.1), rgba(255,255,255,0.1) );
+.bodybg1, .bodybg2, .bodybg3, .bodybg4 {
 	width:100vw;
 	height:100vh;
 	position: absolute;
+}
+.bodybg1 {
+	background: linear-grdient(to top right, rgba(255,150,150,1), rgba(255,255,255,1) );
+}
+.bodybg2 {
+	background: linear-grdient(to top right, rgba(150,255,150,.5), rgba(255,255,255,.5) );
+}
+.bodybg3 {
+	background: linear-grdient(to top right, rgba(150,150,255,.333), rgba(255,255,255,.333) );
+}
+.bodybg4 {
+	background: linear-grdient(to top right, rgba(150,150,150,.25), rgba(255,255,255,.25) );
 }
 .sprite {
 	    left:-2rem;
@@ -455,7 +466,10 @@ Test your knowledge of <a href="../mathquiz.html">Trigonometric values</a>.
 
 
 {% block bodyStart %}
-<div class="bodybg"></div>
+<div class="bodybg1"></div>
+<div class="bodybg2"></div>
+<div class="bodybg3"></div>
+<div class="bodybg4"></div>
 {% endblock %}
 
 
