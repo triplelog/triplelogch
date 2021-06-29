@@ -10,8 +10,12 @@
 {% block titleCSS %}
 
 .sprite {
-	    clip-path: polygon(0% 0%, 10% 0%, 10% 100%, 0% 100%);
-	    left: 6rem;
+	    /*clip-path: polygon(0% 0%, 10% 0%, 10% 100%, 0% 100%);
+	    left: 6rem;*/
+	    {% for i in range(0,10) %}
+	    left: calc(6rem - {{ i*10 }}%);
+	    clip-path: polygon({{ i*10 }}% 0%, {{ (i+1)*10 }}% 0%, {{ (i+1)*10 }}% 100%, {{ i*10 }}% 100%);
+	    {% endfor %}
 }
 .title:hover .sprite {
 	animation-name: play;
