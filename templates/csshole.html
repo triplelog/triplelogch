@@ -13,7 +13,7 @@
 	    left:6rem;
 	    top:0rem;
 	    {% for i in range(8,9) %}
-	    top: calc(6rem - 2.5rem * {{ i*400 }} / 104);
+	    top: calc(-2.5rem * {{ i }});
 	    {% endfor %}
 }
 .title:hover .sprite {
@@ -25,7 +25,7 @@
 }
 @keyframes play {
 	{% for i in range(0,10) %}
-  {{ i }}% {top: calc(2.5rem * {{ i }});}
+  {{ i }}% {top: calc(-2.5rem * {{ i }});}
   {% endfor %}
 }
 
