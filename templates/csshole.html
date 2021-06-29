@@ -21,11 +21,12 @@
 	animation-delay: 0s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
-	animation-timing-function: steps(10,start);
+	animation-timing-function: linear;
 }
 @keyframes play {
 	{% for i in range(0,10) %}
   {{ i }}% {top: calc(-2.5rem * {{ i }});}
+  {{ i }}% {top: calc(-2.5rem * {{ i + 1 }});}
   {% endfor %}
 }
 
