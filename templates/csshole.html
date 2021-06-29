@@ -10,11 +10,14 @@
 {% block titleCSS %}
 
 .sprite {
-	    left:0rem;
+	    left:-2rem;
 	    top:0rem;
 }
 .title:hover .sprite {
-	animation: play 6s steps(90) infinite;
+	animation-name: play;
+	animation-duration: 6s;
+	animation-direction: alternate;
+	animation-timing-function: steps(90);
 }
 @keyframes play {
 
