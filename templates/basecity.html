@@ -23,6 +23,8 @@ body {
 	--sfh-scoreN: rgb(129,127,127);
 	--mfh-score: rgb(125,128,128);
 	--mfh-scoreN: rgb(130,127,127);
+	--office-score: rgb(95,128,128);
+	--office-scoreN: rgb(160,127,127);
 	--power-score: rgb(144,128,128);
 	--power-scoreN: rgb(111,127,127);
 	--zero-score: rgb(128,128,128);
@@ -755,10 +757,10 @@ input {
 			display: inline-block;
 		}
 		#office-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: var(--zero-score);
+			background-color: var(--office-score);
 		}
 		#office-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: var(--zero-scoreN);
+			background-color: var(--office-scoreN);
 		}
 		
 		#gov-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
