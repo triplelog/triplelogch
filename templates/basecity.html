@@ -21,8 +21,8 @@ body {
 	width: fit-content;
 }
 .cc {
-	left:100px;
-	top:100px;
+	left:0px;
+	top:0px;
 	position: absolute;
 }
 .container {
@@ -42,14 +42,14 @@ body {
 	width: var(--container-width);
 	height: var(--container-height);
 	border: 1px solid black;
-	left: 25vw;
+	left: 100vw;
 	top: 0vh;
 	transform: rotate(45deg) skew(-15deg, -15deg);
 	position: relative;
 }
 
 #C:target {
-	left: 120vw;
+	left: calc(100vw + var(--container-width) / 2);
 	width: 40vw;
 	border: 10px solid black;
 }
