@@ -286,13 +286,16 @@
 				{% set zIndexCell = (5 - id1)*1600 + (3 - id2)*400 + 200 %}
 				{% set leftRight = 1 %}
 				{% endif %}
+				<input type="radio" style="display: none;" class="second-option-1" name="option-{{ id1 }}{{ id2 }}1" id="option-{{ id1 }}{{ id2 }}1-1" checked></input>
+				<input type="radio" style="display: none;" class="second-option-2" name="option-{{ id1 }}{{ id2 }}1" id="option-{{ id1 }}{{ id2 }}1-2"></input>
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}1" {% if id1 > 1 %}style="transform: rotate(180deg);"{% endif %}>
 					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}1">Blank-{{ zIndexCell }}-{{ zIndex }}</label>
 					{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","library","cc","retail"] %}
 					<label class="{{t}}Button" for="{{t}}-{{ id1 }}{{ id2 }}1"></label>
 					{% endfor %}
-					
+					<label class="second-option-1L" for="option-{{ id1 }}{{ id2 }}1-1"></label>
+					<label class="second-option-2L" for="option-{{ id1 }}{{ id2 }}1-2"></label>
 				</div>
 				
 				
@@ -381,6 +384,7 @@
 				
 				</div>
 				{% endif %}
+				{{ empty(zIndexCell,id1) }}
 				{{ sfh(zIndexCell,id1) }}
 				{{ mfh(zIndexCell,id1) }}
 				{{ office(zIndexCell,id1) }}
@@ -429,13 +433,16 @@
 				{% set leftRight = 1 %}
 				{% endif %}
 				
+				<input type="radio" style="display: none;" class="second-option-1" name="option-{{ id1 }}{{ id2 }}2" id="option-{{ id1 }}{{ id2 }}2-1" checked></input>
+				<input type="radio" style="display: none;" class="second-option-2" name="option-{{ id1 }}{{ id2 }}2" id="option-{{ id1 }}{{ id2 }}2-2"></input>
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}2" {% if id1 > 1 %}style="transform: rotate(180deg);"{% endif %}>
 					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}2">Blank-{{ zIndexCell }}-{{ zIndex }}</label>
 					{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","library","cc","retail"] %}
 					<label class="{{t}}Button" for="{{t}}-{{ id1 }}{{ id2 }}2"></label>
 					{% endfor %}
-					
+					<label class="second-option-1L" for="option-{{ id1 }}{{ id2 }}2-1"></label>
+					<label class="second-option-2L" for="option-{{ id1 }}{{ id2 }}2-2"></label>
 				</div>
 				
 				
@@ -632,6 +639,7 @@
 				</div>
 				{% endif %}
 				
+				{{ empty(zIndexCell,id1) }}
 				{{ sfh(zIndexCell,id1) }}
 				{{ mfh(zIndexCell,id1) }}
 				{{ office(zIndexCell,id1) }}
@@ -667,13 +675,16 @@
 				{% set leftRight = 1 %}
 				{% endif %}
 				
+				<input type="radio" style="display: none;" class="second-option-1" name="option-{{ id1 }}{{ id2 }}3" id="option-{{ id1 }}{{ id2 }}3-1" checked></input>
+				<input type="radio" style="display: none;" class="second-option-2" name="option-{{ id1 }}{{ id2 }}3" id="option-{{ id1 }}{{ id2 }}3-2"></input>
 				
 				<div class="zoneCell cell-{{ id1 }}{{ id2 }}3" {% if id1 > 1 %}style="transform: rotate(180deg);"{% endif %}>
 					<label class="deleteButton" for="blank-{{ id1 }}{{ id2 }}3">Blank-{{ zIndexCell }}-{{ zIndex }}</label>
 					{% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","library","cc","retail"] %}
 					<label class="{{ t}}Button" for="{{ t }}-{{ id1 }}{{ id2 }}3"></label>
 					{% endfor %}
-					
+					<label class="second-option-1L" for="option-{{ id1 }}{{ id2 }}3-1"></label>
+					<label class="second-option-2L" for="option-{{ id1 }}{{ id2 }}3-2"></label>
 				</div>
 				
 				
@@ -869,6 +880,7 @@
 				</div>
 				{% endif %}
 				
+				{{ empty(zIndexCell,id1) }}
 				{{ sfh(zIndexCell,id1) }}
 				{{ mfh(zIndexCell,id1) }}
 				{{ office(zIndexCell,id1) }}
