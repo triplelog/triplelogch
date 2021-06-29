@@ -54,7 +54,7 @@ body {
 }
 #C2 {
 	left: calc(100vw + 60rem / 2);
-	top: calc(-15rem + 50vh);
+	top: calc(-10rem + 50vh);
 }
 
 #C2:target ~ .container {
@@ -552,8 +552,15 @@ input {
 #showScore:checked ~ .stickyButtons #showScoreLabel {
 	display: none;
 }
+
 #deleteButton:checked ~ .stickyButtons #deleteButtonLabel {
 	background: blue;
+}
+#sfhButton:checked ~ .stickyButtons #sfhButtonLabel {
+	background: green;
+}
+#mfhButton:checked ~ .stickyButtons #mfhButtonLabel {
+	background: red;
 }
 
 .horizontalGrow > div {
@@ -812,25 +819,7 @@ input {
 	padding: 0px;
 }
 
-/*
-{% for i in range(0,20) %}
-	{% for ii in range(0,20) %}
-	.zoomButtons #zoomLoc{{i}}-{{ii}}Label {
-		background: rgba(0,255,0,0.1);
-	}
-	#zoomLoc{{i}}-{{ii}}:checked ~ .zoomButtons #zoomLoc{{i}}-{{ii}}Label {
-		background: rgba(255,0,0,0.1);
-	}
-	#zoomLoc{{i}}-{{ii}}:checked ~ .zoomButtons {
-		left:{{200/5 - 100*ii/5}}vw;
-		top:{{200/5 - 100*i/5}}vh;
-	}
-	#zoomLoc{{i}}-{{ii}}:checked ~ .container {
-		transform: translateX({{950/5 - 100*ii/5}}vw) translateY({{950/5 - 100*i/5}}vh) rotate(45deg) skew(-15deg, -15deg) scale(1);
-	}
-	{% endfor %}
-{% endfor %}
-*/
+
 
 
 
@@ -875,19 +864,6 @@ input {
 	</div>
 </div>
 
-<!--
-{% for i in range(0,20) %}
-	{% for ii in range(0,20) %}
-		<input style="display: none;" type="radio" name="zoomCenter" id="zoomLoc{{ i }}-{{ ii }}" />
-	{% endfor %}
-{% endfor %}
-
-
-<div class="zoomButtons">
-	{% for i in range(0,20) %}<div>
-			{% for ii in range(0,20) %}<label for="zoomLoc{{i}}-{{ ii }}" id="zoomLoc{{i}}-{{ ii }}Label">{{i}}-{{ii}}</label>{% endfor %}</div>
-	{% endfor %}
-</div>-->
 
 <div class="container">
 	
