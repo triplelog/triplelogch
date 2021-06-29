@@ -20,11 +20,7 @@
 body {
 	width: fit-content;
 }
-.cc {
-	left:0px;
-	top:0px;
-	position: absolute;
-}
+
 .container {
 	
 	--block: 1rem;
@@ -49,7 +45,7 @@ body {
 }
 
 #C:target {
-	left: calc(100vw + var(--container-width) / 2);
+	left: calc(100vw + 60rem / 2);
 	width: 40vw;
 	border: 10px solid black;
 }
@@ -57,12 +53,12 @@ body {
 	left:110vw;
 }
 
-#C2:target ~ .cc > .container {
+#C2:target ~ .container {
 	left: 25vw;
 	top: 25vh;
 	transform: translateX(0%) translateY(0%) scale(1.5) rotate(45deg) skew(-15deg, -15deg);
 }
-#zoom1:checked ~ .cc > .container {
+#zoom1:checked ~ .container {
 	
 	/*--block: 4rem;
 	--container-width: 240rem;
@@ -72,12 +68,7 @@ body {
 	transform: translateX(0%) translateY(0%) scale(1.5) rotate(45deg) skew(-15deg, -15deg);
 
 }
-#zoom1:checked ~ .cc >  {
 
-	left: 100vw;
-	top: 100vh;
-
-}
 .bigGrid {
 	display: inline-block;
 	width: 70%;
@@ -893,7 +884,7 @@ input {
 			{% for ii in range(0,20) %}<label for="zoomLoc{{i}}-{{ ii }}" id="zoomLoc{{i}}-{{ ii }}Label">{{i}}-{{ii}}</label>{% endfor %}</div>
 	{% endfor %}
 </div>-->
-<div class="cc">
+
 <div class="container">
 	
 	
@@ -966,7 +957,7 @@ input {
 	<!--<div style="z-index: 6500; position: fixed; bottom: calc(-2 * var(--block)); right: calc({{ 45 - 9 }} * var(--block)); width: calc( 12 * var(--block)); height: calc( 12 * var(--block)); background: black; backdrop-filter: contrast(1);"></div>-->
 
 </div>
-</div>
+
 </body>
 </html>
 
