@@ -529,6 +529,10 @@ input {
 	top:0.5rem;
 	z-index: 5000;
 	
+	
+}
+.stickyButtons > div {
+	height: 2rem;
 }
 .stickyButtons label {
 	border: 1px solid black;
@@ -560,6 +564,9 @@ input {
 	background: green;
 }
 #mfhButton:checked ~ .stickyButtons #mfhButtonLabel {
+	background: red;
+}
+#officeButton:checked ~ .stickyButtons #officeButtonLabel {
 	background: red;
 }
 
@@ -725,30 +732,43 @@ input {
 		#blank-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
 			border: 0px solid white;
 		}
+		
 		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
 			border: 3px solid green;
-		}
-		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
-			border: 3px solid red;
 		}
 		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .sfhHolder {
 			display: inline-block;
 		}
-		
 		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
 			background-color: rgb(138,128,128);
 		}
 		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
 			background-color: rgb(117,127,127);
 		}
+		
+		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
+			border: 3px solid red;
+		}
 		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .mfhHolder {
 			display: inline-block;
 		}
-		
 		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
 			background-color: rgb(117,128,128);
 		}
 		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
+			background-color: rgb(138,127,127);
+		}
+		
+		#office-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
+			border: 3px solid red;
+		}
+		#office-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ .officeHolder {
+			display: inline-block;
+		}
+		#office-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
+			background-color: rgb(117,128,128);
+		}
+		#office-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
 			background-color: rgb(138,127,127);
 		}
 		{% endfor %}
@@ -835,8 +855,8 @@ input {
 
 <a href="#C" style="position:fixed; left:0px; top: 60px;">Center</a>
 <a href="#C2" style="position:fixed; left:0px; top: 80px;">Center2</a>
-<button id="C" style="position:absolute;">C</button>
-<button id="C2" style="position:absolute;">C</button>
+<button id="C" style="position:absolute; width:0px; height:0px;"></button>
+<button id="C2" style="position:absolute; width:0px; height:0px;"></button>
 
 <input style="display: none;" type="radio" name="zoom" id="zoom0" checked />
 <input style="display: none;" type="radio" name="zoom" id="zoom1" />
@@ -847,6 +867,7 @@ input {
 <input style="display: none;" type="radio" name="zoneSelected" id="deleteButton" checked />
 <input style="display: none;" type="radio" name="zoneSelected" id="sfhButton" />
 <input style="display: none;" type="radio" name="zoneSelected" id="mfhButton" />
+<input style="display: none;" type="radio" name="zoneSelected" id="officeButton" />
 
 <div class="stickyButtons">
 	<div>
@@ -861,6 +882,7 @@ input {
 		<label for="deleteButton" id="deleteButtonLabel">Delete</label>
 		<label for="sfhButton" id="sfhButtonLabel">SFH</label>
 		<label for="mfhButton" id="mfhButtonLabel">MFH</label>
+		<label for="officeButton" id="officeButtonLabel">Office</label>
 	</div>
 </div>
 
