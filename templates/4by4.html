@@ -240,6 +240,7 @@
 							{{ verticalCover(top,right,zIndex,1,0) }}
 						{% endfor %}
 					{% endif %}
+					{{ saveButtonV(1,id,0) }}
 				</div>
 				<div class="resizeCoverV"><span><-</span><span>-></span></div>
 				{% set  zIndexRoad = id*1600 + 350 %}
@@ -521,7 +522,7 @@
 					{% set zIndex = zIndex + 14 %}
 					{{ verticalCover(top,right,zIndex,leftRight,0) }}
 					
-					
+					{{ saveButtonV(1,id,0) }}
 				</div>
 				<div class="resizeCoverV"><span><-</span><span>-></span></div>
 				{% set  zIndexRoad = id*1600 + 1150 %}
