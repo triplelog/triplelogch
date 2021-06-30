@@ -47,33 +47,63 @@ function createArithmetic(x,h,v){
 		if (i>0){
 			c = c * 1.0/Math.abs(v[i]);
 			console.log(c,i,ii);
+			var div = document.createElement("div");
+			div.style.backdropFilter = "contrast("+(1.0/Math.abs(v[i]))+")";
+			el.appendChild(div);
 		}
 		for (var ii=0;ii<h.length;ii++){
 			if (i ==0 && ii == 0){
 				c = x;
 				console.log(c,i,ii);
+				var div = document.createElement("div");
+				div.style.background = "rgba("+(128+x)+",128,128,1)";
+				el.appendChild(div);
+				
 				c = c * Math.abs(h[ii]);
 				console.log(c,i,ii);
+				var div = document.createElement("div");
+				div.style.backdropFilter = "contrast("+(Math.abs(h[ii]))+")";
+				el.appendChild(div);
 			}
 			else {
 				c = c * 1.0/Math.abs(h[ii]);
 				console.log(c,i,ii);
+				var div = document.createElement("div");
+				div.style.backdropFilter = "contrast("+(1.0/Math.abs(h[ii]))+")";
+				el.appendChild(div);
 				if (h[ii] * v[i] < 0){
 					c = (c - x)/2;
+					var div = document.createElement("div");
+					div.style.background = "rgba("+(127-x)+",128,128,.5)";
+					el.appendChild(div);
 				}
 				else {
 					c = (c + x)/2;
+					var div = document.createElement("div");
+					div.style.background = "rgba("+(128+x)+",128,128,.5)";
+					el.appendChild(div);
 				}
 				console.log(c,i,ii);
+				
+				
 				c = c * 2;
 				console.log(c,i,ii);
+				var div = document.createElement("div");
+				div.style.backdropFilter = "contrast(2)";
+				el.appendChild(div);
 				c = c * Math.abs(h[ii]);
 				console.log(c,i,ii);
+				var div = document.createElement("div");
+				div.style.backdropFilter = "contrast("+(Math.abs(h[iii]))+")";
+				el.appendChild(div);
 			}
 			
 		}
 		c = c * Math.abs(v[i]);
 		console.log(c,i,ii);
+		var div = document.createElement("div");
+		div.style.backdropFilter = "contrast("+(Math.abs(v[i]))+")";
+		el.appendChild(div);
 	}
 }
 createArithmetic(12,[4,-3],[3,-2]);
