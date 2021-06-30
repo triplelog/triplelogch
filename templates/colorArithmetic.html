@@ -59,10 +59,10 @@ function createArithmetic(x,h,v){
 				c = c * 1.0/Math.abs(h[ii]);
 				console.log(c,i,ii);
 				if (h[ii] * v[i] < 0){
-					c = (c + x)/2;
+					c = (c - x)/2;
 				}
 				else {
-					c = (c - x)/2;
+					c = (c + x)/2;
 				}
 				console.log(c,i,ii);
 				c = c * 2;
