@@ -73,8 +73,10 @@
 {% macro saveButtonV(id) %}
 
 <div class="saveVCoverDiv" style="top: calc((52 + 3) * var(--block)); right: calc({{ 30 - 0 }} * var(--block)); z-index: {{ id }};">
-	<div class="vCover vCover12 saveB" style="">{{10}}</div>
-	{% for fpn in range(11,23) %}<div class="vCover vCover1 saveB" style="">{{fpn}}</div>{% endfor %}
+	<div class="vCover vCover13 saveB" style="">{{11}}</div>
+	{% for fpn in range(6,8) %}<div class="vCover vCover2 saveB" style="">{{2*fpn + 1}}</div>{% endfor %}
+	{% for fpn in range(16,24) %}<div class="vCover vCover1 saveB" style="">{{fpn}}</div>{% endfor %}
+	{% for fpn in range(12,14) %}<div class="vCover vCover2 saveB" style="">{{2*fpn + 1}}</div>{% endfor %}
 </div>
 
 {% endmacro %}
