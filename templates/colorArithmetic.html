@@ -81,6 +81,7 @@ function createArithmetic(x,h,v){
 					var div = document.createElement("div");
 					div.style.background = "rgba("+(127-x)+",128,128,.5)";
 					el.appendChild(div);
+					console.log(c,i,ii);
 					counter++; if (counter > maxC){i = v.length+1; break;}
 				}
 				else {
@@ -88,9 +89,10 @@ function createArithmetic(x,h,v){
 					var div = document.createElement("div");
 					div.style.background = "rgba("+(128+x)+",128,128,.5)";
 					el.appendChild(div);
+					console.log(c,i,ii);
 					counter++; if (counter > maxC){i = v.length+1; break;}
 				}
-				console.log(c,i,ii);
+				
 				
 				
 				c = c * 2;
