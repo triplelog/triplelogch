@@ -653,6 +653,41 @@ input {
 	display: none;
 }
 
+.vCover {
+	margin-right: calc(8 * var(--block));
+	width: var(--block);
+	background: transparent;
+	flex-grow: 1;
+}
+.vCover.saveB {
+	background: blue;
+}
+.vCover1 {
+	height: calc(1 * var(--block));
+}
+.vCover2 {
+	height: calc(2 * var(--block));
+}
+.vCover4 {
+	height: calc(4 * var(--block));
+}
+.saveVCoverDiv {
+	flex-wrap: wrap;
+	flex-direction: column-reverse;
+	position: fixed;
+	width: var(--block);
+	height: inherit;
+	background: transparent;
+}
+.saveVCoverDivI {
+	flex-wrap: wrap;
+	flex-direction: column-reverse;
+	position: fixed;
+	width: var(--block);
+	height: 100%;
+	background: transparent;
+	display: none;
+}
 
 .resizeCoverV {
 	position: absolute;
@@ -1044,7 +1079,7 @@ input {
 						{% set zIndex = zIndex + 17 %}
 						{{ verticalCover(top,right,zIndex,0,0) }}
 					{% endfor %}
-					
+					{{ saveButtonV(0)}}
 			
 				</div>
 				<div class="resizeCoverV"><span><-</span><span>-></span></div>
