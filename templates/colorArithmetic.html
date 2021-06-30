@@ -40,20 +40,23 @@
 function createArithmetic(x,h,v){
 	var el = document.getElementById("container");
 	el.innerHTML = "";
-	console.log(x);
+	console.log(x,h,v);
 	var c = 0;
 	
 	for (var i=0;i<v.length;i++){
-		
+		if (i>0){
+			c = c * 1.0/abs(v[i]);
+			console.log(c,i,ii);
+		}
 		for (var ii=0;ii<h.length;ii++){
 			if (i ==0 && ii == 0){
 				c = x;
 				console.log(c,i,ii);
-				c = c * h[ii];
+				c = c * abs(h[ii]);
 				console.log(c,i,ii);
 			}
 			else {
-				c = c * 1.0/h[ii];
+				c = c * 1.0/abs(h[ii]);
 				console.log(c,i,ii);
 				if (h[ii] * v[i] < 0){
 					c = (c + x)/2;
@@ -64,11 +67,13 @@ function createArithmetic(x,h,v){
 				console.log(c,i,ii);
 				c = c * 2;
 				console.log(c,i,ii);
-				c = c * h[ii];
+				c = c * abs(h[ii]);
 				console.log(c,i,ii);
 			}
 			
 		}
+		c = c * abs(v[i]);
+		console.log(c,i,ii);
 	}
 }
 createArithmetic(12,[4,-3],[3,-2]);
