@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+
+    <meta name="description" content=".">    <title>CSS City</title>  
+    <link rel="icon" type="image/png" href="../chfaviconcrop.png">
+
+    
+
+
+<style>
+
+.container {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+}
+.container > div {
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	position: absolute;
+	left: 0px;
+	top:0px;
+}
+</style>
+<body>
+<span id="output"></span>
+<div class="container" id="container">
+
+</div>
+
+<script>
+
+function createArithmetic(x,h,v){
+	var el = document.getElementById("container");
+	el.innerHTML = "";
+	console.log(x);
+	var c = 0;
+	
+	for (var i=0;i<v.length;i++){
+		
+		for (var ii=0;ii<h.length;ii++){
+			if (i ==0 && ii == 0){
+				c = x;
+				console.log(c,i,ii);
+				c = c * h[ii];
+				console.log(c,i,ii);
+			}
+			else {
+				c = c * 1.0/h[ii];
+				console.log(c,i,ii);
+				if (h[ii] * v[i] < 0){
+					c = (c + x)/2;
+				}
+				else {
+					c = (c - x)/2;
+				}
+				console.log(c,i,ii);
+				c = c * 2;
+				console.log(c,i,ii);
+				c = c * h[ii];
+				console.log(c,i,ii);
+			}
+			
+		}
+	}
+}
+createArithmetic(12,[4,-3],[3,-2]);
+</script>
+</body>
+</html>

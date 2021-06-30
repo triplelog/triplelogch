@@ -346,6 +346,15 @@ app.get('/city.html',
 	}
 );
 
+app.get('/colorArithmetic.html', 
+	function(req, res) {
+		res.write(nunjucks.render('templates/colorArithmetic.html',{
+		
+		}));
+		res.end();
+	}
+);
+
 app.get('/emap.html', 
 	function(req, res) {
 		res.write(nunjucks.render('templates/emap.html',{
