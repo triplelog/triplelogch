@@ -25,8 +25,8 @@ body {
 	--mfh-scoreN: rgb(130,127,127);
 	--office-score: rgb(95,128,128);
 	--office-scoreN: rgb(160,127,127);
-	--power-score: rgb(144,128,128);
-	--power-scoreN: rgb(111,127,127);
+	--power-score: rgb(136,128,128);
+	--power-scoreN: rgb(119,127,127);
 	--zero-score: rgb(128,128,128);
 	--zero-scoreN: rgb(127,127,127);
 	
@@ -242,7 +242,7 @@ body {
 	position: relative;
 	max-height: min(calc(16 * var(--block)),100%);
 	min-height: calc(2 * var(--block));
-	pointer-events: none;
+	/*pointer-events: none;*/
 }
 .horizontalGrow {
 	height: calc(50% + .25 * var(--block));
@@ -254,7 +254,7 @@ body {
 	max-width: min(calc(16 * var(--block)),100%);
 	min-width: calc(2 * var(--block));
 	background: transparent;
-	pointer-events: none;
+	/*pointer-events: none;*/
 	
 }
 .horizontalGrow.grow8 {
@@ -554,7 +554,7 @@ input {
 }*/
 .verticalGrow > div {
 	display: none;
-	pointer-events: none;
+	/*pointer-events: none;*/
 }
 .scoreColor {
 	background-color: rgb(128,128,128);
@@ -1073,7 +1073,7 @@ input {
 						{% set zIndex = (top)*800+100 + (7-right)*100 %}
 			
 						{% set zIndex = zIndex + 17 %}
-						{{ verticalCover(top,right,zIndex,0,0,3) }}
+						{{ verticalCover(top,right,zIndex,0,0,0) }}
 					{% endfor %}
 					{{ saveButtonV(0,0,0,0)}}
 			
