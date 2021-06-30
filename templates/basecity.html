@@ -546,7 +546,7 @@ input {
 
 .horizontalGrow > div {
 	display: none;
-	pointer-events: none;
+	/*pointer-events: none;*/
 }
 /*.horizontalGrow.grow8 > div {
 	display: none;
@@ -554,7 +554,7 @@ input {
 }*/
 .verticalGrow > div {
 	display: none;
-	/*pointer-events: none;*/
+	pointer-events: none;
 }
 .scoreColor {
 	background-color: rgb(128,128,128);
@@ -564,6 +564,7 @@ input {
 	width: calc(var(--block) + 1px);
 	height: calc(var(--block) + 1px);
 	/*pointer-events: all;*/
+	pointer-events: none;
 }
 .scoreColorN {
 	background-color: rgb(127,127,127);
@@ -573,6 +574,7 @@ input {
 	width: calc(var(--block) + 1px);
 	height: calc(var(--block) + 1px);
 	/*pointer-events: all;*/
+	pointer-events: none;
 }
 .finalContrast {
 	background: transparent;
