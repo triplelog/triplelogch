@@ -94,13 +94,15 @@
 </div>
 {% elif id1 == 2 and id2 < 4 %}
 <div class="saveVCoverDiv" style="top: calc((52 + 3) * var(--block)); right: calc({{ 30 - 1 - id2 }} * var(--block)); z-index: {{ 100 + id2 }};">
-	<div class="vCover vCover2 saveB" style="">{{1}}</div>
-	{% for fpn in range(2,12) %}<div class="vCover vCover1 saveB" style="">{{fpn}}</div>{% endfor %}
+	<div class="vCover vCover2 saveB" style="">{{2}}</div>
+	{% for fpn in range(3,10) %}<div class="vCover vCover1 saveB" style="">{{fpn}}</div>{% endfor %}
+	{% for fpn in range(5,8) %}<div class="vCover vCover2 saveB" style="">{{2*fpn + 1}}</div>{% endfor %}
 </div>
 {% elif id1 == 2 and id2 >= 4 %}
 <div class="saveVCoverDiv" style="flex-direction: column; bottom: calc(100% + (1 + 3) * var(--block)); right: calc({{ 20 + 1 + id2 }} * var(--block)); z-index: {{ 100 + id2 }};">
-	<div class="vCover vCover2 saveB" style="">{{1}}</div>
-	{% for fpn in range(2,12) %}<div class="vCover vCover1 saveB" style="">{{fpn}}</div>{% endfor %}
+	<div class="vCover vCover2 saveB" style="">{{2}}</div>
+	{% for fpn in range(3,10) %}<div class="vCover vCover1 saveB" style="">{{fpn}}</div>{% endfor %}
+	{% for fpn in range(5,8) %}<div class="vCover vCover2 saveB" style="">{{2*fpn + 1}}</div>{% endfor %}
 </div>
 {% endif %}
 
@@ -158,7 +160,7 @@
 				{% set zIndex = zIndex + 14 %}
 				{{ verticalCover(top,right,zIndex,leftRight,0) }}
 			{% endfor %}
-			{{ saveButtonV(2,id1*2,0) }}
+			{{ saveButtonV(2,id1*2,id2) }}
 		
 			
 		</div>
