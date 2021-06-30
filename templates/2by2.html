@@ -145,7 +145,7 @@
 				{% endif %}
 			
 				{% set zIndex = zIndex + 17 %}
-				{{ verticalCover(top,right,zIndex,leftRight,0) }}
+				{{ verticalCover(top,right,zIndex,leftRight,0,2) }}
 				
 				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
 				{% set top = top + (id2 % 2) * 2 %}
@@ -168,9 +168,9 @@
 				{% else %}
 				{% set zIndex = zIndex + 33 %}
 				{% endif %}
-				{{ verticalCover(top,right,zIndex,leftRight,1) }}
+				{{ verticalCover(top,right,zIndex,leftRight,1,2) }}
 				{% set zIndex = zIndex + 14 %}
-				{{ verticalCover(top,right,zIndex,leftRight,0) }}
+				{{ verticalCover(top,right,zIndex,leftRight,0,2) }}
 			{% endfor %}
 			{{ saveButtonV(2,id1*2,id2) }}
 		
