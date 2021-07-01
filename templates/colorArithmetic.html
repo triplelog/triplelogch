@@ -268,9 +268,12 @@ function createArithmetic(x,h,v,show=false){
 			cp = cp * Math.abs(v[i])/d;
 			if (cp<-128){cp=-128;} else if (cp>128) {cp=128; console.log("too big",i,ii);}
 			if(show){console.log(c,i,ii)};
+			var divL = document.createElement("div");
+			divL.style.background = "rgb(128,128,128)";
+			divL.style.backgroundBlendMode = "ligthen()";
+			el.appendChild(divL);
 			var div = document.createElement("div");
-			div.style.backdropFilter = "contrast("+(Math.abs(v[i])/d)+") grayscale()";
-			
+			div.style.backdropFilter = "contrast("+(Math.abs(v[i])/d)+")";
 			el.appendChild(div);
 			counter++; if (counter > maxC){i = v.length+1; break;}
 		}
