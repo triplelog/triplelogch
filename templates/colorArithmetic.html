@@ -188,7 +188,7 @@ function createArithmetic(x,h,v,show=false){
 	var counter = 0;
 	var maxC = 100;
 	var hmul = 3;
-	var vmul2 = 4;
+	var vmul2 = 2;
 	var vl = 0;
 	for (var i=0;i<v.length;i++){
 		vl+=v[i];
@@ -275,7 +275,7 @@ function createArithmetic(x,h,v,show=false){
 	if (Math.round(cp) != Math.round(c)){
 		console.log(h,v,c,cp);
 	}
-	if (Math.round(c) != Math.round(vl*hl) && !show){
+	if (Math.round(c) != Math.round(vl*hl) && Math.round(c+0.01) != Math.round(vl*hl+0.01) && !show){
 		console.log(h,v,c,vl*hl);
 		//createArithmetic(x,h,v,true);
 	}
