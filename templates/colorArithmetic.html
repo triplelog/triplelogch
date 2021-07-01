@@ -214,6 +214,7 @@ function testContrast(x,m){
 }
 
 function convertToSRGB(r){
+	r = r/255;
 	if (r < 0.0031308){
 		rs = 12.92*r;
 	}
@@ -229,7 +230,7 @@ function convertToLRGB(r){
 	else {
 		rl = Math.pow((r+0.055)/1.055,2.4);
 	}
-	return rl;
+	return rl*255;
 }
 testContrast(133,4);
 testContrast(135,4);
