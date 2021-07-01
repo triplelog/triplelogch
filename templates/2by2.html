@@ -45,10 +45,10 @@
 
 {% macro verticalCover(top,right,zIndex,leftRight,frac,id1) %}
 
-{% if leftRight == 0 %}
-<div class="vCoverDiv" style="top: calc((52 + {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex }};">
-{% elif top != 4 or (zIndex % 100) != 17 %}
-<div class="vCoverDiv" style="flex-direction: column; bottom: calc(100% + (1 + {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex }};">
+{% if leftRight == 0 or leftRight == 10 %}
+<div class="vCoverDiv {% if leftRight >= 10 %}vCoverDiv0{% endif %}" style="top: calc((52 + {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex }};">
+{% else %}
+<div class="vCoverDiv {% if leftRight >= 10 %}vCoverDiv1{% endif %}" style="flex-direction: column; bottom: calc(100% + (1 + {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex }};">
 {% else %}
 {% set id1 = 0 %}
 {% endif %}
@@ -136,7 +136,7 @@
 				{% set leftRight = 1 %}
 				{% endif %}
 			
-				{% set zIndex = zIndex + 17 %}
+				{% set zIndex = zIndex + 3 %}
 				{{ verticalCover(top,right,zIndex,leftRight,0,2) }}
 				
 				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
@@ -155,13 +155,11 @@
 				{% set leftRight = 1 %}
 				{% endif %}
 			
-				{% if id2 ==0 or id2 == 2 %}
-				{% set zIndex = zIndex + 18 %}
-				{% else %}
-				{% set zIndex = zIndex + 33 %}
-				{% endif %}
+				
+				{% set zIndex = zIndex + 4 %}
+				
 				{{ verticalCover(top,right,zIndex,leftRight,1,2) }}
-				{% set zIndex = zIndex + 14 %}
+				{% set zIndex = zIndex + 4 %}
 				{{ verticalCover(top,right,zIndex,leftRight,0,2) }}
 			{% endfor %}
 			{{ saveButtonV(2,id1*2,id2) }}

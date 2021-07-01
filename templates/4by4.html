@@ -171,7 +171,7 @@
 					{% set leftRight = 1 %}
 					{% endif %}
 			
-					{% set zIndex = zIndex + 17 %}
+					{% set zIndex = zIndex + 3 %}
 					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
 			
 					{% set top = (id - (id % 2)) / 2 * 4 %}
@@ -188,7 +188,7 @@
 					{% set leftRight = 1 %}
 					{% endif %}
 					
-					{% set zIndex = zIndex + 17 %}
+					{% set zIndex = zIndex + 3 %}
 					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
 					
 					{% set top = (id - (id % 2)) / 2 * 4 %}
@@ -205,10 +205,9 @@
 					{% set leftRight = 1 %}
 					{% endif %}
 			
-					{% set zIndex = zIndex + 18 %}
-					{{ verticalCover(top,right,zIndex,leftRight,1,1) }}
-					{% set zIndex = zIndex + 14 %}
-					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
+					
+					{% set zIndex = zIndex + 3 %}
+					{{ verticalCover(top,right,zIndex,leftRight+10,0,1) }}
 			
 					{% set top = (id - (id % 2)) / 2 * 4 %}
 					{% set top = top + 3 %}
@@ -224,22 +223,12 @@
 					{% set leftRight = 1 %}
 					{% endif %}
 					
-					{% set zIndex = zIndex + 18 %}
-					{{ verticalCover(top,right,zIndex,leftRight,1,1) }}
-					{% set zIndex = zIndex + 14 %}
-					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
+					
+					{% set zIndex = zIndex + 3 %}
+					{{ verticalCover(top,right,zIndex,leftRight+10,0,1) }}
 					
 					
-					{% if id == 2 %}
-						{% for right in range(0,8) %}
 					
-							{% set top = 4 %}
-							{% set zIndex = (top)*800+100 + (right)*100 %}
-		
-							{% set zIndex = zIndex + 17 %}
-							{{ verticalCover(top,right,zIndex,1,0,1) }}
-						{% endfor %}
-					{% endif %}
 					{{ saveButtonV(1,id*2,0) }}
 				</div>
 				<div class="resizeCoverV"><span><-</span><span>-></span></div>
@@ -464,7 +453,7 @@
 					{% set leftRight = 1 %}
 					{% endif %}
 			
-					{% set zIndex = zIndex + 17 %}
+					{% set zIndex = zIndex + 3 %}
 					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
 			
 					{% set top = (id - (id % 2)) / 2 * 4 %}
@@ -481,7 +470,7 @@
 					{% set leftRight = 1 %}
 					{% endif %}
 					
-					{% set zIndex = zIndex + 17 %}
+					{% set zIndex = zIndex + 3 %}
 					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
 					
 					{% set top = (id - (id % 2)) / 2 * 4 %}
@@ -498,10 +487,9 @@
 					{% set leftRight = 1 %}
 					{% endif %}
 			
-					{% set zIndex = zIndex + 18 %}
-					{{ verticalCover(top,right,zIndex,leftRight,1,1) }}
-					{% set zIndex = zIndex + 14 %}
-					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
+					
+					{% set zIndex = zIndex + 3 %}
+					{{ verticalCover(top,right,zIndex,leftRight+10,0,1) }}
 			
 					{% set top = (id - (id % 2)) / 2 * 4 %}
 					{% set top = top + 3 %}
@@ -517,10 +505,9 @@
 					{% set leftRight = 1 %}
 					{% endif %}
 					
-					{% set zIndex = zIndex + 18 %}
-					{{ verticalCover(top,right,zIndex,leftRight,1,1) }}
-					{% set zIndex = zIndex + 14 %}
-					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
+					
+					{% set zIndex = zIndex + 3 %}
+					{{ verticalCover(top,right,zIndex,leftRight+10,0,1) }}
 					
 					{{ saveButtonV(1,id*2+1,0) }}
 				</div>

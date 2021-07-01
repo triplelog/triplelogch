@@ -254,7 +254,7 @@ body {
 	max-width: min(calc(16 * var(--block)),100%);
 	min-width: calc(2 * var(--block));
 	background: transparent;
-	/*pointer-events: none;*/
+	pointer-events: none;
 	
 }
 .horizontalGrow.grow8 {
@@ -546,7 +546,7 @@ input {
 
 .horizontalGrow > div {
 	display: none;
-	/*pointer-events: none;*/
+	pointer-events: none;
 }
 /*.horizontalGrow.grow8 > div {
 	display: none;
@@ -554,7 +554,7 @@ input {
 }*/
 .verticalGrow > div {
 	display: none;
-	pointer-events: none;
+	/*pointer-events: none;*/
 }
 .scoreColor {
 	background-color: rgb(128,128,128);
@@ -999,6 +999,18 @@ input {
 }
 .vCon{{ i}} {
 	backdrop-filter: contrast({{ fpnn / 4.0}});
+}
+.vCoverDiv0 > .vCon{{ i}} {
+	backdrop-filter: contrast({{ (19 - fpnn) / 4.0}});
+}
+.vCoverDiv1 > .vCon{{ i}} {
+	backdrop-filter: contrast({{ (19 - fpnn) / 4.0}});
+}
+.vCoverDiv0 > .vConF{{ i}} {
+	backdrop-filter: contrast({{ 4.0 / (19 - fpnn) }});
+}
+.vCoverDiv1 > .vConF{{ i}} {
+	backdrop-filter: contrast({{ 4.0 / (19 - fpnn) }});
 }
 {% endfor %}
 
