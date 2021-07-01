@@ -223,13 +223,13 @@ function contrastL(x,m){
 }
 function contrast(x,m){
 	console.log(x);
-	var xs = convertToSRGB(x);
+	var xs = convertToLRGB(x);
 	console.log(xs);
-	var y = m*xs+(-1*convertToSRGB(130)*m+convertToSRGB(130));
+	var y = m*xs+(-1*convertToLRGB(127.5)*m+convertToLRGB(127.5));
 
 	//console.log(y*255);
-	console.log(convertToLRGB(y));
-	return convertToLRGB(y);
+	console.log(convertToSRGB(y));
+	return convertToSRGB(y);
 }
 function convertToSRGB(r){
 
