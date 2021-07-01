@@ -43,10 +43,12 @@ function createArithmetic(x,h,v){
 	console.log(x,h,v);
 	var c = 0;
 	var counter = 0;
-	var maxC = 6;
+	var maxC = 100;
 	for (var i=0;i<v.length;i++){
 		if (i>0){
 			c = c * 1.0/Math.abs(v[i]);
+			if (c - Math.floor(c) <= 0.5){c = Math.floor(c)-0.5;}
+			else {c = Math.floor(c)+0.5;}
 			console.log(c,i,ii);
 			var div = document.createElement("div");
 			div.style.backdropFilter = "contrast("+(1.0/Math.abs(v[i]))+")";
@@ -63,6 +65,8 @@ function createArithmetic(x,h,v){
 				counter++; if (counter > maxC){i = v.length+1; break;}
 				
 				c = c * Math.abs(h[ii]);
+				if (c - Math.floor(c) <= 0.5){c = Math.floor(c)-0.5;}
+				else {c = Math.floor(c)+0.5;}
 				console.log(c,i,ii);
 				var div = document.createElement("div");
 				div.style.backdropFilter = "contrast("+(Math.abs(h[ii]))+")";
@@ -71,6 +75,8 @@ function createArithmetic(x,h,v){
 			}
 			else {
 				c = c * 1.0/Math.abs(h[ii]);
+				if (c - Math.floor(c) <= 0.5){c = Math.floor(c)-0.5;}
+				else {c = Math.floor(c)+0.5;}
 				console.log(c,i,ii);
 				var div = document.createElement("div");
 				div.style.backdropFilter = "contrast("+(1.0/Math.abs(h[ii]))+")";
@@ -78,6 +84,7 @@ function createArithmetic(x,h,v){
 				counter++; if (counter > maxC){i = v.length+1; break;}
 				if (h[ii] * v[i] < 0){
 					c = (c - x)/2;
+					c = Math.floor(c)+1;
 					var div = document.createElement("div");
 					div.style.background = "rgba("+(127.5-x)+",128,128,.5)";
 					el.appendChild(div);
@@ -86,6 +93,7 @@ function createArithmetic(x,h,v){
 				}
 				else {
 					c = (c + x)/2;
+					c = Math.floor(c)+1;
 					var div = document.createElement("div");
 					div.style.background = "rgba("+(127.5+x)+",128,128,.5)";
 					el.appendChild(div);
@@ -96,12 +104,16 @@ function createArithmetic(x,h,v){
 				
 				
 				c = c * 2;
+				if (c - Math.floor(c) <= 0.5){c = Math.floor(c)-0.5;}
+				else {c = Math.floor(c)+0.5;}
 				console.log(c,i,ii);
 				var div = document.createElement("div");
 				div.style.backdropFilter = "contrast(2)";
 				el.appendChild(div);
 				counter++; if (counter > maxC){i = v.length+1; break;}
 				c = c * Math.abs(h[ii]);
+				if (c - Math.floor(c) <= 0.5){c = Math.floor(c)-0.5;}
+				else {c = Math.floor(c)+0.5;}
 				console.log(c,i,ii);
 				var div = document.createElement("div");
 				div.style.backdropFilter = "contrast("+(Math.abs(h[ii]))+")";
@@ -112,6 +124,8 @@ function createArithmetic(x,h,v){
 		}
 		if (i<v.length){
 			c = c * Math.abs(v[i]);
+			if (c - Math.floor(c) <= 0.5){c = Math.floor(c)-0.5;}
+			else {c = Math.floor(c)+0.5;}
 			console.log(c,i,ii);
 			var div = document.createElement("div");
 			div.style.backdropFilter = "contrast("+(Math.abs(v[i]))+")";
@@ -120,7 +134,7 @@ function createArithmetic(x,h,v){
 		}
 	}
 }
-createArithmetic(12,[4,-3],[3,-2]);
+createArithmetic(12.5,[4,-3],[3,-2]);
 </script>
 </body>
 </html>
