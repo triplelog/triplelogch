@@ -216,7 +216,7 @@ function createArithmetic(x,h,v,show=false){
 			if (cp<-128){cp=-128;} else if (cp>128) {cp=128; console.log("too big",i,ii);}
 			if(show){console.log(c,i,ii)};
 			var div = document.createElement("div");
-			div.style.backdropFilter = "contrast("+(d/Math.abs(v[i]))+") grayscale()";
+			div.style.backdropFilter = "contrast("+(d/Math.abs(v[i]))+")";
 			el.appendChild(div);
 			counter++; if (counter > maxC){i = v.length+1; break;}
 		}
