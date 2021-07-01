@@ -188,8 +188,8 @@ function testContrast(x,m){
 	var xs = convertToSRGB(x);
 	console.log(xs);
 	console.log(convertToLRGB(xs));
-	var cf = Math.floor(convertToLRGB((xs-127.5)*m+127.5));
-	var cc = Math.floor(convertToLRGB((xs-127.5)*m+127.5))+1;
+	var cf = Math.floor(convertToLRGB((xs-convertToSRGB(127.5))*m+convertToSRGB(127.5)));
+	var cc = Math.floor(convertToLRGB((xs-convertToSRGB(127.5))*m+convertToSRGB(127.5)))+1;
 	
 	var dT = document.createElement("div");
 	dT.style.background = "rgb("+cf+",128,128)";
@@ -208,13 +208,13 @@ function testContrast(x,m){
 	dMfg.style.background = "transparent";
 	dMfg.style.backdropFilter = "contrast("+m+")";
 	dMfg.style.position = "absolute";
-	dMfg.textContent = convertToLRGB((xs-127.5)*m+127.5);
+	dMfg.textContent = convertToLRGB((xs-convertToSRGB(127.5))*m+convertToSRGB(127.5));
 	dM.appendChild(dMfg);
 	elMid.appendChild(dM);
 }
 
 function convertToSRGB(r){
-	return r;
+
 	r = r/255;
 	if (r < 0.0031308){
 		rs = 12.92*r;
@@ -225,7 +225,7 @@ function convertToSRGB(r){
 	return rs;
 }
 function convertToLRGB(r){
-	return r;
+
 	if (r < 0.04045){
 		rl = r/12.92;
 	}
