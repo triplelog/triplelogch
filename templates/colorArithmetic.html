@@ -188,57 +188,47 @@ function createArithmetic(x,h,v){
 	var maxC = 100;
 	for (var i=0;i<v.length;i++){
 		if (i>0){
-			c = c * 32.0/Math.abs(v[i]);
+			c = c * 8.0/Math.abs(v[i]);
 			
 			console.log(c,i,ii);
 			var div = document.createElement("div");
-			div.style.backdropFilter = "contrast("+(32.0/Math.abs(v[i]))+")";
+			div.style.backdropFilter = "contrast("+(8.0/Math.abs(v[i]))+")";
 			el.appendChild(div);
 			counter++; if (counter > maxC){i = v.length+1; break;}
 		}
 		for (var ii=0;ii<h.length;ii++){
-			if (i ==0 && ii == 0){
-				c = x;
-				console.log(c,i,ii);
-				var div = document.createElement("div");
-				div.style.background = "rgba("+(127.5+Math.abs(h[ii])*4)+",128,128,1)";
-				el.appendChild(div);
-				counter++; if (counter > maxC){i = v.length+1; break;}
+			
+			var a = 1.0/3.0;
+			if (ii == 0){
+				a = 0.5;
+			}
+			if (h[ii] * v[i] < 0){
+				c = c*(1-a)-4*x*a;
 				
+				var div = document.createElement("div");
+				div.style.background = "rgba("+(127.5-Math.abs(h[ii])*4)+",128,128,"+a+")";
+				el.appendChild(div);
+				console.log(c,i,ii);
+				counter++; if (counter > maxC){i = v.length+1; break;}
 			}
 			else {
-				var a = 1.0/3.0;
-				if (ii == 0){
-					a = 0.5;
-				}
-				if (h[ii] * v[i] < 0){
-					c = c*(1-a)-4*x*a;
-					
-					var div = document.createElement("div");
-					div.style.background = "rgba("+(127.5-Math.abs(h[ii])*4)+",128,128,"+a+")";
-					el.appendChild(div);
-					console.log(c,i,ii);
-					counter++; if (counter > maxC){i = v.length+1; break;}
-				}
-				else {
-					c = c*(1-a)+4*x*a;
-					
-					var div = document.createElement("div");
-					div.style.background = "rgba("+(127.5+Math.abs(h[ii])*4)+",128,128,"+a+")";
-					el.appendChild(div);
-					console.log(c,i,ii);
-					counter++; if (counter > maxC){i = v.length+1; break;}
-				}
+				c = c*(1-a)+4*x*a;
 				
+				var div = document.createElement("div");
+				div.style.background = "rgba("+(127.5+Math.abs(h[ii])*4)+",128,128,"+a+")";
+				el.appendChild(div);
+				console.log(c,i,ii);
+				counter++; if (counter > maxC){i = v.length+1; break;}
 			}
+				
 			
 		}
 		if (i<v.length){
-			c = c * Math.abs(v[i])/16.0;
+			c = c * Math.abs(v[i])/4.0;
 			
 			console.log(c,i,ii);
 			var div = document.createElement("div");
-			div.style.backdropFilter = "contrast("+(Math.abs(v[i])/16.0)+")";
+			div.style.backdropFilter = "contrast("+(Math.abs(v[i])/4.0)+")";
 			el.appendChild(div);
 			counter++; if (counter > maxC){i = v.length+1; break;}
 		}
