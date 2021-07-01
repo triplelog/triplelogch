@@ -993,7 +993,14 @@ input {
 }
 
 
-
+{% for i in range(2,20) %}
+.vConF{{ i}} {
+	backdrop-filter: contrast({{4.0 / fpnn}});
+}
+.vCon{{ i}} {
+	backdrop-filter: contrast({{ fpnn / 4.0}});
+}
+{% endfor %}
 
 
 {% block moreCSS %}
@@ -1075,7 +1082,6 @@ input {
 						{% set zIndex = (top)*800+100 + (7-right)*100 %}
 			
 						{% set zIndex = zIndex + 17 %}
-						{{ verticalCover(top,right,zIndex,0,0,0) }}
 					{% endfor %}
 					{{ saveButtonV(0,0,0,0)}}
 			

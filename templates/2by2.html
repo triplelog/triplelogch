@@ -50,34 +50,25 @@
 {% elif top != 4 or (zIndex % 100) != 17 %}
 <div class="vCoverDiv" style="flex-direction: column; bottom: calc(100% + (1 + {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex }};">
 {% else %}
-<div class="vCoverDivI" style="flex-direction: column; bottom: calc(100% + (1 + {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex }};">
 {% set id1 = 0 %}
 {% endif %}
 
 
 {% if id1 == 0 %}
-	{% set fpnn = 11 %}<div class="vCover vCover13" style="backdrop-filter: contrast({% if frac > 0 %}{{4.0 / fpnn}}{% else %}{{ fpnn / 4.0}}{% endif %});"></div>
-	{% for fpn in range(6,8) %}{% set fpnn = 2*fpn + 1 %}<div class="vCover vCover2" style="backdrop-filter: contrast({% if frac > 0 %}{{4.0 / fpnn}}{% else %}{{ fpnn / 4.0}}{% endif %});"></div>{% endfor %}
-	{% for fpn in range(16,24) %}{% set fpnn = fpn %}<div class="vCover vCover1" style="backdrop-filter: contrast({% if frac > 0 %}{{4.0 / fpnn}}{% else %}{{ fpnn / 4.0}}{% endif %});"></div>{% endfor %}
-	{% for fpn in range(12,14) %}{% set fpnn = 2*fpn + 1 %}<div class="vCover vCover2" style="backdrop-filter: contrast({% if frac > 0 %}{{4.0 / fpnn}}{% else %}{{ fpnn / 4.0}}{% endif %});"></div>{% endfor %}
-</div>
+	
 {% elif id1 == 1 %}
-	{% set fpnn = 3 %}<div class="vCover vCover4" style="backdrop-filter: contrast({% if frac > 0 %}{{4.0 / fpnn}}{% else %}{{ fpnn / 4.0}}{% endif %});"></div>
-	{% for fpn in range(0,1) %}{% set fpnn = 5 %}<div class="vCover vCover2" style="backdrop-filter: contrast({% if frac > 0 %}{{4.0 / fpnn}}{% else %}{{ fpnn / 4.0}}{% endif %});"></div>{% endfor %}
-	{% for fpn in range(6,14) %}{% set fpnn = fpn %}<div class="vCover vCover1" style="backdrop-filter: contrast({% if frac > 0 %}{{4.0 / fpnn}}{% else %}{{ fpnn / 4.0}}{% endif %});"></div>{% endfor %}
-	{% for fpn in range(7,10) %}{% set fpnn = 2*fpn + 1 %}<div class="vCover vCover2" style="backdrop-filter: contrast({% if frac > 0 %}{{4.0 / fpnn}}{% else %}{{ fpnn / 4.0}}{% endif %});"></div>{% endfor %}
+	{% set fpnn = 3 %}<div class="vCover vCover4 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>
+	{% for fpn in range(0,1) %}{% set fpnn = 5 %}<div class="vCover vCover2 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
+	{% for fpn in range(6,14) %}{% set fpnn = fpn %}<div class="vCover vCover1 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
+	{% for fpn in range(7,10) %}{% set fpnn = 2*fpn + 1 %}<div class="vCover vCover2 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
 </div>
 {% elif id1 == 2 %}
-	{% set fpnn = 2 %}<div class="vCover vCover2" style="backdrop-filter: contrast({% if frac > 0 %}{{4.0 / fpnn}}{% else %}{{ fpnn / 4.0}}{% endif %});"></div>
-	{% for fpn in range(3,10) %}{% set fpnn = fpn %}<div class="vCover vCover1" style="backdrop-filter: contrast({% if frac > 0 %}{{4.0 / fpnn}}{% else %}{{ fpnn / 4.0}}{% endif %});"></div>{% endfor %}
-	{% for fpn in range(5,8) %}{% set fpnn = 2*fpn + 1 %}<div class="vCover vCover2" style="backdrop-filter: contrast({% if frac > 0 %}{{4.0 / fpnn}}{% else %}{{ fpnn / 4.0}}{% endif %});"></div>{% endfor %}
+	{% set fpnn = 2 %}<div class="vCover vCover2 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>
+	{% for fpn in range(3,10) %}{% set fpnn = fpn %}<div class="vCover vCover1 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
+	{% for fpn in range(5,8) %}{% set fpnn = 2*fpn + 1 %}<div class="vCover vCover2 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
 </div>
 {% else %}
-	<div class="vCover vCover2" style="backdrop-filter: contrast({% if frac > 0 %}{{2}}{% else %}{{ 0.5}}{% endif %});"></div>
-	{% for fpn in range(1,5) %}<div class="vCover vCover1" style="backdrop-filter: contrast({% if frac > 0 %}{{1.0 / (0.5 + fpn*0.25)}}{% else %}{{ 0.5 + fpn*0.25}}{% endif %});"></div>{% endfor %}
-	{% for fpn in range(5,8) %}<div class="vCover vCover2" style="backdrop-filter: contrast({% if frac > 0 %}{{1.0 / (-0.5 + fpn*0.5)}}{% else %}{{ -0.5 + fpn*0.5}}{% endif %});"></div>{% endfor %}
-	{% for fpn in range(8,12) %}<div class="vCover vCover4" style="backdrop-filter: contrast({% if frac > 0 %}{{1.0 / (-4.0 + fpn)}}{% else %}{{ -4.0 + fpn}}{% endif %});"></div>{% endfor %}
-</div>
+
 {% endif %}
 
 
