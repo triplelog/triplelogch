@@ -252,7 +252,7 @@ function createArithmetic(x,h,v,show=false){
 			var div = document.createElement("div");
 			div.style.backdropFilter = "contrast("+(Math.abs(v[i])/d)+")";
 			if (i == v.length-1){
-				div.textContent = Math.round(c+128)+","+Math.round(vl*hl+128);
+				div.textContent = Math.round(c+128)+","+JSON.stringify(h)+","+JSON.stringify(v);
 			}
 			el.appendChild(div);
 			counter++; if (counter > maxC){i = v.length+1; break;}
