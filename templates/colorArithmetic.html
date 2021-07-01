@@ -195,6 +195,7 @@ function createArithmetic(x,h,v,show=false){
 	for (var i=0;i<h.length;i++){
 		hl+=h[i];
 	}
+	var cp = 0;
 	for (var i=0;i<v.length;i++){
 		if (i>0){
 			var d = 16.0*h.length;
@@ -202,7 +203,8 @@ function createArithmetic(x,h,v,show=false){
 				d = 16.0*(h.length+1);
 			}
 			c = c * d/Math.abs(v[i]);
-			
+			cp = cp * d/Math.abs(v[i]);
+			if (cp<-128){cp=-128;} else if (cp>128) {cp=128; console.log("too big",i,ii);}
 			if(show){console.log(c,i,ii)};
 			var div = document.createElement("div");
 			div.style.backdropFilter = "contrast("+(d/Math.abs(v[i]))+")";
@@ -219,7 +221,8 @@ function createArithmetic(x,h,v,show=false){
 			
 			if (h[ii] * v[i] < 0){
 				c = c*(1-a)-4*Math.abs(h[ii])*a;
-				
+				cp = cp*(1-a)-4*Math.abs(h[ii])*a;
+				if (cp<-128){cp=-128;} else if (cp>128) {cp=128; console.log("too big",i,ii);}
 				var div = document.createElement("div");
 				div.style.background = "rgba("+(127.5-Math.abs(h[ii])*4)+",127,127,"+a+")";
 				el.appendChild(div);
@@ -228,7 +231,8 @@ function createArithmetic(x,h,v,show=false){
 			}
 			else {
 				c = c*(1-a)+4*Math.abs(h[ii])*a;
-				
+				cp = cp*(1-a)+4*Math.abs(h[ii])*a;
+				if (cp<-128){cp=-128;} else if (cp>128) {cp=128; console.log("too big",i,ii);}
 				var div = document.createElement("div");
 				div.style.background = "rgba("+(127.5+Math.abs(h[ii])*4)+",128,128,"+a+")";
 				el.appendChild(div);
@@ -247,7 +251,8 @@ function createArithmetic(x,h,v,show=false){
 				}
 			}
 			c = c * Math.abs(v[i])/d;
-			
+			cp = cp * Math.abs(v[i])/d;
+			if (cp<-128){cp=-128;} else if (cp>128) {cp=128; console.log("too big",i,ii);}
 			if(show){console.log(c,i,ii)};
 			var div = document.createElement("div");
 			div.style.backdropFilter = "contrast("+(Math.abs(v[i])/d)+")";
@@ -257,6 +262,9 @@ function createArithmetic(x,h,v,show=false){
 			el.appendChild(div);
 			counter++; if (counter > maxC){i = v.length+1; break;}
 		}
+	}
+	if (Math.round(cp) != Math.round(c)){
+		console.log(h,v,c,cp);
 	}
 	if (Math.round(c) != Math.round(vl*hl) && !show){
 		console.log(h,v,c,vl*hl);
