@@ -269,7 +269,7 @@ function createMany(){
 	allEls.sort((a,b) => {return a.c-b.c;});
 	for (var i=0;i<allEls.length;i++){
 		var el = allEls[i].el;
-		el.style.left = (Math.floor(i/6))+"px";
+		el.style.left = (Math.floor(i/6)*100)+"px";
 		el.style.top = ((i%6)*100)+"px";
 		b.appendChild(el);
 	}
