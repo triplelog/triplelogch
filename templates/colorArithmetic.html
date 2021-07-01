@@ -199,9 +199,13 @@ function createArithmetic(x,h,v){
 		for (var ii=0;ii<h.length;ii++){
 			
 			var a = 1.0/3.0;
-			if (ii == 0){
+			if (ii == 0 && i == 0){
+				a = 1.0;
+			}
+			else if (ii == 0 || i == 0){
 				a = 0.5;
 			}
+			
 			if (h[ii] * v[i] < 0){
 				c = c*(1-a)-4*x*a;
 				
