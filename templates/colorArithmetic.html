@@ -256,6 +256,7 @@ function createArithmetic(x,h,v){
 			counter++; if (counter > maxC){i = v.length+1; break;}
 		}
 	}
+	if (c != vl*hl){console.log(h,v);}
 	allEls.push({c:c+128,el:el,a:vl*hl+128});
 	
 }
@@ -306,7 +307,7 @@ function createMany(){
 			v.push(-1*(2+Math.floor(Math.random()*Math.min(v[0]+v[1]-3,14))));
 		}
 		createArithmetic(12.5,h,v);
-		console.log(h,v);
+		//console.log(h,v);
 	}
 
 	
