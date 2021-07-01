@@ -259,12 +259,18 @@ function createMany(){
 	createArithmetic(12.5,[25,-15,-5],[24,-10]);
 	createArithmetic(12.5,[25,-15,-3],[24,-10]);
 	createArithmetic(12.5,[25,-15,-6],[24,-10]);
+	createArithmetic(12.5,[25,-16,-5],[24,-10]);
+	createArithmetic(12.5,[25,-12,-3],[24,-10]);
+	createArithmetic(12.5,[25,-15,-6],[24,-13]);
+	createArithmetic(12.5,[20,-10,-7],[24,-10]);
+	createArithmetic(12.5,[15,-12,-5],[24,-10]);
+	createArithmetic(12.5,[25,-15,-6],[24,-7]);
 	
 	allEls.sort((a,b) => {return a.c-b.c;});
 	for (var i=0;i<allEls.length;i++){
 		var el = allEls[i].el;
-		el.style.left = (0)+"px";
-		el.style.top = (i*100)+"px";
+		el.style.left = (Math.floor(i/6))+"px";
+		el.style.top = ((i%6)*100)+"px";
 		b.appendChild(el);
 	}
 }
