@@ -270,7 +270,7 @@ function createArithmetic(x,h,v,show=false){
 			if(show){console.log(c,i,ii)};
 			var divL = document.createElement("div");
 			divL.style.background = "rgb(128,128,128)";
-			divL.style.backgroundBlendMode = "lighten";
+			divL.style.mixBlendMode = "lighten";
 			el.appendChild(divL);
 			var div = document.createElement("div");
 			div.style.backdropFilter = "contrast("+(Math.abs(v[i])/d)+")";
