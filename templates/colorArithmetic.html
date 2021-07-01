@@ -219,7 +219,7 @@ function createArithmetic(x,h,v){
 				c = c*(1-a)-4*Math.abs(h[ii])*a;
 				
 				var div = document.createElement("div");
-				div.style.background = "rgba("+(127.5-Math.abs(h[ii])*4)+",128,128,"+a+")";
+				div.style.background = "rgba("+(127.5-Math.abs(h[ii])*4)+",127,127,"+a+")";
 				el.appendChild(div);
 				//console.log(c,i,ii);
 				counter++; if (counter > maxC){i = v.length+1; break;}
