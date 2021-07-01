@@ -191,7 +191,7 @@ function createArithmetic(x,h,v,show=false){
 	var vmul2 = 2;
 	var hmul1 = 3;
 	var hmul2 = 3;
-	var hmul3 = 3;
+	var hmul3 = 4;
 	var vl = 0;
 	for (var i=0;i<v.length;i++){
 		vl+=v[i];
@@ -276,7 +276,7 @@ function createArithmetic(x,h,v,show=false){
 		}
 	}
 	var div = document.createElement("div");
-	div.style.backdropFilter = "grayscale()";
+	div.style.backdropFilter = "grayscale() invert() brightness(200%)";
 
 	div.textContent = Math.round(c+128)+","+Math.round(cp+128)+","+JSON.stringify(h)+","+JSON.stringify(v);
 
