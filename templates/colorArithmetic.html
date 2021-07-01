@@ -190,8 +190,8 @@ function createArithmetic(x,h,v,show=false){
 	var hmul = 3;
 	var vmul2 = 2;
 	var hmul1 = 3;
-	var hmul2 = 3.5;
-	var hmul3 = 4;
+	var hmul2 = 3;
+	var hmul3 = 3;
 	var vl = 0;
 	for (var i=0;i<v.length;i++){
 		vl+=v[i];
@@ -205,12 +205,9 @@ function createArithmetic(x,h,v,show=false){
 	for (var i=0;i<v.length;i++){
 		if (i>0){
 			var d = 16.0*h.length;
-			if (i>1){
-				d = 4.0*vmul2*(h.length+1);
-			}
-			else if (v.length < 3){
-				d = 4.0*vmul2*(h.length);
-			}
+			
+			d = 4.0*vmul2*(h.length);
+			
 			c = c * d/Math.abs(v[i]);
 			cp = cp * d/Math.abs(v[i]);
 			if (cp<-128){cp=-128;} else if (cp>128) {cp=128; console.log("too big",i,ii);}
