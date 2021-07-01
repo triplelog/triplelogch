@@ -110,12 +110,14 @@ function createArithmetic(x,h,v){
 			}
 			
 		}
-		c = c * Math.abs(v[i]);
-		console.log(c,i,ii);
-		var div = document.createElement("div");
-		div.style.backdropFilter = "contrast("+(Math.abs(v[i]))+")";
-		el.appendChild(div);
-		counter++; if (counter > maxC){i = v.length+1; break;}
+		if (i<v.length){
+			c = c * Math.abs(v[i]);
+			console.log(c,i,ii);
+			var div = document.createElement("div");
+			div.style.backdropFilter = "contrast("+(Math.abs(v[i]))+")";
+			el.appendChild(div);
+			counter++; if (counter > maxC){i = v.length+1; break;}
+		}
 	}
 }
 createArithmetic(12,[4,-3],[3,-2]);
