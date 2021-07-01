@@ -228,7 +228,10 @@ function createArithmetic(x,h,v){
 		if (i<v.length){
 			var d = 16.0;
 			if (i == v.length-1){
-				d = 4.0;
+				d = 4.0/(h.length+1);
+				if (v.length == 1){
+					d = 4.0/(h.length);
+				}
 			}
 			c = c * Math.abs(v[i])/d;
 			
