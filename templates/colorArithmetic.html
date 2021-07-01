@@ -186,6 +186,8 @@ function testContrast(x,m){
 	var elMid = document.getElementById("multiMid");
 	var elBot = document.getElementById("multiBot");
 	var xs = convertToSRGB(x);
+	console.log(xs);
+	console.log(convertToLRGB(xs));
 	var cf = Math.floor(convertToLRGB((xs-0.5)*m+0.5));
 	var cc = Math.floor(convertToLRGB((xs-0.5)*m+0.5))+1;
 	
