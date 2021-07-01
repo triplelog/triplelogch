@@ -84,7 +84,8 @@ function createArithmetic(x,h,v){
 				counter++; if (counter > maxC){i = v.length+1; break;}
 				if (h[ii] * v[i] < 0){
 					c = (c - x)/2;
-					c = Math.floor(c)+1;
+					if (c - Math.floor(c) <= 0.5){c = Math.floor(c)+0.5;}
+					else {c = Math.floor(c)+1.5;}
 					var div = document.createElement("div");
 					div.style.background = "rgba("+(127.5-x)+",128,128,.5)";
 					el.appendChild(div);
@@ -93,7 +94,8 @@ function createArithmetic(x,h,v){
 				}
 				else {
 					c = (c + x)/2;
-					c = Math.floor(c)+1;
+					if (c - Math.floor(c) <= 0.5){c = Math.floor(c)+0.5;}
+					else {c = Math.floor(c)+1.5;}
 					var div = document.createElement("div");
 					div.style.background = "rgba("+(127.5+x)+",128,128,.5)";
 					el.appendChild(div);
