@@ -28,6 +28,40 @@
 	left: 0px;
 	top:0px;
 }
+#multiTop {
+	position:absolute;
+	top: 150px;
+	margin:0px;
+	padding:0px;
+}
+#multiMid {
+	position:absolute;
+	top: 250px;
+	margin:0px;
+	padding:0px;
+}
+#multiBot {
+	position:absolute;
+	top: 350px;
+	margin:0px;
+	padding:0px;
+}
+#multiTop, #multiMid, #multiBot > div {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	background:transparent;
+	margin:0px;
+	padding:0px;
+}
+#multiMid > div > div {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	background:transparent;
+	margin:0px;
+	padding:0px;
+}
 </style>
 <body>
 <span id="output"></span>
@@ -35,6 +69,15 @@
 
 </div>
 
+<div id="multiTop">
+	
+</div>
+<div id="multiMid">
+	
+</div>
+<div id="multiBot">
+	
+</div>
 <script>
 
 function createArithmetic(x,h,v){
@@ -137,6 +180,46 @@ function createArithmetic(x,h,v){
 	}
 }
 createArithmetic(12.5,[4,-3],[3,-2]);
+
+function testContrast(x,m){
+	var elTop = document.getElementById("multiTop");
+	var elMid = document.getElementById("multiMid");
+	var elBot = document.getElementById("multiBot");
+	var cf = Math.floor((x-127.5)*m+127.5);
+	var cc = Math.floor((x-127.5)*m+127.5)+1;
+	
+	var dT = document.createElement("div");
+	dT.style.background = "rgb("+cf+",128,128)";
+	elTop.appendChild(dT);
+	var dB = document.createElement("div");
+	dB.style.background = "rgb("+cc+",128,128)";
+	elBot.appendChild(dT);
+	
+	var dM = document.createElement("div");
+	dM.style.background = "rgb(128,128,128)";
+	var dMbg = document.createElement("div");
+	dMbg.style.background = "rgb("+x+",128,128)";
+	dMbg.style.position = "absolute";
+	dM.appendChild(dMbg);
+	var dMfg = document.createElement("div");
+	dMfg.style.background = "transparent";
+	dMfg.style.backdropFilter = "contrast("+m+")";
+	dMfg.style.position = "absolute";
+	dM.appendChild(dMfg);
+	elMid.appendChild(dM);
+}
+
+testContrast(140,4);
+
+
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
