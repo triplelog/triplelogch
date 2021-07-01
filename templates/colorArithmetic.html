@@ -207,7 +207,7 @@ function createArithmetic(x,h,v){
 			}
 			
 			if (h[ii] * v[i] < 0){
-				c = c*(1-a)-4*x*a;
+				c = c*(1-a)-4*Math.abs(h[ii])*a;
 				
 				var div = document.createElement("div");
 				div.style.background = "rgba("+(127.5-Math.abs(h[ii])*4)+",128,128,"+a+")";
@@ -216,7 +216,7 @@ function createArithmetic(x,h,v){
 				counter++; if (counter > maxC){i = v.length+1; break;}
 			}
 			else {
-				c = c*(1-a)+4*x*a;
+				c = c*(1-a)+4*Math.abs(h[ii])*a;
 				
 				var div = document.createElement("div");
 				div.style.background = "rgba("+(127.5+Math.abs(h[ii])*4)+",128,128,"+a+")";
