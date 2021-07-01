@@ -233,24 +233,24 @@ function contrast(x,m){
 }
 function convertToSRGB(r){
 
-	r = r/255;
+
 	if (r < 0.0031308){
 		rs = 12.92*r;
 	}
 	else {
 		rs = 1.055*Math.pow(r,1/2.4)-0.055;
 	}
-	return rs;
+	return rs*255;
 }
 function convertToLRGB(r){
-
+	r = r/255
 	if (r < 0.04045){
 		rl = r/12.92;
 	}
 	else {
 		rl = Math.pow((r+0.055)/1.055,2.4);
 	}
-	return rl*255;
+	return rl;
 }
 //testContrast(97,4);
 testContrast(100,4);
