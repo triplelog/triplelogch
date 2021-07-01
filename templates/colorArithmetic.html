@@ -191,7 +191,7 @@ function createArithmetic(x,h,v,show=false){
 	var vmul2 = 2;
 	var hmul1 = 3;
 	var hmul2 = 3;
-	var hmul3 = 4;
+	var hmul3 = 3;
 	var vl = 0;
 	for (var i=0;i<v.length;i++){
 		vl+=v[i];
@@ -266,7 +266,7 @@ function createArithmetic(x,h,v,show=false){
 			if (cp<-128){cp=-128;} else if (cp>128) {cp=128; console.log("too big",i,ii);}
 			if(show){console.log(c,i,ii)};
 			var divL = document.createElement("div");
-			divL.style.background = "rgb(129,130,130)";
+			divL.style.background = "rgb(129,129,129)";
 			divL.style.mixBlendMode = "lighten";
 			el.appendChild(divL);
 			var div = document.createElement("div");
