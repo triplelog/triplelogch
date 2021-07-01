@@ -181,6 +181,7 @@ function createArithmetic(x,h,v){
 
 	var el = document.createElement("div");
 	el.classList.add("container");
+
 	el.innerHTML = "";
 	console.log(x,h,v);
 	var c = 0;
@@ -247,10 +248,27 @@ function createArithmetic(x,h,v){
 			counter++; if (counter > maxC){i = v.length+1; break;}
 		}
 	}
-	var b = document.querySelector("body");
-	b.appendChild(el);
+	allEls.push({c:c+128,el:el});
+	
 }
-createArithmetic(12.5,[25,-15,-5],[24,-10]);
+
+
+function createMany(){
+	var b = document.querySelector("body");
+	
+	createArithmetic(12.5,[25,-15,-5],[24,-10]);
+	createArithmetic(12.5,[25,-15,-3],[24,-10]);
+	
+	for (var i=0;i<allEls.length;i++){
+		var el = allEls[i].el;
+		el.style.left = (0)+"px";
+		el.style.top = (i*100)+"px";
+		b.appendChild(el);
+	}
+}
+
+allEls = [];
+createMany();
 
 function testContrast(x,m){
 	var elTop = document.getElementById("multiTop");
