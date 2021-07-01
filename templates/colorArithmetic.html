@@ -205,13 +205,17 @@ function testContrast(x,m){
 	dMfg.style.background = "transparent";
 	dMfg.style.backdropFilter = "contrast("+m+")";
 	dMfg.style.position = "absolute";
+	dMfg.textContent = (x-127.5)*m+127.5;
 	dM.appendChild(dMfg);
 	elMid.appendChild(dM);
 }
 
+testContrast(133,4);
 testContrast(135,4);
 testContrast(140,4);
 testContrast(145,4);
+testContrast(150,4);
+testContrast(155,4);
 
 
 </script>
