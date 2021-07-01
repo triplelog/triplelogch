@@ -188,11 +188,13 @@ function createArithmetic(x,h,v){
 	var maxC = 100;
 	for (var i=0;i<v.length;i++){
 		if (i>0){
-			c = c * 32.0/Math.abs(v[i]);
+			var d = 16.0*h.length;
+			
+			c = c * d/Math.abs(v[i]);
 			
 			console.log(c,i,ii);
 			var div = document.createElement("div");
-			div.style.backdropFilter = "contrast("+(32.0/Math.abs(v[i]))+")";
+			div.style.backdropFilter = "contrast("+(d/Math.abs(v[i]))+")";
 			el.appendChild(div);
 			counter++; if (counter > maxC){i = v.length+1; break;}
 		}
