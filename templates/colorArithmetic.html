@@ -258,7 +258,9 @@ function createMany(){
 	
 	createArithmetic(12.5,[25,-15,-5],[24,-10]);
 	createArithmetic(12.5,[25,-15,-3],[24,-10]);
+	createArithmetic(12.5,[25,-15,-6],[24,-10]);
 	
+	allEls.sort((a,b) => {return a.c-b.c;});
 	for (var i=0;i<allEls.length;i++){
 		var el = allEls[i].el;
 		el.style.left = (0)+"px";
