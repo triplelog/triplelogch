@@ -216,7 +216,7 @@ function createArithmetic(x,h,v,show=false){
 			if (cp<-128){cp=-128;} else if (cp>128) {cp=128; console.log("too big",i,ii);}
 			if(show){console.log(c,i,ii)};
 			var div = document.createElement("div");
-			div.style.backdropFilter = "contrast("+(d/Math.abs(v[i]))+")";
+			div.style.backdropFilter = "contrast("+(d/Math.abs(v[i]))+") grayscale()";
 			el.appendChild(div);
 			counter++; if (counter > maxC){i = v.length+1; break;}
 		}
@@ -234,7 +234,7 @@ function createArithmetic(x,h,v,show=false){
 				if (cp<-128){cp=-128;} else if (cp>128) {cp=128; console.log("too big",i,ii);}
 				var div = document.createElement("div");
 				div.style.background = "rgba("+(127.5-Math.abs(h[ii])*hmul1)+","+(127.5-Math.abs(h[ii])*hmul2)+","+(127.5-Math.abs(h[ii])*hmul3)+","+a+")";
-				div.style.backdropFilter = "grayscale()";
+				
 				el.appendChild(div);
 				if(show){console.log(c,i,ii)};
 				counter++; if (counter > maxC){i = v.length+1; break;}
@@ -245,7 +245,7 @@ function createArithmetic(x,h,v,show=false){
 				if (cp<-128){cp=-128;} else if (cp>128) {cp=128; console.log("too big",i,ii);}
 				var div = document.createElement("div");
 				div.style.background = "rgba("+(127.5+Math.abs(h[ii])*hmul1)+","+(127.5+Math.abs(h[ii])*hmul2)+","+(127.5+Math.abs(h[ii])*hmul3)+","+a+")";
-				div.style.backdropFilter = "grayscale()";
+				
 				el.appendChild(div);
 				if(show){console.log(c,i,ii)};
 				counter++; if (counter > maxC){i = v.length+1; break;}
@@ -269,7 +269,7 @@ function createArithmetic(x,h,v,show=false){
 			if (cp<-128){cp=-128;} else if (cp>128) {cp=128; console.log("too big",i,ii);}
 			if(show){console.log(c,i,ii)};
 			var div = document.createElement("div");
-			div.style.backdropFilter = "contrast("+(Math.abs(v[i])/d)+")";
+			div.style.backdropFilter = "contrast("+(Math.abs(v[i])/d)+") grayscale()";
 			
 			el.appendChild(div);
 			counter++; if (counter > maxC){i = v.length+1; break;}
