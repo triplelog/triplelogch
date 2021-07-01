@@ -189,6 +189,9 @@ function createArithmetic(x,h,v,show=false){
 	var maxC = 100;
 	var hmul = 3;
 	var vmul2 = 2;
+	var hmul1 = 2;
+	var hmul2 = 3;
+	var hmul3 = 4;
 	var vl = 0;
 	for (var i=0;i<v.length;i++){
 		vl+=v[i];
@@ -230,7 +233,7 @@ function createArithmetic(x,h,v,show=false){
 				cp = cp*(1-a)-hmul*Math.abs(h[ii])*a;
 				if (cp<-128){cp=-128;} else if (cp>128) {cp=128; console.log("too big",i,ii);}
 				var div = document.createElement("div");
-				div.style.background = "rgba("+(127.5-Math.abs(h[ii])*hmul)+","+(127.5-Math.abs(h[ii])*hmul)+","+(127.5-Math.abs(h[ii])*hmul)+","+a+")";
+				div.style.background = "rgba("+(127.5-Math.abs(h[ii])*hmul1)+","+(127.5-Math.abs(h[ii])*hmul2)+","+(127.5-Math.abs(h[ii])*hmul3)+","+a+")";
 				el.appendChild(div);
 				if(show){console.log(c,i,ii)};
 				counter++; if (counter > maxC){i = v.length+1; break;}
@@ -240,7 +243,7 @@ function createArithmetic(x,h,v,show=false){
 				cp = cp*(1-a)+hmul*Math.abs(h[ii])*a;
 				if (cp<-128){cp=-128;} else if (cp>128) {cp=128; console.log("too big",i,ii);}
 				var div = document.createElement("div");
-				div.style.background = "rgba("+(127.5+Math.abs(h[ii])*hmul)+","+(127.5+Math.abs(h[ii])*hmul)+","+(127.5+Math.abs(h[ii])*hmul)+","+a+")";
+				div.style.background = "rgba("+(127.5+Math.abs(h[ii])*hmul1)+","+(127.5+Math.abs(h[ii])*hmul2)+","+(127.5+Math.abs(h[ii])*hmul3)+","+a+")";
 				el.appendChild(div);
 				if(show){console.log(c,i,ii)};
 				counter++; if (counter > maxC){i = v.length+1; break;}
