@@ -215,7 +215,7 @@ function contrast(x,m){
 	console.log(x);
 	var xs = convertToSRGB(x);
 	console.log(xs);
-	var y = m*xs+(-0.5*m+0.5);
+	var y = m*xs+(-1*convertToSRGB(127.5)*m+convertToSRGB(127.5));
 	console.log(y);
 	console.log(convertToLRGB(y));
 	return convertToLRGB(y);
