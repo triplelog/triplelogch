@@ -198,13 +198,11 @@ function createArithmetic(x,h,v){
 		}
 		for (var ii=0;ii<h.length;ii++){
 			
-			var a = 1.0/3.0;
-			if (ii == 0 && i == 0){
-				a = 1.0;
+			var a = 1.0/(ii+2);
+			if (i == 0){
+				a = 1.0/(ii+1);
 			}
-			else if (ii == 0 || i == 0){
-				a = 0.5;
-			}
+			
 			
 			if (h[ii] * v[i] < 0){
 				c = c*(1-a)-4*Math.abs(h[ii])*a;
@@ -228,11 +226,15 @@ function createArithmetic(x,h,v){
 			
 		}
 		if (i<v.length){
-			c = c * Math.abs(v[i])/16.0;
+			var d = 16.0;
+			if (i == v.length-1){
+				d = 4.0;
+			}
+			c = c * Math.abs(v[i])/d;
 			
 			console.log(c,i,ii);
 			var div = document.createElement("div");
-			div.style.backdropFilter = "contrast("+(Math.abs(v[i])/16.0)+")";
+			div.style.backdropFilter = "contrast("+(Math.abs(v[i])/d)+")";
 			el.appendChild(div);
 			counter++; if (counter > maxC){i = v.length+1; break;}
 		}
