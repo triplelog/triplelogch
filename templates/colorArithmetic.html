@@ -65,9 +65,7 @@
 </style>
 <body>
 <span id="output"></span>
-<div class="container" id="container">
 
-</div>
 
 <div id="multiTop">
 	
@@ -180,7 +178,9 @@ function createArithmeticOld(x,h,v){
 	}
 }
 function createArithmetic(x,h,v){
-	var el = document.getElementById("container");
+
+	var el = document.createElement("div");
+	el.classList.add("container");
 	el.innerHTML = "";
 	console.log(x,h,v);
 	var c = 0;
@@ -247,6 +247,8 @@ function createArithmetic(x,h,v){
 			counter++; if (counter > maxC){i = v.length+1; break;}
 		}
 	}
+	var b = document.querySelector("body");
+	b.appendChild(el);
 }
 createArithmetic(12.5,[25,-15,-5],[24,-10]);
 
