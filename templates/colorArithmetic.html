@@ -256,8 +256,8 @@ function createArithmetic(x,h,v,show=false){
 			counter++; if (counter > maxC){i = v.length+1; break;}
 		}
 	}
-	if (c != vl*hl && !show){
-		console.log(h,v);
+	if (Math.round(c) != Math.round(vl*hl) && !show){
+		console.log(h,v,c,vl*hl);
 		createArithmetic(x,h,v,true);
 	}
 	allEls.push({c:c+128,el:el,a:vl*hl+128});
