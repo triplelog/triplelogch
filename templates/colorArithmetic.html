@@ -187,7 +187,7 @@ function createArithmetic(x,h,v,show=false){
 	var c = 0;
 	var counter = 0;
 	var maxC = 100;
-	var hmul = 4;
+	var hmul = 3;
 	var vmul2 = 4;
 	var vl = 0;
 	for (var i=0;i<v.length;i++){
@@ -266,7 +266,7 @@ function createArithmetic(x,h,v,show=false){
 			var div = document.createElement("div");
 			div.style.backdropFilter = "contrast("+(Math.abs(v[i])/d)+")";
 			if (i == v.length-1){
-				div.textContent = Math.round(c+128)+","+JSON.stringify(h)+","+JSON.stringify(v);
+				div.textContent = Math.round(c+128)+","+Math.round(cp+128)+","+JSON.stringify(h)+","+JSON.stringify(v);
 			}
 			el.appendChild(div);
 			counter++; if (counter > maxC){i = v.length+1; break;}
