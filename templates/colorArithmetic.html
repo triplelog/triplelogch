@@ -211,7 +211,7 @@ function testContrast(x,m){
 	elMid.appendChild(dM);
 }
 
-function contrast(x,m){
+function contrastL(x,m){
 	console.log(x);
 	var xs = x/255;
 	console.log(xs);
@@ -220,6 +220,16 @@ function contrast(x,m){
 	console.log(y*255);
 	//console.log(convertToLRGB(y));
 	return y*255;
+}
+function contrast(x,m){
+	console.log(x);
+	var xs = convertToSRGB(x);
+	console.log(xs);
+	var y = m*xs+(-1*convertToSRGB(127.5)*m+convertToSRGB(127.5));
+
+	//console.log(y*255);
+	console.log(convertToLRGB(y));
+	return convertToLRGB(y);
 }
 function convertToSRGB(r){
 
