@@ -995,25 +995,45 @@ input {
 
 {% for i in range(2,20) %}
 .vConF{{ i}} {
-	backdrop-filter: contrast({{4.0 / fpnn}});
+	backdrop-filter: contrast({{4.0 / i}});
 }
 .vCon{{ i}} {
-	backdrop-filter: contrast({{ fpnn / 4.0}});
+	backdrop-filter: contrast({{ i / 4.0}});
 }
 .vCoverDiv0 > .vCon{{ i}} {
-	backdrop-filter: contrast({{ (19 - fpnn) / 4.0}});
+	backdrop-filter: contrast({{ (19 - i) / 4.0}});
 }
 .vCoverDiv1 > .vCon{{ i}} {
-	backdrop-filter: contrast({{ (19 - fpnn) / 4.0}});
+	backdrop-filter: contrast({{ (19 - i) / 4.0}});
 }
 .vCoverDiv0 > .vConF{{ i}} {
-	backdrop-filter: contrast({{ 4.0 / (19 - fpnn) }});
+	backdrop-filter: contrast({{ 4.0 / (19 - i) }});
 }
 .vCoverDiv1 > .vConF{{ i}} {
-	backdrop-filter: contrast({{ 4.0 / (19 - fpnn) }});
+	backdrop-filter: contrast({{ 4.0 / (19 - i) }});
 }
 {% endfor %}
 
+{% for i in range(2,20) %}
+.hConF{{ i}} {
+	background: rgba({{127.5 - i*3}},127.5,127.5,0.5);
+}
+.hCon{{ i}} {
+	background: rgba({{127.5 + i*3}},127.5,127.5,0.5);
+}
+.hCoverDiv0 > .hCon{{ i}} {
+	background: rgba({{127.5 + (19 - i)*3}},127.5,127.5,0.5);
+}
+.hCoverDiv1 > .hCon{{ i}} {
+	background: rgba({{127.5 + (19 - i)*3}},127.5,127.5,0.5);
+}
+.hCoverDiv0 > .hConF{{ i}} {
+	background: rgba({{127.5 - (19 - i)*3}},127.5,127.5,0.5);
+}
+.hCoverDiv1 > .hConF{{ i}} {
+	background: rgba({{127.5 - (19 - i)*3}},127.5,127.5,0.5);
+}
+{% endfor %}
 
 {% block moreCSS %}
 {% endblock %}

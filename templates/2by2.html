@@ -19,28 +19,37 @@
 </div>
 {% endif %}
 {% endmacro %}		
-{% macro horizontalCoverF(top,right,zIndex,leftRight,frac) %}
-{% if leftRight == 0 %}
-<div class="hCoverFDiv" style="bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex  }};">
-	<div class="hCoverFSubDiv">
-		<div class="hCover hCover2" style="backdrop-filter: contrast({% if frac > 0 %}{{2}}{% else %}{{ 0.5}}{% endif %});"></div>
-		{% for fpn in range(1,5) %}<div class="hCover hCover1" style="backdrop-filter: contrast({% if frac > 0 %}{{1.0 / (0.5 + fpn*0.25)}}{% else %}{{ 0.5 + fpn*0.25}}{% endif %});"></div>{% endfor %}
-		{% for fpn in range(5,8) %}<div class="hCover hCover2" style="backdrop-filter: contrast({% if frac > 0 %}{{1.0 / (-0.5 + fpn*0.5)}}{% else %}{{ -0.5 + fpn*0.5}}{% endif %});"></div>{% endfor %}
-		{% for fpn in range(8,12) %}<div class="hCover hCover4" style="backdrop-filter: contrast({% if frac > 0 %}{{1.0 / (-4.0 + fpn)}}{% else %}{{ -4.0 + fpn}}{% endif %});"></div>{% endfor %}
 
-	</div>
+
+{% macro horizontalCover(top,right,zIndex,leftRight,frac,id1) %}
+{% set mystr = "" %}
+{% if leftRight == 0 or leftRight == 10 %}
+<div class="hCoverDiv {% if leftRight >= 10 %}hCoverDiv0{% endif %}" style="bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex  }};">
+{% else %}
+{% set mystr = "margin-bottom: 0px; margin-top: calc(8 * var(--block));" %}
+<div class="hCoverDiv {% if leftRight >= 10 %}hCoverDiv1{% endif %}" style="flex-wrap: wrap-reverse; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex  }};">
+{% endif %}
+
+
+{% if id1 == 0 %}
+	
+{% elif id1 == 1 %}
+	{% set fpnn = 3 %}<div style="{{mystr}}" class="hCover hCover4 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>
+	{% for fpn in range(0,1) %}{% set fpnn = 5 %}<div style="{{mystr}}" class="hCover hCover2 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
+	{% for fpn in range(6,14) %}{% set fpnn = fpn %}<div style="{{mystr}}" class="hCover hCover1 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
+	{% for fpn in range(7,10) %}{% set fpnn = 2*fpn + 1 %}<div style="{{mystr}}" class="hCover hCover2 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
+</div>
+{% elif id1 == 2 %}
+	{% set fpnn = 2 %}<div style="{{mystr}}" class="hCover hCover2 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>
+	{% for fpn in range(3,10) %}{% set fpnn = fpn %}<div style="{{mystr}}" class="hCover hCover1 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
+	{% for fpn in range(5,8) %}{% set fpnn = 2*fpn + 1 %}<div style="{{mystr}}" class="hCover hCover2 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
 </div>
 {% else %}
-<div class="hCoverFDiv" style="top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex  }};">
-	<div class="hCoverFSubDiv" style="flex-wrap: wrap-reverse;">
-		<div class="hCover hCover2" style="margin-bottom: 0px; margin-top: calc(8 * var(--block)); backdrop-filter: contrast({% if frac > 0 %}{{2}}{% else %}{{ 0.5}}{% endif %});"></div>
-		{% for fpn in range(1,5) %}<div class="hCover hCover1" style="margin-bottom: 0px; margin-top: calc(8 * var(--block)); backdrop-filter: contrast({% if frac > 0 %}{{1.0 / (0.5 + fpn*0.25)}}{% else %}{{ 0.5 + fpn*0.25}}{% endif %});"></div>{% endfor %}
-		{% for fpn in range(5,8) %}<div class="hCover hCover2" style="margin-bottom: 0px; margin-top: calc(8 * var(--block)); backdrop-filter: contrast({% if frac > 0 %}{{1.0 / (-0.5 + fpn*0.5)}}{% else %}{{ -0.5 + fpn*0.5}}{% endif %});"></div>{% endfor %}
-		{% for fpn in range(8,12) %}<div class="hCover hCover4" style="margin-bottom: 0px; margin-top: calc(8 * var(--block)); backdrop-filter: contrast({% if frac > 0 %}{{1.0 / (-4.0 + fpn)}}{% else %}{{ -4.0 + fpn}}{% endif %});"></div>{% endfor %}
-	</div>
-</div>
+
 {% endif %}
-{% endmacro %}
+
+
+{% endmacro %}	
 
 
 {% macro verticalCover(top,right,zIndex,leftRight,frac,id1) %}
@@ -250,8 +259,8 @@
 					{% set leftRight = 1 %}
 					{% endif %}
 				
-					{% set zIndex = zIndex + 6 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
+					{% set zIndex = zIndex + 1 %}
+					{{ horizontalCover(top,right,zIndex,leftRight,0,2) }}
 					
 					{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
 					{% set top = top + (id2 % 2) * 2 %}
@@ -268,14 +277,9 @@
 					{% set zIndex = (top)*800+100 + (right)*100 %}
 					{% set leftRight = 1 %}
 					{% endif %}
-					{% if id1 == 1 or id1 == 3 %}
-					{% set zIndex = zIndex + 14 %}
-					{% else %}
-					{% set zIndex = zIndex + 9 %}
-					{% endif %}
-					{{ horizontalCover(top,right,zIndex,leftRight,1) }}
+					
 					{% set zIndex = zIndex + 2 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
+					{{ horizontalCover(top,right,zIndex,leftRight,1,2) }}
 				</div>
 				
 				{% set zIndexRoad = id1*1600 + id2*400 + 50 %}
@@ -382,8 +386,8 @@
 					{% set leftRight = 1 %}
 					{% endif %}
 				
-					{% set zIndex = zIndex + 6 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
+					{% set zIndex = zIndex + 1 %}
+					{{ horizontalCover(top,right,zIndex,leftRight,0,2) }}
 					
 					{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
 					{% set top = top + (id2 % 2) * 2 %}
@@ -400,14 +404,8 @@
 					{% set zIndex = (top)*800+100 + (right)*100 %}
 					{% set leftRight = 1 %}
 					{% endif %}
-					{% if id1 == 1 or id1 == 3 %}
-					{% set zIndex = zIndex + 9 %}
-					{% else %}
-					{% set zIndex = zIndex + 14 %}
-					{% endif %}
-					{{ horizontalCover(top,right,zIndex,leftRight,1) }}
 					{% set zIndex = zIndex + 2 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
+					{{ horizontalCover(top,right,zIndex,leftRight,0,2) }}
 					
 				</div>
 				<div class="resizeCoverHR"><span><-</span><span>-></span></div>
@@ -616,19 +614,11 @@
 					{% set zIndex = (top)*800+100 + (right)*100 %}
 					{% set leftRight = 1 %}
 					{% endif %}
-				
-					{% set zIndex = zIndex + 6 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
-					{% set zIndex = zIndex + 13 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,1) }}
-					{% set zIndex = zIndex + 2 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
-					{% if id2 ==1 or id2 == 3 %}
-					{% set zIndex = zIndex + 13 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,1) }}
-					{% set zIndex = zIndex + 2 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
-					{% endif %}
+					
+					{% set zIndex = zIndex + 1 %}
+					{{ horizontalCover(top,right,zIndex,leftRight,0,2) }}
+					{% set zIndex = zIndex + 4 %}
+					{{ horizontalCover(top,right,zIndex,leftRight,1,2) }}
 					
 					{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
 					{% set top = top + (id2 % 2) * 2 %}
@@ -645,24 +635,10 @@
 					{% set zIndex = (top)*800+100 + (right)*100 %}
 					{% set leftRight = 1 %}
 					{% endif %}
-					{% if id1 == 1 or id1 == 3 %}
-					{% set zIndex = zIndex + 14 %}
-					{% else %}
-					{% set zIndex = zIndex + 9 %}
-					{% endif %}
-					{{ horizontalCover(top,right,zIndex,leftRight,1) }}
 					{% set zIndex = zIndex + 2 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
-					{% set zIndex = zIndex + 13 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,1) }}
-					{% set zIndex = zIndex + 2 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
-					{% if id2 ==1 or id2 == 3 %}
-					{% set zIndex = zIndex + 13 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,1) }}
-					{% set zIndex = zIndex + 2 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
-					{% endif %}
+					{{ horizontalCover(top,right,zIndex,leftRight,1,2) }}
+					{% set zIndex = zIndex + 4 %}
+					{{ horizontalCover(top,right,zIndex,leftRight,0,2) }}
 				</div>
 				<div class="resizeCoverH"><span><-</span><span>-></span></div>
 				
@@ -858,18 +834,10 @@
 					{% set leftRight = 1 %}
 					{% endif %}
 				
-					{% set zIndex = zIndex + 6 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
-					{% set zIndex = zIndex + 13 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,1) }}
-					{% set zIndex = zIndex + 2 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
-					{% if id2 ==1 or id2 == 3 %}
-					{% set zIndex = zIndex + 13 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,1) }}
-					{% set zIndex = zIndex + 2 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
-					{% endif %}
+					{% set zIndex = zIndex + 1 %}
+					{{ horizontalCover(top,right,zIndex,leftRight,0,2) }}
+					{% set zIndex = zIndex + 4 %}
+					{{ horizontalCover(top,right,zIndex,leftRight,1,2) }}
 					
 					{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
 					{% set top = top + (id2 % 2) * 2 %}
@@ -886,24 +854,10 @@
 					{% set zIndex = (top)*800+100 + (right)*100 %}
 					{% set leftRight = 1 %}
 					{% endif %}
-					{% if id1 == 1 or id1 == 3 %}
-					{% set zIndex = zIndex + 9 %}
-					{% else %}
-					{% set zIndex = zIndex + 14 %}
-					{% endif %}
-					{{ horizontalCover(top,right,zIndex,leftRight,1) }}
 					{% set zIndex = zIndex + 2 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
-					{% set zIndex = zIndex + 13 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,1) }}
-					{% set zIndex = zIndex + 2 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
-					{% if id2 ==1 or id2 == 3 %}
-					{% set zIndex = zIndex + 13 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,1) }}
-					{% set zIndex = zIndex + 2 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0) }}
-					{% endif %}
+					{{ horizontalCover(top,right,zIndex,leftRight,0,2) }}
+					{% set zIndex = zIndex + 4 %}
+					{{ horizontalCover(top,right,zIndex,leftRight,1,2) }}
 				</div>
 				<div class="resizeCoverHR"><span><-</span><span>-></span></div>
 				
