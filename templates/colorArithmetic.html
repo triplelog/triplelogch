@@ -183,7 +183,7 @@ function createArithmetic(x,h,v){
 	el.classList.add("container");
 
 	el.innerHTML = "";
-	console.log(x,h,v);
+	//console.log(x,h,v);
 	var c = 0;
 	var counter = 0;
 	var maxC = 100;
@@ -201,7 +201,7 @@ function createArithmetic(x,h,v){
 			
 			c = c * d/Math.abs(v[i]);
 			
-			console.log(c,i,ii);
+			//console.log(c,i,ii);
 			var div = document.createElement("div");
 			div.style.backdropFilter = "contrast("+(d/Math.abs(v[i]))+")";
 			el.appendChild(div);
@@ -221,7 +221,7 @@ function createArithmetic(x,h,v){
 				var div = document.createElement("div");
 				div.style.background = "rgba("+(127.5-Math.abs(h[ii])*4)+",128,128,"+a+")";
 				el.appendChild(div);
-				console.log(c,i,ii);
+				//console.log(c,i,ii);
 				counter++; if (counter > maxC){i = v.length+1; break;}
 			}
 			else {
@@ -230,7 +230,7 @@ function createArithmetic(x,h,v){
 				var div = document.createElement("div");
 				div.style.background = "rgba("+(127.5+Math.abs(h[ii])*4)+",128,128,"+a+")";
 				el.appendChild(div);
-				console.log(c,i,ii);
+				//console.log(c,i,ii);
 				counter++; if (counter > maxC){i = v.length+1; break;}
 			}
 				
@@ -246,7 +246,7 @@ function createArithmetic(x,h,v){
 			}
 			c = c * Math.abs(v[i])/d;
 			
-			console.log(c,i,ii);
+			//console.log(c,i,ii);
 			var div = document.createElement("div");
 			div.style.backdropFilter = "contrast("+(Math.abs(v[i])/d)+")";
 			if (i == v.length-1){
@@ -278,13 +278,13 @@ function createMany(){
 			h.push(2+Math.floor(Math.random()*14));
 		}
 		if (hl==3){
-			h.push(-1*(3+Math.floor(Math.random()*17)));
+			h.push(-1*(3+Math.floor(Math.random()*(h[0]-4)))));
 		}
 		else if (hl==2){
-			h.push(-1*(2+Math.floor(Math.random()*14)));
+			h.push(-1*(2+Math.floor(Math.random()*(h[0]-3))));
 		}
 		if (hl==3){
-			h.push(-1*(2+Math.floor(Math.random()*14)));
+			h.push(-1*(2+Math.floor(Math.random()*(h[0]-h[1]-3))));
 		}
 		var v = [];
 		if (vl==3){
@@ -297,15 +297,16 @@ function createMany(){
 			v.push(2+Math.floor(Math.random()*14));
 		}
 		if (vl==3){
-			v.push(-1*(3+Math.floor(Math.random()*17)));
+			v.push(-1*(3+Math.floor(Math.random()*(v[0]-4))));
 		}
 		else if (vl==2){
-			v.push(-1*(2+Math.floor(Math.random()*14)));
+			v.push(-1*(2+Math.floor(Math.random()*(v[0]-3))));
 		}
 		if (vl==3){
-			v.push(-1*(2+Math.floor(Math.random()*14)));
+			v.push(-1*(2+Math.floor(Math.random()*(v[0]-v[1]-3))));
 		}
 		createArithmetic(12.5,h,v);
+		console.log(h,v);
 	}
 
 	
