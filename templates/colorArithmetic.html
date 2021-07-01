@@ -177,13 +177,13 @@ function createArithmeticOld(x,h,v){
 		}
 	}
 }
-function createArithmetic(x,h,v){
+function createArithmetic(x,h,v,show=false){
 
 	var el = document.createElement("div");
 	el.classList.add("container");
 
 	el.innerHTML = "";
-	//console.log(x,h,v);
+	if(show){console.log(x,h,v)};
 	var c = 0;
 	var counter = 0;
 	var maxC = 100;
@@ -201,7 +201,7 @@ function createArithmetic(x,h,v){
 			
 			c = c * d/Math.abs(v[i]);
 			
-			//console.log(c,i,ii);
+			if(show){console.log(c,i,ii)};
 			var div = document.createElement("div");
 			div.style.backdropFilter = "contrast("+(d/Math.abs(v[i]))+")";
 			el.appendChild(div);
@@ -221,7 +221,7 @@ function createArithmetic(x,h,v){
 				var div = document.createElement("div");
 				div.style.background = "rgba("+(127.5-Math.abs(h[ii])*4)+",127,127,"+a+")";
 				el.appendChild(div);
-				//console.log(c,i,ii);
+				if(show){console.log(c,i,ii)};
 				counter++; if (counter > maxC){i = v.length+1; break;}
 			}
 			else {
@@ -230,7 +230,7 @@ function createArithmetic(x,h,v){
 				var div = document.createElement("div");
 				div.style.background = "rgba("+(127.5+Math.abs(h[ii])*4)+",128,128,"+a+")";
 				el.appendChild(div);
-				//console.log(c,i,ii);
+				if(show){console.log(c,i,ii)};
 				counter++; if (counter > maxC){i = v.length+1; break;}
 			}
 				
@@ -246,7 +246,7 @@ function createArithmetic(x,h,v){
 			}
 			c = c * Math.abs(v[i])/d;
 			
-			//console.log(c,i,ii);
+			if(show){console.log(c,i,ii)};
 			var div = document.createElement("div");
 			div.style.backdropFilter = "contrast("+(Math.abs(v[i])/d)+")";
 			if (i == v.length-1){
@@ -256,7 +256,10 @@ function createArithmetic(x,h,v){
 			counter++; if (counter > maxC){i = v.length+1; break;}
 		}
 	}
-	if (c != vl*hl){console.log(h,v);}
+	if (c != vl*hl && !show){
+		console.log(h,v);
+		createArithmetic(x,h,v,true);
+	}
 	allEls.push({c:c+128,el:el,a:vl*hl+128});
 	
 }
