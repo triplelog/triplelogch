@@ -49,8 +49,6 @@
 <div class="vCoverDiv {% if leftRight >= 10 %}vCoverDiv0{% endif %}" style="top: calc((52 + {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex }};">
 {% else %}
 <div class="vCoverDiv {% if leftRight >= 10 %}vCoverDiv1{% endif %}" style="flex-direction: column; bottom: calc(100% + (1 + {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex }};">
-{% else %}
-{% set id1 = 0 %}
 {% endif %}
 
 
