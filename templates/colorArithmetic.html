@@ -80,7 +80,7 @@
 </div>
 <script>
 
-function createArithmetic(x,h,v){
+function createArithmeticOld(x,h,v){
 	var el = document.getElementById("container");
 	el.innerHTML = "";
 	console.log(x,h,v);
@@ -179,7 +179,72 @@ function createArithmetic(x,h,v){
 		}
 	}
 }
-createArithmetic(12.5,[4,-3],[3,-2]);
+function createArithmetic(x,h,v){
+	var el = document.getElementById("container");
+	el.innerHTML = "";
+	console.log(x,h,v);
+	var c = 0;
+	var counter = 0;
+	var maxC = 100;
+	for (var i=0;i<v.length;i++){
+		if (i>0){
+			c = c * 32.0/Math.abs(v[i]);
+			
+			console.log(c,i,ii);
+			var div = document.createElement("div");
+			div.style.backdropFilter = "contrast("+(32.0/Math.abs(v[i]))+")";
+			el.appendChild(div);
+			counter++; if (counter > maxC){i = v.length+1; break;}
+		}
+		for (var ii=0;ii<h.length;ii++){
+			if (i ==0 && ii == 0){
+				c = x;
+				console.log(c,i,ii);
+				var div = document.createElement("div");
+				div.style.background = "rgba("+(127.5+Math.abs(h[ii])*4)+",128,128,1)";
+				el.appendChild(div);
+				counter++; if (counter > maxC){i = v.length+1; break;}
+				
+			}
+			else {
+				var a = 1.0/3.0;
+				if (ii == 0){
+					a = 0.5;
+				}
+				if (h[ii] * v[i] < 0){
+					c = c*(1-a)-4*x*a;
+					
+					var div = document.createElement("div");
+					div.style.background = "rgba("+(127.5-Math.abs(h[ii])*4)+",128,128,"+a+")";
+					el.appendChild(div);
+					console.log(c,i,ii);
+					counter++; if (counter > maxC){i = v.length+1; break;}
+				}
+				else {
+					c = c*(1-a)+4*x*a;
+					
+					var div = document.createElement("div");
+					div.style.background = "rgba("+(127.5+Math.abs(h[ii])*4)+",128,128,"+a+")";
+					el.appendChild(div);
+					console.log(c,i,ii);
+					counter++; if (counter > maxC){i = v.length+1; break;}
+				}
+				
+			}
+			
+		}
+		if (i<v.length){
+			c = c * Math.abs(v[i])/16.0;
+			
+			console.log(c,i,ii);
+			var div = document.createElement("div");
+			div.style.backdropFilter = "contrast("+(Math.abs(v[i])/16.0)+")";
+			el.appendChild(div);
+			counter++; if (counter > maxC){i = v.length+1; break;}
+		}
+	}
+}
+createArithmetic(12.5,[25,-15],[24,-10]);
 
 function testContrast(x,m){
 	var elTop = document.getElementById("multiTop");
@@ -252,7 +317,7 @@ function convertToLRGB(r){
 	}
 	return rl;
 }
-//testContrast(97,4);
+/*testContrast(97,4);
 testContrast(100,4);
 testContrast(104,4);
 testContrast(108,4);
@@ -262,8 +327,8 @@ testContrast(135,4);
 testContrast(145,4);
 testContrast(150,4);
 testContrast(155,4);
-//testContrast(160,4);
-//testContrast(165,4);
+testContrast(160,4);
+testContrast(165,4);*/
 
 
 </script>
