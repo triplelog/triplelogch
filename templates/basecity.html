@@ -997,22 +997,22 @@ input {
 {% for i in range(2,91) %}
 {# i is double the vertical height #}
 .vConF{{ i}} {
-	backdrop-filter: contrast({{2.0 / i}});
+	backdrop-filter: contrast({{8.0 / i}});
 }
 .vCon{{ i}} {
-	backdrop-filter: contrast({{ i / 2.0}});
+	backdrop-filter: contrast({{ i / 8.0}});
 }
 .vCoverDiv0 > .vCon{{ i}} {
-	backdrop-filter: contrast({{ (38 - i) / 2.0}});
+	backdrop-filter: contrast({{ (38 - i) / 8.0}});
 }
 .vCoverDiv1 > .vCon{{ i}} {
-	backdrop-filter: contrast({{ (38 - i) / 2.0}});
+	backdrop-filter: contrast({{ (38 - i) / 8.0}});
 }
 .vCoverDiv0 > .vConF{{ i}} {
-	backdrop-filter: contrast({{ 2.0 / (38 - i) }});
+	backdrop-filter: contrast({{ 8.0 / (38 - i) }});
 }
 .vCoverDiv1 > .vConF{{ i}} {
-	backdrop-filter: contrast({{ 2.0 / (38 - i) }});
+	backdrop-filter: contrast({{ 8.0 / (38 - i) }});
 }
 {% endfor %}
 
