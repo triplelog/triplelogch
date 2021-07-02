@@ -33,11 +33,7 @@
 {% endmacro %}	
 
 {% macro verticalCoverLighten(top,right,zIndex,leftRight,frac,id1) %}
-{% if leftRight == 0 %}
 <div class="vCoverLighten" style="top: calc((52 + {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex }};">
-{% else %}
-<div class="vCoverLighten" style="bottom: calc(100% + (1 + {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex }};">
-{% endif %}
 </div>
 {% endmacro %}
 
@@ -107,15 +103,27 @@
 {% macro saveCSS() %}
 	#vSave0-11:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-11"] {background: #000;}
 	#vSave0-11:checked ~ .bigGrid {--vv:11;}
+	#vSave0-11:checked ~ #vURLs #vURL0:before {content:"11";}
 	{% for fpn in range(6,8) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}
 	#vSave0-{{ 2*fpn + 1 }}:checked ~ .bigGrid {--vv:{{ 2*fpn + 1 }};}
+	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs #vURL0:before {content:"{{ 2*fpn + 1 }}";}
 	{% endfor %}
 	{% for fpn in range(16,24) %}#vSave0-{{ fpn }}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ fpn }}"] {background: #000;}
 	#vSave0-{{ fpn }}:checked ~ .bigGrid {--vv:{{ fpn }};}
+	#vSave0-{{ fpn }}:checked ~ #vURLs #vURL0:before {content:"{{ fpn }}";}
 	{% endfor %}
 	{% for fpn in range(12,14) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}
 	#vSave0-{{ 2*fpn + 1 }}:checked ~ .bigGrid {--vv:{{ 2*fpn + 1 }};}
+	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs #vURL0:before {content:"{{ 2*fpn + 1 }}";}
 	{% endfor %}
+	
+
+{% endmacro %}
+
+{% macro saveURL() %}
+	<div id="vURLs" style="top: calc(53 * var(--block)); right: calc(30 * var(--block)); height: var(--block); background: yellow;">
+		<span id="vURL0"></span>
+	</div>
 {% endmacro %}
 
 {% macro saveButtons() %}

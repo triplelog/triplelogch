@@ -987,6 +987,8 @@ input {
 }
 {{ saveCSS() }}
 
+
+
 {% for i in range(2,20) %}
 .hConF{{ i}} {
 	background: rgb({{127.5 - i*3}},127.5,127.5);
@@ -1062,6 +1064,8 @@ input {
 	
 	{{ zoneButtons(all) }}
 	{{ saveButtons() }}
+	{{ saveURL() }}
+	
 	<div class="bigGrid">
 		
 		<div class="topBottom">
