@@ -483,6 +483,9 @@ input {
 #showScore:checked ~ div .verticalGrow > div:Not(.saveVCoverDiv) {
 	display: flex;
 }
+#showScore:checked ~ div .verticalGrow > div.saveVCoverDiv.mainV {
+	display: flex;
+}
 #showScore:checked ~ div .horizontalGrow > div.hCoverFDiv {
 	display: inline-block;
 }
@@ -677,7 +680,7 @@ div#vURLs {
 	flex-wrap: wrap;
 	flex-direction: column-reverse;
 	position: fixed;
-	width: var(--block);
+	width: calc(2 * var(--block));
 	height: inherit;
 	background: transparent;
 	pointer-events:none;
