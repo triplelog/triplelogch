@@ -24,7 +24,6 @@ body {
 	--office-score: contrast(3) invert();
 	--power-score: contrast(3);
 	--zero-score: contrast(1);
-	--v: 19;
 	--h: 19;
 	
 }
@@ -90,6 +89,7 @@ body {
 	top: 15%;
 	position: absolute;
 	overflow: visible;
+	--vv: 19;
 }
 .topBottom {
 	display: flex;
@@ -652,7 +652,7 @@ input {
 	height: 100%;
 	pointer-events: all;
 }
-{{ saveCSS() }}
+
 
 .verticalGrow > div.saveVCoverDiv {
 	display: flex;
@@ -981,6 +981,14 @@ input {
 	backdrop-filter: contrast(calc(8.0 / (var(--v) - {{i}})));
 }
 {% endfor %}
+
+.vCoverDiv4 {
+	--v: calc(38 - var(--vv));
+}
+.vCoverDiv3 {
+	--v: var(--vv);
+}
+{{ saveCSS() }}
 
 {% for i in range(2,20) %}
 .hConF{{ i}} {

@@ -98,11 +98,15 @@
 
 {% macro saveCSS() %}
 	#vSave0-11:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-11"] {background: #000;}
+	#vSave0-11:checked ~ .bigGrid .vCoverDiv3 {--vv:11;}
 	{% for fpn in range(6,8) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}
+	#vSave0-{{ 2*fpn + 1 }}:checked ~ .bigGrid .vCoverDiv3 {--vv:{{ 2*fpn + 1 }};}
 	{% endfor %}
 	{% for fpn in range(16,24) %}#vSave0-{{ fpn }}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ fpn }}"] {background: #000;}
+	#vSave0-{{ fpn }}:checked ~ .bigGrid .vCoverDiv3 {--vv:{{ fpn }};}
 	{% endfor %}
 	{% for fpn in range(12,14) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}
+	#vSave0-{{ 2*fpn + 1 }}:checked ~ .bigGrid .vCoverDiv3 {--vv:{{ 2*fpn + 1 }};}
 	{% endfor %}
 {% endmacro %}
 
