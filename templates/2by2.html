@@ -160,16 +160,16 @@
 {% endmacro %}
 
 {% macro saveButtons() %}
-	<input type="radio" style="display: none;" name="vSave0" id="vSave0-11"></input>
-	{% for fpn in range(6,8) %}<input type="radio" style="display: none;" name="vSave0" id="vSave0-{{2*fpn + 1}}"></input>{% endfor %}
-	{% for fpn in range(16,24) %}<input type="radio" style="display: none;" name="vSave0" id="vSave0-{{fpn}}" {% if fpn == 19 %}checked{% endif %}></input>{% endfor %}
-	{% for fpn in range(12,14) %}<input type="radio" style="display: none;" name="vSave0" id="vSave0-{{2*fpn + 1}}"></input>{% endfor %}
+	<input type="radio" style="display: none;" name="vSave0" id="vSave0-11" {% if 11 == vv[0] %}checked{% endif %}></input>
+	{% for fpn in range(6,8) %}<input type="radio" style="display: none;" name="vSave0" id="vSave0-{{2*fpn + 1}}" {% if 2*fpn + 1 == vv[0] %}checked{% endif %}></input>{% endfor %}
+	{% for fpn in range(16,24) %}<input type="radio" style="display: none;" name="vSave0" id="vSave0-{{fpn}}" {% if fpn == vv[0] %}checked{% endif %}></input>{% endfor %}
+	{% for fpn in range(12,14) %}<input type="radio" style="display: none;" name="vSave0" id="vSave0-{{2*fpn + 1}}" {% if 2*fpn + 1 == vv[0] %}checked{% endif %}></input>{% endfor %}
 	
 	{% for i in range(0,8) %}
-		<input type="radio" style="display: none;" name="vSave1{{i}}" id="vSave1{{i}}-3"></input>
-		{% for fpn in range(0,1) %}<input type="radio" style="display: none;" name="vSave1{{i}}" id="vSave1{{i}}-5"></input>{% endfor %}
-		{% for fpn in range(6,14) %}<input type="radio" style="display: none;" name="vSave1{{i}}" id="vSave1{{i}}-{{ fpn }}" {% if fpn == 9 %}checked{% endif %}></input>{% endfor %}
-		{% for fpn in range(7,10) %}<input type="radio" style="display: none;" name="vSave1{{i}}" id="vSave1{{i}}-{{ 2*fpn + 1}}"></input>{% endfor %}
+		<input type="radio" style="display: none;" name="vSave1{{i}}" id="vSave1{{i}}-3" {% if 3 == vv[i] %}checked{% endif %}></input>
+		{% for fpn in range(0,1) %}<input type="radio" style="display: none;" name="vSave1{{i}}" id="vSave1{{i}}-5" {% if 5 == vv[i] %}checked{% endif %}></input>{% endfor %}
+		{% for fpn in range(6,14) %}<input type="radio" style="display: none;" name="vSave1{{i}}" id="vSave1{{i}}-{{ fpn }}" {% if fpn == vv[i] %}checked{% endif %}></input>{% endfor %}
+		{% for fpn in range(7,10) %}<input type="radio" style="display: none;" name="vSave1{{i}}" id="vSave1{{i}}-{{ 2*fpn + 1}}" {% if 2*fpn + 1 == vv[i] %}checked{% endif %}></input>{% endfor %}
 	{% endfor %}
 	{% for i in range(0,8) %}
 		{% for ii in range(0,2) %}

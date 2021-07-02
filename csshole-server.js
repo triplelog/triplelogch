@@ -334,9 +334,10 @@ app.get('/city.html',
 		for (var i=0;i<chars.length;i++){
 			revChar[chars[i]]=i;
 		}
-		var defaultStr = "j999999995555555555555555";
+		var defaultStr = "jaaaaaaaa5555555555555555";
 		var startStr = "";
 		var v = [];
+		var vv = [];
 		if (req.query && req.query.x){
 			for (var i=0;i<req.query.x.length && i<defaultStr.length;i++){
 				if (revChar[req.query.x[i]]){
@@ -365,6 +366,7 @@ app.get('/city.html',
 			else if (v[i] == 5){
 				v[i] = 38.5 / 8;
 			}
+			vv.push(Math.round(v[i]));
 		}
 		console.log(v);
 		
@@ -382,6 +384,7 @@ app.get('/city.html',
 			zi: zi,
 			ziSum: ziSum,
 			v: v,
+			vv: vv,
 		}));
 		res.end();
 		console.log('city sent',performance.now());
