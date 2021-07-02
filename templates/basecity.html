@@ -983,10 +983,10 @@ input {
 	background: rgb({{127.5 + i*3}},127.5,127.5);
 }
 .hCoverDiv0 > .hCon{{ i}} {
-	background: rgb(calc(127.5 + (var(--h) - i)*3),127.5,127.5);
+	background: rgb(calc(127.5 + (var(--h) - {{i}})*3),127.5,127.5);
 }
 .hCoverDiv0 > .hConF{{ i}} {
-	background: rgb(calc(127.5 - (var(--h) - i)*3),127.5,127.5);
+	background: rgb(calc(127.5 - (var(--h) - {{i}})*3),127.5,127.5);
 }
 {% endfor %}
 .hCover {
