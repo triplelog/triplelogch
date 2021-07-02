@@ -477,10 +477,10 @@ input {
 }
 {% endfor %}
 
-#showScore:checked ~ div .horizontalGrow > div {
+#showScore:checked ~ div .horizontalGrow > div:Not(.saveHCoverDiv) {
 	display: flex;
 }
-#showScore:checked ~ div .verticalGrow > div {
+#showScore:checked ~ div .verticalGrow > div:Not(.saveVCoverDiv) {
 	display: flex;
 }
 #showScore:checked ~ div .horizontalGrow > div.hCoverFDiv {
@@ -490,6 +490,12 @@ input {
 	display: inline-block;
 }
 
+div.saveVCoverDiv {
+	display: none;
+}
+#showSave:checked ~ div .verticalGrow > div.saveVCoverDiv {
+	display: flex;
+}
 
 .stickyButtons {
 	
@@ -523,6 +529,12 @@ input {
 	display: none;
 }
 #showScore:checked ~ .stickyButtons #showScoreLabel {
+	display: none;
+}
+#hideSave:checked ~ .stickyButtons #hideSaveLabel {
+	display: none;
+}
+#showSave:checked ~ .stickyButtons #showSaveLabel {
 	display: none;
 }
 
@@ -1033,6 +1045,8 @@ input {
 <input style="display: none;" type="radio" name="zone" id="zone1" />
 <input style="display: none;" type="radio" name="score" id="hideScore" checked />
 <input style="display: none;" type="radio" name="score" id="showScore" />
+<input style="display: none;" type="radio" name="save" id="hideSave" checked />
+<input style="display: none;" type="radio" name="save" id="showSave" />
 <input style="display: none;" type="radio" name="zoneSelected" id="deleteButton" checked />
 {% for t in ["sfh","mfh","office","gov","hr","power","hospital","hotel","park","library","cc","retail"] %}
 <input style="display: none;" type="radio" name="zoneSelected" id="{{t}}Button" />
@@ -1046,6 +1060,8 @@ input {
 		<label for="zone1" id="zone1Label">Hide Buildings</label>
 		<label for="hideScore" id="hideScoreLabel">Hide Score</label>
 		<label for="showScore" id="showScoreLabel">Show Score</label>
+		<label for="hideSave" id="hideSaveLabel">Hide Save</label>
+		<label for="showSave" id="showSaveLabel">Save</label>
 	</div>
 	<div>
 		<label for="deleteButton" id="deleteButtonLabel">Delete</label>
