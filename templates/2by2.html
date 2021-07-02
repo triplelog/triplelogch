@@ -14,15 +14,15 @@
 {% if id1 == 0 %}
 	
 {% elif id1 == 1 %}
-	{% set fpnn = 3 %}<div style="{{mystr}}" class="hCover hCover4 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %} {% if zIndex % 8 == 1}ha1{% elif zIndex % 8 == 6}ha3{% endif %}"></div>
-	{% for fpn in range(0,1) %}{% set fpnn = 5 %}<div style="{{mystr}}" class="hCover hCover2 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %} {% if zIndex % 8 == 1}ha1{% elif zIndex % 8 == 6}ha3{% endif %}"></div>{% endfor %}
-	{% for fpn in range(6,14) %}{% set fpnn = fpn %}<div style="{{mystr}}" class="hCover hCover1 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %} {% if zIndex % 8 == 1}ha1{% elif zIndex % 8 == 6}ha3{% endif %}"></div>{% endfor %}
-	{% for fpn in range(7,10) %}{% set fpnn = 2*fpn + 1 %}<div style="{{mystr}}" class="hCover hCover2 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %} {% if zIndex % 8 == 1}ha1{% elif zIndex % 8 == 6}ha3{% endif %}"></div>{% endfor %}
+	{% set fpnn = 3 %}<div style="{{mystr}}" class="hCover hCover4 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %} {% if zIndex % 8 == 1 %}ha1{% elif zIndex % 8 == 6 %}ha3{% endif %}"></div>
+	{% for fpn in range(0,1) %}{% set fpnn = 5 %}<div style="{{mystr}}" class="hCover hCover2 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %} {% if zIndex % 8 == 1 %}ha1{% elif zIndex % 8 == 6 %}ha3{% endif %}"></div>{% endfor %}
+	{% for fpn in range(6,14) %}{% set fpnn = fpn %}<div style="{{mystr}}" class="hCover hCover1 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %} {% if zIndex % 8 == 1 %}ha1{% elif zIndex % 8 == 6 %}ha3{% endif %}"></div>{% endfor %}
+	{% for fpn in range(7,10) %}{% set fpnn = 2*fpn + 1 %}<div style="{{mystr}}" class="hCover hCover2 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %} {% if zIndex % 8 == 1 %}ha1{% elif zIndex % 8 == 6 %}ha3{% endif %}"></div>{% endfor %}
 </div>
 {% elif id1 == 2 %}
-	{% set fpnn = 2 %}<div style="{{mystr}}" class="hCover hCover2 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %} {% if zIndex % 8 == 1}ha1{% elif zIndex % 8 == 6}ha3{% endif %}"></div>
-	{% for fpn in range(3,10) %}{% set fpnn = fpn %}<div style="{{mystr}}" class="hCover hCover1 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %} {% if zIndex % 8 == 1}ha1{% elif zIndex % 8 == 6}ha3{% endif %}"></div>{% endfor %}
-	{% for fpn in range(5,8) %}{% set fpnn = 2*fpn + 1 %}<div style="{{mystr}}" class="hCover hCover2 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %} {% if zIndex % 8 == 1}ha1{% elif zIndex % 8 == 6}ha3{% endif %}"></div>{% endfor %}
+	{% set fpnn = 2 %}<div style="{{mystr}}" class="hCover hCover2 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %} {% if zIndex % 8 == 1 %}ha1{% elif zIndex % 8 == 6 %}ha3{% endif %}"></div>
+	{% for fpn in range(3,10) %}{% set fpnn = fpn %}<div style="{{mystr}}" class="hCover hCover1 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %} {% if zIndex % 8 == 1 %}ha1{% elif zIndex % 8 == 6 %}ha3{% endif %}"></div>{% endfor %}
+	{% for fpn in range(5,8) %}{% set fpnn = 2*fpn + 1 %}<div style="{{mystr}}" class="hCover hCover2 hCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %} {% if zIndex % 8 == 1 %}ha1{% elif zIndex % 8 == 6 %}ha3{% endif %}"></div>{% endfor %}
 </div>
 {% else %}
 
