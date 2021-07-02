@@ -98,9 +98,12 @@
 
 {% macro saveCSS() %}
 	#vSave0-11:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-11"] {background: #000;}
-	{% for fpn in range(6,8) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}{% endfor %}
-	{% for fpn in range(16,24) %}#vSave0-{{ fpn }}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ fpn }}"] {background: #000;}{% endfor %}
-	{% for fpn in range(12,14) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}{% endfor %}
+	{% for fpn in range(6,8) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}
+	{% endfor %}
+	{% for fpn in range(16,24) %}#vSave0-{{ fpn }}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ fpn }}"] {background: #000;}
+	{% endfor %}
+	{% for fpn in range(12,14) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}
+	{% endfor %}
 {% endmacro %}
 
 {% macro saveButtons() %}
