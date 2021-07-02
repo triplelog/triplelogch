@@ -483,9 +483,6 @@ input {
 #showScore:checked ~ div .verticalGrow > div {
 	display: flex;
 }
-#showScore:checked ~ div .vCoverDivI {
-	display: flex;
-}
 #showScore:checked ~ div .horizontalGrow > div.hCoverFDiv {
 	display: inline-block;
 }
@@ -623,6 +620,13 @@ input {
 .vCover13 {
 	height: calc(13 * var(--block));
 }
+.vCoverLighten {
+	position: fixed;
+	width: var(--block);
+	height: var(--block);
+	background: rgb(128,128,128);
+	mix-blend-mode: lighten;
+}
 .vCoverDiv {
 	flex-wrap: wrap;
 	flex-direction: column-reverse;
@@ -631,15 +635,7 @@ input {
 	height: inherit;
 	background: transparent;
 }
-.vCoverDivI {
-	flex-wrap: wrap;
-	flex-direction: column-reverse;
-	position: fixed;
-	width: var(--block);
-	height: 100%;
-	background: transparent;
-	display: none;
-}
+
 
 
 .vCover.saveB {
@@ -1091,10 +1087,19 @@ input {
 		
 				<div class="verticalGrow grow8">
 					{% for right in range(0,8) %}
-						{% set top = 3 %}
-						{% set zIndex = (top)*800+100 + (7-right)*100 %}
+						{% for top in range(0,4) %}
+							{% set zIndex = (top)*800+100 + (7-right)*100 %}
 			
-						{% set zIndex = zIndex + 17 %}
+							{% set zIndex = zIndex + 7 %}
+							{{ verticalCoverLighten(top,right,zIndex,0,0,-1) }}
+						{% endfor %}
+						{% for top in range(5,8) %}
+							{% set t = 7 - (top - 4) %}
+							{% set r = 7 - right %}
+							{% set zIndex = (top)*800+100 + (right)*100 %}
+							{% set zIndex = zIndex + 7 %}
+							{{ verticalCoverLighten(t,r,zIndex,1,0,-1) }}
+						{% endfor %}
 					{% endfor %}
 					{{ saveButtonV(0,0,0,0)}}
 			
