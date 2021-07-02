@@ -63,18 +63,31 @@
 	{% endif %}
 {% endif %}
 
+{% set cstr = "" %}
+{% if frac > 0 %}
+	{% if fd == 1 %}
+		{% set cstr = "FF" %}
+	{% else %}
+		{% set cstr = "F" %}
+	{% endif %}
+{% elif fd == 4 %}
+	{% set cstr = "D" %}
+{% elif fd == 6 %}
+	{% set cstr = "T" %}
+{% endif %}
+
 {% if id1 == 0 %}
 	
 {% elif id1 == 1 %}
-	{% set fpnn = 3 %}<div class="vCover vCover4 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>
-	{% for fpn in range(0,1) %}{% set fpnn = 5 %}<div class="vCover vCover2 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
-	{% for fpn in range(6,14) %}{% set fpnn = fpn %}<div class="vCover vCover1 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
-	{% for fpn in range(7,10) %}{% set fpnn = (2*fpn + 1) %}<div class="vCover vCover2 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
+	{% set fpnn = 3 %}<div class="vCover vCover4 vCon{{ cstr }}{{fpnn}}"></div>
+	{% for fpn in range(0,1) %}{% set fpnn = 5 %}<div class="vCover vCover2 vCon{{ cstr }}{{fpnn}}"></div>{% endfor %}
+	{% for fpn in range(6,14) %}{% set fpnn = fpn %}<div class="vCover vCover1 vCon{{ cstr }}{{fpnn}}"></div>{% endfor %}
+	{% for fpn in range(7,10) %}{% set fpnn = (2*fpn + 1) %}<div class="vCover vCover2 vCon{{ cstr }}{{fpnn}}"></div>{% endfor %}
 </div>
 {% elif id1 == 2 %}
-	{% set fpnn = 2 %}<div class="vCover vCover2 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>
-	{% for fpn in range(3,10) %}{% set fpnn = fpn %}<div class="vCover vCover1 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
-	{% for fpn in range(5,8) %}{% set fpnn = (2*fpn + 1) %}<div class="vCover vCover2 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
+	{% set fpnn = 2 %}<div class="vCover vCover2 vCon{{ cstr }}{{fpnn}}"></div>
+	{% for fpn in range(3,10) %}{% set fpnn = fpn %}<div class="vCover vCover1 vCon{{ cstr }}{{fpnn}}"></div>{% endfor %}
+	{% for fpn in range(5,8) %}{% set fpnn = (2*fpn + 1) %}<div class="vCover vCover2 vCon{{ cstr }}{{fpnn}}"></div>{% endfor %}
 </div>
 {% else %}
 
