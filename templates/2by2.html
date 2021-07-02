@@ -123,15 +123,15 @@
 	
 	{% for i in range(0,8) %}
 		#vSave1{{i}}-3:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-3"] {background: #AAA; pointer-events:none;}
-		#vSave1{{i}}-3:checked ~ #vURLs #vURL{{i+1}}:before {content:"{{chars[3]}}";}
+		#vSave1{{i}}-3:checked ~ #vURLs #vURL{{i+1}} span:nth-child({{3}}) {display:inline;}
 		{% for fpn in range(0,1) %}#vSave1{{i}}-5:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-5"] {background: #AAA; pointer-events:none;}
-		#vSave1{{i}}-5:checked ~ #vURLs #vURL{{i+1}}:before {content:"{{chars[5]}}";}
+		#vSave1{{i}}-5:checked ~ #vURLs #vURL{{i+1}} span:nth-child({{5}}) {display:inline;}
 		{% endfor %}
 		{% for fpn in range(6,14) %}#vSave1{{i}}-{{fpn}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-{{fpn}}"] {background: #AAA; pointer-events:none;}
-		#vSave1{{i}}-{{fpn}}:checked ~ #vURLs #vURL{{i+1}}:before {content:"{{chars[fpn]}}";}
+		#vSave1{{i}}-{{fpn}}:checked ~ #vURLs #vURL{{i+1}} span:nth-child({{fpn}}) {display:inline;}
 		{% endfor %}
 		{% for fpn in range(7,10) %}#vSave1{{i}}-{{2*fpn + 1}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-{{2*fpn + 1}}"] {background: #AAA; pointer-events:none;}
-		#vSave1{{i}}-{{2*fpn + 1}}:checked ~ #vURLs #vURL{{i+1}}:before {content:"{{chars[2*fpn + 1]}}";}
+		#vSave1{{i}}-{{2*fpn + 1}}:checked ~ #vURLs #vURL{{i+1}} span:nth-child({{2*fpn + 1}}) {display:inline;}
 		{% endfor %}
 	{% endfor %}
 	{% for i in range(0,8) %}
@@ -153,7 +153,7 @@
 	{% set chars = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"] %}
 	
 	<div id="vURLs" style="position:fixed; top: calc(53 * var(--block)); right: calc(30 * var(--block)); height: var(--block); background: yellow;">
-		<span id="vURL0">{% for c in range(1,36) %}<span>{{ chars[c] }}</span>{% endfor %}</span>{% for i in range(0,8) %}<span id="vURL{{i+1}}"></span>{% endfor %}{% for i in range(0,16) %}<span id="vURL{{i+9}}"></span>{% endfor %}
+		<span id="vURL0">{% for c in range(1,36) %}<span>{{ chars[c] }}</span>{% endfor %}</span>{% for i in range(0,8) %}<span id="vURL{{i+1}}">{% for c in range(1,36) %}<span>{{ chars[c] }}</span>{% endfor %}</span>{% endfor %}{% for i in range(0,16) %}<span id="vURL{{i+9}}">{% for c in range(1,36) %}<span>{{ chars[c] }}</span>{% endfor %}</span>{% endfor %}
 		
 		
 		
