@@ -107,18 +107,18 @@
 	}
 	#vSave0-11:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-11"] {background: #000;}
 	#vSave0-11:checked ~ .bigGrid {--vv:11;}
-	#vSave0-11:checked ~ #vURLs #vURL0:nth-child({{11}}) {display:inline;}
+	#vSave0-11:checked ~ #vURLs #vURL0 span:nth-child({{11}}) {display:inline;}
 	{% for fpn in range(6,8) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}
 	#vSave0-{{ 2*fpn + 1 }}:checked ~ .bigGrid {--vv:{{ 2*fpn + 1 }};}
-	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs #vURL0:nth-child({{2*fpn + 1}}) {display:inline;}
+	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs #vURL0 span:nth-child({{2*fpn + 1}}) {display:inline;}
 	{% endfor %}
 	{% for fpn in range(16,24) %}#vSave0-{{ fpn }}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ fpn }}"] {background: #000;}
 	#vSave0-{{ fpn }}:checked ~ .bigGrid {--vv:{{ fpn }};}
-	#vSave0-{{ fpn }}:checked ~ #vURLs #vURL0:nth-child({{fpn}}) {display:inline;}
+	#vSave0-{{ fpn }}:checked ~ #vURLs #vURL0 span:nth-child({{fpn}}) {display:inline;}
 	{% endfor %}
 	{% for fpn in range(12,14) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}
 	#vSave0-{{ 2*fpn + 1 }}:checked ~ .bigGrid {--vv:{{ 2*fpn + 1 }};}
-	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs #vURL0:nth-child({{2*fpn + 1}}) {display:inline;}
+	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs #vURL0 span:nth-child({{2*fpn + 1}}) {display:inline;}
 	{% endfor %}
 	
 	{% for i in range(0,8) %}
