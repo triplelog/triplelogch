@@ -120,15 +120,15 @@
 	{% endfor %}
 	
 	{% for i in range(0,8) %}
-		#vSave1{{i}}-3:checked ~ .bigGrid .vCover.saveB > label[for="vSave1{{i}}-3"] {background: #AAA; pointer-events:none;}
+		#vSave1{{i}}-3:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-3"] {background: #AAA; pointer-events:none;}
 		#vSave1{{i}}-3:checked ~ #vURLs #vURL{{i+1}}:before {content:"{{chars[3]}}";}
-		{% for fpn in range(0,1) %}#vSave1{{i}}-5:checked ~ .bigGrid .vCover.saveB > label[for="vSave1{{i}}-5"] {background: #AAA; pointer-events:none;}
+		{% for fpn in range(0,1) %}#vSave1{{i}}-5:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-5"] {background: #AAA; pointer-events:none;}
 		#vSave1{{i}}-5:checked ~ #vURLs #vURL{{i+1}}:before {content:"{{chars[5]}}";}
 		{% endfor %}
-		{% for fpn in range(6,14) %}#vSave1{{i}}-{{fpn}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave1{{i}}-{{fpn}}"] {background: #AAA; pointer-events:none;}
+		{% for fpn in range(6,14) %}#vSave1{{i}}-{{fpn}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-{{fpn}}"] {background: #AAA; pointer-events:none;}
 		#vSave1{{i}}-{{fpn}}:checked ~ #vURLs #vURL{{i+1}}:before {content:"{{chars[fpn]}}";}
 		{% endfor %}
-		{% for fpn in range(7,10) %}#vSave1{{i}}-{{2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave1{{i}}-{{2*fpn + 1}}"] {background: #AAA; pointer-events:none;}
+		{% for fpn in range(7,10) %}#vSave1{{i}}-{{2*fpn + 1}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-{{2*fpn + 1}}"] {background: #AAA; pointer-events:none;}
 		#vSave1{{i}}-{{2*fpn + 1}}:checked ~ #vURLs #vURL{{i+1}}:before {content:"{{chars[2*fpn + 1]}}";}
 		{% endfor %}
 	{% endfor %}
