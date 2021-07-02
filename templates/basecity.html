@@ -956,6 +956,16 @@ input {
 	backdrop-filter: contrast({{ 3.0 * i / 4.0}});
 }
 
+.vCoverDiv0 > .vCon{{ i}} {
+	backdrop-filter: contrast({{ (var(--v) - i) / 4.0}});
+}
+.vCoverDiv0 > .vConD{{ i}} {
+	backdrop-filter: contrast({{ 2.0 * (var(--v) - i) / 4.0}});
+}
+.vCoverDiv0 > .vConT{{ i}} {
+	backdrop-filter: contrast({{ 3.0 * (var(--v) - i) / 4.0}});
+}
+
 {% endfor %}
 
 {% for i in range(2,20) %}
