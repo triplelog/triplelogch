@@ -99,7 +99,7 @@ body {
 	top:0px;
 	position: absolute;
 	max-height:100%;
-	/*pointer-events: none;*/
+	pointer-events: none;
 }
 .leftRight {
 	display: flex;
@@ -110,7 +110,7 @@ body {
 	position: absolute;
 	left:0px;
 	top:0px;
-	/*pointer-events: none;*/
+	pointer-events: none;
 }
 .hresize > .leftRight, .hresize > .topBottom, .hresize > .cellHolder {
 	width: calc(100% - 0.5 * var(--block));
@@ -238,7 +238,7 @@ body {
 	position: relative;
 	max-height: min(calc(16 * var(--block)),100%);
 	min-height: calc(2 * var(--block));
-	/*pointer-events: none;*/
+	pointer-events: none;
 }
 .horizontalGrow {
 	height: calc(50% + .25 * var(--block));
@@ -250,7 +250,7 @@ body {
 	max-width: min(calc(16 * var(--block)),100%);
 	min-width: calc(2 * var(--block));
 	background: transparent;
-	/*pointer-events: none;*/
+	pointer-events: none;
 	
 }
 .horizontalGrow.grow8 {
@@ -540,7 +540,7 @@ input {
 
 .horizontalGrow > div {
 	display: none;
-	/*pointer-events: none;*/
+	pointer-events: none;
 }
 /*.horizontalGrow.grow8 > div {
 	display: none;
@@ -548,7 +548,7 @@ input {
 }*/
 .verticalGrow > div {
 	display: none;
-	/*pointer-events: none;*/
+	pointer-events: none;
 }
 .scoreColor {
 	background-color: transparent;
@@ -643,6 +643,7 @@ input {
 
 .vCover.saveB {
 	background: white;
+	display:none;
 }
 
 .verticalGrow > div.saveVCoverDiv {
