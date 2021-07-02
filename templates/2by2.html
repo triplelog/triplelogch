@@ -101,47 +101,47 @@
 {% endmacro %}	
 
 {% macro saveCSS() %}
-	#vURLs > span > span {
+	#vURLs > span {
 		display:none;
 	}
 	#vSave0-11:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-11"] {background: #000;}
 	#vSave0-11:checked ~ .bigGrid {--vv:11;}
-	#vSave0-11:checked ~ #vURLs #vURL0 span:nth-child({{11}}) {display:inline;}
+	#vSave0-11:checked ~ #vURLs span:nth-child({{(0)*35 + 11}}) {display:inline;}
 	{% for fpn in range(6,8) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}
 	#vSave0-{{ 2*fpn + 1 }}:checked ~ .bigGrid {--vv:{{ 2*fpn + 1 }};}
-	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs #vURL0 span:nth-child({{2*fpn + 1}}) {display:inline;}
+	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs span:nth-child({{(0)*35 + 2*fpn + 1}}) {display:inline;}
 	{% endfor %}
 	{% for fpn in range(16,24) %}#vSave0-{{ fpn }}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ fpn }}"] {background: #000;}
 	#vSave0-{{ fpn }}:checked ~ .bigGrid {--vv:{{ fpn }};}
-	#vSave0-{{ fpn }}:checked ~ #vURLs #vURL0 span:nth-child({{fpn}}) {display:inline;}
+	#vSave0-{{ fpn }}:checked ~ #vURLs span:nth-child({{(0)*35 + fpn}}) {display:inline;}
 	{% endfor %}
 	{% for fpn in range(12,14) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}
 	#vSave0-{{ 2*fpn + 1 }}:checked ~ .bigGrid {--vv:{{ 2*fpn + 1 }};}
-	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs #vURL0 span:nth-child({{2*fpn + 1}}) {display:inline;}
+	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs span:nth-child({{(0)*35 + 2*fpn + 1}}) {display:inline;}
 	{% endfor %}
 	
 	{% for i in range(0,8) %}
 		#vSave1{{i}}-3:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-3"] {background: #AAA; pointer-events:none;}
-		#vSave1{{i}}-3:checked ~ #vURLs #vURL{{i+1}} span:nth-child({{3}}) {display:inline;}
+		#vSave1{{i}}-3:checked ~ #vURLs span:nth-child({{(i + 1)*35 + 3}}) {display:inline;}
 		{% for fpn in range(0,1) %}#vSave1{{i}}-5:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-5"] {background: #AAA; pointer-events:none;}
-		#vSave1{{i}}-5:checked ~ #vURLs #vURL{{i+1}} span:nth-child({{5}}) {display:inline;}
+		#vSave1{{i}}-5:checked ~ #vURLs span:nth-child({{(i + 1)*35 + 5}}) {display:inline;}
 		{% endfor %}
 		{% for fpn in range(6,14) %}#vSave1{{i}}-{{fpn}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-{{fpn}}"] {background: #AAA; pointer-events:none;}
-		#vSave1{{i}}-{{fpn}}:checked ~ #vURLs #vURL{{i+1}} span:nth-child({{fpn}}) {display:inline;}
+		#vSave1{{i}}-{{fpn}}:checked ~ #vURLs span:nth-child({{(i + 1)*35 + fpn}}) {display:inline;}
 		{% endfor %}
 		{% for fpn in range(7,10) %}#vSave1{{i}}-{{2*fpn + 1}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-{{2*fpn + 1}}"] {background: #AAA; pointer-events:none;}
-		#vSave1{{i}}-{{2*fpn + 1}}:checked ~ #vURLs #vURL{{i+1}} span:nth-child({{2*fpn + 1}}) {display:inline;}
+		#vSave1{{i}}-{{2*fpn + 1}}:checked ~ #vURLs span:nth-child({{(i + 1)*35 + 2*fpn + 1}}) {display:inline;}
 		{% endfor %}
 	{% endfor %}
 	{% for i in range(0,8) %}
 		{% for ii in range(0,2) %}
 			#vSave2{{i}}{{ii}}-2:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave2{{i}}{{ii}}-2"] {background: #AAA; pointer-events:none;}
-			#vSave2{{i}}{{ii}}-2:checked ~ #vURLs #vURL{{i*2+ii+9}} span:nth-child({{2}}) {display:inline;}
+			#vSave2{{i}}{{ii}}-2:checked ~ #vURLs span:nth-child({{(i*2 + ii + 9)*35 + 2}}) {display:inline;}
 			{% for fpn in range(3,10) %}#vSave2{{i}}{{ii}}-{{fpn}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave2{{i}}{{ii}}-{{fpn}}"] {background: #AAA; pointer-events:none;}
-			#vSave2{{i}}{{ii}}-{{fpn}}:checked ~ #vURLs #vURL{{i*2+ii+9}} span:nth-child({{fpn }}) {display:inline;}
+			#vSave2{{i}}{{ii}}-{{fpn}}:checked ~ #vURLs span:nth-child({{(i*2 + ii + 9)*35 + fpn }}) {display:inline;}
 			{% endfor %}
 			{% for fpn in range(5,8) %}#vSave2{{i}}{{ii}}-{{2*fpn + 1}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave2{{i}}{{ii}}-{{2*fpn + 1}}"] {background: #AAA; pointer-events:none;}
-			#vSave2{{i}}{{ii}}-{{2*fpn + 1}}:checked ~ #vURLs #vURL{{i*2+ii+9}} span:nth-child({{2*fpn + 1}}) {display:inline;}
+			#vSave2{{i}}{{ii}}-{{2*fpn + 1}}:checked ~ #vURLs span:nth-child({{(i*2 + ii + 9)*35 + 2*fpn + 1}}) {display:inline;}
 			{% endfor %}
 		{% endfor %}
 	{% endfor %}
@@ -152,7 +152,7 @@
 	{% set chars = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"] %}
 	
 	<div id="vURLs" style="position:fixed; top: calc(53 * var(--block)); right: calc(30 * var(--block)); height: var(--block); background: yellow;">
-		<span id="vURL0">{% for c in range(1,36) %}<span>{{ chars[c] }}</span>{% endfor %}</span>{% for i in range(0,8) %}<span id="vURL{{i+1}}">{% for c in range(1,36) %}<span>{{ chars[c] }}</span>{% endfor %}</span>{% endfor %}{% for i in range(0,16) %}<span id="vURL{{i+9}}">{% for c in range(1,36) %}<span>{{ chars[c] }}</span>{% endfor %}</span>{% endfor %}
+		{% for c in range(1,36) %}<span>{{ chars[c] }}</span>{% endfor %}{% for i in range(0,8) %}{% for c in range(1,36) %}<span>{{ chars[c] }}</span>{% endfor %}{% endfor %}{% for i in range(0,16) %}{% for c in range(1,36) %}<span>{{ chars[c] }}</span>{% endfor %}{% endfor %}
 		
 		
 		
