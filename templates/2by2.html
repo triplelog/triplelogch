@@ -4,11 +4,11 @@
 {% macro horizontalCover(top,right,zIndex,leftRight,frac,id1) %}
 
 {% set mystr = "" %}
-{% if leftRight == 0 or leftRight == 10 %}
-<div class="hCoverDiv {% if leftRight >= 10 %}hCoverDiv0{% endif %}" style="bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex  }};">
+{% if leftRight == 0 %}
+<div class="hCoverDiv {% if id1 == 1 %}{% if right == 2 %}hCoverDiv0 hCoverDiv02{% elif right == 5 %}hCoverDiv0 hCoverDiv05{% endif %}{% endif %}" style="bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex  }};">
 {% else %}
 {% set mystr = "margin-bottom: 0px; margin-top: calc(8 * var(--block));" %}
-<div class="hCoverDiv {% if leftRight >= 10 %}hCoverDiv1{% endif %}" style="flex-wrap: wrap-reverse; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex  }};">
+<div class="hCoverDiv {% if id1 == 1 %}{% if right == 2 %}hCoverDiv0 hCoverDiv12{% elif right == 5 %}hCoverDiv0 hCoverDiv15{% endif %}{% endif %}" style="flex-wrap: wrap-reverse; top: calc((-2 - {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex  }};">
 {% endif %}
 
 
