@@ -102,21 +102,23 @@
 
 {% macro saveCSS() %}
 	{% set chars = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"] %}
-	
+	#vURLs > span > span {
+		display:none;
+	}
 	#vSave0-11:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-11"] {background: #000;}
 	#vSave0-11:checked ~ .bigGrid {--vv:11;}
-	#vSave0-11:checked ~ #vURLs #vURL0:before {content:"{{chars[11]}}";}
+	#vSave0-11:checked ~ #vURLs #vURL0:nth-child({{11}}) {display:inline;}
 	{% for fpn in range(6,8) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}
 	#vSave0-{{ 2*fpn + 1 }}:checked ~ .bigGrid {--vv:{{ 2*fpn + 1 }};}
-	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs #vURL0:before {content:"{{ chars[2*fpn + 1] }}";}
+	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs #vURL0:nth-child({{2*fpn + 1}}) {display:inline;}
 	{% endfor %}
 	{% for fpn in range(16,24) %}#vSave0-{{ fpn }}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ fpn }}"] {background: #000;}
 	#vSave0-{{ fpn }}:checked ~ .bigGrid {--vv:{{ fpn }};}
-	#vSave0-{{ fpn }}:checked ~ #vURLs #vURL0:before {content:"{{ chars[fpn] }}";}
+	#vSave0-{{ fpn }}:checked ~ #vURLs #vURL0:nth-child({{fpn}}) {display:inline;}
 	{% endfor %}
 	{% for fpn in range(12,14) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}
 	#vSave0-{{ 2*fpn + 1 }}:checked ~ .bigGrid {--vv:{{ 2*fpn + 1 }};}
-	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs #vURL0:before {content:"{{ chars[2*fpn + 1] }}";}
+	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs #vURL0:nth-child({{2*fpn + 1}}) {display:inline;}
 	{% endfor %}
 	
 	{% for i in range(0,8) %}
@@ -148,8 +150,10 @@
 {% endmacro %}
 
 {% macro saveURL() %}
+	{% set chars = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"] %}
+	
 	<div id="vURLs" style="position:fixed; top: calc(53 * var(--block)); right: calc(30 * var(--block)); height: var(--block); background: yellow;">
-		<span id="vURL0"></span>{% for i in range(0,8) %}<span id="vURL{{i+1}}"></span>{% endfor %}{% for i in range(0,16) %}<span id="vURL{{i+9}}"></span>{% endfor %}
+		<span id="vURL0">{% for c in range(1,36) %}<span>{{ chars[c] }}</span>{% endfor %}</span>{% for i in range(0,8) %}<span id="vURL{{i+1}}"></span>{% endfor %}{% for i in range(0,16) %}<span id="vURL{{i+9}}"></span>{% endfor %}
 		
 		
 		
