@@ -1091,12 +1091,14 @@ input {
 							{% set zIndex = (top)*800+100 + (7-right)*100 %}
 			
 							{% set zIndex = zIndex + 7 %}
+							{{ verticalCoverLighten(top,right,zIndex,0,0,-1) }}
 						{% endfor %}
 						{% for top in range(5,8) %}
 							{% set t = 7 - (top - 4) %}
 							{% set r = 7 - right %}
 							{% set zIndex = (top)*800+100 + (right)*100 %}
 							{% set zIndex = zIndex + 7 %}
+							{{ verticalCoverLighten(t,r,zIndex,1,0,-1) }}
 						{% endfor %}
 					{% endfor %}
 					{{ saveButtonV(0,0,0,0)}}
