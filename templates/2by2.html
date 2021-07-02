@@ -104,43 +104,43 @@
 	#vURLs > span {
 		display:none;
 	}
-	#vSave0-11:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-11"] {background: #000;}
+	#vSave0-11:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave0-11"] {background: #FFF;}
 	#vSave0-11:checked ~ .bigGrid {--vv:11;}
 	#vSave0-11:checked ~ #vURLs span:nth-child({{(0)*35 + 11}}) {display:inline;}
-	{% for fpn in range(6,8) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}
+	{% for fpn in range(6,8) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #FFF;}
 	#vSave0-{{ 2*fpn + 1 }}:checked ~ .bigGrid {--vv:{{ 2*fpn + 1 }};}
 	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs span:nth-child({{(0)*35 + 2*fpn + 1}}) {display:inline;}
 	{% endfor %}
-	{% for fpn in range(16,24) %}#vSave0-{{ fpn }}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ fpn }}"] {background: #000;}
+	{% for fpn in range(16,24) %}#vSave0-{{ fpn }}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave0-{{ fpn }}"] {background: #FFF;}
 	#vSave0-{{ fpn }}:checked ~ .bigGrid {--vv:{{ fpn }};}
 	#vSave0-{{ fpn }}:checked ~ #vURLs span:nth-child({{(0)*35 + fpn}}) {display:inline;}
 	{% endfor %}
-	{% for fpn in range(12,14) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}
+	{% for fpn in range(12,14) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #FFF;}
 	#vSave0-{{ 2*fpn + 1 }}:checked ~ .bigGrid {--vv:{{ 2*fpn + 1 }};}
 	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs span:nth-child({{(0)*35 + 2*fpn + 1}}) {display:inline;}
 	{% endfor %}
 	
 	{% for i in range(0,8) %}
-		#vSave1{{i}}-3:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-3"] {background: #AAA; pointer-events:none;}
+		#vSave1{{i}}-3:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-3"] {opacity: 0; pointer-events:none;}
 		#vSave1{{i}}-3:checked ~ #vURLs span:nth-child({{(i + 1)*35 + 3}}) {display:inline;}
-		{% for fpn in range(0,1) %}#vSave1{{i}}-5:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-5"] {background: #AAA; pointer-events:none;}
+		{% for fpn in range(0,1) %}#vSave1{{i}}-5:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-5"] {opacity: 0; pointer-events:none;}
 		#vSave1{{i}}-5:checked ~ #vURLs span:nth-child({{(i + 1)*35 + 5}}) {display:inline;}
 		{% endfor %}
-		{% for fpn in range(6,14) %}#vSave1{{i}}-{{fpn}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-{{fpn}}"] {background: #AAA; pointer-events:none;}
+		{% for fpn in range(6,14) %}#vSave1{{i}}-{{fpn}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-{{fpn}}"] {opacity: 0; pointer-events:none;}
 		#vSave1{{i}}-{{fpn}}:checked ~ #vURLs span:nth-child({{(i + 1)*35 + fpn}}) {display:inline;}
 		{% endfor %}
-		{% for fpn in range(7,10) %}#vSave1{{i}}-{{2*fpn + 1}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-{{2*fpn + 1}}"] {background: #AAA; pointer-events:none;}
+		{% for fpn in range(7,10) %}#vSave1{{i}}-{{2*fpn + 1}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave1{{i}}-{{2*fpn + 1}}"] {opacity: 0; pointer-events:none;}
 		#vSave1{{i}}-{{2*fpn + 1}}:checked ~ #vURLs span:nth-child({{(i + 1)*35 + 2*fpn + 1}}) {display:inline;}
 		{% endfor %}
 	{% endfor %}
 	{% for i in range(0,4) %}
 		{% for ii in range(0,4) %}
-			#vSave2{{i}}{{ii}}-2:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave2{{i}}{{ii}}-2"] {background: #AAA; pointer-events:none;}
+			#vSave2{{i}}{{ii}}-2:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave2{{i}}{{ii}}-2"] {opacity: 0; pointer-events:none;}
 			#vSave2{{i}}{{ii}}-2:checked ~ #vURLs span:nth-child({{(i*4 + ii + 9)*35 + 2}}) {display:inline;}
-			{% for fpn in range(3,10) %}#vSave2{{i}}{{ii}}-{{fpn}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave2{{i}}{{ii}}-{{fpn}}"] {background: #AAA; pointer-events:none;}
+			{% for fpn in range(3,10) %}#vSave2{{i}}{{ii}}-{{fpn}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave2{{i}}{{ii}}-{{fpn}}"] {opacity: 0; pointer-events:none;}
 			#vSave2{{i}}{{ii}}-{{fpn}}:checked ~ #vURLs span:nth-child({{(i*4 + ii + 9)*35 + fpn }}) {display:inline;}
 			{% endfor %}
-			{% for fpn in range(5,8) %}#vSave2{{i}}{{ii}}-{{2*fpn + 1}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave2{{i}}{{ii}}-{{2*fpn + 1}}"] {background: #AAA; pointer-events:none;}
+			{% for fpn in range(5,8) %}#vSave2{{i}}{{ii}}-{{2*fpn + 1}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave2{{i}}{{ii}}-{{2*fpn + 1}}"] {opacity: 0; pointer-events:none;}
 			#vSave2{{i}}{{ii}}-{{2*fpn + 1}}:checked ~ #vURLs span:nth-child({{(i*4 + ii + 9)*35 + 2*fpn + 1}}) {display:inline;}
 			{% endfor %}
 		{% endfor %}
@@ -181,10 +181,10 @@
 {% macro saveButtonV(id1,id2,id3) %}
 {% if id1 == 0 %}
 <div class="saveVCoverDiv mainV" style="top: calc((52 + 3) * var(--block)); right: calc({{ 30 - 0 }} * var(--block)); z-index: {{ 0 }};">
-	<div class="vCover vCover13 saveB" style=""><label for="vSave0-11">{{11}}</label></div>
-	{% for fpn in range(6,8) %}<div class="vCover vCover2 saveB" style=""><label for="vSave0-{{2*fpn + 1}}">{{2*fpn + 1}}</label></div>{% endfor %}
-	{% for fpn in range(16,24) %}<div class="vCover vCover1 saveB" style=""><label for="vSave0-{{fpn}}">{{fpn}}</label></div>{% endfor %}
-	{% for fpn in range(12,14) %}<div class="vCover vCover2 saveB" style=""><label for="vSave0-{{2*fpn + 1}}">{{2*fpn + 1}}</label></div>{% endfor %}
+	<label class="vCover vCover13 saveB" for="vSave0-11">{{11}}</label>
+	{% for fpn in range(6,8) %}<label class="vCover vCover2 saveB" for="vSave0-{{2*fpn + 1}}">{{2*fpn + 1}}</label>{% endfor %}
+	{% for fpn in range(16,24) %}<label class="vCover vCover1 saveB" for="vSave0-{{fpn}}">{{fpn}}</label>{% endfor %}
+	{% for fpn in range(12,14) %}<label class="vCover vCover2 saveB" for="vSave0-{{2*fpn + 1}}">{{2*fpn + 1}}</label>{% endfor %}
 </div>
 {% elif id1 == 1 and id2 < 4 %}
 <div class="saveVCoverDiv" style="top: calc((52 + 3) * var(--block)); right: calc({{ 30 - 6 }} * var(--block)); z-index: {{ 10 + id2 }};">
