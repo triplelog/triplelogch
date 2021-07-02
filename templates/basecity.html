@@ -661,15 +661,10 @@ input {
 	width: var(--block);
 	height: inherit;
 	background: transparent;
+	pointer-events:none;
 }
-.saveVCoverDivI {
-	flex-wrap: wrap;
-	flex-direction: column-reverse;
-	position: fixed;
-	width: var(--block);
-	height: 100%;
-	background: transparent;
-	display: none;
+.saveVCoverDiv > label {
+	pointer-events:all;
 }
 
 .resizeCoverV {
