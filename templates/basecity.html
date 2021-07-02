@@ -1085,7 +1085,7 @@ input {
 					</div>
 				</div>
 		
-				<div class="verticalGrow grow8">
+				<div class="verticalGrow grow8" style="height: calc(var(--container-width) * 7 / 10 * {{ v[0] }} / 38.5 + .25 * var(--block));">
 					{% for right in range(0,8) %}
 						{% for top in range(0,8) %}
 							{% set zIndex = (top)*800+100 + (7-right)*100 %}

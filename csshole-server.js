@@ -341,7 +341,8 @@ app.get('/city.html',
 
 		res.write(nunjucks.render('templates/cells.html',{
 			zi: zi,
-			ziSum: ziSum
+			ziSum: ziSum,
+			v: [19],
 		}));
 		res.end();
 		console.log('city sent',performance.now());
