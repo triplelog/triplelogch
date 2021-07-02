@@ -385,7 +385,7 @@
 					{% set leftRight = 1 %}
 					{% endif %}
 					{% set zIndex = zIndex + 2 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0,2) }}
+					{{ horizontalCover(top,right,zIndex,leftRight,1,2) }}
 					
 				</div>
 				<div class="resizeCoverHR"><span><-</span><span>-></span></div>
@@ -835,9 +835,9 @@
 					{% set leftRight = 1 %}
 					{% endif %}
 					{% set zIndex = zIndex + 2 %}
-					{{ horizontalCover(top,right,zIndex,leftRight,0,2) }}
-					{% set zIndex = zIndex + 4 %}
 					{{ horizontalCover(top,right,zIndex,leftRight,1,2) }}
+					{% set zIndex = zIndex + 4 %}
+					{{ horizontalCover(top,right,zIndex,leftRight,0,2) }}
 				</div>
 				<div class="resizeCoverHR"><span><-</span><span>-></span></div>
 				
