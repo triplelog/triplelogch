@@ -118,9 +118,9 @@
 {% if id1 == 0 %}
 <div class="saveVCoverDiv" style="top: calc((52 + 3) * var(--block)); right: calc({{ 30 - 0 }} * var(--block)); z-index: {{ 0 }};">
 	<div class="vCover vCover13 saveB" style=""><label for="vSave0-11">{{11}}</label></div>
-	{% for fpn in range(6,8) %}<div class="vCover vCover2 saveB" style="">{{2*fpn + 1}}</div>{% endfor %}
-	{% for fpn in range(16,24) %}<div class="vCover vCover1 saveB" style="">{{fpn}}</div>{% endfor %}
-	{% for fpn in range(12,14) %}<div class="vCover vCover2 saveB" style="">{{2*fpn + 1}}</div>{% endfor %}
+	{% for fpn in range(6,8) %}<div class="vCover vCover2 saveB" style=""><label for="vSave0-{{2*fpn + 1}}">{{2*fpn + 1}}</label></div>{% endfor %}
+	{% for fpn in range(16,24) %}<div class="vCover vCover1 saveB" style=""><label for="vSave0-{{fpn}}">{{fpn}}</label></div>{% endfor %}
+	{% for fpn in range(12,14) %}<div class="vCover vCover2 saveB" style=""><label for="vSave0-{{2*fpn + 1}}">{{2*fpn + 1}}</label></div>{% endfor %}
 </div>
 {% elif id1 == 1 and id2 < 4 %}
 <div class="saveVCoverDiv" style="top: calc((52 + 3) * var(--block)); right: calc({{ 30 - 1 }} * var(--block)); z-index: {{ 10 + id2 }};">
