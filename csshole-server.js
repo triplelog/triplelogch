@@ -332,7 +332,7 @@ app.get('/city.html',
 		var chars = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 		var revChar = {};
 		for (var i=0;i<chars.length;i++){
-			revChar[chars[i]]=i+1;
+			revChar[chars[i]]=i;
 		}
 		var defaultStr = "j999999995555555555555555";
 		var startStr = "";
@@ -347,6 +347,11 @@ app.get('/city.html',
 				}
 			}
 			for (var i=req.query.x.length;i<defaultStr.length;i++){
+				v.push(revChar[defaultStr[i]]);
+			}
+		}
+		else {
+			for (var i=0;i<defaultStr.length;i++){
 				v.push(revChar[defaultStr[i]]);
 			}
 		}
