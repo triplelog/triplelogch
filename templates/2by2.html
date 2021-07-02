@@ -101,7 +101,6 @@
 {% endmacro %}	
 
 {% macro saveCSS() %}
-	{% set chars = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"] %}
 	#vURLs > span > span {
 		display:none;
 	}
@@ -137,12 +136,12 @@
 	{% for i in range(0,8) %}
 		{% for ii in range(0,2) %}
 			#vSave2{{i}}{{ii}}-2:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave2{{i}}{{ii}}-2"] {background: #AAA; pointer-events:none;}
-			#vSave2{{i}}{{ii}}-2:checked ~ #vURLs #vURL{{i*2+ii+9}}:before {content:"{{chars[2]}}";}
+			#vSave2{{i}}{{ii}}-2:checked ~ #vURLs #vURL{{i*2+ii+9}} span:nth-child({{2}}) {display:inline;}
 			{% for fpn in range(3,10) %}#vSave2{{i}}{{ii}}-{{fpn}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave2{{i}}{{ii}}-{{fpn}}"] {background: #AAA; pointer-events:none;}
-			#vSave2{{i}}{{ii}}-{{fpn}}:checked ~ #vURLs #vURL{{i*2+ii+9}}:before {content:"{{chars[fpn]}}";}
+			#vSave2{{i}}{{ii}}-{{fpn}}:checked ~ #vURLs #vURL{{i*2+ii+9}} span:nth-child({{fpn }}) {display:inline;}
 			{% endfor %}
 			{% for fpn in range(5,8) %}#vSave2{{i}}{{ii}}-{{2*fpn + 1}}:checked ~ .bigGrid .saveVCoverDiv > label[for="vSave2{{i}}{{ii}}-{{2*fpn + 1}}"] {background: #AAA; pointer-events:none;}
-			#vSave2{{i}}{{ii}}-{{2*fpn + 1}}:checked ~ #vURLs #vURL{{i*2+ii+9}}:before {content:"{{chars[2*fpn + 1]}}";}
+			#vSave2{{i}}{{ii}}-{{2*fpn + 1}}:checked ~ #vURLs #vURL{{i*2+ii+9}} span:nth-child({{2*fpn + 1}}) {display:inline;}
 			{% endfor %}
 		{% endfor %}
 	{% endfor %}
