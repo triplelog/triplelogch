@@ -957,15 +957,20 @@ input {
 }
 
 .vCoverDiv0 > .vCon{{ i}} {
-	backdrop-filter: contrast({{ (var(--v) - i) / 4.0}});
+	backdrop-filter: contrast(calc((var(--v) - {{i}}) / 4.0));
 }
 .vCoverDiv0 > .vConD{{ i}} {
-	backdrop-filter: contrast({{ 2.0 * (var(--v) - i) / 4.0}});
+	backdrop-filter: contrast(calc(2.0 * (var(--v) - {{i}}) / 4.0));
 }
 .vCoverDiv0 > .vConT{{ i}} {
-	backdrop-filter: contrast({{ 3.0 * (var(--v) - i) / 4.0}});
+	backdrop-filter: contrast(calc(3.0 * (var(--v) - {{i}}) / 4.0));
 }
-
+.vCoverDiv0 > .vConF{{ i}} {
+	backdrop-filter: contrast(calc(4.0 / (var(--v) - {{i}})));
+}
+.vCoverDiv0 > .vConFF{{ i}} {
+	backdrop-filter: contrast(calc(8.0 / (var(--v) - {{i}})));
+}
 {% endfor %}
 
 {% for i in range(2,20) %}
