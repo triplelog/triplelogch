@@ -171,7 +171,7 @@
 	{% for i in range(0,8) %}
 		{% for ii in range(0,2) %}
 			<input type="radio" style="display: none;" name="vSave2{{i}}{{ii}}" id="vSave2{{i}}{{ii}}-2"></input>
-			{% for fpn in range(3,10) %}<input type="radio" style="display: none;" name="vSave2{{i}}{{ii}}" id="vSave2{{i}}{{ii}}-{{ fpn}}"></input>{% endfor %}
+			{% for fpn in range(3,10) %}<input type="radio" style="display: none;" name="vSave2{{i}}{{ii}}" id="vSave2{{i}}{{ii}}-{{ fpn}}" {% if fpn == 5 %}checked{% endif %}></input>{% endfor %}
 			{% for fpn in range(5,8) %}<input type="radio" style="display: none;" name="vSave2{{i}}{{ii}}" id="vSave2{{i}}{{ii}}-{{2*fpn + 1}}"></input>{% endfor %}
 		{% endfor %}
 	{% endfor %}
