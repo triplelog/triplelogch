@@ -24,6 +24,7 @@ body {
 	--office-score: contrast(3) invert();
 	--power-score: contrast(3);
 	--zero-score: contrast(1);
+	--v: 19;
 	
 }
 
@@ -936,25 +937,39 @@ input {
 }
 
 
-{% for i in range(2,91) %}
-{# i is double the vertical height #}
+
+{% for i in range(2,19) %}
+{# i is the vertical height #}
 .vConF{{ i}} {
 	backdrop-filter: contrast({{8.0 / i}});
 }
+.vConFF{{ i}} {
+	backdrop-filter: contrast({{8.0 / (i / 2)}});
+}
 .vCon{{ i}} {
-	backdrop-filter: contrast({{ i / 8.0}});
+	backdrop-filter: contrast({{ i / 4.0}});
 }
+.vConD{{ i}} {
+	backdrop-filter: contrast({{ 2.0 * i / 4.0}});
+}
+.vConT{{ i}} {
+	backdrop-filter: contrast({{ 3.0 * i / 4.0}});
+}
+
 .vCoverDiv0 > .vCon{{ i}} {
-	backdrop-filter: contrast({{ (38 - i) / 8.0}});
+	backdrop-filter: contrast({{ (var(--v) - i) / 4.0}});
 }
-.vCoverDiv1 > .vCon{{ i}} {
-	backdrop-filter: contrast({{ (38 - i) / 8.0}});
+.vCoverDiv0 > .vConD{{ i}} {
+	backdrop-filter: contrast({{ 2.0 * (var(--v) - i) / 4.0}});
+}
+.vCoverDiv0 > .vConT{{ i}} {
+	backdrop-filter: contrast({{ 3.0 * (var(--v) - i) / 4.0}});
 }
 .vCoverDiv0 > .vConF{{ i}} {
-	backdrop-filter: contrast({{ 8.0 / (38 - i) }});
+	backdrop-filter: contrast({{ 4.0 / (var(--v) - i) }});
 }
-.vCoverDiv1 > .vConF{{ i}} {
-	backdrop-filter: contrast({{ 8.0 / (38 - i) }});
+.vCoverDiv0 > .vConFF{{ i}} {
+	backdrop-filter: contrast({{ 4.0 / ((var(--v) - i) / 2.0) }});
 }
 {% endfor %}
 
