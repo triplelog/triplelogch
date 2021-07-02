@@ -242,7 +242,7 @@ body {
 	position: relative;
 	max-height: min(calc(16 * var(--block)),100%);
 	min-height: calc(2 * var(--block));
-	/*pointer-events: none;*/
+	pointer-events: none;
 }
 .horizontalGrow {
 	height: calc(50% + .25 * var(--block));
@@ -546,7 +546,7 @@ input {
 
 .horizontalGrow > div {
 	display: none;
-	pointer-events: none;
+	/*pointer-events: none;*/
 }
 /*.horizontalGrow.grow8 > div {
 	display: none;
@@ -581,6 +581,7 @@ input {
 	position: fixed;
 	width: var(--block);
 	height: var(--block);
+	pointer-events: none;
 }
 .hCover {
 	height: var(--block);
@@ -1032,6 +1033,44 @@ input {
 }
 .hCoverDiv1 > .hConF{{ i}} {
 	background: rgba({{127.5 - (19 - i)*3}},127.5,127.5,0.5);
+}
+
+.hConF{{ i}}.ha1 {
+	background: rgba({{127.5 - i*3}},127.5,127.5,1);
+}
+.hCon{{ i}}.ha1 {
+	background: rgba({{127.5 + i*3}},127.5,127.5,1);
+}
+.hCoverDiv0 > .hCon{{ i}}.ha1 {
+	background: rgba({{127.5 + (19 - i)*3}},127.5,127.5,1);
+}
+.hCoverDiv1 > .hCon{{ i}}.ha1 {
+	background: rgba({{127.5 + (19 - i)*3}},127.5,127.5,1);
+}
+.hCoverDiv0 > .hConF{{ i}}.ha1 {
+	background: rgba({{127.5 - (19 - i)*3}},127.5,127.5,1);
+}
+.hCoverDiv1 > .hConF{{ i}}.ha1 {
+	background: rgba({{127.5 - (19 - i)*3}},127.5,127.5,1);
+}
+
+.hConF{{ i}}.ha3 {
+	background: rgba({{127.5 - i*3}},127.5,127.5,0.3333);
+}
+.hCon{{ i}}.ha3 {
+	background: rgba({{127.5 + i*3}},127.5,127.5,0.3333);
+}
+.hCoverDiv0 > .hCon{{ i}}.ha3 {
+	background: rgba({{127.5 + (19 - i)*3}},127.5,127.5,0.3333);
+}
+.hCoverDiv1 > .hCon{{ i}}.ha3 {
+	background: rgba({{127.5 + (19 - i)*3}},127.5,127.5,0.3333);
+}
+.hCoverDiv0 > .hConF{{ i}}.ha3 {
+	background: rgba({{127.5 - (19 - i)*3}},127.5,127.5,0.3333);
+}
+.hCoverDiv1 > .hConF{{ i}}.ha3 {
+	background: rgba({{127.5 - (19 - i)*3}},127.5,127.5,0.3333);
 }
 {% endfor %}
 
