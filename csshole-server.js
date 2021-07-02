@@ -355,6 +355,17 @@ app.get('/city.html',
 				v.push(revChar[defaultStr[i]]);
 			}
 		}
+		for (var i=0;i<v.length;i++){
+			if (v[i] == 19){
+				v[i] = 38.5 / 2;
+			}
+			else if (v[i] == 10){
+				v[i] = 38.5 / 4;
+			}
+			else if (v[i] == 5){
+				v[i] = 38.5 / 8;
+			}
+		}
 		console.log(v);
 		
 		for (var zii=0; zii<4;zii++){
