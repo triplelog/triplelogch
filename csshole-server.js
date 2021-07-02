@@ -357,14 +357,11 @@ app.get('/city.html',
 			}
 		}
 		for (var i=0;i<v.length;i++){
-			if (v[i] == 19){
-				v[i] = 38.5 / 2;
+			if (v[i] > 15){
+				v[i] = 38.5 * (v[i] / 38);
 			}
-			else if (v[i] == 10){
-				v[i] = 38.5 / 4;
-			}
-			else if (v[i] == 5){
-				v[i] = 38.5 / 8;
+			else {
+				v[i] = 38.5 * (v[i] / 40);
 			}
 			vv.push(Math.round(v[i]));
 		}
