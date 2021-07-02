@@ -11,7 +11,7 @@
 			
 			<div class="vresize grow4">
 				
-				<div class="verticalGrow grow4" style="height: calc(var(--container-width) * 7 / 10 * {{ v[id*2+1] }} / 38.5 + .25 * var(--block));">
+				<div class="verticalGrow grow4" >
 					{% set top = (id - (id % 2)) / 2 * 4 %}
 					{% set top = top + 1 %}
 					{% set right = (id % 2) * 4 %}
@@ -281,7 +281,7 @@
 		<div class="topBottom">
 			
 			<div class="vresize grow4">
-				<div class="verticalGrow grow4" style="height: calc(var(--container-width) * 7 / 10 * {{ v[id*2+2] }} / 38.5 + .25 * var(--block));">
+				<div class="verticalGrow grow4">
 					{% set top = (id - (id % 2)) / 2 * 4 %}
 					{% set top = top + 1 %}
 					{% set right = (id % 2) * 4 %}
