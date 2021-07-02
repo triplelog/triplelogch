@@ -102,6 +102,7 @@
 
 {% macro saveCSS() %}
 	{% set chars = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"] %}
+	
 	#vSave0-11:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-11"] {background: #000;}
 	#vSave0-11:checked ~ .bigGrid {--vv:11;}
 	#vSave0-11:checked ~ #vURLs #vURL0:before {content:"{{chars[11]}}";}
@@ -118,12 +119,28 @@
 	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs #vURL0:before {content:"{{ chars[2*fpn + 1] }}";}
 	{% endfor %}
 	
+	{% for i in range(0,8) %}
+		#vSave1{{i}}-3:checked ~ .bigGrid .vCover.saveB > label[for="vSave1{{i}}-3"] {background: #AAA; pointer-events:none;}
+		#vSave1{{i}}-3:checked ~ #vURLs #vURL0:before {content:"{{chars[3]}}";}
+		{% for fpn in range(0,1) %}#vSave1{{i}}-5:checked ~ .bigGrid .vCover.saveB > label[for="vSave1{{i}}-5"] {background: #AAA; pointer-events:none;}
+		#vSave1{{i}}-5:checked ~ #vURLs #vURL0:before {content:"{{chars[5]}}";}
+		{% endfor %}
+		{% for fpn in range(6,14) %}#vSave1{{i}}-{{fpn}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave1{{i}}-{{fpn}}"] {background: #AAA; pointer-events:none;}
+		#vSave1{{i}}-{{fpn}}:checked ~ #vURLs #vURL0:before {content:"{{chars[fpn]}}";}
+		{% endfor %}
+		{% for fpn in range(7,10) %}#vSave1{{i}}-{{2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave1{{i}}-{{2*fpn + 1}}"] {background: #AAA; pointer-events:none;}
+		#vSave1{{i}}-{{2*fpn + 1}}:checked ~ #vURLs #vURL0:before {content:"{{chars[2*fpn + 1]}}";}
+		{% endfor %}
+	{% endfor %}
 
 {% endmacro %}
 
 {% macro saveURL() %}
 	<div id="vURLs" style="position:fixed; top: calc(53 * var(--block)); right: calc(30 * var(--block)); height: var(--block); background: yellow;">
-		<span id="vURL0"></span>
+		<span id="vURL0"></span>{% for i in range(0,8) %}<span id="vURL{{i+1}}"></span>{% endfor %}
+		
+		
+		
 	</div>
 {% endmacro %}
 
@@ -132,6 +149,13 @@
 	{% for fpn in range(6,8) %}<input type="radio" style="display: none;" name="vSave0" id="vSave0-{{2*fpn + 1}}"></input>{% endfor %}
 	{% for fpn in range(16,24) %}<input type="radio" style="display: none;" name="vSave0" id="vSave0-{{fpn}}" {% if fpn == 19 %}checked{% endif %}></input>{% endfor %}
 	{% for fpn in range(12,14) %}<input type="radio" style="display: none;" name="vSave0" id="vSave0-{{2*fpn + 1}}"></input>{% endfor %}
+	
+	{% for i in range(0,8) %}
+		<input type="radio" style="display: none;" name="vSave1{{i}}" id="vSave1{{i}}-3"></input>
+		{% for fpn in range(0,1) %}<input type="radio" style="display: none;" name="vSave1{{i}}" id="vSave1{{i}}-5"></input>{% endfor %}
+		{% for fpn in range(6,14) %}<input type="radio" style="display: none;" name="vSave1{{i}}" id="vSave1{{i}}-{{ fpn }}"></input>{% endfor %}
+		{% for fpn in range(7,10) %}<input type="radio" style="display: none;" name="vSave1{{i}}" id="vSave1{{i}}-{{ 2*fpn + 1}}"></input>{% endfor %}
+	{% endfor %}
 {% endmacro %}
 
 
@@ -145,29 +169,29 @@
 </div>
 {% elif id1 == 1 and id2 < 4 %}
 <div class="saveVCoverDiv" style="top: calc((52 + 3) * var(--block)); right: calc({{ 30 - 1 }} * var(--block)); z-index: {{ 10 + id2 }};">
-	<div class="vCover vCover4 saveB" style="">{{3}}</div>
-	{% for fpn in range(0,1) %}<div class="vCover vCover2 saveB" style="">{{5}}</div>{% endfor %}
-	{% for fpn in range(6,14) %}<div class="vCover vCover1 saveB" style="">{{fpn}}</div>{% endfor %}
-	{% for fpn in range(7,10) %}<div class="vCover vCover2 saveB" style="">{{2*fpn + 1}}</div>{% endfor %}
+	<div class="vCover vCover4 saveB" style=""><label for="vSave1{{id2}}-3">{{3}}</label></div>
+	{% for fpn in range(0,1) %}<div class="vCover vCover2 saveB" style=""><label for="vSave1{{id2}}-5">{{5}}</label></div>{% endfor %}
+	{% for fpn in range(6,14) %}<div class="vCover vCover1 saveB" style=""><label for="vSave1{{id2}}-{{fpn}}">{{fpn}}</label></div>{% endfor %}
+	{% for fpn in range(7,10) %}<div class="vCover vCover2 saveB" style=""><label for="vSave1{{id2}}-{{2*fpn + 1}}">{{2*fpn + 1}}</label></div>{% endfor %}
 </div>
 {% elif id1 == 1 and id2 >= 4%}
 <div class="saveVCoverDiv" style="flex-direction: column; bottom: calc(100% + (1 + 3) * var(--block)); right: calc({{ 20 + 1 }} * var(--block)); z-index: {{ 10 + id2 }};">
-	<div class="vCover vCover4 saveB" style="">{{3}}</div>
-	{% for fpn in range(0,1) %}<div class="vCover vCover2 saveB" style="">{{5}}</div>{% endfor %}
-	{% for fpn in range(6,14) %}<div class="vCover vCover1 saveB" style="">{{fpn}}</div>{% endfor %}
-	{% for fpn in range(7,10) %}<div class="vCover vCover2 saveB" style="">{{2*fpn + 1}}</div>{% endfor %}
+	<div class="vCover vCover4 saveB" style=""><label for="vSave1{{id2}}-3">{{3}}</label></div>
+	{% for fpn in range(0,1) %}<div class="vCover vCover2 saveB" style=""><label for="vSave1{{id2}}-5">{{5}}</label></div>{% endfor %}
+	{% for fpn in range(6,14) %}<div class="vCover vCover1 saveB" style=""><label for="vSave1{{id2}}-{{fpn}}">{{fpn}}</label></div>{% endfor %}
+	{% for fpn in range(7,10) %}<div class="vCover vCover2 saveB" style=""><label for="vSave1{{id2}}-{{2*fpn + 1}}">{{2*fpn + 1}}</label></div>{% endfor %}
 </div>
 {% elif id1 == 2 and id2 < 4 %}
-<div class="saveVCoverDiv" style="top: calc((52 + 3) * var(--block)); right: calc({{ 30 - 1 }} * var(--block)); z-index: {{ 100 + id2 }};">
-	<div class="vCover vCover2 saveB" style="">{{2}}</div>
-	{% for fpn in range(3,10) %}<div class="vCover vCover1 saveB" style="">{{fpn}}</div>{% endfor %}
-	{% for fpn in range(5,8) %}<div class="vCover vCover2 saveB" style="">{{2*fpn + 1}}</div>{% endfor %}
+<div class="saveVCoverDiv" style="top: calc((52 + 3) * var(--block)); right: calc({{ 30 - 1 }} * var(--block)); z-index: {{ -100 + id2 }};">
+	<div class="vCover vCover2 saveB" style=""><label for="vSave2{{id2}}{{id3}}-2">{{2}}</label></div>
+	{% for fpn in range(3,10) %}<div class="vCover vCover1 saveB" style=""><label for="vSave2{{id2}}{{id3}}-{{fpn}}">{{fpn}}</label></div>{% endfor %}
+	{% for fpn in range(5,8) %}<div class="vCover vCover2 saveB" style=""><label for="vSave2{{id2}}{{id3}}-{{2*fpn + 1}}">{{2*fpn + 1}}</label></div>{% endfor %}
 </div>
 {% elif id1 == 2 and id2 >= 4 %}
-<div class="saveVCoverDiv" style="flex-direction: column; bottom: calc(100% + (1 + 3) * var(--block)); right: calc({{ 20 + 1 }} * var(--block)); z-index: {{ 100 + id2 }};">
-	<div class="vCover vCover2 saveB" style="">{{2}}</div>
-	{% for fpn in range(3,10) %}<div class="vCover vCover1 saveB" style="">{{fpn}}</div>{% endfor %}
-	{% for fpn in range(5,8) %}<div class="vCover vCover2 saveB" style="">{{2*fpn + 1}}</div>{% endfor %}
+<div class="saveVCoverDiv" style="flex-direction: column; bottom: calc(100% + (1 + 3) * var(--block)); right: calc({{ 20 + 1 }} * var(--block)); z-index: {{ -100 + id2 }};">
+	<div class="vCover vCover2 saveB" style=""><label for="vSave2{{id2}}{{id3}}-2">{{2}}</label></div>
+	{% for fpn in range(3,10) %}<div class="vCover vCover1 saveB" style=""><label for="vSave2{{id2}}{{id3}}-{{fpn}}">{{fpn}}</label></div>{% endfor %}
+	{% for fpn in range(5,8) %}<div class="vCover vCover2 saveB" style=""><label for="vSave2{{id2}}{{id3}}-{{2*fpn + 1}}">{{2*fpn + 1}}</label></div>{% endfor %}
 </div>
 {% endif %}
 
