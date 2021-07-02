@@ -2,6 +2,7 @@
 
 
 {% macro horizontalCover(top,right,zIndex,leftRight,frac,id1) %}
+
 {% set mystr = "" %}
 {% if leftRight == 0 or leftRight == 10 %}
 <div class="hCoverDiv {% if leftRight >= 10 %}hCoverDiv0{% endif %}" style="bottom: calc((7 - {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex  }};">
@@ -34,25 +35,46 @@
 
 {% macro verticalCover(top,right,zIndex,leftRight,frac,id1) %}
 
-{% if leftRight == 0 or leftRight == 10 %}
-<div class="vCoverDiv {% if leftRight >= 10 %}vCoverDiv0{% endif %}" style="top: calc((52 + {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex }};">
+{% if leftRight == 0 %}
+<div class="vCoverDiv {% if top == 3 %}vCoverDiv0{% endif %}" style="top: calc((52 + {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex }};">
 {% else %}
-<div class="vCoverDiv {% if leftRight >= 10 %}vCoverDiv1{% endif %}" style="flex-direction: column; bottom: calc(100% + (1 + {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex }};">
+<div class="vCoverDiv {% if top == 4 %}vCoverDiv1{% endif %}" style="flex-direction: column; bottom: calc(100% + (1 + {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex }};">
 {% endif %}
 
+{% set fd = 2 %}
+{% if id1 == 2 and (top == 0 or top == 2 or top == 5 or top == 7) %}
+	{# only 1 vertical #}
+	{% if right == 1 or right == 2 or right == 5 or right == 6 %}
+		{% set fd = 4 %}
+	{% endif %}
+{% elif id1 == 2 and (right == 1 or right == 2 or right == 5 or right == 6) %}
+	{# 2 verticals and 2 hor #}
+	{% if zIndex % 10 == 4 %}
+		{% set fd = 1 %}
+	{% else %}
+		{% set fd = 6 %}
+	{% endif %}
+{% elif id1 == 2 %}
+	{# 2 verticals and 1 hor #}
+	{% if zIndex % 10 == 4 %}
+		{% set fd = 2 %}
+	{% else %}
+		{% set fd = 4 %}
+	{% endif %}
+{% endif %}
 
 {% if id1 == 0 %}
 	
 {% elif id1 == 1 %}
-	{% set fpnn = 3 %}<div class="vCover vCover4 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>
-	{% for fpn in range(0,1) %}{% set fpnn = 5 %}<div class="vCover vCover2 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
-	{% for fpn in range(6,14) %}{% set fpnn = fpn %}<div class="vCover vCover1 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
-	{% for fpn in range(7,10) %}{% set fpnn = 2*fpn + 1 %}<div class="vCover vCover2 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
+	{% set fpnn = 3 * fd %}<div class="vCover vCover4 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>
+	{% for fpn in range(0,1) %}{% set fpnn = 5 * fd %}<div class="vCover vCover2 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
+	{% for fpn in range(6,14) %}{% set fpnn = fpn * fd %}<div class="vCover vCover1 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
+	{% for fpn in range(7,10) %}{% set fpnn = (2*fpn + 1) * fd %}<div class="vCover vCover2 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
 </div>
 {% elif id1 == 2 %}
-	{% set fpnn = 2 %}<div class="vCover vCover2 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>
-	{% for fpn in range(3,10) %}{% set fpnn = fpn %}<div class="vCover vCover1 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
-	{% for fpn in range(5,8) %}{% set fpnn = 2*fpn + 1 %}<div class="vCover vCover2 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
+	{% set fpnn = 2 * fd %}<div class="vCover vCover2 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>
+	{% for fpn in range(3,10) %}{% set fpnn = fpn * fd %}<div class="vCover vCover1 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
+	{% for fpn in range(5,8) %}{% set fpnn = (2*fpn + 1) * fd %}<div class="vCover vCover2 vCon{% if frac > 0 %}F{{fpnn}}{% else %}{{fpnn}}{% endif %}"></div>{% endfor %}
 </div>
 {% else %}
 
@@ -124,6 +146,9 @@
 				{% endif %}
 			
 				{% set zIndex = zIndex + 3 %}
+				{# v2 is only vert, unknown hor #}
+				{# id1 0 or 1 is top half: right is anything?; top is 0,2 #}
+				{# id1 2 or 3 is bot half: right is anything?; top is 7,5 #}
 				{{ verticalCover(top,right,zIndex,leftRight,0,2) }}
 				
 				{% set top = (id1 - (id1 % 2)) / 2 * 4 %}
@@ -144,7 +169,9 @@
 			
 				
 				{% set zIndex = zIndex + 4 %}
-				
+				{# v2 is 2nd vert, unknown hor #}
+				{# id1 0 or 1 is top half: right is anything?; top is 1,3 #}
+				{# id1 2 or 3 is bot half: right is anything?; top is 4,6 #}
 				{{ verticalCover(top,right,zIndex,leftRight,1,2) }}
 				{% set zIndex = zIndex + 4 %}
 				{{ verticalCover(top,right,zIndex,leftRight,0,2) }}

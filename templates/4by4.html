@@ -27,6 +27,9 @@
 					{% endif %}
 			
 					{% set zIndex = zIndex + 3 %}
+					{# first of 2 verts, only 1 hor #}
+					{# id 0 or 1 is top half: right is 0,4; top is 1 #}
+					{# id 2 or 3 is bot half: right is 0,4; top is 6 #}
 					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
 			
 					{% set top = (id - (id % 2)) / 2 * 4 %}
@@ -44,6 +47,9 @@
 					{% endif %}
 					
 					{% set zIndex = zIndex + 3 %}
+					{# first of 2 verts, 2 hor #}
+					{# id 0 or 1 is top half: right is 1,5; top is 1 #}
+					{# id 2 or 3 is bot half: right is 1,5; top is 6 #}
 					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
 					
 					{% set top = (id - (id % 2)) / 2 * 4 %}
@@ -62,7 +68,10 @@
 			
 					
 					{% set zIndex = zIndex + 3 %}
-					{{ verticalCover(top,right,zIndex,leftRight+10,0,1) }}
+					{# first of 2 verts, 1 hor #}
+					{# id 0 or 1 is top half: right is 0,4; top is 3 #}
+					{# id 2 or 3 is bot half: right is 0,4; top is 4 #}
+					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
 			
 					{% set top = (id - (id % 2)) / 2 * 4 %}
 					{% set top = top + 3 %}
@@ -80,7 +89,10 @@
 					
 					
 					{% set zIndex = zIndex + 3 %}
-					{{ verticalCover(top,right,zIndex,leftRight+10,0,1) }}
+					{# first of 2 verts, 2 hor #}
+					{# id 0 or 1 is top half: right is 1,5; top is 3 #}
+					{# id 2 or 3 is bot half: right is 1,5; top is 4 #}
+					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
 					
 					
 					
@@ -202,7 +214,7 @@
 			{% set leftRight = 1 %}
 			{% endif %}
 			{% set zIndex = zIndex + 1 %}
-			{{ horizontalCover(top,right,zIndex,leftRight+10,0,1) }}
+			{{ horizontalCover(top,right,zIndex,leftRight,0,1) }}
 			
 			
 			{% set top = (id - (id % 2)) / 2 * 4 %}
@@ -219,9 +231,9 @@
 			{% set leftRight = 1 %}
 			{% endif %}
 			{% set zIndex = zIndex + 1 %}
-			{{ horizontalCover(top,right,zIndex,leftRight+10,0,1) }}
+			{{ horizontalCover(top,right,zIndex,leftRight,0,1) }}
 			{% set zIndex = zIndex + 4 %}
-			{{ horizontalCover(top,right,zIndex,leftRight+10,1,1) }}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,1) }}
 			
 			
 			{% set top = (id - (id % 2)) / 2 * 4 %}
@@ -238,7 +250,7 @@
 			{% set leftRight = 1 %}
 			{% endif %}
 			{% set zIndex = zIndex + 1 %}
-			{{ horizontalCover(top,right,zIndex,leftRight+10,0,1) }}
+			{{ horizontalCover(top,right,zIndex,leftRight,0,1) }}
 			
 			
 			{% set top = (id - (id % 2)) / 2 * 4 %}
@@ -255,9 +267,9 @@
 			{% set leftRight = 1 %}
 			{% endif %}
 			{% set zIndex = zIndex + 1 %}
-			{{ horizontalCover(top,right,zIndex,leftRight+10,0,1) }}
+			{{ horizontalCover(top,right,zIndex,leftRight,0,1) }}
 			{% set zIndex = zIndex + 4 %}
-			{{ horizontalCover(top,right,zIndex,leftRight+10,1,1) }}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,1) }}
 		</div>
 		<div class="resizeCoverH"><span><-</span><span>-></span></div>
 				
@@ -285,6 +297,9 @@
 					{% endif %}
 			
 					{% set zIndex = zIndex + 3 %}
+					{# first of 2 verts, 2 hor #}
+					{# id 0 or 1 is top half: right is 2,6; top is 1 #}
+					{# id 2 or 3 is bot half: right is 2,6; top is 6 #}
 					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
 			
 					{% set top = (id - (id % 2)) / 2 * 4 %}
@@ -302,6 +317,9 @@
 					{% endif %}
 					
 					{% set zIndex = zIndex + 3 %}
+					{# first of 2 verts, 1 hor #}
+					{# id 0 or 1 is top half: right is 3,7; top is 1 #}
+					{# id 2 or 3 is bot half: right is 3,7; top is 6 #}
 					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
 					
 					{% set top = (id - (id % 2)) / 2 * 4 %}
@@ -320,7 +338,10 @@
 			
 					
 					{% set zIndex = zIndex + 3 %}
-					{{ verticalCover(top,right,zIndex,leftRight+10,0,1) }}
+					{# first of 2 verts, 2 hor #}
+					{# id 0 or 1 is top half: right is 2,6; top is 3 #}
+					{# id 2 or 3 is bot half: right is 2,6; top is 4 #}
+					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
 			
 					{% set top = (id - (id % 2)) / 2 * 4 %}
 					{% set top = top + 3 %}
@@ -338,7 +359,10 @@
 					
 					
 					{% set zIndex = zIndex + 3 %}
-					{{ verticalCover(top,right,zIndex,leftRight+10,0,1) }}
+					{# first of 2 verts, 1 hor #}
+					{# id 0 or 1 is top half: right is 3,7; top is 3 #}
+					{# id 2 or 3 is bot half: right is 3,7; top is 4 #}
+					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
 					
 					{{ saveButtonV(1,id*2+1,0) }}
 				</div>
@@ -455,7 +479,7 @@
 			{% set leftRight = 1 %}
 			{% endif %}
 			{% set zIndex = zIndex + 1 %}
-			{{ horizontalCover(top,right,zIndex,leftRight+10,0,1) }}
+			{{ horizontalCover(top,right,zIndex,leftRight,0,1) }}
 			
 			
 			{% set top = (id - (id % 2)) / 2 * 4 %}
@@ -472,9 +496,9 @@
 			{% set leftRight = 1 %}
 			{% endif %}
 			{% set zIndex = zIndex + 1 %}
-			{{ horizontalCover(top,right,zIndex,leftRight+10,0,1) }}
+			{{ horizontalCover(top,right,zIndex,leftRight,0,1) }}
 			{% set zIndex = zIndex + 4 %}
-			{{ horizontalCover(top,right,zIndex,leftRight+10,1,1) }}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,1) }}
 			
 			
 			{% set top = (id - (id % 2)) / 2 * 4 %}
@@ -491,7 +515,7 @@
 			{% set leftRight = 1 %}
 			{% endif %}
 			{% set zIndex = zIndex + 1 %}
-			{{ horizontalCover(top,right,zIndex,leftRight+10,0,1) }}
+			{{ horizontalCover(top,right,zIndex,leftRight,0,1) }}
 			
 			
 			{% set top = (id - (id % 2)) / 2 * 4 %}
@@ -508,9 +532,9 @@
 			{% set leftRight = 1 %}
 			{% endif %}
 			{% set zIndex = zIndex + 1 %}
-			{{ horizontalCover(top,right,zIndex,leftRight+10,0,1) }}
+			{{ horizontalCover(top,right,zIndex,leftRight,0,1) }}
 			{% set zIndex = zIndex + 4 %}
-			{{ horizontalCover(top,right,zIndex,leftRight+10,1,1) }}
+			{{ horizontalCover(top,right,zIndex,leftRight,1,1) }}
 		</div>
 		<div class="resizeCoverHR"><span><-</span><span>-></span></div>
 				
