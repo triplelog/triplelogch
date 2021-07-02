@@ -938,6 +938,25 @@ input {
 
 
 
+{% for i in range(2,20) %}
+{# i is the vertical height #}
+.vConF{{ i}} {
+	backdrop-filter: contrast({{8.0 / i}});
+}
+.vConFF{{ i}} {
+	backdrop-filter: contrast({{8.0 / (i / 2)}});
+}
+.vCon{{ i}} {
+	backdrop-filter: contrast({{ i / 4.0}});
+}
+.vConD{{ i}} {
+	backdrop-filter: contrast({{ 2.0 * i / 4.0}});
+}
+.vConT{{ i}} {
+	backdrop-filter: contrast({{ 3.0 * i / 4.0}});
+}
+
+{% endfor %}
 
 {% for i in range(2,20) %}
 .hConF{{ i}} {
