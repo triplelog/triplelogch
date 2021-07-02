@@ -36,9 +36,9 @@
 {% macro verticalCover(top,right,zIndex,leftRight,frac,id1) %}
 
 {% if leftRight == 0 %}
-<div class="vCoverDiv {% if top == 3 %}vCoverDiv0 vCoverDiv3{% endif %}" style="top: calc((52 + {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex }};">
+<div class="vCoverDiv {% if top == 3 and id1 == 1 %}vCoverDiv0 vCoverDiv3{% endif %}" style="top: calc((52 + {{ top }}) * var(--block)); right: calc({{ 45 - right }} * var(--block)); z-index: {{ zIndex }};">
 {% else %}
-<div class="vCoverDiv {% if top == 4 %}vCoverDiv0 vCoverDiv4{% endif %}" style="flex-direction: column; bottom: calc(100% + (1 + {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex }};">
+<div class="vCoverDiv {% if top == 4 and id1 == 1 %}vCoverDiv0 vCoverDiv4{% endif %}" style="flex-direction: column; bottom: calc(100% + (1 + {{ top }}) * var(--block)); right: calc({{ 5 + right }} * var(--block)); z-index: {{ zIndex }};">
 {% endif %}
 
 {% set fd = 2 %}
