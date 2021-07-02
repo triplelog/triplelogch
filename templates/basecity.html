@@ -19,11 +19,11 @@
 
 body {
 	width: fit-content;
-	--sfh-score: -1;
-	--mfh-score: -2;
-	--office-score: -2;
-	--power-score: 3;
-	--zero-score: 1;
+	--sfh-score: contrast(1) invert();
+	--mfh-score: contrast(2) invert();
+	--office-score: contrast(3) invert();
+	--power-score: contrast(3);
+	--zero-score: contrast(1);
 	
 }
 
@@ -742,7 +742,7 @@ input {
 			display: inline-block;
 		}
 		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			backdrop-filter: contrast(var(--sfh-score));
+			backdrop-filter: var(--sfh-score);
 		}
 		
 		
@@ -753,7 +753,7 @@ input {
 			display: inline-block;
 		}
 		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			backdrop-filter: contrast(var(--mfh-score));
+			backdrop-filter: var(--mfh-score);
 		}
 		
 		#office-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -763,7 +763,7 @@ input {
 			display: inline-block;
 		}
 		#office-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			backdrop-filter: contrast(var(--office-score));
+			backdrop-filter: var(--office-score);
 		}
 		
 		#gov-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -773,7 +773,7 @@ input {
 			display: inline-block;
 		}
 		#gov-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			backdrop-filter: contrast(var(--zero-score));
+			backdrop-filter: var(--zero-score);
 		}
 		
 		#hr-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -783,7 +783,7 @@ input {
 			display: inline-block;
 		}
 		#hr-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			backdrop-filter: contrast(var(--zero-score));
+			backdrop-filter: var(--zero-score);
 		}
 		
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -805,7 +805,7 @@ input {
 			display: inline-block;
 		}
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			backdrop-filter: contrast(var(--power-score));
+			backdrop-filter: var(--power-score);
 		}
 		
 		#park-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -815,7 +815,7 @@ input {
 			display: inline-block;
 		}
 		#park-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			backdrop-filter: contrast(var(--zero-score));
+			backdrop-filter: var(--zero-score);
 		}
 		
 		#hotel-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -825,7 +825,7 @@ input {
 			display: inline-block;
 		}
 		#hotel-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			backdrop-filter: contrast(var(--zero-score));
+			backdrop-filter: var(--zero-score);
 		}
 		
 		#hospital-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -835,7 +835,7 @@ input {
 			display: inline-block;
 		}
 		#hospital-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			backdrop-filter: contrast(var(--zero-score));
+			backdrop-filter: var(--zero-score);
 		}
 		
 		#cc-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -845,7 +845,7 @@ input {
 			display: inline-block;
 		}
 		#cc-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			backdrop-filter: contrast(var(--zero-score));
+			backdrop-filter: var(--zero-score);
 		}
 		
 		#library-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -855,7 +855,7 @@ input {
 			display: inline-block;
 		}
 		#library-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			backdrop-filter: contrast(var(--zero-score));
+			backdrop-filter: var(--zero-score);
 		}
 		
 		#retail-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -865,7 +865,7 @@ input {
 			display: inline-block;
 		}
 		#retail-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			backdrop-filter: contrast(var(--zero-score));
+			backdrop-filter: var(--zero-score);
 		}
 		{% endfor %}
 	{% endfor %}
