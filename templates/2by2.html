@@ -107,7 +107,7 @@
 	#vSave0-11:checked ~ #vURLs #vURL0:before {content:"{{chars[11]}}";}
 	{% for fpn in range(6,8) %}#vSave0-{{ 2*fpn + 1}}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ 2*fpn + 1}}"] {background: #000;}
 	#vSave0-{{ 2*fpn + 1 }}:checked ~ .bigGrid {--vv:{{ 2*fpn + 1 }};}
-	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs #vURL0:before {content:"{{ chars[2*fpn + 1 }}";}
+	#vSave0-{{ 2*fpn + 1 }}:checked ~ #vURLs #vURL0:before {content:"{{ chars[2*fpn + 1] }}";}
 	{% endfor %}
 	{% for fpn in range(16,24) %}#vSave0-{{ fpn }}:checked ~ .bigGrid .vCover.saveB > label[for="vSave0-{{ fpn }}"] {background: #000;}
 	#vSave0-{{ fpn }}:checked ~ .bigGrid {--vv:{{ fpn }};}
