@@ -19,16 +19,11 @@
 
 body {
 	width: fit-content;
-	--sfh-score: rgb(126,128,128);
-	--sfh-scoreN: rgb(129,127,127);
-	--mfh-score: rgb(125,128,128);
-	--mfh-scoreN: rgb(130,127,127);
-	--office-score: rgb(95,128,128);
-	--office-scoreN: rgb(160,127,127);
-	--power-score: rgb(136,128,128);
-	--power-scoreN: rgb(119,127,127);
-	--zero-score: rgb(128,128,128);
-	--zero-scoreN: rgb(127,127,127);
+	--sfh-score: -1;
+	--mfh-score: -2;
+	--office-score: -2;
+	--power-score: 3;
+	--zero-score: 1;
 	
 }
 
@@ -559,7 +554,7 @@ input {
 	/*pointer-events: none;*/
 }
 .scoreColor {
-	background-color: rgb(128,128,128);
+	background-color: transparent;
 	display: none;
 	backdrop-filter: contrast(1);
 	position: fixed;
@@ -568,24 +563,7 @@ input {
 	/*pointer-events: all;*/
 	pointer-events: none;
 }
-.scoreColorN {
-	background-color: rgb(127,127,127);
-	display: none;
-	backdrop-filter: contrast(1);
-	position: fixed;
-	width: calc(var(--block) + 1px);
-	height: calc(var(--block) + 1px);
-	/*pointer-events: all;*/
-	pointer-events: none;
-}
-.finalContrast {
-	background: transparent;
-	position: fixed;
-	width: var(--block);
-	height: var(--block);
-	pointer-events: none;
-	display: none;
-}
+
 .hCover {
 	height: var(--block);
 	background: transparent;
@@ -768,11 +746,9 @@ input {
 			display: inline-block;
 		}
 		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: var(--sfh-score);
+			backdrop-filter: contrast(var(--sfh-score));
 		}
-		#sfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: var(--sfh-scoreN);
-		}
+		
 		
 		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
 			border: 3px solid red;
@@ -781,10 +757,7 @@ input {
 			display: inline-block;
 		}
 		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: var(--mfh-score);
-		}
-		#mfh-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: var(--mfh-scoreN);
+			backdrop-filter: contrast(var(--mfh-score));
 		}
 		
 		#office-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -794,10 +767,7 @@ input {
 			display: inline-block;
 		}
 		#office-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: var(--office-score);
-		}
-		#office-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: var(--office-scoreN);
+			backdrop-filter: contrast(var(--office-score));
 		}
 		
 		#gov-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -807,10 +777,7 @@ input {
 			display: inline-block;
 		}
 		#gov-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: var(--zero-score);
-		}
-		#gov-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: var(--zero-scoreN);
+			backdrop-filter: contrast(var(--zero-score));
 		}
 		
 		#hr-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -820,10 +787,7 @@ input {
 			display: inline-block;
 		}
 		#hr-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: var(--zero-score);
-		}
-		#hr-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: var(--zero-scoreN);
+			backdrop-filter: contrast(var(--zero-score));
 		}
 		
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -845,10 +809,7 @@ input {
 			display: inline-block;
 		}
 		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: var(--power-score);
-		}
-		#power-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: var(--power-scoreN);
+			backdrop-filter: contrast(var(--power-score));
 		}
 		
 		#park-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -858,10 +819,7 @@ input {
 			display: inline-block;
 		}
 		#park-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: var(--zero-score);
-		}
-		#park-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: var(--zero-scoreN);
+			backdrop-filter: contrast(var(--zero-score));
 		}
 		
 		#hotel-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -871,10 +829,7 @@ input {
 			display: inline-block;
 		}
 		#hotel-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: var(--zero-score);
-		}
-		#hotel-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: var(--zero-scoreN);
+			backdrop-filter: contrast(var(--zero-score));
 		}
 		
 		#hospital-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -884,10 +839,7 @@ input {
 			display: inline-block;
 		}
 		#hospital-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: var(--zero-score);
-		}
-		#hospital-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: var(--zero-scoreN);
+			backdrop-filter: contrast(var(--zero-score));
 		}
 		
 		#cc-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -897,10 +849,7 @@ input {
 			display: inline-block;
 		}
 		#cc-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: var(--zero-score);
-		}
-		#cc-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: var(--zero-scoreN);
+			backdrop-filter: contrast(var(--zero-score));
 		}
 		
 		#library-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -910,10 +859,7 @@ input {
 			display: inline-block;
 		}
 		#library-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: var(--zero-score);
-		}
-		#library-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: var(--zero-scoreN);
+			backdrop-filter: contrast(var(--zero-score));
 		}
 		
 		#retail-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} {
@@ -923,10 +869,7 @@ input {
 			display: inline-block;
 		}
 		#retail-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColor {
-			background-color: var(--zero-score);
-		}
-		#retail-{{ i }}{{ ii }}{{ iii }}:checked ~ div .cell-{{ i }}{{ ii }}{{ iii }} ~ div.scoreColorN {
-			background-color: var(--zero-scoreN);
+			backdrop-filter: contrast(var(--zero-score));
 		}
 		{% endfor %}
 	{% endfor %}
@@ -1021,62 +964,34 @@ input {
 
 {% for i in range(2,20) %}
 .hConF{{ i}} {
-	background: rgba({{127.5 - i*3}},127.5,127.5,0.5);
+	background: rgb({{127.5 - i*3}},127.5,127.5);
 }
 .hCon{{ i}} {
-	background: rgba({{127.5 + i*3}},127.5,127.5,0.5);
+	background: rgb({{127.5 + i*3}},127.5,127.5);
 }
 .hCoverDiv0 > .hCon{{ i}} {
-	background: rgba({{127.5 + (19 - i)*3}},127.5,127.5,0.5);
+	background: rgb({{127.5 + (19 - i)*3}},127.5,127.5);
 }
 .hCoverDiv1 > .hCon{{ i}} {
-	background: rgba({{127.5 + (19 - i)*3}},127.5,127.5,0.5);
+	background: rgb({{127.5 + (19 - i)*3}},127.5,127.5);
 }
 .hCoverDiv0 > .hConF{{ i}} {
-	background: rgba({{127.5 - (19 - i)*3}},127.5,127.5,0.5);
+	background: rgb({{127.5 - (19 - i)*3}},127.5,127.5);
 }
 .hCoverDiv1 > .hConF{{ i}} {
-	background: rgba({{127.5 - (19 - i)*3}},127.5,127.5,0.5);
-}
-
-.hConF{{ i}}.ha1 {
-	background: rgba({{127.5 - i*3}},127.5,127.5,1);
-}
-.hCon{{ i}}.ha1 {
-	background: rgba({{127.5 + i*3}},127.5,127.5,1);
-}
-.hCoverDiv0 > .hCon{{ i}}.ha1 {
-	background: rgba({{127.5 + (19 - i)*3}},127.5,127.5,1);
-}
-.hCoverDiv1 > .hCon{{ i}}.ha1 {
-	background: rgba({{127.5 + (19 - i)*3}},127.5,127.5,1);
-}
-.hCoverDiv0 > .hConF{{ i}}.ha1 {
-	background: rgba({{127.5 - (19 - i)*3}},127.5,127.5,1);
-}
-.hCoverDiv1 > .hConF{{ i}}.ha1 {
-	background: rgba({{127.5 - (19 - i)*3}},127.5,127.5,1);
-}
-
-.hConF{{ i}}.ha3 {
-	background: rgba({{127.5 - i*3}},127.5,127.5,0.3333);
-}
-.hCon{{ i}}.ha3 {
-	background: rgba({{127.5 + i*3}},127.5,127.5,0.3333);
-}
-.hCoverDiv0 > .hCon{{ i}}.ha3 {
-	background: rgba({{127.5 + (19 - i)*3}},127.5,127.5,0.3333);
-}
-.hCoverDiv1 > .hCon{{ i}}.ha3 {
-	background: rgba({{127.5 + (19 - i)*3}},127.5,127.5,0.3333);
-}
-.hCoverDiv0 > .hConF{{ i}}.ha3 {
-	background: rgba({{127.5 - (19 - i)*3}},127.5,127.5,0.3333);
-}
-.hCoverDiv1 > .hConF{{ i}}.ha3 {
-	background: rgba({{127.5 - (19 - i)*3}},127.5,127.5,0.3333);
+	background: rgb({{127.5 - (19 - i)*3}},127.5,127.5);
 }
 {% endfor %}
+.hCover {
+	opacity: 0.5;
+}
+.hCover.ha1 {
+	opacity: 1;
+}
+.hCover.ha3 {
+	opacity: 0.33333;
+}
+
 
 {% block moreCSS %}
 {% endblock %}
