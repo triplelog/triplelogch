@@ -94,16 +94,7 @@
 					{# id 2 or 3 is bot half: right is 1,5; top is 4 #}
 					{{ verticalCover(top,right,zIndex,leftRight,0,1) }}
 					
-					{% if id == 2 %}
-						{% for right in range(0,8) %}
 					
-							{% set top = 4 %}
-							{% set zIndex = (top)*800+100 + (right)*100 %}
-		
-							{% set zIndex = zIndex + 3 %}
-							{{ verticalCover(top,right,zIndex,1,0,1) }}
-						{% endfor %}
-					{% endif %}
 					
 					{{ saveButtonV(1,id*2,0) }}
 				</div>
