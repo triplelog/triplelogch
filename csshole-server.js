@@ -329,6 +329,29 @@ app.get('/city.html',
 		var zi = [ [[1,2,2,4],[1,2,3,6],[3,1,6,2],[3,1,9,3]], [[1,3,2,6],[1,3,3,9],[2,1,4,2],[2,1,6,3]], [[1,2,3,6],[2,4,1,2],[3,1,9,3],[6,2,3,1]], [[1,3,3,9],[2,6,1,3],[2,1,6,3],[4,2,2,1]] ];
 		var ziSum = [ [[1,2,2,4],[1,2,3,6],[3,1,6,2],[3,1,9,3]], [[1,3,2,6],[1,3,3,9],[2,1,4,2],[2,1,6,3]], [[1,2,3,6],[2,4,1,2],[3,1,9,3],[6,2,3,1]], [[1,3,3,9],[2,6,1,3],[2,1,6,3],[4,2,2,1]] ];
 		var s = 0;
+		var chars = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+		var revChar = {};
+		for (var i=0;i<chars.length;i++){
+			revChar[chars[i]]=i+1;
+		}
+		var defaultStr = "j999999995555555555555555";
+		var startStr = "";
+		var v = [];
+		if (req.query && req.query.x){
+			for (var i=0;i<req.query.x.length && i<defaultStr.length;i++){
+				if (revChar[req.query.x[i]]){
+					v.push(revChar[req.query.x[i]]);
+				}
+				else {
+					v.push(revChar[defaultStr[i]]);
+				}
+			}
+			for (var i=req.query.x.length;i<defaultStr.length;i++){
+				v.push(revChar[defaultStr[i]]);
+			}
+		}
+		console.log(v);
+		
 		for (var zii=0; zii<4;zii++){
 			for (var ziii=0; ziii<4;ziii++){
 				for (var ziiii=0; ziiii<4;ziiii++){
@@ -342,7 +365,7 @@ app.get('/city.html',
 		res.write(nunjucks.render('templates/cells.html',{
 			zi: zi,
 			ziSum: ziSum,
-			v: [19],
+			v: v,
 		}));
 		res.end();
 		console.log('city sent',performance.now());
