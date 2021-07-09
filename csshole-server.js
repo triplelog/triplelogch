@@ -415,6 +415,20 @@ app.get('/chess.html',
 		for (var i=0;i<8;i++){
 			initial.push(0*8+i);//black queens
 		}
+		
+		var types = [];
+		for (var i=0;i<8;i++){
+			types.push("pawn white");//white pawns
+		}
+		for (var i=0;i<8;i++){
+			types.push("queen white");//white queens
+		}
+		for (var i=0;i<8;i++){
+			types.push("pawn black");//black pawns
+		}
+		for (var i=0;i<8;i++){
+			types.push("queen black");//black queens
+		}
 
 		res.write(nunjucks.render('templates/chess.html',{
 			pieces: pieces,

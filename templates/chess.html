@@ -62,19 +62,24 @@ input.a{{i}}:checked ~ span.p{{i}} {
 	display: inline-block;
 }
 {% endfor %}
+
+{# pawns #}
 {% for r in range(0,8) %}
-input.ar{{r}}:checked ~ span > .ar{{r - 1}} {
+input.white.pawn.ar{{r}}:checked ~ span > .ar{{r - 1}} {
+	display: inline-block;
+}
+input.black.pawn.ar{{r}}:checked ~ span > .ar{{r - 1}} {
 	display: inline-block;
 }
 {% endfor %}
 {% for c in range(0,8) %}
-input.ac{{c}}:checked ~ span > span > label.c{{c -1}} {
+input.pawn.ac{{c}}:checked ~ span > span > label.c{{c -1}} {
 	display: inline-block;
 }
-input.ac{{c}}:checked ~ span > span > label.c{{c}} {
+input.pawn.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	display: inline-block;
 }
-input.ac{{c}}:checked ~ span > span > label.c{{c +1}} {
+input.pawn.ac{{c}}:checked ~ span > span > label.c{{c +1}} {
 	display: inline-block;
 }
 {% endfor %}
@@ -85,7 +90,7 @@ input.ac{{c}}:checked ~ span > span > label.c{{c +1}} {
 {% for i in range(0,32) %}
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
-			<input type="radio" name="p{{i}}" id="pa{{i}}-{{r}}{{c}}" class="a a{{i}} ar{{r}} ac{{c}}"></input>
+			<input type="radio" name="p{{i}}" id="pa{{i}}-{{r}}{{c}}" class="a a{{i}} ar{{r}} ac{{c}} {{ types[i] | safe}}"></input>
 			
 		{% endfor %}
 	{% endfor %}
@@ -93,7 +98,7 @@ input.ac{{c}}:checked ~ span > span > label.c{{c +1}} {
 	{% for r in range(0,8) %}
 		<span class="ar{{r}}">
 		{% for c in range(0,8) %}
-			<label for="pb{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}"></label>
+			<label for="pb{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
 		{% endfor %}
 		</span>
 	{% endfor %}
