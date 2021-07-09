@@ -68,8 +68,8 @@ input.a{{i}}:checked ~ .p{{i}} {
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
 			<input type="radio" name="p{{i}}" id="pb{{i}}-{{r}}{{c}}" {% if initial[i] == r*8 + c %}checked{% endif %}></input>
-			<label for="pa{{i}}-{{r}}{{c}}" class="p{{i}} r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
-			<label for="pb{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
+			<label for="pa{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
+			<label for="pb{{i}}-{{r}}{{c}}" class="p{{i}} r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
 		{% endfor %}
 	{% endfor %}
 	<input type="radio" name="p{{i}}" id="po{{i}}"></input>
