@@ -83,6 +83,22 @@ input.pawn.ac{{c}}:checked ~ span > span > label.c{{c +1}} {
 	display: inline-block;
 }
 {% endfor %}
+
+{# rooks #}
+input.rook.a:checked ~ span > span {
+	display: inline-block;
+}
+{% for r in range(0,8) %}
+input.rook.ar{{r}}:checked ~ span > span > label.r{{r}} {
+	display: inline-block;
+}
+{% endfor %}
+{% for c in range(0,8) %}
+input.pawn.ac{{c}}:checked ~ span > span > label.c{{c}} {
+	display: inline-block;
+}
+{% endfor %}
+
 </style>
 </head>
 <body>
