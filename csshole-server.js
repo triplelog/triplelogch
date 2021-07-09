@@ -385,6 +385,46 @@ app.get('/city.html',
 	}
 );
 
+app.get('/city.html', 
+	function(req, res) {
+		console.log('chess req',performance.now());
+		var pieces = [];
+		for (var i=0;i<8;i++){
+			pieces.push("&#9817;");//white pawns
+		}
+		for (var i=0;i<8;i++){
+			pieces.push("&#9813;");//white queens
+		}
+		for (var i=0;i<8;i++){
+			pieces.push("&#9823;");//black pawns
+		}
+		for (var i=0;i<8;i++){
+			pieces.push("&#9819;");//black queens
+		}
+		
+		var initial = [];
+		for (var i=0;i<8;i++){
+			initial.push(6*8+i);//white pawns
+		}
+		for (var i=0;i<8;i++){
+			initial.push(7*8+i);//white queens
+		}
+		for (var i=0;i<8;i++){
+			initial.push(1*8+i);//black pawns
+		}
+		for (var i=0;i<8;i++){
+			initial.push(0*8+i);//black queens
+		}
+
+		res.write(nunjucks.render('templates/chess.html',{
+			pieces: pieces,
+			initial: [],
+		}));
+		res.end();
+		console.log('chess sent',performance.now());
+	}
+);
+
 app.get('/colorArithmetic.html', 
 	function(req, res) {
 		res.write(nunjucks.render('templates/colorArithmetic.html',{
