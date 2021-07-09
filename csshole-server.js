@@ -389,46 +389,59 @@ app.get('/chess.html',
 	function(req, res) {
 		console.log('chess req',performance.now());
 		var pieces = [];
+		var initial = [];
+		var types = [];
 		for (var i=0;i<8;i++){
 			pieces.push("&#9817;");//white pawns
-		}
-		for (var i=0;i<8;i++){
-			pieces.push("&#9813;");//white queens
-		}
-		for (var i=0;i<8;i++){
-			pieces.push("&#9823;");//black pawns
-		}
-		for (var i=0;i<8;i++){
-			pieces.push("&#9819;");//black queens
-		}
-		
-		var initial = [];
-		for (var i=0;i<8;i++){
-			initial.push(6*8+i);//white pawns
+			initial.push(6*8+i);
+			types.push("pawn white");
 		}
 		for (var i=0;i<8;i++){
 			initial.push(7*8+i);//white queens
 		}
-		for (var i=0;i<8;i++){
-			initial.push(1*8+i);//black pawns
-		}
-		for (var i=0;i<8;i++){
-			initial.push(0*8+i);//black queens
-		}
+		pieces.push("&#9814;");//white other
+		types.push("rook white");
+		pieces.push("&#9816;");//white other
+		types.push("knight white");
+		pieces.push("&#9815;");//white other
+		types.push("bishop white");
+		pieces.push("&#9813;");//white other
+		types.push("queen white");
+		pieces.push("&#9812;");//white other
+		types.push("king white");
+		pieces.push("&#9815;");//white other
+		types.push("bishop white");
+		pieces.push("&#9816;");//white other
+		types.push("knight white");
+		pieces.push("&#9814;");//white other
+		types.push("rook white");
 		
-		var types = [];
 		for (var i=0;i<8;i++){
-			types.push("pawn white");//white pawns
+			pieces.push("&#9823;");//black pawns
+			initial.push(1*8+i);
+			types.push("pawn black");
 		}
 		for (var i=0;i<8;i++){
-			types.push("queen white");//white queens
+			initial.push(0*8+i);//black other
 		}
-		for (var i=0;i<8;i++){
-			types.push("pawn black");//black pawns
-		}
-		for (var i=0;i<8;i++){
-			types.push("queen black");//black queens
-		}
+		pieces.push("&#9820;");//black other
+		types.push("rook black");
+		pieces.push("&#9822;");//black other
+		types.push("knight black");
+		pieces.push("&#9821;");//black other
+		types.push("bishop black");
+		pieces.push("&#9819;");//black other
+		types.push("queen black");
+		pieces.push("&#9818;");//black other
+		types.push("king black");
+		pieces.push("&#9821;");//black other
+		types.push("bishop black");
+		pieces.push("&#9822;");//black other
+		types.push("knight black");
+		pieces.push("&#9820;");//black other
+		types.push("rook black");
+		
+		
 
 		res.write(nunjucks.render('templates/chess.html',{
 			pieces: pieces,
