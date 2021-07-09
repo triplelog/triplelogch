@@ -48,7 +48,7 @@ input {
 	display: none;
 }
 {% for i in range(0,32) %}
-input.a{{i}}:checked ~ .p{{i}} {
+input.a{{i}}:checked ~ span.p{{i}} > label {
 	display: inline-block;
 }
 {% endfor %}
@@ -63,13 +63,20 @@ input.a{{i}}:checked ~ .p{{i}} {
 			
 		{% endfor %}
 	{% endfor %}
+	<span class="p{{i}}">
+	{% for r in range(0,8) %}
+		{% for c in range(0,8) %}
+			<label for="pb{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
+		{% endfor %}
+	{% endfor %}
+	</span>
 {% endfor %}
 {% for i in range(0,32) %}
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
 			<input type="radio" name="p{{i}}" id="pb{{i}}-{{r}}{{c}}" {% if initial[i] == r*8 + c %}checked{% endif %}></input>
 			<label for="pa{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
-			<label for="pb{{i}}-{{r}}{{c}}" class="p{{i}} r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
+			
 		{% endfor %}
 	{% endfor %}
 	<input type="radio" name="p{{i}}" id="po{{i}}"></input>
