@@ -41,12 +41,17 @@ label.off {
 	top: calc(var(--block) * -2);
 	left: calc(var(--block) * -2);
 }
-input:checked + label {
+input:Not(.a):checked + label {
 	display: inline-block;
 }
 input {
 	display: none;
 }
+{% for i in range(0,32) %}
+input.a{{i}}:checked ~ .p{{i}} {
+	display: inline-block;
+}
+{% endfor %}
 </style>
 </head>
 <body>
@@ -54,8 +59,8 @@ input {
 {% for i in range(0,32) %}
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
-			<input type="radio" name="p{{i}}" id="pa{{i}}-{{r}}{{c}}"></input>
-			<label for="pa{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
+			<input type="radio" name="p{{i}}" id="pa{{i}}-{{r}}{{c}}" class="a a{{i}}"></input>
+			
 		{% endfor %}
 	{% endfor %}
 {% endfor %}
@@ -63,6 +68,7 @@ input {
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
 			<input type="radio" name="p{{i}}" id="pb{{i}}-{{r}}{{c}}" {% if initial[i] == r*8 + c %}checked{% endif %}></input>
+			<label for="pa{{i}}-{{r}}{{c}}" class="p{{i}} r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
 			<label for="pb{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
 		{% endfor %}
 	{% endfor %}
