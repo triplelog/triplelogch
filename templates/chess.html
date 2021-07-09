@@ -89,7 +89,7 @@ div.blocker.left.c{{c}} {
 {% endfor %}
 {% for r in range(0,8) %}
 	{% for c in range(0,8) %}
-	input.r{{r}.c{{c}}:checked ~ div.blocker.left.r{{r}}.c{{c}} {
+	input.r{{r}}.c{{c}}:checked ~ div.blocker.left.r{{r}}.c{{c}} {
 		display: inline-block;
 		z-index:2;
 	}	
