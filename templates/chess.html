@@ -47,8 +47,15 @@ input:Not(.a):checked + label {
 input {
 	display: none;
 }
+
+input.a ~ span.p{{i}} {
+	display: none;
+}
 {% for i in range(0,32) %}
 input.a{{i}}:checked ~ span.p{{i}} > label {
+	display: inherit;
+}
+input.a{{i}}:checked ~ span.p{{i}} {
 	display: inline-block;
 }
 {% endfor %}
