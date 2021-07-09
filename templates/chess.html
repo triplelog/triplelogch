@@ -63,6 +63,41 @@ input.a{{i}}:checked ~ span.p{{i}} {
 }
 {% endfor %}
 
+
+
+div.blocker {
+	display: none;
+	z-index: -1;
+	position: absolute;
+	left:0px;
+	top:0px;
+	background: red;
+}
+div.blocker.left {
+	height: var(--block);
+}
+{% for r in range(0,8) %}
+div.blocker.r{{r}} {
+	top: calc(var(--block) * {{r}});
+}
+{% endfor %}
+{% for c in range(0,8) %}
+div.blocker.left.c{{c}} {
+	left: 0px;
+	width: calc(var(--block) * {{c}});
+}	
+{% endfor %}
+{% for r in range(0,8) %}
+	{% for c in range(0,8) %}
+	input.r{{r}.c{{c}}:checked ~ div.blocker.left.r{{r}}.c{{c}} {
+		display: inline-block;
+		z-index:2;
+	}	
+	{% endfor %}
+{% endfor %}
+
+
+
 {# pawns #}
 {% for r in range(0,8) %}
 input.white.pawn.ar{{r}}:checked ~ span > .ar{{r - 1}} {
@@ -123,7 +158,7 @@ input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 {% for i in range(0,32) %}
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
-			<input type="radio" name="p{{i}}" id="pb{{i}}-{{r}}{{c}}" {% if initial[i] == r*8 + c %}checked{% endif %}></input>
+			<input type="radio" name="p{{i}}" class="r{{r}} c{{c}}" id="pb{{i}}-{{r}}{{c}}" {% if initial[i] == r*8 + c %}checked{% endif %}></input>
 			<label for="pa{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
 			
 		{% endfor %}
@@ -132,6 +167,11 @@ input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	<label for="po{{i}}" class="off">{{ pieces[i] | safe}}</label>
 {% endfor %}
 
+{% for r in range(0,8) %}
+	{% for c in range(0,8) %}
+		<div class="blocker left r{{r}} c{{c}}"></div>
+	{% endfor %}
+{% endfor %}
 
 
 </body>
