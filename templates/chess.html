@@ -54,6 +54,9 @@ input.a ~ span.p{{i}} {
 input.a ~ span > span {
 	display: none;
 }
+input.a ~ span > span > label {
+	display: none;
+}
 {% for i in range(0,32) %}
 input.a{{i}}:checked ~ span.p{{i}} > * > label {
 	display: inherit;
@@ -63,7 +66,18 @@ input.a{{i}}:checked ~ span.p{{i}} {
 }
 {% endfor %}
 {% for r in range(0,8) %}
-input.ar{{r}}:checked ~ span > .ar{{r}} {
+input.ar{{r}}:checked ~ span > .ar{{r + 1}} {
+	display: inline-block;
+}
+{% endfor %}
+{% for c in range(0,8) %}
+input.ac{{c}}:checked ~ span > span > .c{{c -1}} {
+	display: inline-block;
+}
+input.ac{{c}}:checked ~ span > span > .c{{c}} {
+	display: inline-block;
+}
+input.ac{{c}}:checked ~ span > span > .c{{c +1}} {
 	display: inline-block;
 }
 {% endfor %}
@@ -74,7 +88,7 @@ input.ar{{r}}:checked ~ span > .ar{{r}} {
 {% for i in range(0,32) %}
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
-			<input type="radio" name="p{{i}}" id="pa{{i}}-{{r}}{{c}}" class="a a{{i}} ar{{r - 1}}"></input>
+			<input type="radio" name="p{{i}}" id="pa{{i}}-{{r}}{{c}}" class="a a{{i}} ar{{r}} ac{{c}}"></input>
 			
 		{% endfor %}
 	{% endfor %}
