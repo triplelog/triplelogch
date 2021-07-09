@@ -48,7 +48,7 @@ input {
 	display: none;
 }
 
-input.a ~ span.p{{i}} {
+input.a ~ span.a {
 	display: none;
 }
 input.a ~ span > span {
@@ -89,7 +89,7 @@ input.ac{{c}}:checked ~ span > span > label.c{{c +1}} {
 			
 		{% endfor %}
 	{% endfor %}
-	<span class="p{{i}}">
+	<span class="a p{{i}}">
 	{% for r in range(0,8) %}
 		<span class="ar{{r}}">
 		{% for c in range(0,8) %}
