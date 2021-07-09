@@ -385,7 +385,7 @@ app.get('/city.html',
 	}
 );
 
-app.get('/city.html', 
+app.get('/chess.html', 
 	function(req, res) {
 		console.log('chess req',performance.now());
 		var pieces = [];
