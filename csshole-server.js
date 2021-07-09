@@ -418,7 +418,7 @@ app.get('/chess.html',
 
 		res.write(nunjucks.render('templates/chess.html',{
 			pieces: pieces,
-			initial: [],
+			initial: initial,
 		}));
 		res.end();
 		console.log('chess sent',performance.now());
