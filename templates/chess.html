@@ -51,11 +51,19 @@ input {
 input.a ~ span.p{{i}} {
 	display: none;
 }
+input.a ~ span > span {
+	display: none;
+}
 {% for i in range(0,32) %}
-input.a{{i}}:checked ~ span.p{{i}} > label {
+input.a{{i}}:checked ~ span.p{{i}} > * > label {
 	display: inherit;
 }
 input.a{{i}}:checked ~ span.p{{i}} {
+	display: inline-block;
+}
+{% endfor %}
+{% for r in range(0,8) %}
+input.ar{{i}}:checked ~ span > .ar{{r}} {
 	display: inline-block;
 }
 {% endfor %}
@@ -66,15 +74,17 @@ input.a{{i}}:checked ~ span.p{{i}} {
 {% for i in range(0,32) %}
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
-			<input type="radio" name="p{{i}}" id="pa{{i}}-{{r}}{{c}}" class="a a{{i}}"></input>
+			<input type="radio" name="p{{i}}" id="pa{{i}}-{{r}}{{c}}" class="a a{{i}} ar{{r - 1}}"></input>
 			
 		{% endfor %}
 	{% endfor %}
 	<span class="p{{i}}">
 	{% for r in range(0,8) %}
+		<span class="ar{{r}}">
 		{% for c in range(0,8) %}
 			<label for="pb{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
 		{% endfor %}
+		</span>
 	{% endfor %}
 	</span>
 {% endfor %}
