@@ -68,7 +68,7 @@ input.a{{i}}:checked ~ span.p{{i}} {
 
 div.blocker {
 	display: none;
-	z-index: -1;
+	z-index: 7;
 	position: absolute;
 	left:0px;
 	top:0px;
@@ -90,10 +90,18 @@ div.blocker.left.c{{c}} {
 {% endfor %}
 {% for r in range(0,8) %}
 	{% for c in range(0,8) %}
-	input.r{{r}}.c{{c}}:checked ~ div.blocker.left.r{{r}}.c{{c}} {
+	input.a.white:checked ~ input.r{{r}}.c{{c}}.black:checked ~ div.blocker.left.r{{r}}.c{{c}} {
 		display: inline-block;
-		z-index:7;
-	}	
+	}
+	input.a.white:checked ~ input.r{{r}}.c{{c}}.white:checked ~ div.blocker.left.r{{r}}.c{{c+1}} {
+		display: inline-block;
+	}
+	input.a.black:checked ~ input.r{{r}}.c{{c}}.black:checked ~ div.blocker.left.r{{r}}.c{{c+1}} {
+		display: inline-block;
+	}
+	input.a.black:checked ~ input.r{{r}}.c{{c}}.white:checked ~ div.blocker.left.r{{r}}.c{{c}} {
+		display: inline-block;
+	}
 	{% endfor %}
 {% endfor %}
 
@@ -159,7 +167,7 @@ input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 {% for i in range(0,32) %}
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
-			<input type="radio" name="p{{i}}" class="r{{r}} c{{c}}" id="pb{{i}}-{{r}}{{c}}" {% if initial[i] == r*8 + c %}checked{% endif %}></input>
+			<input type="radio" name="p{{i}}" class="r{{r}} c{{c}} {{ types[i] | safe}}" id="pb{{i}}-{{r}}{{c}}" {% if initial[i] == r*8 + c %}checked{% endif %}></input>
 			<label for="pa{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
 			
 		{% endfor %}
@@ -171,6 +179,13 @@ input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 {% for r in range(0,8) %}
 	{% for c in range(0,8) %}
 		<div class="blocker left r{{r}} c{{c}}"></div>
+		<div class="blocker right r{{r}} c{{c}}"></div>
+		<div class="blocker top r{{r}} c{{c}}"></div>
+		<div class="blocker bottom r{{r}} c{{c}}"></div>
+		<div class="blocker topleft r{{r}} c{{c}}"></div>
+		<div class="blocker topright r{{r}} c{{c}}"></div>
+		<div class="blocker bottomleft r{{r}} c{{c}}"></div>
+		<div class="blocker bottomright r{{r}} c{{c}}"></div>
 	{% endfor %}
 {% endfor %}
 
