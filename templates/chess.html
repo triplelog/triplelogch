@@ -100,6 +100,12 @@ div.blocker.left {
 div.blocker.right {
 	height: var(--block);
 }
+div.blocker.top {
+	width: var(--block);
+}
+div.blocker.bottom {
+	width: var(--block);
+}
 {% for r in range(0,8) %}
 div.blocker.r{{r}} {
 	top: calc(var(--block) * {{r}});
@@ -113,6 +119,16 @@ div.blocker.left.c{{c}} {
 div.blocker.right.c{{c}} {
 	left: calc(var(--block) * {{c + 1}});
 	width: calc(var(--block) * (8 - {{c + 1}}));
+}
+{% endfor %}
+{% for r in range(0,8) %}
+div.blocker.top.r{{r}} {
+	top: 0px;
+	height: calc(var(--block) * {{r}});
+}
+div.blocker.bottom.r{{r}} {
+	top: calc(var(--block) * {{r + 1}});
+	height: calc(var(--block) * (8 - {{r + 1}}));
 }
 {% endfor %}
 {% for r in range(0,8) %}
@@ -131,7 +147,22 @@ div.blocker.right.c{{c}} {
 		{% endfor %}
 	{% endfor %}
 {% endfor %}
-
+{% for c in range(0,8) %}
+	{% for r in range(1,8) %}
+		{% for rr in range(0,r) %}
+		input.ar{{r}}:checked ~ input.c{{c}}.r{{rr}}:checked ~ div.blocker.top.c{{c}}.r{{rr+1}} {
+			display: inline-block;
+		}
+		{% endfor %}
+	{% endfor %}
+	{% for r in range(0,7) %}
+		{% for rr in range(r+1,8) %}
+		input.ar{{r}}:checked ~ input.c{{c}}.r{{rr}}:checked ~ div.blocker.bottom.c{{c}}.r{{rr-1}} {
+			display: inline-block;
+		}
+		{% endfor %}
+	{% endfor %}
+{% endfor %}
 
 
 {# pawns #}
