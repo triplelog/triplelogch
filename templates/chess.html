@@ -53,10 +53,12 @@ label.off.c{{c}} {
 	left: calc(var(--block) * {{c}});
 }
 {% endfor %}
-input.a:checked ~ input:checked + label + label {
+input.a.white:checked ~ input.black:checked + label + label {
 	display: inline-block;
 }
-	
+input.a.black:checked ~ input.white:checked + label + label {
+	display: inline-block;
+}	
 	
 	
 input:Not(.a):checked + label {
