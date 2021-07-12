@@ -112,6 +112,11 @@ div.blocker.r{{r}} {
 }
 {% endfor %}
 {% for c in range(0,8) %}
+div.blocker.c{{c}} {
+	left: calc(var(--block) * {{r}});
+}
+{% endfor %}
+{% for c in range(0,8) %}
 div.blocker.left.c{{c}} {
 	left: 0px;
 	width: calc(var(--block) * {{c}});
