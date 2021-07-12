@@ -95,6 +95,9 @@ div.blocker {
 div.blocker.left {
 	height: var(--block);
 }
+div.blocker.right {
+	height: var(--block);
+}
 {% for r in range(0,8) %}
 div.blocker.r{{r}} {
 	top: calc(var(--block) * {{r}});
@@ -104,13 +107,26 @@ div.blocker.r{{r}} {
 div.blocker.left.c{{c}} {
 	left: 0px;
 	width: calc(var(--block) * {{c}});
-}	
+}
+div.blocker.right.c{{c}} {
+	left: calc(var(--block) * {{c}});
+	width: calc(var(--block) * (8 - {{c}}));
+}
 {% endfor %}
 {% for r in range(0,8) %}
-	{% for c in range(0,8) %}
-	input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.left.r{{r}}.c{{c+1}} {
-		display: inline-block;
-	}
+	{% for c in range(1,8) %}
+		{% for cc in range(0,c) %}
+		input.ac{{c}}:checked ~ input.r{{r}}.c{{cc}}:checked ~ div.blocker.left.r{{r}}.c{{cc+1}} {
+			display: inline-block;
+		}
+		{% endfor %}
+	{% endfor %}
+	{% for c in range(0,7) %}
+		{% for cc in range(c+1,8) %}
+		input.ac{{c}}:checked ~ input.r{{r}}.c{{cc}}:checked ~ div.blocker.right.r{{r}}.c{{cc-1}} {
+			display: inline-block;
+		}
+		{% endfor %}
 	{% endfor %}
 {% endfor %}
 
