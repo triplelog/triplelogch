@@ -129,7 +129,7 @@ div.blocker.topleft.c{{c}} {
 	left: 0px;
 	width: calc(var(--block) * {{c}});
 }
-div.blocker.topright.c{{c}} {
+/*div.blocker.topright.c{{c}} {
 	left: calc(var(--block) * {{c + 1}});
 	width: calc(var(--block) * (8 - {{c + 1}}));
 }
@@ -140,7 +140,7 @@ div.blocker.bottomleft.c{{c}} {
 div.blocker.bottomright.c{{c}} {
 	left: calc(var(--block) * {{c + 1}});
 	width: calc(var(--block) * (8 - {{c + 1}}));
-}
+}*/
 {% endfor %}
 {% for r in range(0,8) %}
 div.blocker.top.r{{r}} {
@@ -155,7 +155,7 @@ div.blocker.topleft.r{{r}} {
 	top: 0px;
 	height: calc(var(--block) * {{r}});
 }
-div.blocker.topright.r{{r}} {
+/*div.blocker.topright.r{{r}} {
 	top: 0px;
 	height: calc(var(--block) * {{r}});
 }
@@ -166,7 +166,7 @@ div.blocker.bottomleft.r{{r}} {
 div.blocker.bottomright.r{{r}} {
 	top: calc(var(--block) * {{r + 1}});
 	height: calc(var(--block) * (8 - {{r + 1}}));
-}
+}*/
 {% endfor %}
 
 {% for r in range(1,8) %}
