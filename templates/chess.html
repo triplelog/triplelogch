@@ -40,7 +40,25 @@ label.g {
 label.off {
 	top: calc(var(--block) * -2);
 	left: calc(var(--block) * -2);
+	z-index: 17;
+	display: none;
 }
+{% for r in range(0,8) %}
+label.off.r{{r}} {
+	top: calc(var(--block) * {{r}});
+}
+{% endfor %}
+{% for c in range(0,8) %}
+label.off.c{{c}} {
+	left: calc(var(--block) * {{c}});
+}
+{% endfor %}
+input.a:checked ~ input:checked + label + label {
+	display: inline-block;
+}
+	
+	
+	
 input:Not(.a):checked + label {
 	display: inline-block;
 }
@@ -90,16 +108,7 @@ div.blocker.left.c{{c}} {
 {% endfor %}
 {% for r in range(0,8) %}
 	{% for c in range(0,8) %}
-	input.a.white:checked ~ input.r{{r}}.c{{c}}.black:checked ~ div.blocker.left.r{{r}}.c{{c}} {
-		display: inline-block;
-	}
-	input.a.white:checked ~ input.r{{r}}.c{{c}}.white:checked ~ div.blocker.left.r{{r}}.c{{c+1}} {
-		display: inline-block;
-	}
-	input.a.black:checked ~ input.r{{r}}.c{{c}}.black:checked ~ div.blocker.left.r{{r}}.c{{c+1}} {
-		display: inline-block;
-	}
-	input.a.black:checked ~ input.r{{r}}.c{{c}}.white:checked ~ div.blocker.left.r{{r}}.c{{c}} {
+	input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.left.r{{r}}.c{{c+1}} {
 		display: inline-block;
 	}
 	{% endfor %}
@@ -165,15 +174,16 @@ input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	</span>
 {% endfor %}
 {% for i in range(0,32) %}
+	<input type="radio" name="p{{i}}" id="po{{i}}"></input>
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
 			<input type="radio" name="p{{i}}" class="r{{r}} c{{c}} {{ types[i] | safe}}" id="pb{{i}}-{{r}}{{c}}" {% if initial[i] == r*8 + c %}checked{% endif %}></input>
 			<label for="pa{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
-			
+			<label for="po{{i}}" class="off r{{r}} c{{c}}">{{ pieces[i] | safe}}</label>
 		{% endfor %}
 	{% endfor %}
-	<input type="radio" name="p{{i}}" id="po{{i}}"></input>
-	<label for="po{{i}}" class="off">{{ pieces[i] | safe}}</label>
+	
+	
 {% endfor %}
 
 {% for r in range(0,8) %}
