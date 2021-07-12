@@ -109,8 +109,8 @@ div.blocker.left.c{{c}} {
 	width: calc(var(--block) * {{c}});
 }
 div.blocker.right.c{{c}} {
-	left: calc(var(--block) * {{c}});
-	width: calc(var(--block) * (8 - {{c}}));
+	left: calc(var(--block) * {{c + 1}});
+	width: calc(var(--block) * (8 - {{c + 1}}));
 }
 {% endfor %}
 {% for r in range(0,8) %}
