@@ -177,7 +177,7 @@ div.blocker.bottomright.r{{r}} {
 	{% endfor %}
 {% endfor %}
 {% for r in range(0,8) %}
-	{% for rr in range(0,r+1) %}
+	{% for rr in range(r,8) %}
 		{% for c in range(0,8) %}
 			input.ar{{r}}:checked ~ div.blocker.topleft.r{{rr+1}}.c{{c}} {
 				display: none !important;
