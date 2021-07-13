@@ -349,19 +349,22 @@ div.animator {
 	--s: 600;
 	
 }
-
+div.cover {
+	position: absolute;
+	left:0px;
+	top: 0rem;
+	width: calc(2 * var(--block));
+	height: calc(601 * var(--block));
+	
+}
 @keyframes timer2 {
 	to { top: 0rem;}
 }
 {% for i in range(0,601) %}
-#wc{{i}}:checked ~ div.white.clock > div.animator{
-	--t: {{i}}s;
-	--s: {{i}};
+#wc{{i}}:checked ~ div.white.clock > div.cover{
 	top: calc(-{{i}} * var(--block));
 }
-#wce{{i}}:checked ~ div.white.clock > div.animator{
-	--t: {{i}}s;
-	--s: {{i}};
+#wce{{i}}:checked ~ div.white.clock > div.cover{
 	top: calc(-{{i}} * var(--block));
 }
 {% endfor %}
@@ -396,13 +399,13 @@ label.black.clock:Not(.end) {
 	display: none;
 }
 .white.clock:Not(.end):checked ~ .black.clock:Not(.end):checked ~ div.white.clock > div.animator {
-	animation: timer2 var(--t) steps(var(--s)) forwards;
+	animation: timer2 600s steps(600) none;
 }
 .white.clock.end:checked ~ .black.clock:Not(.end):checked ~ div.black.clock > div.animator {
 	animation: timer2 var(--t) steps(var(--s)) forwards;
 }
 .white.clock.end:checked ~ .black.clock.end:checked ~ div.white.clock > div.animator {
-	animation: timer2 var(--t) steps(var(--s)) forwards;
+	animation: timer2 600s steps(600) none;
 }
 .white.clock:Not(.end):checked ~ .black.clock.end:checked ~ div.black.clock > div.animator {
 	animation: timer2 var(--t) steps(var(--s)) forwards;
@@ -424,11 +427,13 @@ label.black.clock:Not(.end) {
 			
 {% endfor %}
 <div class="white clock">
-	<div class="white animator">
-		{% for i in range(0,601) %}
-			<label for="wc{{i}}" class="white clock">{{i}}</label>
-			<label for="wce{{i}}" class="white clock end">{{i}}</label>
-		{% endfor %}
+	<div class="white cover">
+		<div class="white animator">
+			{% for i in range(0,601) %}
+				<label for="wc{{i}}" class="white clock">{{i}}</label>
+				<label for="wce{{i}}" class="white clock end">{{i}}</label>
+			{% endfor %}
+		</div>
 	</div>
 </div>
 <div class="black clock">
