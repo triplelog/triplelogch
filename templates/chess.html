@@ -342,6 +342,8 @@ div.animator {
 	top: calc(-600 * var(--block));
 	width: calc(2 * var(--block));
 	height: calc(601 * var(--block));
+	--t: 600s;
+	--s: 600;
 	
 }
 #whiteTurn {
@@ -353,8 +355,9 @@ div.animator {
 @keyframes timer2 {
 	to { top: 0rem;}
 }
+
 #whiteTurn:checked ~ div.white.clock > div.animator {
-	animation: timer2 600s steps(600) forwards;
+	animation: timer2 var(--t) steps(var(--s)) forwards;
 }
 </style>
 </head>
