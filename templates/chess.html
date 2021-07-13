@@ -148,17 +148,26 @@ div.blocker.col {
 }
 div.blocker.left {
 	height: var(--block);
+	background: repeating-linear-gradient(#DDD, #DDD var(--block), #BBB var(--block), #BBB calc(2 * var(--block)));
 }
 div.blocker.right {
 	height: var(--block);
+	background: repeating-linear-gradient(#DDD, #DDD var(--block), #BBB var(--block), #BBB calc(2 * var(--block)));
 }
 div.blocker.top {
 	width: var(--block);
 	background: repeating-linear-gradient(#DDD, #DDD var(--block), #BBB var(--block), #BBB calc(2 * var(--block)));
 }
+div.blocker.bottom {
+	width: var(--block);
+	background: repeating-linear-gradient(to top, #DDD, #DDD var(--block), #BBB var(--block), #BBB calc(2 * var(--block)));
+}
 {% for c in [0,2,4,6] %}
 div.blocker.top.c{{c}} {
 	background: repeating-linear-gradient(#BBB, #BBB var(--block), #DDD var(--block), #DDD calc(2 * var(--block)));
+}
+div.blocker.bottom.c{{c}} {
+	background: repeating-linear-gradient(to top, #BBB, #BBB var(--block), #DDD var(--block), #DDD calc(2 * var(--block)));
 }
 {% endfor %}
 div.blocker.one {
