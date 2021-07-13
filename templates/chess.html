@@ -340,7 +340,7 @@ label.clock {
 	height: calc(1 * var(--block));
 	display:inline-block;
 }
-div.animator {
+div.animator, div.una:Not(.clock) {
 	position: absolute;
 	left:0px;
 	top: calc(-600 * var(--block));
@@ -397,17 +397,35 @@ div.animator {
 	animation: timer2 600s steps(600) none;
 }
 
-.white.clock:Not(.end):checked ~ .black.clock:Not(.end):checked ~ div.white.clock {
+.white.clock:Not(.end):checked ~ .black.clock:Not(.end):checked ~ div.white.clock:Not(.una) {
 	display: inline-block;
 }
-.white.clock.end:checked ~ .black.clock:Not(.end):checked ~ div.black.clock {
+.white.clock.end:checked ~ .black.clock:Not(.end):checked ~ div.black.clock:Not(.una) {
 	display: inline-block;
 }
-.white.clock.end:checked ~ .black.clock.end:checked ~ div.white.clock {
+.white.clock.end:checked ~ .black.clock.end:checked ~ div.white.clock:Not(.una) {
 	display: inline-block;
 }
-.white.clock:Not(.end):checked ~ .black.clock.end:checked ~ div.black.clock {
+.white.clock:Not(.end):checked ~ .black.clock.end:checked ~ div.black.clock:Not(.una) {
 	display: inline-block;
+}
+.white.clock:Not(.end):checked ~ .black.clock:Not(.end):checked ~ div.black.clock.una {
+	display: inline-block;
+}
+.white.clock.end:checked ~ .black.clock:Not(.end):checked ~ div.white.clock.una {
+	display: inline-block;
+}
+.white.clock.end:checked ~ .black.clock.end:checked ~ div.black.clock.una {
+	display: inline-block;
+}
+.white.clock:Not(.end):checked ~ .black.clock.end:checked ~ div.white.clock.una {
+	display: inline-block;
+}
+#wc600 {
+	display: inline-block;
+	position: absolute;
+	left: 50px;
+	top: 500px;
 }
 </style>
 </head>
@@ -429,8 +447,16 @@ div.animator {
 	<div class="white cover">
 		<div class="white animator">
 			{% for i in range(0,601) %}
-				<label for="wc{{i}}" class="white clock">{{i}}</label>
 				<label for="wce{{i}}" class="white clock end">{{i}}</label>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+<div class="white clock una">
+	<div class="white cover">
+		<div class="white una">
+			{% for i in range(0,601) %}
+				<label for="wc{{i}}" class="white clock">{{i}}</label>
 			{% endfor %}
 		</div>
 	</div>
