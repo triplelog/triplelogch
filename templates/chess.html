@@ -367,10 +367,10 @@ div.animator {
 	top: calc(-{{i}} * var(--block));
 }
 {% endfor %}
-.white.clock:checked ~ div.white.clock > div.animator {
+.black.clock:checked ~ div.white.clock > div.animator {
 	animation: timer2 var(--t) steps(var(--s)) forwards;
 }
-.black.clock:checked ~ div.black.clock > div.animator {
+.white.clock:checked ~ div.black.clock > div.animator {
 	animation: timer2 var(--t) steps(var(--s)) forwards;
 }
 </style>
