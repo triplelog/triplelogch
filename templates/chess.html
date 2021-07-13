@@ -112,7 +112,10 @@ input.a{{i}}:checked ~ span.p{{i}} {
 {% endfor %}
 
 
-
+div.blocker.pe {
+	z-index: 18;
+	background: rgba(0,0,0,0.1);
+}
 div.blocker {
 	display: none;
 	z-index: 7;
@@ -303,14 +306,6 @@ div.blocker.bottomright.r{{r}} {
 	{% for r in range(0,7) %}
 		input.ac{{c}}:checked ~ input.c{{c}}.r{{r}}:checked ~ div.blocker.bottom.row{{r}} > div.bottom.c{{c}} {
 			display: inline-block;
-		}
-	{% endfor %}
-{% endfor %}
-
-{% for r in range(0,8) %}
-	{% for c in range(0,8) %}
-		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker > div.blocker.r{{r}}.c{{c}}:before {
-			content:"A";
 		}
 	{% endfor %}
 {% endfor %}
@@ -612,7 +607,7 @@ div.animator {
 {% endfor %}
 {% for r in range(0,8) %}
 	<div class="blocker top row row{{r}}">
-	{% for c in range(0,8) %}<div class="blocker top r{{r}} c{{c}}"></div>{% endfor %}
+	{% for c in range(0,8) %}<div class="blocker pe top r{{r}} c{{c}}"></div><div class="blocker top r{{r}} c{{c}}"></div>{% endfor %}
 	</div>
 	<div class="blocker bottom row row{{r}}">
 	{% for c in range(0,8) %}<div class="blocker bottom r{{r}} c{{c}}"></div>{% endfor %}
