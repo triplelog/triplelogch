@@ -26,7 +26,7 @@ label {
 	width: var(--block);
 	height: var(--block);
 	position: absolute;
-	background: #DDD;
+	background: transparent;
 }
 {% for r in range(0,8) %}
 label.r{{r}} {
@@ -38,9 +38,7 @@ label.c{{c}} {
 	left: calc(var(--block) * {{c}});
 }
 {% endfor %}
-label.g {
-	background: #BBB;
-}
+
 div.board {
 	display: none;
 	width: var(--block);
