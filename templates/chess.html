@@ -334,8 +334,8 @@ input.clock {
 }
 div.clock {
 	position: absolute;
-	left: calc(10 * var(--block));
-	top: var(--block);
+	left: calc(12 * var(--block));
+	top: calc(6 * var(--block));
 	width: calc(2 * var(--block));
 	height: calc(1 * var(--block));
 	border: 1px solid black;
@@ -343,7 +343,7 @@ div.clock {
 	display: none;
 }
 div.black.clock {
-	left: calc(12 * var(--block));
+	top: calc(1 * var(--block));
 }
 label.clock {
 	position: relative;
@@ -396,12 +396,6 @@ label.black.clock:Not(.end) {
 	display: inline-block;
 }
 .white.clock:Not(.end):checked ~ div.white.clock label:Not(.end) {
-	display: none;
-}
-.white.clock:Not(.end).start:checked ~ div.white.clock label:Not(.end) {
-	display: inline-block;
-}
-.white.clock:Not(.end).start:checked ~ div.white.clock .end {
 	display: none;
 }
 .black.clock.end:checked ~ div.black.clock label:Not(.end) {
