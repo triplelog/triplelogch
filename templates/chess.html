@@ -154,6 +154,10 @@ div.blocker.top {
 div.blocker.bottom {
 	width: var(--block);
 }
+div.blocker.one {
+	width: var(--block);
+	height: var(--block);
+}
 {% for r in range(0,8) %}
 div.blocker.r{{r}} {
 	top: calc(var(--block) * {{r}});
@@ -279,7 +283,16 @@ div.blocker.bottomright.r{{r}} {
 
 
 
-
+{% for r in range(0,8) %}
+	{% for c in range(0,8) %}
+		input.a.white:checked ~ input.white.r{{r}}.c{{c}}:checked ~ div.blocker.one.c{{c}}.r{{r}} {
+			display: inline-block;
+		}
+		input.a.black:checked ~ input.black.r{{r}}.c{{c}}:checked ~ div.blocker.one.c{{c}}.r{{r}} {
+			display: inline-block;
+		}
+	{% endfor %}
+{% endfor %}
 {% for r in range(0,8) %}
 	{% for c in range(1,8) %}
 		input.ar{{r}}:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.left.col{{c}} > div.left.r{{r}} {
@@ -612,11 +625,15 @@ div.animator {
 	{% for c in range(0,8) %}<div class="blocker top r{{r}} c{{c}}"></div>{% endfor %}
 	</div>
 	<div class="blocker pe top row row{{r}}">
-	{% for c in range(0,8) %}<div class="blocker pe top r{{r}} c{{c}}"></div>{% endfor %}
+	{% for c in range(0,8) %}<div class="blocker top r{{r}} c{{c}}"></div>{% endfor %}
 	</div>
 	<div class="blocker bottom row row{{r}}">
 	{% for c in range(0,8) %}<div class="blocker bottom r{{r}} c{{c}}"></div>{% endfor %}
 	</div>
+	<div class="blocker pe bottom row row{{r}}">
+	{% for c in range(0,8) %}<div class="blocker bottom r{{r}} c{{c}}"></div>{% endfor %}
+	</div>
+	{% for c in range(0,8) %}<div class="blocker one r{{r}} c{{c}}"></div>{% endfor %}
 {% endfor %}
 </div>
 </body>
