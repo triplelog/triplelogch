@@ -110,6 +110,10 @@ div.blocker.col {
 	top:0px;
 	background: transparent;
 }
+div.blocker.topleft {
+	pointer-events:none;
+	background: transparent;
+}
 div.blocker.left {
 	height: var(--block);
 }
@@ -368,7 +372,9 @@ input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 {% for c in range(0,8) %}
 	<div class="blocker left col col{{c}}">
 	{% for r in range(0,8) %}<div class="blocker left r{{r}} c{{c}}"></div>{% endfor %}
-	{% for r in range(0,8) %}<div class="blocker topleft r{{r}} c{{c}}"></div>{% endfor %}
+	{% for r in range(0,8) %}<div class="blocker topleft r{{r}} c{{c}}">
+		<div style="position:relative; right:0px; bottom:0px;width:var(--block); height:var(--block);background:green;pointer-events:all;"></div>
+	</div>{% endfor %}
 	{% for r in range(0,8) %}<div class="blocker bottomleft r{{r}} c{{c}}"></div>{% endfor %}
 	</div>
 	<div class="blocker right col col{{c}}">
