@@ -377,7 +377,10 @@ div.animator {
 	top: calc(-{{i}} * var(--block));
 }
 {% endfor %}
-label.clock.end {
+label.white.clock.end {
+	display: none;
+}
+label.black.clock:Not(.end) {
 	display: none;
 }
 .white.clock:Not(.end):checked ~ div.white.clock .end {
@@ -386,10 +389,10 @@ label.clock.end {
 .white.clock:Not(.end):checked ~ div.white.clock label:Not(.end) {
 	display: none;
 }
-.black.clock:Not(.end):checked ~ div.black.clock .end {
+.black.clock.end:checked ~ div.black.clock label:Not(.end) {
 	display: inline-block;
 }
-.black.clock:Not(.end):checked ~ div.black.clock label:Not(.end) {
+.black.clock.end:checked ~ div.black.clock .end {
 	display: none;
 }
 .white.clock:Not(.end):checked ~ div.white.clock > div.animator {
