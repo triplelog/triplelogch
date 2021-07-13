@@ -17,6 +17,10 @@
 body {
 	--block: 2rem;
 }
+#bc {
+	--pw: all;
+	--pb: none;
+}
 label {
 	display: none;
 	width: var(--block);
@@ -318,6 +322,13 @@ input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 }
 {% endfor %}
 
+.paa.white {
+	pointer-events: var(--pw);
+} 
+.paa.black {
+	pointer-events: var(--pb);
+}
+
 input.clock {
 	display:none;
 }
@@ -422,19 +433,21 @@ div.animator {
 	display: inline-block;
 }
 
-.white.clock:Not(.end):checked ~ .black.clock:Not(.end):checked ~ .paa.black {
-	pointer-events: none;
+.white.clock:Not(.end):checked ~ .black.clock:Not(.end):checked ~ #bc {
+	--pw: all;
+	--pb: none;
 }
-.white.clock.end:checked ~ .black.clock:Not(.end):checked ~ .paa.white {
-	--pe: none;
-	pointer-events: var(--pe);
+.white.clock.end:checked ~ .black.clock:Not(.end):checked ~ #bc {
+	--pw: none;
+	--pb: all;
 }
-.white.clock.end:checked ~ .black.clock.end:checked ~ .paa.black {
-	pointer-events: none;
+.white.clock.end:checked ~ .black.clock.end:checked ~ #bc {
+	--pw: all;
+	--pb: none;
 }
-.white.clock:Not(.end):checked ~ .black.clock.end:checked ~ .paa.white {
-	--pe: none;
-	pointer-events: var(--pe);
+.white.clock:Not(.end):checked ~ .black.clock.end:checked ~ #bc {
+	--pw: none;
+	--pb: all;
 }
 #wc600 {
 	display: inline-block;
@@ -442,6 +455,7 @@ div.animator {
 	left: 50px;
 	top: 500px;
 }
+
 </style>
 </head>
 <body>
@@ -499,7 +513,7 @@ div.animator {
 	</div>
 </div>
 
-
+<div id="bc">
 {% for i in range(0,32) %}
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
@@ -550,7 +564,7 @@ div.animator {
 	{% for c in range(0,8) %}<div class="blocker bottom r{{r}} c{{c}}"></div>{% endfor %}
 	</div>
 {% endfor %}
-
+</div>
 </body>
 </html>
 
