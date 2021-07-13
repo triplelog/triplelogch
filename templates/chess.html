@@ -338,8 +338,10 @@ label.clock {
 }
 div.animator {
 	position: absolute;
-	right:0px;
-	top:0px;
+	left:0px;
+	bottom:0px;
+	width: calc(2 * var(--block));
+	
 }
 #whiteTurn {
 	position: absolute;
@@ -348,7 +350,7 @@ div.animator {
 	display: inline-block;
 }
 @keyframes timer {
-	to { right: calc(-1 * var(--block));}
+	to { bottom: calc(-1 * var(--block));}
 }
 #whiteTurn:checked ~ div.white.clock > .animator {
 	animation: timer 600s steps(600) infinite;
