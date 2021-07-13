@@ -28,6 +28,9 @@ label {
 	position: absolute;
 	background: transparent;
 	z-index:2;
+	font-size: 1.5rem;
+	line-height: 1.5rem;
+	text-align:center;
 }
 {% for r in range(0,8) %}
 label.r{{r}} {
@@ -116,7 +119,7 @@ div.blocker {
 	position: absolute;
 	left:0px;
 	top:0px;
-	background: red;
+	background: transparent;
 }
 div.blocker.row {
 	display: inline-block;
@@ -307,6 +310,12 @@ div.blocker.bottomright.r{{r}} {
 
 
 {# pawns #}
+input.white.pawn.ar6:checked ~ span > .ar{{r - 2}} {
+	display: inline-block;
+}
+input.black.pawn.ar1:checked ~ span > .ar{{r + 2}} {
+	display: inline-block;
+}
 {% for r in range(0,8) %}
 input.white.pawn.ar{{r}}:checked ~ span > .ar{{r - 1}} {
 	display: inline-block;
@@ -314,16 +323,14 @@ input.white.pawn.ar{{r}}:checked ~ span > .ar{{r - 1}} {
 input.black.pawn.ar{{r}}:checked ~ span > .ar{{r + 1}} {
 	display: inline-block;
 }
+input.pawn.ar{{r}}:checked ~ span > .ar{{r}} {
+	display: inline-block;
+}
 {% endfor %}
 {% for c in range(0,8) %}
-input.pawn.ac{{c}}:checked ~ span > span > label.c{{c -1}} {
-	display: inline-block;
-}
 input.pawn.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	display: inline-block;
-}
-input.pawn.ac{{c}}:checked ~ span > span > label.c{{c +1}} {
-	display: inline-block;
+	background: rgba(255,0,0,.1);
 }
 {% endfor %}
 
