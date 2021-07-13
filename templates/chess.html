@@ -318,10 +318,43 @@ input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 }
 {% endfor %}
 
+input.clock {
+	display:none;
+}
+div.clock {
+	position: absolute;
+	left: calc(10 * var(--block));
+	top: var(--block);
+	width: calc(2 * var(--block));
+	height: calc(1 * var(--block));
+	border: 1px solid black;
+	overflow: none;
+}
+label.clock {
+	position: relative;
+	width: calc(2 * var(--block));
+	height: calc(1 * var(--block));
+}
+div.animator {
+	position: absolute;
+	left:0px;
+	top:0px;
+}
 </style>
 </head>
 <body>
 
+{% for i in range(0,600) %}
+	<input type="radio" name="wc" id="wc{{i}}}" class="white clock"></input>
+			
+{% endfor %}
+<div class="white clock">
+	<div class="white animator">
+		{% for i in range(0,600) %}
+			<label for="wc{{i}}" class="white clock">{{i}}</label>
+		{% endfor %}
+	</div>
+</div>
 {% for i in range(0,32) %}
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
