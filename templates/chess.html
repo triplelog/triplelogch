@@ -421,6 +421,19 @@ div.animator {
 .white.clock:Not(.end):checked ~ .black.clock.end:checked ~ div.white.clock.una {
 	display: inline-block;
 }
+
+.white.clock:Not(.end):checked ~ .black.clock:Not(.end):checked ~ .paa.black {
+	pointer-events: none;
+}
+.white.clock.end:checked ~ .black.clock:Not(.end):checked ~ .paa.white {
+	pointer-events: none;
+}
+.white.clock.end:checked ~ .black.clock.end:checked ~ .paa.black {
+	pointer-events: none;
+}
+.white.clock:Not(.end):checked ~ .black.clock.end:checked ~ .paa.white {
+	pointer-events: none;
+}
 #wc600 {
 	display: inline-block;
 	position: absolute;
@@ -506,7 +519,7 @@ div.animator {
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
 			<input type="radio" name="p{{i}}" class="r{{r}} c{{c}} {{ types[i] | safe}}" id="pb{{i}}-{{r}}{{c}}" {% if initial[i] == r*8 + c %}checked{% endif %}></input>
-			<label for="pa{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
+			<label for="pa{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} paa {{ types[i] | safe}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
 			<label for="po{{i}}" class="off r{{r}} c{{c}}">{{ pieces[i] | safe}}</label>
 		{% endfor %}
 	{% endfor %}
