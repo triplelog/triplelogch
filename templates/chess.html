@@ -307,6 +307,13 @@ div.blocker.bottomright.r{{r}} {
 	{% endfor %}
 {% endfor %}
 
+{% for r in range(0,8) %}
+	{% for c in range(0,8) %}
+		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker > div.blocker.r{{r}}.c{{c}}:before {
+			content:"A";
+		}
+	{% endfor %}
+{% endfor %}
 
 
 {# pawns #}
@@ -343,11 +350,17 @@ input.rook.a:checked ~ span > span {
 {% for r in range(0,8) %}
 input.rook.ar{{r}}:checked ~ span > span > label.r{{r}} {
 	display: inline-block;
+	background: #CCC;
+	color: red;
+	opacity: 0.5;
 }
 {% endfor %}
 {% for c in range(0,8) %}
 input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	display: inline-block;
+	background: #CCC;
+	color: red;
+	opacity: 0.5;
 }
 {% endfor %}
 
