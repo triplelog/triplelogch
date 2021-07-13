@@ -135,53 +135,53 @@ div.blocker.c{{c}} {
 {% for c in range(0,8) %}
 div.blocker.left.c{{c}} {
 	left: 0px;
-	width: calc(var(--block) * {{c}});
+	width: calc(var(--block) * {{c+1}});
 }
 div.blocker.right.c{{c}} {
-	left: calc(var(--block) * {{c + 1}});
-	width: calc(var(--block) * (8 - {{c + 1}}));
+	left: calc(var(--block) * {{c }});
+	width: calc(var(--block) * (8 - {{c }}));
 }
 div.blocker.topleft.c{{c}} {
 	left: 0px;
-	width: calc(var(--block) * {{c}});
+	width: calc(var(--block) * {{c+1}});
 }
 div.blocker.topright.c{{c}} {
-	left: calc(var(--block) * {{c + 1}});
-	width: calc(var(--block) * (8 - {{c + 1}}));
+	left: calc(var(--block) * {{c }});
+	width: calc(var(--block) * (8 - {{c }}));
 }
 div.blocker.bottomleft.c{{c}} {
 	left: 0px;
-	width: calc(var(--block) * {{c}});
+	width: calc(var(--block) * {{c+1}});
 }
 div.blocker.bottomright.c{{c}} {
-	left: calc(var(--block) * {{c + 1}});
-	width: calc(var(--block) * (8 - {{c + 1}}));
+	left: calc(var(--block) * {{c }});
+	width: calc(var(--block) * (8 - {{c }}));
 }
 {% endfor %}
 {% for r in range(0,8) %}
 div.blocker.top.r{{r}} {
 	top: 0px;
-	height: calc(var(--block) * {{r}});
+	height: calc(var(--block) * {{r+1}});
 }
 div.blocker.bottom.r{{r}} {
-	top: calc(var(--block) * {{r + 1}});
-	height: calc(var(--block) * (8 - {{r + 1}}));
+	top: calc(var(--block) * {{r }});
+	height: calc(var(--block) * (8 - {{r }}));
 }
 div.blocker.topleft.r{{r}} {
 	top: 0px;
-	height: calc(var(--block) * {{r}});
+	height: calc(var(--block) * {{r+1}});
 }
 div.blocker.topright.r{{r}} {
 	top: 0px;
-	height: calc(var(--block) * {{r}});
+	height: calc(var(--block) * {{r+1}});
 }
 div.blocker.bottomleft.r{{r}} {
-	top: calc(var(--block) * {{r + 1}});
-	height: calc(var(--block) * (8 - {{r + 1}}));
+	top: calc(var(--block) * {{r }});
+	height: calc(var(--block) * (8 - {{r }}));
 }
 div.blocker.bottomright.r{{r}} {
-	top: calc(var(--block) * {{r + 1}});
-	height: calc(var(--block) * (8 - {{r + 1}}));
+	top: calc(var(--block) * {{r }});
+	height: calc(var(--block) * (8 - {{r }}));
 }
 {% endfor %}
 
@@ -250,7 +250,7 @@ div.blocker.bottomright.r{{r}} {
 
 {% for r in range(0,8) %}
 	{% for c in range(1,8) %}
-		input.ar{{r}}:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.left.col{{c+1}} > div.left.r{{r}} {
+		input.ar{{r}}:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.left.col{{c}} > div.left.r{{r}} {
 			display: inline-block;
 		}
 	{% endfor %}
@@ -258,7 +258,7 @@ div.blocker.bottomright.r{{r}} {
 
 {% for r in range(0,8) %}
 	{% for c in range(0,7) %}
-		input.ar{{r}}:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.right.col{{c-1}} > div.right.r{{r}} {
+		input.ar{{r}}:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.right.col{{c}} > div.right.r{{r}} {
 			display: inline-block;
 		}
 	{% endfor %}
@@ -266,7 +266,7 @@ div.blocker.bottomright.r{{r}} {
 
 {% for c in range(0,8) %}
 	{% for r in range(1,8) %}
-		input.ac{{c}}:checked ~ input.c{{c}}.r{{r}}:checked ~ div.blocker.top.row{{r+1}} > div.top.c{{c}} {
+		input.ac{{c}}:checked ~ input.c{{c}}.r{{r}}:checked ~ div.blocker.top.row{{r}} > div.top.c{{c}} {
 			display: inline-block;
 		}
 	{% endfor %}
@@ -274,7 +274,7 @@ div.blocker.bottomright.r{{r}} {
 
 {% for c in range(0,8) %}
 	{% for r in range(0,7) %}
-		input.ac{{c}}:checked ~ input.c{{c}}.r{{r}}:checked ~ div.blocker.bottom.row{{r-1}} > div.bottom.c{{c}} {
+		input.ac{{c}}:checked ~ input.c{{c}}.r{{r}}:checked ~ div.blocker.bottom.row{{r}} > div.bottom.c{{c}} {
 			display: inline-block;
 		}
 	{% endfor %}
