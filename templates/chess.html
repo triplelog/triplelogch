@@ -395,16 +395,16 @@ label.black.clock:Not(.end) {
 .black.clock.end:checked ~ div.black.clock .end {
 	display: none;
 }
-.white.clock:Not(.end):checked ~ .black.clock.end:checked ~ div.white.clock > div.animator {
+.white.clock:Not(.end):checked ~ .black.clock:Not(.end):checked ~ div.white.clock > div.animator {
 	animation: timer2 var(--t) steps(var(--s)) forwards;
 }
 .white.clock.end:checked ~ .black.clock:Not(.end):checked ~ div.black.clock > div.animator {
 	animation: timer2 var(--t) steps(var(--s)) forwards;
 }
-.black.clock:Not(.end):checked ~ div.black.clock > div.animator {
+.white.clock.end:checked ~ .black.clock.end:checked ~ div.white.clock > div.animator {
 	animation: timer2 var(--t) steps(var(--s)) forwards;
 }
-.black.clock.end:Not(.start):checked ~ div.white.clock > div.animator {
+.white.clock:Not(.end):checked ~ .black.clock.end:checked ~ div.black.clock > div.animator {
 	animation: timer2 var(--t) steps(var(--s)) forwards;
 }
 </style>
@@ -417,7 +417,7 @@ label.black.clock:Not(.end) {
 	<input type="radio" name="wc" id="wce{{i}}" class="white clock end"></input>
 			
 {% endfor %}
-<input type="radio" name="bc" id="bc-1" class="black clock start end" checked></input>
+<input type="radio" name="bc" id="bc-1" class="black clock start" checked></input>
 {% for i in range(0,601) %}
 	<input type="radio" name="bc" id="bc{{i}}" class="black clock"></input>
 	<input type="radio" name="bc" id="bce{{i}}" class="black clock end"></input>
