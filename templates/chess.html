@@ -359,6 +359,11 @@ div.animator {
 	--s: {{i}};
 	top: calc(-{{i}} * var(--block));
 }
+#wce{{i}}:checked ~ div.white.clock > div.animator{
+	--t: {{i}}s;
+	--s: {{i}};
+	top: calc(-{{i}} * var(--block));
+}
 {% endfor %}
 {% for i in range(0,601) %}
 #bc{{i}}:checked ~ div.black.clock > div.animator{
@@ -366,11 +371,28 @@ div.animator {
 	--s: {{i}};
 	top: calc(-{{i}} * var(--block));
 }
+#bce{{i}}:checked ~ div.black.clock > div.animator{
+	--t: {{i}}s;
+	--s: {{i}};
+	top: calc(-{{i}} * var(--block));
+}
 {% endfor %}
-.black.clock:checked ~ div.white.clock > div.animator {
+.white.clock:Not(.end):checked ~ div.white.clock > .end {
+	display: none;
+}
+.white.clock.end:checked ~ div.white.clock > label:Not(.end) {
+	display: none;
+}
+.black.clock:Not(.end):checked ~ div.black.clock > .end {
+	display: none;
+}
+.black.clock.end:checked ~ div.black.clock > label:Not(.end) {
+	display: none;
+}
+.white.clock:Not(.end):checked ~ div.white.clock > div.animator {
 	animation: timer2 var(--t) steps(var(--s)) forwards;
 }
-.white.clock:checked ~ div.black.clock > div.animator {
+.black.clock:Not(.end):checked ~ div.black.clock > div.animator {
 	animation: timer2 var(--t) steps(var(--s)) forwards;
 }
 </style>
@@ -379,17 +401,20 @@ div.animator {
 
 
 {% for i in range(0,601) %}
-	<input type="radio" name="clock" id="wc{{i}}" class="white clock"></input>
+	<input type="radio" name="wc" id="wc{{i}}" class="white clock"></input>
+	<input type="radio" name="wc" id="wce{{i}}" class="white clock end"></input>
 			
 {% endfor %}
 {% for i in range(0,601) %}
-	<input type="radio" name="clock" id="bc{{i}}" class="black clock"></input>
+	<input type="radio" name="bc" id="bc{{i}}" class="black clock"></input>
+	<input type="radio" name="bc" id="bce{{i}}" class="black clock end"></input>
 			
 {% endfor %}
 <div class="white clock">
 	<div class="white animator">
 		{% for i in range(0,601) %}
 			<label for="wc{{i}}" class="white clock">{{i}}</label>
+			<label for="wce{{i}}" class="white clock end">{{i}}</label>
 		{% endfor %}
 	</div>
 </div>
@@ -397,6 +422,7 @@ div.animator {
 	<div class="black animator">
 		{% for i in range(0,601) %}
 			<label for="bc{{i}}" class="black clock">{{i}}</label>
+			<label for="bce{{i}}" class="black clock end">{{i}}</label>
 		{% endfor %}
 	</div>
 </div>
