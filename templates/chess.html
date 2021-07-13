@@ -27,7 +27,7 @@ label {
 	height: var(--block);
 	position: absolute;
 	background: transparent;
-	z-index:2;
+	z-index:8;
 	font-size: 1.5rem;
 	line-height: 1.5rem;
 	text-align:center;
@@ -363,6 +363,7 @@ input.rook.ar{{r}}:checked ~ span > span > label.r{{r}} {
 	background: #CCC;
 	color: red;
 	opacity: 0.5;
+	z-index: 2;
 }
 {% endfor %}
 {% for c in range(0,8) %}
@@ -371,6 +372,7 @@ input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	background: #CCC;
 	color: red;
 	opacity: 0.5;
+	z-index: 2;
 }
 {% endfor %}
 
@@ -615,6 +617,16 @@ div.animator {
 	{% for r in range(0,8) %}<div class="blocker bottomleft r{{r}} c{{c}}"></div>{% endfor %}
 	</div>
 	<div class="blocker right col col{{c}}">
+	{% for r in range(0,8) %}<div class="blocker right r{{r}} c{{c}}"></div>{% endfor %}
+	{% for r in range(0,8) %}<div class="blocker topright r{{r}} c{{c}}"></div>{% endfor %}
+	{% for r in range(0,8) %}<div class="blocker bottomright r{{r}} c{{c}}"></div>{% endfor %}
+	</div>
+	<div class="blocker pe left col col{{c}}">
+	{% for r in range(0,8) %}<div class="blocker left r{{r}} c{{c}}"></div>{% endfor %}
+	{% for r in range(0,8) %}<div class="blocker topleft r{{r}} c{{c}}"></div>{% endfor %}
+	{% for r in range(0,8) %}<div class="blocker bottomleft r{{r}} c{{c}}"></div>{% endfor %}
+	</div>
+	<div class="blocker pe right col col{{c}}">
 	{% for r in range(0,8) %}<div class="blocker right r{{r}} c{{c}}"></div>{% endfor %}
 	{% for r in range(0,8) %}<div class="blocker topright r{{r}} c{{c}}"></div>{% endfor %}
 	{% for r in range(0,8) %}<div class="blocker bottomright r{{r}} c{{c}}"></div>{% endfor %}
