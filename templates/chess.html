@@ -362,10 +362,10 @@ div.cover {
 }
 {% for i in range(0,601) %}
 #wc{{i}}:checked ~ div.white.clock > div.cover{
-	top: calc(-{{600 - i}} * var(--block));
+	top: calc({{600 - i}} * var(--block));
 }
 #wce{{i}}:checked ~ div.white.clock > div.cover{
-	top: calc(-{{600 - i}} * var(--block));
+	top: calc({{600 - i}} * var(--block));
 }
 {% endfor %}
 {% for i in range(0,601) %}
