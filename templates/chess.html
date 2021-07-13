@@ -191,7 +191,7 @@ div.blocker.bottomright.r{{r}} {
 
 {% for r in range(1,8) %}
 	{% for c in range(1,8) %}
-		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.left.col{{c+1}} > div.topleft.r{{r+1}} {
+		input.a.nd{{r-c}}:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.left.col{{c+1}} > div.topleft.r{{r+1}} {
 			display: inline-block;
 		}
 	{% endfor %}
@@ -199,21 +199,21 @@ div.blocker.bottomright.r{{r}} {
 {% for r in range(1,8) %}
 	{% for c in range(0,7) %}
 		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.right.col{{c-1}} > div.topright.r{{r+1}} {
-			display: inline-block;
+			/*display: inline-block;*/
 		}
 	{% endfor %}
 {% endfor %}
 {% for r in range(0,7) %}
 	{% for c in range(1,8) %}
 		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.left.col{{c+1}} > div.bottomleft.r{{r-1}} {
-			display: inline-block;
+			/*display: inline-block;*/
 		}
 	{% endfor %}
 {% endfor %}
 {% for r in range(0,7) %}
 	{% for c in range(0,7) %}
 		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.right.col{{c-1}} > div.bottomright.r{{r-1}} {
-			display: inline-block;
+			/*display: inline-block;*/
 		}
 	{% endfor %}
 {% endfor %}
@@ -236,25 +236,38 @@ div.blocker.bottomright.r{{r}} {
 {% for c in range(0,8) %}
 	{% for cc in range(c,8) %}
 		input.ac{{c}}:checked ~ div.blocker.left.col{{cc}} {
-			display: none !important;
+			display: none;
 		}
 	{% endfor %}
 {% endfor %}
 {% for c in range(0,8) %}
 	{% for cc in range(0,c) %}
 		input.ac{{c}}:checked ~ div.blocker.right.col{{cc}} {
-			display: none !important;
+			display: none;
 		}
+	{% endfor %}
+{% endfor %}
+{% for r in range(0,8) %}
+	{% for rr in range(r,8) %}
+	input.ar{{r}}:checked ~ div.blocker.top.row{{rr+1}} {
+		display: none;
+	}
+	{% endfor %}
+{% endfor %}
+{% for r in range(0,8) %}
+	{% for rr in range(0,r) %}
+	input.ar{{r}}:checked ~ div.blocker.bottom.row{{rr}} {
+		display: none;
+	}
 	{% endfor %}
 {% endfor %}
 
 
 
 
-
 {% for r in range(0,8) %}
 	{% for c in range(1,8) %}
-		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.left.col{{c+1}} > div.left.r{{r}} {
+		input.ar{{r}}:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.left.col{{c+1}} > div.left.r{{r}} {
 			display: inline-block;
 		}
 	{% endfor %}
@@ -262,7 +275,7 @@ div.blocker.bottomright.r{{r}} {
 
 {% for r in range(0,8) %}
 	{% for c in range(0,7) %}
-		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.right.col{{c-1}} > div.right.r{{r}} {
+		input.ar{{r}}:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.right.col{{c-1}} > div.right.r{{r}} {
 			display: inline-block;
 		}
 	{% endfor %}
@@ -270,33 +283,20 @@ div.blocker.bottomright.r{{r}} {
 
 {% for c in range(0,8) %}
 	{% for r in range(1,8) %}
-		input.a:checked ~ input.c{{c}}.r{{r}}:checked ~ div.blocker.top.row{{r+1}} > div.top.c{{c}} {
+		input.ac{{c}}:checked ~ input.c{{c}}.r{{r}}:checked ~ div.blocker.top.row{{r+1}} > div.top.c{{c}} {
 			display: inline-block;
 		}
-	{% endfor %}
-{% endfor %}
-{% for r in range(0,8) %}
-	{% for rr in range(r,8) %}
-	input.ar{{r}}:checked ~ div.blocker.top.row{{rr+1}} {
-		display: none !important;
-	}
 	{% endfor %}
 {% endfor %}
 
 {% for c in range(0,8) %}
 	{% for r in range(0,7) %}
-		input.a:checked ~ input.c{{c}}.r{{r}}:checked ~ div.blocker.bottom.row{{r-1}} > div.bottom.c{{c}} {
+		input.ac{{c}}:checked ~ input.c{{c}}.r{{r}}:checked ~ div.blocker.bottom.row{{r-1}} > div.bottom.c{{c}} {
 			display: inline-block;
 		}
 	{% endfor %}
 {% endfor %}
-{% for r in range(0,8) %}
-	{% for rr in range(0,r) %}
-	input.ar{{r}}:checked ~ div.blocker.bottom.row{{rr}} {
-		display: none !important;
-	}
-	{% endfor %}
-{% endfor %}
+
 
 
 {# pawns #}
@@ -342,7 +342,7 @@ input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 {% for i in range(0,32) %}
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
-			<input type="radio" name="p{{i}}" id="pa{{i}}-{{r}}{{c}}" class="a a{{i}} ar{{r}} ac{{c}} {{ types[i] | safe}}"></input>
+			<input type="radio" name="p{{i}}" id="pa{{i}}-{{r}}{{c}}" class="a nd{{r-c}} pd{{r+c}} a{{i}} ar{{r}} ac{{c}} {{ types[i] | safe}}"></input>
 			
 		{% endfor %}
 	{% endfor %}
@@ -372,9 +372,7 @@ input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 {% for c in range(0,8) %}
 	<div class="blocker left col col{{c}}">
 	{% for r in range(0,8) %}<div class="blocker left r{{r}} c{{c}}"></div>{% endfor %}
-	{% for r in range(0,8) %}<div class="blocker topleft r{{r}} c{{c}}">
-		<div style="position:relative; right:0px; bottom:0px;width:var(--block); height:var(--block);background:green;pointer-events:all;"></div>
-	</div>{% endfor %}
+	{% for r in range(0,8) %}<div class="blocker topleft r{{r}} c{{c}}"></div>{% endfor %}
 	{% for r in range(0,8) %}<div class="blocker bottomleft r{{r}} c{{c}}"></div>{% endfor %}
 	</div>
 	<div class="blocker right col col{{c}}">
