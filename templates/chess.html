@@ -426,13 +426,15 @@ div.animator {
 	pointer-events: none;
 }
 .white.clock.end:checked ~ .black.clock:Not(.end):checked ~ .paa.white {
-	pointer-events: none;
+	--pe: none;
+	pointer-events: var(--pe);
 }
 .white.clock.end:checked ~ .black.clock.end:checked ~ .paa.black {
 	pointer-events: none;
 }
 .white.clock:Not(.end):checked ~ .black.clock.end:checked ~ .paa.white {
-	pointer-events: none;
+	--pe: none;
+	pointer-events: var(--pe);
 }
 #wc600 {
 	display: inline-block;
@@ -496,6 +498,7 @@ div.animator {
 		</div>
 	</div>
 </div>
+
 
 {% for i in range(0,32) %}
 	{% for r in range(0,8) %}
