@@ -328,7 +328,7 @@ div.clock {
 	width: calc(2 * var(--block));
 	height: calc(1 * var(--block));
 	border: 1px solid black;
-	overflow: none;
+	overflow: hidden;
 }
 label.clock {
 	position: relative;
@@ -338,20 +338,27 @@ label.clock {
 }
 div.animator {
 	position: absolute;
-	left:0px;
+	right:0px;
 	top:0px;
+}
+@keyframes timer {
+	to { right: calc(-1 * var(--block));}
+}
+#whiteTurn:checked ~ div.white.clock > .animator {
+	animation: timer 600s steps(600) infinite;
 }
 </style>
 </head>
 <body>
 
-{% for i in range(0,600) %}
-	<input type="radio" name="wc" id="wc{{i}}}" class="white clock"></input>
+<input type="radio" name="turn" id="whiteTurn"></input>
+{% for i in range(0,601) %}
+	<input type="radio" name="wc" id="wc{{i}}}" class="white clock" {% if i == 600 %}checked{% endif %}></input>
 			
 {% endfor %}
 <div class="white clock">
 	<div class="white animator">
-		{% for i in range(0,600) %}
+		{% for i in range(0,601) %}
 			<label for="wc{{i}}" class="white clock">{{i}}</label>
 		{% endfor %}
 	</div>
