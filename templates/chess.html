@@ -41,6 +41,27 @@ label.c{{c}} {
 label.g {
 	background: #BBB;
 }
+div.board {
+	display: none;
+	width: var(--block);
+	height: var(--block);
+	position: absolute;
+	background: #DDD;
+	z-index: 1;
+}
+{% for r in range(0,8) %}
+div.board.r{{r}} {
+	top: calc(var(--block) * {{r}});
+}
+{% endfor %}
+{% for c in range(0,8) %}
+div.board.c{{c}} {
+	left: calc(var(--block) * {{c}});
+}
+{% endfor %}
+div.board.g {
+	background: #BBB;
+}
 label.off {
 	top: calc(var(--block) * -2);
 	left: calc(var(--block) * -2);
@@ -521,6 +542,11 @@ div.animator {
 </div>
 
 <div id="bc">
+{% for r in range(0,8) %}
+	{% for c in range(0,8) %}
+		<div class="board r{{r}} c{{c}} {% if (r+c) % 2 == 0 %}g{% endif %}"></div>
+	{% endfor %}
+{% endfor %}
 {% for i in range(0,32) %}
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
@@ -532,7 +558,7 @@ div.animator {
 	{% for r in range(0,8) %}
 		<span class="ar{{r}}">
 		{% for c in range(0,8) %}
-			<label for="pb{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
+			<label for="pb{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}}">{{ pieces[i] | safe}}</label>
 		{% endfor %}
 		</span>
 	{% endfor %}
@@ -543,7 +569,7 @@ div.animator {
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
 			<input type="radio" name="p{{i}}" class="r{{r}} c{{c}} {{ types[i] | safe}}" id="pb{{i}}-{{r}}{{c}}" {% if initial[i] == r*8 + c %}checked{% endif %}></input>
-			<label for="pa{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} paa {{ types[i] | safe}} {% if (r + c) % 2 == 0 %}g{%endif%}">{{ pieces[i] | safe}}</label>
+			<label for="pa{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} paa {{ types[i] | safe}}">{{ pieces[i] | safe}}</label>
 			<label for="po{{i}}" class="off r{{r}} c{{c}}">{{ pieces[i] | safe}}</label>
 		{% endfor %}
 	{% endfor %}
