@@ -192,9 +192,39 @@ div.blocker.bottomright.r{{r}} {
 		}
 	{% endfor %}
 {% endfor %}
+{% for r in range(1,8) %}
+	{% for c in range(0,7) %}
+		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.right.col{{c-1}} > div.topright.r{{r+1}} {
+			display: inline-block;
+		}
+	{% endfor %}
+{% endfor %}
+{% for r in range(0,7) %}
+	{% for c in range(1,8) %}
+		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.left.col{{c+1}} > div.bottomleft.r{{r-1}} {
+			display: inline-block;
+		}
+	{% endfor %}
+{% endfor %}
+{% for r in range(0,7) %}
+	{% for c in range(0,7) %}
+		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.right.col{{c-1}} > div.bottomright.r{{r-1}} {
+			display: inline-block;
+		}
+	{% endfor %}
+{% endfor %}
+
+
 {% for r in range(0,8) %}
 	{% for rr in range(r,8) %}
-		input.ar{{r}}:checked ~ div.blocker.left.col > div.topleft.r{{rr+1}} {
+		input.ar{{r}}:checked ~ div.blocker.left.col > div.r{{rr+1}} {
+			display: none !important;
+		}
+	{% endfor %}
+{% endfor %}
+{% for r in range(0,8) %}
+	{% for rr in range(r,8) %}
+		input.ar{{r}}:checked ~ div.blocker.right.col > div.r{{rr+1}} {
 			display: none !important;
 		}
 	{% endfor %}
@@ -206,21 +236,6 @@ div.blocker.bottomright.r{{r}} {
 		}
 	{% endfor %}
 {% endfor %}
-
-{% for r in range(1,8) %}
-	{% for c in range(0,7) %}
-		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.right.col{{c-1}} > div.topright.r{{r+1}} {
-			display: inline-block;
-		}
-	{% endfor %}
-{% endfor %}
-{% for r in range(0,8) %}
-	{% for rr in range(r,8) %}
-		input.ar{{r}}:checked ~ div.blocker.right.col > div.topright.r{{rr+1}} {
-			display: none !important;
-		}
-	{% endfor %}
-{% endfor %}
 {% for c in range(0,8) %}
 	{% for cc in range(0,c) %}
 		input.ac{{c}}:checked ~ div.blocker.right.col{{cc}} {
@@ -228,6 +243,10 @@ div.blocker.bottomright.r{{r}} {
 		}
 	{% endfor %}
 {% endfor %}
+
+
+
+
 
 {% for r in range(0,8) %}
 	{% for c in range(1,8) %}
