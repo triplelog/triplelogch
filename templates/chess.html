@@ -217,21 +217,21 @@ div.blocker.bottomright.r{{r}} {
 
 {% for r in range(0,8) %}
 	{% for rr in range(r,8) %}
-		input.ar{{r}}:checked ~ div.blocker.left.col > div.r{{rr+1}} {
+		input.ar{{r}}:checked ~ div.blocker.left.col > div.r{{rr}} {
 			display: none !important;
 		}
 	{% endfor %}
 {% endfor %}
 {% for r in range(0,8) %}
 	{% for rr in range(r,8) %}
-		input.ar{{r}}:checked ~ div.blocker.right.col > div.r{{rr+1}} {
+		input.ar{{r}}:checked ~ div.blocker.right.col > div.r{{rr}} {
 			display: none !important;
 		}
 	{% endfor %}
 {% endfor %}
 {% for c in range(0,8) %}
 	{% for cc in range(c,8) %}
-		input.ac{{c}}:checked ~ div.blocker.left.col{{cc+1}} {
+		input.ac{{c}}:checked ~ div.blocker.left.col{{cc}} {
 			display: none !important;
 		}
 	{% endfor %}
