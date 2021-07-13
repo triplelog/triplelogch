@@ -26,7 +26,7 @@ label {
 	width: var(--block);
 	height: var(--block);
 	position: absolute;
-	background: transparent;
+	background: #DDD;
 	z-index:8;
 	font-size: 1.5rem;
 	line-height: 1.5rem;
@@ -42,7 +42,9 @@ label.c{{c}} {
 	left: calc(var(--block) * {{c}});
 }
 {% endfor %}
-
+label.g {
+	background: #BBB;
+}
 div.board {
 	display: inline-block;
 	width: var(--block);
@@ -591,7 +593,7 @@ div.animator {
 	{% for r in range(0,8) %}
 		<span class="ar{{r}}">
 		{% for c in range(0,8) %}
-			<label for="pb{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}}">{{ pieces[i] | safe}}</label>
+			<label for="pb{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}}" {% if (r+c) % 2 == 0 %}g{% endif %}>{{ pieces[i] | safe}}</label>
 		{% endfor %}
 		</span>
 	{% endfor %}
@@ -602,8 +604,8 @@ div.animator {
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
 			<input type="radio" name="p{{i}}" class="r{{r}} c{{c}} {{ types[i] | safe}}" id="pb{{i}}-{{r}}{{c}}" {% if initial[i] == r*8 + c %}checked{% endif %}></input>
-			<label for="pa{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} paa {{ types[i] | safe}}">{{ pieces[i] | safe}}</label>
-			<label for="po{{i}}" class="off r{{r}} c{{c}}">{{ pieces[i] | safe}}</label>
+			<label for="pa{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} paa {{ types[i] | safe}}" {% if (r+c) % 2 == 0 %}g{% endif %}>{{ pieces[i] | safe}}</label>
+			<label for="po{{i}}" class="off r{{r}} c{{c}}" {% if (r+c) % 2 == 0 %}g{% endif %}>{{ pieces[i] | safe}}</label>
 		{% endfor %}
 	{% endfor %}
 	
