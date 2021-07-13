@@ -398,6 +398,12 @@ label.black.clock:Not(.end) {
 .white.clock:Not(.end):checked ~ div.white.clock label:Not(.end) {
 	display: none;
 }
+.white.clock:Not(.end).start:checked ~ div.white.clock label:Not(.end) {
+	display: inline-block;
+}
+.white.clock:Not(.end).start:checked ~ div.white.clock .end {
+	display: none;
+}
 .black.clock.end:checked ~ div.black.clock label:Not(.end) {
 	display: inline-block;
 }
