@@ -178,31 +178,35 @@ div.blocker.bottomright.r{{r}} {
 {% endfor %}
 {% for r in range(0,8) %}
 	{% for rr in range(r,8) %}
-		{% for c in range(0,8) %}
-			input.ar{{r}}:checked ~ div.blocker.topleft.r{{rr+1}}.c{{c}} {
-				display: none !important;
-			}
-		{% endfor %}
+		input.ar{{r}}:checked ~ div.blocker.topleft.r{{rr+1}} {
+			display: none !important;
+		}
 	{% endfor %}
 {% endfor %}
 {% for c in range(0,8) %}
 	{% for cc in range(c,8) %}
-		{% for r in range(0,8) %}
-			input.ac{{c}}:checked ~ div.blocker.topleft.r{{r}}.c{{cc+1}} {
-				display: none !important;
-			}
-		{% endfor %}
+		input.ac{{c}}:checked ~ div.blocker.topleft.c{{cc+1}} {
+			display: none !important;
+		}
 	{% endfor %}
 {% endfor %}
 
 {% for r in range(0,8) %}
 	{% for c in range(1,8) %}
-		{% for cc in range(0,c) %}
-		input.ac{{c}}:checked ~ input.r{{r}}.c{{cc}}:checked ~ div.blocker.left.r{{r}}.c{{cc+1}} {
+		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.left.r{{r}}.c{{c+1}} {
 			display: inline-block;
 		}
-		{% endfor %}
 	{% endfor %}
+{% endfor %}
+{% for c in range(0,8) %}
+	{% for cc in range(c,8) %}
+	input.ac{{c}}:checked ~ div.blocker.left.c{{cc+1}} {
+		display: none !important;
+	}
+	{% endfor %}
+{% endfor %}
+
+{% for r in range(0,8) %}
 	{% for c in range(0,7) %}
 		{% for cc in range(c+1,8) %}
 		input.ac{{c}}:checked ~ input.r{{r}}.c{{cc}}:checked ~ div.blocker.right.r{{r}}.c{{cc-1}} {
@@ -211,6 +215,7 @@ div.blocker.bottomright.r{{r}} {
 		{% endfor %}
 	{% endfor %}
 {% endfor %}
+
 {% for c in range(0,8) %}
 	{% for r in range(1,8) %}
 		{% for rr in range(0,r) %}
