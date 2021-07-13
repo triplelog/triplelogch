@@ -154,11 +154,13 @@ div.blocker.right {
 }
 div.blocker.top {
 	width: var(--block);
-	background: repeating-linear-gradient(#DDD, #DDD 2rem, #BBB 2rem, #BBB 4rem);
+	background: repeating-linear-gradient(#DDD, #DDD var(--block), #BBB var(--block), #BBB calc(2 * var(--block)));
 }
-div.blocker.bottom {
-	width: var(--block);
+{% for c in [0,2,4,6] %}
+div.blocker.top.c{{c}} {
+	background: repeating-linear-gradient(#BBB, #BBB var(--block), #DDD var(--block), #DDD calc(2 * var(--block)));
 }
+{% endfor %}
 div.blocker.one {
 	width: var(--block);
 	height: var(--block);
