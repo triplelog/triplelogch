@@ -607,7 +607,10 @@ div.animator {
 {% endfor %}
 {% for r in range(0,8) %}
 	<div class="blocker top row row{{r}}">
-	{% for c in range(0,8) %}<div class="blocker pe top r{{r}} c{{c}}"></div><div class="blocker top r{{r}} c{{c}}"></div>{% endfor %}
+	{% for c in range(0,8) %}<div class="blocker top r{{r}} c{{c}}"></div>{% endfor %}
+	</div>
+	<div class="blocker pe top row row{{r}}">
+	{% for c in range(0,8) %}<div class="blocker pe top r{{r}} c{{c}}"></div>{% endfor %}
 	</div>
 	<div class="blocker bottom row row{{r}}">
 	{% for c in range(0,8) %}<div class="blocker bottom r{{r}} c{{c}}"></div>{% endfor %}
