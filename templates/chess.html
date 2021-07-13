@@ -365,6 +365,7 @@ div.animator {
 #wc{{i}}:checked ~ div.white.clock > div.animator{
 	--t: {{i}}s;
 	--s: {{i}};
+	top: calc(-{{i}} * var(--block));
 }
 {% endfor %}
 #whiteTurn:checked ~ div.white.clock > div.animator {
