@@ -94,6 +94,22 @@ div.blocker {
 	top:0px;
 	background: red;
 }
+div.blocker.row {
+	display: inline-block;
+	z-index: 7;
+	position: absolute;
+	left:0px;
+	top:0px;
+	background: transparent;
+}
+div.blocker.col {
+	display: inline-block;
+	z-index: 7;
+	position: absolute;
+	left:0px;
+	top:0px;
+	background: transparent;
+}
 div.blocker.left {
 	height: var(--block);
 }
@@ -171,21 +187,21 @@ div.blocker.bottomright.r{{r}} {
 
 {% for r in range(1,8) %}
 	{% for c in range(1,8) %}
-		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.topleft.r{{r+1}}.c{{c+1}} {
+		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.left.col{{c+1}} > div.topleft.r{{r+1}} {
 			display: inline-block;
 		}
 	{% endfor %}
 {% endfor %}
 {% for r in range(0,8) %}
 	{% for rr in range(r,8) %}
-		input.ar{{r}}:checked ~ div.blocker.topleft.r{{rr+1}} {
+		input.ar{{r}}:checked ~ div.blocker.left.col > div.topleft.r{{rr+1}} {
 			display: none !important;
 		}
 	{% endfor %}
 {% endfor %}
 {% for c in range(0,8) %}
 	{% for cc in range(c,8) %}
-		input.ac{{c}}:checked ~ div.blocker.topleft.c{{cc+1}} {
+		input.ac{{c}}:checked ~ div.blocker.left.col{{cc+1}} {
 			display: none !important;
 		}
 	{% endfor %}
@@ -193,14 +209,14 @@ div.blocker.bottomright.r{{r}} {
 
 {% for r in range(0,8) %}
 	{% for c in range(1,8) %}
-		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.left.r{{r}}.c{{c+1}} {
+		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.left.col{{c+1}} > div.left.r{{r}} {
 			display: inline-block;
 		}
 	{% endfor %}
 {% endfor %}
 {% for c in range(0,8) %}
 	{% for cc in range(c,8) %}
-	input.ac{{c}}:checked ~ div.blocker.left.c{{cc+1}} {
+	input.ac{{c}}:checked ~ div.blocker.left.col{{cc+1}} {
 		display: none !important;
 	}
 	{% endfor %}
@@ -208,14 +224,14 @@ div.blocker.bottomright.r{{r}} {
 
 {% for r in range(0,8) %}
 	{% for c in range(0,7) %}
-		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.right.r{{r}}.c{{c-1}} {
+		input.a:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.right.col{{c-1}} > div.right.r{{r}} {
 			display: inline-block;
 		}
 	{% endfor %}
 {% endfor %}
 {% for c in range(0,8) %}
 	{% for cc in range(0,c) %}
-	input.ac{{c}}:checked ~ div.blocker.right.c{{cc}} {
+	input.ac{{c}}:checked ~ div.blocker.right.col{{cc}} {
 		display: none !important;
 	}
 	{% endfor %}
@@ -223,14 +239,14 @@ div.blocker.bottomright.r{{r}} {
 
 {% for c in range(0,8) %}
 	{% for r in range(1,8) %}
-		input.a:checked ~ input.c{{c}}.r{{r}}:checked ~ div.blocker.top.c{{c}}.r{{r+1}} {
+		input.a:checked ~ input.c{{c}}.r{{r}}:checked ~ div.blocker.top.row{{r+1}} > div.top.c{{c}} {
 			display: inline-block;
 		}
 	{% endfor %}
 {% endfor %}
 {% for r in range(0,8) %}
 	{% for rr in range(r,8) %}
-	input.ar{{r}}:checked ~ div.blocker.top.r{{rr+1}} {
+	input.ar{{r}}:checked ~ div.blocker.top.row{{rr+1}} {
 		display: none !important;
 	}
 	{% endfor %}
@@ -238,14 +254,14 @@ div.blocker.bottomright.r{{r}} {
 
 {% for c in range(0,8) %}
 	{% for r in range(0,7) %}
-		input.a:checked ~ input.c{{c}}.r{{r}}:checked ~ div.blocker.bottom.c{{c}}.r{{r-1}} {
+		input.a:checked ~ input.c{{c}}.r{{r}}:checked ~ div.blocker.bottom.row{{r-1}} > div.bottom.c{{c}} {
 			display: inline-block;
 		}
 	{% endfor %}
 {% endfor %}
 {% for r in range(0,8) %}
 	{% for rr in range(0,r) %}
-	input.ar{{r}}:checked ~ div.blocker.bottom.r{{rr}} {
+	input.ar{{r}}:checked ~ div.blocker.bottom.row{{rr}} {
 		display: none !important;
 	}
 	{% endfor %}
@@ -322,19 +338,26 @@ input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	
 {% endfor %}
 
-{% for r in range(0,8) %}
-	{% for c in range(0,8) %}
-		<div class="blocker left r{{r}} c{{c}}"></div>
-		<div class="blocker right r{{r}} c{{c}}"></div>
-		<div class="blocker top r{{r}} c{{c}}"></div>
-		<div class="blocker bottom r{{r}} c{{c}}"></div>
-		<div class="blocker topleft r{{r}} c{{c}}"></div>
-		<div class="blocker topright r{{r}} c{{c}}"></div>
-		<div class="blocker bottomleft r{{r}} c{{c}}"></div>
-		<div class="blocker bottomright r{{r}} c{{c}}"></div>
-	{% endfor %}
+{% for c in range(0,8) %}
+	<div class="blocker left col col{{c}}">
+	{% for r in range(0,8) %}<div class="blocker left r{{r}} c{{c}}"></div>{% endfor %}
+	{% for r in range(0,8) %}<div class="blocker topleft r{{r}} c{{c}}"></div>{% endfor %}
+	{% for r in range(0,8) %}<div class="blocker bottomleft r{{r}} c{{c}}"></div>{% endfor %}
+	</div>
+	<div class="blocker right col col{{c}}">
+	{% for r in range(0,8) %}<div class="blocker right r{{r}} c{{c}}"></div>{% endfor %}
+	{% for r in range(0,8) %}<div class="blocker topright r{{r}} c{{c}}"></div>{% endfor %}
+	{% for r in range(0,8) %}<div class="blocker bottomright r{{r}} c{{c}}"></div>{% endfor %}
+	</div>
 {% endfor %}
-
+{% for r in range(0,8) %}
+	<div class="blocker top row row{{r}}">
+	{% for c in range(0,8) %}<div class="blocker top r{{r}} c{{c}}"></div>{% endfor %}
+	</div>
+	<div class="blocker bottom row row{{r}}">
+	{% for c in range(0,8) %}<div class="blocker bottom r{{r}} c{{c}}"></div>{% endfor %}
+	</div>
+{% endfor %}
 
 </body>
 </html>
