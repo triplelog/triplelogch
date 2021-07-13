@@ -330,6 +330,9 @@ div.clock {
 	border: 1px solid black;
 	overflow: hidden;
 }
+div.black.clock {
+	left: calc(12 * var(--block));
+}
 label.clock {
 	position: relative;
 	width: calc(2 * var(--block));
@@ -346,18 +349,7 @@ div.animator {
 	--s: 600;
 	
 }
-#whiteTurn {
-	position: absolute;
-	left: calc(10 * var(--block));
-	top: 0px;
-	display: inline-block;
-}
-#blackTurn {
-	position: absolute;
-	left: calc(11 * var(--block));
-	top: 0px;
-	display: inline-block;
-}
+
 @keyframes timer2 {
 	to { top: 0rem;}
 }
@@ -368,17 +360,30 @@ div.animator {
 	top: calc(-{{i}} * var(--block));
 }
 {% endfor %}
-#whiteTurn:checked ~ div.white.clock > div.animator {
+{% for i in range(0,601) %}
+#bc{{i}}:checked ~ div.black.clock > div.animator{
+	--t: {{i}}s;
+	--s: {{i}};
+	top: calc(-{{i}} * var(--block));
+}
+{% endfor %}
+.white.clock:checked ~ div.white.clock > div.animator {
+	animation: timer2 var(--t) steps(var(--s)) forwards;
+}
+.black.clock:checked ~ div.black.clock > div.animator {
 	animation: timer2 var(--t) steps(var(--s)) forwards;
 }
 </style>
 </head>
 <body>
 
-<input type="radio" name="turn" id="whiteTurn"></input>
-<input type="radio" name="turn" id="blackTurn"></input>
+
 {% for i in range(0,601) %}
-	<input type="radio" name="wc" id="wc{{i}}" class="white clock" {% if i == 600 %}checked{% endif %}></input>
+	<input type="radio" name="clock" id="wc{{i}}" class="white clock"></input>
+			
+{% endfor %}
+{% for i in range(0,601) %}
+	<input type="radio" name="clock" id="bc{{i}}" class="black clock"></input>
 			
 {% endfor %}
 <div class="white clock">
@@ -388,6 +393,15 @@ div.animator {
 		{% endfor %}
 	</div>
 </div>
+<div class="black clock">
+	<div class="black animator">
+		{% for i in range(0,601) %}
+			<label for="bc{{i}}" class="black clock">{{i}}</label>
+		{% endfor %}
+	</div>
+</div>
+
+
 {% for i in range(0,32) %}
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
