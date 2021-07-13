@@ -355,7 +355,12 @@ div.animator {
 @keyframes timer2 {
 	to { top: 0rem;}
 }
-
+{% for i in range(0,601) %}
+#wc{{i}}:checked ~ div.white.clock > div.animator{
+	--t: {{i}}s;
+	--s: {{i}};
+}
+{% endfor %}
 #whiteTurn:checked ~ div.white.clock > div.animator {
 	animation: timer2 var(--t) steps(var(--s)) forwards;
 }
@@ -364,6 +369,7 @@ div.animator {
 <body>
 
 <input type="radio" name="turn" id="whiteTurn"></input>
+<input type="radio" name="turn" id="blackTurn"></input>
 {% for i in range(0,601) %}
 	<input type="radio" name="wc" id="wc{{i}}}" class="white clock" {% if i == 600 %}checked{% endif %}></input>
 			
