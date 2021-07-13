@@ -339,7 +339,7 @@ label.clock {
 div.animator {
 	position: absolute;
 	left:0px;
-	top:0px;
+	top:-12rem;
 	width: calc(2 * var(--block));
 	height: calc(601 * var(--block));
 	
@@ -351,7 +351,7 @@ div.animator {
 	display: inline-block;
 }
 @keyframes timer2 {
-	to { top: -1rem;}
+	to { top: 0rem;}
 }
 #whiteTurn:checked ~ div.white.clock > div.animator {
 	animation: timer2 6s steps(6) forwards;
