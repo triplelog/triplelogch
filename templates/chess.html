@@ -585,7 +585,7 @@ div.animator {
 {% for i in range(0,32) %}
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
-			<input type="radio" name="p{{i}}" id="pa{{i}}-{{r}}{{c}}" class="a nd{{r-c}} pd{{r+c}} a{{i}} ar{{r}} ac{{c}} {{ types[i] | safe}}"></input>
+			<input type="radio" name="p{{i}}" id="pa{{i}}-{{r}}{{c}}" class="a nd{{r-c}} pd{{r+c}} a{{i}} ar{{r}} ac{{c}} {% if (r+c) % 2 == 0 %}g{% endif %} {{ types[i] | safe}}"></input>
 			
 		{% endfor %}
 	{% endfor %}
