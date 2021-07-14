@@ -27,7 +27,7 @@ label {
 	height: var(--block);
 	position: absolute;
 	background: #DDD;
-	z-index:8;
+	z-index:5;
 	font-size: 1.5rem;
 	line-height: 1.5rem;
 	text-align:center;
@@ -114,21 +114,14 @@ input.a{{i}}:checked ~ span.p{{i}} {
 {% endfor %}
 
 
-div.blocker.row.pe {
-	z-index: 27;
-	opacity: 0;
-}
-div.blocker.col.pe {
-	z-index: 27;
-	opacity: 0;
-}
+
 div.blocker {
 	display: none;
 	z-index: 7;
 	position: absolute;
 	left:0px;
 	top:0px;
-	background: transparent;
+	backdrop-filter: grayscale(100%);
 }
 div.blocker.row {
 	display: inline-block;
@@ -160,14 +153,14 @@ div.blocker.top {
 }
 div.blocker.bottom {
 	width: var(--block);
-	background: repeating-linear-gradient(to top, #DDD, #DDD var(--block), #BBB var(--block), #BBB calc(2 * var(--block)));
+	background: repeating-linear-gradient(to top, #BBB, #BBB var(--block), #DDD var(--block), #DDD calc(2 * var(--block)));
 }
 {% for c in [0,2,4,6] %}
 div.blocker.top.c{{c}} {
 	background: repeating-linear-gradient(#BBB, #BBB var(--block), #DDD var(--block), #DDD calc(2 * var(--block)));
 }
 div.blocker.bottom.c{{c}} {
-	background: repeating-linear-gradient(to top, #BBB, #BBB var(--block), #DDD var(--block), #DDD calc(2 * var(--block)));
+	background: repeating-linear-gradient(to top, #DDD, #DDD var(--block), #BBB var(--block), #BBB calc(2 * var(--block)));
 }
 {% endfor %}
 div.blocker.one {
@@ -363,9 +356,8 @@ input.pawn.ar{{r}}:checked ~ span > .ar{{r}} {
 {% for c in range(0,8) %}
 input.pawn.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	display: inline-block;
-	background: #CCC;
-	color: red;
-	opacity: 0.5;
+	border: 1px solid black;
+	color: rgb(0,255,255);
 }
 {% endfor %}
 
@@ -376,18 +368,14 @@ input.rook.a:checked ~ span > span {
 {% for r in range(0,8) %}
 input.rook.ar{{r}}:checked ~ span > span > label.r{{r}} {
 	display: inline-block;
-	background: #CCC;
-	color: red;
-	opacity: 0.5;
+	color: rgb(0,255,255);
 	z-index: 2;
 }
 {% endfor %}
 {% for c in range(0,8) %}
 input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	display: inline-block;
-	background: #CCC;
-	color: red;
-	opacity: 0.5;
+	color: rgb(0,255,255);
 	z-index: 2;
 }
 {% endfor %}
@@ -637,28 +625,12 @@ div.animator {
 	{% for r in range(0,8) %}<div class="blocker topright r{{r}} c{{c}}"></div>{% endfor %}
 	{% for r in range(0,8) %}<div class="blocker bottomright r{{r}} c{{c}}"></div>{% endfor %}
 	</div>
-	<div class="blocker pe left col col{{c}}">
-	{% for r in range(0,8) %}<div class="blocker left r{{r}} c{{c}}"></div>{% endfor %}
-	{% for r in range(0,8) %}<div class="blocker topleft r{{r}} c{{c}}"></div>{% endfor %}
-	{% for r in range(0,8) %}<div class="blocker bottomleft r{{r}} c{{c}}"></div>{% endfor %}
-	</div>
-	<div class="blocker pe right col col{{c}}">
-	{% for r in range(0,8) %}<div class="blocker right r{{r}} c{{c}}"></div>{% endfor %}
-	{% for r in range(0,8) %}<div class="blocker topright r{{r}} c{{c}}"></div>{% endfor %}
-	{% for r in range(0,8) %}<div class="blocker bottomright r{{r}} c{{c}}"></div>{% endfor %}
-	</div>
 {% endfor %}
 {% for r in range(0,8) %}
 	<div class="blocker top row row{{r}}">
 	{% for c in range(0,8) %}<div class="blocker top r{{r}} c{{c}}"></div>{% endfor %}
 	</div>
-	<div class="blocker pe top row row{{r}}">
-	{% for c in range(0,8) %}<div class="blocker top r{{r}} c{{c}}"></div>{% endfor %}
-	</div>
 	<div class="blocker bottom row row{{r}}">
-	{% for c in range(0,8) %}<div class="blocker bottom r{{r}} c{{c}}"></div>{% endfor %}
-	</div>
-	<div class="blocker pe bottom row row{{r}}">
 	{% for c in range(0,8) %}<div class="blocker bottom r{{r}} c{{c}}"></div>{% endfor %}
 	</div>
 	{% for c in range(0,8) %}<div class="blocker one r{{r}} c{{c}}"></div>{% endfor %}
