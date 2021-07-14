@@ -34,6 +34,7 @@ label {
 	box-sizing: border-box;
 	border: 2px solid transparent;
 	--kr: 0;
+	--hr: -3;
 }
 {% for r in range(0,8) %}
 label.r{{r}} {
@@ -374,35 +375,45 @@ input.pawn.ac{{c}}:checked ~ span > span > label.c{{c}} {
 {% for r in range(0,8) %}
 input.knight.ar{{r}}:checked ~ span > .ar{{r - 2}} {
 	display: inline-block;
+	--hr: 2;
 }
 input.knight.ar{{r}}:checked ~ span > .ar{{r - 1}} {
 	display: inline-block;
+	--hr: 1;
 }
 input.knight.ar{{r}}:checked ~ span > .ar{{r - 0}} {
 	display: inline-block;
+	--hr: 0;
 }
 input.knight.ar{{r}}:checked ~ span > .ar{{r + 1}} {
 	display: inline-block;
+	--hr: 1;
 }
 input.knight.ar{{r}}:checked ~ span > .ar{{r + 2}} {
 	display: inline-block;
+	--hr: 2;
 }
 {% endfor %}
 {% for c in range(0,8) %}
 input.knight.ac{{c}}:checked ~ span > span > label.c{{c - 2}} {
 	display: inline-block;
+	z-index: calc(10 - 10 * (1 - var(--hr)) * (1 - var(--hr)) );
 }
 input.knight.ac{{c}}:checked ~ span > span > label.c{{c - 1}} {
 	display: inline-block;
+	z-index: calc(10 - 10 * (2 - var(--hr)) * (2 - var(--hr)) );
 }
 input.knight.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	display: inline-block;
+	z-index: calc(10 - 10 * (0 - var(--hr)) * (0 - var(--hr)) );
 }
 input.knight.ac{{c}}:checked ~ span > span > label.c{{c + 1}} {
 	display: inline-block;
+	z-index: calc(10 - 10 * (2 - var(--hr)) * (2 - var(--hr)) );
 }
 input.knight.ac{{c}}:checked ~ span > span > label.c{{c + 2}} {
 	display: inline-block;
+	z-index: calc(10 - 10 * (1 - var(--hr)) * (1 - var(--hr)) );
 }
 {% endfor %}
 
