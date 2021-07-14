@@ -430,6 +430,12 @@ input.pawn:checked ~ span > span {
 input.pawn:checked ~ input:checked + label + label {
 	--pr: 0;
 }
+input.black.pawn.ar{{4}}:checked ~ input:checked + label + .r{{4}} {
+	--pr: 1;
+}
+input.white.pawn.ar{{3}}:checked ~ input:checked + label + .r{{3}} {
+	--pr: 1;
+}
 {% for r in range(0,8) %}
 input.white.pawn.ar{{r}}:checked ~ span > .ar{{r - 1}} {
 	display: inline-block;
