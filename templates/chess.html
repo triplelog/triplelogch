@@ -157,10 +157,6 @@ div.blocker.one {
 	width: var(--block);
 	height: var(--block);
 }
-div.blocker.one.r5.c7 {
-	display: inline-block;
-	backdrop-filter: greyscale(100%);
-}
 {% for r in range(0,8) %}
 div.blocker.r{{r}} {
 	top: calc(var(--block) * {{r}});
@@ -351,8 +347,8 @@ input.pawn.ar{{r}}:checked ~ span > .ar{{r}} {
 input.pawn.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	display: inline-block;
 	box-sizing: border-box;
-	border: 1px solid black;
-	color: rgb(0,255,255);
+	border: 1px solid rgb(0,245,245);
+	color: rgb(0,245,245);
 }
 {% endfor %}
 
@@ -363,14 +359,16 @@ input.rook.a:checked ~ span > span {
 {% for r in range(0,8) %}
 input.rook.ar{{r}}:checked ~ span > span > label.r{{r}} {
 	display: inline-block;
-	color: rgb(0,255,255);
+	color: rgb(0,245,245);
+	border: 1px solid rgb(0,245,245);
 	z-index: 2;
 }
 {% endfor %}
 {% for c in range(0,8) %}
 input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	display: inline-block;
-	color: rgb(0,255,255);
+	color: rgb(0,245,245);
+	border: 1px solid rgb(20,245,245);
 	z-index: 2;
 }
 {% endfor %}
