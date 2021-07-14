@@ -477,12 +477,12 @@ input.pawn.ac{{c}}:checked ~ input:checked + label + .c{{c + 1}} {
 	z-index: calc(6 * var(--pr));
 }
 {# promotion #}
-input.white.pawn.ar1.ac{{c}}:checked ~ span.p32 > ar0 {
+input.white.pawn.ar1.ac{{c}}:checked ~ span.p32 > .ar0 {
 	display: inline-block;
 	--pr: 1;
 	--prd: inline-block;
 }
-input.white.pawn.ar1.ac{{c}}:checked ~ span.p32 > ar0 > .c{{c}} {
+input.white.pawn.ar1.ac{{c}}:checked ~ span.p32 > .ar0 > .c{{c}} {
 	display: var(--prd);
 	opacity: 0;
 }
