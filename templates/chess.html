@@ -335,16 +335,16 @@ input.white.ar{{7}}.rook:checked ~ input.r{{7}}.c{{6}}.white.king:checked ~ div.
 		}
 	{% endfor %}
 {% endfor %}
-input.black.ar{{0}}.rook:checked ~ input.r{{0}}.c{{1}}.black.king:checked ~ div.blocker.left.col{{1}} > div.right.r{{0}} {
+input.black.ar{{0}}.rook:checked ~ input.r{{0}}.c{{1}}.black.king:checked ~ div.blocker.right.col{{1}} > div.right.r{{0}} {
 	display: none;
 }
-input.white.ar{{7}}.rook:checked ~ input.r{{7}}.c{{1}}.white.king:checked ~ div.blocker.left.col{{1}} > div.right.r{{7}} {
+input.white.ar{{7}}.rook:checked ~ input.r{{7}}.c{{1}}.white.king:checked ~ div.blocker.right.col{{1}} > div.right.r{{7}} {
 	display: none;
 }
-input.black.ar{{0}}.rook:checked ~ input.r{{0}}.c{{1}}.black.king:checked ~ div.blocker.left.col{{3}} > div.right.r{{0}} {
+input.black.ar{{0}}.rook:checked ~ input.r{{0}}.c{{1}}.black.king:checked ~ div.blocker.right.col{{3}} > div.right.r{{0}} {
 	display: none;
 }
-input.white.ar{{7}}.rook:checked ~ input.r{{7}}.c{{1}}.white.king:checked ~ div.blocker.left.col{{3}} > div.right.r{{7}} {
+input.white.ar{{7}}.rook:checked ~ input.r{{7}}.c{{1}}.white.king:checked ~ div.blocker.right.col{{3}} > div.right.r{{7}} {
 	display: none;
 }
 {% for c in range(0,8) %}
@@ -365,8 +365,8 @@ input.white.ar{{7}}.rook:checked ~ input.r{{7}}.c{{1}}.white.king:checked ~ div.
 
 label.pb {
 	box-sizing: border-box;
-	border: 2px solid rgb(31,255,255);
-	color: rgb(31,255,255);
+	border: 2px solid rgb(35,255,255);
+	color: rgb(35,255,255);
 	z-index: 2;
 }
 label.pb.g {
