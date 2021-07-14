@@ -158,7 +158,7 @@ input.a ~ span > span > label {
 	display: none;
 	z-index: 2;
 }
-{% for i in range(0,34) %}
+{% for i in range(0,36) %}
 input.a{{i}}:checked ~ span.p{{i}} {
 	display: inline-block;
 }
@@ -534,7 +534,60 @@ input.white.pawn.ar1.ac{{c}}:checked ~ #po32:Not(:checked) ~ #po33:checked + spa
 	opacity: 0;
 }
 {% endfor %}
-
+input.black.pawn.ar6:checked ~ span:Not(.p34):Not(.p35) > label.killpawn {
+	display: inline-block;
+	left: calc(8 * var(--block));
+	top: var(--block);
+	width: var(--block);
+	height: var(--block);
+	border: 1px solid black;
+}
+input.black.pawn.ar6:checked ~ #po34:checked + span.p34 {
+	display: inline-block;
+}
+input.black.pawn.ar6:checked ~ #po34:checked + span.p34 > .ar7 {
+	display: inline-block;
+}
+input.black.pawn.ar6:checked ~ #po34:checked + span.p34 > .ar6 {
+	display: none;
+}
+{% for c in range(0,8) %}
+input.black.pawn.ar6.ac{{c}}:checked ~ #po34:checked + span.p34 > .ar7 > .c{{c - 1}} {
+	display: inline-block;
+	opacity: 0;
+}
+input.black.pawn.ar6.ac{{c}}:checked ~ #po34:checked + span.p34 > .ar7 > .c{{c}} {
+	display: inline-block;
+	opacity: 1;
+}
+input.black.pawn.ar6.ac{{c}}:checked ~ #po34:checked + span.p34 > .ar7 > .c{{c + 1}} {
+	display: inline-block;
+	opacity: 0;
+}
+{% endfor %}
+input.black.pawn.ar6:checked ~ #po34:Not(:checked) ~ #po35:checked + span.p35 {
+	display: inline-block;
+}
+input.black.pawn.ar6:checked ~ #po34:Not(:checked) ~ #po35:checked + span.p35 > .ar7 {
+	display: inline-block;
+}
+input.black.pawn.ar6:checked ~ #po34:Not(:checked) ~ #po35:checked + span.p35 > .ar6 {
+	display: none;
+}
+{% for c in range(0,8) %}
+input.black.pawn.ar6.ac{{c}}:checked ~ #po34:Not(:checked) ~ #po35:checked + span.p35 > .ar7 > .c{{c - 1}} {
+	display: inline-block;
+	opacity: 0;
+}
+input.black.pawn.ar6.ac{{c}}:checked ~ #po34:Not(:checked) ~ #po35:checked + span.p35 > .ar7 > .c{{c}} {
+	display: inline-block;
+	opacity: 1;
+}
+input.black.pawn.ar6.ac{{c}}:checked ~ #po34:Not(:checked) ~ #po35:checked + span.p35 > .ar7 > .c{{c + 1}} {
+	display: inline-block;
+	opacity: 0;
+}
+{% endfor %}
 
 
 
@@ -966,7 +1019,7 @@ div.animator {
 		<div class="board r{{r}} c{{c}} {% if (r+c) % 2 == 0 %}g{% endif %}"></div>
 	{% endfor %}
 {% endfor %}
-{% for i in range(0,34) %}
+{% for i in range(0,36) %}
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}
 			<input type="radio" name="p{{i}}" id="pa{{i}}-{{r}}{{c}}" class="a nd{{r-c}} pd{{r+c}} a{{i}} ar{{r}} ac{{c}} {{ types[i] | safe}}"></input>
@@ -985,7 +1038,7 @@ div.animator {
 		<label for="po{{i}}" class="killpawn"></label>
 	</span>
 {% endfor %}
-{% for i in range(0,34) %}
+{% for i in range(0,36) %}
 	
 	{% for r in range(0,8) %}
 		{% for c in range(0,8) %}

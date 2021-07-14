@@ -448,6 +448,12 @@ app.get('/chess.html',
 		pieces.push("&#9813;");
 		initial.push(-1);
 		types.push("queen white");
+		pieces.push("&#9819;");
+		initial.push(-1);
+		types.push("queen black");
+		pieces.push("&#9819;");
+		initial.push(-1);
+		types.push("queen black");
 		
 
 		res.write(nunjucks.render('templates/chess.html',{
