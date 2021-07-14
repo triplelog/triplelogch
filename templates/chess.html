@@ -34,7 +34,6 @@ label {
 	box-sizing: border-box;
 	border: 2px solid transparent;
 	--kr: 0;
-	--hr: -3;
 }
 {% for r in range(0,8) %}
 label.r{{r}} {
@@ -372,6 +371,9 @@ input.pawn.ac{{c}}:checked ~ span > span > label.c{{c}} {
 {% endfor %}
 
 {# knights #}
+input.knight:checked ~ span > span {
+	--hr: -3;
+}
 {% for r in range(0,8) %}
 input.knight.ar{{r}}:checked ~ span > .ar{{r - 2}} {
 	display: inline-block;
