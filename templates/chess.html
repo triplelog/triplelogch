@@ -488,7 +488,7 @@ input.white.pawn.ar1:checked ~ span:Not(.p32):Not(.p33) > label.killpawn {
 	height: var(--block);
 	border: 1px solid black;
 }
-#po32:checked + span > label.kp32 {
+#po32:checked + span > label.kp32, #po33:checked + span > label.kp33 {
 	display: inline-block;
 	left: calc(8 * var(--block));
 	top: var(--block);
@@ -496,7 +496,6 @@ input.white.pawn.ar1:checked ~ span:Not(.p32):Not(.p33) > label.killpawn {
 	height: var(--block);
 	border: 1px solid black;
 	z-index: 50;
-	pointer-events: var(--pw);
 }
 input.white.pawn.ar1:checked ~ #po32:checked + span.p32 {
 	display: inline-block;
@@ -551,6 +550,15 @@ input.black.pawn.ar6:checked ~ span:Not(.p34):Not(.p35) > label.killpawn {
 	width: var(--block);
 	height: var(--block);
 	border: 1px solid black;
+}
+#po34:checked + span > label.kp34, #po35:checked + span > label.kp35 {
+	display: inline-block;
+	left: calc(8 * var(--block));
+	top: var(--block);
+	width: var(--block);
+	height: var(--block);
+	border: 1px solid black;
+	z-index: 50;
 }
 input.black.pawn.ar6:checked ~ #po34:checked + span.p34 {
 	display: inline-block;
