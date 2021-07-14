@@ -33,6 +33,32 @@ body {
 	--f7: calc(var(--block) * 7);
 	--f8: calc(var(--block) * 8);
 	--f9: calc(var(--block) * 9);
+	
+	--b-2: 0px;
+	--b-1: 0px;
+	--b0: 0px;
+	--b1: 0px;
+	--b2: 0px;
+	--b3: 0px;
+	--b4: 0px;
+	--b5: 0px;
+	--b6: 0px;
+	--b7: 0px;
+	--b8: 0px;
+	--b9: 0px;
+	
+	--c-2: calc(var(--block) * -2);
+	--c-1: calc(var(--block) * -1);
+	--c0: calc(var(--block) * 0);
+	--c1: calc(var(--block) * 1);
+	--c2: calc(var(--block) * 2);
+	--c3: calc(var(--block) * 3);
+	--c4: calc(var(--block) * 4);
+	--c5: calc(var(--block) * 5);
+	--c6: calc(var(--block) * 6);
+	--c7: calc(var(--block) * 7);
+	--c8: calc(var(--block) * 8);
+	--c9: calc(var(--block) * 9);
 }
 label {
 	display: none;
@@ -192,53 +218,53 @@ div.blocker.c{{c}} {
 {% endfor %}
 {% for c in range(0,8) %}
 div.blocker.left.c{{c}} {
-	left: 0px;
+	left: var(--b{{c}});
 	width: calc(var(--block) * {{c}});
 }
 div.blocker.right.c{{c}} {
-	left: calc(var(--block) * {{c+1 }});
+	left: var(--c{{c+1}});
 	width: calc(var(--block) * (8 - {{c+1 }}));
 }
 div.blocker.topleft.c{{c}} {
-	left: 0px;
+	left: var(--b{{c}});
 	width: calc(var(--block) * {{c}});
 }
 div.blocker.topright.c{{c}} {
-	left: calc(var(--block) * {{c+1 }});
+	left: var(--c{{c+1}});
 	width: calc(var(--block) * (8 - {{c+1 }}));
 }
 div.blocker.bottomleft.c{{c}} {
-	left: 0px;
+	left: var(--b{{c}});
 	width: calc(var(--block) * {{c}});
 }
 div.blocker.bottomright.c{{c}} {
-	left: calc(var(--block) * {{c+1 }});
+	left: var(--c{{c+1}});
 	width: calc(var(--block) * (8 - {{c+1 }}));
 }
 {% endfor %}
 {% for r in range(0,8) %}
 div.blocker.top.r{{r}} {
-	top: 0px;
+	top: var(--b{{r}});
 	height: calc(var(--block) * {{r}});
 }
 div.blocker.bottom.r{{r}} {
-	top: calc(var(--block) * {{r+1 }});
+	top: var(--c{{r+1}});
 	height: calc(var(--block) * (8 - {{r+1 }}));
 }
 div.blocker.topleft.r{{r}} {
-	top: 0px;
+	top: var(--b{{r}});
 	height: calc(var(--block) * {{r}});
 }
 div.blocker.topright.r{{r}} {
-	top: 0px;
+	top: var(--b{{r}});
 	height: calc(var(--block) * {{r}});
 }
 div.blocker.bottomleft.r{{r}} {
-	top: calc(var(--block) * {{r+1 }});
+	top: var(--c{{r+1}});
 	height: calc(var(--block) * (8 - {{r+1 }}));
 }
 div.blocker.bottomright.r{{r}} {
-	top: calc(var(--block) * {{r+1 }});
+	top: var(--c{{r+1}});
 	height: calc(var(--block) * (8 - {{r+1 }}));
 }
 {% endfor %}
