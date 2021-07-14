@@ -368,6 +368,14 @@ input.pawn.ar{{r}}:checked ~ span > .ar{{r}} {
 input.pawn.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	display: inline-block;
 }
+input.pawn.ac{{c}}:checked ~ span > span > label.c{{c - 1}} {
+	display: inline-block;
+	opacity: 0;
+}
+input.pawn.ac{{c}}:checked ~ span > span > label.c{{c + 1}} {
+	display: inline-block;
+	opacity: 0;
+}
 {% endfor %}
 
 {# knights #}
