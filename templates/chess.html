@@ -386,6 +386,29 @@ input.rook.ac{{c}}:checked ~ input:checked + label + .c{{c}} {
 }
 {% endfor %}
 
+{# bishops #}
+input.bishop.a:checked ~ span > span {
+	display: inline-block;
+}
+{% for d in range(0,15) %}
+input.bishop.pd{{d}}:checked ~ span > span > label.pd{{d}} {
+	display: inline-block;
+}
+input.bishop.pd{{d}}:checked ~ input:checked + label + .pd{{d}} {
+	z-index:6;
+}
+input.bishop.nd{{d}}:checked ~ span > span > label.nd{{d}} {
+	display: inline-block;
+}
+input.bishop.nd{{d}}:checked ~ input:checked + label + .nd{{d}} {
+	z-index:6;
+}
+{% endfor %}
+
+
+
+
+
 .paa.white {
 	pointer-events: var(--pw);
 } 
@@ -520,12 +543,6 @@ div.animator {
 	--pw: none;
 	--pb: all;
 }
-#wc600 {
-	display: inline-block;
-	position: absolute;
-	left: 50px;
-	top: 500px;
-}
 
 </style>
 </head>
@@ -601,7 +618,7 @@ div.animator {
 	{% for r in range(0,8) %}
 		<span class="ar{{r}}">
 		{% for c in range(0,8) %}
-			<label for="pb{{i}}-{{r}}{{c}}" class="pb r{{r}} c{{c}} {% if (r+c) % 2 == 0 %}g{% endif %}">{{ pieces[i] | safe}}</label>
+			<label for="pb{{i}}-{{r}}{{c}}" class="pb nd{{r-c}} pd{{r+c}} r{{r}} c{{c}} {% if (r+c) % 2 == 0 %}g{% endif %}">{{ pieces[i] | safe}}</label>
 		{% endfor %}
 		</span>
 	{% endfor %}
@@ -613,7 +630,7 @@ div.animator {
 		{% for c in range(0,8) %}
 			<input type="radio" name="p{{i}}" class="r{{r}} c{{c}} {{ types[i] | safe}}" id="pb{{i}}-{{r}}{{c}}" {% if initial[i] == r*8 + c %}checked{% endif %}></input>
 			<label for="pa{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} paa {{ types[i] | safe}} {% if (r+c) % 2 == 0 %}g{% endif %}">{{ pieces[i] | safe}}</label>
-			<label for="po{{i}}" class="off r{{r}} c{{c}} {% if (r+c) % 2 == 0 %}g{% endif %}">{{ pieces[i] | safe}}</label>
+			<label for="po{{i}}" class="off nd{{r-c}} pd{{r+c}} r{{r}} c{{c}} {% if (r+c) % 2 == 0 %}g{% endif %}">{{ pieces[i] | safe}}</label>
 		{% endfor %}
 	{% endfor %}
 	
