@@ -157,6 +157,10 @@ div.blocker.one {
 	width: var(--block);
 	height: var(--block);
 }
+div.blocker.one.r5.c7 {
+	display: inline-block;
+	backdrop-filter: invert(1);
+}
 {% for r in range(0,8) %}
 div.blocker.r{{r}} {
 	top: calc(var(--block) * {{r}});
@@ -346,6 +350,7 @@ input.pawn.ar{{r}}:checked ~ span > .ar{{r}} {
 {% for c in range(0,8) %}
 input.pawn.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	display: inline-block;
+	box-sizing: border-box;
 	border: 1px solid black;
 	color: rgb(0,255,255);
 }
