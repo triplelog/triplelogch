@@ -355,6 +355,7 @@ input.black.pawn.ar1:checked ~ span > .ar3 {
 }
 input.pawn:checked ~ span > span {
 	--pr: 0;
+	--prd: none;
 }
 input.pawn:checked ~ input:checked + label + label {
 	--pr: 0;
@@ -363,10 +364,12 @@ input.pawn:checked ~ input:checked + label + label {
 input.white.pawn.ar{{r}}:checked ~ span > .ar{{r - 1}} {
 	display: inline-block;
 	--pr: 1;
+	--prd: inline-block;
 }
 input.black.pawn.ar{{r}}:checked ~ span > .ar{{r + 1}} {
 	display: inline-block;
 	--pr: 1;
+	--prd: inline-block;
 }
 input.white.pawn.ar{{r}}:checked ~ input:checked + label + .r{{r - 1}} {
 	--pr: 1;
@@ -383,12 +386,12 @@ input.pawn.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	display: inline-block;
 }
 input.pawn.ac{{c}}:checked ~ span > span > label.c{{c - 1}} {
-	display: inline-block;
-	opacity: calc(var(--pr));
+	display: var(--prd);
+	opacity: 0;
 }
 input.pawn.ac{{c}}:checked ~ span > span > label.c{{c + 1}} {
-	display: inline-block;
-	opacity: calc(var(--pr));
+	display: var(--prd);
+	opacity: 0;
 }
 input.pawn.ac{{c}}:checked ~ input:checked + label + .c{{c - 1}} {
 	z-index: calc(6 * var(--pr));
