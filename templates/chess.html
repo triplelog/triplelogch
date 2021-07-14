@@ -324,7 +324,16 @@ div.blocker.bottomright.r{{r}} {
 	{% endfor %}
 {% endfor %}
 
-
+label.pb {
+	box-sizing: border-box;
+	border: 1px solid rgb(20,255,255);
+	color: rgb(20,255,255);
+	z-index: 2;
+}
+label.pb.g {
+	color: rgb(0,235,235);
+	border: 1px solid rgb(0,235,235);
+}
 {# pawns #}
 input.white.pawn.ar6:checked ~ span > .ar4 {
 	display: inline-block;
@@ -346,9 +355,6 @@ input.pawn.ar{{r}}:checked ~ span > .ar{{r}} {
 {% for c in range(0,8) %}
 input.pawn.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	display: inline-block;
-	box-sizing: border-box;
-	border: 1px solid rgb(0,245,245);
-	color: rgb(0,245,245);
 }
 {% endfor %}
 
@@ -359,17 +365,11 @@ input.rook.a:checked ~ span > span {
 {% for r in range(0,8) %}
 input.rook.ar{{r}}:checked ~ span > span > label.r{{r}} {
 	display: inline-block;
-	color: rgb(0,245,245);
-	border: 1px solid rgb(0,245,245);
-	z-index: 2;
 }
 {% endfor %}
 {% for c in range(0,8) %}
 input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	display: inline-block;
-	color: rgb(0,245,245);
-	border: 1px solid rgb(20,245,245);
-	z-index: 2;
 }
 {% endfor %}
 
@@ -588,7 +588,7 @@ div.animator {
 	{% for r in range(0,8) %}
 		<span class="ar{{r}}">
 		{% for c in range(0,8) %}
-			<label for="pb{{i}}-{{r}}{{c}}" class="r{{r}} c{{c}} {% if (r+c) % 2 == 0 %}g{% endif %}">{{ pieces[i] | safe}}</label>
+			<label for="pb{{i}}-{{r}}{{c}}" class="pb r{{r}} c{{c}} {% if (r+c) % 2 == 0 %}g{% endif %}">{{ pieces[i] | safe}}</label>
 		{% endfor %}
 		</span>
 	{% endfor %}
