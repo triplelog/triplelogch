@@ -373,7 +373,7 @@ input.rook.a:checked ~ span > span {
 input.rook.ar{{r}}:checked ~ span > span > label.r{{r}} {
 	display: inline-block;
 }
-input.rook.ar{{r}}:checked ~ .off.r{{r}} {
+input.rook.ar{{r}}:checked ~ input:checked + label + .r{{r}} {
 	z-index:6;
 }
 {% endfor %}
@@ -381,7 +381,7 @@ input.rook.ar{{r}}:checked ~ .off.r{{r}} {
 input.rook.ac{{c}}:checked ~ span > span > label.c{{c}} {
 	display: inline-block;
 }
-input.rook.ac{{c}}:checked ~ .off.c{{c}} {
+input.rook.ac{{c}}:checked ~ input:checked + label + .c{{c}} {
 	z-index:6;
 }
 {% endfor %}
