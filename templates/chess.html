@@ -397,6 +397,8 @@ input.bishop.pd{{d}}:checked ~ span > span > label.pd{{d}} {
 input.bishop.pd{{d}}:checked ~ input:checked + label + .pd{{d}} {
 	z-index:6;
 }
+{% endfor %}
+{% for d in range(-7,8) %}
 input.bishop.nd{{d}}:checked ~ span > span > label.nd{{d}} {
 	display: inline-block;
 }
