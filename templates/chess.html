@@ -480,6 +480,14 @@ input.pawn.ac{{c}}:checked ~ input:checked + label + .c{{c + 1}} {
 {% endfor %}
 
 {# promotion #}
+input.white.pawn.ar1:checked ~ span:Not(.p32):Not(.p33) > label.killpawn {
+	display: inline-block;
+	left: calc(8 * var(--block));
+	top: var(--block);
+	width: var(--block);
+	height: var(--block);
+	border: 1px solid black;
+}
 input.white.pawn.ar1:checked ~ #po32:checked + span.p32 {
 	display: inline-block;
 }
@@ -488,14 +496,6 @@ input.white.pawn.ar1:checked ~ #po32:checked + span.p32 > .ar0 {
 }
 input.white.pawn.ar1:checked ~ #po32:checked + span.p32 > .ar1 {
 	display: none;
-}
-input.white.pawn.ar1:checked ~ #po32:checked + span:Not(.p32) > label.killpawn {
-	display: inline-block;
-	left: calc(8 * var(--block));
-	top: var(--block);
-	width: var(--block);
-	height: var(--block);
-	border: 1px solid black;
 }
 {% for c in range(0,8) %}
 input.white.pawn.ar1.ac{{c}}:checked ~ #po32:checked + span.p32 > .ar0 > .c{{c - 1}} {
@@ -511,7 +511,29 @@ input.white.pawn.ar1.ac{{c}}:checked ~ #po32:checked + span.p32 > .ar0 > .c{{c +
 	opacity: 0;
 }
 {% endfor %}
-
+input.white.pawn.ar1:checked ~ #po32:Not(:checked) + span.p33 {
+	display: inline-block;
+}
+input.white.pawn.ar1:checked ~ #po32:Not(:checked) + span.p33 > .ar0 {
+	display: inline-block;
+}
+input.white.pawn.ar1:checked ~ #po32:Not(:checked) + span.p33 > .ar1 {
+	display: none;
+}
+{% for c in range(0,8) %}
+input.white.pawn.ar1.ac{{c}}:checked ~ #po32:Not(:checked) + span.p33 > .ar0 > .c{{c - 1}} {
+	display: inline-block;
+	opacity: 0;
+}
+input.white.pawn.ar1.ac{{c}}:checked ~ #po32:Not(:checked) + span.p33 > .ar0 > .c{{c}} {
+	display: inline-block;
+	opacity: 1;
+}
+input.white.pawn.ar1.ac{{c}}:checked ~ #po32:Not(:checked) + span.p33 > .ar0 > .c{{c + 1}} {
+	display: inline-block;
+	opacity: 0;
+}
+{% endfor %}
 
 
 
