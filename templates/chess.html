@@ -475,6 +475,9 @@ div.cover {
 	top: calc({{600 - i}} * var(--block));
 }
 {% endfor %}
+label.clock {
+	background: transparent;
+}
 label.white.clock.end {
 	display: none;
 }
@@ -495,6 +498,7 @@ label.black.clock:Not(.end) {
 }
 div.animator {
 	animation: timer2 600s steps(600) none;
+	background: red;
 }
 
 .white.clock:Not(.end):checked ~ .black.clock:Not(.end):checked ~ div.white.clock:Not(.una) {
