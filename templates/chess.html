@@ -342,10 +342,10 @@ input.white.ar{{7}}.rook:checked ~ input.r{{7}}.c{{1}}.white.king:checked ~ div.
 	display: none;
 }
 input.black.ar{{0}}.rook:checked ~ input.r{{0}}.c{{1}}.black.king:checked ~ div.blocker.right.col{{3}} > div.right.r{{0}} {
-	display: none;
+	display: inline-block;
 }
 input.white.ar{{7}}.rook:checked ~ input.r{{7}}.c{{1}}.white.king:checked ~ div.blocker.right.col{{3}} > div.right.r{{7}} {
-	display: none;
+	display: inline-block;
 }
 {% for c in range(0,8) %}
 	{% for r in range(1,8) %}
