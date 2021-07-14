@@ -31,6 +31,8 @@ label {
 	font-size: var(--block);
 	line-height: var(--block);
 	text-align:center;
+	box-sizing: border-box;
+	border: 2px solid transparent;
 }
 {% for r in range(0,8) %}
 label.r{{r}} {
@@ -72,7 +74,10 @@ label.off {
 	z-index: 4;
 	display: none;
 	box-sizing: border-box;
-	border: 2px solid rgb(0,255,255);
+	border: 2px solid rgb(31,255,255);
+}
+label.off.g {
+	border: 2px solid rgb(0,230,230);
 }
 {% for r in range(0,8) %}
 label.off.r{{r}} {
