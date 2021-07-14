@@ -498,16 +498,6 @@ input.white.pawn.ar1:checked ~ span:Not(.p32):Not(.p33) > label.killpawn {
 	z-index: 50;
 	pointer-events: var(--pw);
 }
-#po32:Not(:checked) ~ label.kp33 {
-	display: inline-block;
-	left: calc(8 * var(--block));
-	top: var(--block);
-	width: var(--block);
-	height: var(--block);
-	border: 1px solid black;
-	z-index: 50;
-	pointer-events: var(--pw);
-}
 input.white.pawn.ar1:checked ~ #po32:checked + span.p32 {
 	display: inline-block;
 }
