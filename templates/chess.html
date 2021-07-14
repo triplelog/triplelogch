@@ -436,6 +436,7 @@ input.black.pawn.ar{{4}}:checked ~ input:checked + label + .r{{4}} {
 input.white.pawn.ar{{3}}:checked ~ input:checked + label + .r{{3}} {
 	--pr: 1;
 }
+
 {% for r in range(0,8) %}
 input.white.pawn.ar{{r}}:checked ~ span > .ar{{r - 1}} {
 	display: inline-block;
@@ -474,6 +475,16 @@ input.pawn.ac{{c}}:checked ~ input:checked + label + .c{{c - 1}} {
 }
 input.pawn.ac{{c}}:checked ~ input:checked + label + .c{{c + 1}} {
 	z-index: calc(6 * var(--pr));
+}
+{# promotion #}
+input.white.pawn.ar1.ac{{c}}:checked ~ span.p32 > ar0 {
+	display: inline-block;
+	--pr: 1;
+	--prd: inline-block;
+}
+input.white.pawn.ar1.ac{{c}}:checked ~ span.p32 > ar0 > .c{{c}} {
+	display: var(--prd);
+	opacity: 0;
 }
 {% endfor %}
 
