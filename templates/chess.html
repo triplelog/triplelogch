@@ -287,8 +287,12 @@ div.blocker.bottomright.r{{r}} {
 	}
 	{% endfor %}
 {% endfor %}
-
-
+input.knight.a:checked ~ div.blocker.row {
+	display: none;
+}
+input.knight.a:checked ~ div.blocker.col {
+	display: none;
+}
 
 {% for r in range(0,8) %}
 	{% for c in range(0,8) %}
@@ -362,6 +366,42 @@ input.pawn.ar{{r}}:checked ~ span > .ar{{r}} {
 {% endfor %}
 {% for c in range(0,8) %}
 input.pawn.ac{{c}}:checked ~ span > span > label.c{{c}} {
+	display: inline-block;
+}
+{% endfor %}
+
+{# knights #}
+{% for r in range(0,8) %}
+input.knight.ar{{r}}:checked ~ span > .ar{{r - 2}} {
+	display: inline-block;
+}
+input.knight.ar{{r}}:checked ~ span > .ar{{r - 1}} {
+	display: inline-block;
+}
+input.knight.ar{{r}}:checked ~ span > .ar{{r - 0}} {
+	display: inline-block;
+}
+input.knight.ar{{r}}:checked ~ span > .ar{{r + 1}} {
+	display: inline-block;
+}
+input.knight.ar{{r}}:checked ~ span > .ar{{r + 2}} {
+	display: inline-block;
+}
+{% endfor %}
+{% for c in range(0,8) %}
+input.knight.ac{{c}}:checked ~ span > span > label.c{{c - 2}} {
+	display: inline-block;
+}
+input.knight.ac{{c}}:checked ~ span > span > label.c{{c - 1}} {
+	display: inline-block;
+}
+input.knight.ac{{c}}:checked ~ span > span > label.c{{c}} {
+	display: inline-block;
+}
+input.knight.ac{{c}}:checked ~ span > span > label.c{{c + 1}} {
+	display: inline-block;
+}
+input.knight.ac{{c}}:checked ~ span > span > label.c{{c + 2}} {
 	display: inline-block;
 }
 {% endfor %}
