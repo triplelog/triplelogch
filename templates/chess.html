@@ -488,7 +488,7 @@ input.white.pawn.ar1:checked ~ span:Not(.p32):Not(.p33) > label.killpawn {
 	height: var(--block);
 	border: 1px solid black;
 }
-#po32:checked ~ label.kp32 {
+#po32:checked + span > label.kp32 {
 	display: inline-block;
 	left: calc(8 * var(--block));
 	top: var(--block);
