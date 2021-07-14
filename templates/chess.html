@@ -20,7 +20,6 @@ body {
 #bc {
 	--pw: all;
 	--pb: none;
-	transform: translate(calc(8 * var(--block)), calc(8 * var(--block))) rotate(180deg);
 	position: absolute;
 }
 label {
@@ -35,9 +34,10 @@ label {
 	text-align:center;
 	box-sizing: border-box;
 	border: 2px solid transparent;
-	transform: translate(0,0) rotate(180deg);
+	
 	--kr: 0;
 }
+
 {% for r in range(0,8) %}
 label.r{{r}} {
 	top: calc(var(--block) * {{r}});
@@ -751,23 +751,24 @@ div.animator {
 	display: inline-block;
 }
 
-.white.clock:Not(.end):checked ~ .black.clock:Not(.end):checked ~ #bc {
-	--pw: all;
-	--pb: none;
-}
 .white.clock.end:checked ~ .black.clock:Not(.end):checked ~ #bc {
 	--pw: none;
 	--pb: all;
-}
-.white.clock.end:checked ~ .black.clock.end:checked ~ #bc {
-	--pw: all;
-	--pb: none;
+	transform: translate(calc(8 * var(--block)), calc(8 * var(--block))) rotate(180deg);
 }
 .white.clock:Not(.end):checked ~ .black.clock.end:checked ~ #bc {
 	--pw: none;
 	--pb: all;
+	transform: translate(calc(8 * var(--block)), calc(8 * var(--block))) rotate(180deg);
 }
 
+
+.white.clock.end:checked ~ .black.clock:Not(.end):checked ~ #bc label {
+	transform: rotate(180deg);
+}
+.white.clock:Not(.end):checked ~ .black.clock.end:checked ~ #bc label {
+	transform: rotate(180deg);
+}
 </style>
 </head>
 <body>
