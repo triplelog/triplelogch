@@ -21,6 +21,18 @@ body {
 	--pw: all;
 	--pb: none;
 	position: absolute;
+	--f-2: calc(var(--block) * -2);
+	--f-1: calc(var(--block) * -1);
+	--f0: calc(var(--block) * 0);
+	--f1: calc(var(--block) * 1);
+	--f2: calc(var(--block) * 2);
+	--f3: calc(var(--block) * 3);
+	--f4: calc(var(--block) * 4);
+	--f5: calc(var(--block) * 5);
+	--f6: calc(var(--block) * 6);
+	--f7: calc(var(--block) * 7);
+	--f8: calc(var(--block) * 8);
+	--f9: calc(var(--block) * 9);
 }
 label {
 	display: none;
@@ -40,12 +52,12 @@ label {
 
 {% for r in range(0,8) %}
 label.r{{r}} {
-	top: calc(var(--block) * {{r}});
+	top: var(--f{{r}});
 }
 {% endfor %}
 {% for c in range(0,8) %}
 label.c{{c}} {
-	left: calc(var(--block) * {{c}});
+	left: var(--f{{c}});
 }
 {% endfor %}
 label.g {
@@ -61,12 +73,12 @@ div.board {
 }
 {% for r in range(0,8) %}
 div.board.r{{r}} {
-	top: calc(var(--block) * {{r}});
+	top: var(--f{{r}});
 }
 {% endfor %}
 {% for c in range(0,8) %}
 div.board.c{{c}} {
-	left: calc(var(--block) * {{c}});
+	left: var(--f{{c}});
 }
 {% endfor %}
 div.board.g {
@@ -85,12 +97,12 @@ label.off.g {
 }
 {% for r in range(0,8) %}
 label.off.r{{r}} {
-	top: calc(var(--block) * {{r}});
+	top: var(--f{{r}});
 }
 {% endfor %}
 {% for c in range(0,8) %}
 label.off.c{{c}} {
-	left: calc(var(--block) * {{c}});
+	left: var(--f{{c}});
 }
 {% endfor %}
 input.a.white:checked ~ input.black:checked + label + label {
@@ -170,12 +182,12 @@ div.blocker.one {
 }
 {% for r in range(0,8) %}
 div.blocker.r{{r}} {
-	top: calc(var(--block) * {{r}});
+	top: var(--f{{r}});
 }
 {% endfor %}
 {% for c in range(0,8) %}
 div.blocker.c{{c}} {
-	left: calc(var(--block) * {{c}});
+	left: var(--f{{c}});
 }
 {% endfor %}
 {% for c in range(0,8) %}
@@ -754,15 +766,19 @@ div.animator {
 .white.clock.end:checked ~ .black.clock:Not(.end):checked ~ #bc {
 	--pw: none;
 	--pb: all;
-	transform: translate(calc(8 * var(--block)), calc(8 * var(--block))) rotate(180deg);
 }
 .white.clock:Not(.end):checked ~ .black.clock.end:checked ~ #bc {
 	--pw: none;
 	--pb: all;
-	transform: translate(calc(8 * var(--block)), calc(8 * var(--block))) rotate(180deg);
 }
 
-
+/*
+.white.clock.end:checked ~ .black.clock:Not(.end):checked ~ #bc label {
+	transform: rotate(180deg);
+}
+.white.clock:Not(.end):checked ~ .black.clock.end:checked ~ #bc label {
+	transform: rotate(180deg);
+}*/
 </style>
 </head>
 <body>
