@@ -15,7 +15,7 @@
 
 <style>
 body {
-	--block: 2rem;
+	--block: 3rem;
 }
 #bc {
 	--pw: all;
@@ -33,6 +33,7 @@ label {
 	text-align:center;
 	box-sizing: border-box;
 	border: 2px solid transparent;
+	--kr: 1;
 }
 {% for r in range(0,8) %}
 label.r{{r}} {
@@ -445,6 +446,47 @@ input.queen.ac{{c}}:checked ~ input:checked + label + .c{{c}} {
 {% endfor %}
 
 
+{# kings #}
+{% for r in range(0,8) %}
+input.king.ar{{r}}:checked ~ span > .ar{{r - 1}} {
+	display: inline-block;
+}
+input.king.ar{{r}}:checked ~ span > .ar{{r + 1}} {
+	display: inline-block;
+}
+input.king.ar{{r}}:checked ~ span > .ar{{r}} {
+	display: inline-block;
+}
+input.king.ar{{r}}:checked ~ input:checked + label + .r{{r - 1}} {
+	--kr: 3;
+}
+input.king.ar{{r}}:checked ~ input:checked + label + .r{{r}} {
+	--kr: 3;
+}
+input.king.ar{{r}}:checked ~ input:checked + label + .r{{r + 1}} {
+	--kr: 3;
+}
+{% endfor %}
+{% for c in range(0,8) %}
+input.king.ac{{c}}:checked ~ span > span > label.c{{c - 1}} {
+	display: inline-block;
+}
+input.king.ac{{c}}:checked ~ span > span > label.c{{c}} {
+	display: inline-block;
+}
+input.king.ac{{c}}:checked ~ span > span > label.c{{c + 1}} {
+	display: inline-block;
+}
+input.king.ac{{c}}:checked ~ input:checked + label + .c{{c - 1}} {
+	z-index: calc(var(--kr) + 3);
+}
+input.king.ac{{c}}:checked ~ input:checked + label + .c{{c}} {
+	z-index: calc(var(--kr) + 3);
+}
+input.king.ac{{c}}:checked ~ input:checked + label + .c{{c + 1}} {
+	z-index: calc(var(--kr) + 3);
+}
+{% endfor %}
 
 .paa.white {
 	pointer-events: var(--pw);
