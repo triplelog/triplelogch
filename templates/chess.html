@@ -28,8 +28,8 @@ label {
 	position: absolute;
 	background: #DDD;
 	z-index:5;
-	font-size: 1.5rem;
-	line-height: 1.5rem;
+	font-size: var(--block);
+	line-height: var(--block);
 	text-align:center;
 }
 {% for r in range(0,8) %}
@@ -326,13 +326,13 @@ div.blocker.bottomright.r{{r}} {
 
 label.pb {
 	box-sizing: border-box;
-	border: 1px solid rgb(25,255,255);
-	color: rgb(25,255,255);
+	border: 2px solid rgb(28,255,255);
+	color: rgb(28,255,255);
 	z-index: 2;
 }
 label.pb.g {
 	color: rgb(0,230,230);
-	border: 1px solid rgb(0,230,230);
+	border: 2px solid rgb(0,230,230);
 }
 {# pawns #}
 input.white.pawn.ar6:checked ~ span > .ar4 {
