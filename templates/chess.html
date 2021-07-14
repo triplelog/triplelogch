@@ -407,7 +407,42 @@ input.bishop.nd{{d}}:checked ~ input:checked + label + .nd{{d}} {
 }
 {% endfor %}
 
-
+{# queens #}
+input.queen.a:checked ~ span > span {
+	display: inline-block;
+}
+{% for d in range(0,15) %}
+input.queen.pd{{d}}:checked ~ span > span > label.pd{{d}} {
+	display: inline-block;
+}
+input.queen.pd{{d}}:checked ~ input:checked + label + .pd{{d}} {
+	z-index:6;
+}
+{% endfor %}
+{% for d in range(-7,8) %}
+input.queen.nd{{d}}:checked ~ span > span > label.nd{{d}} {
+	display: inline-block;
+}
+input.queen.nd{{d}}:checked ~ input:checked + label + .nd{{d}} {
+	z-index:6;
+}
+{% endfor %}
+{% for r in range(0,8) %}
+input.queen.ar{{r}}:checked ~ span > span > label.r{{r}} {
+	display: inline-block;
+}
+input.queen.ar{{r}}:checked ~ input:checked + label + .r{{r}} {
+	z-index:6;
+}
+{% endfor %}
+{% for c in range(0,8) %}
+input.queen.ac{{c}}:checked ~ span > span > label.c{{c}} {
+	display: inline-block;
+}
+input.queen.ac{{c}}:checked ~ input:checked + label + .c{{c}} {
+	z-index:6;
+}
+{% endfor %}
 
 
 
