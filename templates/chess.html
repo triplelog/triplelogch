@@ -121,6 +121,8 @@ div.blocker {
 	position: absolute;
 	left:0px;
 	top:0px;
+}
+div.blocker:Not(.row):Not(.col) {
 	backdrop-filter: grayscale(100%);
 }
 div.blocker.row {
@@ -130,7 +132,6 @@ div.blocker.row {
 	left:0px;
 	top:0px;
 	background: transparent;
-	backdrop-filter: grayscale(100%);
 }
 div.blocker.col {
 	display: inline-block;
@@ -139,7 +140,6 @@ div.blocker.col {
 	left:0px;
 	top:0px;
 	background: transparent;
-	backdrop-filter: grayscale(100%);
 }
 div.blocker.left {
 	height: var(--block);
