@@ -476,17 +476,49 @@ input.pawn.ac{{c}}:checked ~ input:checked + label + .c{{c - 1}} {
 input.pawn.ac{{c}}:checked ~ input:checked + label + .c{{c + 1}} {
 	z-index: calc(6 * var(--pr));
 }
+{% endfor %}
+
 {# promotion #}
-input.white.pawn.ar1.ac{{c}}:checked ~ span.p32 > .ar0 {
+input.white.pawn.ar1:checked ~ span.p32 {
+	display: inline-block;
+}
+input.white.pawn.ar1:checked ~ span.p32 > .ar0 {
 	display: inline-block;
 	--pr: 1;
 	--prd: inline-block;
+	z-index: 3;
+}
+input.white.pawn.ar1:checked ~ span.p32 > .ar1 {
+	display: none;
+}
+input.white.pawn.ar1.ac{{c}}:checked ~ span:Not(.p32) > label.killpawn {
+	display: inline-block;
+	left: calc(8 * var(--block));
+	top: var(--block);
+	width: var(--block);
+	height: var(--block);
+	border: 1px solid black;
+}
+{% for c in range(0,8) %}
+input.white.pawn.ar1.ac{{c}}:checked ~ span.p32 > .ar0 > .c{{c - 1}} {
+	display: var(--prd);
+	opacity: 1;
 }
 input.white.pawn.ar1.ac{{c}}:checked ~ span.p32 > .ar0 > .c{{c}} {
 	display: var(--prd);
-	opacity: 0;
+	opacity: 1;
+}
+input.white.pawn.ar1.ac{{c}}:checked ~ span.p32 > .ar0 > .c{{c + 1}} {
+	display: var(--prd);
+	opacity: 1;
 }
 {% endfor %}
+
+
+
+
+
+
 
 {# knights #}
 input.knight:checked ~ span > span {
@@ -929,6 +961,7 @@ div.animator {
 		{% endfor %}
 		</span>
 	{% endfor %}
+		<label for="po{{i}}" class="killpawn"></label>
 	</span>
 {% endfor %}
 {% for i in range(0,34) %}
