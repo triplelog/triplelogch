@@ -302,6 +302,9 @@ input.knight.a:checked ~ div.blocker.col {
 		input.a.black:checked ~ input.black.r{{r}}.c{{c}}:checked ~ div.blocker.one.c{{c}}.r{{r}} {
 			display: inline-block;
 		}
+		input.pawn.ac{{c}}:checked ~ input.r{{r}}.c{{c}}:checked ~ div.blocker.one.c{{c}}.r{{r}} {
+			display: inline-block;
+		}
 	{% endfor %}
 {% endfor %}
 {% for r in range(0,8) %}
