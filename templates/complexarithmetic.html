@@ -46,6 +46,9 @@ label {
 label.d{{ii}} {
 	right:calc({{ii}} * 1rem);
 }
+span.d{{ii}} {
+	right:calc({{ii}} * 1rem);
+}
 {% endfor %}
 {% for ii in range(1,7) %}
 	{% for i in range(0,4) %}
@@ -79,23 +82,27 @@ label.d{{ii}} {
 	{% endfor %}
 {% endfor %}
 
-.out {
+.out1 {
 	position: absolute;
 	top:4rem;
-	left: 6rem;
 	width: 1rem;
 	height: 1rem;
 	display: block;
 	overflow: hidden;
+	box-sizing: border-box;
 	border: 1px solid black;
 }
-.out > span {
+.out1 > span {
 	position: relative;
-	top: calc(var(--t1) * -1rem);
 	width: 1rem;
 	height: 1rem;
 	display: inline-block;
 }
+{% for ii in range(1,7) %}
+.out1 > span {
+	top: calc(var(--t{{ii}}) * var(--b1) * -1rem);
+}
+{% endfor %}
 </style>
 <body>
 
@@ -113,12 +120,14 @@ label.d{{ii}} {
 	{% endfor %}
 {% endfor %}
 
-	<span class="out">
+{# results #}
+{% for ii in range(1,7) %}
+	<span class="out1 d{{ii}}">
 		{% for i in range(0,10) %}
 		<span>{{i}}</span>
 		{% endfor %}
 	</span>
-
+{% endfor %}
 </span>
 </body>
 </html>
