@@ -194,6 +194,23 @@ label.shift {
 	}
 	{% endfor %}
 {% endfor %}
+.outuni > span:Not(.good) {
+	color: red;
+}
+.outuni > span.good {
+	color: green;
+}
+.complex.top {
+	position: absolute;
+	left: 0px;
+	top:0px;
+	width: calc(6 * var(--w));
+	height: var(--h);
+	border: 1px solid black;
+}
+.complex.top:before {
+	content: "0";
+}
 </style>
 <body>
 
@@ -237,9 +254,10 @@ label.shift {
 {% endfor %}
 {% for ii in range(1,14) %}
 	<span class="out outuni d{{ii}}">
-		<span>{% for i in range(-54,54) %}{{i}}</span><span>{% endfor %}{{54}}</span>
+		<span>{% for i in range(-54,54) %}{{i}}</span><span {% if i >= 0 and i < 4 %}class="good"{% endif %}>{% endfor %}{{54}}</span>
 	</span>
 {% endfor %}
+	<span class="complex top"></span>
 </span>
 </body>
 </html>
