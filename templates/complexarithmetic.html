@@ -168,10 +168,10 @@ label.d{{ii}} {
 	--row5: {% if ii < 11 and ii > 4 %}calc(var(--t{{ii-4}}) * var(--b{{5}}) * -1 * var(--w)){% else %}0rem{% endif %};
 	--row6: {% if ii < 12 and ii > 5 %}calc(var(--t{{ii-5}}) * var(--b{{6}}) * -1 * var(--w)){% else %}0rem{% endif %};
 	{% if ii % 2 == 0 %}
-	--a2: {% if ii < 8 and ii > 1 %}calc(var(--t{{ii-1}}) * var(--b{{2}}) * -1 * {{(2 ** (ii - 1)) * ((ii % 4) - 1)}}){% else %}0{% endif %};
-	counter-increment: answer-i var(--a2);
+	--a2: {% if ii < 8 and ii > 1 %}calc(var(--t{{ii-1}}) * var(--b{{2}}) * {{(2 ** (ii - 1)) * ((ii % 4) - 1)}}){% else %}0{% endif %};
+	counter-increment: answer-i var(--a2) answer-i var(--a2);
 	{% else %}
-	--a2: {% if ii < 8 and ii > 1 %}calc(var(--t{{ii-1}}) * var(--b{{2}}) * -1 * {{(2 ** (ii - 1)) * (2 - (ii % 4))}}){% else %}0{% endif %};
+	--a2: {% if ii < 8 and ii > 1 %}calc(var(--t{{ii-1}}) * var(--b{{2}}) * {{(2 ** (ii - 1)) * (2 - (ii % 4))}}){% else %}0{% endif %};
 	counter-increment: answer-r var(--a2);
 	{% endif %}
 }
