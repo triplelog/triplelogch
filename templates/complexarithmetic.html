@@ -20,6 +20,8 @@ span {
 	top: 0px;
 	touch-action: none;
 	pointer-events: none;
+	width: 25rem;
+	display: block;
 }
 input {
 	display: none;
@@ -42,17 +44,21 @@ label {
 }
 {% for ii in range(1,7) %}
 label.d{{ii}} {
-	left:calc({{ii}} * 1rem);
+	right:calc({{ii}} * 1rem);
 }
 {% endfor %}
 {% for ii in range(1,7) %}
 	{% for i in range(0,4) %}
 	#t{{ii}}-{{i}}:checked ~ label[for="t{{ii}}-{{i}}"] {
 		opacity: 1;
-		--t{{ii}}:  {{i}};
 	}
 	#b{{ii}}-{{i}}:checked ~ label[for="b{{ii}}-{{i}}"] {
 		opacity: 1;
+	}
+	#t{{ii}}-{{i}}:checked ~ span {
+		--t{{ii}}:  {{i}};
+	}
+	#b{{ii}}-{{i}}:checked ~ span {
 		--b{{ii}}: {{i}};
 	}
 	{% if i == 3 %}
