@@ -25,30 +25,63 @@ input {
 label.top {
 	position: absolute;
 	top:0px;
+	width: 1rem;
+	height: 1rem;
 }
 label.bottom {
 	position: absolute;
 	top:2rem;
+	width: 1rem;
+	height: 1rem;
+}
+label {
+	pointer-events: none;
+	opacity: 0;
 }
 {% for ii in range(1,7) %}
 label.d{{ii}} {
 	left:calc({{ii}} * 1rem);
 }
 {% endfor %}
+{% for ii in range(1,7) %}
+	{% for i in range(0,4) %}
+	#t{{ii}}-{{i}}:checked ~ label[for="t{{ii}}-{{i}}"] {
+		opacity: 1;
+	}
+	#b{{ii}}-{{i}}:checked ~ label[for="b{{ii}}-{{i}}"] {
+		opacity: 1;
+	}
+	{% if i == 3 %}
+	#t{{ii}}-{{i}}:checked ~ label[for="t{{ii}}-{{0}}"] {
+		pointer-events: all;
+	}
+	#b{{ii}}-{{i}}:checked ~ label[for="b{{ii}}-{{0}}"] {
+		pointer-events: all;
+	}
+	{% else %}
+	#t{{ii}}-{{i}}:checked ~ label[for="t{{ii}}-{{i+1}}"] {
+		pointer-events: all;
+	}
+	#b{{ii}}-{{i}}:checked ~ label[for="b{{ii}}-{{i+1}}"] {
+		pointer-events: all;
+	}
+	{% endif %}
+	{% endfor %}
+{% endfor %}
 </style>
 <body>
 
 <span>
 {% for ii in range(1,7) %}
-	{% for i in range(0,10) %}
+	{% for i in range(0,4) %}
 	<input type="radio" name="t{{ii}}" id="t{{ii}}-{{i}}" {% if i==0 %}checked{% endif %}/>
 	<input type="radio" name="b{{ii}}" id="b{{ii}}-{{i}}" {% if i==0 %}checked{% endif %}/>
 	{% endfor %}
 {% endfor %}
 {% for ii in range(1,7) %}
-	{% for i in range(0,10) %}
+	{% for i in range(0,4) %}
 	<label for="t{{ii}}-{{i}}" class="top d{{ii}}">{{i}}</label>
-	<label for="t{{ii}}-{{i}}" class="bottom d{{ii}}">{{i}}</label>
+	<label for="b{{ii}}-{{i}}" class="bottom d{{ii}}">{{i}}</label>
 	{% endfor %}
 {% endfor %}
 </span>
