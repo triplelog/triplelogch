@@ -20,7 +20,7 @@ span.main {
 	top: 0px;
 	touch-action: none;
 	pointer-events: none;
-	width: 25rem;
+	width: 50rem;
 	display: block;
 	--w: 2rem;
 	--h: 2rem;
@@ -176,7 +176,7 @@ label.shift {
 	top: calc({{8 + 1}} * var(--h));
 }
 .shift.down {
-	top: calc({{9 + 1}} * * var(--h));
+	top: calc({{9 + 1}} * var(--h));
 }
 {% for ii in range(1,14) %}
 	{% for i in range(-20,21) %}
