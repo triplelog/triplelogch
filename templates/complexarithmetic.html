@@ -83,10 +83,18 @@ label.d{{ii}} {
 	position: absolute;
 	top:4rem;
 	left: 6rem;
-	--t1: "6";
+	width: 1rem;
+	height: 1rem;
+	display: block;
+	overflow: hidden;
+	border: 1px solid black;
 }
-.out:before {
-	content: var(--t1);
+.out > span {
+	position: relative;
+	top: calc(var(--t1) * -1rem);
+	width: 1rem;
+	height: 1rem;
+	display: inline-block;
 }
 </style>
 <body>
@@ -106,6 +114,9 @@ label.d{{ii}} {
 {% endfor %}
 
 	<span class="out">
+		{% for i in range(0,10) %}
+		<span>{{i}}</span>
+		{% endfor %}
 	</span>
 
 </span>
