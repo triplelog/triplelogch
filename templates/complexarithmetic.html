@@ -28,6 +28,8 @@ span.main {
 	counter-reset: top-i;
 	counter-reset: bottom-r;
 	counter-reset: bottom-i;
+	counter-reset: answer-r;
+	counter-reset: answer-i;
 }
 input {
 	display: none;
@@ -166,6 +168,8 @@ label.d{{ii}} {
 	--row5: {% if ii < 11 and ii > 4 %}calc(var(--t{{ii-4}}) * var(--b{{5}}) * -1 * var(--w)){% else %}0rem{% endif %};
 	--row6: {% if ii < 12 and ii > 5 %}calc(var(--t{{ii-5}}) * var(--b{{6}}) * -1 * var(--w)){% else %}0rem{% endif %};
 
+	--a2: {% if ii < 8 and ii > 1 %}calc(var(--t{{ii-1}}) * var(--b{{2}}) * -1 * 1){% else %}0{% endif %};
+	counter-increment: answer-i var(--a2);
 }
 .outsum.d{{ii}} > span {
 	left: calc(var(--row1) + var(--row2) + var(--row3) + var(--row4) + var(--row5) + var(--row6));
@@ -244,6 +248,17 @@ label.shift {
 .complex.bottom:before {
 	content: counter(bottom-i) "i + " counter(bottom-r);
 }
+.complex.answer {
+	position: absolute;
+	left: 0px;
+	top:calc(2 * var(--w));
+	width: calc(6 * var(--w));
+	height: var(--h);
+	border: 1px solid black;
+}
+.complex.bottom:before {
+	content: counter(answer-i) "i + " counter(answer-r);
+}
 </style>
 <body>
 
@@ -287,11 +302,12 @@ label.shift {
 {% endfor %}
 {% for ii in range(1,14) %}
 	<span class="out outuni d{{ii}}">
-		<span>{% for i in range(-54,54) %}{{i}}</span><span {% if i > -1 and i < 4 %}class="good"{% endif %}>{% endfor %}{{54}}</span>
+		<span>{% for i in range(-54,54) %}{{i}}</span><span {% if i > -2 and i < 3 %}class="good"{% endif %}>{% endfor %}{{54}}</span>
 	</span>
 {% endfor %}
 	<span class="complex top"></span>
 	<span class="complex bottom"></span>
+	<span class="complex answer"></span>
 </span>
 </body>
 </html>
