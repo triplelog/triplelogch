@@ -57,7 +57,7 @@ app.get('/index.html',
 app.get('/blog.html', 
 	
 	function(req, res) {
-		res.write(nunjucks.render('templates/pythagorean.html',{
+		res.write(nunjucks.render('templates/stickytest.html',{
 		
 		}));
 		res.end();
