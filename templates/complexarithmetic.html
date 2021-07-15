@@ -190,7 +190,7 @@ label.shift {
 		--shiftDown: calc({{i}} * -4 * var(--w));
 	}
 	#s{{ii}}-{{i}}:checked ~ span.outuni.d{{ii+2}}  {
-		--shiftUp: calc({{i}} * var(--w));
+		--shiftUp: calc({{i}} * -1 * var(--w));
 	}
 	{% endfor %}
 {% endfor %}
