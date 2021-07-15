@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Tufte CSS</title>
+    <link rel="stylesheet" href="../css/tufte.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <article>
+      <h1 id="tufte-css">Pythagorean Winning</h1>
+      <p class="subtitle">Why does it work?</p>
+      <section>
+      	<p>The Pythagorean expectation is a predicted winning percentage based on runs scored and runs allowed. Bill James named the formula after Pythagoras because the initial formula used a sum of squares in the denominator. For baseball and football the following formula provides a good approximation of a team winning percentage:</p>
+
+$$\text{win\%} \approx \frac{rs^2}{rs^2+ra^2}$$
+
+		<p>However, there is nothing magic about the exponent of 2 and using an exponent slightly smaller than 2 actually makes a better approximation for baseball teams. Before we worry about finding the best exponent, we need to explain why approximating a team's winning percentage isn't pointless since it is trivial to compute a team's actual winning percentage. Then we examine why a formula of this type is effective and finally we try to make the best possible approximation.</p>
+      </section>
+
+      
+      
+      <section>
+        <h2 id="why-electoral">Brute Force</h2>
+        <p>Imagine a simple scenario where Atlanta plays the same team in two games. In game 1, Atlanta loses 4-3. In game 2, Atlanta loses 6-5. If we know nothing else about the two teams then what is the probability that Atlanta wins the next game?</p>
+
+		<p>Atlanta lost both games, but both games were close. Atlanta allowed 4 runs and 6 runs while scoring 3 runs and 5 runs. What if Atlanta had scored 5 runs in the first game instead of the second? Then Atlanta wins the first game 5-4 and loses the second game 6-3.</p>
+
+		<p>Presumably, the Atlanta team in the first scenario is as good as the Atlanta team in the second scenario. But they have different winning percentages: 0% or 50%. Using winning percentage to predict future games will likely lead to underestimating the performance of the 0-2 team and overestimating the performance of the 1-1 team.</p>
+		
+		<p>The best we can do with the limited available information is to assume<label for="assume" class="margin-toggle sidenote-number"></label><input type="checkbox" id="assume" class="margin-toggle"/><span class="sidenote">This is a big assumption. There are many possible explanations for why runs scored and runs allowed might be correlated, but those discussions are for another time.</span> that Atlanta randomly scores 3 runs 50% of the time and 5 runs the other half of the time. And assume Atlanta allows 4 runs half of the time and 6 runs the other half. Then Atlanta winning 5-4 occurs 25% of the time and every other possibility is a loss so Atlanta's expected winning percentage should be 25%. Using a winning percentage of 25% to predict future outcomes will likely lead to the best results.</p>
+
+		<p>Let's look at Atlanta's actual runs scored and allowed in 2016. Or choose a different team.</p>
+		<p>Include graph of runs allowed and runs scored. Also chart of probability of each score.</p>
+		
+		<p>While not every bit of randomness can be removed from a baseball season, what is possible is to remove the randomness of whether a team happens to waste a lot of offensive output in games that are not close. Computing this brute force predicted winning percentage is quite easy for a computer but it is hard for a person to really understand how runs scored and allowed change things.</p>
+		
+		<p>More importantly, most teams have similar distributions of runs scored and this information can be used to convert a small amount of data into a more accurate model. If a team has played 2 games and scored 0 runs in one and 12 runs in another, how many runs are they likely to score in the next game? This brute force method would say there is a 50% chance of 12 runs and a 50% chance of 0 runs. The more likely possibility is that the team will score around 6 runs because shutouts and 12 run performances are rare<label for="football-scores" class="margin-toggle sidenote-number"></label><input type="checkbox" id="football-scores" class="margin-toggle"/><span class="sidenote">For football teams, the brute force approach has an advantage of automatically considering the unlikelihood of certain scores. Teams rarely score exactly 18 or 19 points even if they average 18.5 points per game.</span>.</p>
+      </section>
+      
+      <section>
+        <h2 id="why-electoral">Weibull Approximation</h2>
+        <p>The Pythagorean expectation attempts to approximate the brute force approach using only the total number of runs scored and allowed. Most teams have a similar looking distribution of runs. Lots of games with around 3 or 4 runs. Better offenses score 4 or 5 runs slightly more often and 1 or 2 runs less often than bad offenses.</p>
+
+		<p>Graph of all distributions on one chart</p>
+		
+		<p>Statisticians have developed many simple models and the model that most closely matches the distribution of runs is the Weibull distribution. </p>
+		
+		<p>Graph of the Weibull distribution with k=1.8.</p>
+
+		<p>If we assume that results follow the Weibull distribution with k=1.8, then computing expected winning percentage<label for="citation1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="citation1" class="margin-toggle"/><span class="sidenote">Cite the paper</span> is simple:
+
+$$\text{win\%} \approx \frac{rs^{1.8}}{rs^{1.8}+ra^{1.8}}$$</p>
+      </section>
+      
+      <section>
+        <h2 id="why-electoral">Accuracy</h2>
+        
+        <p>The Pythagorean expectation accomplishes two things: it removes the randomness of when runs are scored compared to allowed and it removes the randomness of whether an offense's ability is only showing up in some games. These assumptions tend to go slightly too far, so they are only effective when there is not a better approximation.</p>
+        
+        <p>The potential issues with using Pythagorean expectation are independence and using the wrong value for k. As the season progresses, the number of runs scored and allowed will converge on true values. Plugging these values into the wrong formula will never be perfectly accurate.</p>
+
+		<p>Using a model is good at getting some information out of very little data, but if the model is not perfect it will be inaccurate. When that inaccuracy becomes greater than another prediction method, use something else.</p>
+		
+      </section>
+      
+      <section>
+        <h2 id="why-electoral">Other sports</h2>
+        <p>Basketball chart</p>
+        <p>Football chart</p>
+      </section>
+      
+      
+      
+      
+
+
+
+      
+    </article>
+  </body>
+</html>

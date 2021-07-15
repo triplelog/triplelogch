@@ -54,6 +54,15 @@ app.get('/index.html',
 		res.end();
 	}
 );
+app.get('/blog.html', 
+	
+	function(req, res) {
+		res.write(nunjucks.render('templates/pythagorean.html',{
+		
+		}));
+		res.end();
+	}
+);
 console.log('aa',performance.now());
 var puzzles = {}
 var puzzleTypes = ['daily','easy','medium','hard','expert'];
