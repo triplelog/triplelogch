@@ -166,7 +166,6 @@ label.shift {
 	width: 1rem;
 	height: 1rem;
 	display: block;
-	pointer-events: all;
 	opacity: 1;
 }
 .shift.up {
@@ -175,6 +174,16 @@ label.shift {
 .shift.down {
 	top: calc({{9}} * 1rem + 3rem);;
 }
+{% for ii in range(1,14) %}
+	{% for i in range(-20,21) %}
+	#s{{ii}}-{{i}}:checked ~ label.shift.up[for="s{{ii}}-{{i+1}}"] {
+		pointer-events: all;
+	}
+	#s{{ii}}-{{i}}:checked ~ label.shift.down[for="s{{ii+2}}-{{i-1}}"] {
+		pointer-events: all;
+	}
+	{% endfor %}
+{% endfor %}
 </style>
 <body>
 
@@ -206,12 +215,12 @@ label.shift {
 	</span>
 {% endfor %}
 {% for ii in range(1,14) %}
-	{% for i in range(-20,20) %}
+	{% for i in range(-20,21) %}
 	<input type="radio" name="s{{ii}}" id="s{{ii}}-{{i}}" {% if i==0 %}checked{% endif %}/>
 	{% endfor %}
 {% endfor %}
 {% for ii in range(1,14) %}
-	{% for i in range(-20,20) %}
+	{% for i in range(-20,21) %}
 	<label for="s{{ii}}-{{i}}" class="shift up d{{ii}}">+</label>
 	<label for="s{{ii - 2}}-{{i}}" class="shift down d{{ii}}">-</label>
 	{% endfor %}
