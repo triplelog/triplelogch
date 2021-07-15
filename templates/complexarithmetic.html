@@ -122,8 +122,13 @@ span.outsum.d{{ii}} {
 {% endfor %}
 {% for ii in range(1,14) %}
 .outsum.d{{ii}} > span {
-	--row1: {% if ii < 7 %}calc(var(--t{{ii}}) * var(--b{{1}}) * -1rem){% else %}0{% endif %};
-	left: calc(var(--row1));
+	--row1: {% if ii < 7 %}calc(var(--t{{ii}}) * var(--b{{1}}) * -1rem){% else %}0rem{% endif %};
+	--row2: {% if ii < 8 and ii > 0 %}calc(var(--t{{ii-1}}) * var(--b{{2}}) * -1rem){% else %}0rem{% endif %};
+	--row3: {% if ii < 9 and ii > 1 %}calc(var(--t{{ii-2}}) * var(--b{{3}}) * -1rem){% else %}0rem{% endif %};
+	--row4: {% if ii < 10 and ii > 2 %}calc(var(--t{{ii-3}}) * var(--b{{4}}) * -1rem){% else %}0rem{% endif %};
+	--row5: {% if ii < 11 and ii > 3 %}calc(var(--t{{ii-4}}) * var(--b{{5}}) * -1rem){% else %}0rem{% endif %};
+	--row6: {% if ii < 12 and ii > 4 %}calc(var(--t{{ii-5}}) * var(--b{{6}}) * -1rem){% else %}0rem{% endif %};
+	left: calc(var(--row1) + var(--row2) + var(--row3) + var(--row4) + var(--row5) + var(--row6));
 }
 {% endfor %}
 </style>
