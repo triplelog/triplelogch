@@ -157,7 +157,7 @@ label.d{{ii}} {
 	--shiftDown: 0rem;
 }
 .outuni.d{{ii}} > span {
-	left: calc(var(--row1) + var(--row2) + var(--row3) + var(--row4) + var(--row5) + var(--row6) + var(--shiftDown) + var(--shiftUp));
+	left: calc(54rem + var(--row1) + var(--row2) + var(--row3) + var(--row4) + var(--row5) + var(--row6) + var(--shiftDown) + var(--shiftUp));
 }
 {% endfor %}
 
@@ -233,7 +233,7 @@ label.shift {
 {% endfor %}
 {% for ii in range(1,14) %}
 	<span class="out outuni d{{ii}}">
-		<span>{% for i in range(0,54) %}{{i}}</span><span>{% endfor %}{{54}}</span>
+		<span>{% for i in range(-54,54) %}{{i}}</span><span>{% endfor %}{{54}}</span>
 	</span>
 {% endfor %}
 </span>
