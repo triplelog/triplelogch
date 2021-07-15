@@ -24,7 +24,10 @@ span.main {
 	display: block;
 	--w: 2rem;
 	--h: 2rem;
-	counter-reset: top-c;
+	counter-reset: top-r;
+	counter-reset: top-i;
+	counter-reset: bottom-r;
+	counter-reset: bottom-i;
 }
 input {
 	display: none;
@@ -82,12 +85,19 @@ label.d{{ii}} {
 	#t{{ii}}-{{i}}:checked ~ span {
 		--t{{ii}}:  {{i}};
 	}
+	{% if ii % 2 == 0 %}
 	#t{{ii}}-{{i}}:checked ~ label[for="t{{ii}}-{{i}}"] {
-		counter-increment: top-c {{i}};
+		counter-increment: top-i {{i * (2 ^ (ii - 1)) * ((ii % 4) - 1)}};
 	}
+	{% else %}
+	#t{{ii}}-{{i}}:checked ~ label[for="t{{ii}}-{{i}}"] {
+		counter-increment: top-r {{i * (2 ^ (ii - 1)) * (2 - (ii % 4))}};
+	}
+	{% endif %}
 	#b{{ii}}-{{i}}:checked ~ span {
 		--b{{ii}}: {{i}};
 	}
+	
 	{% if i == 3 %}
 	#t{{ii}}-{{i}}:checked ~ label[for="t{{ii}}-{{0}}"] {
 		pointer-events: all;
@@ -213,7 +223,7 @@ label.shift {
 	border: 1px solid black;
 }
 .complex.top:before {
-	content: counter(top-c);
+	content: counter(top-i) + "i+" + counter(top-r);
 }
 </style>
 <body>
