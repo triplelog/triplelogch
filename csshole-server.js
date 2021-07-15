@@ -63,6 +63,15 @@ app.get('/blog.html',
 		res.end();
 	}
 );
+app.get('/complex.html', 
+	
+	function(req, res) {
+		res.write(nunjucks.render('templates/complexarithmetic.html',{
+		
+		}));
+		res.end();
+	}
+);
 console.log('aa',performance.now());
 var puzzles = {}
 var puzzleTypes = ['daily','easy','medium','hard','expert'];

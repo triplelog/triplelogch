@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+    {% block meta %}
+    <meta name="description" content=".">    <title>CheSS</title>  
+    <link rel="icon" type="image/png" href="../chfaviconcrop.png">
+    {% endblock %}
+    
+
+
+
+
+<style>
+span {
+	position: sticky;
+	left: 0px;
+	top: 0px;
+}
+input {
+	display: none;
+}
+label.top {
+	position: absolute;
+	top:0px;
+}
+label.bottom {
+	position: absolute;
+	top:2rem;
+}
+{% for ii in range(1,7) %}
+label.d{{ii}} {
+	left:calc({{ii}} * 1rem);
+}
+{% endfor %}
+</style>
+<body>
+
+<span>
+{% for ii in range(1,7) %}
+	{% for i in range(0,10) %}
+	<input type="radio" name="t{{ii}}" id="t{{ii}}-{{i}}" {% if i==0 %}checked{% endif %}/>
+	<input type="radio" name="b{{ii}}" id="b{{ii}}-{{i}}" {% if i==0 %}checked{% endif %}/>
+	{% endfor %}
+{% endfor %}
+{% for ii in range(1,7) %}
+	{% for i in range(0,10) %}
+	<label for="t{{ii}}-{{i}}" class="top d{{ii}}">{{i}}</label>
+	<label for="t{{ii}}-{{i}}" class="bottom d{{ii}}">{{i}}</label>
+	{% endfor %}
+{% endfor %}
+</span>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
