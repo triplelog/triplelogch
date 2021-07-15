@@ -87,11 +87,11 @@ label.d{{ii}} {
 	}
 	{% if ii % 2 == 0 %}
 	#t{{ii}}-{{i}}:checked ~ label[for="t{{ii}}-{{i}}"] {
-		counter-increment: top-i {{i * (2 ^ (ii - 1)) * ((ii % 4) - 1)}};
+		counter-increment: top-i {{i * (2 ** (ii - 1)) * ((ii % 4) - 1)}};
 	}
 	{% else %}
 	#t{{ii}}-{{i}}:checked ~ label[for="t{{ii}}-{{i}}"] {
-		counter-increment: top-r {{i * (2 ^ (ii - 1)) * (2 - (ii % 4))}};
+		counter-increment: top-r {{i * (2 ** (ii - 1)) * (2 - (ii % 4))}};
 	}
 	{% endif %}
 	#b{{ii}}-{{i}}:checked ~ span {
