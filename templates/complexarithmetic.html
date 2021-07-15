@@ -168,11 +168,21 @@ label.d{{ii}} {
 	--row5: {% if ii < 11 and ii > 4 %}calc(var(--t{{ii-4}}) * var(--b{{5}}) * -1 * var(--w)){% else %}0rem{% endif %};
 	--row6: {% if ii < 12 and ii > 5 %}calc(var(--t{{ii-5}}) * var(--b{{6}}) * -1 * var(--w)){% else %}0rem{% endif %};
 	{% if ii % 2 == 0 %}
+	--a1: {% if ii < 7 %}calc(var(--t{{ii}}) * var(--b{{1}}) * {{(2 ** (ii - 1)) * ((ii % 4) - 1)}}){% else %}0{% endif %};
 	--a2: {% if ii < 8 and ii > 1 %}calc(var(--t{{ii-1}}) * var(--b{{2}}) * {{(2 ** (ii - 1)) * ((ii % 4) - 1)}}){% else %}0{% endif %};
-	counter-increment: answer-i var(--a2) answer-i var(--a2);
+	--a3: {% if ii < 9 and ii > 2 %}calc(var(--t{{ii-2}}) * var(--b{{3}}) * {{(2 ** (ii - 1)) * ((ii % 4) - 1)}}){% else %}0{% endif %};
+	--a4: {% if ii < 10 and ii > 3 %}calc(var(--t{{ii-3}}) * var(--b{{4}}) * {{(2 ** (ii - 1)) * ((ii % 4) - 1)}}){% else %}0{% endif %};
+	--a5: {% if ii < 11 and ii > 4 %}calc(var(--t{{ii-4}}) * var(--b{{5}}) * {{(2 ** (ii - 1)) * ((ii % 4) - 1)}}){% else %}0{% endif %};
+	--a6: {% if ii < 12 and ii > 5 %}calc(var(--t{{ii-5}}) * var(--b{{6}}) * {{(2 ** (ii - 1)) * ((ii % 4) - 1)}}){% else %}0{% endif %};
+	counter-increment: answer-i var(--a1) answer-i var(--a2) answer-i var(--a3) answer-i var(--a4) answer-i var(--a5) answer-i var(--a6);
 	{% else %}
+	--a1: {% if ii < 7 %}calc(var(--t{{ii}}) * var(--b{{1}}) * {{(2 ** (ii - 1)) * (2 - (ii % 4))}}){% else %}0{% endif %};
 	--a2: {% if ii < 8 and ii > 1 %}calc(var(--t{{ii-1}}) * var(--b{{2}}) * {{(2 ** (ii - 1)) * (2 - (ii % 4))}}){% else %}0{% endif %};
-	counter-increment: answer-r var(--a2);
+	--a3: {% if ii < 9 and ii > 2 %}calc(var(--t{{ii-2}}) * var(--b{{3}}) * {{(2 ** (ii - 1)) * (2 - (ii % 4))}}){% else %}0{% endif %};
+	--a4: {% if ii < 10 and ii > 3 %}calc(var(--t{{ii-3}}) * var(--b{{4}}) * {{(2 ** (ii - 1)) * (2 - (ii % 4))}}){% else %}0{% endif %};
+	--a5: {% if ii < 11 and ii > 4 %}calc(var(--t{{ii-4}}) * var(--b{{5}}) * {{(2 ** (ii - 1)) * (2 - (ii % 4))}}){% else %}0{% endif %};
+	--a6: {% if ii < 12 and ii > 5 %}calc(var(--t{{ii-5}}) * var(--b{{6}}) * {{(2 ** (ii - 1)) * (2 - (ii % 4))}}){% else %}0{% endif %};
+	counter-increment: answer-r var(--a1) answer-r var(--a2) answer-r var(--a3) answer-r var(--a4) answer-r var(--a5) answer-r var(--a6);
 	{% endif %}
 }
 .outsum.d{{ii}} > span {
