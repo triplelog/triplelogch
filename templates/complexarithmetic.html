@@ -24,6 +24,7 @@ span.main {
 	display: block;
 	--w: 2rem;
 	--h: 2rem;
+	counter-reset: top-c;
 }
 input {
 	display: none;
@@ -80,6 +81,7 @@ label.d{{ii}} {
 	}
 	#t{{ii}}-{{i}}:checked ~ span {
 		--t{{ii}}:  {{i}};
+		counter-increment: top-c {{i}};
 	}
 	#b{{ii}}-{{i}}:checked ~ span {
 		--b{{ii}}: {{i}};
@@ -209,7 +211,7 @@ label.shift {
 	border: 1px solid black;
 }
 .complex.top:before {
-	content: "0";
+	content: counter(top-c);
 }
 </style>
 <body>
@@ -254,7 +256,7 @@ label.shift {
 {% endfor %}
 {% for ii in range(1,14) %}
 	<span class="out outuni d{{ii}}">
-		<span>{% for i in range(-54,54) %}{{i}}</span><span {% if i >= 0 and i < 4 %}class="good"{% endif %}>{% endfor %}{{54}}</span>
+		<span>{% for i in range(-54,54) %}{{i}}</span><span {% if i > -1 and i < 4 %}class="good"{% endif %}>{% endfor %}{{54}}</span>
 	</span>
 {% endfor %}
 	<span class="complex top"></span>
