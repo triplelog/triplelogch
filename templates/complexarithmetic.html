@@ -97,7 +97,15 @@ label.d{{ii}} {
 	#b{{ii}}-{{i}}:checked ~ span {
 		--b{{ii}}: {{i}};
 	}
-	
+	{% if ii % 2 == 0 %}
+	#b{{ii}}-{{i}}:checked ~ label[for="b{{ii}}-{{i}}"] {
+		counter-increment: bottom-i {{i * (2 ** (ii - 1)) * ((ii % 4) - 1)}};
+	}
+	{% else %}
+	#b{{ii}}-{{i}}:checked ~ label[for="b{{ii}}-{{i}}"] {
+		counter-increment: bottom-r {{i * (2 ** (ii - 1)) * (2 - (ii % 4))}};
+	}
+	{% endif %}
 	{% if i == 3 %}
 	#t{{ii}}-{{i}}:checked ~ label[for="t{{ii}}-{{0}}"] {
 		pointer-events: all;
@@ -225,6 +233,17 @@ label.shift {
 .complex.top:before {
 	content: counter(top-i) "i + " counter(top-r);
 }
+.complex.bottom {
+	position: absolute;
+	left: 0px;
+	top:calc(1 * var(--w));
+	width: calc(6 * var(--w));
+	height: var(--h);
+	border: 1px solid black;
+}
+.complex.bottom:before {
+	content: counter(bottom-i) "i + " counter(bottom-r);
+}
 </style>
 <body>
 
@@ -272,6 +291,7 @@ label.shift {
 	</span>
 {% endfor %}
 	<span class="complex top"></span>
+	<span class="complex bottom"></span>
 </span>
 </body>
 </html>
