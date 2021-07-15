@@ -107,7 +107,7 @@ span.outuni.d{{ii}} {
 	top:calc({{7}} * 1rem + 3rem);
 }
 .outuni {
-	top:calc({{9}} * 1rem + 3rem);
+	top:calc({{10}} * 1rem + 3rem);
 }
 {% for ii in range(1,7) %}
 .out{{ii}} {
@@ -157,6 +157,19 @@ span.outuni.d{{ii}} {
 	left: calc(var(--row1) + var(--row2) + var(--row3) + var(--row4) + var(--row5) + var(--row6) + var(--shiftDown) + var(--shiftUp));
 }
 {% endfor %}
+
+.shift {
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	display: block;
+}
+.shift.up {
+	top: calc({{8}} * 1rem + 3rem);;
+}
+.shift.down {
+	top: calc({{9}} * 1rem + 3rem);;
+}
 </style>
 <body>
 
@@ -187,7 +200,17 @@ span.outuni.d{{ii}} {
 		<span>{% for i in range(0,54) %}{{i}}</span><span>{% endfor %}{{54}}</span>
 	</span>
 {% endfor %}
-
+{% for ii in range(1,14) %}
+	{% for i in range(-20,20) %}
+	<input type="radio" name="s{{ii}}" id="s{{ii}}-{{i}}" {% if i==0 %}checked{% endif %}/>
+	{% endfor %}
+{% endfor %}
+{% for ii in range(1,14) %}
+	{% for i in range(-20,20) %}
+	<label for="s{{ii}}-{{i}}" class="shift up d{{ii}}">+</label>
+	<label for="s{{ii - 2}}-{{i}}" class="shift down d{{ii}}">-</label>
+	{% endfor %}
+{% endfor %}
 {% for ii in range(1,14) %}
 	<span class="out outuni d{{ii}}">
 		<span>{% for i in range(0,54) %}{{i}}</span><span>{% endfor %}{{54}}</span>
