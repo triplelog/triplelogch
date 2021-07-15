@@ -18,6 +18,8 @@ span {
 	position: sticky;
 	left: 0px;
 	top: 0px;
+	touch-action: none;
+	pointer-events: none;
 }
 input {
 	display: none;
@@ -47,9 +49,11 @@ label.d{{ii}} {
 	{% for i in range(0,4) %}
 	#t{{ii}}-{{i}}:checked ~ label[for="t{{ii}}-{{i}}"] {
 		opacity: 1;
+		--t{{ii}}:  {{i}};
 	}
 	#b{{ii}}-{{i}}:checked ~ label[for="b{{ii}}-{{i}}"] {
 		opacity: 1;
+		--b{{ii}}: {{i}};
 	}
 	{% if i == 3 %}
 	#t{{ii}}-{{i}}:checked ~ label[for="t{{ii}}-{{0}}"] {
@@ -68,6 +72,15 @@ label.d{{ii}} {
 	{% endif %}
 	{% endfor %}
 {% endfor %}
+
+.out {
+	position: absolute;
+	top:4rem;
+	left: 6rem;
+}
+.out:before {
+	content: var(--t1);
+}
 </style>
 <body>
 
@@ -84,6 +97,10 @@ label.d{{ii}} {
 	<label for="b{{ii}}-{{i}}" class="bottom d{{ii}}">{{i}}</label>
 	{% endfor %}
 {% endfor %}
+
+	<span class="out">
+	</span>
+
 </span>
 </body>
 </html>
