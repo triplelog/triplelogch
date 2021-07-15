@@ -167,9 +167,13 @@ label.d{{ii}} {
 	--row4: {% if ii < 10 and ii > 3 %}calc(var(--t{{ii-3}}) * var(--b{{4}}) * -1 * var(--w)){% else %}0rem{% endif %};
 	--row5: {% if ii < 11 and ii > 4 %}calc(var(--t{{ii-4}}) * var(--b{{5}}) * -1 * var(--w)){% else %}0rem{% endif %};
 	--row6: {% if ii < 12 and ii > 5 %}calc(var(--t{{ii-5}}) * var(--b{{6}}) * -1 * var(--w)){% else %}0rem{% endif %};
-
-	--a2: {% if ii < 8 and ii > 1 %}calc(var(--t{{ii-1}}) * var(--b{{2}}) * -1 * 1){% else %}0{% endif %};
+	{% if ii % 2 == 0 %}
+	--a2: {% if ii < 8 and ii > 1 %}calc(var(--t{{ii-1}}) * var(--b{{2}}) * -1 * (2 ** (ii - 1)) * ((ii % 4) - 1)){% else %}0{% endif %};
 	counter-increment: answer-i var(--a2);
+	{% else %}
+	--a2: {% if ii < 8 and ii > 1 %}calc(var(--t{{ii-1}}) * var(--b{{2}}) * -1 * (2 ** (ii - 1)) * (2 - (ii % 4))){% else %}0{% endif %};
+	counter-increment: answer-r var(--a2);
+	{% endif %}
 }
 .outsum.d{{ii}} > span {
 	left: calc(var(--row1) + var(--row2) + var(--row3) + var(--row4) + var(--row5) + var(--row6));
@@ -256,7 +260,7 @@ label.shift {
 	height: var(--h);
 	border: 1px solid black;
 }
-.complex.bottom:before {
+.complex.answer:before {
 	content: counter(answer-i) "i + " counter(answer-r);
 }
 </style>
