@@ -182,7 +182,10 @@ label.shift {
 		pointer-events: all;
 	}
 	#s{{ii}}-{{i}}:checked ~ span.outuni.d{{ii}}  {
-		--shift: calc({{i}} * -1rem);
+		--shift: calc({{i}} * -4rem);
+	}
+	#s{{ii}}-{{i}}:checked ~ span.outuni.d{{ii+2}}  {
+		--shift: calc({{i}} * 1rem);
 	}
 	{% endfor %}
 {% endfor %}
