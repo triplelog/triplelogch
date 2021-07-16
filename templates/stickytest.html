@@ -8,7 +8,7 @@
     <meta name="description" content=".">    <title>CSShole</title>  
     <link rel="icon" type="image/png" href="../chfaviconcrop.png">
 
-
+<link rel="stylesheet" href="../css/arithmetic.css"/>
 <style>
 .main {
 	width: 50%;
@@ -88,6 +88,27 @@ p {
 
 	<div class="main">
 		<p>Programming in CSS is incredibly limiting. Javascript and other scripting languages allow a developer to do anything they want. Knowing how everything in a program is unnecessary. Reaching for the best way is unnecessary. Creativity is unnecessary.</p>
+		<p>For many students, the most annoying part of arithmetic is carrying or borrowing from one place to another. When creating a calculator with just CSS, keeping track of carried digits made the code too unwieldy. Thus I investigated ways to avoid the issue. </p>
+		<p>Creating a binary addition algorithm is really simple. Just count the number of 1s in each place. The difficulty is then converting that number to just 1s and 0s so that it is an acceptable binary number. We just repeatedly change the appearance of the number while producing equivalent values.</p>
+		<p>Decreasing one digit by 2 while increasing its neighbor to the left by 1 does not change the value of the number. Similarly, in a base-10 system we would decrease by 10 while increasing by 1 to the left. We can allow the user to perform this simple step of conversion.</p>
+		<p>Delaying the act of carrying digits really simplifies multiplication. Normally, multiplication is constantly switching between multiplication, carrying digits, and addition. If we know how to multiply numbers less than 10 then we can just place them into the correct places and then add them without any carries. At the end we get a number where the digits could be much larger than 10, but the result will be equivalent to the correct base-10 answer.</p>
+		<p>What about subtraction? Subtraction can be done the same way as addition. Subtract each digit and then convert at the end. Some digits might be less than 0. We would need to add 10 to these digits and decrease its left neighbor by 1 to maintain equivalence. or we can use a base that negative numbers differently.</p>
+		<p>What would arithmetic look like if the base is a negative number? In a base (-10) system our addition and multiplication algorithms are the same. The only difference is the conversion step at the end. If a digit is greater than 10 then we subtract 10 from that digit and also <b>subtract</b> 1 from its neighbor to the left.</p>
+		<p>Every integer (positive, negative, and 0) can be uniquely represented in a base (-10) system with digits from 0-9. Treating the rightmost column (before the decimal point) as the 0th column, then the odd columns are multiplied by negative numbers and the even columns are positive. Thus multiplying positive digits remains in even columns and thus positive, but multiplying negative digits shifts to even columns where they become positive. Multiplying positive by negative then becomes negative.</p>
+		<p>For someone who is used to base 10 the act of subtracting 1 when subtracting 10 from the right is hard to remember. But computers can easily do this every time. By using a negative base we don't have to ever subtract or remember that multiplying 2 negatives becomes a positive. However, finding the additive inverse means multiplying by 19 (the equivalent of -1). </p>
+		<p>We have determined that a small change to our method of converting can have interesting results. What if reducing one digit by 4 means needing to reduce the digit two places to the left by 1. This system is kind of like base (-4) but offset by two places instead of one. Like base 4 we will use just the digits from 0-3. </p>
+		<span class="sidecontainer">
+		<span class="side"><span class="sidetext">{{ arithmetic() }}</span></span>
+		<p>Addition and multiplication are the same. Only at the end do we use our modified conversion process.</p>
+		<p>If you successfully multiplied two numbers, then you have performed complex multiplication. By shifting two places, we have created a base (-2i) number system. If we add one place past the decimal, then every Gaussion integer can be uniquely represented by the digits 0-3. Also any numbers with imaginary part having denominator 2.</p>
+		</span>
+		<p>We can see that multiplying two imaginary numbers becomes a real number because they occupy odd columns. The rotations happen naturally. </p>
+		<p>What if instead of subtracting 1 we subtract 2 every time we add/subtract 3? What about shifting three places when converting? What are some advantages of a base (-2i) system? What are some disadvantages? Why haven't I talked about division?</p>
+		<p></p>
+		<p></p>
+		<p>Using CSS to add any complex interactivity to a website is an incredibly frustrating process. I do not recommend it. If you enjoy the prospect of limiting yourself in hopes of unlocking some latent creativity, then maybe you'll find something interesting. Or maybe you can limit yourself in another way. Do research without Google and/or wikipedia.  </p>
+		<p></p>
+		<p></p>
 		<p>Complex Binary arithmetic</p>
 		<p>Color arithmetic</p>
 		<p>Resizing</p>
@@ -154,3 +175,61 @@ p {
 
 </body>
 </html>
+
+
+{% macro arithmetic() %}
+<span class="aritmetic">
+{% for ii in range(1,7) %}
+	{% for i in range(0,4) %}
+	<input type="radio" name="t{{ii}}" id="t{{ii}}-{{i}}" {% if i==0 %}checked{% endif %}/>
+	<input type="radio" name="b{{ii}}" id="b{{ii}}-{{i}}" {% if i==0 %}checked{% endif %}/>
+	{% endfor %}
+{% endfor %}
+{% for ii in range(1,7) %}
+	{% for i in range(0,4) %}
+	<label for="t{{ii}}-{{i}}" class="top d{{ii}}">{{i}}</label>
+	<label for="b{{ii}}-{{i}}" class="bottom d{{ii}}">{{i}}</label>
+	{% endfor %}
+{% endfor %}
+
+{# results #}
+{% for ii in range(1,7) %}
+	{% for iii in range(1,7) %}
+		<span class="out out{{iii}} d{{ii}}">
+			<span>{% for i in range(0,9) %}{{i}}</span><span>{% endfor %}{{9}}</span>
+		</span>
+	{% endfor %}
+{% endfor %}
+{% for ii in range(1,12) %}
+	<span class="out outsum d{{ii}}">
+		<span>{% for i in range(0,54) %}{{i}}</span><span>{% endfor %}{{54}}</span>
+	</span>
+{% endfor %}
+{% for ii in range(1,14) %}
+	{% for i in range(-20,21) %}
+	<input type="radio" name="s{{ii}}" id="s{{ii}}-{{i}}" {% if i==0 %}checked{% endif %}/>
+	{% endfor %}
+{% endfor %}
+{% for ii in range(1,14) %}
+	{% for i in range(-20,21) %}
+	<label for="s{{ii}}-{{i}}" class="shift up d{{ii}}">+</label>
+	<label for="s{{ii}}-{{i}}" class="shift down d{{ii}}">-</label>
+	{% endfor %}
+{% endfor %}
+{% for ii in range(1,14) %}
+	<span class="out outuni d{{ii}}">
+		<span>{% for i in range(-54,54) %}{{i}}</span><span {% if i > -2 and i < 3 %}class="good"{% endif %}>{% endfor %}{{54}}</span>
+	</span>
+{% endfor %}
+	<span class="complex top"></span>
+	<span class="complex bottom"></span>
+	<span class="complex answer"></span>
+</span>
+{% endmacro %}
+
+
+
+
+
+
+
