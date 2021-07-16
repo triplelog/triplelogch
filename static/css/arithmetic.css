@@ -8,36 +8,31 @@ span.arithmetic {
 	display: block;
 	--w: 2rem;
 	--h: 2rem;
-	counter-reset: top-r;
-	counter-reset: top-i;
-	counter-reset: bottom-r;
-	counter-reset: bottom-i;
-	counter-reset: answer-r;
-	counter-reset: answer-i;
+	counter-reset: top-r top-i bottom-r bottom-i answer-r answer-i;
 }
-input {
+span.arithmetic input {
 	display: none;
 }
-label.top {
+span.arithmetic label.top {
 	position: absolute;
 	top:0px;
 	width: var(--w);
 	height: var(--h);
 }
-label.bottom {
+span.arithmetic label.bottom {
 	position: absolute;
 	top:var(--h);
 	width: var(--w);
 	height: var(--h);
 }
-label {
+span.arithmetic label {
 	pointer-events: none;
 	opacity: 0;
 	box-sizing: border-box;
 	border: 1px dotted black;
 }
 {% for ii in range(1,7) %}
-label.d{{ii}} {
+span.arithmetic label.d{{ii}} {
 	right:calc({{ii}} * var(--w));
 }
 	{% for iii in range(1,7) %}
@@ -48,15 +43,15 @@ label.d{{ii}} {
 	
 {% endfor %}
 {% for ii in range(1,12) %}
-span.outsum.d{{ii}} {
+span.arithmetic span.outsum.d{{ii}} {
 	right:calc({{ii}} * var(--w));
 }
 {% endfor %}
 {% for ii in range(1,14) %}
-span.outuni.d{{ii}} {
+span.arithmetic span.outuni.d{{ii}} {
 	right:calc({{ii}} * var(--w));
 }
-label.d{{ii}} {
+span.arithmetic label.d{{ii}} {
 	right:calc({{ii}} * var(--w));
 }
 {% endfor %}
@@ -110,7 +105,7 @@ label.d{{ii}} {
 	{% endfor %}
 {% endfor %}
 
-.out {
+span.arithmetic .out {
 	position: absolute;
 	width: var(--w);
 	height: var(--h);
@@ -118,18 +113,18 @@ label.d{{ii}} {
 	overflow: hidden;
 	white-space: nowrap;
 }
-.outsum {
+span.arithmetic .outsum {
 	top:calc({{7 + 1}} * var(--h));
 }
-.outuni {
+span.arithmetic .outuni {
 	top:calc({{10 + 1}} * var(--h));
 }
 {% for ii in range(1,7) %}
-.out{{ii}} {
+span.arithmetic .out{{ii}} {
 	top:calc({{ii + 1}} * var(--h));
 }
 {% endfor %}
-.out > span {
+span.arithmetic .out > span {
 	position: relative;
 	width: var(--w);
 	height: var(--h);
@@ -138,13 +133,13 @@ label.d{{ii}} {
 }
 {% for iii in range(1,7) %}
 	{% for ii in range(1,7) %}
-	.out{{iii}}.d{{ii}} > span {
+	span.arithmetic .out{{iii}}.d{{ii}} > span {
 		left: calc(var(--t{{ii}}) * var(--b{{iii}}) * -1 * var(--w));
 	}
 	{% endfor %}
 {% endfor %}
 {% for ii in range(1,12) %}
-.outsum.d{{ii}} {
+span.arithmetic .outsum.d{{ii}} {
 	--row1: {% if ii < 7 %}calc(var(--t{{ii}}) * var(--b{{1}}) * -1 * var(--w)){% else %}0rem{% endif %};
 	--row2: {% if ii < 8 and ii > 1 %}calc(var(--t{{ii-1}}) * var(--b{{2}}) * -1 * var(--w)){% else %}0rem{% endif %};
 	--row3: {% if ii < 9 and ii > 2 %}calc(var(--t{{ii-2}}) * var(--b{{3}}) * -1 * var(--w)){% else %}0rem{% endif %};
@@ -169,12 +164,12 @@ label.d{{ii}} {
 	counter-increment: answer-r var(--a1) answer-r var(--a2) answer-r var(--a3) answer-r var(--a4) answer-r var(--a5) answer-r var(--a6);
 	{% endif %}
 }
-.outsum.d{{ii}} > span {
+span.arithmetic .outsum.d{{ii}} > span {
 	left: calc(var(--row1) + var(--row2) + var(--row3) + var(--row4) + var(--row5) + var(--row6));
 }
 {% endfor %}
 {% for ii in range(1,14) %}
-.outuni.d{{ii}} {
+span.arithmetic .outuni.d{{ii}} {
 	--row1: {% if ii < 7 %}calc(var(--t{{ii}}) * var(--b{{1}}) * -1 * var(--w)){% else %}0rem{% endif %};
 	--row2: {% if ii < 8 and ii > 1 %}calc(var(--t{{ii-1}}) * var(--b{{2}}) * -1 * var(--w)){% else %}0rem{% endif %};
 	--row3: {% if ii < 9 and ii > 2 %}calc(var(--t{{ii-2}}) * var(--b{{3}}) * -1 * var(--w)){% else %}0rem{% endif %};
@@ -184,22 +179,22 @@ label.d{{ii}} {
 	--shiftUp: 0rem;
 	--shiftDown: 0rem;
 }
-.outuni.d{{ii}} > span {
+span.arithmetic .outuni.d{{ii}} > span {
 	left: calc(-54 * var(--w) + var(--row1) + var(--row2) + var(--row3) + var(--row4) + var(--row5) + var(--row6) + var(--shiftDown) + var(--shiftUp));
 }
 {% endfor %}
 
-label.shift {
+span.arithmetic label.shift {
 	position: absolute;
 	width: var(--w);
 	height: var(--h);
 	display: block;
 	opacity: 1;
 }
-.shift.up {
+span.arithmetic .shift.up {
 	top: calc({{8 + 1}} * var(--h));
 }
-.shift.down {
+span.arithmetic .shift.down {
 	top: calc({{9 + 1}} * var(--h));
 }
 {% for ii in range(1,14) %}
@@ -218,13 +213,13 @@ label.shift {
 	}
 	{% endfor %}
 {% endfor %}
-.outuni > span:Not(.good) {
+span.arithmetic .outuni > span:Not(.good) {
 	color: red;
 }
-.outuni > span.good {
+span.arithmetic .outuni > span.good {
 	color: green;
 }
-.complex.top {
+span.arithmetic .complex.top {
 	position: absolute;
 	left: 0px;
 	top:0px;
@@ -232,10 +227,10 @@ label.shift {
 	height: var(--h);
 	border: 1px solid black;
 }
-.complex.top:before {
+span.arithmetic .complex.top:before {
 	content: counter(top-i) "i + " counter(top-r);
 }
-.complex.bottom {
+span.arithmetic .complex.bottom {
 	position: absolute;
 	left: 0px;
 	top:calc(1 * var(--w));
@@ -243,10 +238,10 @@ label.shift {
 	height: var(--h);
 	border: 1px solid black;
 }
-.complex.bottom:before {
+span.arithmetic .complex.bottom:before {
 	content: counter(bottom-i) "i + " counter(bottom-r);
 }
-.complex.answer {
+span.arithmetic .complex.answer {
 	position: absolute;
 	left: 0px;
 	top:calc(2 * var(--w));
@@ -254,6 +249,6 @@ label.shift {
 	height: var(--h);
 	border: 1px solid black;
 }
-.complex.answer:before {
+span.arithmetic .complex.answer:before {
 	content: counter(answer-i) "i + " counter(answer-r);
 }
