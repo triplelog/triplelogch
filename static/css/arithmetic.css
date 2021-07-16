@@ -8702,13 +8702,24 @@ span.arithmetic .outuni > span:Not(.good) {
 span.arithmetic .outuni > span.good {
 	color: green;
 }
+span.arithmetic .outuni > span {
+	border: 1px solid gray;
+	box-sizing: border-box;
+}
+span.arithmetic .outsum > span {
+	border: 1px solid gray;
+	box-sizing: border-box;
+}
 span.arithmetic .complex.top {
 	position: absolute;
 	left: 0px;
 	top:0px;
 	width: calc(6 * var(--w));
 	height: var(--h);
-	border: 1px solid black;
+	text-align:right;
+}
+span.arithmetic {
+	text-align: center;
 }
 span.arithmetic .complex.top:before {
 	content: counter(top-i) "i + " counter(top-r);
@@ -8719,7 +8730,7 @@ span.arithmetic .complex.bottom {
 	top:calc(1 * var(--w));
 	width: calc(6 * var(--w));
 	height: var(--h);
-	border: 1px solid black;
+	text-align:right;
 }
 span.arithmetic .complex.bottom:before {
 	content: counter(bottom-i) "i + " counter(bottom-r);
